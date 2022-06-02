@@ -377,22 +377,22 @@ cur.filters.alpha.opacity=50}
     </h2>
     <p class="expectations-form">
       <label>TONY
-        <input type="text" />
+        <input type="text" name="tony" />
       </label>
       <br />
       <br />
       <label>KERTIS
-        <input type="text" />
+        <input type="text" name="kertis" />
       </label>
       <br />
       <br />
       <label>JOHNNY
-        <input type="text" />
+        <input type="text" name="johnny" />
       </label>
       <br />
       <br />
       <label>MORPHEM
-        <input type="text" />
+        <input type="text" name="morphem" />
       </label>
     </p>
 </template>
@@ -443,6 +443,16 @@ cur.filters.alpha.opacity=50}
   };
 
   showCurrentPage();
+
+  const expectationsForm = document.querySelector('.expectations-form');
+
+  const inputs = expectationsForm.querySelectorAll('input');
+
+  inputs.forEach(input => {
+      input.addEventListener('keyup', e => {
+          localStorage.setItem(e.target.name, e.target.value);
+      });
+  });
 
   const showTimer = (time) => {
       const h2 = document.querySelector('h2');
