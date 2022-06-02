@@ -145,6 +145,14 @@ cur.filters.alpha.opacity=50}
     font-size: 2em;
   }
 
+  #timer {
+    color: white;
+    font-size: 3em;
+    position: absolute;
+    top: 80px;
+    left: 200px;
+  }
+
 </style>
 
 </head>
@@ -181,6 +189,10 @@ cur.filters.alpha.opacity=50}
 </div>
 
 <div class="weed-border-right-bottom">
+</div>
+
+<div id="timer">
+  00:00
 </div>
 
 </body>
@@ -397,7 +409,7 @@ cur.filters.alpha.opacity=50}
     </p>
 </template>
 
-<template id="page12">
+<template id="page16">
     <h2>
       Первое Задание
     </h2>
@@ -440,19 +452,36 @@ cur.filters.alpha.opacity=50}
       pageContent.innerHTML = '';
       pageContent.append(page.cloneNode(true).content);
       window.history.pushState('#page' + currentPage, 'page ' + currentPage, '#' + currentPage);
+
+      const expectationsForm = document.querySelector('.expectations-form');
+      if (expectationsForm) {
+        const inputs = expectationsForm.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            input.addEventListener('keyup', e => {
+                localStorage.setItem(e.target.name, e.target.value);
+            });
+        });
+      }
   };
 
   showCurrentPage();
 
-  const expectationsForm = document.querySelector('.expectations-form');
+  const timer = document.querySelector('#timer');
 
-  const inputs = expectationsForm.querySelectorAll('input');
-
-  inputs.forEach(input => {
-      input.addEventListener('keyup', e => {
-          localStorage.setItem(e.target.name, e.target.value);
-      });
-  });
+  const zeroPad = (num, places) => String(num).padStart(places, '0')
+  let currentTime = 0;
+  setInterval(() => {
+      timer.innerHTML = `${zeroPad(Math.floor(currentTime / 60), 2)}:${zeroPad(Math.floor(currentTime % 60), 2)}`;
+      currentTime++;
+      if (currentTime > 24 * 60) {
+          timer.style.color = 'red';
+      }
+      if (currentTime > 25 * 60 ) {
+          timer.style.color = 'white';
+          currentTime = 0;
+      }
+  }, 1000);
 
   const showTimer = (time) => {
       const h2 = document.querySelector('h2');
