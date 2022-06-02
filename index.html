@@ -110,8 +110,7 @@ cur.filters.alpha.opacity=50}
   }
 
   .page-content figure img {
-    max-height: 60vh;
-    width: 709px;
+    height: calc(100vh - 280px - 2em);
   }
 
   .page-content figure video {
@@ -265,7 +264,7 @@ cur.filters.alpha.opacity=50}
 </template>
 
 <script>
-  const page0 = document.querySelector('#page5');
+  const page0 = document.querySelector('#page0');
   const pageContent = document.querySelector('.page-content');
   pageContent.append(page0.content);
 
