@@ -1,6 +1,19 @@
 <style>
+  html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
   body {
+    padding: 0;
+    margin: 0;
     background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
   }
 
   @keyframes highlight {
@@ -12,20 +25,19 @@
 
   .participant {
     margin: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
   }
   
   .participant img {
-    height: 140px;
-    width: 140px;
+    height: 130px;
+    width: 130px;
   }
 
-  .stars {
-    display: inline-block;
-  }
-
-  .stars svg {
-    width: 140px;
-    height: 140px;
+  .participant svg {
+    width: 130px;
+    height: 130px;
     fill: white;
     stroke-width: 7px;
     stroke: green;
@@ -40,22 +52,20 @@
   }
 </style>
 
-<div class="participant">
-  <img src="img/johnny.jpg" />
-  <div class="stars"></div>
-</div>
-<div class="participant">
-  <img src="img/kertis.jpg" />
-  <div class="stars"></div>
-</div>
-<div class="participant">
-  <img src="img/tony.jpg" />
-  <div class="stars"></div>
-</div>
-<div class="participant">
-  <img src="img/dimon4ik.jpg" />
-  <div class="stars"></div>
-</div>
+<body>
+    <div class="participant">
+      <img src="img/johnny.jpg" />
+    </div>
+    <div class="participant">
+      <img src="img/kertis.jpg" />
+    </div>
+    <div class="participant">
+      <img src="img/tony.jpg" />
+    </div>
+    <div class="participant">
+      <img src="img/dimon4ik.jpg" />
+    </div>
+</body>
 
 <template id="weed-svg">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640.187">
@@ -75,10 +85,10 @@
 
 <script>
   const weedSvg = document.querySelector('#weed-svg').content.querySelector('svg');
-  const stars = document.querySelectorAll('.stars');
+  const participants = document.querySelectorAll('.participant');
   const light = (row, col) => {
-      const star = stars[row];
-      const weeds = star.querySelectorAll('svg');
+      const participant = participants[row];
+      const weeds = participant.querySelectorAll('svg');
       weeds.forEach((weed, idx) => {
           console.log(weed, idx, col);
           if (idx <= col) {
@@ -89,7 +99,7 @@
       });
   };
 
-  stars.forEach((star, row) => {
+  participants.forEach((participant, row) => {
       for (let col = 0; col < 10; col++) {
         const weed = weedSvg.cloneNode(true);
         weed.id = `weed-${row}-${col}`
@@ -98,7 +108,7 @@
             light(row, col);
         });
 
-        star.append(weed);
+        participant.append(weed);
       }
   });
 </script>
