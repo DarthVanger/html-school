@@ -111,6 +111,7 @@ cur.filters.alpha.opacity=50}
 
   .page-content figure img {
     height: calc(100vh - 280px - 2em);
+    max-width: 100%;
   }
 
   .page-content figure video {
@@ -440,6 +441,94 @@ cur.filters.alpha.opacity=50}
     </p>
 </template>
 
+<template id="page19">
+    <h2>
+      HTML КОД
+    </h2>
+    <figure>
+      <img src="img/tags.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page20">
+    <h2>
+      КОРТИНКЕ
+    </h2>
+    <figure>
+      <img src="img/img-tag.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page21">
+    <h2>
+      В ПЗДУ ПРГРМИРВОНЕ
+    </h2>
+    <figure>
+      <img src="img/vpzdy.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page22">
+    <h2>
+      W3Schools
+    </h2>
+    <figure>
+      <img src="img/w3schools.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page23">
+    <h2>
+      Javascript
+    </h2>
+    <figure>
+      <img src="img/javascript.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page24">
+    <h2>
+      Select
+    </h2>
+    <figure>
+      <img src="img/javascript-select.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page25">
+    <h2>
+      Events
+    </h2>
+    <figure>
+      <img src="img/javascript-click.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page26">
+    <h2>
+      В ПЛАВАНИЕ
+    </h2>
+    <figure>
+      <img src="img/tonet.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
 <script>
   const left = document.querySelector('.weed-border-left');
   const right = document.querySelector('.weed-border-right');
@@ -519,4 +608,14 @@ cur.filters.alpha.opacity=50}
   task1video.addEventListener('play', () => {
       setTimeout(() => showTimer(5000), 33730);
   });
+</script>
+
+<script>
+  const zogolovok = document.querySelector('h2')
+
+  function changeText() {
+    zogolovok.innerHTML = 'xuy4ek'
+  }
+
+  zogolovok.addEventListener('click', changeText)
 </script>
