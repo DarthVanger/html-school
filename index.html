@@ -102,6 +102,14 @@ cur.filters.alpha.opacity=50}
     font-family: sans-serif;
     letter-spacing: 4px;
   }
+  
+  .page-content h3 {
+    padding-left: 1em;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+  }
 
   .page-content figure {
     text-align: center;
@@ -152,6 +160,18 @@ cur.filters.alpha.opacity=50}
     position: absolute;
     top: 80px;
     left: 200px;
+  }
+
+  .expectation-reality {
+    text-align: center;
+    font-size: 1.25em;
+  }
+
+  .expectation-reality ul {
+    list-style: none;
+    line-height: 1.5;
+    font-family: sans-serif;
+    letter-spacing: 2px;
   }
 
 </style>
@@ -486,6 +506,31 @@ cur.filters.alpha.opacity=50}
 </template>
 
 <template id="page23">
+  <div class="expectation-reality">
+    <h2>
+      Expectation / Reality
+    </h2>
+    <h3>Expectation</h3>
+    <p>
+      <div id="expecation">
+      </div>
+    </p>
+
+
+    <h3>Reality</h3>
+    <p>
+      <div id="reality">
+        <ul>
+          <li>Tony: <input type="text" /></li>
+          <li>Kertis: <input type="text" /></li>
+          <li>Johnny: <input type="text" /></li>
+          <li>Morphem: <input type="text" /></li>
+       </ul>
+      </div>
+    </p>
+</template>
+
+<template id="page24">
     <h2>
       Javascript
     </h2>
@@ -496,7 +541,7 @@ cur.filters.alpha.opacity=50}
     </p>
 </template>
 
-<template id="page24">
+<template id="page25">
     <h2>
       Select
     </h2>
@@ -507,7 +552,7 @@ cur.filters.alpha.opacity=50}
     </p>
 </template>
 
-<template id="page25">
+<template id="page26">
     <h2>
       Events
     </h2>
@@ -518,7 +563,7 @@ cur.filters.alpha.opacity=50}
     </p>
 </template>
 
-<template id="page26">
+<template id="page27">
     <h2>
       В ПЛАВАНИЕ
     </h2>
@@ -570,6 +615,45 @@ cur.filters.alpha.opacity=50}
             });
         });
       }
+
+      const task1video = document.querySelector('#task1-video');
+      if (task1video) {
+        const showTimer = (time) => {
+            const h2 = document.querySelector('h2');
+            h2.style.color = 'red';
+            const startTime = (new Date()).getTime();
+            setInterval(() => {
+                const currentTime = (new Date()).getTime();
+                const diff = currentTime - startTime;
+                const elapsedSec = Math.round(diff / 1000);
+                const secToEnd = 5 * 60 - elapsedSec;
+                const min = Math.floor(secToEnd / 60);
+                const sec = Math.floor(secToEnd % 60);
+                h2.innerHTML = `${min}:${sec}`;
+            }, 1000);
+        };
+
+        task1video.addEventListener('play', () => {
+            setTimeout(() => showTimer(5000), 33730);
+        });
+      }
+
+      const expectation = document.querySelector('#expecation');
+      const reality = document.querySelector('#reality');
+      if (expectation) {
+          const tony = localStorage.getItem('tony');
+          const kertis = localStorage.getItem('kertis');
+          const morphem = localStorage.getItem('morphem');
+          const johnny = localStorage.getItem('johnny');
+          expectation.innerHTML = `
+            <ul>
+             <li>Tony: ${tony}</li>
+             <li>Kertis: ${kertis}</li>
+             <li>Johnny: ${johnny}</li>
+             <li>Morphem: ${morphem}</li>
+           </ul>
+         `;
+      }
   };
 
   showCurrentPage();
@@ -590,24 +674,6 @@ cur.filters.alpha.opacity=50}
       }
   }, 1000);
 
-  const showTimer = (time) => {
-      const h2 = document.querySelector('h2');
-      const startTime = (new Date()).getTime();
-      setInterval(() => {
-          const currentTime = (new Date()).getTime();
-          const diff = currentTime - startTime;
-          const elapsedSec = Math.round(diff / 1000);
-          const secToEnd = 5 * 60 - elapsedSec;
-          const min = Math.floor(secToEnd / 60);
-          const sec = Math.floor(secToEnd % 60);
-          h2.innerHTML = `${min}:${sec}`;
-      }, 1000);
-  };
-
-  const task1video = document.querySelector('#task1-video');
-  task1video.addEventListener('play', () => {
-      setTimeout(() => showTimer(5000), 33730);
-  });
 </script>
 
 <script>
