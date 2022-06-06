@@ -20,17 +20,38 @@
 
 </style>
 
+<body>
+  <section></section>
+</body>
+
+<script>
+  const width = 200;
+  const padding = 50;
+
+  const avatar = ({ x, href }) => `
+       <image href="${href}" height="200" width="${width}" x="${x}" />`;
+
+  const avatars = `
+    <g>
+         ${avatar({ x: padding + 0, href: "img/kertis.jpg" })}
+         ${avatar({ x: 2 * padding + 200, href: "img/johnny.jpg" })}
+         ${avatar({ x: 3 * padding + 400, href: "img/tony.jpg" })}
+         ${avatar({ x: 4 * padding + 600, href: "img/dimon4ik.jpg" })}
+    </g>`;
+
+
+  const svg = `
 <svg>
   <g id="img-tag">
     <rect x="100" y="100" width="100" height="100"></rect>
     <text x="110" y="150" font-size="20">
       &lt;img&gt;
     </text>
-    <image href="img/kertis.jpg" height="200" width="200"/>
-    <image href="img/johnny.jpg" height="200" width="200" x="200" />
-    <image href="img/tony.jpg" height="200" width="200" x="400" />
-    <image href="img/napaleon.webp" height="200" width="200"x="600" />
-    <image href="img/dimon4ik.jpg" height="200" width="200"x="800" />
+    ${avatars}
   </g>
   <path d="M100 100 V -150 H 50 Z"></path>
 </svg>
+ `;
+
+  document.querySelector('section').innerHTML = svg;
+</script>
