@@ -47,16 +47,36 @@
 
   const skillBoxSize = 100;
 
+  const skill = ({ text, x, y }) => {
+    return `
+     <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
+     <text x="${x + 10}" y="${y + 50}" font-size="20">
+       ${text.replace('>', '&gt').replace('<', '&lt')}
+      </text>
+   `;
+  };
+
+  const skillsLine = (skills) => skills.map(skill => `
+     ${skill(skill.text)};
+     ${path()};
+  `);
+
   const svg = `
 <svg>
   <g id="img-tag">
-    <rect x="100" y="100" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
-    <text x="110" y="150" font-size="20">
-      &lt;img&gt;
-    </text>
+   ${skill({
+       text: '<img>',
+       x: 100,
+       y: 100,
+   })}
   </g>
   <path d="M150 200 l ${0} ${skillBoxSize}"></path>
   <g id="h1-tag">
+   ${skill({
+       text: '<h2>',
+       x: 100,
+       y: 500,
+   })}
     <rect x="100" y="300" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
     <text x="110" y="350" font-size="20">
       &lt;h1&gt;
