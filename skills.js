@@ -36,21 +36,21 @@ const Path = ({x, y}) => `
    <path d="M${x} ${y} l ${0} ${skillBoxSize}"></path>
  `;
 
-const skillsLine = (skills) => skills.map((skill, idx) => `
+const skillsLine = ({ skills, x, y }) => skills.map((skill, idx) => `
    ${Skill({
        text: skill.text,
-       x: 100,
-       y: idx * 200,
+       x,
+       y: idx * 200 + y,
    })}
    ${Path({
-     x: 150,
-     y: 100 + idx * 200,
+     x: x + 50,
+     y: 100 + idx * 200 + y,
    })};
 `);
 
 const svg = `
 <svg>
-${skillsLine(skills)}
+${skillsLine({ skills, x: 50, y: 50 })}
 </svg>
 `;
 
