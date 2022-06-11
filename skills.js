@@ -16,9 +16,12 @@ const avatars = `
 const skillBoxSize = 100;
 
 const Skill = ({ text, x, y }) => {
+  const height = skillBoxSize;
+  const width = skillBoxSize;
   return `
    <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
-   <text x="${x + 10}" y="${y + 50}" font-size="20">
+    <image href="img/texture-100x100.jpg" height="${height}" width="${width}" x="${x}" y="${y}" />
+   <text x="${x + 10}" y="${y + 50}" font-size="20" >
      ${text.replace('>', '&gt').replace('<', '&lt')}
     </text>
  `;
@@ -36,21 +39,33 @@ const Path = ({x, y}) => `
    <path d="M${x} ${y} l ${0} ${skillBoxSize}"></path>
  `;
 
-const skillsLine = ({ skills, x, y }) => skills.map((skill, idx) => `
-   ${Skill({
-       text: skill.text,
-       x,
-       y: idx * 200 + y,
-   })}
-   ${Path({
-     x: x + 50,
-     y: 100 + idx * 200 + y,
-   })};
-`);
+
+const lineLength = 150;
+const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
+    const skillY = idx * lineLength + y;
+    return ` 
+     ${Skill({
+         text: skill.text,
+         x,
+         y: skillY,
+     })}
+     ${Path({
+       x: x + 50,
+       y: 100 + skillY,
+     })};
+  `;
+ });
+
+const skillsLineHeading = ({ text, x, y }) => `
+  <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
+  <text x=${x + 25} y=${y + 50}>${text}</text>
+`;
 
 const svg = `
 <svg>
-${skillsLine({ skills, x: 50, y: 50 })}
+${skillsLineHeading({ text: 'HTML', x: 50, y: 20})}
+
+${skillsLine({ skills, x: 50, y: 150 })}
 </svg>
 `;
 
