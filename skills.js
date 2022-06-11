@@ -19,11 +19,22 @@ const Skill = ({ text, x, y }) => {
   const height = skillBoxSize;
   const width = skillBoxSize;
   return `
-   <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
-    <image href="img/texture-100x100.jpg" height="${height}" width="${width}" x="${x}" y="${y}" />
-   <text x="${x + 10}" y="${y + 50}" font-size="20" >
-     ${text.replace('>', '&gt').replace('<', '&lt')}
-    </text>
+    <g class="skill" width="${width}" height="${height}">
+     <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
+      <image
+        href="img/texture-100x100.jpg"
+        height="${height}"
+        width="${width}"
+        x="${x}"
+        y="${y}"
+      />
+     <text x="${x + width / 2}" y="${y + height / 2}" font-size="20"
+       text-anchor="middle"
+       alignment-baseline="middle"
+     >
+       ${text.replace('>', '&gt').replace('<', '&lt')}
+      </text>
+    </g>
  `;
 };
 
@@ -42,6 +53,7 @@ const Path = ({x, y}) => `
 
 const lineLength = 150;
 const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
+    const isLastBox = idx <= skills.length - 2;
     const skillY = idx * lineLength + y;
     return ` 
      ${Skill({
@@ -49,7 +61,7 @@ const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
          x,
          y: skillY,
      })}
-     ${Path({
+     ${isLastBox && Path({
        x: x + 50,
        y: 100 + skillY,
      })};
