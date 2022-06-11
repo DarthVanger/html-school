@@ -15,11 +15,11 @@ const avatars = `
 
 const skillBoxSize = 100;
 
-const Skill = ({ text, x, y }) => {
+const Skill = ({ skill, x, y }) => {
   const height = skillBoxSize;
   const width = skillBoxSize;
   return `
-    <g class="skill" width="${width}" height="${height}">
+    <g class="skill}" width="${width}" height="${height}">
      <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
       <image
         href="img/texture-100x100.jpg"
@@ -27,23 +27,24 @@ const Skill = ({ text, x, y }) => {
         width="${width}"
         x="${x}"
         y="${y}"
+        class="level-${skill.level}"
       />
      <text x="${x + width / 2}" y="${y + height / 2}" font-size="20"
        text-anchor="middle"
        alignment-baseline="middle"
      >
-       ${text.replace('>', '&gt').replace('<', '&lt')}
+       ${skill.text.replace('>', '&gt').replace('<', '&lt')}
       </text>
     </g>
  `;
 };
 
 const skills = [
-  { text: '<h1>' },
-  { text: '<p>' },
-  { text: '<img>' },
-  { text: '<a>' },
-  { text: '<br>' },
+  { text: '<h1>', level: 3, },
+  { text: '<p>', level: 3, },
+  { text: '<img>', level: 1, },
+  { text: '<br>', level: 2 },
+  { text: '<a>', level: 0 },
 ];
 
 const Path = ({x, y}) => `
@@ -57,7 +58,7 @@ const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
     const skillY = idx * lineLength + y;
     return ` 
      ${Skill({
-         text: skill.text,
+         skill,
          x,
          y: skillY,
      })}
