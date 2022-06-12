@@ -175,6 +175,7 @@
   }
 
   .lety4ka-tasks {
+    display: none;
     padding: 0.5em;
     position: absolute;
     top: 0;
@@ -706,6 +707,8 @@
       if (task1video) {
         const showTimer = (time) => {
             const h2 = document.querySelector('h2');
+            const tasks = document.querySelector('.lety4ka-tasks');
+            tasks.style.display = 'block';
             h2.style.color = 'red';
             const startTime = (new Date()).getTime();
             setInterval(() => {
