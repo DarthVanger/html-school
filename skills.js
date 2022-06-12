@@ -29,7 +29,7 @@ const Skill = ({ skill, x, y }) => {
         y="${y}"
         class="level-${skill.level}"
       />
-     <text x="${x + width / 2}" y="${y + height / 2}" font-size="20"
+     <text x="${x + width / 2}" y="${y + height / 2}"
        text-anchor="middle"
        alignment-baseline="middle"
      >
@@ -69,10 +69,26 @@ const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
   `;
  });
 
-const skillsLineHeading = ({ text, x, y }) => `
-  <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
-  <text x=${x + 25} y=${y + 50}>${text}</text>
-`;
+const skillsLineHeading = ({ text, x, y }) => {
+  const width = skillBoxSize;
+  const height = skillBoxSize;
+
+  return `
+    <image
+      href="img/rock.jpg"
+      height="${height}"
+      width="${width}"
+      x="${x}"
+      y="${y}"
+    />
+   <text x="${x + width / 2}" y="${y + height / 2}"
+     text-anchor="middle"
+     alignment-baseline="middle"
+   >
+     ${text}
+   </text>
+  `;
+}
 
 const svg = `
 <svg>
