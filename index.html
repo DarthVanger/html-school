@@ -106,6 +106,7 @@
     text-align: center;
     margin: 0;
     max-height: 100%;
+    position: relative;
   }
 
   .page-content figure img {
@@ -171,6 +172,26 @@
     font-family: sans-serif;
     letter-spacing: 2px;
 
+  }
+
+  .lety4ka-tasks {
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 2.5em;
+    z-index: 1;
+    text-align: left;
+    font-size: 1.5em;
+    font-family: monospace;
+    letter-spacing: 2px;
+    line-height: 1.75;
+    background: rgba(0, 0, 0, 0.4);
+    right: 0; bottom: 2em;
+  }
+
+  .tag {
+    color: red;
+    font-weight: bold;
   }
 
 </style>
@@ -609,6 +630,36 @@
     </p>
 </template>
 
+<template id="lesson2-page0">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson2-page1">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <video controls id="task1-video">
+        <source src="video/task2/video.mp4" type="video/mp4" />
+      </video>
+      <div class="lety4ka-tasks">
+        <div>0: ДОСТАТЬ НОУТ, СОЗДАТЬ ПУСТОЙ HTML файл</div>
+        <div>1: ПРОПИСАТЬ <span class="tag">&lt;h1&gt;</span>ЗАГОЛОВОК<span class="tag">&lt;/h1&gt;</span></div>
+        <div>2: ПРОПИСАТЬ <span class="tag">&lt;p&gt;</span>ПАРАГРАФ<span class="tag">&lt;/p&gt;</span></div>
+        <div>3: ВСТАВИТЬ КОРТИНКЕ <span class="tag">&lt;img src="my-picture.jpg"&gt;</span></div>
+        <div>4: СДЕЛАТЬ ЗОГОЛОВОК КРАСНОГО ЦВЕТА: <br /> <span class="tag" style="margin-left: 2em">&lt;style&gt; h1 { color: red } &lt;/style&gt;</span></div>
+        <div>5: УВЕЛИЧИТЬ РАЗМЕР ТЕКСТА ПАРАГРАФА : <br /> <span class="tag" style="margin-left: 2em">&lt;style&gt; p { font-size: 50px } &lt;/style&gt;</span></div>
+      </div>
+    </figure>
+</template>
+
 <script>
   const left = document.querySelector('.weed-border-left');
   const right = document.querySelector('.weed-border-right');
@@ -634,7 +685,7 @@
   };
 
   const showCurrentPage = () => {
-      const page = document.querySelector('#page' + currentPage);
+      const page = document.querySelector('#lesson2-page' + currentPage);
       const pageContent = document.querySelector('.page-content');
       pageContent.innerHTML = '';
       pageContent.append(page.cloneNode(true).content);
