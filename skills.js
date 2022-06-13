@@ -1,19 +1,7 @@
-const width = 200;
-const height = 200;
-const padding = 50;
+const skillBoxSize = 120;
+const width = skillBoxSize;
+const height = skillBoxSize;
 
-//const avatar = ({ x, href }) => `
-//<image href="${href}" height="${height}" width="${width}" x="${x}" />`;
-//
-//const avatars = `
-//  <g>
-//       ${avatar({ x: padding + 0, href: "img/kertis.jpg" })}
-//       ${avatar({ x: 2 * padding + 200, href: "img/johnny.jpg" })}
-//       ${avatar({ x: 3 * padding + 400, href: "img/tony.jpg" })}
-//       ${avatar({ x: 4 * padding + 600, href: "img/dimon4ik.jpg" })}
-//  </g>`;
-
-const skillBoxSize = 100;
 
 const Skill = ({ skill, x, y }) => {
   const height = skillBoxSize;
@@ -79,7 +67,6 @@ const skills = {
       { text: '<p>', level: 3, },
       { text: '<img>', level: 1, },
       { text: '<br>', level: 2 },
-      { text: '<hr>', level: 1 },
     ],
     [
       { text: '<a>', level: 1, },
@@ -100,90 +87,80 @@ const skills = {
   ],
   js: [
     [
-      { text: 'on click', level: 2, },
+      { text: 'on\nclick', level: 2, },
       { text: 'style', level: 1, },
-      { text: 'innerHTML', level: 1, },
+      { text: 'inner\nHTML', level: 1, },
     ],
     [
-      { text: 'variables', level: 0, },
-      { text: 'functions', level: 0, },
+      { text: 'var\niables', level: 0, },
+      { text: 'func\ntions', level: 0, },
     ],
   ]
 };
 
-const pathWidth = 10;
 const Path = ({x, y}) => `
-   <path d="M${x} ${y} l ${0} ${skillBoxSize}"></path>
+   <path d="M${x} ${y} l ${0} ${skillBoxSize / 2}"></path>
  `;
 
-const lineLength = 150;
 const tree = ({x , y}) => {
   const htmlSkills = skills.html;
   const css = skills.css;
   const js = skills.js;
-  let html = `${skillsLineHeading({
+
+  const marginTop = 50;
+
+  const htmlX = skillBoxSize + skillBoxSize / 2;
+  const cssX = skillBoxSize + skillBoxSize * 3;
+  const jsX = skillBoxSize + skillBoxSize * 7;
+;
+
+  let html = `${SkillsLineHeading({
     text: 'HTML',
-    x: 200,
-    y: 50,
+    x: htmlX,
+    y: marginTop,
   })}`;
 
-  const cssX = 450;
-  const jsX = 1050;
+  html += `${SkillsLineHeading({
+    text: 'CSS',
+    x: cssX + skillBoxSize,
+    y: marginTop,
+  })}`;
+
+  html += `${SkillsLineHeading({
+    text: 'JS',
+    x: jsX + skillBoxSize,
+    y: marginTop,
+  })}`;
+
+  const branchY = skillBoxSize * 3 / 2  + marginTop;
 
   htmlSkills.forEach((line, idx) => {
-    const x = 100 + idx * 200;
-    const y = 200;
-    html += skillsLine({ skills: line, x, y, });
+    const x = htmlX - skillBoxSize + idx * (skillBoxSize * 2);
+    const y = branchY;
+    html += SkillsLine({ skills: line, x, y });
   });
 
-  html += `${skillsLineHeading({
-    text: 'CSS',
-    x: cssX + 100,
-    y: 50,
-  })}`;
-
-  html += `${skillsLineHeading({
-    text: 'JS',
-    x: jsX + 100,
-    y: 50,
-  })}`;
-
   css.forEach((line, idx) => {
-    const x = cssX + idx * 200;
-    const y = 200;
-    html += skillsLine({ skills: line, x, y, });
+    const x = cssX + idx * skillBoxSize * 2;
+    const y = branchY;
+    html += SkillsLine({ skills: line, x, y, });
   });
 
   js.forEach((line, idx) => {
-    const x = jsX + idx * 200;
-    const y = 200;
-    html += skillsLine({ skills: line, x, y, });
+    const x = jsX + idx * skillBoxSize * 2;
+    const y = branchY;
+    html += SkillsLine({ skills: line, x, y, });
   });
 
   return html;
 }
 
-const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
-    const isLastBox = idx <= skills.length - 2;
-    const skillY = idx * lineLength + y;
-    return ` 
-     ${Skill({
-         skill,
-         x,
-         y: skillY,
-     })}
-     ${isLastBox && Path({
-       x: x + 50,
-       y: 100 + skillY,
-     })};
-  `;
- });
-
-const skillsLineHeading = ({ text, x, y }) => {
+const SkillsLineHeading = ({ text, x, y }) => {
   const width = skillBoxSize;
   const height = skillBoxSize;
 
   const path1 = `<path d="M ${x + skillBoxSize / 2} ${y + skillBoxSize} l 0 ${skillBoxSize / 4}" />`;
+
   const path2 = `
     <path d="
         M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
@@ -220,7 +197,24 @@ const skillsLineHeading = ({ text, x, y }) => {
    ${path2}
    ${path3}
   `;
-}
+};
+
+const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
+    const isLastBox = idx <= skills.length - 2;
+    const skillY = idx * skillBoxSize * 3 / 2 + y;
+    return ` 
+     ${Skill({
+         skill,
+         x,
+         y: skillY,
+     })}
+     ${isLastBox && Path({
+       x: x + skillBoxSize / 2,
+       y: skillBoxSize + skillY,
+     })};
+  `;
+ });
+
 
 const avatar = () => {
   const size = 270;
