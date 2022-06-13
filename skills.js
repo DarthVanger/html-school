@@ -17,8 +17,8 @@ document.body.addEventListener('click', () => {
     el.classList.add(`${student}`);
   });
 
-  document.querySelector(`.avatar.${prevStudent}`).classList.add('hide');
-  document.querySelector(`.avatar.${student}`).classList.remove('hide');
+  document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
+  document.querySelector(`.avatar-${student}`).classList.remove('hide');
 });
 
    //= `img/${student}.jpg`;
@@ -264,7 +264,7 @@ const avatar = () => {
 
     <use xlink:href="#rect" stroke-width="2" stroke="black"/>
     <image
-      class="avatar johnny"
+      class="avatar avatar-johnny"
       href="img/johnny.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
@@ -273,7 +273,7 @@ const avatar = () => {
       clip-path="url(#clip)"
     />
     <image
-      class="avatar tony hide"
+      class="avatar avatar-tony hide"
       href="img/tony.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
