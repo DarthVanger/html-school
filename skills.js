@@ -44,8 +44,6 @@ document.body.addEventListener('click', () => {
   document.querySelector(`.avatar-${student}`).classList.remove('hide');
 });
 
-   //= `img/${student}.jpg`;
-
 let skills = {
   html: [
     [
@@ -78,7 +76,7 @@ let skills = {
     [
       { text: 'on\nclick', level: { johnny : 2, tony: 0, dimon: 1, }, },
       { text: 'style', level: { johnny : 2, tony: 0, dimon: 0, }, },
-      { text: 'inner\nHTML', level: 1, },
+      { text: 'inner\nHTML', level: { johnny : 2, tony: 0, dimon: 1, }, },
     ],
     [
       { text: 'var\niables', level: { johnny : 0, tony: 0, dimon: 0, }, },
