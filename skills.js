@@ -52,6 +52,18 @@ const skills = {
       { text: '<a>', level: 1, },
       { text: '<video>', level: 2, },
     ],
+  ],
+  css: [
+    [
+      { text: 'h1, p', level: 3, },
+      { text: 'color', level: 3, },
+      { text: 'font-size', level: 2, },
+    ],
+    [
+      { text: 'padding', level: 1 },
+      { text: 'margin', level: 1 },
+      { text: 'border', level: 1 },
+    ],
   ]
 };
 
@@ -62,15 +74,29 @@ const Path = ({x, y}) => `
 
 const lineLength = 150;
 const tree = ({x , y}) => {
-  const root = skills.html;
+  const htmlSkills = skills.html;
+  const css = skills.css;
   let html = `${skillsLineHeading({
-    text: 'html',
+    text: 'HTML',
     x: 200,
     y: 50,
   })}`;
 
-  root.forEach((line, idx) => {
+
+  htmlSkills.forEach((line, idx) => {
     const x = 100 + idx * 200;
+    const y = 200;
+    html += skillsLine({ skills: line, x, y, });
+  });
+
+  html += `${skillsLineHeading({
+    text: 'CSS',
+    x: 600,
+    y: 50,
+  })}`;
+
+  css.forEach((line, idx) => {
+    const x = 500 + idx * 200;
     const y = 200;
     html += skillsLine({ skills: line, x, y, });
   });
