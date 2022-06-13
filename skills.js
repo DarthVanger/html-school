@@ -46,11 +46,11 @@ const skills = {
       { text: '<p>', level: 3, },
       { text: '<img>', level: 1, },
       { text: '<br>', level: 2 },
-      { text: '<a>', level: 0 },
+      { text: '<hr>', level: 1 },
     ],
     [
-      { text: '<h1>', level: 3, },
-      { text: '<p>', level: 3, },
+      { text: '<a>', level: 1, },
+      { text: '<video>', level: 2, },
     ],
   ]
 };
@@ -65,12 +65,14 @@ const tree = ({x , y}) => {
   const root = skills.html;
   let html = `${skillsLineHeading({
     text: 'html',
-    x: 100,
+    x: 200,
     y: 50,
   })}`;
 
-  root.forEach(line => {
-    html += skillsLine({ skills: line, x: 100, y: 200 });
+  root.forEach((line, idx) => {
+    const x = 100 + idx * 200;
+    const y = 200;
+    html += skillsLine({ skills: line, x, y, });
   });
 
   return html;
