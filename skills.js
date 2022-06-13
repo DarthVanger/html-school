@@ -69,7 +69,7 @@ const skills = {
 
 const pathWidth = 10;
 const Path = ({x, y}) => `
-   <path d="M${x} ${y} l ${0} ${skillBoxSize} l ${pathWidth} 0 l 0 -${skillBoxSize} l -${pathWidth} 0 Z"></path>
+   <path d="M${x} ${y} l ${0} ${skillBoxSize}"></path>
  `;
 
 const lineLength = 150;
@@ -124,6 +124,25 @@ const skillsLineHeading = ({ text, x, y }) => {
   const width = skillBoxSize;
   const height = skillBoxSize;
 
+  const path1 = `<path d="M ${x + skillBoxSize / 2} ${y + skillBoxSize} l 0 ${skillBoxSize / 4}" />`;
+  const path2 = `
+    <path d="
+        M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
+        l ${skillBoxSize} 0
+        l 0 ${skillBoxSize / 4}
+      "
+    />
+  `;
+
+  const path3 = `
+    <path d="
+        M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
+        l ${-skillBoxSize} 0
+        l 0 ${skillBoxSize / 4}
+      "
+    />
+  `;
+
   return `
     <image
       href="img/rock.jpg"
@@ -138,6 +157,9 @@ const skillsLineHeading = ({ text, x, y }) => {
    >
      ${text}
    </text>
+   ${path1}
+   ${path2}
+   ${path3}
   `;
 }
 
