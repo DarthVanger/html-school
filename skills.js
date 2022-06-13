@@ -39,20 +39,43 @@ const Skill = ({ skill, x, y }) => {
  `;
 };
 
-const skills = [
-  { text: '<h1>', level: 3, },
-  { text: '<p>', level: 3, },
-  { text: '<img>', level: 1, },
-  { text: '<br>', level: 2 },
-  { text: '<a>', level: 0 },
-];
+const skills = {
+  html: [
+    [
+      { text: '<h1>', level: 3, },
+      { text: '<p>', level: 3, },
+      { text: '<img>', level: 1, },
+      { text: '<br>', level: 2 },
+      { text: '<a>', level: 0 },
+    ],
+    [
+      { text: '<h1>', level: 3, },
+      { text: '<p>', level: 3, },
+    ],
+  ]
+};
 
+const pathWidth = 10;
 const Path = ({x, y}) => `
-   <path d="M${x} ${y} l ${0} ${skillBoxSize}"></path>
+   <path d="M${x} ${y} l ${0} ${skillBoxSize} l ${pathWidth} 0 l 0 -${skillBoxSize} l -${pathWidth} 0 Z"></path>
  `;
 
-
 const lineLength = 150;
+const tree = ({x , y}) => {
+  const root = skills.html;
+  let html = `${skillsLineHeading({
+    text: 'html',
+    x: 100,
+    y: 50,
+  })}`;
+
+  root.forEach(line => {
+    html += skillsLine({ skills: line, x: 100, y: 200 });
+  });
+
+  return html;
+}
+
 const skillsLine = ({ skills, x, y }) =>skills.map((skill, idx) => {
     const isLastBox = idx <= skills.length - 2;
     const skillY = idx * lineLength + y;
@@ -92,9 +115,8 @@ const skillsLineHeading = ({ text, x, y }) => {
 
 const svg = `
 <svg>
-${skillsLineHeading({ text: 'HTML', x: 50, y: 20})}
 
-${skillsLine({ skills, x: 50, y: 150 })}
+${tree({ x: 0, y: 0})}
 </svg>
 `;
 
