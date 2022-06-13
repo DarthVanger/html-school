@@ -27,6 +27,15 @@ document.body.addEventListener('click', () => {
     el.classList.add(`${student}`);
   });
 
+  document.querySelectorAll('[class^=category-level-]').forEach(el => {
+    const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
+    const level = el.getAttribute(`data-level-${student}`);
+    el.classList.remove(`category-level-${prevLevel}`);
+    el.classList.remove(`${prevStudent}`);
+    el.classList.add(`category-level-${level}`);
+    el.classList.add(`${student}`);
+  });
+
   document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
   document.querySelector(`.avatar-${student}`).classList.remove('hide');
 });
@@ -172,21 +181,21 @@ const Tree = ({x , y}) => {
     text: 'HTML',
     x: htmlX,
     y: marginTop,
-    level: htmlSkills.level[student],
+    level: htmlSkills.level,
   })}`;
 
   html += `${SkillsLineHeading({
     text: 'CSS',
     x: cssX + skillBoxSize,
     y: marginTop,
-    level: css.level[student],
+    level: css.level,
   })}`;
 
   html += `${SkillsLineHeading({
     text: 'JS',
     x: jsX + skillBoxSize,
     y: marginTop,
-    level: js.level[student],
+    level: js.level,
   })}`;
 
   treeHeight += marginTop;
@@ -261,7 +270,10 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
       width="${width}"
       x="${x}"
       y="${y}"
-      class="category category-level-${level}"
+      class="category category-level-${level[student]}"
+      data-level-tony=${level.tony}
+      data-level-johnny=${level.johnny}
+      data-level-dimon=${level.dimon}
     />
    <text x="${x + width / 2}" y="${y + height / 2}"
      text-anchor="middle"
@@ -275,7 +287,7 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
     text-anchor="middle"
     alignment-baseline="middle"
    >
-     ${level}
+     ${level[student]}
    </text>
    ${path1}
    ${!isCss && path2}
