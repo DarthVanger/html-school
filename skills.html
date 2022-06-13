@@ -48,7 +48,7 @@
     opacity: 0.5;
     border-radius: 50%;
     overflow: hidden;
-    animation: infinite 4s ease-out alternate opa;
+    /* animation: infinite 4s ease-out alternate opa; */
   }
 
   svg #rect {
@@ -66,6 +66,23 @@
 
   .johnny, .tony {
     transition: all 3s ease-out;
+  }
+
+  .johnny {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(135deg);
+  }
+
+  .tony {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg);
+  }
+
+  .avatar {
+    opacity: 1;
+    transition: all 3s ease-out;
+  }
+
+  .avatar.hide {
+    opacity: 0;
   }
 
 </style>

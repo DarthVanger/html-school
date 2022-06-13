@@ -3,7 +3,25 @@ const width = skillBoxSize;
 const height = skillBoxSize;
 let treeHeights = [];
 
-const student = 'johnny';
+let student = 'johnny';
+
+document.body.addEventListener('click', () => {
+  let prevStudent = student;
+  student = 'tony';
+  document.querySelectorAll('[class^=level-]').forEach(el => {
+    const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
+    const level = el.getAttribute(`data-level-${student}`);
+    el.classList.remove(`level-${prevLevel}`);
+    el.classList.remove(`${prevStudent}`);
+    el.classList.add(`level-${level}`);
+    el.classList.add(`${student}`);
+  });
+
+  document.querySelector(`.avatar.${prevStudent}`).classList.add('hide');
+  document.querySelector(`.avatar.${student}`).classList.remove('hide');
+});
+
+   //= `img/${student}.jpg`;
 
 const skills = {
   html: [
@@ -95,6 +113,8 @@ const Skill = ({ skill, x, y }) => {
         x="${x}"
         y="${y}"
         class="level-${skill.level[student]} ${student}"
+        data-level-tony=${skill.level.tony}
+        data-level-johnny=${skill.level.johnny}
       />
      ${Text({
        x: x + width / 2,
@@ -244,8 +264,17 @@ const avatar = () => {
 
     <use xlink:href="#rect" stroke-width="2" stroke="black"/>
     <image
-      class="avatar"
+      class="avatar johnny"
       href="img/johnny.jpg"
+      transform="translate(${-size/2 }, ${-size/2})"
+      x="${x}"
+      y="${y}"
+      width="${size}" height="${size}"
+      clip-path="url(#clip)"
+    />
+    <image
+      class="avatar tony hide"
+      href="img/tony.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
       y="${y}"
