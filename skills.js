@@ -33,7 +33,7 @@ document.body.addEventListener('click', () => {
 
    //= `img/${student}.jpg`;
 
-const skills = {
+let skills = {
   html: [
     [
       { text: '<h1>', level: { johnny : 3, tony: 2, dimon: 3, } },
@@ -75,6 +75,21 @@ const skills = {
 };
 
 
+for (let category in skills) {
+  let categoryLevel = {};
+  for (student of students) {
+    categoryLevel[student] = 0;
+  }
+  for (let branch of skills[category]) {
+    for (let skill of branch) {
+      for (student of students) {
+        categoryLevel[student] += skill.level[student];
+      }
+    }
+  }
+
+  skills[category].level = categoryLevel;
+}
 
 const Skill = ({ skill, x, y }) => {
   const height = skillBoxSize;
@@ -157,18 +172,21 @@ const Tree = ({x , y}) => {
     text: 'HTML',
     x: htmlX,
     y: marginTop,
+    level: htmlSkills.level[student],
   })}`;
 
   html += `${SkillsLineHeading({
     text: 'CSS',
     x: cssX + skillBoxSize,
     y: marginTop,
+    level: css.level[student],
   })}`;
 
   html += `${SkillsLineHeading({
     text: 'JS',
     x: jsX + skillBoxSize,
     y: marginTop,
+    level: js.level[student],
   })}`;
 
   treeHeight += marginTop;
@@ -198,7 +216,7 @@ const Tree = ({x , y}) => {
   return html;
 }
 
-const SkillsLineHeading = ({ text, x, y }) => {
+const SkillsLineHeading = ({ text, x, y, level }) => {
   const width = skillBoxSize;
   const height = skillBoxSize;
 
@@ -234,6 +252,8 @@ const SkillsLineHeading = ({ text, x, y }) => {
     />
   `;
 
+  const badgeR = 25;
+
   return `
     <image
       href="img/rock.jpg"
@@ -241,12 +261,21 @@ const SkillsLineHeading = ({ text, x, y }) => {
       width="${width}"
       x="${x}"
       y="${y}"
+      class="category category-level-${level}"
     />
    <text x="${x + width / 2}" y="${y + height / 2}"
      text-anchor="middle"
      alignment-baseline="middle"
+     class="category-text"
    >
      ${text}
+   </text>
+   <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="level"></circle>
+   <text x="${x + height}" y="${y + width}"
+    text-anchor="middle"
+    alignment-baseline="middle"
+   >
+     ${level}
    </text>
    ${path1}
    ${!isCss && path2}
