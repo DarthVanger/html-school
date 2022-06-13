@@ -64,6 +64,17 @@ const skills = {
       { text: 'margin', level: 1 },
       { text: 'border', level: 1 },
     ],
+  ],
+  js: [
+    [
+      { text: 'on click', level: 2, },
+      { text: 'style', level: 1, },
+      { text: 'innerHTML', level: 1, },
+    ],
+    [
+      { text: 'variables', level: 0, },
+      { text: 'functions', level: 0, },
+    ],
   ]
 };
 
@@ -76,12 +87,15 @@ const lineLength = 150;
 const tree = ({x , y}) => {
   const htmlSkills = skills.html;
   const css = skills.css;
+  const js = skills.js;
   let html = `${skillsLineHeading({
     text: 'HTML',
     x: 200,
     y: 50,
   })}`;
 
+  const cssX = 450;
+  const jsX = 1050;
 
   htmlSkills.forEach((line, idx) => {
     const x = 100 + idx * 200;
@@ -91,12 +105,24 @@ const tree = ({x , y}) => {
 
   html += `${skillsLineHeading({
     text: 'CSS',
-    x: 600,
+    x: cssX + 100,
+    y: 50,
+  })}`;
+
+  html += `${skillsLineHeading({
+    text: 'JS',
+    x: jsX + 100,
     y: 50,
   })}`;
 
   css.forEach((line, idx) => {
-    const x = 500 + idx * 200;
+    const x = cssX + idx * 200;
+    const y = 200;
+    html += skillsLine({ skills: line, x, y, });
+  });
+
+  js.forEach((line, idx) => {
+    const x = jsX + idx * 200;
     const y = 200;
     html += skillsLine({ skills: line, x, y, });
   });
