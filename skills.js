@@ -3,11 +3,21 @@ const width = skillBoxSize;
 const height = skillBoxSize;
 let treeHeights = [];
 
+const students = [
+  'johnny',
+  'tony',
+  'dimon',
+];
+
+let studentIdx = 0;
 let student = 'johnny';
 
 document.body.addEventListener('click', () => {
   let prevStudent = student;
-  student = 'tony';
+  studentIdx++;
+  if (studentIdx > students.length) studentIdx = 0;
+
+  student = students[studentIdx];
   document.querySelectorAll('[class^=level-]').forEach(el => {
     const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
     const level = el.getAttribute(`data-level-${student}`);
@@ -275,6 +285,15 @@ const avatar = () => {
     <image
       class="avatar avatar-tony hide"
       href="img/tony.jpg"
+      transform="translate(${-size/2 }, ${-size/2})"
+      x="${x}"
+      y="${y}"
+      width="${size}" height="${size}"
+      clip-path="url(#clip)"
+    />
+    <image
+      class="avatar avatar-dimon hide"
+      href="img/dimon4ik-close.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
       y="${y}"
