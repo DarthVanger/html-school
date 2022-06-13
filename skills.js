@@ -2,16 +2,16 @@ const width = 200;
 const height = 200;
 const padding = 50;
 
-const avatar = ({ x, href }) => `
-<image href="${href}" height="${height}" width="${width}" x="${x}" />`;
-
-const avatars = `
-  <g>
-       ${avatar({ x: padding + 0, href: "img/kertis.jpg" })}
-       ${avatar({ x: 2 * padding + 200, href: "img/johnny.jpg" })}
-       ${avatar({ x: 3 * padding + 400, href: "img/tony.jpg" })}
-       ${avatar({ x: 4 * padding + 600, href: "img/dimon4ik.jpg" })}
-  </g>`;
+//const avatar = ({ x, href }) => `
+//<image href="${href}" height="${height}" width="${width}" x="${x}" />`;
+//
+//const avatars = `
+//  <g>
+//       ${avatar({ x: padding + 0, href: "img/kertis.jpg" })}
+//       ${avatar({ x: 2 * padding + 200, href: "img/johnny.jpg" })}
+//       ${avatar({ x: 3 * padding + 400, href: "img/tony.jpg" })}
+//       ${avatar({ x: 4 * padding + 600, href: "img/dimon4ik.jpg" })}
+//  </g>`;
 
 const skillBoxSize = 100;
 
@@ -163,11 +163,43 @@ const skillsLineHeading = ({ text, x, y }) => {
   `;
 }
 
+const avatar = () => {
+  const size = 270;
+  const x = '50%';
+  const y = 220;
+
+  return `
+  <defs>
+    <rect id="rect" x="${x}" y="${y}" width="${size}" height="${size}" rx="50%"
+
+    />
+    <clipPath id="clip">
+      <use xlink:href="#rect"/>
+    </clipPath>
+  </defs>
+
+    <use xlink:href="#rect" stroke-width="2" stroke="black"/>
+    <image
+      class="avatar"
+      href="img/johnny.jpg"
+      transform="translate(${-size/2 + 50}, ${-size/2})"
+      x="${x}"
+      y="${y}"
+      width="${size}" height="${size}"
+      clip-path="url(#clip)"
+    />
+  `;
+};
+
 const svg = `
 <svg>
 
+${avatar()}
+
 ${tree({ x: 0, y: 0})}
+
 </svg>
+
 `;
 
 document.querySelector('section').innerHTML = svg;

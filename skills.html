@@ -33,6 +33,27 @@
     
   }
 
+  @keyframes opa {
+    from {
+      opacity: 0.4;
+    }
+
+    to {
+      opacity: 0.5;
+    }
+  }
+
+  svg .avatar {
+    opacity: 0.5;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: infinite 4s ease-out alternate opa;
+  }
+
+  svg #rect {
+    opacity: 0;
+  }
+
 
   [class^=level-] {
     filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
