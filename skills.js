@@ -1,6 +1,7 @@
 const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
+let treeHeights = [];
 
 
 const Skill = ({ skill, x, y }) => {
@@ -67,6 +68,7 @@ const skills = {
       { text: '<p>', level: 3, },
       { text: '<img>', level: 1, },
       { text: '<br>', level: 2 },
+      { text: '<hr>', level: 2 },
     ],
     [
       { text: '<a>', level: 1, },
@@ -78,11 +80,13 @@ const skills = {
       { text: 'h1, p', level: 3, },
       { text: 'color', level: 3, },
       { text: 'font\nsize', level: 2, },
+      { text: 'font\nfamily', level: 0 },
     ],
     [
       { text: 'padding', level: 1 },
       { text: 'margin', level: 1 },
       { text: 'border', level: 1 },
+      { text: 'position', level: 0 },
     ],
   ],
   js: [
@@ -102,7 +106,8 @@ const Path = ({x, y}) => `
    <path d="M${x} ${y} l ${0} ${skillBoxSize / 2}"></path>
  `;
 
-const tree = ({x , y}) => {
+let treeHeight = 0;
+const Tree = ({x , y}) => {
   const htmlSkills = skills.html;
   const css = skills.css;
   const js = skills.js;
@@ -131,6 +136,8 @@ const tree = ({x , y}) => {
     x: jsX + skillBoxSize,
     y: marginTop,
   })}`;
+
+  treeHeight += marginTop;
 
   const branchY = skillBoxSize * 3 / 2  + marginTop;
 
@@ -202,6 +209,7 @@ const SkillsLineHeading = ({ text, x, y }) => {
 const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
     const isLastBox = idx <= skills.length - 2;
     const skillY = idx * skillBoxSize * 3 / 2 + y;
+    if (isLastBox) treeHeights.push(skillY + skillBoxSize * 3);
     return ` 
      ${Skill({
          skill,
@@ -235,7 +243,7 @@ const avatar = () => {
     <image
       class="avatar"
       href="img/johnny.jpg"
-      transform="translate(${-size/2 + 50}, ${-size/2})"
+      transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
       y="${y}"
       width="${size}" height="${size}"
@@ -244,12 +252,16 @@ const avatar = () => {
   `;
 };
 
+const tree = Tree({ x: 0, y: 0});
+
+console.log('treeHeights: ', treeHeights);
+
 const svg = `
-<svg>
+<svg height="${Math.max(...treeHeights)}">
 
 ${avatar()}
 
-${tree({ x: 0, y: 0})}
+${tree}
 
 </svg>
 
