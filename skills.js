@@ -36,6 +36,10 @@ document.body.addEventListener('click', () => {
     el.classList.add(`${student}`);
   });
 
+  document.querySelectorAll('.level-badge-text').forEach(el => {
+    el.innerHTML = el.getAttribute(`data-level-${student}`);
+  });
+
   document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
   document.querySelector(`.avatar-${student}`).classList.remove('hide');
 });
@@ -286,6 +290,10 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
    <text x="${x + height}" y="${y + width}"
     text-anchor="middle"
     alignment-baseline="middle"
+    data-level-tony=${level.tony}
+    data-level-johnny=${level.johnny}
+    data-level-dimon=${level.dimon}
+    class="level-badge-text"
    >
      ${level[student]}
    </text>
