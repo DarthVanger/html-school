@@ -182,8 +182,10 @@ const Tree = ({x , y}) => {
 
   css.forEach((line, idx) => {
     const x = cssX + idx * skillBoxSize * 2;
-    const y = branchY;
-    html += SkillsLine({ skills: line, x, y, });
+    let y = branchY;
+    // space for avatar
+    if (idx == 1) y += 150;
+    html += SkillsLine({ skills: line, x, y });
   });
 
   js.forEach((line, idx) => {
@@ -219,6 +221,18 @@ const SkillsLineHeading = ({ text, x, y }) => {
     />
   `;
 
+  const isCss = text == 'CSS';
+
+  const path2Css = `
+    <path d="
+        M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
+        l 0 ${skillBoxSize + skillBoxSize / 4}
+        l ${skillBoxSize} 0
+        l 0 ${skillBoxSize / 4}
+      "
+    />
+  `;
+
   return `
     <image
       href="img/rock.jpg"
@@ -234,7 +248,8 @@ const SkillsLineHeading = ({ text, x, y }) => {
      ${text}
    </text>
    ${path1}
-   ${path2}
+   ${!isCss && path2}
+   ${isCss && path2Css}
    ${path3}
   `;
 };
