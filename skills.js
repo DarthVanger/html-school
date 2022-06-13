@@ -125,6 +125,7 @@ const Skill = ({ skill, x, y }) => {
         class="level-${skill.level[student]} ${student}"
         data-level-tony=${skill.level.tony}
         data-level-johnny=${skill.level.johnny}
+        data-level-dimon=${skill.level.dimon}
       />
      ${Text({
        x: x + width / 2,
