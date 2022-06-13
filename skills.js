@@ -18,6 +18,40 @@ const skillBoxSize = 100;
 const Skill = ({ skill, x, y }) => {
   const height = skillBoxSize;
   const width = skillBoxSize;
+
+  const Text = ({ text, x, y }) =>  {
+    const texts = skill.text.split('\n');
+    const fontSize = 18;
+    const lineHeight = fontSize * 2;
+    const numLines = texts.length;
+    const textHeight = fontSize * (numLines);
+    const translateY = numLines < 2 ? 0 :
+      - textHeight / 2;
+
+    let html = `
+      <g transform="translate(0, ${translateY})"
+      >
+    `;
+
+    texts.forEach((text, idx) => {
+      console.log('text', text);
+      const textEncoded = text.replace('>', '&gt').replace('<', '&lt');
+
+      html += `
+      <text x=${x} y=${y + idx * lineHeight}
+       text-anchor="middle"
+       alignment-baseline="middle"
+      >
+        ${textEncoded}
+      </text>`;
+    });
+
+    html += '</g>';
+
+    return html;
+  };
+
+
   return `
     <g class="skill}" width="${width}" height="${height}">
      <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
@@ -29,12 +63,11 @@ const Skill = ({ skill, x, y }) => {
         y="${y}"
         class="level-${skill.level}"
       />
-     <text x="${x + width / 2}" y="${y + height / 2}"
-       text-anchor="middle"
-       alignment-baseline="middle"
-     >
-       ${skill.text.replace('>', '&gt').replace('<', '&lt')}
-      </text>
+     ${Text({
+       x: x + width / 2,
+       y: y + height / 2,
+       text: skill.text,
+     })}
     </g>
  `;
 };
@@ -57,7 +90,7 @@ const skills = {
     [
       { text: 'h1, p', level: 3, },
       { text: 'color', level: 3, },
-      { text: 'font-size', level: 2, },
+      { text: 'font\nsize', level: 2, },
     ],
     [
       { text: 'padding', level: 1 },
