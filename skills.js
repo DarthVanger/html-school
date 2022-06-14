@@ -10,7 +10,7 @@ const students = [
   'dimon',
 ];
 
-let selectedStudent = window.location.hash.replace('#', '');
+let selectedStudent = window.location.hash.replace('#', '') || 'tony';
 
 const changeStudent = newStudent => {
   let prevStudent = selectedStudent;
@@ -104,10 +104,6 @@ for (let category in skills) {
     for (let skill of branch) {
       for (let student of students) {
         categoryLevel[student] += skill.level[student];
-        if (student =='dimon' && category == 'js') {
-          console.log('level: ', skill.level[student]);
-          console.log('categoryLevel[student]: ', categoryLevel[student]);
-        }
       }
     }
   }
