@@ -143,6 +143,12 @@ const Skill = ({ skill, x, y }) => {
 
     html += '</g>';
 
+    html += Badge({
+      x,
+      y,
+      level: skill.level,
+    });
+
     return html;
   };
 
@@ -236,9 +242,9 @@ const Tree = ({x , y}) => {
 }
 
 const Badge = ({text, x, y, level}) => {
-  const height = skillBoxSize;
-  const width = skillBoxSize;
   const badgeR = 25;
+  const height = badgeR * 2;
+  const width = height;
   return `
    <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="badge"></circle>
    <text x="${x + height}" y="${y + width}"
@@ -310,8 +316,8 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
      ${text}
    </text>
    ${Badge({
-     x,
-     y,
+     x: x + width / 2,
+     y: y + height / 2,
      level,
    })}
    ${path1}
