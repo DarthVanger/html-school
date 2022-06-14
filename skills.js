@@ -235,6 +235,25 @@ const Tree = ({x , y}) => {
   return html;
 }
 
+const Badge = ({text, x, y, level}) => {
+  const height = skillBoxSize;
+  const width = skillBoxSize;
+  const badgeR = 25;
+  return `
+   <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="badge"></circle>
+   <text x="${x + height}" y="${y + width}"
+    text-anchor="middle"
+    alignment-baseline="middle"
+    data-level-tony=${level.tony}
+    data-level-johnny=${level.johnny}
+    data-level-dimon=${level.dimon}
+    class="badge-text"
+   >
+     ${level[selectedStudent]}
+   </text>
+ `;
+};
+
 const SkillsLineHeading = ({ text, x, y, level }) => {
   const width = skillBoxSize;
   const height = skillBoxSize;
@@ -271,8 +290,6 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
     />
   `;
 
-  const badgeR = 25;
-
   return `
     <image
       href="img/rock.jpg"
@@ -292,17 +309,11 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
    >
      ${text}
    </text>
-   <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="badge"></circle>
-   <text x="${x + height}" y="${y + width}"
-    text-anchor="middle"
-    alignment-baseline="middle"
-    data-level-tony=${level.tony}
-    data-level-johnny=${level.johnny}
-    data-level-dimon=${level.dimon}
-    class="badge-text"
-   >
-     ${level[selectedStudent]}
-   </text>
+   ${Badge({
+     x,
+     y,
+     level,
+   })}
    ${path1}
    ${!isCss && path2}
    ${isCss && path2Css}
