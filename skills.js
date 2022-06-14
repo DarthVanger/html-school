@@ -10,37 +10,38 @@ const students = [
   'dimon',
 ];
 
+let selectedStudent = window.location.hash.replace('#', '');
+
 const changeStudent = newStudent => {
-  let prevStudent = student;
-  student = newStudent;
+  let prevStudent = selectedStudent;
+  selectedStudent = newStudent;
   document.querySelectorAll('[class^=level-]').forEach(el => {
     const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
-    const level = el.getAttribute(`data-level-${student}`);
+    const level = el.getAttribute(`data-level-${selectedStudent}`);
     el.classList.remove(`level-${prevLevel}`);
     el.classList.remove(`${prevStudent}`);
     el.classList.add(`level-${level}`);
-    el.classList.add(`${student}`);
+    el.classList.add(`${selectedStudent}`);
   });
 
   document.querySelectorAll('[class^=category-level-]').forEach(el => {
     const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
-    const level = el.getAttribute(`data-level-${student}`);
+    const level = el.getAttribute(`data-level-${selectedStudent}`);
     el.classList.remove(`category-level-${prevLevel}`);
     el.classList.remove(`${prevStudent}`);
     el.classList.add(`category-level-${level}`);
-    el.classList.add(`${student}`);
+    el.classList.add(`${selectedStudent}`);
   });
 
-  document.querySelectorAll('.level-badge-text').forEach(el => {
-    el.innerHTML = el.getAttribute(`data-level-${student}`);
+  document.querySelectorAll('.badge-text').forEach(el => {
+    el.innerHTML = el.getAttribute(`data-level-${selectedStudent}`);
   });
 
-  console.log('prevStudent ', prevStudent);
   document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
-  document.querySelector(`.avatar-${student}`).classList.remove('hide');
+  document.querySelector(`.avatar-${selectedStudent}`).classList.remove('hide');
 
   document.querySelector(`a[href="#${prevStudent}"]`).classList.remove('selected');
-  document.querySelector(`a[href="#${student}"]`).classList.add('selected');
+  document.querySelector(`a[href="#${selectedStudent}"]`).classList.add('selected');
 };
 
 const header = document.querySelector('header');
@@ -51,14 +52,15 @@ links.forEach(link => {
   link.addEventListener('click', () => changeStudent(student));
 });
 
+
 let skills = {
   html: [
     [
       { text: '<h1>', level: { johnny : 3, tony: 2, dimon: 3, } },
       { text: '<p>', level: { johnny : 3, tony: 2, dimon: 3, }, },
       { text: '<img>', level: { johnny : 3, tony: 2, dimon: 3, }, },
-      { text: '<br>', level: { johnny : 3, tony: 2, dimon: 3, } },
-      { text: '<hr>', level: { johnny : 3, tony: 2, dimon: 1, } },
+      { text: '<br>', level: { johnny : 3, tony: 1, dimon: 3, } },
+      { text: '<hr>', level: { johnny : 3, tony: 1, dimon: 1, } },
     ],
     [
       { text: '<a>', level: { johnny : 2, tony: 1, dimon: 3, }, },
@@ -81,13 +83,13 @@ let skills = {
   ],
   js: [
     [
-      { text: 'on\nclick', level: { johnny : 2, tony: 0, dimon: 1, }, },
-      { text: 'style', level: { johnny : 2, tony: 0, dimon: 0, }, },
+      { text: 'on\nclick', level: { johnny: 2, tony: 0, dimon: 1, }, },
+      { text: 'style', level: { johnny: 2, tony: 0, dimon: 0, }, },
       { text: 'inner\nHTML', level: { johnny : 2, tony: 0, dimon: 1, }, },
     ],
     [
-      { text: 'var\niables', level: { johnny : 0, tony: 0, dimon: 0, }, },
-      { text: 'func\ntions', level: { johnny : 1, tony: 0, dimon: 1, }, },
+      { text: 'var\niables', level: { johnny: 0, tony: 0, dimon: 0, }, },
+      { text: 'func\ntions', level: { johnny: 1, tony: 0, dimon: 1, }, },
     ],
   ]
 };
@@ -95,13 +97,17 @@ let skills = {
 
 for (let category in skills) {
   let categoryLevel = {};
-  for (student of students) {
+  for (let student of students) {
     categoryLevel[student] = 0;
   }
   for (let branch of skills[category]) {
     for (let skill of branch) {
-      for (student of students) {
+      for (let student of students) {
         categoryLevel[student] += skill.level[student];
+        if (student =='dimon' && category == 'js') {
+          console.log('level: ', skill.level[student]);
+          console.log('categoryLevel[student]: ', categoryLevel[student]);
+        }
       }
     }
   }
@@ -128,7 +134,6 @@ const Skill = ({ skill, x, y }) => {
     `;
 
     texts.forEach((text, idx) => {
-      console.log('text', text);
       const textEncoded = text.replace('>', '&gt').replace('<', '&lt');
 
       html += `
@@ -155,7 +160,7 @@ const Skill = ({ skill, x, y }) => {
         width="${width}"
         x="${x}"
         y="${y}"
-        class="level-${skill.level[student]} ${student}"
+        class="level-${skill.level[selectedStudent]} ${selectedStudent}"
         data-level-tony=${skill.level.tony}
         data-level-johnny=${skill.level.johnny}
         data-level-dimon=${skill.level.dimon}
@@ -279,7 +284,7 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
       width="${width}"
       x="${x}"
       y="${y}"
-      class="category category-level-${level[student]}"
+      class="category category-level-${level[selectedStudent]}"
       data-level-tony=${level.tony}
       data-level-johnny=${level.johnny}
       data-level-dimon=${level.dimon}
@@ -291,16 +296,16 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
    >
      ${text}
    </text>
-   <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="level"></circle>
+   <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="badge"></circle>
    <text x="${x + height}" y="${y + width}"
     text-anchor="middle"
     alignment-baseline="middle"
     data-level-tony=${level.tony}
     data-level-johnny=${level.johnny}
     data-level-dimon=${level.dimon}
-    class="level-badge-text"
+    class="badge-text"
    >
-     ${level[student]}
+     ${level[selectedStudent]}
    </text>
    ${path1}
    ${!isCss && path2}
@@ -375,8 +380,6 @@ const avatar = () => {
 
 const tree = Tree({ x: 0, y: 0});
 
-console.log('treeHeights: ', treeHeights);
-
 const svg = `
 <svg height="${Math.max(...treeHeights)}">
 
@@ -390,5 +393,4 @@ ${tree}
 
 document.querySelector('section').innerHTML = svg;
 
-student = window.location.hash.replace('#', '');
-changeStudent(student);
+changeStudent(selectedStudent);
