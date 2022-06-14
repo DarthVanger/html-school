@@ -1,3 +1,4 @@
+
 const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
@@ -12,12 +13,9 @@ const students = [
 let studentIdx = 0;
 let student = 'johnny';
 
-document.body.addEventListener('click', () => {
+const changeStudent = newStudent => {
   let prevStudent = student;
-  studentIdx++;
-  if (studentIdx > students.length) studentIdx = 0;
-
-  student = students[studentIdx];
+  student = newStudent;
   document.querySelectorAll('[class^=level-]').forEach(el => {
     const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
     const level = el.getAttribute(`data-level-${student}`);
@@ -42,6 +40,14 @@ document.body.addEventListener('click', () => {
 
   document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
   document.querySelector(`.avatar-${student}`).classList.remove('hide');
+};
+
+const header = document.querySelector('header');
+const links = header.querySelectorAll('a');
+
+links.forEach(link => {
+  const student = link.href.replace(/[^#]*[#]/, '');
+  link.addEventListener('click', () => changeStudent(student));
 });
 
 let skills = {
