@@ -90,12 +90,41 @@
     fill: black;
   }
 
+  header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header a,
+  header a:link,
+  header a:active,
+  header a:visited {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+    letter-spacing: 5px;
+    padding: 1rem;
+    font-family: monospace;
+    font-weight: bold;
+    background: url("img/texture-100x100.jpg");
+    opacity: 0.5;
+    filter: invert(1) sepia(1) saturate(0.7) hue-rotate(340deg);
+    border-radius: 5px;
+  }
+
+  header a.selected {
+    filter: sepia(1) saturate(1) hue-rotate(140deg);
+    transition: all 1s ease-out;
+  }
+
 </style>
 
 <body>
   <header>
-    <a href="#tony">Tony</a>
     <a href="#johnny">Johnny</a>
+    <a href="#tony">Tony</a>
     <a href="#dimon">Dimon</a>
   </header>
   <section></section>

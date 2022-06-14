@@ -10,9 +10,6 @@ const students = [
   'dimon',
 ];
 
-let studentIdx = 0;
-let student = 'johnny';
-
 const changeStudent = newStudent => {
   let prevStudent = student;
   student = newStudent;
@@ -38,8 +35,12 @@ const changeStudent = newStudent => {
     el.innerHTML = el.getAttribute(`data-level-${student}`);
   });
 
+  console.log('prevStudent ', prevStudent);
   document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
   document.querySelector(`.avatar-${student}`).classList.remove('hide');
+
+  document.querySelector(`a[href="#${prevStudent}"]`).classList.remove('selected');
+  document.querySelector(`a[href="#${student}"]`).classList.add('selected');
 };
 
 const header = document.querySelector('header');
@@ -388,3 +389,6 @@ ${tree}
 `;
 
 document.querySelector('section').innerHTML = svg;
+
+student = window.location.hash.replace('#', '');
+changeStudent(student);
