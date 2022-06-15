@@ -242,11 +242,31 @@ const Tree = ({x , y}) => {
 }
 
 const Badge = ({text, x, y, level}) => {
+  const id = `${Math.random()}-badge-clip-${x}-${y}`;
   const badgeR = 25;
   const height = badgeR * 2;
   const width = height;
+  const size = width;
   return `
-   <circle cx="${x + height}" cy="${y + width}" r="${badgeR}" class="badge"></circle>
+    <defs>
+      <rect id="${id}" x="${x + size / 2}" y="${y + size / 2}" width="${size}" height="${size}" rx="50%"
+
+      class="badge-rect"
+      />
+      <clipPath id="clipPath-${id}">
+        <use xlink:href="#${id}"/>
+      </clipPath>
+    </defs>
+
+    <use xlink:href="#${id}" />
+    <image
+      href="img/texture-100x100.jpg"
+      x="${x + height / 2}"
+      y="${y + height / 2}"
+      width="${size}" height="${size}"
+      clip-path="url(#clipPath-${id})"
+      class="level-${level[selectedStudent]}"
+    />
    <text x="${x + height}" y="${y + width}"
     text-anchor="middle"
     alignment-baseline="middle"
@@ -297,33 +317,35 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
   `;
 
   return `
-    <image
-      href="img/rock.jpg"
-      height="${height}"
-      width="${width}"
-      x="${x}"
-      y="${y}"
-      class="category category-level-${level[selectedStudent]}"
-      data-level-tony=${level.tony}
-      data-level-johnny=${level.johnny}
-      data-level-dimon=${level.dimon}
-    />
-   <text x="${x + width / 2}" y="${y + height / 2}"
-     text-anchor="middle"
-     alignment-baseline="middle"
-     class="category-text"
-   >
-     ${text}
-   </text>
-   ${Badge({
-     x: x + width / 2,
-     y: y + height / 2,
-     level,
-   })}
-   ${path1}
-   ${!isCss && path2}
-   ${isCss && path2Css}
-   ${path3}
+    <g class="category">
+      <image
+        href="img/rock.jpg"
+        height="${height}"
+        width="${width}"
+        x="${x}"
+        y="${y}"
+        class="category-img category-level-${level[selectedStudent]}"
+        data-level-tony=${level.tony}
+        data-level-johnny=${level.johnny}
+        data-level-dimon=${level.dimon}
+      />
+     <text x="${x + width / 2}" y="${y + height / 2}"
+       text-anchor="middle"
+       alignment-baseline="middle"
+       class="category-text"
+     >
+       ${text}
+     </text>
+     ${Badge({
+       x: x + width / 2,
+       y: y + height / 2,
+       level,
+     })}
+     ${path1}
+     ${!isCss && path2}
+     ${isCss && path2Css}
+     ${path3}
+   </g>
   `;
 };
 
