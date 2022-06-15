@@ -265,9 +265,9 @@ const Badge = ({text, x, y, level}) => {
       y="${y + height / 2}"
       width="${size}" height="${size}"
       clip-path="url(#clipPath-${id})"
-      class="level-${level[selectedStudent]}"
+      class="badge-img level-${level[selectedStudent]}"
     />
-   <text x="${x + height}" y="${y + width}"
+   <text x="${x + size + 2}" y="${y + size + 2}"
     text-anchor="middle"
     alignment-baseline="middle"
     data-level-tony=${level.tony}

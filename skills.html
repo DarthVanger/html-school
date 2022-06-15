@@ -13,8 +13,8 @@
   }
 
   svg text {
-    stroke: white;
-    fill: white;
+    stroke: black;
+    fill: black;
     letter-spacing: 3px;
     font-family: monospace;
     text-align: center;
@@ -50,7 +50,6 @@
 
   .level-2 {
     filter: invert(1) sepia(1) saturate(5) hue-rotate(322deg);
-    fill: #ff8244;
   }
 
   .level-3 {
@@ -59,12 +58,20 @@
   }
 
   .badge-rect {
-    stroke-width: 2px;
+    stroke-width: 4px;
     stroke: black;
+  }
+
+  .badge-img {
+    opacity: 0.8;
   }
 
   .category-img, .category image {
     filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+  }
+
+  .category-img.category-level-0 {
+    filter: none;
   }
 
   .category-text {
