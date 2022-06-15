@@ -24,7 +24,7 @@ const changeStudent = newStudent => {
     el.classList.add(`${selectedStudent}`);
   });
 
-  document.querySelectorAll('[class^=category-level-]').forEach(el => {
+  document.querySelectorAll('[class*=category-level-]').forEach(el => {
     const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
     const level = el.getAttribute(`data-level-${selectedStudent}`);
     el.classList.remove(`category-level-${prevLevel}`);
