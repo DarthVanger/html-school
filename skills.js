@@ -207,11 +207,11 @@ const Tree = ({x , y}) => {
   const css = skills.css;
   const js = skills.js;
 
-  const marginTop = 50;
+  const marginTop = 80;
 
-  const htmlX = skillBoxSize + skillBoxSize / 2;
-  const cssX = skillBoxSize + skillBoxSize * 3;
-  const jsX = skillBoxSize + skillBoxSize * 7;
+  const htmlX = skillBoxSize + 20;
+  const cssX = skillBoxSize + skillBoxSize * 2.65;
+  const jsX = skillBoxSize + skillBoxSize * 7.5;
 ;
 
   let html = `${SkillsLineHeading({
