@@ -13,9 +13,23 @@ const students = [
 
 let selectedStudent = window.location.hash.replace('#', '') || 'tony';
 
+const updateProgressArc = () => {
+  const levelProgress = points[selectedStudent] % 10 / 10;
+  const angle = Math.round(360 * levelProgress);
+
+  const arc = document.querySelector('.progress-arc');
+  const x = Number(arc.getAttribute('data-x'));
+  const y = Number(arc.getAttribute('data-y'));
+  const r = Number(arc.getAttribute('data-r'));
+  arc.setAttribute('d', describeArc(x, y, r, 0, angle));
+};
+
 const changeStudent = newStudent => {
   let prevStudent = selectedStudent;
   selectedStudent = newStudent;
+
+  updateProgressArc();
+
   document.querySelectorAll('[class^=level-]').forEach(el => {
     const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
     const level = el.getAttribute(`data-level-${selectedStudent}`);
@@ -263,13 +277,18 @@ const Tree = ({x , y}) => {
 }
 
 const badgeR = 25;
+
 const ProgressArc = ({x, y, r, points}) => {
   const levelProgress = points[selectedStudent] % 10 / 10;
   const angle = 360 * levelProgress;
+
   return `
     <path
       d="${describeArc(x, y, r, 0, angle)}"
-      class="student-level-path"
+      class="student-level-path progress-arc"
+      data-x="${x}"
+      data-y="${y}"
+      data-r="${r}"
     />
   `;
 }
