@@ -277,6 +277,7 @@ const StudentLevelBadge = ({text, x, y, level}) => {
        level,
        badgeR: 30,
      })};
+      <circle cx="${x}" cy="${y}" r="${30}" stroke="black" stroke-width="10" fill="transparent" />
       <path d="M ${x - size / 2 + 6} ${y + size / 4 + 3} 
              a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
              class="student-level-path"
