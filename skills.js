@@ -537,8 +537,12 @@ document.querySelector('section').innerHTML = svg;
 
 changeStudent(selectedStudent);
 
+let audioIsOn = false;
 document.body.addEventListener('click', () => {
-  var audio = new Audio('audio/tristram.webm');
-  audio.volume = 0.2;
-  audio.play();
+  if (!audioIsOn) {
+    audioIsOn = true;
+    var audio = new Audio('audio/tristram.webm');
+    audio.volume = 0.2;
+    audio.play();
+  }
 });
