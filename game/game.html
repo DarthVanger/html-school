@@ -3,51 +3,30 @@
     background: #202026;
   }
 
-  #ship-translator {
+  img {
     position: absolute;
     top: 0;
     left: 0;
     transition: all 0.1s linear;
   }
 
-  #ship-rotator {
-    width: 300px;
-    height: 300px;
-    transform: rotate(90deg);
-    transform-origin: center;
-    transition: all 1s;
-  }
-
-  #ship-rotator.left {
+  .left {
     transform: rotate(90deg);
   }
 
-  #ship-rotator.up {
+  .up {
     transform: rotate(180deg);
   }
 
-  #ship-rotator.right {
+  .right {
     transform: rotate(270deg);
   }
 
-  #ship-rotator.down {
+  .down {
     transform: rotate(360deg);
-  }
-
-  #ship-image {
-    width: 600px;
-    height: 600px;
-    background: url('ship.gif');
-    background-position: -20px -10px;
-    transform: scale(0.5);
-    transform-origin: left top;
   }
 </style>
 
-<div id="ship-translator">
-  <div id="ship-rotator" class="up">
-    <div id="ship-image" />
-  </div>
-</div>
+<img src="ship.gif" />
 
 <script src="game.js"></script>

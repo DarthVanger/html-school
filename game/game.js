@@ -1,5 +1,4 @@
-const ship = document.querySelector('#ship-translator');
-const rotator = document.querySelector('#ship-rotator');
+const ship = document.querySelector('img');
 
 let x = 0;
 let y = 0;
@@ -11,20 +10,20 @@ document.addEventListener('keydown', e => {
   if (e.key == 'ArrowUp') {
     y -= step;
     ship.style.top = y;
-    rotator.className = 'up';
+    ship.className = 'up';
   }
   if (e.key == 'ArrowDown') {
     y += step;
     ship.style.top = y;
-    rotator.className = 'down';
+    ship.className = 'down';
   }
   if (e.key == 'ArrowLeft') {
     x -= step;
     ship.style.left = x;
-    rotator.className = 'left';
+    ship.className = 'left';
   }
   if (e.key == 'ArrowRight') {
-    rotator.className = 'right';
+    ship.className = 'right';
     x += step;
     ship.style.left = x;
   }
