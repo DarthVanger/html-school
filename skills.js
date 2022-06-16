@@ -37,6 +37,10 @@ const changeStudent = newStudent => {
     el.innerHTML = el.getAttribute(`data-level-${selectedStudent}`);
   });
 
+  document.querySelectorAll('.exp-text').forEach(el => {
+    el.innerHTML = `Exp: ${points[selectedStudent]}`;
+  });
+
   document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
   document.querySelector(`.avatar-${selectedStudent}`).classList.remove('hide');
 
@@ -289,6 +293,14 @@ const StudentLevelBadge = ({text, x, y, level}) => {
           class="student-level-text"
         >
           Level
+     </text>
+      <text
+          x="${x}" y="${y + size + 8}"
+          text-anchor="middle"
+          alignment-baseline="middle"
+          class="exp-text"
+        >
+          Exp: ${points[selectedStudent]}
      </text>
    </g>
  `;
