@@ -7,6 +7,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    transition: all 0.1s linear;
   }
 
   #ship-rotator {
@@ -14,6 +15,7 @@
     height: 300px;
     transform: rotate(90deg);
     transform-origin: center;
+    transition: all 1s;
   }
 
   #ship-rotator.left {
@@ -29,7 +31,7 @@
   }
 
   #ship-rotator.down {
-    transform: rotate(0deg);
+    transform: rotate(360deg);
   }
 
   #ship-image {
