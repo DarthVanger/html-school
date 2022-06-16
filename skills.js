@@ -95,6 +95,11 @@ let skills = {
 };
 
 
+const levels = {};
+for (let student of students) {
+  levels[student] = 0;
+}
+
 for (let category in skills) {
   let categoryLevel = {};
   for (let student of students) {
@@ -107,8 +112,17 @@ for (let category in skills) {
       }
     }
   }
-
   skills[category].level = categoryLevel;
+}
+
+for (let student of students) {
+  for (let category in skills) {
+    levels[student] += skills[category].level[student];
+  }
+}
+
+for (let student of students) {
+  levels[student] = levels[student] / 10;
 }
 
 const Skill = ({ skill, x, y }) => {
@@ -247,6 +261,7 @@ const Badge = ({text, x, y, level}) => {
   const height = badgeR * 2;
   const width = height;
   const size = width;
+  
   return `
     <defs>
       <rect id="${id}" x="${x + size / 2}" y="${y + size / 2}" width="${size}" height="${size}" rx="50%"
@@ -369,8 +384,12 @@ const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
 
 const avatar = () => {
   const size = 270;
-  const x = '50%';
+  const screenWidth = window.screen.width;
+  const x = screenWidth / 2;
   const y = 220;
+
+  const levelProgress = levels[selectedStudent] % 1;
+  const angle = 2 * Math.PI * levelProgress;
 
   return `
   <defs>
@@ -383,6 +402,11 @@ const avatar = () => {
   </defs>
 
     <use xlink:href="#rect" stroke-width="2" stroke="black"/>
+    ${Badge({
+      x: x,
+      y: y,
+      level: levels,
+    })}
     <image
       class="avatar avatar-johnny"
       href="img/johnny.jpg"
@@ -410,6 +434,12 @@ const avatar = () => {
       width="${size}" height="${size}"
       clip-path="url(#clip)"
     />
+    <circle stroke-width="2px" stroke="pink" fill="transparent" cx="${x}" cy="${y}" r="${size / 2}" />
+    <path d="M ${x} ${y} 
+           m ${size / 2} 0
+           a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
+           stroke="black" fill="transparent" stroke-width="10"
+   />
   `;
 };
 
@@ -418,7 +448,7 @@ const tree = Tree({ x: 0, y: 0});
 const svg = `
 <svg height="${Math.max(...treeHeights)}">
 
-${avatar()}
+${avatar({ level: levels })}
 
 ${tree}
 
