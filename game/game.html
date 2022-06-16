@@ -27,6 +27,43 @@
   }
 </style>
 
-<img src="ship.gif" />
+<body>
+  <img src="ship.gif" />
+</body>
 
-<script src="game.js"></script>
+<script>
+  const ship = document.querySelector('img');
+
+  let x = 0;
+  let y = 0;
+
+  const step = 20;
+
+  document.addEventListener('keydown', moveShip);
+
+  function moveShip(event) {
+    if (event.key == 'ArrowUp') {
+      y -= step;
+      ship.style.top = y;
+      ship.className = 'up';
+    }
+
+    if (event.key == 'ArrowDown') {
+      y += step;
+      ship.style.top = y;
+      ship.className = 'down';
+    }
+
+    if (event.key == 'ArrowLeft') {
+      x -= step;
+      ship.style.left = x;
+      ship.className = 'left';
+    }
+
+    if (event.key == 'ArrowRight') {
+      x += step;
+      ship.className = 'right';
+      ship.style.left = x;
+    }
+  }
+</script>
