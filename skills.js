@@ -95,8 +95,10 @@ let skills = {
 };
 
 
+const points = {};
 const levels = {};
 for (let student of students) {
+  points[student] = 0;
   levels[student] = 0;
 }
 
@@ -117,12 +119,13 @@ for (let category in skills) {
 
 for (let student of students) {
   for (let category in skills) {
-    levels[student] += skills[category].level[student];
+    points[student] += skills[category].level[student];
   }
 }
 
 for (let student of students) {
-  levels[student] = levels[student] / 10;
+  //points[student] = Math.round(points[student] / 10);
+  levels[student] = Math.floor(points[student] / 10);
 }
 
 const Skill = ({ skill, x, y }) => {
@@ -255,9 +258,45 @@ const Tree = ({x , y}) => {
   return html;
 }
 
+const badgeR = 25;
+const StudentLevelBadge = ({text, x, y, level}) => {
+  const height = badgeR * 2;
+  const width = height;
+  const size = width;
+
+  const levelProgress = points[selectedStudent] % 10 / 10;
+  const angle = 2 * Math.PI * levelProgress;
+
+  return `
+    <path d="M ${x} ${y} 
+           m ${size / 2} 0
+           a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
+           stroke="black" fill="transparent" stroke-width="10"
+           id="student-level-path"
+   />
+    <text
+        x="${x}" y="${y + size}"
+        text-anchor="middle"
+        alignment-baseline="middle"
+      >
+        Level
+   </text>
+    <text
+        x="${x}" y="${y}"
+        text-anchor="middle"
+        alignment-baseline="middle"
+        data-level-tony=${level.tony}
+        data-level-johnny=${level.johnny}
+        data-level-dimon=${level.dimon}
+        class="badge-text"
+      >
+       ${level[selectedStudent]}
+   </text>
+ `;
+};
+
 const Badge = ({text, x, y, level}) => {
   const id = `${Math.random()}-badge-clip-${x}-${y}`;
-  const badgeR = 25;
   const height = badgeR * 2;
   const width = height;
   const size = width;
@@ -382,13 +421,14 @@ const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
  });
 
 
-const avatar = () => {
+const avatar = ({ level, points }) => {
   const size = 270;
   const screenWidth = window.screen.width;
   const x = screenWidth / 2;
   const y = 220;
 
-  const levelProgress = levels[selectedStudent] % 1;
+  const levelProgress = points[selectedStudent] % 10 / 10;
+  console.log('levelProgress: ', levelProgress)
   const angle = 2 * Math.PI * levelProgress;
 
   return `
@@ -402,11 +442,6 @@ const avatar = () => {
   </defs>
 
     <use xlink:href="#rect" stroke-width="2" stroke="black"/>
-    ${Badge({
-      x: x,
-      y: y,
-      level: levels,
-    })}
     <image
       class="avatar avatar-johnny"
       href="img/johnny.jpg"
@@ -440,6 +475,11 @@ const avatar = () => {
            a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
            stroke="black" fill="transparent" stroke-width="10"
    />
+    ${StudentLevelBadge({
+      x: x,
+      y: y + 50,
+      level: levels,
+    })}
   `;
 };
 
@@ -448,7 +488,7 @@ const tree = Tree({ x: 0, y: 0});
 const svg = `
 <svg height="${Math.max(...treeHeights)}">
 
-${avatar({ level: levels })}
+${avatar({ level: levels, points, })}
 
 ${tree}
 
