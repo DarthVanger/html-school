@@ -260,42 +260,41 @@ const Tree = ({x , y}) => {
 
 const badgeR = 25;
 const StudentLevelBadge = ({text, x, y, level}) => {
+  const badgeR = 30;
   const height = badgeR * 2;
   const width = height;
   const size = width;
 
   const levelProgress = points[selectedStudent] % 10 / 10;
-  const angle = 2 * Math.PI * levelProgress;
+  console.log('levelProgress: ', levelProgress);
+  const angle = 1 * Math.PI * levelProgress;
 
   return `
-    <path d="M ${x} ${y} 
-           m ${size / 2} 0
-           a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
-           stroke="black" fill="transparent" stroke-width="10"
-           id="student-level-path"
-   />
-    <text
-        x="${x}" y="${y + size}"
-        text-anchor="middle"
-        alignment-baseline="middle"
-      >
-        Level
-   </text>
-    <text
-        x="${x}" y="${y}"
-        text-anchor="middle"
-        alignment-baseline="middle"
-        data-level-tony=${level.tony}
-        data-level-johnny=${level.johnny}
-        data-level-dimon=${level.dimon}
-        class="badge-text"
-      >
-       ${level[selectedStudent]}
-   </text>
+    <g class="student-level">
+     ${Badge({
+       x: x - size,
+       y: y - size,
+       level,
+       badgeR: 30,
+     })};
+      <path d="M ${x - size / 2 + 6} ${y + size / 4 + 3} 
+             a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
+             class="student-level-path"
+     />
+      <text
+          x="${x}" y="${y + size - 10}"
+          text-anchor="middle"
+          alignment-baseline="middle"
+          class="student-level-text"
+        >
+          Level
+     </text>
+   </g>
  `;
 };
 
-const Badge = ({text, x, y, level}) => {
+const Badge = ({x, y, level, badgeR}) => {
+  if (!badgeR) badgeR = 25;
   const id = `${Math.random()}-badge-clip-${x}-${y}`;
   const height = badgeR * 2;
   const width = height;
@@ -428,7 +427,6 @@ const avatar = ({ level, points }) => {
   const y = 220;
 
   const levelProgress = points[selectedStudent] % 10 / 10;
-  console.log('levelProgress: ', levelProgress)
   const angle = 2 * Math.PI * levelProgress;
 
   return `
@@ -469,12 +467,7 @@ const avatar = ({ level, points }) => {
       width="${size}" height="${size}"
       clip-path="url(#clip)"
     />
-    <circle stroke-width="2px" stroke="pink" fill="transparent" cx="${x}" cy="${y}" r="${size / 2}" />
-    <path d="M ${x} ${y} 
-           m ${size / 2} 0
-           a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
-           stroke="black" fill="transparent" stroke-width="10"
-   />
+    <circle stroke-width="2px" stroke="black" fill="transparent" cx="${x}" cy="${y}" r="${size / 2}" />
     ${StudentLevelBadge({
       x: x,
       y: y + 50,
