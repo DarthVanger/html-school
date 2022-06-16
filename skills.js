@@ -539,6 +539,6 @@ changeStudent(selectedStudent);
 
 document.body.addEventListener('click', () => {
   var audio = new Audio('audio/tristram.webm');
-  audio.volume = 0.3;
+  audio.volume = 0.2;
   audio.play();
 });
