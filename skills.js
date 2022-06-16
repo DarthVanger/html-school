@@ -1,3 +1,4 @@
+import { describeArc } from './arc.js';
 
 const skillBoxSize = 120;
 const width = skillBoxSize;
@@ -210,8 +211,7 @@ const Tree = ({x , y}) => {
   const marginTop = 80;
 
   const htmlX = skillBoxSize + 20;
-  const cssX = skillBoxSize + skillBoxSize * 2.65;
-  const jsX = skillBoxSize + skillBoxSize * 7.5;
+  const cssX = skillBoxSize + skillBoxSize * 2.65; const jsX = skillBoxSize + skillBoxSize * 7.5;
 ;
 
   let html = `${SkillsLineHeading({
@@ -263,6 +263,17 @@ const Tree = ({x , y}) => {
 }
 
 const badgeR = 25;
+const ProgressArc = ({x, y, r, points}) => {
+  const levelProgress = points[selectedStudent] % 10 / 10;
+  const angle = 360 * levelProgress;
+  return `
+    <path
+      d="${describeArc(x, y, r, 0, angle)}"
+      class="student-level-path"
+    />
+  `;
+}
+
 const StudentLevelBadge = ({text, x, y, level}) => {
   const badgeR = 30;
   const height = badgeR * 2;
@@ -270,7 +281,6 @@ const StudentLevelBadge = ({text, x, y, level}) => {
   const size = width;
 
   const levelProgress = points[selectedStudent] % 10 / 10;
-  console.log('levelProgress: ', levelProgress);
   const angle = 1 * Math.PI * levelProgress;
 
   return `
@@ -281,11 +291,13 @@ const StudentLevelBadge = ({text, x, y, level}) => {
        level,
        badgeR: 30,
      })};
-      <circle cx="${x}" cy="${y}" r="${30}" stroke="black" stroke-width="10" fill="transparent" />
-      <path d="M ${x - size / 2 + 6} ${y + size / 4 + 3} 
-             a ${size / 2} ${size / 2} 0 1 0 ${-(size / 2) * Math.cos(angle) - size / 2} ${-(size / 2) * Math.sin(angle)}"
-             class="student-level-path"
-     />
+      <circle cx="${x}" cy="${y}" r="${badgeR}" stroke="black" stroke-width="10" fill="transparent" />
+     ${ProgressArc({
+       x,
+       y,
+       r: badgeR,
+       points,
+     })}
       <text
           x="${x}" y="${y + size - 10}"
           text-anchor="middle"
