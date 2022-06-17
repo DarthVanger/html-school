@@ -3,11 +3,23 @@
     background: #202026;
   }
 
+  video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
   img {
     position: absolute;
     top: 0;
     left: 0;
     transition: all 0.1s linear;
+    z-index: 1;
   }
 
   .down {
@@ -29,10 +41,15 @@
 
 <body>
   <img src="ship.gif" />
+  <video autoplay loop muted>
+    <source src="space.mp4" type="video/mp4" />
+  </video>
 </body>
 
 <script>
   const ship = document.querySelector('img');
+  const audio = new Audio('music.webm');
+  audio.volume = 0.5;
 
   let x = 0;
   let y = 0;
@@ -42,6 +59,8 @@
   document.addEventListener('keydown', moveShip);
 
   function moveShip(event) {
+    audio.play();
+
     if (event.key == 'ArrowUp') {
       y -= step;
       ship.style.top = y;
