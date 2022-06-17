@@ -11,8 +11,8 @@
 
   video {
     position: absolute;
-    top: -10vh;
-    left: -10vw;
+    top: 0;
+    left: 0;
     width: 120vw;
     height: 120vh;
     object-fit: cover;
@@ -71,28 +71,28 @@
     if (event.key == 'ArrowUp') {
       y -= step;
       ship.style.top = y;
-      video.style.top = -y / 5 - window.screen.height / 10;
+      video.style.top = -y / 5;
       ship.className = 'up';
     }
 
     if (event.key == 'ArrowDown') {
       y += step;
       ship.style.top = y;
-      video.style.top = -y / 5 - window.screen.height / 10;
+      video.style.top = -y / 5;
       ship.className = 'down';
     }
 
     if (event.key == 'ArrowLeft') {
       x -= step;
       ship.style.left = x;
-      video.style.left = -x / 5 - window.screen.width / 10;
+      video.style.left = -x / 5;
       ship.className = 'left';
     }
 
     if (event.key == 'ArrowRight') {
       x += step;
       ship.style.left = x;
-      video.style.left = -x / 5 - window.screen.width / 10;
+      video.style.left = -x / 5;
       ship.className = 'right';
     }
   }
