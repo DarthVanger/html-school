@@ -3,15 +3,6 @@
     background: #202026;
   }
 
-  @keyframes video {
-    0% {
-    filter: hue-rotate(5deg);
-    }
-    100% {
-    filter: hue-rotate(105deg);
-    }
-  }
-
   video {
     position: absolute;
     top: 0;
@@ -71,6 +62,7 @@
 
   function moveShip(event) {
     audio.play();
+    video.style.filter = `hue-rotate(${(x + y) / 10 % 360}deg)`;
 
     if (event.key == 'ArrowUp') {
       y -= step;
@@ -95,9 +87,5 @@
       ship.className = 'right';
       ship.style.left = x;
     }
-
-      console.log('video style:' ,video.style);
-    video.style.filter = `hue-rotate(${(x + y) / 10 % 360}deg)`;
-
   }
 </script>
