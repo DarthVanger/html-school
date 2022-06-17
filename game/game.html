@@ -11,8 +11,8 @@
 
   video {
     position: absolute;
-    top: -10vw;
-    left: -10vh;
+    top: -10vh;
+    left: -10vw;
     width: 120vw;
     height: 120vh;
     object-fit: cover;
@@ -85,14 +85,14 @@
     if (event.key == 'ArrowLeft') {
       x -= step;
       ship.style.left = x;
-      video.style.left = -x / 5 - window.screen.height / 10;
+      video.style.left = -x / 5 - window.screen.width / 10;
       ship.className = 'left';
     }
 
     if (event.key == 'ArrowRight') {
       x += step;
       ship.style.left = x;
-      video.style.left = -x / 5 - window.screen.height / 10;
+      video.style.left = -x / 5 - window.screen.width / 10;
       ship.className = 'right';
     }
   }
