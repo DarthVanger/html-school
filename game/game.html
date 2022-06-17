@@ -1,16 +1,20 @@
 <style>
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
   body {
     background: #202026;
   }
 
   video {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: -10vw;
+    left: -10vh;
+    width: 120vw;
+    height: 120vh;
     object-fit: cover;
   }
 
@@ -67,25 +71,29 @@
     if (event.key == 'ArrowUp') {
       y -= step;
       ship.style.top = y;
+      video.style.top = -y / 5 - window.screen.height / 10;
       ship.className = 'up';
     }
 
     if (event.key == 'ArrowDown') {
       y += step;
       ship.style.top = y;
+      video.style.top = -y / 5 - window.screen.height / 10;
       ship.className = 'down';
     }
 
     if (event.key == 'ArrowLeft') {
       x -= step;
       ship.style.left = x;
+      video.style.left = -x / 5 - window.screen.height / 10;
       ship.className = 'left';
     }
 
     if (event.key == 'ArrowRight') {
       x += step;
-      ship.className = 'right';
       ship.style.left = x;
+      video.style.left = -x / 5 - window.screen.height / 10;
+      ship.className = 'right';
     }
   }
 </script>
