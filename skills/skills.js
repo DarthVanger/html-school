@@ -486,7 +486,7 @@ const avatar = ({ level, points }) => {
     <use xlink:href="#rect" stroke-width="2" stroke="black"/>
     <image
       class="avatar avatar-johnny"
-      href="img/johnny.jpg"
+      href="../img/johnny.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
       y="${y}"
@@ -495,7 +495,7 @@ const avatar = ({ level, points }) => {
     />
     <image
       class="avatar avatar-tony hide"
-      href="img/tony.jpg"
+      href="../img/tony.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
       y="${y}"
@@ -504,7 +504,7 @@ const avatar = ({ level, points }) => {
     />
     <image
       class="avatar avatar-dimon hide"
-      href="img/dimon4ik-close.jpg"
+      href="../img/dimon4ik-close.jpg"
       transform="translate(${-size/2 }, ${-size/2})"
       x="${x}"
       y="${y}"
