@@ -765,6 +765,17 @@
     </div>
 </template>
 
+<template id="lesson3-page0">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.gif" />
+    </figure>
+    <p>
+    </p>
+</template>
+
 <script>
   const left = document.querySelector('.weed-border-left');
   const right = document.querySelector('.weed-border-right');
@@ -790,7 +801,7 @@
   };
 
   const showCurrentPage = () => {
-      const page = document.querySelector('#lesson2-page' + currentPage);
+      const page = document.querySelector('#lesson3-page' + currentPage);
       const pageContent = document.querySelector('.page-content');
       pageContent.innerHTML = '';
       pageContent.append(page.cloneNode(true).content);
