@@ -1,5 +1,7 @@
 import { describeArc } from './arc.js';
 import { skills, students, levels, points } from './Tree.js';
+import { Skill } from './Skill.js';
+import { Badge } from './Badge.js';
 
 const skillBoxSize = 120;
 const width = skillBoxSize;
@@ -67,70 +69,6 @@ links.forEach(link => {
 });
 
 
-const Skill = ({ skill, x, y }) => {
-  const height = skillBoxSize;
-  const width = skillBoxSize;
-
-  const Text = ({ text, x, y }) =>  {
-    const texts = skill.text.split('\n');
-    const fontSize = 18;
-    const lineHeight = fontSize * 2;
-    const numLines = texts.length;
-    const textHeight = fontSize * (numLines);
-    const translateY = numLines < 2 ? 0 :
-      - textHeight / 2;
-
-    let html = `
-      <g transform="translate(0, ${translateY})"
-      >
-    `;
-
-    texts.forEach((text, idx) => {
-      const textEncoded = text.replace('>', '&gt').replace('<', '&lt');
-
-      html += `
-      <text x=${x} y=${y + idx * lineHeight}
-       text-anchor="middle"
-       alignment-baseline="middle"
-      >
-        ${textEncoded}
-      </text>`;
-    });
-
-    html += '</g>';
-
-    html += Badge({
-      x,
-      y,
-      level: skill.level,
-    });
-
-    return html;
-  };
-
-
-  return `
-    <g class="skill}" width="${width}" height="${height}">
-     <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
-      <image
-        href="img/texture-100x100.jpg"
-        height="${height}"
-        width="${width}"
-        x="${x}"
-        y="${y}"
-        class="level-${skill.level[selectedStudent]} ${selectedStudent}"
-        data-level-tony=${skill.level.tony}
-        data-level-johnny=${skill.level.johnny}
-        data-level-dimon=${skill.level.dimon}
-      />
-     ${Text({
-       x: x + width / 2,
-       y: y + height / 2,
-       text: skill.text,
-     })}
-    </g>
- `;
-};
 
 const Path = ({x, y}) => `
    <path d="M${x} ${y} l ${0} ${skillBoxSize / 2}"></path>
@@ -229,6 +167,7 @@ const StudentLevelBadge = ({text, x, y, level}) => {
        y: y - size,
        level,
        badgeR: 30,
+       selectedStudent,
      })};
       <circle cx="${x}" cy="${y}" r="${badgeR}" stroke="black" stroke-width="10" fill="transparent" />
      ${ProgressArc({
@@ -257,45 +196,6 @@ const StudentLevelBadge = ({text, x, y, level}) => {
  `;
 };
 
-const Badge = ({x, y, level, badgeR}) => {
-  if (!badgeR) badgeR = 25;
-  const id = `${Math.random()}-badge-clip-${x}-${y}`;
-  const height = badgeR * 2;
-  const width = height;
-  const size = width;
-  
-  return `
-    <defs>
-      <rect id="${id}" x="${x + size / 2}" y="${y + size / 2}" width="${size}" height="${size}" rx="50%"
-
-      class="badge-rect"
-      />
-      <clipPath id="clipPath-${id}">
-        <use xlink:href="#${id}"/>
-      </clipPath>
-    </defs>
-
-    <use xlink:href="#${id}" />
-    <image
-      href="img/texture-100x100.jpg"
-      x="${x + height / 2}"
-      y="${y + height / 2}"
-      width="${size}" height="${size}"
-      clip-path="url(#clipPath-${id})"
-      class="badge-img level-${level[selectedStudent]}"
-    />
-   <text x="${x + size + 2}" y="${y + size + 2}"
-    text-anchor="middle"
-    alignment-baseline="middle"
-    data-level-tony=${level.tony}
-    data-level-johnny=${level.johnny}
-    data-level-dimon=${level.dimon}
-    class="badge-text"
-   >
-     ${level[selectedStudent]}
-   </text>
- `;
-};
 
 const SkillsLineHeading = ({ text, x, y, level }) => {
   const width = skillBoxSize;
@@ -357,6 +257,7 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
        x: x + width / 2,
        y: y + height / 2,
        level,
+       selectedStudent,
      })}
      ${path1}
      ${!isCss && path2}
@@ -375,6 +276,8 @@ const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
          skill,
          x,
          y: skillY,
+         selectedStudent,
+         skillBoxSize,
      })}
      ${isLastBox && Path({
        x: x + skillBoxSize / 2,
