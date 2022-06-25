@@ -200,6 +200,10 @@
     font-weight: bold;
   }
 
+  #lesson3-video {
+    height: 100%;
+  }
+
 </style>
 
 </head>
@@ -776,6 +780,35 @@
     </p>
 </template>
 
+<template id="lesson3-page1">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <video controls id="lesson3-video">
+        <source src="video/task3/video.mp4" type="video/mp4" />
+      </video>
+      <div class="lety4ka-tasks">
+        <div>0: ДОСТАТЬ НОУТ, СОЗДАТЬ ПУСТОЙ HTML файл</div>
+        <div>1: СКАЧАТЬ картинку и видео (ссылка в телеге)</div>
+        <div>2: ВСТАВИТЬ В САЙТ  &lt;video&gt;</div>
+        <div>3: ВСТАВИТЬ В САЙТ  &lt;img&gt;</div>
+        <div>4: СДЕЛАТЬ КАРТИНКУ НА ВСЮ ШИРИНУ ЭКРАНА <br /> <span class="tag" style="margin-left: 2em">&lt;style&gt; img { width: 100% } &lt;/style&gt;</span></div>
+      </div>
+    </figure>
+</template>
+
+<template id="lesson3-page2">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.gif" />
+    </figure>
+    <p>
+    </p>
+</template>
+
 <script>
   const left = document.querySelector('.weed-border-left');
   const right = document.querySelector('.weed-border-right');
@@ -818,7 +851,7 @@
         });
       }
 
-      const task1video = document.querySelector('#task1-video');
+      const task1video = document.querySelector('#lesson3-video');
       if (task1video) {
         const showTimer = (time) => {
             const h2 = document.querySelector('h2');
@@ -838,7 +871,7 @@
         };
 
         task1video.addEventListener('play', () => {
-            setTimeout(() => showTimer(5000), 33730);
+            setTimeout(() => showTimer(5000), 20000);
         });
       }
 
