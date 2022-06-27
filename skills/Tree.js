@@ -1,85 +1,169 @@
-export const students = [
-  'johnny',
-  'tony',
-  'dimon',
-];
+import { skills, students, levels, points } from './levels.js';
+import { Badge } from './Badge.js';
+import { Skill } from './Skill.js';
 
-let skills = {
-  html: [
-    [
-      { text: '<h1>', level: { johnny : 3, tony: 2, dimon: 3, } },
-      { text: '<p>', level: { johnny : 3, tony: 2, dimon: 3, }, },
-      { text: '<img>', level: { johnny : 3, tony: 2, dimon: 3, }, },
-      { text: '<br>', level: { johnny : 3, tony: 1, dimon: 3, } },
-      { text: '<hr>', level: { johnny : 3, tony: 1, dimon: 1, } },
-    ],
-    [
-      { text: '<a>', level: { johnny : 2, tony: 1, dimon: 3, }, },
-      { text: '<video>', level: { johnny : 3, tony: 1, dimon: 1, }, },
-    ],
-  ],
-  css: [
-    [
-      { text: 'h1, p', level: { johnny : 3, tony: 2, dimon: 2, }, },
-      { text: 'color', level: { johnny : 3, tony: 2, dimon: 3, }, },
-      { text: 'font\nsize', level: { johnny : 1, tony: 1, dimon: 1, }, },
-      { text: 'font\nfamily', level: { johnny : 0, tony: 0, dimon: 0, } },
-    ],
-    [
-      { text: 'padding', level: { johnny : 1, tony: 1, dimon: 1, } },
-      { text: 'margin', level: { johnny : 1, tony: 1, dimon: 1, } },
-      { text: 'border', level: { johnny : 1, tony: 1, dimon: 1, } },
-      { text: 'position', level: { johnny : 0, tony: 0, dimon: 0, } },
-    ],
-  ],
-  js: [
-    [
-      { text: 'on\nclick', level: { johnny: 2, tony: 0, dimon: 1, }, },
-      { text: 'style', level: { johnny: 2, tony: 0, dimon: 0, }, },
-      { text: 'inner\nHTML', level: { johnny : 2, tony: 0, dimon: 1, }, },
-    ],
-    [
-      { text: 'var\niables', level: { johnny: 0, tony: 0, dimon: 0, }, },
-      { text: 'func\ntions', level: { johnny: 1, tony: 0, dimon: 1, }, },
-    ],
-  ]
+const skillBoxSize = 120;
+let treeHeights = [];
+let treeWidth = 0;
+
+const Path = ({x, y}) => `
+   <path d="M${x} ${y} l ${0} ${skillBoxSize / 2}"></path>
+ `;
+
+const SkillsLineHeading = ({ text, x, y, level, selectedStudent }) => {
+  const width = skillBoxSize;
+  const height = skillBoxSize;
+
+  const path1 = `<path d="M ${x + skillBoxSize / 2} ${y + skillBoxSize} l 0 ${skillBoxSize / 4}" />`;
+
+  const path2 = `
+    <path d="
+        M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
+        l ${skillBoxSize} 0
+        l 0 ${skillBoxSize / 4}
+      "
+    />
+  `;
+
+  const path3 = `
+    <path d="
+        M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
+        l ${-skillBoxSize} 0
+        l 0 ${skillBoxSize / 4}
+      "
+    />
+  `;
+
+  const isCss = text == 'CSS';
+
+  const path2Css = `
+    <path d="
+        M ${x + skillBoxSize / 2} ${y + skillBoxSize * 5 / 4}
+        l 0 ${skillBoxSize + skillBoxSize / 4}
+        l ${skillBoxSize} 0
+        l 0 ${skillBoxSize / 4}
+      "
+    />
+  `;
+
+  return `
+    <g class="category">
+      <image
+        href="img/rock.jpg"
+        height="${height}"
+        width="${width}"
+        x="${x}"
+        y="${y}"
+        class="category-img category-level-${level[selectedStudent]}"
+        data-level-tony=${level.tony}
+        data-level-johnny=${level.johnny}
+        data-level-dimon=${level.dimon}
+      />
+     <text x="${x + width / 2}" y="${y + height / 2}"
+       text-anchor="middle"
+       alignment-baseline="middle"
+       class="category-text"
+     >
+       ${text}
+     </text>
+     ${Badge({
+       x: x + width / 2,
+       y: y + height / 2,
+       level,
+       selectedStudent,
+     })}
+     ${path1}
+     ${!isCss && path2}
+     ${isCss && path2Css}
+     ${path3}
+   </g>
+  `;
 };
 
-const points = {};
-const levels = {};
-for (let student of students) {
-  points[student] = 0;
-  levels[student] = 0;
+const SkillsLine = ({ skills, x, y, selectedStudent }) => skills.map((skill, idx) => {
+    const isLastBox = idx <= skills.length - 2;
+    const skillY = idx * skillBoxSize * 3 / 2 + y;
+    if (isLastBox) treeHeights.push(skillY + skillBoxSize * 3);
+    return ` 
+     ${Skill({
+         skill,
+         x,
+         y: skillY,
+         selectedStudent,
+         skillBoxSize,
+     })}
+     ${isLastBox && Path({
+       x: x + skillBoxSize / 2,
+       y: skillBoxSize + skillY,
+     })};
+  `;
+ });
+
+let treeHeight = 0;
+export const Tree = ({x , y, selectedStudent}) => {
+  const htmlSkills = skills.html;
+  const css = skills.css;
+  const js = skills.js;
+
+  const marginTop = 80;
+
+  const htmlX = skillBoxSize + 20;
+  const cssX = skillBoxSize + skillBoxSize * 2.65;
+  const jsX = skillBoxSize + skillBoxSize * 7.5;
+
+  treeWidth = jsX + skillBoxSize * 3.5; 
+
+  let html = `${SkillsLineHeading({
+    text: 'HTML',
+    x: htmlX,
+    y: marginTop,
+    level: htmlSkills.level,
+    selectedStudent,
+  })}`;
+
+  html += `${SkillsLineHeading({
+    text: 'CSS',
+    x: cssX + skillBoxSize,
+    y: marginTop,
+    level: css.level,
+    selectedStudent,
+  })}`;
+
+  html += `${SkillsLineHeading({
+    text: 'JS',
+    x: jsX + skillBoxSize,
+    y: marginTop,
+    level: js.level,
+    selectedStudent,
+  })}`;
+
+  treeHeight += marginTop;
+
+  const branchY = skillBoxSize * 3 / 2  + marginTop;
+
+  htmlSkills.forEach((line, idx) => {
+    const x = htmlX - skillBoxSize + idx * (skillBoxSize * 2);
+    const y = branchY;
+    html += SkillsLine({ skills: line, x, y, selectedStudent });
+  });
+
+  css.forEach((line, idx) => {
+    const x = cssX + idx * skillBoxSize * 2;
+    let y = branchY;
+    // space for avatar
+    if (idx == 1) y += 150;
+    html += SkillsLine({ skills: line, x, y, selectedStudent });
+  });
+
+  js.forEach((line, idx) => {
+    const x = jsX + idx * skillBoxSize * 2;
+    const y = branchY;
+    html += SkillsLine({ skills: line, x, y, selectedStudent });
+  });
+
+  treeHeight = Math.max(...treeHeights);
+
+  return html;
 }
 
-for (let category in skills) {
-  let categoryLevel = {};
-  for (let student of students) {
-    categoryLevel[student] = 0;
-  }
-  for (let branch of skills[category]) {
-    for (let skill of branch) {
-      for (let student of students) {
-        categoryLevel[student] += skill.level[student];
-      }
-    }
-  }
-  skills[category].level = categoryLevel;
-}
-
-for (let student of students) {
-  for (let category in skills) {
-    points[student] += skills[category].level[student];
-  }
-}
-
-for (let student of students) {
-  //points[student] = Math.round(points[student] / 10);
-  levels[student] = Math.floor(points[student] / 10);
-}
-
-console.log('levels: ', levels);
-console.log('points: ', points);
-console.log('skills: ', skills);
-
-export { skills, levels, points };
+export { treeWidth, treeHeight };
