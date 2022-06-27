@@ -8,7 +8,6 @@ import { Avatar } from './Avatar.js';
 const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
-let treeHeights = [];
 
 let selectedStudent = window.location.hash.replace('#', '') || 'tony';
 
