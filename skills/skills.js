@@ -8,6 +8,7 @@ const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
 let treeHeights = [];
+let treeWidth = 0;
 
 let selectedStudent = window.location.hash.replace('#', '') || 'tony';
 
@@ -84,8 +85,10 @@ const Tree = ({x , y}) => {
   const marginTop = 80;
 
   const htmlX = skillBoxSize + 20;
-  const cssX = skillBoxSize + skillBoxSize * 2.65; const jsX = skillBoxSize + skillBoxSize * 7.5;
-;
+  const cssX = skillBoxSize + skillBoxSize * 2.65;
+  const jsX = skillBoxSize + skillBoxSize * 7.5;
+
+  treeWidth = jsX + skillBoxSize * 3.5; 
 
   let html = `${SkillsLineHeading({
     text: 'HTML',
@@ -231,8 +234,10 @@ const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
 
 const tree = Tree({ x: 0, y: 0});
 
+treeHeight = Math.max(...treeHeights);
+
 const svg = `
-<svg height="${Math.max(...treeHeights)}">
+<svg height="${treeHeight}" viewBox="0 0 ${treeWidth} ${treeHeight}">
 
 ${Avatar({ levels, points, selectedStudent })}
 
