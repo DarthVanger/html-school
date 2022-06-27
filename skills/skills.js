@@ -2,6 +2,7 @@ import { describeArc } from './arc.js';
 import { skills, students, levels, points } from './Tree.js';
 import { Skill } from './Skill.js';
 import { Badge } from './Badge.js';
+import { Avatar } from './Avatar.js';
 
 const skillBoxSize = 120;
 const width = skillBoxSize;
@@ -136,66 +137,6 @@ const Tree = ({x , y}) => {
 
 const badgeR = 25;
 
-const ProgressArc = ({x, y, r, points}) => {
-  const levelProgress = points[selectedStudent] % 10 / 10;
-  const angle = 360 * levelProgress;
-
-  return `
-    <path
-      d="${describeArc(x, y, r, 0, angle)}"
-      class="student-level-path progress-arc"
-      data-x="${x}"
-      data-y="${y}"
-      data-r="${r}"
-    />
-  `;
-}
-
-const StudentLevelBadge = ({text, x, y, level}) => {
-  const badgeR = 30;
-  const height = badgeR * 2;
-  const width = height;
-  const size = width;
-
-  const levelProgress = points[selectedStudent] % 10 / 10;
-  const angle = 1 * Math.PI * levelProgress;
-
-  return `
-    <g class="student-level">
-     ${Badge({
-       x: x - size,
-       y: y - size,
-       level,
-       badgeR: 30,
-       selectedStudent,
-     })};
-      <circle cx="${x}" cy="${y}" r="${badgeR}" stroke="black" stroke-width="10" fill="transparent" />
-     ${ProgressArc({
-       x,
-       y,
-       r: badgeR,
-       points,
-     })}
-      <text
-          x="${x}" y="${y + size - 10}"
-          text-anchor="middle"
-          alignment-baseline="middle"
-          class="student-level-text"
-        >
-          Level
-     </text>
-      <text
-          x="${x}" y="${y + size + 8}"
-          text-anchor="middle"
-          alignment-baseline="middle"
-          class="exp-text"
-        >
-          Exp: ${points[selectedStudent]}
-     </text>
-   </g>
- `;
-};
-
 
 const SkillsLineHeading = ({ text, x, y, level }) => {
   const width = skillBoxSize;
@@ -287,68 +228,13 @@ const SkillsLine = ({ skills, x, y }) => skills.map((skill, idx) => {
  });
 
 
-const avatar = ({ level, points }) => {
-  const size = 270;
-  const screenWidth = window.screen.width;
-  const x = screenWidth / 2;
-  const y = 220;
-
-  const levelProgress = points[selectedStudent] % 10 / 10;
-  const angle = 2 * Math.PI * levelProgress;
-
-  return `
-  <defs>
-    <rect id="rect" x="${x}" y="${y}" width="${size}" height="${size}" rx="50%"
-
-    />
-    <clipPath id="clip">
-      <use xlink:href="#rect"/>
-    </clipPath>
-  </defs>
-
-    <use xlink:href="#rect" stroke-width="2" stroke="black"/>
-    <image
-      class="avatar avatar-johnny"
-      href="../img/johnny.jpg"
-      transform="translate(${-size/2 }, ${-size/2})"
-      x="${x}"
-      y="${y}"
-      width="${size}" height="${size}"
-      clip-path="url(#clip)"
-    />
-    <image
-      class="avatar avatar-tony hide"
-      href="../img/tony.jpg"
-      transform="translate(${-size/2 }, ${-size/2})"
-      x="${x}"
-      y="${y}"
-      width="${size}" height="${size}"
-      clip-path="url(#clip)"
-    />
-    <image
-      class="avatar avatar-dimon hide"
-      href="../img/dimon4ik-close.jpg"
-      transform="translate(${-size/2 }, ${-size/2})"
-      x="${x}"
-      y="${y}"
-      width="${size}" height="${size}"
-      clip-path="url(#clip)"
-    />
-    <circle stroke-width="2px" stroke="black" fill="transparent" cx="${x}" cy="${y}" r="${size / 2}" />
-    ${StudentLevelBadge({
-      x: x,
-      y: y + 50,
-      level: levels,
-    })}
-  `;
-};
 
 const tree = Tree({ x: 0, y: 0});
 
 const svg = `
 <svg height="${Math.max(...treeHeights)}">
 
-${avatar({ level: levels, points, })}
+${Avatar({ levels, points, selectedStudent })}
 
 ${tree}
 
