@@ -590,7 +590,7 @@
 
     <h3>Reality</h3>
     <p>
-      <div id="reality">
+      <div>
         <ul>
           <li>Tony: <input type="text" /></li>
           <li>Kertis: <input type="text" /></li>
@@ -764,7 +764,7 @@
     </div>
 
     <h3>Reality</h3>
-    <div id="reality">
+    <div>
       <ul>
         <li>Tony: <input type="text" /></li>
         <li>Kertis: <input type="text" /></li>
@@ -943,15 +943,83 @@
     </figure>
 </template>
 
-<template id="lesson4-page2">
+<template id="lesson4-page4">
     <h2>
-      CSS: POSITION ABSOLUTE
+      Event object
     </h2>
-    <figure>
-      <img src="img/css-absolute.png" />
-    </figure>
     <p>
+    <pre style="letter-spacing: 2px;">
+      function handleClick(event) {
+
+        &nbsp;&nbsp;console.log(event);
+
+      }
+
+      document.addEventListener('click', handleClick);
+      </pre>
     </p>
+</template>
+
+<template id="lesson4-page5">
+    <h2>
+      pageX and pageY
+    </h2>
+    <p>
+    <pre style="letter-spacing: 2px;">
+      function handleClick(event) {
+
+        var korabel = document.querySelector('img');
+
+        korabel.style.left = event.pageX;
+
+        korabel.style.top = event.pageY;
+
+      }
+
+      document.addEventListener('click', handleClick);
+      </pre>
+    </p>
+</template>
+
+<template id="lesson4-page6">
+    <h2>
+      Centering: 366x320
+    </h2>
+    <p>
+    <pre style="letter-spacing: 2px;">
+      function handleClick(event) {
+
+        var korabel = document.querySelector('img');
+
+        <span style="color: red;">korabel.style.left = event.pageX - 366 / 2;</span>
+
+        <span style="color: red;">korabel.style.top = event.pageY - 320 / 2;</span>
+
+      }
+
+      document.addEventListener('click', handleClick);
+      </pre>
+    </p>
+</template>
+
+<template id="lesson4-page7">
+  <div class="expectation-reality">
+    <h2>
+      Expectation / Reality
+    </h2>
+    <h3>Expectation</h3>
+    <div id="expecation">
+    </div>
+
+    <h3>Reality</h3>
+      <div>
+        <ul>
+          <li>Tony: <input type="text" /></li>
+          <li>Kertis: <input type="text" /></li>
+          <li>Johnny: <input type="text" /></li>
+          <li>Morphem: <input type="text" /></li>
+       </ul>
+      </div>
 </template>
 
 <script>
@@ -1042,7 +1110,6 @@
       }
 
       const expectation = document.querySelector('#expecation');
-      const reality = document.querySelector('#reality');
       if (expectation) {
           const tony = localStorage.getItem('tony');
           const kertis = localStorage.getItem('kertis');
