@@ -899,11 +899,6 @@
       </label>
       <br />
       <br />
-      <label>KERTIS
-        <input type="text" name="kertis" />
-      </label>
-      <br />
-      <br />
       <label>JOHNNY
         <input type="text" name="johnny" />
       </label>
@@ -1015,7 +1010,6 @@
       <div>
         <ul>
           <li>Tony: <input type="text" /></li>
-          <li>Kertis: <input type="text" /></li>
           <li>Johnny: <input type="text" /></li>
           <li>Morphem: <input type="text" /></li>
        </ul>
@@ -1112,13 +1106,11 @@
       const expectation = document.querySelector('#expecation');
       if (expectation) {
           const tony = localStorage.getItem('tony');
-          const kertis = localStorage.getItem('kertis');
           const morphem = localStorage.getItem('morphem');
           const johnny = localStorage.getItem('johnny');
           expectation.innerHTML = `
             <ul>
              <li>Tony: ${tony}</li>
-             <li>Kertis: ${kertis}</li>
              <li>Johnny: ${johnny}</li>
              <li>Morphem: ${morphem}</li>
            </ul>
