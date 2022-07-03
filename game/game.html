@@ -64,6 +64,15 @@
 
   document.addEventListener('keydown', moveShip);
 
+  document.addEventListener('click', moveShipOnClick);
+
+  function moveShipOnClick(event) {
+      x = event.pageX - 320 / 2;
+      y = event.pageY - 366 / 2;
+      ship.style.left = x;
+      ship.style.top = y;
+  }
+
   function moveShip(event) {
     audio.play();
     video.style.filter = `hue-rotate(${(x + y) / 10 % 360}deg)`;
