@@ -200,8 +200,13 @@
     font-weight: bold;
   }
 
-  #lesson3-video {
+  .height100 {
     height: 100%;
+  }
+
+  .page-content iframe {
+    width: 80vw;
+    height: 70vh;
   }
 
 </style>
@@ -785,7 +790,7 @@
       ЛИТУЧКА
     </h2>
     <figure>
-      <video controls id="lesson3-video">
+      <video controls class="height100">
         <source src="video/task3/video.mp4" type="video/mp4" />
       </video>
       <div class="lety4ka-tasks">
@@ -875,6 +880,80 @@
     </p>
 </template>
 
+<!-- LESSON 4 -->
+<template id="lesson4-page0">
+    <h2>
+      ЧЕ ДЕЛАЕМ
+    </h2>
+    <iframe src="game/game.html">
+    </iframe>
+</template>
+
+<template id="lesson4-page1">
+    <h2>
+      НАСКОЛЬКО ЭТО СЛОЖНО?
+    </h2>
+    <p class="expectations-form">
+      <label>TONY
+        <input type="text" name="tony" />
+      </label>
+      <br />
+      <br />
+      <label>KERTIS
+        <input type="text" name="kertis" />
+      </label>
+      <br />
+      <br />
+      <label>JOHNNY
+        <input type="text" name="johnny" />
+      </label>
+      <br />
+      <br />
+      <label>MORPHEM
+        <input type="text" name="morphem" />
+      </label>
+    </p>
+</template>
+
+<template id="lesson4-page2">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.gif" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson4-page3">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <video controls id="lesson4-video" class="task">
+        <source src="video/task4/video.mp4" type="video/mp4" />
+      </video>
+      <video controls id="lesson4-video" class="noisia" style="display: none; height: 100%;">
+        <source src="video/noisia.mp4" type="video/mp4" />
+      </video>
+      <div class="lety4ka-tasks">
+        <pre></pre>
+      </div>
+    </figure>
+</template>
+
+<template id="lesson4-page2">
+    <h2>
+      CSS: POSITION ABSOLUTE
+    </h2>
+    <figure>
+      <img src="img/css-absolute.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
 <script>
   const left = document.querySelector('.weed-border-left');
   const right = document.querySelector('.weed-border-right');
@@ -900,7 +979,7 @@
   };
 
   const showCurrentPage = () => {
-      const page = document.querySelector('#lesson3-page' + currentPage);
+      const page = document.querySelector('#lesson4-page' + currentPage);
       const pageContent = document.querySelector('.page-content');
       pageContent.innerHTML = '';
       pageContent.append(page.cloneNode(true).content);
@@ -917,14 +996,35 @@
         });
       }
 
-      const task1video = document.querySelector('#lesson3-video');
+      const task1video = document.querySelector('#lesson4-video');
       if (task1video) {
         const showTimer = (time) => {
             const h2 = document.querySelector('h2');
             const tasks = document.querySelector('.lety4ka-tasks');
+            const pre = tasks.querySelector('pre');
+            const taskVideo = document.querySelector('video.task');
+            taskVideo.style.display = 'none';
+            const noisia = document.querySelector('video.noisia');
+            noisia.style.display = 'initial';
             tasks.style.display = 'block';
             h2.style.color = 'red';
             const startTime = (new Date()).getTime();
+
+            tasks.addEventListener('click', () => {
+                noisia.play();
+            });
+
+            pre.textContent = `
+<script>
+  function moveShip() {
+      var ship = document.querySelector('img');
+      ship.style.left = '500px';
+  }
+
+  document.addEventListener('click', moveShip);
+<\/script>
+          `;
+
             setInterval(() => {
                 const currentTime = (new Date()).getTime();
                 const diff = currentTime - startTime;
@@ -937,7 +1037,7 @@
         };
 
         task1video.addEventListener('play', () => {
-            setTimeout(() => showTimer(5000), 20000);
+            setTimeout(() => showTimer(5000), 46470);
         });
       }
 
