@@ -7,6 +7,7 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
   }
 
   #playground {
@@ -16,13 +17,22 @@
   }
 
   #editor {
-    border: solid blue 2px;
     width: 100%;
     height: 100%;
+    overflow: auto;
+    margin: 0;
+  }
+
+  #editor code {
+    margin-top: -24px;
+    font-size: 18px;
+  }
+
+  #editor code:focus-visible {
+    outline: none;
   }
 
   #result {
-    border: solid blue 2px;
     width: 100%;
     height: 100%;
   }
@@ -34,3 +44,9 @@
 </body>
 
 <script src="conditionals.js" type="module"></script>
+
+<link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>

@@ -2,11 +2,13 @@ const playground = document.createElement('div');
 
 playground.id = 'playground';
 playground.innerHTML = `
-  <textarea id="editor"></textarea>
+  <pre id="editor">
+    <code contenteditable class="language-html"></code>
+  </pre>
   <iframe id="result"></iframe>
 `
 
-const getEditor = () => document.querySelector('#editor');
+const getEditor = () => document.querySelector('#editor > code');
 const getIframe = () => document.querySelector('iframe');
 
 const setResult = (code) => {
@@ -28,7 +30,7 @@ export const run = code => {
 };
 
 export const setCode = (code) => {
-  getEditor().value = code;
+  getEditor().textContent = code;
   run(code);
 }
 
