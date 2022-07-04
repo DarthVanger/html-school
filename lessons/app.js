@@ -2,12 +2,12 @@ const app = document.querySelector('#app');
 const lessons = [
   {
     url: 'conditionals',
-    img: '<img src="conditionals.jpeg" />',
+    img: '<img src="conditionals/conditionals.jpeg" />',
     title: 'conditionals',
   },
   {
     url: 'conditionals',
-    img: '<img src="conditionals.jpeg" />',
+    img: '<img src="conditionals/conditionals.jpeg" />',
     title: 'conditionals',
   },
 ];

@@ -1,0 +1,56 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  #playground {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+  }
+
+  #editor {
+    border: solid blue 2px;
+    width: 100%;
+    height: 100%;
+  }
+
+  #result {
+    border: solid blue 2px;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<body>
+  <div id="playground">
+    <textarea id="editor"></textarea>
+    <div id="result"></div>
+  </div>
+</body>
+
+<script>
+  const playground = document.querySelector('#playground');
+  const editor = document.querySelector('#editor');
+  const result = document.querySelector('#result');
+  console.log('playgorund', playground);
+  playground.addEventListener('keyup', event => {
+      const code = event.target.value;
+      result.innerHTML = code;
+      const newScript = document.createElement('script');
+      newScript.id = "adin";
+      const script = result.querySelector('script');
+      console.log('script: ', script);
+      if (script) {
+        newScript.innerHTML = script.innerHTML;
+        document.head.appendChild(newScript);
+      }
+
+  });
+</script>
