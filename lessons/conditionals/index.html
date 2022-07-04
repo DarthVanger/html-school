@@ -29,28 +29,8 @@
 </style>
 
 <body>
-  <div id="playground">
-    <textarea id="editor"></textarea>
-    <div id="result"></div>
+  <div id="conditionals-lesson">
   </div>
 </body>
 
-<script>
-  const playground = document.querySelector('#playground');
-  const editor = document.querySelector('#editor');
-  const result = document.querySelector('#result');
-  console.log('playgorund', playground);
-  playground.addEventListener('keyup', event => {
-      const code = event.target.value;
-      result.innerHTML = code;
-      const newScript = document.createElement('script');
-      newScript.id = "adin";
-      const script = result.querySelector('script');
-      console.log('script: ', script);
-      if (script) {
-        newScript.innerHTML = script.innerHTML;
-        document.head.appendChild(newScript);
-      }
-
-  });
-</script>
+<script src="conditionals.js" type="module"></script>
