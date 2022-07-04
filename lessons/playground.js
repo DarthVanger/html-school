@@ -3,28 +3,28 @@ const playground = document.createElement('div');
 playground.id = 'playground';
 playground.innerHTML = `
   <textarea id="editor"></textarea>
-  <div id="result"></div>
+  <iframe id="result"></iframe>
 `
 
 const getEditor = () => document.querySelector('#editor');
-const getResult = () => document.querySelector('#result');
+const getIframe = () => document.querySelector('iframe');
+
+const setResult = (code) => {
+  playground.querySelector('iframe').remove();
+  const iframe = document.createElement('iframe');
+  iframe.id = "result";
+  playground.append(iframe);
+  replaceIframeContent(getIframe(), code);
+};
 
 export const run = code => {
-    getResult().innerHTML = code;
+    setResult(code);
+    //const script = `<script>${code</script>`;
+    //const script = getResult().querySelector('script');
 
-    const newScript = document.createElement('script');
-    newScript.id = "playground-script";
+    //const newScript = document.createElement('script');
+    //newScript.id = "playground-script";
 
-    const script = getResult().querySelector('script');
-
-    if (script) {
-      newScript.innerHTML = script.innerHTML;
-
-      const existingScript = document.querySelector('#playground-script');
-
-      if (existingScript) existingScript.remove();
-      document.head.appendChild(newScript);
-    }
 };
 
 export const setCode = (code) => {
@@ -34,3 +34,12 @@ export const setCode = (code) => {
 
 export default playground;
 export { getEditor };
+
+// https://stackoverflow.com/a/51167233/1657101
+function replaceIframeContent(iframeElement, newHTML)
+{
+    iframeElement.src = "about:blank";
+    iframeElement.contentWindow.document.open();
+    iframeElement.contentWindow.document.write(newHTML);
+    iframeElement.contentWindow.document.close();
+}
