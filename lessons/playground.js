@@ -11,7 +11,8 @@ playground.innerHTML = `
 const getEditor = () => document.querySelector('#editor > code');
 const getIframe = () => document.querySelector('iframe');
 
-const setResult = (code) => {
+export const run = () => {
+  const code = getEditor().textContent;
   playground.querySelector('iframe').remove();
   const iframe = document.createElement('iframe');
   iframe.id = "result";
@@ -19,19 +20,9 @@ const setResult = (code) => {
   replaceIframeContent(getIframe(), code);
 };
 
-export const run = code => {
-    setResult(code);
-    //const script = `<script>${code</script>`;
-    //const script = getResult().querySelector('script');
-
-    //const newScript = document.createElement('script');
-    //newScript.id = "playground-script";
-
-};
-
 export const setCode = (code) => {
   getEditor().textContent = code;
-  run(code);
+  run();
 }
 
 export default playground;
