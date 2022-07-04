@@ -26,6 +26,34 @@
     z-index: 1;
   }
 
+  svg {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @keyframes dash {
+    from {
+      stroke-dashoffset: 1000;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  line {
+    stroke: white;
+    stroke-width: 5;
+    stroke-dasharray: 12 12;
+    animation: dash 20s linear;
+  }
+
+  text {
+    fill: white;
+    stroke: white;
+  }
+
   .down {
     transform: rotate(0deg);
   }
@@ -48,6 +76,10 @@
   <video autoplay loop muted>
     <source src="../video/space-1050p.mp4" type="video/mp4" />
   </video>
+  <svg>
+    <line x1="0" y1="0" x2="600" y2="600" stroke="black" />
+    <text x="100" y="100">x: 0</text>
+  </svg>
 </body>
 
 <script>
@@ -65,6 +97,8 @@
   document.addEventListener('keydown', moveShip);
 
   document.addEventListener('click', moveShipOnClick);
+
+  document.addEventListener('mousemove', showLines);
 
   function moveShipOnClick(event) {
       x = event.pageX - 320 / 2;
@@ -104,5 +138,18 @@
       video.style.left = -x / 5;
       ship.className = 'right';
     }
+  }
+
+  function showLines(event) {
+      var line = document.querySelector('line');
+      var text = document.querySelector('text');
+
+      line.setAttribute('x2', event.pageX);
+      line.setAttribute('y2', event.pageY);
+
+      text.setAttribute('x', event.pageX + 20);
+      text.setAttribute('y', event.pageY);
+      text.textContent = 'X: ' + event.pageX;
+
   }
 </script>
