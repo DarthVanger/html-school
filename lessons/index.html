@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <style>
+      :root {
+        --mobile-width: 600px;
+      }
+      ul {
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0px;
+
+        display: grid;
+        gap: 1rem;
+      }
+      @media (min-width: 600px) {
+        ul {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script src="app.js" type="module"></script>
+</html>
