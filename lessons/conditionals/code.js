@@ -1,21 +1,11 @@
 export default `
 <style>
-  html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  body {
-    background: #202026;
-  }
-
   video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 120vw;
-    height: 120vh;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
   }
 
@@ -29,46 +19,20 @@ export default `
 
   svg {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     width: 100vw;
     height: 100vh;
-  }
-
-  @keyframes dash {
-    from {
-      stroke-dashoffset: 1000;
-    }
-    to {
-      stroke-dashoffset: 0;
-    }
   }
 
   line {
     stroke: white;
     stroke-width: 5;
     stroke-dasharray: 12 12;
-    animation: dash 20s linear;
   }
 
   text {
     fill: white;
     stroke: white;
-  }
-
-  .down {
-    transform: rotate(0deg);
-  }
-
-  .left {
-    transform: rotate(90deg);
-  }
-
-  .up {
-    transform: rotate(180deg);
-  }
-
-  .right {
-    transform: rotate(270deg);
   }
 </style>
 
@@ -87,15 +51,10 @@ export default `
   const ship = document.querySelector('img');
   const video = document.querySelector('video');
 
-  const audio = new Audio('song.webm');
-  audio.volume = 0.5;
-
   let x = 0;
   let y = 0;
 
   const step = 20;
-
-  document.addEventListener('keydown', moveShip);
 
   document.addEventListener('click', moveShipOnClick);
 
@@ -106,37 +65,6 @@ export default `
       y = event.pageY - 366 / 2;
       ship.style.left = x;
       ship.style.top = y;
-  }
-
-  function moveShip(event) {
-
-    if (event.key == 'ArrowUp') {
-      y -= step;
-      ship.style.top = y;
-      video.style.top = -y / 5;
-      ship.className = 'up';
-    }
-
-    if (event.key == 'ArrowDown') {
-      y += step;
-      ship.style.top = y;
-      video.style.top = -y / 5;
-      ship.className = 'down';
-    }
-
-    if (event.key == 'ArrowLeft') {
-      x -= step;
-      ship.style.left = x;
-      video.style.left = -x / 5;
-      ship.className = 'left';
-    }
-
-    if (event.key == 'ArrowRight') {
-      x += step;
-      ship.style.left = x;
-      video.style.left = -x / 5;
-      ship.className = 'right';
-    }
   }
 
   function showLines(event) {
