@@ -6,9 +6,9 @@ const lessons = [
     title: 'conditionals',
   },
   {
-    url: 'conditionals',
-    img: '<img src="conditionals/conditionals.jpeg" />',
-    title: 'conditionals',
+    url: 'walls',
+    img: '<img src="walls/walls.jpeg" />',
+    title: 'walls',
   },
 ];
 

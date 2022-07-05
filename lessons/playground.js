@@ -36,3 +36,13 @@ function replaceIframeContent(iframeElement, newHTML)
     iframeElement.contentWindow.document.write(newHTML);
     iframeElement.contentWindow.document.close();
 }
+
+export const render = (container, code) => {
+  container.append(playground);
+
+  setCode(code);
+
+  getEditor().addEventListener('keyup', (event) => {
+    run(event.target.value);
+  });
+}
