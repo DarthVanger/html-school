@@ -1,20 +1,18 @@
 const app = document.querySelector('#app');
 const lessons = [
   {
-    url: 'conditionals',
-    img: '<img src="conditionals/conditionals.jpeg" />',
+    img: '<img src="img/conditionals.jpeg" />',
     title: 'conditionals',
   },
   {
-    url: 'walls',
-    img: '<img src="walls/walls.jpeg" />',
+    img: '<img src="img/walls.jpeg" />',
     title: 'walls',
   },
 ];
 
 const lessonsList = lessons.map(lesson => `
   <li>
-    <a href="${lesson.url}">
+    <a href="lesson.html#${lesson.title}">
       <figure>
         ${lesson.img}
         <figcaption>

@@ -37,7 +37,7 @@ export default `
 </style>
 
 <body>
-  <img src="ship.gif" />
+  <img src="/game/ship.gif" />
   <video autoplay loop muted>
     <source src="/video/space-1050p.mp4" type="video/mp4" />
   </video>

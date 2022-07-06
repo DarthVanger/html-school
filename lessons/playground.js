@@ -1,3 +1,5 @@
+import codes from './code/codes.js';
+
 const playground = document.createElement('div');
 
 playground.id = 'playground';
@@ -46,3 +48,7 @@ export const render = (container, code) => {
     run(event.target.value);
   });
 }
+
+const lesson = location.hash.replace('#', '');
+console.log(lesson);
+render(document.body, codes[lesson]);
