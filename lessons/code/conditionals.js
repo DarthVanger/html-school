@@ -18,12 +18,13 @@ export default `
     Click the page to try it out.
   </p>
   <p>
-    Your task to make the alert appear only when event.pageX is more than 100.
+    Your task to make the alert appear only
+    when event.pageX is more than 100.
   </p>
   <p>
     <pre><code>
       if (event.pageX > 100) {
-        alert('PageX is > 100';
+        alert('PageX is > 100');
       } else {
         alert('PageY is < 100');
       }

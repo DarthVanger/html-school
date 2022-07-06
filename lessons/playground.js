@@ -5,7 +5,7 @@ const playground = document.createElement('div');
 playground.id = 'playground';
 playground.innerHTML = `
   <pre id="editor">
-    <code contenteditable class="language-html"></code>
+    <code contenteditable style="white-space: pre" class="language-html"></code>
   </pre>
   <iframe id="result"></iframe>
 `
