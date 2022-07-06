@@ -9,46 +9,34 @@ export default `
     object-fit: cover;
   }
 
-  img {
+  .ship {
     position: absolute;
     top: 0;
     left: 0;
     transition: all 0.1s linear;
-    z-index: 1;
   }
 
-  svg {
+  .wall {
     position: absolute;
-    z-index: 2;
-    width: 100vw;
+    top: 0;
+    left: 300;
+    right: 0;
     height: 100vh;
-  }
-
-  line {
-    stroke: white;
-    stroke-width: 5;
-    stroke-dasharray: 12 12;
-  }
-
-  text {
-    fill: white;
-    stroke: white;
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 </style>
 
 <body>
-  <img src="/game/ship.gif" />
   <video autoplay loop muted>
     <source src="/video/space-1050p.mp4" type="video/mp4" />
   </video>
-  <svg>
-    <line x1="0" y1="0" x2="600" y2="600" stroke="black" />
-    <text x="100" y="100">x: 0</text>
-  </svg>
+  <img class="wall" src="/img/ice.gif"/>
+  <img class="ship" src="/game/ship.gif" />
 </body>
 
 <script>
-  const ship = document.querySelector('img');
+  const ship = document.querySelector('.ship');
   const video = document.querySelector('video');
 
   let x = 0;
@@ -61,10 +49,12 @@ export default `
   document.addEventListener('mousemove', showLines);
 
   function moveShipOnClick(event) {
+  if (event.pageX < 200) {
       x = event.pageX - 320 / 2;
       y = event.pageY - 366 / 2;
       ship.style.left = x;
       ship.style.top = y;
+    }
   }
 
   function showLines(event) {
