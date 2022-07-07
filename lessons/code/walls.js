@@ -44,28 +44,17 @@ export default `
 
   const step = 20;
 
-  document.addEventListener('click', moveShipOnClick);
-
   function moveShipOnClick(event) {
-  if (event.pageX < 200) {
-      x = event.pageX - 320 / 2;
-      y = event.pageY - 366 / 2;
-      ship.style.left = x;
-      ship.style.top = y;
+    if (event.pageX < 200) {
+        x = event.pageX - 320 / 2;
+        y = event.pageY - 366 / 2;
+        ship.style.left = x;
+        ship.style.top = y;
+      }
     }
   }
 
-  function showLines(event) {
-      var line = document.querySelector('line');
-      var text = document.querySelector('text');
+  document.addEventListener('click', moveShipOnClick);
 
-      line.setAttribute('x2', event.pageX);
-      line.setAttribute('y2', event.pageY);
-
-      text.setAttribute('x', event.pageX + 20);
-      text.setAttribute('y', event.pageY);
-      text.textContent = 'X: ' + event.pageX;
-
-  }
 </script>
 `;
