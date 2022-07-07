@@ -1,8 +1,8 @@
 const app = document.querySelector('#app');
 const lessons = [
   {
-    img: '<img src="img/conditionals.jpeg" />',
-    title: 'conditionals',
+    img: '<img src="img/walls.gif" />',
+    title: 'walls',
   },
   {
     img: '<img src="img/walls.gif" />',
