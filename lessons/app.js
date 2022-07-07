@@ -5,7 +5,7 @@ const lessons = [
     title: 'conditionals',
   },
   {
-    img: '<img src="img/walls.jpeg" />',
+    img: '<img src="img/walls.gif" />',
     title: 'walls',
   },
 ];
