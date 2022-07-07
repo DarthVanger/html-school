@@ -3,21 +3,21 @@ const lessons = [
   [
     {
       img: '<img src="img/walls.gif" />',
-      title: 'walls example',
+      title: 'walls',
     },
     {
-      img: '<img src="img/walls.gif" />',
-      title: 'walls task',
+      img: '<img src="img/walls2.gif" />',
+      title: 'walls2',
     },
   ],
   [
     {
       img: '<img src="img/walls.gif" />',
-      title: 'walls example',
+      title: 'walls',
     },
     {
-      img: '<img src="img/walls.gif" />',
-      title: 'walls task',
+      img: '<img src="img/walls2.gif" />',
+      title: 'walls2',
     },
   ]
 ];
@@ -50,7 +50,9 @@ const LessonChain = lessonChain => {
   let html = '';
   for (let lesson of lessonChain) {
     html += Lesson(lesson);
-    html += Arrow();
+    if (lessonChain.indexOf(lesson) !== lessonChain.length -1) {
+      html += Arrow();
+    }
   }
   return html;
 }
