@@ -3,28 +3,31 @@ const lessons = [
   [
     {
       img: '<img src="img/walls.gif" />',
-      title: 'walls',
+      id: 'walls',
+      title: 'Walls of Destiny',
     },
     {
       img: '<img src="img/walls2.gif" />',
-      title: 'walls2',
+      id: 'walls2',
+      title: 'Walls Task',
     },
   ],
   [
     {
       img: '<img src="img/walls.gif" />',
-      title: 'walls',
+      id: 'walls',
     },
     {
       img: '<img src="img/walls2.gif" />',
-      title: 'walls2',
+      id: 'walls2',
     },
   ]
 ];
 
 const Lesson = lesson => `
   <div class="lesson">
-    <a href="lesson.html#${lesson.title}">
+    <h2>${lesson.title}</h2>
+    <a href="lesson.html#${lesson.id}">
       <figure>
         ${lesson.img}
       <figure>
