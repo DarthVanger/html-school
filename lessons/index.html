@@ -1,25 +1,41 @@
 <html>
   <head>
     <style>
-      :root {
-        --mobile-width: 600px;
+      .lessons-grid {
+        display: flex;
+        justify-content: space-around;
       }
-      ul {
-        list-style-type: none;
+      .col {
+        flex: 1;
+        text-align: center;
+      }
+
+      .lesson {
+      }
+
+      .lesson img {
+        width: 80%;
+      }
+
+      .lesson a {
+        display: block;
+      }
+
+      figure {
         margin-block-start: 0;
         margin-block-end: 0;
-        padding-inline-start: 0px;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+      }
 
-        display: grid;
-        gap: 1rem;
+      svg {
+        margin: 1em;
       }
-      @media (min-width: 600px) {
-        ul {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      li img {
-        width: 100%;
+
+      svg circle, svg line {
+        --color: black;
+        stroke: var(--color);
+        fill: var(--color);
       }
     </style>
   </head>
