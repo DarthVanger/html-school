@@ -46,8 +46,6 @@ export default `
 
   document.addEventListener('click', moveShipOnClick);
 
-  document.addEventListener('mousemove', showLines);
-
   function moveShipOnClick(event) {
   if (event.pageX < 200) {
       x = event.pageX - 320 / 2;

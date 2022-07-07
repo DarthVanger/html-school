@@ -46,6 +46,5 @@ export default `
   }
 
   document.addEventListener('click', moveShipOnClick);
-  document.addEventListener('mousemove', showLines);
 </script>
 `;
