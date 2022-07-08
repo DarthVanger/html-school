@@ -1,3 +1,7 @@
+:root {
+  --primary: #04ff67;
+  --secondary: #d86deb;
+}
 h1 {
   margin: 0;
   margin-bottom: 0.5em;
@@ -31,5 +35,23 @@ h3 {
   font-size: 1.5em;
   margin: 0.5em 0;
   text-align: center;
+}
+
+.page-content {
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+.page-content::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(--secondary);
+}
+
+.page-content::-webkit-scrollbar-track {
+   background: var(--primary);;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
 }
 
