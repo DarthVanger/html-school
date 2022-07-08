@@ -42,15 +42,12 @@ export default `
   let x = 0;
   let y = 0;
 
-  const step = 20;
-
   function moveShipOnClick(event) {
     if (event.pageX < 200) {
-        x = event.pageX - 320 / 2;
-        y = event.pageY - 366 / 2;
-        ship.style.left = x;
-        ship.style.top = y;
-      }
+      x = event.pageX - 320 / 2;
+      y = event.pageY - 366 / 2;
+      ship.style.left = x;
+      ship.style.top = y;
     }
   }
 
