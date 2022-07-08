@@ -32,8 +32,31 @@
 }
 
 body {
-  display: flex;
+  display: grid;
+  background: #15161e;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows:  repeat(4, 1fr);
 }
 
-body .col {
+.row {
+  grid-column-start: 1;
+  color: white;
+}
+
+img.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+#johnny {
+  grid-column-start: 2;
+}
+
+#dimon {
+  grid-column-start: 2;
+}
+
+#tony {
+  grid-column-start: 1;
 }
