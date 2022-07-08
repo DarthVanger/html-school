@@ -12,7 +12,7 @@ playground.innerHTML = `
   </div>
   <div id="loader">Reloaded</div>
   <div id="error">
-    <div id="error-content">No errors</div>
+    No errors
   </div>
 `
 
@@ -31,18 +31,18 @@ export const run = () => {
     <link rel="stylesheet" href="/lessons/editor.css" />
     <script>
       const showJsError = (error) => {
+        const existingError = document.querySelector('#error');
+        if (existingError) existingError.remove();
+
         const el = document.createElement('div');
         el.id = 'error';
-        const content = document.createElement('div');
-        content.id = 'error-content';
-        content.innerHTML += '<pre><code>' + error.message + '</code></pre>';
+        el.innerHTML = '<pre><code>Error: ' + error.message + '</code></pre>';
 
 
         el.addEventListener('click', () => {
           el.remove();
         });
 
-        el.append(content);
         document.body.append(el);
       }
 
