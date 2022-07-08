@@ -1,0 +1,1149 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Weed</title>
+
+<style type="text/css">
+  html, body {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-rows: [top] 70px [center] auto [bottom] 70px;
+    grid-template-columns: [left] 160px [center] auto [right] 160px;
+    gap: 0;
+    box-sizing: border-box;
+  }
+
+  .page-content {
+    grid-row: center / bottom;
+    grid-column: center / right;
+
+    font-size: 24px;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .weed-border-top-left {
+    grid-row: top;
+    grid-column: left;
+  }
+
+  .weed-border-top-right {
+    grid-row: top;
+    grid-column: right;
+    background: url("img/logo_left.png");
+    transform: rotate(180deg) scaleY(-1);
+  }
+
+  .weed-border-left {
+    grid-row: span;
+    grid-column: left;
+    background: url("img/logo_leftt.png");
+  }
+
+  .weed-border-right {
+    grid-column: right;
+    background: url("img/logo_leftt.png");
+    transform: rotate(180deg);
+  }
+
+  .weed-border-top-center {
+    grid-row: top / center;
+    grid-column: center / right;
+    background: url("img/logo_top.png");
+  }
+
+  .weed-border-bottom-center {
+    grid-column: center;
+    grid-row: bottom;
+    background: url("img/logo_top.png");
+    transform: scaleY(-1);
+  }
+
+  .weed-border-right-bottom {
+    grid-row: bottom;
+    grid-column: right;
+    background: url("img/logo_left.png");
+    transform: rotate(180deg);
+  }
+
+  .weed-border-left-bottom {
+    grid-row: bottom;
+    grid-column: left;
+    background: url("img/logo_left.png");
+    transform: scaleY(-1);
+  }
+
+  .page-content h2 {
+    text-align: center;
+    background-image: url('img/heading-background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70px;
+    line-height: 70px;
+    color: #5418b9;
+    margin: 0;
+    margin-bottom: 1em;
+    font-family: sans-serif;
+    letter-spacing: 4px;
+  }
+  
+  .page-content h3 {
+    padding-left: 1em;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .page-content p {
+    padding: 1em;
+  }
+
+  .page-content figure {
+    text-align: center;
+    margin: 0;
+    max-height: 100%;
+    position: relative;
+  }
+
+  .page-content figure img {
+    height: calc(100vh - 280px - 2em);
+    max-width: 100%;
+  }
+
+  .page-content figure video {
+    max-height: calc(100vh - 280px);
+    width: auto;
+  }
+
+  .page-content figcaption {
+    font-size: 1.5em;
+    margin-top: 1em;
+    font-family: sans-serif;
+    letter-spacing: 4px;
+  }
+
+  .page-content p {
+  }
+
+  td {
+    padding: 0;
+    height: 100%;
+  }
+
+  .expectations-form {
+    padding: 2em 5em;
+  }
+  
+  .expectations-form input {
+    font-size: 1em;
+    width: 100%;
+  }
+  .expectations-form label {
+    font-size: 2em;
+  }
+
+  #timer {
+    color: white;
+    font-size: 3em;
+    position: absolute;
+    top: 80px;
+    left: 200px;
+  }
+
+  .expectation-reality {
+    padding: 0;
+    text-align: center;
+    font-size: 1.25em;
+  }
+
+  .expectation-reality ul {
+    list-style: none;
+    line-height: 1.5;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .rules p {
+    font-size: 1.5em;
+    padding: 0 0.5em;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+
+  }
+
+  .lety4ka-tasks {
+    display: none;
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 2.5em;
+    z-index: 1;
+    text-align: left;
+    font-size: 1.5em;
+    font-family: monospace;
+    letter-spacing: 2px;
+    line-height: 1.75;
+    background: rgba(0, 0, 0, 0.4);
+    right: 0; bottom: 2em;
+  }
+
+  .tag {
+    color: red;
+    font-weight: bold;
+  }
+
+  .height100 {
+    height: 100%;
+  }
+
+  .page-content iframe {
+    width: 80vw;
+    height: 70vh;
+  }
+
+</style>
+
+</head>
+
+
+<body text="#00FF66" bgcolor="000000" link="#0000CC" alink="#0000FF" vlink="#0000FF" topmargin="0" leftmargin="0">
+
+<div class="weed-border-left">
+  <img src="img/logo_leftt.png" />
+</div>
+
+
+
+<div class="weed-border-top-center">
+</div>
+
+<div class="weed-border-top-left">
+  <img src="img/logo_left.png" />
+</div>
+
+<div class="weed-border-top-right">
+</div>
+
+<div class="weed-border-right">
+</div>
+
+<div align="justify" class="page-content">
+</div>
+
+<div class="weed-border-left-bottom">
+</div>
+
+<div class="weed-border-bottom-center">
+</div>
+
+<div class="weed-border-right-bottom">
+</div>
+
+<div id="timer">
+  00:00
+</div>
+
+</body>
+</html>
+
+<template id="page0">
+    <h2>
+      HTML ШКОЛА
+    </h2>
+    <figure>
+      <img src="img/school.jpeg" />
+      <figcaption>
+        НА ВЕНИКЕ
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page1">
+    <h2>
+      ПРЕПОД
+    </h2>
+    <figure>
+      <img src="img/napaleon.webp" />
+      <figcaption>
+        a.k.a VAN4IK NAPAS
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page2">
+    <h2>
+      УЧЕНИКИ
+    </h2>
+    <figure>
+      <img src="img/students.jpg" />
+    </figure>
+</template>
+
+<template id="page3">
+    <h2>
+      ДИМОНЧИК
+    </h2>
+    <figure>
+      <img src="img/dimon4ik.jpg" />
+      <figcaption>
+        ПЕРЕПАЯЛ WI-FI НА BLUETOOTH
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page4">
+    <h2>
+      TONY
+    </h2>
+    <figure>
+      <img src="img/tony.jpg" />
+      <figcaption>
+        НАПИСАЛ СИСТЕМУ УЧЕТА АВТОПАРКА В ЭКСЕЛЕ
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page5">
+    <h2>
+      JOHNNY
+    </h2>
+    <figure>
+      <img src="img/johnny.jpg" />
+      <figcaption>
+        ПОЧИНИЛ НОУТБУК ПРОСТО РАЗОБРАВ И СОБРАВ ЕГО
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page6">
+    <h2>
+      KERTIS
+    </h2>
+    <figure>
+      <img src="img/kertis.jpg" />
+      <figcaption>
+        ПО СЛУХАМ ТРАХАЛ СИСТЕМНЫЙ БЛОК
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page7">
+    <h2>
+      МОТИВАЦИЯ
+    </h2>
+    <figure>
+      <img src="img/salaries-with-experience.png" />
+      <figcaption>
+        РОСТ ЗП С ОПЫТОМ РАБОТЫ
+      </figcaption>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page8">
+    <h2>
+      МОТИВАЦИЯ
+    </h2>
+    <figure>
+      <img src="img/it-cloud.png" />
+      <figcaption>
+        ТВОРЧЕСТВО, СОЗДАНИЕ ХУЙНИ
+      </figcaption>
+    </figure>
+</template>
+
+<template id="page9">
+    <h2>
+      НА ОСТРИЕ РАЗВИТИЯ
+    </h2>
+    <figure>
+      <img src="img/future.jpeg" />
+      <figcaption>
+        БУДУЩЕЕ ЗА ЭТИМ ДЕРЬМОМ - ДРОНЫ, ХУЕНЫ
+      </figcaption>
+    </figure>
+</template>
+
+<template id="page10">
+    <h2>
+      БАБКИ МИРА В ЭТОЙ СФЕРЕ
+    </h2>
+    <figure>
+      <img src="img/marketcap.png" />
+    </figure>
+</template>
+
+<template id="page11">
+    <h2>
+      ВАЙТИ В АЙТИ
+    </h2>
+    <figure>
+      <img src="img/junior-positions.png" />
+      <figcaption>
+        ВАКАНСИИ БЕЗ ОПЫТА РАБОТЫ ЕСТЬ
+      </figcaption>
+    </figure>
+</template>
+
+<template id="page12">
+    <h2>
+      ЧТО ДЛЯ ЭТОГО НУЖНО
+    </h2>
+    <figure>
+      <img src="img/dro4ka.jpeg" />
+      <figcaption>
+        ЗАДРОТСВО
+      </figcaption>
+    </figure>
+</template>
+
+<template id="page13">
+    <h2>
+      ЧТО ДЛЯ ЭТОГО НУЖНО
+    </h2>
+    <figure>
+      <img src="img/dro4ka.jpeg" />
+      <figcaption>
+        ЗАДРОТСВО
+      </figcaption>
+    </figure>
+</template>
+
+<template id="page14">
+    <h2>
+      ДРОЧКА
+    </h2>
+    <figure>
+      <img src="img/courses.png" />
+    </figure>
+</template>
+
+<template id="page15">
+    <h2>
+      ДРОЧКА
+    </h2>
+    <figure>
+      <img src="img/cplusplus.jpg" />
+    </figure>
+</template>
+
+<template id="page16">
+    <h2>
+      ДРОЧКА
+    </h2>
+    <figure>
+      <img src="img/cplusplus-2.jpg" />
+    </figure>
+</template>
+
+<template id="page17">
+    <h2>
+      НАСКОЛЬКО ЭТО СЛОЖНО?
+    </h2>
+    <p class="expectations-form">
+      <label>TONY
+        <input type="text" name="tony" />
+      </label>
+      <br />
+      <br />
+      <label>KERTIS
+        <input type="text" name="kertis" />
+      </label>
+      <br />
+      <br />
+      <label>JOHNNY
+        <input type="text" name="johnny" />
+      </label>
+      <br />
+      <br />
+      <label>MORPHEM
+        <input type="text" name="morphem" />
+      </label>
+    </p>
+</template>
+
+<template id="page18">
+  <div class="rules">
+    <h2>
+      ПРАВЕЛА
+    </h2>
+
+    <p>
+      За каждый вопрос - банка.
+    </p>
+
+    <p>
+      За каждый ответ - банка.
+    </p>
+
+    <p>
+      Если вопросов нет - банка учителю.
+    </p>
+
+    <p>
+      Любое присуждение банки может быть оспорено общим голосованием.
+    </p>
+
+    <p>
+      В любой момент можно поднять голосование на штраф в 1 банку - по согласию всех учасников.
+    </p>
+
+    <p>
+      Право Вето: Ванчик, Димончик.
+    </p>
+
+    <p>
+      <a href="/rating.html">Rating page</a>
+    </p>
+  </div>
+</template>
+
+<template id="page19">
+    <h2>
+      Первое Задание
+    </h2>
+    <figure>
+      <video controls id="task1-video">
+        <source src="video/task1/video.mp4" type="video/mp4" />
+      </video>
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page20">
+    <h2>
+      HTML КОД
+    </h2>
+    <figure>
+      <img src="img/tags.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page21">
+    <h2>
+      КОРТИНКЕ
+    </h2>
+    <figure>
+      <img src="img/img-tag.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page22">
+    <h2>
+      В ПЗДУ ПРГРМИРВОНЕ
+    </h2>
+    <figure>
+      <img src="img/vpzdy.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page23">
+    <h2>
+      W3Schools
+    </h2>
+    <figure>
+      <img src="img/w3schools.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page24">
+  <div class="expectation-reality">
+    <h2>
+      Expectation / Reality
+    </h2>
+    <h3>Expectation</h3>
+    <p>
+      <div id="expecation">
+      </div>
+    </p>
+
+
+    <h3>Reality</h3>
+    <p>
+      <div>
+        <ul>
+          <li>Tony: <input type="text" /></li>
+          <li>Kertis: <input type="text" /></li>
+          <li>Johnny: <input type="text" /></li>
+          <li>Morphem: <input type="text" /></li>
+       </ul>
+      </div>
+    </p>
+</template>
+
+<template id="page25">
+    <h2>
+      Javascript
+    </h2>
+    <figure>
+      <img src="img/javascript.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page26">
+    <h2>
+      Select
+    </h2>
+    <figure>
+      <img src="img/javascript-select.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page27">
+    <h2>
+      Events
+    </h2>
+    <figure>
+      <img src="img/javascript-click.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="page28">
+    <h2>
+      В ПЛАВАНИЕ
+    </h2>
+    <figure>
+      <img src="img/tonet.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson2-page0">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson2-page1">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <video controls id="task1-video">
+        <source src="video/task2/video.mp4" type="video/mp4" />
+      </video>
+      <div class="lety4ka-tasks">
+        <div>0: ДОСТАТЬ НОУТ, СОЗДАТЬ ПУСТОЙ HTML файл</div>
+        <div>1: ПРОПИСАТЬ <span class="tag">&lt;h1&gt;</span>ЗАГОЛОВОК<span class="tag">&lt;/h1&gt;</span></div>
+        <div>2: ПРОПИСАТЬ <span class="tag">&lt;p&gt;</span>ПАРАГРАФ<span class="tag">&lt;/p&gt;</span></div>
+        <div>3: ВСТАВИТЬ КОРТИНКЕ <span class="tag">&lt;img src="my-picture.jpg"&gt;</span></div>
+        <div>4: СДЕЛАТЬ ЗОГОЛОВОК КРАСНОГО ЦВЕТА: <br /> <span class="tag" style="margin-left: 2em">&lt;style&gt; h1 { color: red } &lt;/style&gt;</span></div>
+        <div>5: УВЕЛИЧИТЬ РАЗМЕР ТЕКСТА ПАРАГРАФА : <br /> <span class="tag" style="margin-left: 2em">&lt;style&gt; p { font-size: 50px } &lt;/style&gt;</span></div>
+      </div>
+    </figure>
+</template>
+
+<template id="lesson2-page2">
+    <h2>
+      УРОК №2: ССЫЛКЕ
+    </h2>
+    <p>
+      <code>
+        &lt;a href="page2.html"&gt; <br>
+        &nbsp;&nbsp;Ссылке
+        <br>
+        &lt;/a&gt;
+      </code>
+    </p>
+</template>
+
+<template id="lesson2-page3">
+    <h2>
+      ВИДЕО
+    </h2>
+    <figure>
+      <img src="img/html-video.png" />
+    </figure>
+</template>
+
+<template id="lesson2-page4">
+    <h2>
+      ВИДЕО
+    </h2>
+    <figure>
+      <img src="img/html-video-code.png" />
+    </figure>
+</template>
+
+<template id="lesson2-page4">
+    <h2>
+      ВИДЕО
+    </h2>
+    <figure>
+      <img src="img/html-video-code.png" />
+    </figure>
+</template>
+
+<template id="lesson2-page5">
+    <h2>
+      СИТНАКСИС
+    </h2>
+    <figure>
+      <img src="img/html-structure.png" />
+    </figure>
+</template>
+
+<template id="lesson2-page6">
+    <h2>
+      СИТНАКСИС
+    </h2>
+    <figure>
+      <img src="img/html-structure-2.png" />
+    </figure>
+</template>
+
+<template id="lesson2-page7">
+    <h2>
+      CSS Box model
+    </h2>
+    <figure>
+      <img src="img/css-box-model.png" />
+    </figure>
+</template>
+
+<template id="lesson2-page8">
+    <h2>
+      СИТНАКСИС CSS
+    </h2>
+    <figure>
+      <img src="img/css-syntax.png" />
+    </figure>
+</template>
+
+
+
+<template id="lesson2-page9">
+  <div class="expectation-reality">
+    <h2>
+      Expectation / Reality
+    </h2>
+    <h3>Expectation</h3>
+    <div id="expecation">
+    </div>
+
+    <h3>Reality</h3>
+    <div>
+      <ul>
+        <li>Tony: <input type="text" /></li>
+        <li>Kertis: <input type="text" /></li>
+        <li>Johnny: <input type="text" /></li>
+        <li>Morphem: <input type="text" /></li>
+     </ul>
+    </div>
+</template>
+
+<template id="lesson3-page0">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.gif" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page1">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <video controls class="height100">
+        <source src="video/task3/video.mp4" type="video/mp4" />
+      </video>
+      <div class="lety4ka-tasks">
+        <div>0: ДОСТАТЬ НОУТ, СОЗДАТЬ ПУСТОЙ HTML файл</div>
+        <div>1: СКАЧАТЬ картинку и видео (ссылка в телеге)</div>
+        <div>2: ВСТАВИТЬ В САЙТ  &lt;video&gt;</div>
+        <div>3: ВСТАВИТЬ В САЙТ  &lt;img&gt;</div>
+        <div>4: СДЕЛАТЬ КАРТИНКУ НА ВСЮ ШИРИНУ ЭКРАНА <br /> <span class="tag" style="margin-left: 2em">&lt;style&gt; img { width: 100% } &lt;/style&gt;</span></div>
+      </div>
+    </figure>
+</template>
+
+<template id="lesson3-page2">
+    <h2>
+      CSS: POSITION ABSOLUTE
+    </h2>
+    <figure>
+      <img src="img/css-absolute.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page3">
+    <h2>
+      Javascript
+    </h2>
+    <figure>
+      <img src="img/javascript.jpeg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page4">
+    <h2>
+      Learning curves
+    </h2>
+    <figure>
+      <img src="img/learning-curves.jpg" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page5">
+    <h2>
+      Javascript in HTML
+    </h2>
+    <figure>
+      <img src="img/js-in-html.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page6">
+    <h2>
+      Functions
+    </h2>
+    <figure>
+      <img src="img/js-functions.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page7">
+    <h2>
+      ВЫБОР ЭЛЕМЕНТА
+    </h2>
+    <figure>
+      <img src="img/select-element.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson3-page8">
+    <h2>
+      VARIABLES
+    </h2>
+    <figure>
+      <img src="img/variables.png" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<!-- LESSON 4 -->
+<template id="lesson4-page0">
+    <h2>
+      ЧЕ ДЕЛАЕМ
+    </h2>
+    <iframe src="game/game.html">
+    </iframe>
+</template>
+
+<template id="lesson4-page1">
+    <h2>
+      НАСКОЛЬКО ЭТО СЛОЖНО?
+    </h2>
+    <p class="expectations-form">
+      <label>TONY
+        <input type="text" name="tony" />
+      </label>
+      <br />
+      <br />
+      <label>JOHNNY
+        <input type="text" name="johnny" />
+      </label>
+      <br />
+      <br />
+      <label>MORPHEM
+        <input type="text" name="morphem" />
+      </label>
+    </p>
+</template>
+
+<template id="lesson4-page2">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <img src="img/lety4ka.gif" />
+    </figure>
+    <p>
+    </p>
+</template>
+
+<template id="lesson4-page3">
+    <h2>
+      ЛИТУЧКА
+    </h2>
+    <figure>
+      <video controls id="lesson4-video" class="task">
+        <source src="video/task4/video.mp4" type="video/mp4" />
+      </video>
+      <video controls id="lesson4-video" class="noisia" style="display: none; height: 100%;">
+        <source src="video/noisia.mp4" type="video/mp4" />
+      </video>
+      <div class="lety4ka-tasks">
+        <pre></pre>
+      </div>
+    </figure>
+</template>
+
+<template id="lesson4-page4">
+    <h2>
+      Event object
+    </h2>
+    <p>
+    <pre style="letter-spacing: 2px;">
+      function handleClick(event) {
+
+        &nbsp;&nbsp;console.log(event);
+
+      }
+
+      document.addEventListener('click', handleClick);
+      </pre>
+    </p>
+</template>
+
+<template id="lesson4-page5">
+    <h2>
+      pageX and pageY
+    </h2>
+    <p>
+    <pre style="letter-spacing: 2px;">
+      function handleClick(event) {
+
+        var korabel = document.querySelector('img');
+
+        korabel.style.left = event.pageX;
+
+        korabel.style.top = event.pageY;
+
+      }
+
+      document.addEventListener('click', handleClick);
+      </pre>
+    </p>
+</template>
+
+<template id="lesson4-page6">
+    <h2>
+      Centering: 366x320
+    </h2>
+    <p>
+    <pre style="letter-spacing: 2px;">
+      function handleClick(event) {
+
+        var korabel = document.querySelector('img');
+
+        <span style="color: red;">korabel.style.left = event.pageX - 366 / 2;</span>
+
+        <span style="color: red;">korabel.style.top = event.pageY - 320 / 2;</span>
+
+      }
+
+      document.addEventListener('click', handleClick);
+      </pre>
+    </p>
+</template>
+
+<template id="lesson4-page7">
+  <div class="expectation-reality">
+    <h2>
+      Expectation / Reality
+    </h2>
+    <h3>Expectation</h3>
+    <div id="expecation">
+    </div>
+
+    <h3>Reality</h3>
+      <div>
+        <ul>
+          <li>Tony: <input type="text" /></li>
+          <li>Johnny: <input type="text" /></li>
+          <li>Morphem: <input type="text" /></li>
+       </ul>
+      </div>
+</template>
+
+<script>
+  const left = document.querySelector('.weed-border-left');
+  const right = document.querySelector('.weed-border-right');
+
+  left.addEventListener('click', () => {
+      prevPage();
+  });
+
+  right.addEventListener('click', () => {
+      nextPage();
+  });
+
+  let currentPage = parseInt(window.location.hash.replace('#', '')) || 0;
+
+  const nextPage = () => {
+      currentPage++;
+      showCurrentPage();
+  };
+
+  const prevPage = () => {
+      currentPage--;
+      showCurrentPage();
+  };
+
+  const showCurrentPage = () => {
+      const page = document.querySelector('#lesson4-page' + currentPage);
+      const pageContent = document.querySelector('.page-content');
+      pageContent.innerHTML = '';
+      pageContent.append(page.cloneNode(true).content);
+      window.history.pushState('#page' + currentPage, 'page ' + currentPage, '#' + currentPage);
+
+      const expectationsForm = document.querySelector('.expectations-form');
+      if (expectationsForm) {
+        const inputs = expectationsForm.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            input.addEventListener('keyup', e => {
+                localStorage.setItem(e.target.name, e.target.value);
+            });
+        });
+      }
+
+      const task1video = document.querySelector('#lesson4-video');
+      if (task1video) {
+        const showTimer = (time) => {
+            const h2 = document.querySelector('h2');
+            const tasks = document.querySelector('.lety4ka-tasks');
+            const pre = tasks.querySelector('pre');
+            const taskVideo = document.querySelector('video.task');
+            taskVideo.style.display = 'none';
+            const noisia = document.querySelector('video.noisia');
+            noisia.style.display = 'initial';
+            tasks.style.display = 'block';
+            h2.style.color = 'red';
+            const startTime = (new Date()).getTime();
+
+            tasks.addEventListener('click', () => {
+                noisia.play();
+            });
+
+            pre.textContent = `
+<script>
+  function moveShip() {
+      var ship = document.querySelector('img');
+      ship.style.left = '500px';
+  }
+
+  document.addEventListener('click', moveShip);
+<\/script>
+          `;
+
+            setInterval(() => {
+                const currentTime = (new Date()).getTime();
+                const diff = currentTime - startTime;
+                const elapsedSec = Math.round(diff / 1000);
+                const secToEnd = 5 * 60 - elapsedSec;
+                const min = Math.floor(secToEnd / 60);
+                const sec = Math.floor(secToEnd % 60);
+                h2.innerHTML = `${min}:${sec}`;
+            }, 1000);
+        };
+
+        task1video.addEventListener('play', () => {
+            setTimeout(() => showTimer(5000), 46470);
+        });
+      }
+
+      const expectation = document.querySelector('#expecation');
+      if (expectation) {
+          const tony = localStorage.getItem('tony');
+          const morphem = localStorage.getItem('morphem');
+          const johnny = localStorage.getItem('johnny');
+          expectation.innerHTML = `
+            <ul>
+             <li>Tony: ${tony}</li>
+             <li>Johnny: ${johnny}</li>
+             <li>Morphem: ${morphem}</li>
+           </ul>
+         `;
+      }
+  };
+
+  showCurrentPage();
+
+  const timer = document.querySelector('#timer');
+
+  const zeroPad = (num, places) => String(num).padStart(places, '0')
+  let currentTime = 0;
+  setInterval(() => {
+      timer.innerHTML = `${zeroPad(Math.floor(currentTime / 60), 2)}:${zeroPad(Math.floor(currentTime % 60), 2)}`;
+      currentTime++;
+      if (currentTime > 24 * 60) {
+          timer.style.color = 'red';
+      }
+      if (currentTime > 25 * 60 ) {
+          timer.style.color = 'white';
+          currentTime = 0;
+      }
+  }, 1000);
+
+</script>
+
+<script>
+  const zogolovok = document.querySelector('h2')
+
+  function changeText() {
+    zogolovok.innerHTML = 'xuy4ek'
+  }
+
+  zogolovok.addEventListener('click', changeText)
+</script>
