@@ -1,0 +1,16 @@
+#error {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+#error-content {
+  width: 600px;
+  background: white;
+  padding: 1.2em;
+  font-size: 1.3em;
+  border-radius: 2px;
+  font-family: monospace;
+}

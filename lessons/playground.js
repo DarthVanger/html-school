@@ -11,6 +11,9 @@ playground.innerHTML = `
     <iframe id="result"></iframe>
   </div>
   <div id="loader">Reloaded</div>
+  <div id="error">
+    <div id="error-content">No errors</div>
+  </div>
 `
 
 const getEditor = () => document.querySelector('#editor > code');
@@ -22,12 +25,39 @@ const runDebounced = () => {
   timeoutId = setTimeout(run, 1000);
 
 };
+
 export const run = () => {
-  const code = getEditor().textContent;
+  let code = `
+    <link rel="stylesheet" href="/lessons/editor.css" />
+    <script>
+      const showJsError = (error) => {
+        const el = document.createElement('div');
+        el.id = 'error';
+        const content = document.createElement('div');
+        content.id = 'error-content';
+        content.innerHTML += '<pre><code>' + error.message + '</code></pre>';
+
+
+        el.addEventListener('click', () => {
+          el.remove();
+        });
+
+        el.append(content);
+        document.body.append(el);
+      }
+
+      window.addEventListener('error', function(event) {
+        showJsError(event.error);
+      });
+    </script>
+  `;
+
+  code += getEditor().textContent;
   playground.querySelector('iframe').remove();
   const iframe = document.createElement('iframe');
   iframe.id = "result";
   playground.querySelector('.grid').append(iframe);
+
   replaceIframeContent(getIframe(), code);
 
   const loader = document.querySelector('#loader');
