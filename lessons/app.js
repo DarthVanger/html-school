@@ -9,7 +9,12 @@ const lessons = [
     {
       img: '<img src="img/walls2.gif" />',
       id: 'walls2',
-      title: 'Walls Task',
+      title: 'Y'
+    },
+    {
+      img: '<img src="img/walls3.gif" />',
+      id: 'walls3',
+      title: 'Tunnel',
     },
   ],
   [
