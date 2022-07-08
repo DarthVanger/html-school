@@ -4,22 +4,37 @@ const playground = document.createElement('div');
 
 playground.id = 'playground';
 playground.innerHTML = `
-  <pre id="editor">
-    <code contenteditable style="white-space: pre" class="language-html"></code>
-  </pre>
-  <iframe id="result"></iframe>
+  <div class="grid">
+    <pre id="editor">
+      <code contenteditable style="white-space: pre" class="language-html"></code>
+    </pre>
+    <iframe id="result"></iframe>
+  </div>
+  <div id="loader">Reloaded</div>
 `
 
 const getEditor = () => document.querySelector('#editor > code');
 const getIframe = () => document.querySelector('iframe');
 
+let timeoutId;
+const runDebounced = () => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(run, 1000);
+
+};
 export const run = () => {
   const code = getEditor().textContent;
   playground.querySelector('iframe').remove();
   const iframe = document.createElement('iframe');
   iframe.id = "result";
-  playground.append(iframe);
+  playground.querySelector('.grid').append(iframe);
   replaceIframeContent(getIframe(), code);
+
+  const loader = document.querySelector('#loader');
+  loader.classList.add('show');
+  setTimeout(() => {
+    loader.classList.remove('show');
+  }, 500);
 };
 
 export const setCode = (code) => {
@@ -45,7 +60,7 @@ export const render = (container, code) => {
   setCode(code);
 
   getEditor().addEventListener('keyup', (event) => {
-    run(event.target.value);
+    runDebounced();
   });
 }
 

@@ -11,9 +11,15 @@
   }
 
   #playground {
+    height: 100%;
+    width: 100%;
+  }
+
+  #playground .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     height: 100%;
+    width: 100%;
   }
 
   #editor {
@@ -36,6 +42,24 @@
   #result {
     width: 100%;
     height: 100%;
+  }
+
+
+  #loader {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: green;
+    color: white;
+    font-size: 1.3em;
+    font-family: monospace;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  #loader.show {
+    opacity: 1;
   }
 </style>
 
