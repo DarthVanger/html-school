@@ -14,12 +14,14 @@ const lessons = [
   ],
   [
     {
-      img: '<img src="img/walls.gif" />',
-      id: 'walls',
+      img: '<img src="img/plasma.gif" />',
+      id: 'plasma',
+      title: 'Plasma Gun',
     },
     {
-      img: '<img src="img/walls2.gif" />',
-      id: 'walls2',
+      img: '<img src="img/plasma2.gif" />',
+      id: 'plasma2',
+      title: 'Plasma Gun Task',
     },
   ]
 ];
