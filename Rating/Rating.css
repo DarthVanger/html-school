@@ -1,0 +1,16 @@
+[class*="level-"] {
+  background: url('achievements-sprite.jpg');
+  width: 130px;
+  height: 120px;
+}
+.level-1 {
+  background-position: 2 0;
+}
+
+.level-2 {
+  background-position: -132 0;
+}
+
+.level-3 {
+  background-position: -268 0;
+}
