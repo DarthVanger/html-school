@@ -14,3 +14,26 @@
 .level-3 {
   background-position: -268 0;
 }
+
+.level-4 {
+  background-position: -398 0;
+}
+
+.level-5 {
+  background-position: -530 0;
+}
+
+.level-6 {
+  background-position: -660 0;
+}
+
+.level-7 {
+  background-position: -800 0;
+}
+
+body {
+  display: flex;
+}
+
+body .col {
+}
