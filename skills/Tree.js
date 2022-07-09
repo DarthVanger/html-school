@@ -100,7 +100,7 @@ const SkillsLine = ({ skills, x, y, selectedStudent }) => skills.map((skill, idx
  });
 
 let treeHeight = 0;
-export const Tree = ({x , y, selectedStudent}) => {
+export const Tree = ({x=0, y=0, student}) => {
   const htmlSkills = skills.html;
   const css = skills.css;
   const js = skills.js;
@@ -118,7 +118,7 @@ export const Tree = ({x , y, selectedStudent}) => {
     x: htmlX,
     y: marginTop,
     level: htmlSkills.level,
-    selectedStudent,
+    student,
   })}`;
 
   html += `${SkillsLineHeading({
@@ -126,7 +126,7 @@ export const Tree = ({x , y, selectedStudent}) => {
     x: cssX + skillBoxSize,
     y: marginTop,
     level: css.level,
-    selectedStudent,
+    student,
   })}`;
 
   html += `${SkillsLineHeading({
@@ -134,7 +134,7 @@ export const Tree = ({x , y, selectedStudent}) => {
     x: jsX + skillBoxSize,
     y: marginTop,
     level: js.level,
-    selectedStudent,
+    student,
   })}`;
 
   treeHeight += marginTop;
@@ -144,7 +144,7 @@ export const Tree = ({x , y, selectedStudent}) => {
   htmlSkills.forEach((line, idx) => {
     const x = htmlX - skillBoxSize + idx * (skillBoxSize * 2);
     const y = branchY;
-    html += SkillsLine({ skills: line, x, y, selectedStudent });
+    html += SkillsLine({ skills: line, x, y, student });
   });
 
   css.forEach((line, idx) => {
@@ -152,13 +152,13 @@ export const Tree = ({x , y, selectedStudent}) => {
     let y = branchY;
     // space for avatar
     if (idx == 1) y += 150;
-    html += SkillsLine({ skills: line, x, y, selectedStudent });
+    html += SkillsLine({ skills: line, x, y, student });
   });
 
   js.forEach((line, idx) => {
     const x = jsX + idx * skillBoxSize * 2;
     const y = branchY;
-    html += SkillsLine({ skills: line, x, y, selectedStudent });
+    html += SkillsLine({ skills: line, x, y, student });
   });
 
   treeHeight = Math.max(...treeHeights);

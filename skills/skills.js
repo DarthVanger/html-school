@@ -4,6 +4,7 @@ import { Tree, treeWidth, treeHeight } from './Tree.js';
 import { Skill } from './Skill.js';
 import { Badge } from './Badge.js';
 import { Avatar } from './Avatar.js';
+import { SvgContainer } from './SvgContainer.js';
 
 const skillBoxSize = 120;
 const width = skillBoxSize;
@@ -22,43 +23,21 @@ const updateProgressArc = () => {
   arc.setAttribute('d', describeArc(x, y, r, 0, angle));
 };
 
-const changeStudent = newStudent => {
-  let prevStudent = selectedStudent;
-  selectedStudent = newStudent;
-
-  updateProgressArc();
-
-  document.querySelectorAll('[class^=level-]').forEach(el => {
-    const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
-    const level = el.getAttribute(`data-level-${selectedStudent}`);
-    el.classList.remove(`level-${prevLevel}`);
-    el.classList.remove(`${prevStudent}`);
-    el.classList.add(`level-${level}`);
-    el.classList.add(`${selectedStudent}`);
+const render = () => {
+  console.log('render()');
+  const tree = Tree({ selectedStudent });
+  const svg = SvgContainer({
+    width: 1000,
+    height: 1000,
+    children: tree,
   });
+  document.querySelector('section').innerHTML = svg;
+};
 
-  document.querySelectorAll('[class*=category-level-]').forEach(el => {
-    const prevLevel = el.getAttribute(`data-level-${prevStudent}`);
-    const level = el.getAttribute(`data-level-${selectedStudent}`);
-    el.classList.remove(`category-level-${prevLevel}`);
-    el.classList.remove(`${prevStudent}`);
-    el.classList.add(`category-level-${level}`);
-    el.classList.add(`${selectedStudent}`);
-  });
-
-  document.querySelectorAll('.badge-text').forEach(el => {
-    el.innerHTML = el.getAttribute(`data-level-${selectedStudent}`);
-  });
-
-  document.querySelectorAll('.exp-text').forEach(el => {
-    el.innerHTML = `Exp: ${points[selectedStudent]}`;
-  });
-
-  document.querySelector(`.avatar-${prevStudent}`).classList.add('hide');
-  document.querySelector(`.avatar-${selectedStudent}`).classList.remove('hide');
-
-  document.querySelector(`a[href="#${prevStudent}"]`).classList.remove('selected');
-  document.querySelector(`a[href="#${selectedStudent}"]`).classList.add('selected');
+const changeStudent = student => {
+  console.log('change student: ', student);
+  selectedStudent = student;
+  render();
 };
 
 const header = document.querySelector('header');
@@ -74,22 +53,9 @@ links.forEach(link => {
 const badgeR = 25;
 
 
+const tree = Tree({ student: selectedStudent});
+render(tree);
 
-
-const tree = Tree({ x: 0, y: 0, selectedStudent});
-
-const svg = `
-<svg height="${treeHeight}" viewBox="0 0 ${treeWidth} ${treeHeight}">
-
-${Avatar({ levels, points, selectedStudent })}
-
-${tree}
-
-</svg>
-
-`;
-
-document.querySelector('section').innerHTML = svg;
 
 changeStudent(selectedStudent);
 
