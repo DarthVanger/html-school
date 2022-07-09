@@ -1,3 +1,7 @@
+:root {
+  --avatar-size: 120px;
+}
+
 [class*="level-"] {
   background: url('achievements-sprite.jpg');
   width: 130px;
@@ -36,16 +40,18 @@ body {
   background: #15161e;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows:  repeat(4, 1fr);
+  place-items: center center;
 }
 
 .row {
   grid-column-start: 1;
   color: white;
+  display: flex;
 }
 
 img.avatar {
-  width: 120px;
-  height: 120px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
   border-radius: 50%;
 }
 
@@ -59,4 +65,17 @@ img.avatar {
 
 #tony {
   grid-column-start: 1;
+}
+
+.homework-icon {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  grid-column: 3;
+  grid-row: 2;
+}
+.homework-count {
+  grid-column: 4;
+  grid-row: 2;
+  color: white;
+  font-size: 50px;
 }
