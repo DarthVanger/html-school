@@ -1,23 +1,20 @@
 {
-  "name": "site",
+  "name": "skills-tree",
   "version": "1.0.0",
-  "description": "",
+  "description": "Skills Tree like in Diablo with UI to add custom talents",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.mjs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DarthVanger/html-school.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DarthVanger/html-school/issues"
-  },
-  "homepage": "https://github.com/DarthVanger/html-school#readme",
+  "author": "darthvanger@gmail.com",
+  "license": "GPL v3",
   "dependencies": {
-    "express": "^4.18.1"
-  }
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "type": "module"
 }

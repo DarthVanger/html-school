@@ -100,9 +100,9 @@ const SkillsLine = ({ skills, x, y, selectedStudent }) => skills.map((skill, idx
 
 let treeHeight = 0;
 export const Tree = (state) => {
-  console.log('Tree: ', state);
+  console.info('Tree: ', state);
 
-  const {x=0, y=0, student, skills} = state;
+  const {x=0, y=0, student, skills, levels, points, categoryLevels} = state;
   const htmlSkills = skills.html;
   const css = skills.css;
   const js = skills.js;
@@ -119,7 +119,7 @@ export const Tree = (state) => {
     text: 'HTML',
     x: htmlX,
     y: marginTop,
-    level: htmlSkills.level,
+    level: categoryLevels.html,
     student,
   })}`;
 
@@ -127,7 +127,7 @@ export const Tree = (state) => {
     text: 'CSS',
     x: cssX + skillBoxSize,
     y: marginTop,
-    level: css.level,
+    level: categoryLevels.css,
     student,
   })}`;
 
@@ -135,7 +135,7 @@ export const Tree = (state) => {
     text: 'JS',
     x: jsX + skillBoxSize,
     y: marginTop,
-    level: js.level,
+    level: categoryLevels.js,
     student,
   })}`;
 

@@ -1,8 +1,9 @@
 import { App } from './App.js';
 
-const render = (elem) => {
+const render = () => {
   console.info('render');
+  const elem = App({ render });
   document.querySelector('section').innerHTML = elem;
 };
 
-render(App());
+render();

@@ -47,6 +47,7 @@ let skills = {
 
 const points = {};
 const levels = {};
+const categoryLevels = {};
 for (let student of students) {
   points[student] = 0;
   levels[student] = 0;
@@ -54,6 +55,7 @@ for (let student of students) {
 
 for (let category in skills) {
   let categoryLevel = {};
+  categoryLevels[category] = {};
   for (let student of students) {
     categoryLevel[student] = 0;
   }
@@ -65,6 +67,7 @@ for (let category in skills) {
     }
   }
   skills[category].level = categoryLevel;
+  categoryLevels[category].level = categoryLevel;
 }
 
 for (let student of students) {
@@ -82,4 +85,4 @@ console.log('levels: ', levels);
 console.log('points: ', points);
 console.log('skills: ', skills);
 
-export { skills, levels, points };
+export { skills, levels, points, categoryLevels };
