@@ -79,3 +79,18 @@ img.avatar {
   color: white;
   font-size: 50px;
 }
+.skills-icon {
+  grid-column: 5;
+  grid-row: 2;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  background: url('spells.jpeg');
+  background-position: -425 -400;
+  background-size: 1750px auto;
+}
+.experience-value {
+  grid-column: 6;
+  grid-row: 2;
+  color: white;
+  font-size: 50px;
+}
