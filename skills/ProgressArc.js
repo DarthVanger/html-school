@@ -13,4 +13,4 @@ export const ProgressArc = ({x, y, r, points, selectedStudent}) => {
       data-r="${r}"
     />
   `;
-}
+};

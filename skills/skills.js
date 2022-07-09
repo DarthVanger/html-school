@@ -12,59 +12,52 @@ const height = skillBoxSize;
 
 let selectedStudent = window.location.hash.replace('#', '') || 'tony';
 
-const updateProgressArc = () => {
-  const levelProgress = points[selectedStudent] % 10 / 10;
-  const angle = Math.round(360 * levelProgress);
-
-  const arc = document.querySelector('.progress-arc');
-  const x = Number(arc.getAttribute('data-x'));
-  const y = Number(arc.getAttribute('data-y'));
-  const r = Number(arc.getAttribute('data-r'));
-  arc.setAttribute('d', describeArc(x, y, r, 0, angle));
+const state = {
+  component: null,
 };
 
-const render = () => {
-  console.log('render()');
-  const tree = Tree({ selectedStudent });
-  const svg = SvgContainer({
+export const Skills = () => {
+  if (state.component) {
+    state.component.remove();
+    state.component = null;
+  }
+   console.info('Skills');
+  const changeStudent = student => {
+    console.log('change student: ', student);
+    selectedStudent = student;
+  };
+
+  const header = document.querySelector('header');
+  const links = header.querySelectorAll('a');
+
+  links.forEach(link => {
+    const student = link.href.replace(/[^#]*[#]/, '');
+    link.addEventListener('click', () => changeStudent(student));
+  });
+
+  const badgeR = 25;
+
+  const tree = Tree({ student: selectedStudent});
+
+  changeStudent(selectedStudent);
+
+  let audioIsOn = false;
+  document.body.addEventListener('click', () => {
+    if (!audioIsOn) {
+      audioIsOn = true;
+      var audio = new Audio('audio/tristram.webm');
+      audio.volume = 0.2;
+      audio.play();
+    }
+  });
+
+  const svgContainer = SvgContainer({
     width: 1000,
     height: 1000,
     children: tree,
   });
-  document.querySelector('section').innerHTML = svg;
+
+  state.component = svgContainer;
+  return state.component;
 };
 
-const changeStudent = student => {
-  console.log('change student: ', student);
-  selectedStudent = student;
-  render();
-};
-
-const header = document.querySelector('header');
-const links = header.querySelectorAll('a');
-
-links.forEach(link => {
-  const student = link.href.replace(/[^#]*[#]/, '');
-  link.addEventListener('click', () => changeStudent(student));
-});
-
-
-
-const badgeR = 25;
-
-
-const tree = Tree({ student: selectedStudent});
-render(tree);
-
-
-changeStudent(selectedStudent);
-
-let audioIsOn = false;
-document.body.addEventListener('click', () => {
-  if (!audioIsOn) {
-    audioIsOn = true;
-    var audio = new Audio('audio/tristram.webm');
-    audio.volume = 0.2;
-    audio.play();
-  }
-});
