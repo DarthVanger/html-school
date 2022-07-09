@@ -10,46 +10,33 @@ const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
 
-
 const state = {
   component: null,
-  student: window.location.hash.replace('#', '') || 'tony',
 };
 
-export const Skills = () => {
+export const Skills = ({ student }) => {
+  console.info('Skills');
+
   if (state.component) {
     state.component.remove();
     state.component = null;
   }
-   console.info('Skills');
-  const changeStudent = student => {
-    console.log('change student: ', student);
-    state.student = student;
-  };
 
-  const header = document.querySelector('header');
-  const links = header.querySelectorAll('a');
+  const playMusicOnClick = () => {
+    let audioIsOn = false;
+    document.body.addEventListener('click', () => {
+      if (!audioIsOn) {
+        audioIsOn = true;
+        var audio = new Audio('audio/tristram.webm');
+        audio.volume = 0.2;
+        audio.play();
+      }
+    });
+  }
 
-  links.forEach(link => {
-    const student = link.href.replace(/[^#]*[#]/, '');
-    link.addEventListener('click', () => changeStudent(student));
-  });
-
-  const badgeR = 25;
+  playMusicOnClick();
 
   const tree = Tree({ student: state.student });
-
-  changeStudent(state.student);
-
-  let audioIsOn = false;
-  document.body.addEventListener('click', () => {
-    if (!audioIsOn) {
-      audioIsOn = true;
-      var audio = new Audio('audio/tristram.webm');
-      audio.volume = 0.2;
-      audio.play();
-    }
-  });
 
   const svgContainer = SvgContainer({
     width: 1000,
@@ -60,4 +47,3 @@ export const Skills = () => {
   state.component = svgContainer;
   return state.component;
 };
-
