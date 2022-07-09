@@ -14,7 +14,7 @@ const state = {
   component: null,
 };
 
-export const Skills = ({ student }) => {
+export const Skills = (state) => {
   console.info('Skills');
 
   if (state.component) {
@@ -36,7 +36,7 @@ export const Skills = ({ student }) => {
 
   playMusicOnClick();
 
-  const tree = Tree({ student: state.student });
+  const tree = Tree(state);
 
   const svgContainer = SvgContainer({
     width: 1000,

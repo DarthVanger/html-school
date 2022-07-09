@@ -1,4 +1,3 @@
-import { skills, students, levels, points } from './levels.js';
 import { Badge } from './Badge.js';
 import { Skill } from './Skill.js';
 
@@ -100,8 +99,10 @@ const SkillsLine = ({ skills, x, y, selectedStudent }) => skills.map((skill, idx
  });
 
 let treeHeight = 0;
-export const Tree = ({x=0, y=0, student}) => {
-  console.log('Tree. student: ', student);
+export const Tree = (state) => {
+  console.log('Tree: ', state);
+
+  const {x=0, y=0, student, skills} = state;
   const htmlSkills = skills.html;
   const css = skills.css;
   const js = skills.js;
