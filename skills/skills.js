@@ -10,10 +10,10 @@ const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
 
-let selectedStudent = window.location.hash.replace('#', '') || 'tony';
 
 const state = {
   component: null,
+  student: window.location.hash.replace('#', '') || 'tony',
 };
 
 export const Skills = () => {
@@ -24,7 +24,7 @@ export const Skills = () => {
    console.info('Skills');
   const changeStudent = student => {
     console.log('change student: ', student);
-    selectedStudent = student;
+    state.student = student;
   };
 
   const header = document.querySelector('header');
@@ -37,9 +37,9 @@ export const Skills = () => {
 
   const badgeR = 25;
 
-  const tree = Tree({ student: selectedStudent});
+  const tree = Tree({ student: state.student });
 
-  changeStudent(selectedStudent);
+  changeStudent(state.student);
 
   let audioIsOn = false;
   document.body.addEventListener('click', () => {
