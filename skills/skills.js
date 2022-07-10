@@ -1,5 +1,4 @@
 import { describeArc } from './arc.js';
-import { skills, students, levels, points } from './levels.js';
 import { Tree, treeWidth, treeHeight } from './Tree.js';
 import { Skill } from './Skill.js';
 import { Badge } from './Badge.js';
