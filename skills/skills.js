@@ -9,24 +9,15 @@ const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
 
-const state = {
-  component: null,
-};
-
 export const Skills = (state) => {
   console.info('Skills');
-
-  if (state.component) {
-    state.component.remove();
-    state.component = null;
-  }
 
   const playMusicOnClick = () => {
     let audioIsOn = false;
     document.body.addEventListener('click', () => {
       if (!audioIsOn) {
         audioIsOn = true;
-        var audio = new Audio('audio/tristram.webm');
+        var audio = new Audio('/audio/tristram.webm');
         audio.volume = 0.2;
         audio.play();
       }
@@ -43,6 +34,5 @@ export const Skills = (state) => {
     children: tree,
   });
 
-  state.component = svgContainer;
-  return state.component;
+  return svgContainer;
 };

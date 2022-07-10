@@ -1,4 +1,5 @@
 import { App } from './App.js';
+import { subscribe } from './state.js';
 
 const render = () => {
   console.info('render');
@@ -7,3 +8,5 @@ const render = () => {
 };
 
 render();
+
+subscribe(render);

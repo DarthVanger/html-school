@@ -1,11 +1,12 @@
 import { Skills } from './skills.js';
+import { state, setState } from './state.js';
 
-let state = {
-  student: window.location.hash.replace('#', '') || 'tony',
-  skills: null,
+const getStudentFromHash = () => {
+  return window.location.hash.replace('#', '') || 'tony';
 };
 
 export const App = ({ render }) => {
+  console.log('App');
   if (!state.skills) {
     console.info('Fetching skills');
     fetch('/tree')
@@ -21,5 +22,19 @@ export const App = ({ render }) => {
     return 'Loading...';
   }
 
-  return Skills(state);
+  window.addEventListener('hashchange', event => {
+    setState({
+      student: getStudentFromHash(),
+    });
+  });
+
+  setState({
+    student: getStudentFromHash(),
+  });
+
+  return `
+    <div id="app">
+      ${Skills(state)};
+    </div>
+  `;
 }
