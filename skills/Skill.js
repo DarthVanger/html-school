@@ -1,8 +1,10 @@
 import { Badge } from './Badge.js';
 
-export const Skill = ({ skill, x, y, selectedStudent, skillBoxSize }) => {
+export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   const height = skillBoxSize;
   const width = skillBoxSize;
+  const { student } = state;
+  const level = skill.level[student]
 
   const Text = ({ text, x, y }) =>  {
     const texts = skill.text.split('\n');
@@ -35,7 +37,7 @@ export const Skill = ({ skill, x, y, selectedStudent, skillBoxSize }) => {
     html += Badge({
       x,
       y,
-      level: skill.level,
+      level,
     });
 
     return html;
@@ -51,7 +53,7 @@ export const Skill = ({ skill, x, y, selectedStudent, skillBoxSize }) => {
         width="${width}"
         x="${x}"
         y="${y}"
-        class="level-${skill.level[selectedStudent]} ${selectedStudent}"
+        class="level-${level} ${student}"
         data-level-tony=${skill.level.tony}
         data-level-johnny=${skill.level.johnny}
         data-level-dimon=${skill.level.dimon}

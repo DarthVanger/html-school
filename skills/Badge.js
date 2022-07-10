@@ -1,4 +1,4 @@
-export const Badge = ({x, y, level, badgeR, selectedStudent}) => {
+export const Badge = ({x, y, level, badgeR }) => {
   if (!badgeR) badgeR = 25;
   const id = `${Math.random()}-badge-clip-${x}-${y}`;
   const height = badgeR * 2;
@@ -23,17 +23,17 @@ export const Badge = ({x, y, level, badgeR, selectedStudent}) => {
       y="${y + height / 2}"
       width="${size}" height="${size}"
       clip-path="url(#clipPath-${id})"
-      class="badge-img level-${level[selectedStudent]}"
+      class="badge-img level-${level}"
     />
    <text x="${x + size + 2}" y="${y + size + 2}"
     text-anchor="middle"
     alignment-baseline="middle"
-    data-level-tony=${level.tony}
-    data-level-johnny=${level.johnny}
-    data-level-dimon=${level.dimon}
+    data-level-tony=${level}
+    data-level-johnny=${level}
+    data-level-dimon=${level}
     class="badge-text"
    >
-     ${level[selectedStudent]}
+     ${level}
    </text>
  `;
 };
