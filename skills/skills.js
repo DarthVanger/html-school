@@ -12,20 +12,6 @@ const height = skillBoxSize;
 export const Skills = (state) => {
   console.info('Skills');
 
-  const playMusicOnClick = () => {
-    let audioIsOn = false;
-    document.body.addEventListener('click', () => {
-      if (!audioIsOn) {
-        audioIsOn = true;
-        var audio = new Audio('/audio/tristram.webm');
-        audio.volume = 0.2;
-        audio.play();
-      }
-    });
-  }
-
-  playMusicOnClick();
-
   const tree = Tree(state);
 
   const svgContainer = SvgContainer({

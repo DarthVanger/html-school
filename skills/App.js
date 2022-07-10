@@ -5,6 +5,8 @@ const getStudentFromHash = () => {
   return window.location.hash.replace('#', '') || 'tony';
 };
 
+let isMusicPlaying = false;
+
 export const App = ({ render }) => {
   console.log('App');
   if (!state.skills) {
@@ -30,6 +32,15 @@ export const App = ({ render }) => {
 
   setState({
     student: getStudentFromHash(),
+  });
+
+  document.body.addEventListener('click', () => {
+    if (!isMusicPlaying) {
+      isMusicPlaying = true;
+      var audio = new Audio('/audio/tristram.webm');
+      audio.volume = 0.2;
+      audio.play();
+    }
   });
 
   return `
