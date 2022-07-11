@@ -41,12 +41,6 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       level,
     });
 
-    html += HomeworkBadge({
-      x,
-      y: y - skillBoxSize,
-      level,
-    });
-
     return html;
   };
 
@@ -69,6 +63,11 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
        x: x + width / 2,
        y: y + height / 2,
        text: skill.text,
+     })}
+     ${HomeworkBadge({
+       x: x + skillBoxSize / 2,
+       y: y - skillBoxSize / 2,
+       level,
      })}
     </g>
  `;
