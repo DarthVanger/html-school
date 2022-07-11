@@ -23,7 +23,7 @@ app.get('/tree', (req, res) => {
 })
 
 app.post('/tree/:skill/:student', (req, res) => {
-  console.log(`POST /tree/${skill}/${student}:`, req.params);
+  console.log(`POST /tree/skill/student:`, req.params);
 
   const { skill, student } = req.params;
 

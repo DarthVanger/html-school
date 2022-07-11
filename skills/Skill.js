@@ -68,6 +68,8 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
        x: x + skillBoxSize / 2,
        y: y - skillBoxSize / 2,
        level,
+       state,
+       skill,
      })}
     </g>
  `;

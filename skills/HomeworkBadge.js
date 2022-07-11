@@ -1,14 +1,28 @@
-export const HomeworkBadge = ({x, y, level }) => {
-  const id = `${Math.random()}-badge-clip-${x}-${y}`;
+import { addHomework } from './api.js';
+let element;
+
+export const HomeworkBadge = ({x, y, level, skill, state }) => {
+  let id = 'elem-' + Math.round(Math.random() * 100000).toString();
   const size = 50;
 
   const imgX = x + size;
   const imgY = y + size;
   const fontSize = 16;
   const textPadding = 8;
+
+  const { student } = state;
+
+  setTimeout(() => {
+    element = document.querySelector(`#${id}`);
+    const homework = { skill, student };
+
+    element?.addEventListener('click', async () => {
+      addHomework(homework);
+    });
+  });
   
   return `
-    <g class="homework-badge">
+    <g class="homework-badge" id=${id}>
       <image
         href="img/book.png"
         x="${imgX}"
