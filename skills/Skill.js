@@ -1,4 +1,5 @@
 import { Badge } from './Badge.js';
+import { HomeworkBadge } from './HomeworkBadge.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   const height = skillBoxSize;
@@ -37,6 +38,12 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
     html += Badge({
       x,
       y,
+      level,
+    });
+
+    html += HomeworkBadge({
+      x,
+      y: y - skillBoxSize,
       level,
     });
 
