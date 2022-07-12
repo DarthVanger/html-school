@@ -32,7 +32,16 @@ app.post('/tree/:skill/:student', (req, res) => {
   }
 
   res.send('OK bro :)')
-  
+
+  db.data[student] = db.data[student] || [];
+  console.log('db.data[student]: ', db.data[student]);
+  db.data[student].push({
+    skill,
+    tag: 'homework',
+    date: (new Date()).toISOString(),
+  });
+
+  db.write();
   //db.data.skills.push('hello world')
   //const firstPost = db.data.posts[0]
 });
