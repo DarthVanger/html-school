@@ -1,4 +1,5 @@
 import { Skills } from './skills.js';
+import { Students } from './Students.js';
 import { state, setState } from './state.js';
 
 const getStudentFromHash = () => {
@@ -31,8 +32,9 @@ export const App = ({ render }) => {
   }
 
   window.addEventListener('hashchange', event => {
+    const student = getStudentFromHash();
     setState({
-      student: getStudentFromHash(),
+      student,
     });
   });
 
@@ -51,6 +53,7 @@ export const App = ({ render }) => {
 
   return `
     <div id="app">
+      ${Students(state)};
       ${Skills(state)};
     </div>
   `;

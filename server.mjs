@@ -30,7 +30,6 @@ app.post('/tree/:skill/:student', async (req, res) => {
     return res.status(400).send('Bad Request');
   }
 
-
   db.data.homework = db.data.homework || {};
   db.data.homework[student] = db.data.homework[student] || [];
 
