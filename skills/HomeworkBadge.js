@@ -21,6 +21,7 @@ export const HomeworkBadge = ({x, y, level, skill, state }) => {
 
     element?.addEventListener('click', async () => {
       addHomework(homework);
+      state.onChange();
     });
   });
   

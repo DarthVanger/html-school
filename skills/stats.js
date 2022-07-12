@@ -5,9 +5,5 @@ export const getHomeworkPoints = ({homework, student, skill}) => {
     entry => entry.skill === skill.text,
   );
 
-  if (skill.text === '<h1>') {
-    console.log('e');
-    console.log(homeworkEntries);
-  }
   return homeworkEntries?.length || 0;
 };

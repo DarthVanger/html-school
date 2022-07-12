@@ -8,6 +8,11 @@ const getStudentFromHash = () => {
 let isMusicPlaying = false;
 
 export const App = ({ render }) => {
+  state.onChange = () => {
+    state.skills = null;
+    render();
+  };
+
   console.log('App');
   if (!state.skills) {
     console.info('Fetching skills');

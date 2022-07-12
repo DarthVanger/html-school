@@ -1,7 +1,9 @@
-export const state = {
+const defaultState = {
   student: null,
   skills: null,
 };
+
+export const state = defaultState;
 
 const subscribers = [];
 
