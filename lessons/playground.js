@@ -1,3 +1,4 @@
+import { mentor } from './mentor.js';
 import codes from './code/codes.js';
 
 const playground = document.createElement('div');
@@ -86,6 +87,9 @@ export const render = (container, code) => {
   });
 }
 
+
 const lesson = location.hash.replace('#', '');
 console.log(lesson);
 render(document.body, codes[lesson]);
+
+setTimeout(() => mentor(getEditor()));
