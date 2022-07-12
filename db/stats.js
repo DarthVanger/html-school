@@ -1,7 +1,7 @@
 import { db } from './db.js';
 
 const getHomeworkPoints = ({ student, skill }) => {
-  const homeworkEntries = db.data[student]?.filter(
+  const homeworkEntries = db.data.homework[student]?.filter(
     entry => entry.skill === skill.text,
   );
   return homeworkEntries?.length || 0;
