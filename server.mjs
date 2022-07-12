@@ -22,7 +22,7 @@ app.get('/tree', (req, res) => {
   res.json({ skills: db.data.skills, levels, points, categoryLevels, homework });
 })
 
-app.post('/tree/:skill/:student', (req, res) => {
+app.post('/tree/:skill/:student', async (req, res) => {
   console.log(`POST /tree/skill/student:`, req.params);
   const { skill, student } = req.params;
 
@@ -34,15 +34,16 @@ app.post('/tree/:skill/:student', (req, res) => {
   db.data.homework = db.data.homework || {};
   db.data.homework[student] = db.data.homework[student] || [];
 
-  db.data.homework[student].push({
+  const entry = {
     skill,
     tag: 'homework',
     date: (new Date()).toISOString(),
-  });
+  };
 
-  db.write();
-  //db.data.skills.push('hello world')
-  //const firstPost = db.data.posts[0]
+  db.data.homework[student].push(entry);
+
+  await db.write();
+  res.json(entry);
 });
 
 (async () => {
