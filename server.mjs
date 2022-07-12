@@ -18,24 +18,23 @@ const runApp = async () => {
 app.get('/tree', (req, res) => {
   console.log('GET /tree');
 
-  const { levels, points, categoryLevels } = getStats();
-  res.json({ skills: db.data.skills, levels, points, categoryLevels });
+  const { levels, points, categoryLevels, homework } = getStats();
+  res.json({ skills: db.data.skills, levels, points, categoryLevels, homework });
 })
 
 app.post('/tree/:skill/:student', (req, res) => {
   console.log(`POST /tree/skill/student:`, req.params);
-
   const { skill, student } = req.params;
 
   if (!skill || ! student) {
     return res.status(400).send('Bad Request');
   }
 
-  res.send('OK bro :)')
 
-  db.data[student] = db.data[student] || [];
-  console.log('db.data[student]: ', db.data[student]);
-  db.data[student].push({
+  db.data.homework = db.data.homework || {};
+  db.data.homework[student] = db.data.homework[student] || [];
+
+  db.data.homework[student].push({
     skill,
     tag: 'homework',
     date: (new Date()).toISOString(),

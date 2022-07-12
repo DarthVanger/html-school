@@ -18,6 +18,7 @@ export const App = ({ render }) => {
         state.levels = r.levels;
         state.points = r.points;
         state.categoryLevels = r.categoryLevels;
+        state.homework = r.homework;
         render();
       });
 

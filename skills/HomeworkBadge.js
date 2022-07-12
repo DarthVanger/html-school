@@ -1,4 +1,5 @@
 import { addHomework } from './api.js';
+import { getHomeworkPoints } from './stats.js';
 let element;
 
 export const HomeworkBadge = ({x, y, level, skill, state }) => {
@@ -10,7 +11,9 @@ export const HomeworkBadge = ({x, y, level, skill, state }) => {
   const fontSize = 16;
   const textPadding = 8;
 
-  const { student } = state;
+  const { student, homework } = state;
+
+  const homeworkPoints = getHomeworkPoints({homework, student, skill});
 
   setTimeout(() => {
     element = document.querySelector(`#${id}`);
@@ -37,7 +40,7 @@ export const HomeworkBadge = ({x, y, level, skill, state }) => {
       data-level-dimon=${level}
       class="badge-text"
      >
-       0
+       ${homeworkPoints}
      </text>
    </g>
  `;
