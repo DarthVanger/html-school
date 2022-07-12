@@ -20,7 +20,7 @@ export const HomeworkBadge = ({x, y, level, skill, state }) => {
     const homework = { skill, student };
 
     element?.addEventListener('click', async () => {
-      addHomework(homework);
+      await addHomework(homework);
       state.onChange();
     });
   });

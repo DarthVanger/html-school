@@ -16,15 +16,15 @@ const runApp = async () => {
 };
 
 app.get('/tree', (req, res) => {
-  console.log('GET /tree');
+  console.info('GET /tree');
 
   const { levels, points, categoryLevels, homework } = getStats();
   res.json({ skills: db.data.skills, levels, points, categoryLevels, homework });
 })
 
 app.post('/tree/:skill/:student', async (req, res) => {
-  console.log(`POST /tree/skill/student:`, req.params);
   const { skill, student } = req.params;
+  console.info(`POST /tree/${skill}/${student}:`, req.params);
 
   if (!skill || ! student) {
     return res.status(400).send('Bad Request');
@@ -43,6 +43,7 @@ app.post('/tree/:skill/:student', async (req, res) => {
   db.data.homework[student].push(entry);
 
   await db.write();
+  console.info('DB write Success', entry);
   res.json(entry);
 });
 
