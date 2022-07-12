@@ -40,6 +40,11 @@ svg #rect {
   opacity: 0;
 }
 
+[class*="level-"], .badge-img[class^="level-"] {
+  opacity: 1;
+  filter: invert(1) sepia(1) saturate(7) hue-rotate(356deg);
+}
+
 .level-1 {
   filter: invert(1) sepia(1) saturate(3) hue-rotate(320deg);
 }
