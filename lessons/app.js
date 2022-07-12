@@ -3,6 +3,11 @@ const lessons = [
   [
     {
       img: '<img src="img/flying.gif" />',
+      id: 'alertXuy4ek',
+      title: 'Alert Xuy4ek',
+    },
+    {
+      img: '<img src="img/flying.gif" />',
       id: 'flying',
       title: 'Flying',
     },
