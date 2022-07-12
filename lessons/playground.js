@@ -11,20 +11,12 @@ playground.innerHTML = `
     <iframe id="result"></iframe>
   </div>
   <div id="loader">Reloaded</div>
-  <div id="error">
-    No errors
-  </div>
+  <button type="button" id="run-button">Run</button>
 `
 
+const getRunButton = () => document.querySelector('#run-button');
 const getEditor = () => document.querySelector('#editor > code');
 const getIframe = () => document.querySelector('iframe');
-
-let timeoutId;
-const runDebounced = () => {
-  clearTimeout(timeoutId);
-  timeoutId = setTimeout(run, 1000);
-
-};
 
 export const run = () => {
   let code = `
@@ -89,8 +81,8 @@ export const render = (container, code) => {
 
   setCode(code);
 
-  getEditor().addEventListener('keyup', (event) => {
-    runDebounced();
+  getRunButton().addEventListener('click', () => {
+    run();
   });
 }
 

@@ -10,3 +10,23 @@
   border-radius: 2px;
   font-family: monospace;
 }
+
+#run-button {
+  outline: none;
+  box-shadow: none;
+
+  position: absolute;
+  top: 0;
+  right: 50%;
+
+  padding: 0 1em;
+  background: green;
+  color: white;
+  height: 70px;
+  line-height: 70px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: monospace;
+  cursor: pointer;
+  border: none;
+}
