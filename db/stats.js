@@ -1,5 +1,12 @@
 import { db } from './db.js';
 
+const homeworkPoints = ({ student, skill }) => {
+  const homeworkEntries = db.data[student]?.filter(
+    entry => entry.skill === skill.text,
+  );
+  return homeworkEntries?.length || 0;
+};
+
 export const getStats = () => {
   const { students, skills } = db.data;
   const points = {};
@@ -21,6 +28,7 @@ export const getStats = () => {
       for (let skill of branch) {
         for (let student of students) {
           categoryLevel[student] += skill.level[student];
+          categoryLevel[student] += homeworkPoints({ student, skill});
         }
       }
     }
