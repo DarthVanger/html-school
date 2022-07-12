@@ -5,8 +5,6 @@ export const Students = (state) => {
     }
     return '';
   }
-  console.log('student: ', state.student);
-
   return `
     <header>
       <a href="#johnny" class="${classes('johnny')}">Johnny</a>

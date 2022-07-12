@@ -1,11 +1,12 @@
 import { Badge } from './Badge.js';
 import { HomeworkBadge } from './HomeworkBadge.js';
+import { getHomeworkPoints } from './stats.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   const height = skillBoxSize;
   const width = skillBoxSize;
-  const { student } = state;
-  const level = skill.level[student]
+  const { homework, student } = state;
+  const level = skill.level[student]  + getHomeworkPoints({homework, student, skill});
 
   const Text = ({ text, x, y }) =>  {
     const texts = skill.text.split('\n');
