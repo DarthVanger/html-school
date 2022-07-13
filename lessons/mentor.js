@@ -110,12 +110,18 @@ const check = () => {
   }
 };
 
+let checkTimeoutId;
+const debouncedCheck = () => {
+  clearTimeout(checkTimeoutId);
+  checkTimeoutId = setTimeout(check, 500);
+};
+
 export const mentor = (editor) => {
   const code = getInnerText(editor);
   const initialCursorPos = code.length + 5;
   setCursor(editor, initialCursorPos );
 
-  editor.addEventListener('keyup', check);
+  editor.addEventListener('keyup', debouncedCheck);
   check();
 };
 
