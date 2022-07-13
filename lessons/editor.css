@@ -11,10 +11,17 @@
   font-family: monospace;
 }
 
-#run-button {
+button {
   outline: none;
   box-shadow: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: monospace;
+}
 
+#run-button {
   position: absolute;
   top: 0;
   right: 50%;
@@ -24,11 +31,19 @@
   color: white;
   height: 70px;
   line-height: 70px;
-  font-size: 1.5em;
-  font-weight: bold;
-  font-family: monospace;
-  cursor: pointer;
-  border: none;
+}
+
+#close-mentor-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  background: black;
+  border: white 2px solid;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 8px;
+  text-transform: uppercase;
 }
 
 #mentor {

@@ -1,46 +1,83 @@
 import { getCurrentCursorPosition, setCursor, getInnerText } from './utils.js';
 
+const getButtonText = () => {
+  const answers = [
+    'Пошел нахуй',
+    'Заебал',
+    'Да понял я блять!',
+    'Не выебуйся',
+    'Съебись',
+    'Да отъебись же',
+    'Да ебана, отвянь!',
+    'Твою же мать, отъебись!',
+  ];
+
+  const randomIndex = Math.floor((Math.random() * answers.length));
+
+  return answers[randomIndex];
+};
+
 const getTextContent = (editor) => {
   return editor.textContent;
 };
 
+let currentStep = 0;
+const nextStep = (step) => {
+  console.log('next step', step);
+  currentStep = step;
+  const elem = document.querySelector('#mentor');
+  elem.style.display = 'flex';
+};
+
 const check = () => {
   const code = getInnerText(editor);
+  let step = 0;
 
   if (!/<script>/.test(code)) {
     showMentorAtCursor('Вписуй &lt;script&gt;, блять)');
+    step++;
+    console.log('step++');
   }
 
   if (/<script>[\n]/.test(code)) {
     showMentorAtCursor('Красава! Теперь закрывающий &lt;/script&gt;! :)');
+    step += 2;
+    console.log('step++ 2');
   }
 
   if (/<\/script>/.test(code)) {
     showMentorAtCursor('ОГОНЬ! Внутри тега пиши alert');
+    step++;
   }
 
   if (/<script>\s*alert\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Скобку круглую открывающую)');
+    step++;
   }
 
   if (/<script>\s*alert[(]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Кавычки)');
+    step++;
   }
 
   if (/<script>\s*alert[(]['"]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('текст)');
+    step++;
   }
 
   if (/<script>\s*alert[(]['"][^'"]+\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Закрывающие кавычки)');
+    step++;
   }
 
   if (/<script>\s*alert[(]['"][^'"]+['"]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Закрыть круглую скобку)');
+    step++;
   }
 
   if (/<script>\s*alert[(]['"][^'"]+['"][)]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Точку с запятой блять!');
+    step++;
   }
 
   if (/<script>\s*alert[(]['"][^'"]+['"][)];\s*<\/script>/.test(code)) {
@@ -52,6 +89,7 @@ const check = () => {
         Запускай йопта! Должно пахать)
       </p>
     `);
+    step++;
   }
   if (/<script>\s*alert[(]['"][^'"]+['"][)];\s*[^\s]+[^<]*<\/script>/.test(code)) {
     showMentorAtCursor(`
@@ -59,15 +97,20 @@ const check = () => {
         Лишняя хуйня после точки с запятой
       </p>
     `);
+    step++;
+  }
+
+  console.log('step: ', step);
+  console.log('currentStep: ', currentStep);
+  if (step !== currentStep) {
+    console.log('not equal');
+    nextStep(step);
   }
 };
 
 export const mentor = (editor) => {
   const code = getInnerText(editor);
   const initialCursorPos = code.length + 5;
-  console.debug('code: ', JSON.stringify(code));
-  console.debug('code.length: ', code.length);
-  console.debug('Set inital cursor at ', initialCursorPos);
   setCursor(editor, initialCursorPos );
 
   editor.addEventListener('keyup', check);
@@ -79,7 +122,6 @@ const showMentorAtCursor = (text) => {
   let code = getInnerText(editor);
 
   const codeBeforeCursor = code.substr(0, currentPos );
-  console.debug('Code before cursor: ', JSON.stringify(codeBeforeCursor));
 
   console.debug('Current cursor position: ', currentPos);
   let closestNewlineIndex = codeBeforeCursor.lastIndexOf('\n');
@@ -88,18 +130,13 @@ const showMentorAtCursor = (text) => {
   if (closestNewlineIndex === -1) {
     closestNewlinePos = 0;
   }
-  console.debug('closestNewlinePos: ', closestNewlinePos);
   let posInLine = codeBeforeCursor.length - closestNewlinePos;
   if (closestNewlineIndex === 0) {
     posInLine = 0;
   }
 
-  console.debug('posInLine: ', posInLine);
-
-  console.debug('code: ', JSON.stringify(code));
   var regex = /[\n][\n]?/g;
   const matches = codeBeforeCursor.match(regex);
-  console.debug('matches: ', matches);
   
   let linesNum = (matches || []).length || 0; 
 
@@ -123,5 +160,12 @@ const Mentor = ({ x, y, text }) => {
     <div id="mentor-message">
       ${text}
     </div>
+    <button type="button" id="close-mentor-button">Понял бля</button>
   `;
+
+  const closeButton = document.querySelector('#close-mentor-button');
+
+  closeButton.addEventListener('click', () => {
+    element.style.display = 'none';
+  });
 }

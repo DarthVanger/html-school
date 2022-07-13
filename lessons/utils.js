@@ -75,12 +75,10 @@ export function getCurrentCursorPosition(parentId) {
     let previousNodes = [];
 
     if (selection.focusNode) {
-        console.log('selection: ', selection);
         if (isChildOf(selection.focusNode, parentId)) {
             node = selection.focusNode; 
             charCount = selection.focusOffset;
 
-            console.log('focus node', node);
             if (node.nodeName === 'DIV') {
               charCount += 1;
             }
@@ -102,13 +100,11 @@ export function getCurrentCursorPosition(parentId) {
                       firstIteration = false;
                       text = '';
                     }
-                    console.debug(nodeCount, 'Text node: ', node.data);
                   } else {
                     text = node.innerText;
                     if (node.nodeName === 'DIV') {
                       charCount += 1;
                     }
-                    console.debug(node, 'non-text node: ', node);
                   }
                   charCount += text.length;
                   nodeCount++;  
@@ -122,7 +118,6 @@ export function getCurrentCursorPosition(parentId) {
       }
    }
 
-  console.log('previousNodes: ', previousNodes);
-    return charCount;
+   return charCount;
 };
 
