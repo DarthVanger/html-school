@@ -47,15 +47,18 @@ const showMentorAtCursor = (text) => {
   console.debug('Code before cursor: ', JSON.stringify(codeBeforeCursor));
 
   console.debug('Current cursor position: ', currentPos);
-  let closestNewlinePos = codeBeforeCursor.lastIndexOf('\n');
-  if (/[\n]$/.test(codeBeforeCursor)) {
-    closestNewlinePos = codeBeforeCursor.slice(0, -1).lastIndexOf('\n');
-  }
-  if (closestNewlinePos === -1) {
+  let closestNewlineIndex = codeBeforeCursor.lastIndexOf('\n');
+  let closestNewlinePos = closestNewlineIndex;
+
+  if (closestNewlineIndex === -1) {
     closestNewlinePos = 0;
   }
   console.debug('closestNewlinePos: ', closestNewlinePos);
-  const posInLine = codeBeforeCursor.length - closestNewlinePos;
+  let posInLine = codeBeforeCursor.length - closestNewlinePos;
+  if (closestNewlineIndex === 0) {
+    posInLine = 0;
+  }
+
   console.debug('posInLine: ', posInLine);
 
   console.debug('code: ', JSON.stringify(code));
