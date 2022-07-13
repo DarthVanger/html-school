@@ -13,6 +13,7 @@ playground.innerHTML = `
   </div>
   <div id="loader">Reloaded</div>
   <button type="button" id="run-button">Run</button>
+  <div id="mentor"></div>
 `
 
 const getRunButton = () => document.querySelector('#run-button');
@@ -92,4 +93,9 @@ const lesson = location.hash.replace('#', '');
 console.log(lesson);
 render(document.body, codes[lesson]);
 
-setTimeout(() => mentor(getEditor()));
+setTimeout(() => {
+  console.log('focus');
+  getEditor().focus();
+  mentor(getEditor());
+});
+
