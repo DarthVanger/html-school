@@ -43,8 +43,7 @@ const showMentorAtCursor = (text) => {
   const currentPos = getCurrentCursorPosition('editor');
   let code = getInnerText(editor);
 
-  
-  const codeBeforeCursor = code.substr(0, currentPos + 1);
+  const codeBeforeCursor = code.substr(0, currentPos );
   console.debug('Code before cursor: ', JSON.stringify(codeBeforeCursor));
 
   console.debug('Current cursor position: ', currentPos);
@@ -65,12 +64,6 @@ const showMentorAtCursor = (text) => {
   console.debug('matches: ', matches);
   
   let linesNum = (matches || []).length || 0; 
-
-  if (/[\n]$/.test(codeBeforeCursor)) {
-    if (window.getSelection().focusNode.data !== '\n\n') {
-      linesNum = 0;
-    }
-  } 
 
   console.debug('Line num: ', linesNum);
 
