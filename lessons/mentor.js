@@ -62,12 +62,12 @@ const check = () => {
     step++;
   }
 
-  if (/<script>\s*alert[(]['"]\s*[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('текст)');
+  if (/<script>\s*alert[(]['"]\s*<\/script>/.test(code)) {
+    showMentorAtCursor('хуйчек )');
     step++;
   }
 
-  if (/<script>\s*alert[(]['"][^'"]+\s*[^<]*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"][^'"<\s]+\s*<\/script>/.test(code)) {
     showMentorAtCursor('Закрывающие кавычки)');
     step++;
   }
