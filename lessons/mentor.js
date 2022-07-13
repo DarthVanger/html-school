@@ -25,6 +25,37 @@ const check = () => {
   if (/<script>\s*alert\s*<\/script>/.test(code)) {
     showMentorAtCursor('Скобку круглую открывающую)');
   }
+
+  if (/<script>\s*alert[(]\s*<\/script>/.test(code)) {
+    showMentorAtCursor('Кавычки)');
+  }
+
+  if (/<script>\s*alert[(]['"]\s*<\/script>/.test(code)) {
+    showMentorAtCursor('текст)');
+  }
+
+  if (/<script>\s*alert[(]['"][^'"]+\s*<\/script>/.test(code)) {
+    showMentorAtCursor('Закрывающие кавычки)');
+  }
+
+  if (/<script>\s*alert[(]['"][^'"]+['"]\s*<\/script>/.test(code)) {
+    showMentorAtCursor('Закрыть круглую скобку)');
+  }
+
+  if (/<script>\s*alert[(]['"][^'"]+['"][)]\s*<\/script>/.test(code)) {
+    showMentorAtCursor('Точку с запятой блять!');
+  }
+
+  if (/<script>\s*alert[(]['"][^'"]+['"][)];\s*<\/script>/.test(code)) {
+    showMentorAtCursor(`
+      <p>
+        Ваще огонь ! 🔥🔥🔥
+      </p>
+      <p>
+        Запускай йопта! Должно пахать)
+      </p>
+    `);
+  }
 };
 
 export const mentor = (editor) => {
