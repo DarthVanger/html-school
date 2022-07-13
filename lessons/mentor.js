@@ -7,11 +7,8 @@ const getTextContent = (editor) => {
 const check = () => {
   const code = getInnerText(editor);
 
-  if (!/<script>$/.test(code)) {
+  if (!/<script>/.test(code)) {
     showMentorAtCursor('Вписуй &lt;script&gt;, блять)');
-  }
-  if (/<script>$/.test(code)) {
-    showMentorAtCursor('Энтер, блять )');
   }
 
   if (/<script>[\n]/.test(code)) {
@@ -22,27 +19,27 @@ const check = () => {
     showMentorAtCursor('ОГОНЬ! Внутри тега пиши alert');
   }
 
-  if (/<script>\s*alert\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Скобку круглую открывающую)');
   }
 
-  if (/<script>\s*alert[(]\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Кавычки)');
   }
 
-  if (/<script>\s*alert[(]['"]\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('текст)');
   }
 
-  if (/<script>\s*alert[(]['"][^'"]+\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"][^'"]+\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Закрывающие кавычки)');
   }
 
-  if (/<script>\s*alert[(]['"][^'"]+['"]\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"][^'"]+['"]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Закрыть круглую скобку)');
   }
 
-  if (/<script>\s*alert[(]['"][^'"]+['"][)]\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"][^'"]+['"][)]\s*[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Точку с запятой блять!');
   }
 
@@ -53,6 +50,13 @@ const check = () => {
       </p>
       <p>
         Запускай йопта! Должно пахать)
+      </p>
+    `);
+  }
+  if (/<script>\s*alert[(]['"][^'"]+['"][)];\s*[^\s]+[^<]*<\/script>/.test(code)) {
+    showMentorAtCursor(`
+      <p>
+        Лишняя хуйня после точки с запятой
       </p>
     `);
   }
