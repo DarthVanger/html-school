@@ -30,7 +30,9 @@ const check = () => {
 export const mentor = (editor) => {
   const code = getInnerText(editor);
   const initialCursorPos = code.length;
-  console.info('Set inital cursor at ', initialCursorPos);
+  console.debug('code: ', JSON.stringify(code));
+  console.debug('code.length: ', code.length);
+  console.debug('Set inital cursor at ', initialCursorPos);
   setCursor(editor, initialCursorPos);
 
   editor.addEventListener('keyup', check);

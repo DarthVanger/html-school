@@ -3,7 +3,7 @@
 export const getInnerText = (element) => {
   let text = element.innerText;
   text = text.replace(/^      [\n]/, '');
-  text = text.replace(/[\n][\n]    /, '');
+  text = text.replace(/[\n]    /, '');
   return text;
 };
 
@@ -71,11 +71,19 @@ export function getCurrentCursorPosition(parentId) {
         charCount = -1,
         node;
 
+    let nodeCount = 0;
+    let previousNodes = [];
+
     if (selection.focusNode) {
         console.log('selection: ', selection);
         if (isChildOf(selection.focusNode, parentId)) {
             node = selection.focusNode; 
             charCount = selection.focusOffset;
+
+            console.log('focus node', node);
+            if (node.nodeName === 'DIV') {
+              charCount += 1;
+            }
 
             while (node) {
                 if (node.id === parentId) {
@@ -85,6 +93,7 @@ export function getCurrentCursorPosition(parentId) {
 
                 if (node.previousSibling) {
                     node = node.previousSibling;
+                    previousNodes.push(node);
                     let text;
                   if (node.nodeType == Node.TEXT_NODE) {
                     text = node.textContent;
@@ -93,13 +102,16 @@ export function getCurrentCursorPosition(parentId) {
                       firstIteration = false;
                       text = '';
                     }
+                    console.debug(nodeCount, 'Text node: ', node.data);
                   } else {
                     text = node.innerText;
+                    if (node.nodeName === 'DIV') {
+                      charCount +1;
+                    }
+                    console.debug(node, 'non-text node: ', node);
                   }
-                  console.log('text: ', JSON.stringify(text));
-                  console.log('charCount before: ', charCount);
                   charCount += text.length;
-                  console.log('charCount: ', charCount);
+                  nodeCount++;  
                 } else {
                      node = node.parentNode;
                      if (node === null) {
@@ -110,6 +122,7 @@ export function getCurrentCursorPosition(parentId) {
       }
    }
 
+  console.log('previousNodes: ', previousNodes);
     return charCount;
 };
 
