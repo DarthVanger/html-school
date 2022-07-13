@@ -65,15 +65,12 @@ const showMentorAtCursor = (text) => {
   console.debug('matches: ', matches);
   
   let linesNum = (matches || []).length || 0; 
-  if (matches?.length === 1) {
-    if (/[\n]$/.test(codeBeforeCursor)) {
-      console.log('here');
+
+  if (/[\n]$/.test(codeBeforeCursor)) {
+    if (window.getSelection().focusNode.data !== '\n\n') {
       linesNum = 0;
-    } 
-    if (/[\n][\n]$/.test(codeBeforeCursor)) {
-      linesNum = 1;
     }
-  }
+  } 
 
   console.debug('Line num: ', linesNum);
 

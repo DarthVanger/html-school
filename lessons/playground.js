@@ -63,7 +63,7 @@ export const run = () => {
 
 export const setCode = (code) => {
   console.log('code in setcode: ', JSON.stringify(code));
-  getEditor().innerHTML = code;
+  getEditor().textContent = code.slice(1) + '\n';
   run();
 }
 
