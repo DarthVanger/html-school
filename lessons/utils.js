@@ -106,7 +106,7 @@ export function getCurrentCursorPosition(parentId) {
                   } else {
                     text = node.innerText;
                     if (node.nodeName === 'DIV') {
-                      charCount +1;
+                      charCount += 1;
                     }
                     console.debug(node, 'non-text node: ', node);
                   }

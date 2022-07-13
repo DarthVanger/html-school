@@ -43,29 +43,45 @@ const showMentorAtCursor = (text) => {
   const currentPos = getCurrentCursorPosition('editor');
   let code = getInnerText(editor);
 
-  console.debug('code: ', JSON.stringify(code));
-  var regex = /[\n]/g;
-  var newLinesNum = (code.match(regex) || []).length; 
-  let linesNum = (newLinesNum - 1) / 2;
-  if (linesNum === 1) {
-    linesNum = 2;
-  }
-  if (newLinesNum === 1) {
-    linesNum = 1;
-  }
   
+  const codeBeforeCursor = code.substr(0, currentPos + 1);
+  console.debug('Code before cursor: ', JSON.stringify(codeBeforeCursor));
+
   console.debug('Current cursor position: ', currentPos);
-  const currentLine =  code.substr(0, currentPos + 1);
-  console.debug('Current line: ', JSON.stringify(currentLine));
-  console.debug('new Line num: ', newLinesNum);
+  let closestNewlinePos = codeBeforeCursor.lastIndexOf('\n');
+  if (/[\n]$/.test(codeBeforeCursor)) {
+    closestNewlinePos = codeBeforeCursor.slice(0, -1).lastIndexOf('\n');
+  }
+  if (closestNewlinePos === -1) {
+    closestNewlinePos = 0;
+  }
+  console.debug('closestNewlinePos: ', closestNewlinePos);
+  const posInLine = codeBeforeCursor.length - closestNewlinePos;
+  console.debug('posInLine: ', posInLine);
+
+  console.debug('code: ', JSON.stringify(code));
+  var regex = /[\n][\n]?/g;
+  const matches = codeBeforeCursor.match(regex);
+  console.debug('matches: ', matches);
+  
+  let linesNum = (matches || []).length || 0; 
+  if (matches?.length === 1) {
+    if (/[\n]$/.test(codeBeforeCursor)) {
+      console.log('here');
+      linesNum = 0;
+    } 
+    if (/[\n][\n]$/.test(codeBeforeCursor)) {
+      linesNum = 1;
+    }
+  }
+
   console.debug('Line num: ', linesNum);
-  const posInLine = currentPos;
 
   const letterWidth = 9;
   const fontSize = 18;
   const padding = 18;
   const lineHeight = fontSize * 1.2;
-  const y = lineHeight * linesNum + padding;
+  const y = lineHeight * (linesNum + 1) + padding;
   const x =  padding + posInLine * letterWidth;
   Mentor({x , y, text});
 };
