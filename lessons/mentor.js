@@ -29,11 +29,11 @@ const check = () => {
 
 export const mentor = (editor) => {
   const code = getInnerText(editor);
-  const initialCursorPos = code.length;
+  const initialCursorPos = code.length + 5;
   console.debug('code: ', JSON.stringify(code));
   console.debug('code.length: ', code.length);
   console.debug('Set inital cursor at ', initialCursorPos);
-  setCursor(editor, initialCursorPos);
+  setCursor(editor, initialCursorPos );
 
   editor.addEventListener('keyup', check);
   check();
