@@ -153,21 +153,37 @@ const showMentorAtCursor = (text) => {
   Mentor({x , y, text});
 };
 
+let mentorRef;
 const Mentor = ({ x, y, text }) => {
   const element = document.querySelector('#mentor');
+  const state = {
+    text: '',
+    buttonText: '',
+  };
+
   element.style.left = x;
   element.style.top = y;
-  element.innerHTML = `
-    <img src="img/napaleon.png" />
-    <div id="mentor-message">
-      ${text}
-    </div>
-    <button type="button" id="close-mentor-button">${getButtonText()}</button>
-  `;
+  if (!mentorRef) {
+    mentorRef = element;
+    element.innerHTML = `
+      <img src="img/napaleon.png" />
+      <div id="mentor-message">
+        ${text}
+      </div>
+      <button type="button" id="close-mentor-button">${getButtonText()}</button>
+    `;
 
-  const closeButton = document.querySelector('#close-mentor-button');
+    const closeButton = document.querySelector('#close-mentor-button');
 
-  closeButton.addEventListener('click', () => {
-    element.style.display = 'none';
-  });
+    closeButton.addEventListener('click', () => {
+      element.style.display = 'none';
+    });
+  } else if (state.text !== text) {
+    state.text = text;
+    state.buttonText = getButtonText();
+    mentorRef.querySelector('#mentor-message').innerHTML = text;
+    mentorRef.querySelector('button').innerHTML = getButtonText();
+  }
+
+
 }
