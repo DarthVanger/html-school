@@ -84,5 +84,9 @@ const Mentor = ({ x, y, text }) => {
   element.style.left = x;
   element.style.top = y;
   element.innerHTML = `
-    <pre><code>${text}</code></pre>`;
+    <img src="img/napaleon.png" />
+    <div id="mentor-message">
+      ${text}
+    </div>
+  `;
 }
