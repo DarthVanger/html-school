@@ -1,27 +1,30 @@
 import { getCurrentCursorPosition, setCursor, getInnerText } from './utils.js';
 
+let currentStep = 0;
+
 const getButtonText = () => {
   const answers = [
-    'Пошел нахуй',
-    'Заебал',
+    'Понял бля',
+    'Да шарю',
     'Да понял я блять!',
+    'Заебал',
     'Не выебуйся',
     'Съебись',
     'Да отъебись же',
-    'Да ебана, отвянь!',
+    'Пошел нахуй',
+    'Да емана, отвянь!',
     'Твою же мать, отъебись!',
   ];
 
-  const randomIndex = Math.floor((Math.random() * answers.length));
-
-  return answers[randomIndex];
+  //const randomIndex = Math.floor((Math.random() * answers.length));
+  
+  return answers[currentStep % (answers.length - 1)];
 };
 
 const getTextContent = (editor) => {
   return editor.textContent;
 };
 
-let currentStep = 0;
 const nextStep = (step) => {
   console.log('next step', step);
   currentStep = step;
@@ -35,13 +38,12 @@ const check = () => {
 
   if (!/<script>/.test(code)) {
     showMentorAtCursor('Вписуй &lt;script&gt;, блять)');
-    step++;
     console.log('step++');
   }
 
   if (/<script>[\n]/.test(code)) {
     showMentorAtCursor('Красава! Теперь закрывающий &lt;/script&gt;! :)');
-    step += 2;
+    step ++;
     console.log('step++ 2');
   }
 
@@ -160,7 +162,7 @@ const Mentor = ({ x, y, text }) => {
     <div id="mentor-message">
       ${text}
     </div>
-    <button type="button" id="close-mentor-button">Понял бля</button>
+    <button type="button" id="close-mentor-button">${getButtonText()}</button>
   `;
 
   const closeButton = document.querySelector('#close-mentor-button');
