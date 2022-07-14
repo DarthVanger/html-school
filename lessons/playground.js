@@ -89,17 +89,24 @@ export const render = (container, code) => {
 
   getRunButton().addEventListener('click', () => {
     const code = getEditor().innerText;
-    logCodeRun({ code, lesson });
+    logCodeRun({ code, lesson, step, stepsNum, isTaskDone: step === stepsNum });
     run();
   });
 }
 
-
 render(document.body, codes[lesson]);
+
+let step;
+let stepsNum;
+const handleStepChange = (data) => {
+  console.log('step change', data);
+  step = data.step;
+  stepsNum = data.stepsNum;
+}
 
 setTimeout(() => {
   console.log('focus');
   getEditor().focus();
-  mentor(getEditor());
+  mentor(getEditor(), handleStepChange);
 });
 

@@ -1,13 +1,10 @@
-export const logCodeRun = async ({ code, lesson })  => {
+export const logCodeRun = async (codeRunInfo)  => {
   return fetch(`/code-run`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      code,
-      lesson,
-    }),
+    body: JSON.stringify(codeRunInfo),
   });
 };

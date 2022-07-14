@@ -3,6 +3,7 @@ import { getCurrentCursorPosition, setCursor, getInnerText } from './utils.js';
 const getEditor = () => document.querySelector('#editor > code');
 
 let currentStep = 0;
+const stepsNum = 9;
 
 const getButtonText = () => {
   const answers = [
@@ -29,6 +30,7 @@ const getTextContent = (editor) => {
 const nextStep = (step) => {
   console.log('next step', step);
   currentStep = step;
+  onStepChange({ step, stepsNum });
   const elem = document.querySelector('#mentor');
   elem.style.display = 'flex';
 };
@@ -39,13 +41,11 @@ const check = () => {
 
   if (!/<script>/.test(code)) {
     showMentorAtCursor('Вписуй &lt;script&gt;, блять)');
-    console.log('step++');
   }
 
   if (/<script>[\n]/.test(code)) {
     showMentorAtCursor('Красава! Теперь закрывающий &lt;/script&gt;! :)');
-    step ++;
-    console.log('step++ 2');
+    step++;
   }
 
   if (/<\/script>/.test(code)) {
@@ -63,12 +63,12 @@ const check = () => {
     step++;
   }
 
-  if (/<script>\s*alert[(]['"]\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"][^<]*<\/script>/.test(code)) {
     showMentorAtCursor('хуйчек )');
     step++;
   }
 
-  if (/<script>\s*alert[(]['"][^'"<\s]+\s*<\/script>/.test(code)) {
+  if (/<script>\s*alert[(]['"][^'"<\s]+[^<]*<\/script>/.test(code)) {
     showMentorAtCursor('Закрывающие кавычки)');
     step++;
   }
@@ -94,19 +94,8 @@ const check = () => {
     `);
     step++;
   }
-  if (/<script>\s*alert[(]['"][^'"]+['"][)];\s*[^\s]+[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor(`
-      <p>
-        Лишняя хуйня после точки с запятой
-      </p>
-    `);
-    step++;
-  }
 
-  console.log('step: ', step);
-  console.log('currentStep: ', currentStep);
   if (step !== currentStep) {
-    console.log('not equal');
     nextStep(step);
   }
 };
@@ -117,13 +106,17 @@ const debouncedCheck = () => {
   checkTimeoutId = setTimeout(check, 500);
 };
 
-export const mentor = (editor) => {
+let onStepChange;
+export const mentor = (editor, onStepChangeCallback) => {
+  onStepChange = onStepChangeCallback;
   const code = getInnerText(editor);
   const initialCursorPos = code.length + 5;
   setCursor(editor, initialCursorPos );
 
   editor.addEventListener('keyup', debouncedCheck);
   check();
+
+  onStepChangeCallback({ step: currentStep, stepsNum });
 };
 
 const showMentorAtCursor = (text) => {

@@ -25,15 +25,14 @@ app.get('/tree', (req, res) => {
 
 app.post('/code-run', async (req, res) => {
   console.info(`POST /code-run`, req.body);
-  const { code, lesson } = req.body;
+  const codeRunInfo = req.body;
   const { rawHeaders, httpVersion, method, socket, url } = req;
   const { remoteAddress, remoteFamily } = socket;
 
   db.data.codeRunLog = db.data.codeRunLog || [];
   db.data.codeRunLog.push({
     date: (new Date()).toISOString(),
-    lesson,
-    code,
+    codeRunInfo,
     requestInfo: {
       rawHeaders,
       httpVersion,
