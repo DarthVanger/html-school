@@ -31,6 +31,7 @@ export const migration_00 = async () => {
     ],
     js: [
       [
+        { text: "alert", level: { johnny: 3, tony: 1, dimon: 2 }, },
         { text: 'on\nclick', level: { johnny: 2, tony: 0, dimon: 1, }, },
         { text: 'style', level: { johnny: 2, tony: 0, dimon: 0, }, },
         { text: 'inner\nHTML', level: { johnny : 2, tony: 0, dimon: 1, }, },
