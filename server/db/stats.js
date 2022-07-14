@@ -9,6 +9,56 @@ const getHomeworkPoints = ({ student, skill }) => {
   return homeworkEntries?.length || 0;
 };
 
+const getQuestsPoints = ({ skill, student }) => {
+  const ips = {
+    '::ffff:188.163.81.200': 'johnny',
+    '::ffff:84.17.47.123': 'dimon',
+    '::ffff:00.00.00.000': 'tony',
+  };
+
+  if (!db.data.codeRunLog) return 0;
+
+  const codeRuns =  db.data.codeRunLog;
+
+  const codeRunsWithCompletedQuests = new Set();
+
+  for (let codeRun of codeRuns) {
+    if (codeRun.codeRunInfo.isTaskDone) {
+      codeRunsWithCompletedQuests.add(codeRun);
+    }
+  }
+
+
+  let questsNum = 0;
+  const completedQuests = [...codeRunsWithCompletedQuests].map(codeRun => {
+    const { lesson } = codeRun.codeRunInfo;
+    const { remoteAddress } = codeRun.requestInfo;
+    console.log('remoteAddress: ', remoteAddress);
+    const completedByStudent = ips[remoteAddress];
+    console.log('completedByStudent: ', completedByStudent);
+
+    const skillLessonMap = {
+      alertXuy4ek: '<h1>',
+    };
+
+    if (
+      student === completedByStudent
+    ) {
+      questsNum++;
+    }
+
+    return {
+      student,
+      lesson,
+    };
+  });
+
+
+  console.log('questsNum: ', questsNum);
+
+  return questsNum;
+};
+
 export const getStats = () => {
   const { students, skills } = db.data;
   const points = {};
@@ -31,6 +81,7 @@ export const getStats = () => {
         for (let student of students) {
           categoryLevel[student] += skill.level[student];
           categoryLevel[student] += getHomeworkPoints({ student, skill});
+          categoryLevel[student] += getQuestsPoints({ student, skill});
         }
       }
     }

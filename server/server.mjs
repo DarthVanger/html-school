@@ -28,6 +28,12 @@ app.get('/tree', (req, res) => {
   res.json({ skills: db.data.skills, levels, points, categoryLevels, homework });
 })
 
+app.get('/points/quests/:student', (req, res) => {
+  const { skill, student } = req.params;
+
+  getQuestsPoints({ skill, student });
+});
+
 app.post('/code-run', async (req, res) => {
   console.info(`POST /code-run`, req.body);
   const codeRunInfo = req.body;
