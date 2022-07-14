@@ -1,5 +1,7 @@
 import { getCurrentCursorPosition, setCursor, getInnerText } from './utils.js';
 
+const getEditor = () => document.querySelector('#editor > code');
+
 let currentStep = 0;
 
 const getButtonText = () => {
@@ -182,6 +184,7 @@ const Mentor = ({ x, y, text }) => {
 
     closeButton.addEventListener('click', () => {
       element.style.display = 'none';
+      getEditor().focus();
     });
   } else if (state.text !== text) {
     state.text = text;
