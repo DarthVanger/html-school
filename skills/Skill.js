@@ -1,11 +1,12 @@
 import { Badge } from './Badge.js';
+import { QuestBadge } from './QuestBadge.js';
 import { HomeworkBadge } from './HomeworkBadge.js';
 import { getHomeworkPoints } from './stats.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   const height = skillBoxSize;
   const width = skillBoxSize;
-  const { homework, student } = state;
+  const { homework, student, questPoints } = state;
   const level = skill.level[student]  + getHomeworkPoints({homework, student, skill});
 
   const Text = ({ text, x, y }) =>  {
@@ -41,6 +42,18 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       y,
       level,
     });
+
+    const hasCompletedQuest = !!questPoints.find(q =>
+        q.student === student &&
+        q.skill === skill.text
+    );
+
+    if (hasCompletedQuest) {
+      html += QuestBadge({
+        x: x - width,
+        y,
+      });
+    }
 
     return html;
   };

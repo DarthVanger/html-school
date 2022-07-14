@@ -1,6 +1,7 @@
 import { Skills } from './skills.js';
 import { Students } from './Students.js';
 import { state, setState } from './state.js';
+import { getQuestsPoints } from './api.js';
 
 const getStudentFromHash = () => {
   return window.location.hash.replace('#', '') || 'tony';
@@ -25,6 +26,7 @@ export const App = ({ render }) => {
         state.points = r.points;
         state.categoryLevels = r.categoryLevels;
         state.homework = r.homework;
+        state.questPoints = r.questPoints;
         render();
       });
 
