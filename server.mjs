@@ -29,7 +29,7 @@ app.post('/code-run', async (req, res) => {
   const { rawHeaders, httpVersion, method, socket, url } = req;
   const { remoteAddress, remoteFamily } = socket;
 
-  db.data.codeRunLog = db.data.codeRunLog || [];
+  db.data.codeRunLog = db.data?.codeRunLog || [];
   db.data.codeRunLog.push({
     date: (new Date()).toISOString(),
     codeRunInfo,

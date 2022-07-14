@@ -90,9 +90,12 @@ export const render = (container, code) => {
 
   getRunButton().addEventListener('click', () => {
     const code = getEditor().innerText;
-    logCodeRun({ code, lesson, step, stepsNum, isTaskDone: step === stepsNum });
+    const isTaskDone = step === stepsNum;
+    logCodeRun({ code, lesson, step, stepsNum, isTaskDone });
     run();
-    napaleon('Домашка засчитана! ✅');
+    if (isTaskDone) {
+      napaleon('Домашка засчитана! ✅');
+    }
   });
 }
 
