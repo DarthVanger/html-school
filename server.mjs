@@ -9,6 +9,7 @@ app.use(express.json());
 
 const runApp = async () => {
   await loadDb();
+  if (!db.data) db.data = {};
   console.log('Db loaded');
 
   app.listen(port, () => {
