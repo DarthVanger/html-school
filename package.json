@@ -4,7 +4,7 @@
   "description": "Skills Tree like in Diablo with UI to add custom talents",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.mjs"
+    "start": "nodemon server/server.mjs"
   },
   "repository": {
     "type": "git",

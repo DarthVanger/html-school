@@ -3,4 +3,4 @@ trash
 video
 editing
 node_modules
-db/db.json
+server/db/db.json
