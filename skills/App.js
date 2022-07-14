@@ -55,8 +55,8 @@ export const App = ({ render }) => {
 
   return `
     <div id="app">
-      ${Students(state)};
-      ${Skills(state)};
+      ${Students(state)}
+      ${Skills(state)}
     </div>
   `;
 }
