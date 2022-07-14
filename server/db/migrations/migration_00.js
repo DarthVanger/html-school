@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from '../db.js';
 
 export const migration_00 = async () => {
   const skills = {
@@ -42,21 +42,12 @@ export const migration_00 = async () => {
     ]
   };
 
-  db.data = {skills};
+  if (!db.data) {
+    db.data = {};
+  }
+
+  db.data.skills = skills;
 
   console.log('Applying migration for skills: ', skills);
-  await db.write();
-};
-
-export const migration_01 = async () => {
-  const students = [
-    'johnny',
-    'tony',
-    'dimon',
-  ];
-
-  db.data.students = students;
-
-  console.log('Applying migration for students: ', students);
   await db.write();
 };

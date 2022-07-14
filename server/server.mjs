@@ -1,5 +1,6 @@
 import { db, loadDb } from './db/db.js';
 import { getStats } from './db/stats.js';
+import { applyMigrations } from './db/migrations/apply.js';
 import express from 'express'
 const app = express()
 const port = process.env.port || 8080
@@ -11,6 +12,9 @@ const runApp = async () => {
   await loadDb();
   if (!db.data) db.data = {};
   console.log('Db loaded');
+
+  console.info('Applying migrations');
+  applyMigrations();
 
   app.listen(port, () => {
     console.log(`Listening on port ${port}`)

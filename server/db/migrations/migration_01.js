@@ -1,4 +1,4 @@
-import { db } from './db.js';
+import { db } from '../db.js';
 
 export const migration_01 = async () => {
   const students = [
