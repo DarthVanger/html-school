@@ -1,7 +1,10 @@
 import { mentor } from './mentor.js';
 import codes from './code/codes.js';
+import { logCodeRun } from './api.js';
 
 const playground = document.createElement('div');
+const lesson = location.hash.replace('#', '');
+console.log(lesson);
 
 playground.id = 'playground';
 playground.innerHTML = `
@@ -85,13 +88,13 @@ export const render = (container, code) => {
   setCode(code);
 
   getRunButton().addEventListener('click', () => {
+    const code = getEditor().innerText;
+    logCodeRun({ code, lesson });
     run();
   });
 }
 
 
-const lesson = location.hash.replace('#', '');
-console.log(lesson);
 render(document.body, codes[lesson]);
 
 setTimeout(() => {

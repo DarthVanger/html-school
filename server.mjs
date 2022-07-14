@@ -5,6 +5,7 @@ const app = express()
 const port = 8080
 
 app.use(express.static('./'))
+app.use(express.json());
 
 const runApp = async () => {
   await loadDb();
@@ -21,6 +22,33 @@ app.get('/tree', (req, res) => {
   const { levels, points, categoryLevels, homework } = getStats();
   res.json({ skills: db.data.skills, levels, points, categoryLevels, homework });
 })
+
+app.post('/code-run', async (req, res) => {
+  console.info(`POST /code-run`, req.body);
+  const { code, lesson } = req.body;
+  const { rawHeaders, httpVersion, method, socket, url } = req;
+  const { remoteAddress, remoteFamily } = socket;
+
+  db.data.codeRunLog = db.data.codeRunLog || [];
+  db.data.codeRunLog.push({
+    date: (new Date()).toISOString(),
+    lesson,
+    code,
+    requestInfo: {
+      rawHeaders,
+      httpVersion,
+      method,
+      remoteAddress,
+      remoteFamily,
+      url
+    },
+  });
+
+  db.write();
+
+  res.sendStatus(200);
+  res.end();
+});
 
 app.post('/tree/:skill/:student', async (req, res) => {
   const { skill, student } = req.params;
