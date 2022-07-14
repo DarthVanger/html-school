@@ -1,4 +1,5 @@
 import { mentor } from './mentor.js';
+import { napaleon } from './napaleon.js';
 import codes from './code/codes.js';
 import { logCodeRun } from './api.js';
 
@@ -91,6 +92,7 @@ export const render = (container, code) => {
     const code = getEditor().innerText;
     logCodeRun({ code, lesson, step, stepsNum, isTaskDone: step === stepsNum });
     run();
+    napaleon('Домашка засчитана! ✅');
   });
 }
 
