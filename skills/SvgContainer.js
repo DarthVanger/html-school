@@ -5,23 +5,24 @@ export const SvgContainer = ({width, height, children}) => {
     <div id="svg-container">
       <svg height="${height}" viewBox="0 0 ${width} ${height}" id="svg">
       ${children}
-      </svg>
-    </div>
+      </svg> </div>
   `;
 };
 
 // https://stackoverflow.com/questions/52576376/how-to-zoom-in-on-a-complex-svg-structure/52640900#52640900
+var viewBox;
+var scale = 1;
 function panZoom() {
   const svgImage = document.getElementById("svg");
   const svgContainer = document.getElementById("svg-container");
-
-  var viewBox = {x:0,y:0,w:svgImage.clientWidth,h:svgImage.clientHeight};
+  if (!viewBox) {
+    viewBox = {x:0,y:0,w:svgImage.clientWidth,h:svgImage.clientHeight};
+  }
   svgImage.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`);
   const svgSize = {w:svgImage.clientWidth,h:svgImage.clientHeight};
   var isPanning = false;
   var startPoint = {x:0,y:0};
   var endPoint = {x:0,y:0};;
-  var scale = 1;
 
   svgContainer.onmousewheel = function(e) {
      e.preventDefault();
