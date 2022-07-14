@@ -2,7 +2,7 @@ import { db, loadDb } from './db/db.js';
 import { getStats } from './db/stats.js';
 import express from 'express'
 const app = express()
-const port = 8080
+const port = process.env.port || 8080
 
 app.use(express.static('./'))
 app.use(express.json());
