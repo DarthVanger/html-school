@@ -43,10 +43,6 @@ export const migration_00 = async () => {
     ]
   };
 
-  if (!db.data) {
-    db.data = {};
-  }
-
   db.data.skills = skills;
 
   console.log('Applying migration for skills: ', skills);
