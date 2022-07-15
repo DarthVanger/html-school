@@ -38,6 +38,11 @@ const lessons = [
       id: 'plasma2',
       title: 'Plasma Y',
     },
+    {
+      img: '<img src="img/plasma2.gif" />',
+      id: 'svg',
+      title: 'Scalable Vector Graphics',
+    },
   ]
 ];
 

@@ -6,6 +6,7 @@ import { logCodeRun } from './api.js';
 const playground = document.createElement('div');
 const lesson = location.hash.replace('#', '');
 console.log(lesson);
+const isMentorEnabled = lesson === 'alertXuy4ek';
 
 playground.id = 'playground';
 playground.innerHTML = `
@@ -90,7 +91,7 @@ export const render = (container, code) => {
 
   getRunButton().addEventListener('click', () => {
     const code = getEditor().innerText;
-    const isTaskDone = step === stepsNum;
+    const isTaskDone = step && step === stepsNum;
     logCodeRun({ code, lesson, step, stepsNum, isTaskDone });
     run();
     if (isTaskDone) {
@@ -112,6 +113,6 @@ const handleStepChange = (data) => {
 setTimeout(() => {
   console.log('focus');
   getEditor().focus();
-  mentor(getEditor(), handleStepChange);
+  isMentorEnabled && mentor(getEditor(), handleStepChange);
 });
 
