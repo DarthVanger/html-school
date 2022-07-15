@@ -78,7 +78,7 @@ export const getStats = () => {
         for (let student of students) {
           categoryLevel[student] += skill.level[student];
           categoryLevel[student] += getHomeworkPoints({ student, skill});
-          categoryLevel[student] += getQuestPoints({ student, skill}).questsNum;
+          categoryLevel[student] += getQuestPoints({ student, skill}).questsNum || 0;
         }
       }
     }

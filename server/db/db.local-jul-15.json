@@ -1,0 +1,796 @@
+{
+  "codeRunLog": [
+    {
+      "date": "2022-07-14T18:40:23.706Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>alert('Xuy4ek');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Length",
+          "133",
+          "Accept",
+          "application/json",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-US,en;q=0.9,uk;q=0.8,ru;q=0.7",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Proxy-Connection",
+          "keep-alive",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:84.17.47.123",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T18:40:42.350Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>alert('Xuy4ek');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Length",
+          "133",
+          "Accept",
+          "application/json",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-US,en;q=0.9,uk;q=0.8,ru;q=0.7",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Proxy-Connection",
+          "keep-alive",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:84.17.47.123",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T18:41:20.367Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>alert('Xuy4ek');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Length",
+          "133",
+          "Accept",
+          "application/json",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-US,en;q=0.9,uk;q=0.8,ru;q=0.7",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Proxy-Connection",
+          "keep-alive",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:84.17.47.123",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T18:43:43.671Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>alert('Xuy4ek');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Length",
+          "133",
+          "Accept",
+          "application/json",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-US,en;q=0.9,uk;q=0.8,ru;q=0.7",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Proxy-Connection",
+          "keep-alive",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:84.17.47.123",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T18:46:27.423Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>alert('asdf');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "131",
+          "Accept",
+          "application/json",
+          "User-Agent",
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-GB,en-US;q=0.9,en;q=0.8"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:95.67.81.49",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T18:46:58.211Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>\nalert('asdf');\n</script>",
+        "lesson": "alertXuy4ek",
+        "step": 9,
+        "stepsNum": 9,
+        "isTaskDone": true
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "134",
+          "Accept",
+          "application/json",
+          "User-Agent",
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-GB,en-US;q=0.9,en;q=0.8"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:95.67.81.49",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T18:49:04.697Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>\nalert('Xuy4ek');\n</script>",
+        "lesson": "alertXuy4ek",
+        "step": 9,
+        "stepsNum": 9,
+        "isTaskDone": true
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Length",
+          "136",
+          "Accept",
+          "application/json",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "en-US,en;q=0.9,uk;q=0.8,ru;q=0.7",
+          "Content-Type",
+          "application/json",
+          "Origin",
+          "http://napaleon.space",
+          "Proxy-Connection",
+          "keep-alive",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:84.17.47.123",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T20:07:44.769Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n",
+        "lesson": "alertXuy4ek",
+        "step": 0,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "98",
+          "Accept",
+          "application/json",
+          "DNT",
+          "1",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "sec-gpc",
+          "1",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "ru,en;q=0.9,uk;q=0.8,en-US;q=0.7"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:188.163.81.200",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T20:10:23.398Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script> alert('Xuy4ek');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "134",
+          "Accept",
+          "application/json",
+          "DNT",
+          "1",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "sec-gpc",
+          "1",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "ru,en;q=0.9,uk;q=0.8,en-US;q=0.7"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:188.163.81.200",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T20:10:48.678Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script> alert('Xuy4ek');</script>",
+        "lesson": "alertXuy4ek",
+        "step": 8,
+        "stepsNum": 9,
+        "isTaskDone": false
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "134",
+          "Accept",
+          "application/json",
+          "DNT",
+          "1",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "sec-gpc",
+          "1",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "ru,en;q=0.9,uk;q=0.8,en-US;q=0.7"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:188.163.81.200",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T20:11:02.422Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>\n   alert('Xuy4ek');\n</script>",
+        "lesson": "alertXuy4ek",
+        "step": 9,
+        "stepsNum": 9,
+        "isTaskDone": true
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "139",
+          "Accept",
+          "application/json",
+          "DNT",
+          "1",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "sec-gpc",
+          "1",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "ru,en;q=0.9,uk;q=0.8,en-US;q=0.7"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:188.163.81.200",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    },
+    {
+      "date": "2022-07-14T20:12:32.891Z",
+      "codeRunInfo": {
+        "code": "<h1>Alert Xuy4ek</h1>\n\n<script>\n   alert('Xuy4ek');\n</script>",
+        "lesson": "alertXuy4ek",
+        "step": 9,
+        "stepsNum": 9,
+        "isTaskDone": true
+      },
+      "requestInfo": {
+        "rawHeaders": [
+          "Host",
+          "napaleon.space",
+          "Connection",
+          "keep-alive",
+          "Content-Length",
+          "139",
+          "Accept",
+          "application/json",
+          "DNT",
+          "1",
+          "User-Agent",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+          "Content-Type",
+          "application/json",
+          "sec-gpc",
+          "1",
+          "Origin",
+          "http://napaleon.space",
+          "Referer",
+          "http://napaleon.space/lessons/lesson.html",
+          "Accept-Encoding",
+          "gzip, deflate",
+          "Accept-Language",
+          "ru,en;q=0.9,uk;q=0.8,en-US;q=0.7"
+        ],
+        "httpVersion": "1.1",
+        "method": "POST",
+        "remoteAddress": "::ffff:188.163.81.200",
+        "remoteFamily": "IPv6",
+        "url": "/code-run"
+      }
+    }
+  ],
+  "skills": {
+    "html": [
+      [
+        {
+          "text": "<h1>",
+          "level": {
+            "johnny": 3,
+            "tony": 2,
+            "dimon": 3
+          }
+        },
+        {
+          "text": "<p>",
+          "level": {
+            "johnny": 3,
+            "tony": 2,
+            "dimon": 3
+          }
+        },
+        {
+          "text": "<img>",
+          "level": {
+            "johnny": 3,
+            "tony": 2,
+            "dimon": 3
+          }
+        },
+        {
+          "text": "<br>",
+          "level": {
+            "johnny": 3,
+            "tony": 1,
+            "dimon": 3
+          }
+        },
+        {
+          "text": "<hr>",
+          "level": {
+            "johnny": 3,
+            "tony": 1,
+            "dimon": 1
+          }
+        }
+      ],
+      [
+        {
+          "text": "<a>",
+          "level": {
+            "johnny": 2,
+            "tony": 1,
+            "dimon": 3
+          }
+        },
+        {
+          "text": "<video>",
+          "level": {
+            "johnny": 3,
+            "tony": 1,
+            "dimon": 1
+          }
+        }
+      ]
+    ],
+    "css": [
+      [
+        {
+          "text": "h1, p",
+          "level": {
+            "johnny": 3,
+            "tony": 2,
+            "dimon": 2
+          }
+        },
+        {
+          "text": "color",
+          "level": {
+            "johnny": 3,
+            "tony": 2,
+            "dimon": 3
+          }
+        },
+        {
+          "text": "font\nsize",
+          "level": {
+            "johnny": 1,
+            "tony": 1,
+            "dimon": 1
+          }
+        },
+        {
+          "text": "font\nfamily",
+          "level": {
+            "johnny": 0,
+            "tony": 0,
+            "dimon": 0
+          }
+        }
+      ],
+      [
+        {
+          "text": "padding",
+          "level": {
+            "johnny": 1,
+            "tony": 1,
+            "dimon": 1
+          }
+        },
+        {
+          "text": "margin",
+          "level": {
+            "johnny": 1,
+            "tony": 1,
+            "dimon": 1
+          }
+        },
+        {
+          "text": "border",
+          "level": {
+            "johnny": 1,
+            "tony": 1,
+            "dimon": 1
+          }
+        },
+        {
+          "text": "position",
+          "level": {
+            "johnny": 0,
+            "tony": 0,
+            "dimon": 0
+          }
+        }
+      ]
+    ],
+    "js": [
+      [
+        {
+          "text": "alert",
+          "level": {
+            "johnny": 3,
+            "tony": 1,
+            "dimon": 2
+          }
+        },
+        {
+          "text": "on\nclick",
+          "level": {
+            "johnny": 2,
+            "tony": 0,
+            "dimon": 1
+          }
+        },
+        {
+          "text": "style",
+          "level": {
+            "johnny": 2,
+            "tony": 0,
+            "dimon": 0
+          }
+        },
+        {
+          "text": "inner\nHTML",
+          "level": {
+            "johnny": 2,
+            "tony": 0,
+            "dimon": 1
+          }
+        }
+      ],
+      [
+        {
+          "text": "var\niables",
+          "level": {
+            "johnny": 0,
+            "tony": 0,
+            "dimon": 0
+          }
+        },
+        {
+          "text": "func\ntions",
+          "level": {
+            "johnny": 1,
+            "tony": 0,
+            "dimon": 1
+          }
+        }
+      ]
+    ]
+  },
+  "students": [
+    "johnny",
+    "tony",
+    "dimon"
+  ],
+  "homework": {
+    "johnny": [
+      {
+        "skill": "h1, p",
+        "tag": "homework",
+        "date": "2022-07-14T23:30:15.428Z"
+      },
+      {
+        "skill": "h1, p",
+        "tag": "homework",
+        "date": "2022-07-14T23:30:20.061Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:39:09.963Z"
+      }
+    ],
+    "dimon": [
+      {
+        "skill": "color",
+        "tag": "homework",
+        "date": "2022-07-14T23:44:34.385Z"
+      },
+      {
+        "skill": "h1, p",
+        "tag": "homework",
+        "date": "2022-07-14T23:44:49.725Z"
+      },
+      {
+        "skill": "color",
+        "tag": "homework",
+        "date": "2022-07-14T23:44:54.441Z"
+      },
+      {
+        "skill": "h1, p",
+        "tag": "homework",
+        "date": "2022-07-14T23:45:48.882Z"
+      },
+      {
+        "skill": "h1, p",
+        "tag": "homework",
+        "date": "2022-07-14T23:45:50.781Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:45:53.641Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:45:56.145Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:46:00.672Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:46:17.129Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:46:19.265Z"
+      },
+      {
+        "skill": "<a>",
+        "tag": "homework",
+        "date": "2022-07-14T23:46:22.903Z"
+      },
+      {
+        "skill": "<h1>",
+        "tag": "homework",
+        "date": "2022-07-14T23:47:13.330Z"
+      },
+      {
+        "skill": "<h1>",
+        "tag": "homework",
+        "date": "2022-07-14T23:47:14.099Z"
+      },
+      {
+        "skill": "<h1>",
+        "tag": "homework",
+        "date": "2022-07-14T23:47:14.744Z"
+      },
+      {
+        "skill": "<h1>",
+        "tag": "homework",
+        "date": "2022-07-14T23:47:38.176Z"
+      },
+      {
+        "skill": "<h1>",
+        "tag": "homework",
+        "date": "2022-07-14T23:47:39.759Z"
+      },
+      {
+        "skill": "<h1>",
+        "tag": "homework",
+        "date": "2022-07-14T23:47:41.858Z"
+      },
+      {
+        "skill": "padding",
+        "tag": "homework",
+        "date": "2022-07-14T23:54:33.237Z"
+      }
+    ]
+  }
+}

@@ -43,7 +43,7 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       level,
     });
 
-    const hasCompletedQuest = !!questPoints.find(q =>
+    const hasCompletedQuest = !!questPoints?.find(q =>
         q.student === student &&
         q.skill === skill.text
     );
