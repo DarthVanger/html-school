@@ -2,7 +2,7 @@ const app = document.querySelector('#app');
 const lessons = [
   [
     {
-      img: '<img src="img/flying.gif" />',
+      img: '<img src="img/alertXuy4ek.png" />',
       id: 'alertXuy4ek',
       title: 'Alert Xuy4ek',
     },
