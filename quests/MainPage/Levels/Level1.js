@@ -1,9 +1,16 @@
 import { Level } from './Level.js';
+import { Quest } from './Quest.js';
+import { QuestList } from './QuestList.js';
 
 export const Level1 = () => `
-  ${Level({
-    imgSrc: 'img/alertXuy4ek.png',
-  })}
+  ${QuestList([
+    Quest({
+      imgSrc: 'img/alertXuy4ek.png',
+    }),
+    Quest({
+      imgSrc: 'img/flying.gif',
+    }),
+  ])}
 `;
 const lessons = [
   [
