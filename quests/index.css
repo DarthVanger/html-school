@@ -9,7 +9,6 @@
 .lesson {
   font-size: 1.5em;
   letter-spacing: 4px;
-  flex: 0;
   text-align: center;
   border: solid pink 2px;
 }
@@ -20,7 +19,8 @@
 }
 
 .lesson img {
-  width: 80%;
+  width: 150px;
+  height: 150px;
   border: solid black 3px;
   border-radius: 15px;
 }

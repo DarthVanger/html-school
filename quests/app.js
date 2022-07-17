@@ -53,7 +53,6 @@ const lessons = [
 
 const Lesson = lesson => `
   <div class="lesson">
-    <h2>${lesson.title}</h2>
     <a href="lesson.html#${lesson.id}">
       <figure>
         ${lesson.img}
@@ -62,30 +61,12 @@ const Lesson = lesson => `
   </div>
 `;
 
-const Arrow = () => {
-  const r = 15;
-  const h = 150;
-  const w = 150;
-  const strokeWidth = 10;
-  const c = h / 2 - r;
-
-  return `
-    <svg width="${h}" height="${h}" class="arrow">
-      <g transform="translate(${c}, 0)">
-        <circle cx="${r}" cy="${r}" r="${r}" />
-        <line x1="${r}" y1="${r}" x2="${r}" y2="${r + h}" stroke-width="${strokeWidth}" />
-        <circle cx="${r}" cy="${h - r}" r="${r}" />
-      </g>
-    </svg>
-  `;
-}
-
 const LessonChain = lessonChain => {
   let html = '';
   for (let lesson of lessonChain) {
     html += Lesson(lesson);
     if (lessonChain.indexOf(lesson) !== lessonChain.length -1) {
-      html += Arrow();
+      //html += Arrow();
     }
   }
   return html;
