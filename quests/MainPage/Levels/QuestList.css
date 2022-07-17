@@ -1,0 +1,5 @@
+@import 'Quest.css';
+
+.quest-list {
+  display: flex;
+}

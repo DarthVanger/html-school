@@ -1,7 +1,13 @@
-import { Level } from './Level.js';
+import { Quest } from './Quest.js';
+import { QuestList } from './QuestList.js';
 
 export const Level2 = () => `
-  ${Level({
-    imgSrc: 'img/flying.gif',
-  })}
+  ${QuestList([
+    Quest({
+      imgSrc: 'img/alertXuy4ek.png',
+    }),
+    Quest({
+      imgSrc: 'img/flying.gif',
+    }),
+  ])}
 `;

@@ -1,3 +1,5 @@
 export const Quest = ({ imgSrc }) => `
-  <img src="${imgSrc}" />
+  <div class="quest">
+    <img src="${imgSrc}" />
+  </div>
 `;
