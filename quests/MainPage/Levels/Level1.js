@@ -11,8 +11,9 @@ export const Level1 = () => `
       id: 'alertXuy4ek',
     }),
     Quest({
-      imgSrc: 'img/flying.gif',
-      skills: ['function', 'event'],
+      imgSrc: 'img/innerHTML.png',
+      skills: ['innerHTML'],
+      id: 'innerHTML',
     }),
   ])}
 `;
