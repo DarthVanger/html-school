@@ -7,6 +7,11 @@ const lessons = [
       title: 'Alert Xuy4ek',
     },
     {
+      img: '<img src="img/innerHTML.png" />',
+      id: 'innerHTML',
+      title: 'innerHTML',
+    },
+    {
       img: '<img src="img/flying.gif" />',
       id: 'flying',
       title: 'Flying',

@@ -6,8 +6,10 @@ import walls3 from './walls3.js';
 import plasma from './plasma.js';
 import plasma2 from './plasma2.js';
 import svg from './svg.js';
+import innerHTML from './innerHTML.js';
 
 const codes = {
+  innerHTML,
   svg,
   alertXuy4ek,
   flying,
