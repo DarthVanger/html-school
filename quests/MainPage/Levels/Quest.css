@@ -1,3 +1,7 @@
+.quest {
+  position: relative;
+}
+
 .quest img {
   width: 150px;
   height: 150px;
@@ -5,3 +9,18 @@
   border-radius: 16px;
   margin: 16px;
 }
+
+.quest.is-completed img {
+  border-color: #62b628;
+  border-width: 5px;
+}
+
+.quest.is-completed::after {
+  content: "✔";
+  position: absolute;
+  bottom: 32;
+  right: 32;
+  font-size: 32;
+  color: #62b628;
+}
+

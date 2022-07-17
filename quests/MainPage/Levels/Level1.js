@@ -5,6 +5,7 @@ export const Level1 = () => `
   ${QuestList([
     Quest({
       imgSrc: 'img/alertXuy4ek.png',
+      isCompleted: true,
     }),
     Quest({
       imgSrc: 'img/flying.gif',
