@@ -8,6 +8,7 @@ export const Level1 = () => `
       imgSrc: 'img/alertXuy4ek.png',
       isCompleted: true,
       skills: ['&lt;script&gt;', 'alert'],
+      id: 'alertXuy4ek',
     }),
     Quest({
       imgSrc: 'img/flying.gif',

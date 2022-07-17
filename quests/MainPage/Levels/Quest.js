@@ -1,12 +1,16 @@
-export const Quest = ({ skills, imgSrc, isCompleted }) => `
-  <div class="quest${isCompleted && ' is-completed' || ''}">
-    <img src="${imgSrc}" />
-    <div class="quest-skills-list">
-      ${skills?.map(skill => `
-        <div class="quest-skill">
-          ${skill}
-        </div>
-      `).join('')}
-    </div>
-  </div>
-`;
+export const Quest = ({ id, skills, imgSrc, isCompleted }) => {
+  const className = `quest${isCompleted && ' is-completed' || ''}` 
+
+  return `
+    <a id=${id} class="${className}" href="lesson.html#${id}">
+      <img src="${imgSrc}" />
+      <div class="quest-skills-list">
+        ${skills?.map(skill => `
+          <div class="quest-skill">
+            ${skill}
+          </div>
+        `).join('')}
+      </div>
+    </a>
+  `;
+};

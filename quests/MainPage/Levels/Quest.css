@@ -1,6 +1,7 @@
 .quest {
   --box-size: 200px;
   position: relative;
+  cursor: pointer;
 }
 
 .quest img {
