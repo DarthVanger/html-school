@@ -65,13 +65,17 @@ const Lesson = lesson => `
 const Arrow = () => {
   const r = 15;
   const h = 150;
-  const w = 10;
+  const w = 150;
+  const strokeWidth = 10;
+  const c = h / 2 - r;
 
   return `
-    <svg width="${2 * r}" height="${h}">
-      <circle cx="${r}" cy="${r}" r="${r}" />
-      <line x1="${r}" y1="${r}" x2="${r}" y2="${r + h}" stroke-width="${w}" />
-      <circle cx="${r}" cy="${h - r}" r="${r}" />
+    <svg width="${h}" height="${h}" class="arrow">
+      <g transform="translate(${c}, 0)">
+        <circle cx="${r}" cy="${r}" r="${r}" />
+        <line x1="${r}" y1="${r}" x2="${r}" y2="${r + h}" stroke-width="${strokeWidth}" />
+        <circle cx="${r}" cy="${h - r}" r="${r}" />
+      </g>
     </svg>
   `;
 }
@@ -90,7 +94,7 @@ const LessonChain = lessonChain => {
 const LessonsGrid = lessons => {
   let html = '<div class="lessons-grid">';  
   for (let lessonChain of lessons) {
-    html +='<div class="col">';
+    html +='<div class="row">';
     html += LessonChain(lessonChain);
     html += '</div>';
   }

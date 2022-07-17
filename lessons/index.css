@@ -1,15 +1,22 @@
 .lessons-grid {
-  display: flex;
-  justify-content: space-around;
 }
-.col {
-  flex: 1;
-  text-align: center;
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .lesson {
   font-size: 1.5em;
   letter-spacing: 4px;
+  flex: 0;
+  text-align: center;
+  border: solid pink 2px;
+}
+
+.arrow {
+  transform: rotate(90deg);
+  transform-origin: center;
 }
 
 .lesson img {
@@ -21,6 +28,7 @@
 .lesson a {
   display: block;
 }
+
 
 figure {
   margin-block-start: 0;
