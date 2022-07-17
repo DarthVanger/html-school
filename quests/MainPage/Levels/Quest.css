@@ -1,10 +1,11 @@
 .quest {
+  --box-size: 200px;
   position: relative;
 }
 
 .quest img {
-  width: 150px;
-  height: 150px;
+  width: var(--box-size);
+  height: var(--box-size);
   border: solid black 2px;
   border-radius: 16px;
   margin: 16px;
@@ -22,5 +23,24 @@
   right: 32;
   font-size: 32;
   color: #62b628;
+}
+
+.quest-skills-list {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--box-size);
+  overflow: hidden;
+  padding: 2em;
+  display: flex;
+}
+
+.quest-skill {
+  background: rgb(127, 178, 222);
+  color: white;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 

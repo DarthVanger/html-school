@@ -6,6 +6,8 @@ export const Level2 = () => `
   ${QuestList([
     Quest({
       imgSrc: 'img/alertXuy4ek.png',
+      id: 'alertXuy4ek',
+      skill: 'alert',
     }),
     Quest({
       imgSrc: 'img/flying.gif',
