@@ -25,7 +25,7 @@ const getIframe = () => document.querySelector('iframe');
 
 export const run = () => {
   let code = `
-    <link rel="stylesheet" href="/lessons/editor.css" />
+    <link rel="stylesheet" href="/quests/editor.css" />
     <script>
       const showJsError = (error) => {
         const existingError = document.querySelector('#error');
