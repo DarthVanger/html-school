@@ -4,7 +4,7 @@ const innerHTML = `
 </body>
 
 <script>
-  document.body.innerHTML += 'A eto prosto text';
+  
 </script>
 `;
 
@@ -13,11 +13,10 @@ export default innerHTML;
 // not used yet :)
 export const steps = [
   {
-    task: "В ХТМЛ у нас заголовок. Текст ниже добавляется через <script>.",
+    task: "Чтобы изменить текст в документе через <script>, нужно прописать ",
   },
   {
-    task: "Поменять 'A eto prosto text' на 'А это просто хуйчек'",
-    check: "В коде присутсвует 'А это просто хуйчек'",
-    regexp: /'А это просто хуйчек'/,
+    check: "Прописано document.body.innerHTML = '4to to';",
+    regexp: /'document[.]body[.]innerHTML ?= ?['"][^'"]+['"];'/,
   },
 ];

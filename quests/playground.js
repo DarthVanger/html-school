@@ -1,4 +1,4 @@
-import { mentor } from './mentor.js';
+import { Mentor } from './mentor.js';
 import { napaleon } from './napaleon.js';
 import codes from './code/codes.js';
 import { logCodeRun } from './api.js';
@@ -6,7 +6,6 @@ import { logCodeRun } from './api.js';
 const playground = document.createElement('div');
 const lesson = location.hash.replace('#', '');
 console.log(lesson);
-const isMentorEnabled = lesson === 'alertXuy4ek';
 
 playground.id = 'playground';
 playground.innerHTML = `
@@ -18,7 +17,6 @@ playground.innerHTML = `
   </div>
   <div id="loader">Reloaded</div>
   <button type="button" id="run-button">Run</button>
-  <div id="mentor"></div>
 `
 
 const getRunButton = () => document.querySelector('#run-button');
@@ -86,18 +84,18 @@ function replaceIframeContent(iframeElement, newHTML)
 
 export const render = (container, code) => {
   container.append(playground);
+  container.append(Mentor({ text: 'asdf' }));
 
   setCode(code);
 
-  getRunButton().addEventListener('click', () => {
-    const code = getEditor().innerText;
-    const isTaskDone = step && step === stepsNum;
-    logCodeRun({ code, lesson, step, stepsNum, isTaskDone });
-    run();
-    if (isTaskDone) {
-      napaleon('Домашка засчитана! ✅');
-    }
-  });
+  //getRunButton().addEventListener('click', () => {
+  //  const code = getEditor().innerText;
+  //  const isTaskDone = step && step === stepsNum;
+  //  run();
+  //  if (isTaskDone) {
+  //    napaleon('Домашка засчитана! ✅');
+  //  }
+  //});
 }
 
 render(document.body, codes[lesson]);
@@ -113,6 +111,5 @@ const handleStepChange = (data) => {
 setTimeout(() => {
   console.log('focus');
   getEditor().focus();
-  isMentorEnabled && mentor(getEditor(), handleStepChange);
 });
 

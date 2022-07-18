@@ -61,6 +61,32 @@ app.post('/code-run', async (req, res) => {
   res.end();
 });
 
+/**
+ * Log quest complete
+ */
+app.post('/quest/:id', async (req, res) => {
+  console.info(`POST /quest`, req.body);
+  const { id } = req.params;
+  const { student } = req.body;
+  const ip = req.socket.remoteAddress;
+
+  db.data.quests = db.data?.quests || {};
+
+  db.data.quests[student] = db.data.quests[student] || {};
+
+  db.data.quests[student][id] = {
+    id,
+    date: (new Date()).toISOString(),
+    skills,
+    ip,
+  };
+
+  db.write();
+
+  res.sendStatus(200);
+  res.end();
+});
+
 app.post('/tree/:skill/:student', async (req, res) => {
   const { skill, student } = req.params;
   console.info(`POST /tree/${skill}/${student}:`, req.params);

@@ -1,102 +1,29 @@
 import { getCurrentCursorPosition, setCursor, getInnerText } from './utils.js';
+import { logQuestComplete } from './api.js';
 
 const getEditor = () => document.querySelector('#editor > code');
-
-let currentStep = 0;
-const stepsNum = 9;
-
-const getButtonText = () => {
-  const answers = [
-    'Понял бля',
-    'Да шарю',
-    'Да понял я блять!',
-    'Заебал',
-    'В пизду',
-    'Не выебуйся',
-    'В пзду прграмировне',
-    'Съебись',
-    'Отвянь',
-  ];
-
-  //const randomIndex = Math.floor((Math.random() * answers.length));
-  
-  return answers[currentStep % (answers.length - 1)];
-};
 
 const getTextContent = (editor) => {
   return editor.textContent;
 };
 
-const nextStep = (step) => {
-  console.log('next step', step);
-  currentStep = step;
-  onStepChange({ step, stepsNum });
-  const elem = document.querySelector('#mentor');
-  elem.style.display = 'flex';
-};
+const getButtonText = () => 'Закройся';
+
+const getCode = () => getInnerText(getEditor());
 
 const check = () => {
-  const code = getInnerText(editor);
-  let step = 0;
+  const code = getCode();
+  console.log('code: ', code);
 
-  if (!/<script>/.test(code)) {
-    showMentorAtCursor('Вписуй &lt;script&gt;, блять)');
-  }
 
-  if (/<script>[\n]/.test(code)) {
-    showMentorAtCursor('Красава! Теперь закрывающий &lt;/script&gt;! :)');
-    step++;
-  }
 
-  if (/<\/script>/.test(code)) {
-    showMentorAtCursor('ОГОНЬ! Внутри тега пиши alert');
-    step++;
-  }
+  logQuestComplete({
+    id: 'testid',
+    student: 'tonytest',
+  });
 
-  if (/<script>\s*alert\s*[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('Скобку круглую открывающую)');
-    step++;
-  }
-
-  if (/<script>\s*alert[(]\s*[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('Кавычки)');
-    step++;
-  }
-
-  if (/<script>\s*alert[(]['"][^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('хуйчек )');
-    step++;
-  }
-
-  if (/<script>\s*alert[(]['"][^'"<\s]+[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('Закрывающие кавычки)');
-    step++;
-  }
-
-  if (/<script>\s*alert[(]['"][^'"]+['"]\s*[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('Закрыть круглую скобку)');
-    step++;
-  }
-
-  if (/<script>\s*alert[(]['"][^'"]+['"][)]\s*[^<]*<\/script>/.test(code)) {
-    showMentorAtCursor('Точку с запятой блять!');
-    step++;
-  }
-
-  if (/<script>\s*alert[(]['"][^'"]+['"][)];\s*<\/script>/.test(code)) {
-    showMentorAtCursor(`
-      <p>
-        Ваще огонь ! 🔥🔥🔥
-      </p>
-      <p>
-        Запускай йопта! Должно пахать)
-      </p>
-    `);
-    step++;
-  }
-
-  if (step !== currentStep) {
-    nextStep(step);
+  if (false) {
+    logCodeRun({ code, lesson, step, stepsNum, isTaskDone });
   }
 };
 
@@ -106,63 +33,23 @@ const debouncedCheck = () => {
   checkTimeoutId = setTimeout(check, 500);
 };
 
-let onStepChange;
-export const mentor = (editor, onStepChangeCallback) => {
-  onStepChange = onStepChangeCallback;
-  const code = getInnerText(editor);
-  const initialCursorPos = code.length + 5;
-  setCursor(editor, initialCursorPos );
-
-  editor.addEventListener('keyup', debouncedCheck);
-  check();
-
-  onStepChangeCallback({ step: currentStep, stepsNum });
-};
-
-const showMentorAtCursor = (text) => {
-  const currentPos = getCurrentCursorPosition('editor');
-  let code = getInnerText(editor);
-
-  const codeBeforeCursor = code.substr(0, currentPos );
-
-  console.debug('Current cursor position: ', currentPos);
-  let closestNewlineIndex = codeBeforeCursor.lastIndexOf('\n');
-  let closestNewlinePos = closestNewlineIndex;
-
-  if (closestNewlineIndex === -1) {
-    closestNewlinePos = 0;
-  }
-  let posInLine = codeBeforeCursor.length - closestNewlinePos;
-  if (closestNewlineIndex === 0) {
-    posInLine = 0;
-  }
-
-  var regex = /[\n][\n]?/g;
-  const matches = codeBeforeCursor.match(regex);
-  
-  let linesNum = (matches || []).length || 0; 
-
-  console.debug('Line num: ', linesNum);
-
-  const letterWidth = 9;
-  const fontSize = 18;
-  const padding = 18;
-  const lineHeight = fontSize * 1.2;
-  const y = lineHeight * (linesNum + 1) + padding;
-  const x =  padding + posInLine * letterWidth;
-  Mentor({x , y, text});
-};
-
 let mentorRef;
-const Mentor = ({ x, y, text }) => {
-  const element = document.querySelector('#mentor');
+export const Mentor = ({ text }) => {
+  const element = document.createElement('div');
+  element.id = 'mentor';
+
   const state = {
     text: '',
     buttonText: '',
   };
 
-  element.style.left = x;
-  element.style.top = y;
+  setTimeout(() => {
+    const code = getInnerText(getEditor());
+
+    editor.addEventListener('keyup', debouncedCheck);
+    check();
+  });
+
   if (!mentorRef) {
     mentorRef = element;
     element.innerHTML = `
@@ -173,11 +60,13 @@ const Mentor = ({ x, y, text }) => {
       <button type="button" id="close-mentor-button">${getButtonText()}</button>
     `;
 
-    const closeButton = document.querySelector('#close-mentor-button');
+    setTimeout(() => {
+      const closeButton = document.querySelector('#close-mentor-button');
 
-    closeButton.addEventListener('click', () => {
-      element.style.display = 'none';
-      getEditor().focus();
+      closeButton.addEventListener('click', () => {
+        element.style.display = 'none';
+        getEditor().focus();
+      });
     });
   } else if (state.text !== text) {
     state.text = text;
@@ -186,5 +75,5 @@ const Mentor = ({ x, y, text }) => {
     mentorRef.querySelector('button').innerHTML = getButtonText();
   }
 
-
+  return element;
 }
