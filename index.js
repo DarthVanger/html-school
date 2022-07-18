@@ -3,7 +3,7 @@ import { Login } from './Login.js';
 
 const run = () => {
   const student = getStudent();
-  console.info('student form session: ', student);
+  console.info('student from session: ', student);
 
   if (!student) {
     showLogin();
