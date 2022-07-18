@@ -1,3 +1,4 @@
+import { BottomBar } from './BottomBar.js';
 import { getStudent, setStudent } from './session.js';
 import { Login } from './Login.js';
 
@@ -7,11 +8,23 @@ const run = () => {
 
   if (!student) {
     showLogin();
+  } else {
+    showBottomBar({ student });
   }
+
 };
 
+const handleLogin = (student) => {
+  setStudent(student);
+  showBottomBar({ student });
+}
+
 const showLogin = () => {
-  document.body.innerHTML += Login();
+  document.body.innerHTML += Login({ handleLogin });
+}
+
+const showBottomBar = ({ student }) => {
+  document.body.innerHTML += BottomBar({ student });
 }
 
 run();

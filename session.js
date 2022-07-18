@@ -3,3 +3,7 @@ export const getStudent = () =>
 
 export const setStudent = (student) =>
   localStorage.setItem('student', student);
+
+export const logout = () => {
+  localStorage.removeItem('student');
+};

@@ -1,0 +1,31 @@
+#bottom-bar {
+  --size: 200px;
+  position: absolute;
+  bottom: calc(-1 * var(--size) / 2);
+  left: calc(-1 * var(--size) / 2);
+  bottom: 0;
+  left: 0;
+}
+
+#bottom-bar .avatar {
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 0 100% 0 0;
+}
+
+svg {
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.level-progress-arc {
+  fill: transparent;
+  stroke: #04ff67;
+  stroke-width: 5px;
+}

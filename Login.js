@@ -1,6 +1,4 @@
-import { setStudent } from './session.js';
-
-export const Login = () => {
+export const Login = ({ handleLogin }) => {
   const getElement = () => document.querySelector('#login');
 
   const close = () => {
@@ -13,7 +11,7 @@ export const Login = () => {
     radios.forEach(radio => {
       radio.addEventListener('change', (e) => {
         const student = radio.value;
-        setStudent(student);
+        handleLogin(student);
         close();
       });
     });
@@ -25,7 +23,7 @@ export const Login = () => {
       <img src="MainPage/img/tardigrade.jpeg" />
       <form>
         <label>
-          <input type="radio" name="student" value="johhny"/>
+          <input type="radio" name="student" value="johnny"/>
           <span>Johnny</span>
         </label>
 
@@ -35,7 +33,7 @@ export const Login = () => {
         </label>
 
         <label>
-          <input type="radio" name="student" value="morphem">
+          <input type="radio" name="student" value="dimon4ik">
           <span>Morphem</span>
         </label>
 
