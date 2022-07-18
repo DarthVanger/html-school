@@ -18,7 +18,7 @@
   line-height: 1.5;
 }
 
-#napaleon img {
+#napaleon-img {
   width: 200px;
   height: 200px;
   align-self: start;
@@ -65,4 +65,24 @@
 .not-completed {
   background: #981093;
   color: white;
+}
+
+.achievements {
+  display: flex;
+  margin-top: 12px;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  color: #111;
+  margin: 4px;
+  border-radius: 4px;
+  padding: 8px;
+  width: fit-content;
+}
+.achievement img {
+  width: 40px;
+  margin-right: 12px;
 }

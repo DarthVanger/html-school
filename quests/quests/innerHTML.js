@@ -23,7 +23,10 @@ export const steps = [
   },
 ];
 
+const skills = ['innerHTML', '+='];
+
 export default {
   code,
   steps,
+  skills,
 };

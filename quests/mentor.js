@@ -102,6 +102,22 @@ export const Mentor = (quest) => {
     return result;
   }
 
+  const Congrats = () => `
+    <div>
+      <span>Принято</span>
+      <span class="icon">✔</span>
+      Прокачаны скилы:
+    </div>
+    <div class="achievements">
+      ${quest?.skills?.map(skill => `
+        <div class="achievement">
+          <img src="img/medal.png" />
+          ${skill}
+        </div>
+      `).join('')}
+    </div>
+  `;
+
   const render = () => {
     console.log('render, state: ', state);
     const imgSrc = state.isQuestCompleted ?
@@ -110,11 +126,9 @@ export const Mentor = (quest) => {
 
     element.innerHTML = `
       <div id="napaleon">
-        <img src="${imgSrc}" />
+        <img id="napaleon-img" src="${imgSrc}" />
         <div id="napaleon-message">
-          ${state.isQuestCompleted && (
-            'Задача выполнена! Поздравляю!'
-          ) || ''}
+          ${state.isQuestCompleted && Congrats() || ''}
           ${getStepText()}
         </div>
       </div>
