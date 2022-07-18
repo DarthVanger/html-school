@@ -1,11 +1,13 @@
 import { Mentor } from './mentor.js';
 import { napaleon } from './napaleon.js';
-import codes from './code/codes.js';
+import quests from './quests/quests.js';
 import { logCodeRun } from './api.js';
 
 const playground = document.createElement('div');
-const lesson = location.hash.replace('#', '');
-console.log(lesson);
+const questName = location.hash.replace('#', '');
+console.log('questName: ', questName);
+const quest = quests[questName];
+console.log('quest: ', quest);
 
 playground.id = 'playground';
 playground.innerHTML = `
@@ -82,34 +84,17 @@ function replaceIframeContent(iframeElement, newHTML)
     iframeElement.contentWindow.document.close();
 }
 
-export const render = (container, code) => {
+export const render = (container, quest) => {
   container.append(playground);
-  container.append(Mentor({ text: 'asdf' }));
+  container.append(Mentor(quest));
 
-  setCode(code);
-
-  //getRunButton().addEventListener('click', () => {
-  //  const code = getEditor().innerText;
-  //  const isTaskDone = step && step === stepsNum;
-  //  run();
-  //  if (isTaskDone) {
-  //    napaleon('Домашка засчитана! ✅');
-  //  }
-  //});
+  setCode(quest.code);
 }
 
-render(document.body, codes[lesson]);
-
-let step;
-let stepsNum;
-const handleStepChange = (data) => {
-  console.log('step change', data);
-  step = data.step;
-  stepsNum = data.stepsNum;
-}
+render(document.body, quest);
 
 setTimeout(() => {
-  console.log('focus');
+  console.log('focus pocus :)');
   getEditor().focus();
 });
 

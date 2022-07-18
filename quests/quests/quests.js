@@ -8,7 +8,7 @@ import plasma2 from './plasma2.js';
 import svg from './svg.js';
 import innerHTML from './innerHTML.js';
 
-const codes = {
+const quests = {
   innerHTML,
   svg,
   alertXuy4ek,
@@ -20,5 +20,5 @@ const codes = {
   plasma2,
 };
 
-export default codes;
+export default quests;
 

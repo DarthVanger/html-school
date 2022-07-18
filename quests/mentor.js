@@ -1,4 +1,4 @@
-import { getCurrentCursorPosition, setCursor, getInnerText } from './utils.js';
+import { getInnerText, encodeHTMLEntities } from './utils.js';
 import { logQuestComplete } from './api.js';
 
 const getEditor = () => document.querySelector('#editor > code');
@@ -14,8 +14,6 @@ const getCode = () => getInnerText(getEditor());
 const check = () => {
   const code = getCode();
   console.log('code: ', code);
-
-
 
   logQuestComplete({
     id: 'testid',
@@ -34,13 +32,17 @@ const debouncedCheck = () => {
 };
 
 let mentorRef;
-export const Mentor = ({ text }) => {
+export const Mentor = (quest) => {
+  const { steps } = quest;
+  
+  const step = 0;
+
   const element = document.createElement('div');
   element.id = 'mentor';
 
   const state = {
-    text: '',
-    buttonText: '',
+    text: encodeHTMLEntities(steps[0].task), 
+    buttonText: 'закройся',
   };
 
   setTimeout(() => {
@@ -55,7 +57,7 @@ export const Mentor = ({ text }) => {
     element.innerHTML = `
       <img src="img/napaleon.png" />
       <div id="mentor-message">
-        ${text}
+        ${state.text}
       </div>
       <button type="button" id="close-mentor-button">${getButtonText()}</button>
     `;

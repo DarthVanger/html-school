@@ -1,4 +1,4 @@
-const innerHTML = `
+const code = `
 <body>
   <h1>9 esm zagolovok</h1>
 </body>
@@ -8,7 +8,6 @@ const innerHTML = `
 </script>
 `;
 
-export default innerHTML;
 
 // not used yet :)
 export const steps = [
@@ -20,3 +19,8 @@ export const steps = [
     regexp: /'document[.]body[.]innerHTML ?= ?['"][^'"]+['"];'/,
   },
 ];
+
+export default {
+  code,
+  steps,
+};
