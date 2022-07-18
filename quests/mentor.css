@@ -5,7 +5,7 @@
   right: 0;
   left: 0;
   height: 200px;
-  border: solid black 2px;
+  background: black;
 }
 
 #napaleon-message {
@@ -28,6 +28,12 @@
   background: black;
 }
 
+#napaleon pre {
+  background: white;
+  color: black;
+  padding: 1em;
+}
+
 #steps-progress {
   flex: 1;
 }
@@ -37,6 +43,7 @@
   font-size: 20px;
   line-height: 20px;
   font-family: monospace;
+  border-bottom: solid black 1px;
 }
 
 .is-completed {

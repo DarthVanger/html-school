@@ -77,25 +77,29 @@ export const Mentor = (quest) => {
         <div class="${className}">${icon} ${check}</div>
       `;
     },
-  );
+  ).join('');
 
   const getStepText = () => {
+    let result = '';
     const task = steps[state.step].task;
-    return encodeHTMLEntities(task);
+    result = task;
+    result = result.replaceAll('|c|', '<pre><code>');
+    result = result.replaceAll('|ce|', '</code></pre>');
+    console.log('result', result);
+    return result;
   }
 
   const render = () => {
     console.log('render, state: ', state);
-    //console.log(steps[state.step].task);
     element.innerHTML = `
-      <div id="steps-progress">
-        ${generateStepsHTML()}
-      </div>
       <div id="napaleon">
         <img src="img/napaleon.png" />
         <div id="napaleon-message">
           ${getStepText()}
         </div>
+      </div>
+      <div id="steps-progress">
+        ${generateStepsHTML()}
       </div>
     `;
   };
