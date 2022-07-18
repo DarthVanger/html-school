@@ -77,7 +77,6 @@ app.post('/quest/:id', async (req, res) => {
   db.data.quests[student][id] = {
     id,
     date: (new Date()).toISOString(),
-    skills,
     ip,
   };
 

@@ -11,38 +11,49 @@ const getButtonText = () => 'Закройся';
 
 const getCode = () => getInnerText(getEditor());
 
-const check = () => {
-  const code = getCode();
-  console.log('code: ', code);
-
-  logQuestComplete({
-    id: 'testid',
-    student: 'tonytest',
-  });
-
-  if (false) {
-    logCodeRun({ code, lesson, step, stepsNum, isTaskDone });
-  }
-};
-
 let checkTimeoutId;
 const debouncedCheck = () => {
   clearTimeout(checkTimeoutId);
   checkTimeoutId = setTimeout(check, 500);
 };
 
-let mentorRef;
 export const Mentor = (quest) => {
   const { steps } = quest;
   
-  const step = 0;
-
   const element = document.createElement('div');
   element.id = 'mentor';
 
   const state = {
-    text: encodeHTMLEntities(steps[0].task), 
-    buttonText: 'закройся',
+    step: 0,
+  };
+
+  const setState = (newState) => {
+    console.log('setState: ', newState);
+    state.step = newState.step;
+    render();
+  };
+
+  const check = () => {
+    const code = getCode();
+    console.log('check()');
+
+    console.log('steps: ', steps);
+
+    let step = 0;
+    for (let s of steps) {
+      if (s.regexp.test(code)) {
+        step++;
+      }
+    }
+
+    setState({
+      step,
+    });
+
+    logQuestComplete({
+      id: 'testid',
+      student: 'tonytest',
+    });
   };
 
   setTimeout(() => {
@@ -52,30 +63,44 @@ export const Mentor = (quest) => {
     check();
   });
 
-  if (!mentorRef) {
-    mentorRef = element;
-    element.innerHTML = `
-      <img src="img/napaleon.png" />
-      <div id="mentor-message">
-        ${state.text}
-      </div>
-      <button type="button" id="close-mentor-button">${getButtonText()}</button>
-    `;
+  const code = getInnerText(getEditor());
 
-    setTimeout(() => {
-      const closeButton = document.querySelector('#close-mentor-button');
+  const generateStepsHTML = () => steps.map(
+    ({ task, check, regexp }) => {
+      const isCompleted = regexp.test(code);
+      const icon = `
+        <span class="icon">${isCompleted ? '✔': '❌'}</span>`;
 
-      closeButton.addEventListener('click', () => {
-        element.style.display = 'none';
-        getEditor().focus();
-      });
-    });
-  } else if (state.text !== text) {
-    state.text = text;
-    state.buttonText = getButtonText();
-    mentorRef.querySelector('#mentor-message').innerHTML = text;
-    mentorRef.querySelector('button').innerHTML = getButtonText();
+      const className = isCompleted ? 'is-completed' : 'not-completed';
+
+      return `
+        <div class="${className}">${icon} ${check}</div>
+      `;
+    },
+  );
+
+  const getStepText = () => {
+    const task = steps[state.step].task;
+    return encodeHTMLEntities(task);
   }
+
+  const render = () => {
+    console.log('render, state: ', state);
+    //console.log(steps[state.step].task);
+    element.innerHTML = `
+      <div id="steps-progress">
+        ${generateStepsHTML()}
+      </div>
+      <div id="napaleon">
+        <img src="img/napaleon.png" />
+        <div id="napaleon-message">
+          ${getStepText()}
+        </div>
+      </div>
+    `;
+  };
+
+  render();
 
   return element;
 }

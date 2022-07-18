@@ -1,39 +1,53 @@
 #mentor {
   position: absolute;
-  width: 600px;
-  height: 200px;
   display: flex;
-  background: black;
   bottom: 0;
   right: 0;
+  left: 0;
+  height: 200px;
   border: solid black 2px;
 }
 
-#mentor-message {
+#napaleon-message {
   color: white;
   padding: 1em;
   font-family: sans-serif;
   font-size: 1.3em;
   letter-spacing: 2px;
+  line-height: 1.5;
 }
 
-#mentor img {
+#napaleon img {
   width: 200px;
   height: 200px;
 }
 
-
-#close-mentor-button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  color: white;
+#napaleon {
+  flex: 1;
+  display: flex;
   background: black;
-  border: white 2px solid;
-  border-radius: 5px;
-  padding: 0.5em;
-  margin: 8px;
-  text-transform: uppercase;
 }
 
+#steps-progress {
+  flex: 1;
+}
 
+#steps-progress > * {
+  padding: 16px;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: monospace;
+}
+
+.is-completed {
+  background: green;
+}
+
+.is-completed .icon {
+  color: green;
+}
+
+.not-completed {
+  background: #981093;
+  color: white;
+}
