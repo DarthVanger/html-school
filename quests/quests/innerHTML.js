@@ -1,3 +1,5 @@
+const id = 'alertXuy4ek';
+
 const code = `
 <body>
   <h1>9 esm zagolovok</h1>
@@ -7,7 +9,6 @@ const code = `
   
 </script>
 `;
-
 
 // not used yet :)
 export const steps = [
@@ -29,4 +30,5 @@ export default {
   code,
   steps,
   skills,
+  id,
 };

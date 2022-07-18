@@ -1,5 +1,6 @@
 import { getInnerText, encodeHTMLEntities } from './utils.js';
 import { logQuestComplete } from './api.js';
+import { getStudent } from '../session.js';
 
 const getEditor = () => document.querySelector('#editor > code');
 
@@ -44,8 +45,8 @@ export const Mentor = (quest) => {
 
     if (isQuestCompleted) {
       logQuestComplete({
-        id: 'testid',
-        student: 'tonytest',
+        id: quest.id,
+        student: getStudent(),
       });
     }
 
