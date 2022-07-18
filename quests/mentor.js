@@ -11,12 +11,6 @@ const getButtonText = () => 'Закройся';
 
 const getCode = () => getInnerText(getEditor());
 
-let checkTimeoutId;
-const debouncedCheck = () => {
-  clearTimeout(checkTimeoutId);
-  checkTimeoutId = setTimeout(check, 500);
-};
-
 export const Mentor = (quest) => {
   const { steps } = quest;
   
@@ -25,6 +19,7 @@ export const Mentor = (quest) => {
 
   const state = {
     step: 0,
+    isQuestCompleted: false,
   };
 
   const setState = (newState) => {
@@ -46,14 +41,27 @@ export const Mentor = (quest) => {
       }
     }
 
+    console.log('check() step:', step);
+
+    const isQuestCompleted = step === steps.length;
+    if (isQuestCompleted) {
+      logQuestComplete({
+        id: 'testid',
+        student: 'tonytest',
+      });
+    }
+
     setState({
       step,
+      isQuestCompleted, 
     });
 
-    logQuestComplete({
-      id: 'testid',
-      student: 'tonytest',
-    });
+  };
+
+  let checkTimeoutId;
+  const debouncedCheck = () => {
+    clearTimeout(checkTimeoutId);
+    checkTimeoutId = setTimeout(check, 500);
   };
 
   setTimeout(() => {
@@ -81,6 +89,11 @@ export const Mentor = (quest) => {
 
   const getStepText = () => {
     let result = '';
+
+    if (state.step === steps.length) {
+      return '';
+    }
+
     const task = steps[state.step].task;
     result = task;
     result = result.replaceAll('|c|', '<pre><code>');
@@ -91,10 +104,17 @@ export const Mentor = (quest) => {
 
   const render = () => {
     console.log('render, state: ', state);
+    const imgSrc = state.isQuestCompleted ?
+      'img/napaleon-4est.png'
+      : 'img/napaleon.png';
+
     element.innerHTML = `
       <div id="napaleon">
-        <img src="img/napaleon.png" />
+        <img src="${imgSrc}" />
         <div id="napaleon-message">
+          ${state.isQuestCompleted && (
+            'Задача выполнена! Поздравляю!'
+          ) || ''}
           ${getStepText()}
         </div>
       </div>
