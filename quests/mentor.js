@@ -41,6 +41,7 @@ export const Mentor = (quest) => {
     console.info('Checked code. Current step:', step);
 
     const isQuestCompleted = step === steps.length;
+
     if (isQuestCompleted) {
       logQuestComplete({
         id: 'testid',
@@ -98,7 +99,6 @@ export const Mentor = (quest) => {
     result = task;
     result = result.replaceAll('|c|', '<pre><code>');
     result = result.replaceAll('|ce|', '</code></pre>');
-    console.log('result', result);
     return result;
   }
 
