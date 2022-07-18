@@ -96,5 +96,8 @@ render(document.body, quest);
 setTimeout(() => {
   console.log('focus pocus :)');
   getEditor().focus();
+  getRunButton().addEventListener('click', () => {
+    run();
+  });
 });
 
