@@ -1,7 +1,8 @@
 import { describeArc } from './arc.js';
+import { getLevelProgress } form './utils.js';
 
 export const ProgressArc = ({x, y, r, points, selectedStudent}) => {
-  const levelProgress = points[selectedStudent] % 10 / 10;
+  const levelProgress = getLevelProgress(points[selectedStudent]);
   const angle = 360 * levelProgress;
 
   return `

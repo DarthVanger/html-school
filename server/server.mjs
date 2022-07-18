@@ -1,6 +1,7 @@
 import { db, loadDb } from './db/db.js';
 import { getStats } from './db/stats.js';
 import { applyMigrations } from './db/migrations/apply.js';
+
 import express from 'express'
 const app = express()
 const port = process.env.port || 8080

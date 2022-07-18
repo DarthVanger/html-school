@@ -33,7 +33,7 @@ export const Login = ({ handleLogin }) => {
         </label>
 
         <label>
-          <input type="radio" name="student" value="dimon4ik">
+          <input type="radio" name="student" value="dimon">
           <span>Morphem</span>
         </label>
 

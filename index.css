@@ -6,6 +6,10 @@
   --side-border-size: 160px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: monospace, sans-serif;
 }

@@ -14,6 +14,8 @@
   left: 0;
   bottom: 0;
   border-radius: 0 100% 0 0;
+  border-top: solid #aaa 4px;
+  border-right: solid #aaa 4px;
 }
 
 svg {
@@ -27,5 +29,49 @@ svg {
 .level-progress-arc {
   fill: transparent;
   stroke: #04ff67;
-  stroke-width: 5px;
+  stroke-width: 4px;
+}
+
+#level {
+  position: absolute;
+  bottom: calc(var(--size) / 4);
+  left: calc(var(--size) / 4);
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  color: #04ff67;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+#level-progress {
+  --font-size: 1.2rem;
+  --margin: 0.5rem;
+  --padding: 1.2em;
+  --icon-size: calc(var(--font-size) + var(--padding));
+  position: absolute;
+  left: var(--margin);
+  bottom: calc(var(--size) - var(--icon-size) - var(--padding));
+  font-size: var(--font-size);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  line-height: var(--icon-size);
+  color: #04ff67;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding-left: 4px;
+}
+
+#points {
+  position: absolute;
+  --padding: 0.5rem;
+  bottom: var(--padding);
+  left: var(--padding);
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  padding: 0.3rem;
 }
