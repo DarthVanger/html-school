@@ -4,7 +4,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  height: 300px;
+  height: 200px;
   background: black;
 }
 
@@ -21,7 +21,7 @@
 #napaleon img {
   width: 200px;
   height: 200px;
-  align-self: end;
+  align-self: start;
   border-radius: 4px;
 }
 
