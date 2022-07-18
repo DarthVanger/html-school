@@ -36,6 +36,7 @@ export const Mentor = (quest) => {
 
     let step = 0;
     for (let s of steps) {
+      console.log('testing regexp: ', s.regexp);
       if (s.regexp.test(code)) {
         step++;
       }
