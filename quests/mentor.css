@@ -5,7 +5,7 @@
   right: 0;
   left: 0;
   height: 200px;
-  background: black;
+  background: #111;
 }
 
 #napaleon-message {
@@ -27,7 +27,6 @@
 #napaleon {
   flex: 1;
   display: flex;
-  background: linear-gradient(0deg, #cfcac7, black);
   background: #111;
 }
 
