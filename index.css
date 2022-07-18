@@ -1,0 +1,10 @@
+@import 'Login.css';
+
+:root {
+  --top-border-size: 70px;
+  --side-border-size: 160px;
+}
+
+body {
+  font-family: monospace, sans-serif;
+}

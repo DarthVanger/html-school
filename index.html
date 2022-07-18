@@ -3,206 +3,7 @@
 <meta charset="utf-8" />
 <title>Weed</title>
 
-<style type="text/css">
-  html, body {
-    overflow: hidden;
-    height: 100%;
-  }
-
-  body {
-    margin: 0px;
-    padding: 0px;
-    display: grid;
-    grid-template-rows: [top] 70px [center] auto [bottom] 70px;
-    grid-template-columns: [left] 160px [center] auto [right] 160px;
-    gap: 0;
-    box-sizing: border-box;
-  }
-
-  .page-content {
-    grid-row: center / bottom;
-    grid-column: center / right;
-
-    font-size: 24px;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .weed-border-top-left {
-    grid-row: top;
-    grid-column: left;
-  }
-
-  .weed-border-top-right {
-    grid-row: top;
-    grid-column: right;
-    background: url("img/logo_left.png");
-    transform: rotate(180deg) scaleY(-1);
-  }
-
-  .weed-border-left {
-    grid-row: span;
-    grid-column: left;
-    background: url("img/logo_leftt.png");
-  }
-
-  .weed-border-right {
-    grid-column: right;
-    background: url("img/logo_leftt.png");
-    transform: rotate(180deg);
-  }
-
-  .weed-border-top-center {
-    grid-row: top / center;
-    grid-column: center / right;
-    background: url("img/logo_top.png");
-  }
-
-  .weed-border-bottom-center {
-    grid-column: center;
-    grid-row: bottom;
-    background: url("img/logo_top.png");
-    transform: scaleY(-1);
-  }
-
-  .weed-border-right-bottom {
-    grid-row: bottom;
-    grid-column: right;
-    background: url("img/logo_left.png");
-    transform: rotate(180deg);
-  }
-
-  .weed-border-left-bottom {
-    grid-row: bottom;
-    grid-column: left;
-    background: url("img/logo_left.png");
-    transform: scaleY(-1);
-  }
-
-  .page-content h2 {
-    text-align: center;
-    background-image: url('img/heading-background.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 70px;
-    line-height: 70px;
-    color: #5418b9;
-    margin: 0;
-    margin-bottom: 1em;
-    font-family: sans-serif;
-    letter-spacing: 4px;
-  }
-  
-  .page-content p {
-    padding: 1em;
-  }
-
-  .page-content figure {
-    text-align: center;
-    margin: 0;
-    max-height: 100%;
-    position: relative;
-  }
-
-  .page-content figure img {
-    height: calc(100vh - 280px - 2em);
-    max-width: 100%;
-  }
-
-  .page-content figure video {
-    max-height: calc(100vh - 280px);
-    width: auto;
-  }
-
-  .page-content figcaption {
-    font-size: 1.5em;
-    margin-top: 1em;
-    font-family: sans-serif;
-    letter-spacing: 4px;
-  }
-
-  .page-content p {
-  }
-
-  td {
-    padding: 0;
-    height: 100%;
-  }
-
-  .expectations-form {
-    padding: 2em 5em;
-  }
-  
-  .expectations-form input {
-    font-size: 1em;
-    width: 100%;
-  }
-  .expectations-form label {
-    font-size: 2em;
-  }
-
-  #timer {
-    color: white;
-    font-size: 3em;
-    position: absolute;
-    top: 80px;
-    left: 200px;
-  }
-
-  .expectation-reality {
-    padding: 0;
-    text-align: center;
-    font-size: 1.25em;
-  }
-
-  .expectation-reality ul {
-    list-style: none;
-    line-height: 1.5;
-    font-family: sans-serif;
-    letter-spacing: 2px;
-  }
-
-  .rules p {
-    font-size: 1.5em;
-    padding: 0 0.5em;
-    font-family: sans-serif;
-    letter-spacing: 2px;
-
-  }
-
-  .lety4ka-tasks {
-    display: none;
-    padding: 0.5em;
-    position: absolute;
-    top: 0;
-    left: 2.5em;
-    z-index: 1;
-    text-align: left;
-    font-size: 1.5em;
-    font-family: monospace;
-    letter-spacing: 2px;
-    line-height: 1.75;
-    background: rgba(0, 0, 0, 0.4);
-    right: 0; bottom: 2em;
-  }
-
-  .tag {
-    color: red;
-    font-weight: bold;
-  }
-
-  .height100 {
-    height: 100%;
-  }
-
-  .page-content iframe {
-    width: 80vw;
-    height: 70vh;
-  }
-
-</style>
-
+<link rel="stylesheet" href="index.css" />
 <link rel="stylesheet" href="MainPage/MainPage.css" />
 
 </head>
@@ -211,7 +12,7 @@
 <body text="#00FF66" bgcolor="000000" link="#0000CC" alink="#0000FF" vlink="#0000FF" topmargin="0" leftmargin="0">
 
 <div class="weed-border-left">
-  <img src="img/logo_leftt.png" />
+  <img src="MainPage/img/logo_leftt.png" />
 </div>
 
 
@@ -220,7 +21,7 @@
 </div>
 
 <div class="weed-border-top-left">
-  <img src="img/logo_left.png" />
+  <img src="MainPage/img/logo_left.png" />
 </div>
 
 <div class="weed-border-top-right">
@@ -274,6 +75,7 @@
 </div>
 
 
+<script src="index.js" type="module"></script>
 </body>
 </html>
 
