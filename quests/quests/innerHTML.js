@@ -17,7 +17,7 @@ export const steps = [
     regexp: /document[.]body[.]innerHTML ?= ?['"][^'"]+['"];/,
   },
   {
-    task: "Красавчик! Чтобы добавить текст к существующему - допиши еще одну строку, где будет уже не просто равно, а плюс равно :) document.body.innerHTML += 'dobavleno';",
+    task: "Красавчик! А теперь поробуй не '=', а '+=' :) Только не удоляй старое - добавь еще одну строку кода. |c|document.body.innerHTML += 'dobavleno';|ce|",
     check: "Прописано document.body.innerHTML += 'dobavleno wto-to';",
     regexp: /document[.]body[.]innerHTML ?[+]= ?['"][^'"]+['"];/,
   },
