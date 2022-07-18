@@ -23,26 +23,22 @@ export const Mentor = (quest) => {
   };
 
   const setState = (newState) => {
-    console.log('setState: ', newState);
     state.step = newState.step;
+    state.isQuestCompleted = newState.isQuestCompleted;
     render();
   };
 
   const check = () => {
     const code = getCode();
-    console.log('check()');
-
-    console.log('steps: ', steps);
 
     let step = 0;
     for (let s of steps) {
-      console.log('testing regexp: ', s.regexp);
       if (s.regexp.test(code)) {
         step++;
       }
     }
 
-    console.log('check() step:', step);
+    console.info('Checked code. Current step:', step);
 
     const isQuestCompleted = step === steps.length;
     if (isQuestCompleted) {
@@ -72,21 +68,24 @@ export const Mentor = (quest) => {
     check();
   });
 
-  const code = getInnerText(getEditor());
 
-  const generateStepsHTML = () => steps.map(
-    ({ task, check, regexp }) => {
-      const isCompleted = regexp.test(code);
-      const icon = `
-        <span class="icon">${isCompleted ? '✔': '❌'}</span>`;
+  const generateStepsHTML = () => {
+    const code = getInnerText(getEditor());
 
-      const className = isCompleted ? 'is-completed' : 'not-completed';
+    return steps.map(
+      ({ task, check, regexp }) => {
+        const isCompleted = regexp.test(code);
+        const icon = `
+          <span class="icon">${isCompleted ? '✔': '❌'}</span>`;
 
-      return `
-        <div class="${className}">${icon} ${check}</div>
-      `;
-    },
-  ).join('');
+        const className = isCompleted ? 'is-completed' : 'not-completed';
+
+        return `
+          <div class="${className}">${icon} ${check}</div>
+        `;
+      },
+    ).join('');
+  };
 
   const getStepText = () => {
     let result = '';
