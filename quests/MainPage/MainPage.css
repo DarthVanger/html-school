@@ -1,7 +1,15 @@
 @import "Levels/QuestList.css";
+@import "Story.css";
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
 
 body {
   font-family: monospace;
+  background: url('img/metalhd.webp');
 }
 
 h2 {
