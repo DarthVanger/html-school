@@ -2,7 +2,7 @@ import { Quest } from './Quest.js';
 import { QuestList } from './QuestList.js';
 
 export const Level1 = () => `
-  <h2>Level 1</h2>
+  <h2>Базовые Команды</h2>
   ${QuestList([
     Quest({
       imgSrc: 'img/alertXuy4ek.png',
