@@ -83,24 +83,26 @@ export const Mentor = (quest) => {
         const className = isCompleted ? 'is-completed' : 'not-completed';
 
         return `
-          <div class="${className}">${icon} ${check}</div>
+          <div class="${className}">${icon} ${parseCode(check)}</div>
         `;
       },
     ).join('');
   };
 
-  const getStepText = () => {
-    let result = '';
+  const parseCode = str => {
+    let result = str;
+    result = result.replaceAll('|c|', '<pre><code>');
+    result = result.replaceAll('|ce|', '</code></pre>');
+    return result;
+  }
 
+  const getStepText = () => {
     if (state.step === steps.length) {
       return '';
     }
 
     const task = steps[state.step].task;
-    result = task;
-    result = result.replaceAll('|c|', '<pre><code>');
-    result = result.replaceAll('|ce|', '</code></pre>');
-    return result;
+    return parseCode(task);
   }
 
   const Congrats = () => `

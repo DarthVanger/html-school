@@ -4,7 +4,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  height: 200px;
+  height: fit-content;
   background: #111;
 }
 
@@ -46,6 +46,14 @@
   line-height: 20px;
   font-family: monospace;
   border-bottom: solid black 1px;
+}
+
+#steps-progress pre {
+  display: inline-block;
+}
+
+#steps-progress code {
+  display: inline-block;
 }
 
 .is-completed {

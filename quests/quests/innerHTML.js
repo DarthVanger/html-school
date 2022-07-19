@@ -10,7 +10,6 @@ const code = `
 </script>
 `;
 
-// not used yet :)
 export const steps = [
   {
     task: "Чтобы изменить текст в документе через &lt;script&gt;, нужно прописать |c|document.body.innerHTML = '4to to';|ce|",
