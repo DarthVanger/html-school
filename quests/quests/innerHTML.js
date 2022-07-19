@@ -1,4 +1,4 @@
-const id = 'alertXuy4ek';
+const id = 'innerHTML';
 
 const code = `
 <body>

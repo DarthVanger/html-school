@@ -36,6 +36,19 @@ app.get('/points/quests/:student', (req, res) => {
   getQuestsPoints({ skill, student });
 });
 
+app.get('/quests/completed/:student', (req, res) => {
+  const {  student } = req.params;
+  console.info(`GET /quests/completed/${student}`);
+
+  const quests = db.data?.quests;
+  if (!quests || !quests[student]) {
+    res.json([]);
+    return;
+  }
+
+  res.json(db.data.quests[student]);
+});
+
 app.post('/code-run', async (req, res) => {
   console.info(`POST /code-run`, req.body);
   const codeRunInfo = req.body;
@@ -73,13 +86,13 @@ app.post('/quest/:id', async (req, res) => {
 
   db.data.quests = db.data?.quests || {};
 
-  db.data.quests[student] = db.data.quests[student] || {};
+  db.data.quests[student] = db.data.quests[student] || [];
 
-  db.data.quests[student][id] = {
+  db.data.quests[student].push({
     id,
     date: (new Date()).toISOString(),
     ip,
-  };
+  });
 
   db.write();
 
