@@ -19,18 +19,26 @@ export const BottomBar = ({ student }) => {
     render();
   };
 
-  setTimeout(async () => {
-    getElement().addEventListener('click', () => {
-      logout();
-      location.reload();
-    });
-
+  const fetchScore = async () => {
     const { level, points } = await getLevelInfo({ student });
 
     setState({
       level,
       points,
     });
+  };
+
+  const addListeners = () => {
+    const levelElement = getElement().querySelector('#level')
+    levelElement.addEventListener('click', () => {
+      logout();
+      location.reload();
+    });
+  };
+
+  setTimeout(() => {
+    addListeners();
+    fetchScore();
   });
 
   const render = () => {
@@ -59,6 +67,7 @@ export const BottomBar = ({ student }) => {
       const parent = getElement().parentNode;
       getElement().remove();
       parent.innerHTML += html;
+      addListeners();
     }
 
     return html;
