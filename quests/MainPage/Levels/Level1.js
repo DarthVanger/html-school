@@ -2,6 +2,7 @@ import { Quest } from './Quest.js';
 import { QuestList } from './QuestList.js';
 import { getCompletedQuests } from './api.js';
 import { getStudent } from '../../../session.js';
+import quests from '../../quests/quests.js';
 
 export const Level1 = () => {
   const getElement = () => document.querySelector('#level-1');
@@ -26,27 +27,27 @@ export const Level1 = () => {
   const render = () => {
     const isQuestCompleted = (quest) => Boolean(state.completedQuests?.find(q => q.id === quest.id));
 
-    let quests = [
+    let levelQuests = [
       {
         imgSrc: 'img/alertXuy4ek.png',
-        id: 'alertXuy4ek',
+        ...quests.alertXuy4ek,
       },
       {
         imgSrc: 'img/innerHTML.png',
-        id: 'innerHTML',
+        ...quests.innerHTML,
       },
       {
         imgSrc: 'img/functions.png',
-        id: 'functions',
+        ...quests.functions,
       },
     ];
 
-    quests = quests.map(q => ({
+    levelQuests = levelQuests.map(q => ({
       ...q,
       isCompleted: isQuestCompleted(q),
     }));
 
-    const questsListHTML = QuestList(quests.map(q => Quest(q)));
+    const questsListHTML = QuestList(levelQuests.map(q => Quest(q)));
 
     const html = `
       <div id="level-1">
