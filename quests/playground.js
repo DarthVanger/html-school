@@ -4,6 +4,8 @@ import quests from './quests/quests.js';
 import { logCodeRun } from './api.js';
 
 const playground = document.createElement('div');
+import { Topbar } from './Topbar.js';
+
 const questName = location.hash.replace('#', '');
 console.log('questName: ', questName);
 const quest = quests[questName];
@@ -11,6 +13,7 @@ console.log('quest: ', quest);
 
 playground.id = 'playground';
 playground.innerHTML = `
+  ${Topbar()}
   <div class="grid">
     <pre id="editor">
       <code contenteditable style="white-space: pre" class="language-html"></code>
