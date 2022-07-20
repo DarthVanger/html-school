@@ -29,13 +29,15 @@ export const Level1 = () => {
     let quests = [
       {
         imgSrc: 'img/alertXuy4ek.png',
-        skills: ['&lt;script&gt;', 'alert'],
         id: 'alertXuy4ek',
       },
       {
         imgSrc: 'img/innerHTML.png',
-        skills: ['innerHTML'],
         id: 'innerHTML',
+      },
+      {
+        imgSrc: 'img/functions.png',
+        id: 'functions',
       },
     ];
 

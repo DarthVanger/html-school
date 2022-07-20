@@ -18,6 +18,10 @@
   line-height: 1.5;
 }
 
+#napaleon-message > p:first-child {
+  margin-top: 0;
+}
+
 #napaleon-img {
   width: 200px;
   height: 200px;

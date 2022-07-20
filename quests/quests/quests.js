@@ -7,6 +7,7 @@ import plasma from './plasma.js';
 import plasma2 from './plasma2.js';
 import svg from './svg.js';
 import innerHTML from './innerHTML.js';
+import functions from './functions.js';
 
 const quests = {
   innerHTML,
@@ -18,6 +19,7 @@ const quests = {
   walls3,
   plasma,
   plasma2,
+  functions,
 };
 
 export default quests;
