@@ -1,5 +1,6 @@
 @import "Levels/QuestList.css";
 @import "Story.css";
+@import "Panel.css";
 
 
 html, body {
@@ -9,7 +10,8 @@ html, body {
 
 body {
   font-family: monospace;
-  background: url('img/metalhd.webp');
+  font-size: 16px;
+  background: black;
 }
 
 h2 {
@@ -18,4 +20,3 @@ h2 {
   color: #333;
   font-family: monospace;
 }
-
