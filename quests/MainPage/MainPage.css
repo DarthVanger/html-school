@@ -12,11 +12,33 @@ body {
   font-family: monospace;
   font-size: 16px;
   background: black;
+  font-family: serif;
+  color: #ddd;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 h2 {
   text-align: center;
-  font-size: 2.5rem;
-  color: #333;
-  font-family: monospace;
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
+body {
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+body::-webkit-scrollbar {
+  width: 2px;
+  background-color: black;
+}
+
+body::-webkit-scrollbar-track {
+   background: #aaa;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0a6db8;
 }
