@@ -17,9 +17,14 @@ export const steps = [
     regexp: /document[.]body[.]innerHTML ?= ?['"][^'"]+['"];/,
   },
   {
-    task: "Красавчик! А теперь поробуй не '=', а '+=' :) Только не удоляй старое - добавь еще одну строку кода. |c|document.body.innerHTML += 'dobavleno';|ce|",
+    task: "<p>Красавчик! Запускай - текст документа должен измениться.</p> <p>Далее поробуй вместо '=', а '+=' :) Только не удоляй старое - добавь еще одну строку кода.</p> |c|document.body.innerHTML = '4to to';\ndocument.body.innerHTML += 'dobavleno';|ce|",
     check: "Прописано document.body.innerHTML += 'dobavleno wto-to';",
     regexp: /document[.]body[.]innerHTML ?[+]= ?['"][^'"]+['"];/,
+  },
+  {
+    task: "<p>Хорош :) Запускай - должен добавиться теперь текст, а не заменить предыдущий.</p> <p>Допиши еще такую же строку с +=, но с другим текстом.</p>|c|document.body.innerHTML = '4to to';\ndocument.body.innerHTML += 'dobavleno';;\ndocument.body.innerHTML += 'i ewe 4to-o dobavleno';|ce|",
+    check: "Прописано document.body.innerHTML += 'любой текст'; ищо раз :)",
+    regexp: /(document[.]body[.]innerHTML ?[+]= ?['"][^'"]+['"];\s*){2}/,
   },
 ];
 
