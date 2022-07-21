@@ -120,6 +120,7 @@ setTimeout(() => {
   getEditor().focus();
   getRunButton().addEventListener('click', () => {
     run();
+    getEditor().focus();
   });
   getEditor().addEventListener('keyup', debouncedHighlight);
 
