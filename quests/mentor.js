@@ -12,7 +12,7 @@ const getCode = () => getInnerText(getEditor());
 
 const parseCode = str => {
   let result = str;
-  result = result.replaceAll('|c|', '<pre><code>');
+  result = result.replaceAll('|c|', '<pre><code class="nohighlight">');
   result = result.replaceAll('|ce|', '</code></pre>');
   return result;
 }
