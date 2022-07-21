@@ -94,13 +94,7 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
 
   };
 
-  let checkTimeoutId;
-  const debouncedCheck = () => {
-    clearTimeout(checkTimeoutId);
-    checkTimeoutId = setTimeout(check, 500);
-  };
-
-  addCodeRunListener(debouncedCheck);
+  addCodeRunListener(check);
 
   const generateStepsHTML = () => {
     const code = getInnerText(getEditor());
