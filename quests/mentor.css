@@ -8,7 +8,7 @@
   background: #111;
 }
 
-#napaleon-message {
+#napaleon-message, #napaleon-message::selection {
   background: #111;
   color: #eee;
   padding: 1em;
@@ -16,6 +16,7 @@
   font-size: 1.3em;
   letter-spacing: 2px;
   line-height: 1.5;
+  cursor: not-allowed;
 }
 
 #napaleon-message > p:first-child {
@@ -65,9 +66,10 @@
   display: inline-block;
 }
 
-.is-completed {
+.is-completed, .is-completed::selection, .is-completed .icon::selection {
   background: #39a239;
   color: white;
+  cursor: not-allowed;
 }
 
 .is-completed .icon {
@@ -77,9 +79,10 @@
   
 }
 
-.not-completed {
+.not-completed, .not-completed::selection, .not-completed .icon::selection {
   background: #981093;
   color: white;
+  cursor: not-allowed;
 }
 
 .achievements {
