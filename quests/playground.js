@@ -2,6 +2,7 @@ import { Mentor } from './mentor.js';
 import { napaleon } from './napaleon.js';
 import quests from './quests/quests.js';
 import { logCodeRun } from './api.js';
+import { saveCaretPosition } from './utils.js';
 
 const playground = document.createElement('div');
 import { Topbar } from './Topbar.js';
@@ -16,7 +17,7 @@ playground.innerHTML = `
   ${Topbar()}
   <div class="grid">
     <pre id="editor">
-      <code contenteditable style="white-space: pre" class="language-html"></code>
+      <code contenteditable style="white-space: pre" class="language-html" spellcheck="false"></code>
     </pre>
     <iframe id="result"></iframe>
   </div>
@@ -72,7 +73,6 @@ export const run = () => {
 };
 
 export const setCode = (code) => {
-  console.log('code in setcode: ', JSON.stringify(code));
   getEditor().textContent = code.slice(1);
   run();
 }
@@ -103,11 +103,31 @@ export const render = (container, quest) => {
 
 render(document.body, quest);
 
+const highlight = () => {
+  const restoreCaretPosition = saveCaretPosition(getEditor());
+  Prism.highlightElement(getEditor());
+  restoreCaretPosition();
+};
+
+let timeoutId;
+const debouncedHighlight = () => {
+  if (timeoutId) clearTimeout(timeoutId);
+  timeoutId = setTimeout(highlight, 1000);
+};
+
 setTimeout(() => {
   console.log('focus pocus :)');
   getEditor().focus();
   getRunButton().addEventListener('click', () => {
     run();
   });
+  getEditor().addEventListener('keyup', debouncedHighlight);
+
+  // Preserve line breaks
+  // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570
+  Prism.hooks.add('before-sanity-check', function (env) {
+    env.code = env.element.innerText;
+  });
+
 });
 

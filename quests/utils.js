@@ -14,3 +14,37 @@ export const getInnerText = (element) => {
   text = text.replace(/[\n]    /, '');
   return text;
 };
+
+// Save and restore caret position when highlighting code
+// https://stackoverflow.com/a/38479462/1657101
+export function saveCaretPosition(context){
+    var selection = window.getSelection();
+    var range = selection.getRangeAt(0);
+    range.setStart(  context, 0 );
+    var len = range.toString().length;
+
+    return function restore(){
+        var pos = getTextNodeAtPosition(context, len);
+        selection.removeAllRanges();
+        var range = new Range();
+        range.setStart(pos.node ,pos.position);
+        selection.addRange(range);
+
+    }
+}
+
+function getTextNodeAtPosition(root, index){
+    const NODE_TYPE = NodeFilter.SHOW_TEXT;
+    var treeWalker = document.createTreeWalker(root, NODE_TYPE, function next(elem) {
+        if(index > elem.textContent.length){
+            index -= elem.textContent.length;
+            return NodeFilter.FILTER_REJECT
+        }
+        return NodeFilter.FILTER_ACCEPT;
+    });
+    var c = treeWalker.nextNode();
+    return {
+        node: c? c: root,
+        position: index
+    };
+}
