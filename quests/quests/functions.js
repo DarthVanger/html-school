@@ -24,7 +24,7 @@ export const steps = [
   {
     task: "Наконец пишем код внутри фигурных скобок: |c|document.body.innerHTML += 'Eto 4to-to!';|ce|",
     check: "Прописано document.body.innerHTML += 'Eto 4to-to!';",
-    regexp: /function xyeta[(][)] {\s*document[.]body[.]innerHTML\s*[+]=\s*['"][^'"]+['"];\s*}/,
+    regexp: /function xyeta[(][)] {\s*document[.]body[.]innerHTML\s*[+]=\s*['"][^'"]+['"];[^}]*}/,
   },
   {
     task: "Отлично! Функция готова! Осталось ее \"Вызвать\". Под функцией, но до закрывающего &lt;/script&gt;, пишем имя функциии, пустые круглые скобки, и точку с запятой: |c|xyeta();|ce|",
