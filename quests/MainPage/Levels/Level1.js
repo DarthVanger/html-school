@@ -29,11 +29,11 @@ export const Level1 = () => {
 
     let levelQuests = [
       {
-        imgSrc: 'img/alertXuy4ek.png',
+        imgSrc: 'img/alertXuy4ek.jpg',
         ...quests.alertXuy4ek,
       },
       {
-        imgSrc: 'img/innerHTML.png',
+        imgSrc: 'img/innerHTML.jpg',
         ...quests.innerHTML,
       },
       {
