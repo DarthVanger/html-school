@@ -8,8 +8,10 @@ import plasma2 from './plasma2.js';
 import svg from './svg.js';
 import innerHTML from './innerHTML.js';
 import functions from './functions.js';
+import variables from './variables.js';
 
 const quests = {
+  variables,
   innerHTML,
   svg,
   alertXuy4ek,
