@@ -35,9 +35,14 @@
 }
 
 #napaleon pre {
+  padding: 1em;
+  background: white;
+}
+
+#napaleon pre code, #napaleon pre code::selection  {
   background: white;
   color: black;
-  padding: 1em;
+  cursor: not-allowed;
 }
 
 #steps-progress {
