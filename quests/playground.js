@@ -67,6 +67,8 @@ export const run = () => {
   setTimeout(() => {
     loader.classList.remove('show');
   }, 500);
+  
+  notifyListeners(); 
 };
 
 export const setCode = (code) => {
@@ -87,9 +89,14 @@ function replaceIframeContent(iframeElement, newHTML)
     iframeElement.contentWindow.document.close();
 }
 
+const listeners = [];
+const notifyListeners = () => listeners.forEach(l => l());
+const addCodeRunListener = listener => {
+  listeners.push(listener);
+};
 export const render = (container, quest) => {
   container.append(playground);
-  container.append(Mentor(quest));
+  container.append(Mentor({ quest, addCodeRunListener }));
 
   setCode(quest.code);
 }

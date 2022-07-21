@@ -48,7 +48,7 @@ const Congrats = ({ quest }) => `
   </div>
 `;
 
-export const Mentor = (quest) => {
+export const Mentor = ({ quest, addCodeRunListener }) => {
   const { steps } = quest;
   
   const element = document.createElement('div');
@@ -100,13 +100,7 @@ export const Mentor = (quest) => {
     checkTimeoutId = setTimeout(check, 500);
   };
 
-  setTimeout(() => {
-    const code = getInnerText(getEditor());
-
-    editor.addEventListener('keyup', debouncedCheck);
-    check();
-  });
-
+  addCodeRunListener(debouncedCheck);
 
   const generateStepsHTML = () => {
     const code = getInnerText(getEditor());
