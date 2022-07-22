@@ -18,6 +18,13 @@
   line-height: 1.5;
   cursor: not-allowed;
 }
+#napaleon-message code {
+  background: #efd291;
+  padding: 3px;
+  color: black;
+  border-radius: 1px;
+  font-size: 1.3rem;
+}
 
 #napaleon-message > p:first-child {
   margin-top: 0;
