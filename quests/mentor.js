@@ -158,9 +158,7 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
       img.classList.remove('hidden');
     }
 
-    if (state.isQuestCompleted) {
-      getElement().classList.remove('collapsed');
-    }
+    getElement().classList.remove('collapsed');
 
   };
 
