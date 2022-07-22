@@ -44,6 +44,10 @@ export const Level1 = () => {
         imgSrc: 'img/variables.png',
         ...quests.variables,
       },
+      {
+        imgSrc: 'img/functionParameters.png',
+        ...quests.functionParameters,
+      },
     ];
 
     levelQuests = levelQuests.map(q => ({
