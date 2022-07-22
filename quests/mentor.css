@@ -6,6 +6,34 @@
   left: 0;
   height: fit-content;
   background: #111;
+  z-index: 1;
+}
+
+#mentor.collapsed {
+  height: 100px;
+}
+
+#mentor {
+  overflow-y: auto;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+#mentor::-webkit-scrollbar {
+  width: 4px;
+  background-color: black;
+}
+
+#mentor::-webkit-scrollbar-track {
+   background: white;
+}
+
+#mentor::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+#napaleon-message {
+  height: fit-content;
 }
 
 #napaleon-message, #napaleon-message::selection {
@@ -32,6 +60,10 @@
   width: 200px;
   height: 200px;
   align-self: start;
+}
+
+#napaleon-img.hidden {
+  display: none;
 }
 
 #napaleon {

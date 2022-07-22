@@ -96,6 +96,14 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
 
   addCodeRunListener(check);
 
+  const toggleCollapsed = () => {
+    getElement().classList.toggle('collapsed');
+  };
+
+  setTimeout(() => {
+    getElement().addEventListener('click', toggleCollapsed);
+  });
+
   const generateStepsHTML = () => {
     const code = getInnerText(getEditor());
 
@@ -134,6 +142,15 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
   };
 
   const update = () => {
+    const taskLength = steps[state.step].task.length;
+    const img = document.querySelector('#napaleon-img');
+    const height = document.querySelector('#napaleon-message').offsetHeight;
+    if (height > 200) {
+      img.classList.add('hidden');
+    } else {
+      img.classList.remove('hidden');
+    }
+
     document.querySelector('#napaleon-message').innerHTML = `
       ${MentorMessage({ state, quest })}
     `;
