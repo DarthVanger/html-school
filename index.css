@@ -1,5 +1,6 @@
 @import 'Login.css';
 @import 'BottomBar.css';
+@import '@typography.css';
 
 :root {
   --top-border-size: 70px;
@@ -8,8 +9,4 @@
 
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: monospace, sans-serif;
 }

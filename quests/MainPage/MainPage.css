@@ -8,10 +8,8 @@ html, body {
 }
 
 body {
-  font-family: monospace;
   font-size: 16px;
   background: black;
-  font-family: serif;
   color: #ddd;
   font-size: 1.3rem;
   line-height: 1.5;
