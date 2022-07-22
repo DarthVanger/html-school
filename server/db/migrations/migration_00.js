@@ -31,14 +31,15 @@ export const migration_00 = async () => {
     ],
     js: [
       [
-        { text: "alert", level: { johnny: 3, tony: 1, dimon: 2 }, },
-        { text: 'on\nclick', level: { johnny: 2, tony: 0, dimon: 1, }, },
-        { text: 'style', level: { johnny: 2, tony: 0, dimon: 0, }, },
-        { text: 'inner\nHTML', level: { johnny : 2, tony: 0, dimon: 1, }, },
+        { id: 'alert', text: 'alert', level: { johnny: 3, tony: 1, dimon: 2 }, },
+        { text: 'on\nclick', level: { johnny: 3, tony: 2, dimon: 2, }, },
+        { text: 'style', level: { johnny: 2, tony: 1, dimon: 1, }, },
+        { id: 'innerHTML', text: 'inner\nHTML', level: { johnny : 2, tony: 1, dimon: 1, }, },
       ],
       [
-        { text: 'var\niables', level: { johnny: 0, tony: 0, dimon: 0, }, },
-        { text: 'func\ntions', level: { johnny: 1, tony: 0, dimon: 1, }, },
+        { id: 'variables', text: 'var\niables', level: { johnny: 1, tony: 1, dimon: 1, }, },
+        { id: 'functions', text: 'func\ntions', level: { johnny: 3, tony: 1, dimon: 2, }, },
+        { id: '+=', text: '+=', level: { johnny: 1, tony: 1, dimon: 1, }, },
       ],
     ]
   };

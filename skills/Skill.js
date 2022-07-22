@@ -50,7 +50,7 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
 
       for (let q of completedQuests) {
         const skills = getQuestSkills(q.id);
-        if (skills.includes(skill.text)) {
+        if (skills.includes(skill.id)) {
           return true;
         }
       }

@@ -17,7 +17,7 @@ const getQuestPoints = ({ skill, student }) => {
 
     for (let q of completedQuests) {
       const skills = getQuestSkills(q.id);
-      if (skills.includes(skill.text)) {
+      if (skills.includes(skill.id)) {
         points++; 
       }
     }
