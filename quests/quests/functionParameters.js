@@ -23,8 +23,8 @@ export const steps = [
   },
   {
     task: `
-<p>Мы вызвали фукцею <code>потрещи</code>, передав в нее <code>гнилойБазар</code>.
-<p><code>function потрещи(грилойБазар) { ... }</code></p>
+<p>Мы вызвали фукцею <code>потрещи</code>, передав в нее <code>'Ты шо сука'</code>. 
+<p>Фукцея <code>function потрещи(гнилойБазар) { ... }</code></p>
 <p> По суте говорит "в скобках мне передавайте че спиздануть-то, и я это впиздячу в документ".</p>
 <p><code>гнилойБазар</code> называется <em>Параметр</em> фукцеи.</p>
 <p>
@@ -38,7 +38,7 @@ export const steps = [
   },
 ];
 
-const skills = ['functions', 'functionParameters'];
+const skills = ['functions'];
 
 export default {
   code,
