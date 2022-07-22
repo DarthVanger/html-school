@@ -2,6 +2,7 @@ import { Badge } from './Badge.js';
 import { QuestBadge } from './QuestBadge.js';
 import { HomeworkBadge } from './HomeworkBadge.js';
 import { getHomeworkPoints } from './stats.js';
+import quests from '../quests/quests/quests.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   const height = skillBoxSize;
@@ -43,12 +44,22 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       level,
     });
 
-    const hasCompletedQuest = !!questPoints?.find(q =>
-        q.student === student &&
-        q.skill === skill.text
-    );
+    const hasCompletedQuest = () => {
+      const completedQuests = questPoints[student];
+      if (!completedQuests) return false;
 
-    if (hasCompletedQuest) {
+      for (let q of completedQuests) {
+        const skills = quests[q.id].skills;
+        console.log('skills: ', skills);
+        console.log('q.id: ', q.id);
+        if (skills.includes(skill.text)) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    if (hasCompletedQuest()) {
       html += QuestBadge({
         x: x - width,
         y,

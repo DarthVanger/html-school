@@ -29,13 +29,6 @@ app.get('/tree', (req, res) => {
   res.json({ skills: db.data.skills, levels, points, categoryLevels, homework, questPoints });
 })
 
-app.get('/points/quests/:student', (req, res) => {
-  const { skill, student } = req.params;
-  console.info(`GET /points/quests/${skill}/${student}`);
-
-  getQuestsPoints({ skill, student });
-});
-
 app.get('/quests/completed/:student', (req, res) => {
   const {  student } = req.params;
   console.info(`GET /quests/completed/${student}`);

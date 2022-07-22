@@ -1,5 +1,5 @@
 import { describeArc } from './arc.js';
-import { getLevelProgress } form './utils.js';
+import { getLevelProgress } from './utils.js';
 
 export const ProgressArc = ({x, y, r, points, selectedStudent}) => {
   const levelProgress = getLevelProgress(points[selectedStudent]);
