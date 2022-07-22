@@ -142,7 +142,14 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
   };
 
   const update = () => {
-    const taskLength = steps[state.step].task.length;
+
+    document.querySelector('#napaleon-message').innerHTML = `
+      ${MentorMessage({ state, quest })}
+    `;
+    document.querySelector('#steps-progress').innerHTML = `
+      ${generateStepsHTML()}
+    `;
+
     const img = document.querySelector('#napaleon-img');
     const height = document.querySelector('#napaleon-message').offsetHeight;
     if (height > 200) {
@@ -151,12 +158,10 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
       img.classList.remove('hidden');
     }
 
-    document.querySelector('#napaleon-message').innerHTML = `
-      ${MentorMessage({ state, quest })}
-    `;
-    document.querySelector('#steps-progress').innerHTML = `
-      ${generateStepsHTML()}
-    `;
+    if (state.isQuestCompleted) {
+      getElement().classList.remove('collapsed');
+    }
+
   };
 
   render();
