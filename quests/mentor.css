@@ -13,6 +13,36 @@
   height: 100px;
 }
 
+#mentor:hover::after {
+  content: '▼';
+  position: absolute;
+  background: #eee;
+  border-radius: 50%;
+  font-weight: bold;
+  --size: 50px;
+  font-size: 25px;
+  height: var(--size);
+  width: var(--size);
+  line-height: var(--size);
+  margin: 15px;
+  text-align: center;
+}
+
+#mentor.collapsed:hover::after {
+  content: '▲';
+  position: absolute;
+  background: #eee;
+  border-radius: 50%;
+  font-weight: bold;
+  --size: 50px;
+  font-size: 25px;
+  height: var(--size);
+  width: var(--size);
+  line-height: var(--size);
+  margin: 15px;
+  text-align: center;
+}
+
 #mentor {
   overflow-y: auto;
   scrollbar-color: rebeccapurple green;
