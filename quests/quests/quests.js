@@ -24,5 +24,10 @@ const quests = {
   functions,
 };
 
+export const getQuestSkills = (questId) => {
+    const quest = quests[questId];
+    return quest.skills;
+};
+
 export default quests;
 

@@ -1,5 +1,5 @@
 import { db } from './db.js';
-import quests from '../../quests/quests/quests.js';
+import { getQuestSkills } from '../../quests/quests/quests.js';
 
 const getHomeworkPoints = ({ student, skill }) => {
   if (!db.data.homework) return 0;
@@ -16,8 +16,7 @@ const getQuestPoints = ({ skill, student }) => {
     if (!completedQuests) return 0;
 
     for (let q of completedQuests) {
-      const quest = quests[q.id];
-      const skills = quest.skills;
+      const skills = getQuestSkills(q.id);
       if (skills.includes(skill.text)) {
         points++; 
       }

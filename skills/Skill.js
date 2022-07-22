@@ -2,7 +2,7 @@ import { Badge } from './Badge.js';
 import { QuestBadge } from './QuestBadge.js';
 import { HomeworkBadge } from './HomeworkBadge.js';
 import { getHomeworkPoints } from './stats.js';
-import quests from '../quests/quests/quests.js';
+import { getQuestSkills } from '../quests/quests/quests.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   const height = skillBoxSize;
@@ -49,9 +49,7 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       if (!completedQuests) return false;
 
       for (let q of completedQuests) {
-        const skills = quests[q.id].skills;
-        console.log('skills: ', skills);
-        console.log('q.id: ', q.id);
+        const skills = getQuestSkills(q.id);
         if (skills.includes(skill.text)) {
           return true;
         }
