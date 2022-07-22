@@ -2,9 +2,16 @@ import { Skills } from './skills.js';
 import { Students } from './Students.js';
 import { state, setState } from './state.js';
 import { getQuestsPoints } from './api.js';
+import { getStudent } from '../session.js';
 
-const getStudentFromHash = () => {
-  return window.location.hash.replace('#', '') || 'tony';
+const getCurrentStudent = () => {
+  const studentFromHash = window.location.hash.replace('#', '');
+  if (studentFromHash) {
+    return studentFromHash;
+  }
+
+  const student = getStudent();
+  window.location.hash = `#${student}`;
 };
 
 let isMusicPlaying = false;
@@ -34,14 +41,14 @@ export const App = ({ render }) => {
   }
 
   window.addEventListener('hashchange', event => {
-    const student = getStudentFromHash();
+    const student = getCurrentStudent();
     setState({
       student,
     });
   });
 
   setState({
-    student: getStudentFromHash(),
+    student: getCurrentStudent(),
   });
 
   document.body.addEventListener('click', () => {

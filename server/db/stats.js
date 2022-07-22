@@ -22,8 +22,6 @@ const getQuestPoints = ({ skill, student }) => {
       }
     }
 
-    console.log(skill.text, student, points);
-
     return points;
 };
 
