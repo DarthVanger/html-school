@@ -1,41 +1,45 @@
-export default `
+const id = 'flying';
+
+const code = `
 <style>
-  video {
+  img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-
-  .ship {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.1s linear;
-  }
-
-  .wall {
-    position: absolute;
-    top: 0;
-    left: 300;
-    right: 0;
-    height: 100vh;
-    opacity: 0.7;
-    cursor: not-allowed;
   }
 </style>
 
 <body>
-  <video autoplay loop muted>
-    <source src="/video/space-1050p.mp4" type="video/mp4" />
-  </video>
-  <img class="ship" src="/game/ship.gif" />
+  <img src="/game/ship.gif" />
 </body>
-
 <script>
-  // Make ship move on click.
-  // See W3Schools lesson: https://www.w3schools.com/jsref/met_document_addeventlistener.asp
+
 </script>
 `;
+
+export const steps = [
+  {
+    task: "|c|var korabel = document.querySelector('img');|ce|",
+    check: "var korabel = document.querySelector('img')",
+    regexp: /var\s+korabel\s*=\s*document\.querySelector\('img'\);/,
+  },
+  {
+    task: "|c|var korabel = document.querySelector('img');\nkorabel.style.top = 200;|ce|",
+    check: "korabel.style.top = 200;",
+    regexp: /korabel\.style\.top\s*=\s*200;/,
+  },
+  {
+    task: "|c|var korabel = document.querySelector('img');\nkorabel.style.top = 200;\nkorabel.style.left = 100;|ce|",
+    check: "korabel.style.left = 100;",
+    regexp: /korabel\.style\.left\s*=\s*100;/,
+  },
+];
+
+const skills = ['style', 'position absolute', 'querySelector'];
+
+export default {
+  code,
+  steps,
+  skills,
+  id,
+};

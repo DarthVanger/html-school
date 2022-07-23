@@ -26,15 +26,16 @@ export const migration_00 = async () => {
         { text: 'padding', level: { johnny : 1, tony: 1, dimon: 1, } },
         { text: 'margin', level: { johnny : 1, tony: 1, dimon: 1, } },
         { text: 'border', level: { johnny : 1, tony: 1, dimon: 1, } },
-        { text: 'position', level: { johnny : 0, tony: 0, dimon: 0, } },
+        { id: 'position absolute', text: 'position\nasbolute', level: { johnny : 1, tony: 1, dimon: 1, } },
       ],
     ],
     js: [
       [
         { id: 'alert', text: 'alert', level: { johnny: 3, tony: 1, dimon: 2 }, },
-        { text: 'on\nclick', level: { johnny: 3, tony: 2, dimon: 2, }, },
-        { text: 'style', level: { johnny: 2, tony: 1, dimon: 1, }, },
+        { id: 'on click', text: 'on\nclick', level: { johnny: 3, tony: 2, dimon: 2, }, },
+        { id: 'style', text: 'style', level: { johnny: 2, tony: 1, dimon: 1, }, },
         { id: 'innerHTML', text: 'inner\nHTML', level: { johnny : 2, tony: 1, dimon: 1, }, },
+        { id: 'querySelector', text: 'query\nSelector', level: { johnny : 2, tony: 1, dimon: 1, }, },
       ],
       [
         { id: 'variables', text: 'var\niables', level: { johnny: 1, tony: 1, dimon: 1, }, },
