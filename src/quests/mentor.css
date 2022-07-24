@@ -21,8 +21,8 @@
   background: #111;
   color: #eee;
   padding: 1em;
-  font-size: 1.3em;
-  line-height: 1.5;
+  font-size: 1.3rem;
+  line-height: 1.8;
   cursor: not-allowed;
 }
 
@@ -46,11 +46,17 @@
   background: #111;
 }
 
+:not(pre)>code[class*=language-] {
+  box-shadow: none;
+  border-radius: 0;
+  border-width: 0;
+}
+
 #napaleon ::selection,
 #napaleon pre code, #napaleon pre code::selection,
 #napaleon code[class*=language-] ::selection {
   cursor: not-allowed;
-  background: none;!important
+  background: none!important;
   color: revert;
 }
 

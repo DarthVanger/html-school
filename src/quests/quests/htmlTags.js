@@ -22,14 +22,18 @@ export const steps = [
   {
     task: `
 <p>
-Начнем с простещшего документа: у нас лишь один параграф и больше ничего. Результат даного ХТМЛ кода - на экран просто выводится тот текст, что внутри <code>&lt;p&gt;...&lt;/p&gt;</code>
+Начнем с простещшего документа: у нас лишь один параграф и больше ничего. Результат даного ХТМЛ кода - на экран просто выводится тот текст, что внутри
+<code class="language-html">
+&lt;p&gt;...&lt;/p&gt;
+</code>
 </p>
 <p>
 Уписуй заголовок h1 после параграфа:
-<pre><code>
+<pre><code class="language-html">
 &lt;p&gt;Eto Paragraph&lt;/p&gt;
 &lt;h1&gt;Зоголовок&lt;/h1&gt;
 </code></pre>
+</p>
 `,
     check: "Уписано &lt;h1&gt;Зогловок&lt;/h1&gt; после параграфа",
     regexp: /<\/p>\s+<h1>[^<]+<\/h1>/,
@@ -41,7 +45,7 @@ export const steps = [
   </p>
   <p>
 Теперь еще ниже, третьей строкой, уписуй h2
-<pre><code>
+<pre><code class="language-html">
 &lt;p&gt;Eto Paragraph&lt;/p&gt;
 &lt;h1&gt;Зоголовок&lt;/h1&gt;
 &lt;h2&gt;Zogolovok vtorogo yrovn9&lt;/h2&gt;
@@ -57,10 +61,10 @@ export const steps = [
   </p>
   <p>
   И еще ниже, под всеми заголовками, давай еще параграф впишем.
-<pre><code>
+</p>
+<pre><code class="language-html">
 &lt;p&gt;Eto ewe adin paragrafe&lt;/p&gt;
 </code></pre>
-  </p>
   `,
     check: "Уписано &lt;p&gt;Eto ewe adin paragrafe&lt;/p&gt после &lt;h2&gt;",
     regexp: /<\/h2>\s+<p>[^<]+<\/p>/,

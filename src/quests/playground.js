@@ -108,7 +108,7 @@ export const QuestPage = ({ questId }) => {
 const highlight = () => {
   const restoreCaretPosition = saveCaretPosition(getEditor());
   Prism.highlightElement(getEditor());
-  const napaleonCode = document.querySelector('#napaleon-message code');
+  const napaleonCode = document.querySelectorAll('#napaleon-message codee');
   console.log('napaleonCode: ', napaleonCode);
   Prism.highlightElement(napaleonCode);
   restoreCaretPosition();

@@ -135,9 +135,8 @@ const highlight = () => {
   console.log('highlight, editor: ', getEditor());
   if (getEditor()) {
     Prism.highlightElement(getEditor());
-    const napaleonCode = document.querySelector('#napaleon-message code');
-    console.log('napaleonCode: ', napaleonCode);
-    Prism.highlightElement(napaleonCode);
+    const napaleonCodes = document.querySelectorAll('#napaleon-message code');
+    napaleonCodes.forEach(c => Prism.highlightElement(c));
     restoreCaretPosition();
   }
 };
