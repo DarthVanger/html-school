@@ -3,19 +3,21 @@
   --secondary: #d86deb;
 }
 
-html, body {
+html, body, #app {
   overflow: hidden;
   height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  margin: 0px;
-  padding: 0px;
+#app {
   display: grid;
   grid-template-rows: [top] 70px [center] auto [bottom] 70px;
   grid-template-columns: [left] 160px [center] auto [right] 160px;
   gap: 0;
   box-sizing: border-box;
+  background: black;
 }
 
 .page-content {
@@ -226,6 +228,7 @@ h3 {
   font-size: 1.5em;
   margin: 0.5em 0;
   text-align: center;
+  color: var(--primary);
 }
 
 .page-content {

@@ -1,5 +1,5 @@
 import { db } from './db.js';
-import { getQuestSkills } from '../../quests/quests/quests.js';
+import { getQuestSkills } from '../../src/quests/quests/quests.js';
 
 const getHomeworkPoints = ({ student, skill }) => {
   if (!db.data.homework) return 0;

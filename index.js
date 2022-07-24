@@ -1,30 +1,9 @@
-import { BottomBar } from './BottomBar.js';
-import { getStudent, setStudent } from './session.js';
-import { Login } from './Login.js';
+import { App } from './src/App.js';
+
+const container = document.querySelector('body');
 
 const run = () => {
-  const student = getStudent();
-  console.info('student from session: ', student);
-
-  if (!student) {
-    showLogin();
-  } else {
-    showBottomBar({ student });
-  }
-
+  container.append(App());
 };
-
-const handleLogin = (student) => {
-  setStudent(student);
-  showBottomBar({ student });
-}
-
-const showLogin = () => {
-  document.body.innerHTML += Login({ handleLogin });
-}
-
-const showBottomBar = ({ student }) => {
-  document.body.innerHTML += BottomBar({ student });
-}
 
 run();
