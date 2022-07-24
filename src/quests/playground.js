@@ -2,7 +2,7 @@ import { Mentor } from './mentor.js';
 import { napaleon } from './napaleon.js';
 import quests from './quests/quests.js';
 import { logCodeRun } from './api.js';
-import { saveCaretPosition } from './utils.js';
+import { saveCaretPosition, getInnerText } from './utils.js';
 
 const playground = document.createElement('div');
 import { Topbar } from './Topbar.js';
@@ -55,7 +55,7 @@ export const run = () => {
     </script>
   `;
 
-  code += getEditor().textContent;
+  code += getInnerText(getEditor());
   playground.querySelector('iframe').remove();
   const iframe = document.createElement('iframe');
   iframe.id = "result";

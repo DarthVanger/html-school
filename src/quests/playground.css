@@ -44,12 +44,6 @@ button {
   margin: 0;
 }
 
-#editor code {
-  margin-top: -24px;
-  margin-bottom: -30px;
-  font-size: 18px;
-}
-
 #editor code:focus-visible {
   outline: none;
 }

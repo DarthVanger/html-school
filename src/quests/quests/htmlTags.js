@@ -15,6 +15,7 @@ const story = `
 `;
 
 const code = `
+<p>Eto paragraph</p>
 `;
 
 export const steps = [
