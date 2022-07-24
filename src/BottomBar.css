@@ -20,7 +20,7 @@
   border-right: solid #aaa 4px;
 }
 
-svg {
+#bottom-bar svg {
   width: var(--size);
   height: var(--size);
   position: absolute;
@@ -28,13 +28,13 @@ svg {
   bottom: 0;
 }
 
-.level-progress-arc {
+#bottom-bar .level-progress-arc {
   fill: transparent;
   stroke: #04ff67;
   stroke-width: 4px;
 }
 
-#level {
+#bottom-bar #level {
   position: absolute;
   bottom: calc(var(--size) / 4);
   left: calc(var(--size) / 4);

@@ -13,7 +13,7 @@
   background-color: black;
 }
 
-svg text {
+#skills-page svg text {
   stroke: black;
   fill: black;
   letter-spacing: 3px;
@@ -22,17 +22,17 @@ svg text {
   font-size: 18px;
 }
 
-svg path {
+#skills-page svg path {
   stroke: #fbecab;
   stroke-width: 4px;
   fill: transparent;
 }
 
-svg rect {
+#skills-page svg rect {
   fill: pink;
 }
 
-svg g.skill {
+#skills-page svg g.skill {
   
 }
 
@@ -120,7 +120,7 @@ svg #rect {
   font-size: 2em;
 }
 
-svg image.level-0 {
+#skills-page svg image.level-0 {
   filter: none;
 }
 
@@ -186,7 +186,8 @@ header a.selected {
   transition: all 1s ease-out;
 }
 
-#svg-container {
+#svg-container,
+#svg-container svg {
   width: 100%;
   height: 100%;
   cursor: pointer;
