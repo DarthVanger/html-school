@@ -19,7 +19,12 @@ const code = `
 
 export const steps = [
   {
-    task: "|c|var korabel = document.querySelector('img');|ce|",
+    task: `
+Копетан! Срочно переместите корабль в точку x = 0, y = 0! Следуйте инструкциям!
+<pre><code class="language-javascript">
+    var korabel = document.querySelector('img');
+</pre></code>
+`,
     check: "var korabel = document.querySelector('img')",
     regexp: /var\s+korabel\s*=\s*document\.querySelector\('img'\);/,
   },

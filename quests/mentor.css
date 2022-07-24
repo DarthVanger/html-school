@@ -75,6 +75,7 @@
   line-height: 1.5;
   cursor: not-allowed;
 }
+/*
 #napaleon-message code {
   background: #efd291;
   padding: 3px;
@@ -82,6 +83,7 @@
   border-radius: 1px;
   font-size: 1.3rem;
 }
+*/
 
 #napaleon-message > p:first-child {
   margin-top: 0;
@@ -103,14 +105,7 @@
   background: #111;
 }
 
-#napaleon pre {
-  padding: 1em;
-  background: white;
-}
-
 #napaleon pre code, #napaleon pre code::selection  {
-  background: white;
-  color: black;
   cursor: not-allowed;
 }
 

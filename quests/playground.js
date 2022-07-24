@@ -106,6 +106,9 @@ render(document.body, quest);
 const highlight = () => {
   const restoreCaretPosition = saveCaretPosition(getEditor());
   Prism.highlightElement(getEditor());
+  const napaleonCode = document.querySelector('#napaleon-message code');
+  console.log('napaleonCode: ', napaleonCode);
+  Prism.highlightElement(napaleonCode);
   restoreCaretPosition();
 };
 
@@ -123,6 +126,7 @@ setTimeout(() => {
     getEditor().focus();
   });
   getEditor().addEventListener('keyup', debouncedHighlight);
+  highlight();
 
   // Preserve line breaks
   // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570
