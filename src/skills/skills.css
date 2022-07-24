@@ -178,7 +178,7 @@ header a:visited {
   padding: 1rem;
   font-family: monospace;
   font-weight: bold;
-  background: url("img/texture-100x100.jpg");
+  background: url("src/skills/img/texture-100x100.jpg");
   opacity: 0.5;
   filter: invert(1) sepia(1) saturate(0.7) hue-rotate(340deg);
   border-radius: 5px;

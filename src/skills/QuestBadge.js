@@ -12,7 +12,7 @@ export const QuestBadge = ({x, y}) => {
         r="${size / 2}px"
       />
       <image
-        href="img/quest-badge.png"
+        href="src/skills/img/quest-badge.png"
         x="${imgX}"
         y="${imgY}"
         width="${size}px" height="${size}px"

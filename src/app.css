@@ -2,6 +2,7 @@
 @import 'BottomBar.css';
 @import 'typography.css';
 @import 'HomePage/HomePage.css';
+@import 'skills/Skills.css';
 
 html, body, #app, #router {
   overflow: hidden;

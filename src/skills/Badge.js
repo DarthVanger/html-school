@@ -18,7 +18,7 @@ export const Badge = ({x, y, level, badgeR }) => {
 
     <use xlink:href="#${id}" />
     <image
-      href="img/texture-100x100.jpg"
+      href="src/skills/img/texture-100x100.jpg"
       x="${x + height / 2}"
       y="${y + height / 2}"
       width="${size}" height="${size}"

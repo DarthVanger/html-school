@@ -48,7 +48,7 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
   return `
     <g class="category">
       <image
-        href="img/rock.jpg"
+        href="src/skills/img/rock.jpg"
         height="${height}"
         width="${width}"
         x="${x}"

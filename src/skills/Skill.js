@@ -72,15 +72,12 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
     <g class="skill}" width="${width}" height="${height}">
      <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
       <image
-        href="img/texture-100x100.jpg"
+        href="src/skills/img/texture-100x100.jpg"
         height="${height}"
         width="${width}"
         x="${x}"
         y="${y}"
         class="level-${level} ${student}"
-        data-level-tony=${skill.level.tony}
-        data-level-johnny=${skill.level.johnny}
-        data-level-dimon=${skill.level.dimon}
       />
      ${Text({
        x: x + width / 2,

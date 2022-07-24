@@ -1,5 +1,5 @@
 export const SvgContainer = ({width, height, children}) => {
-  setTimeout(panZoom);
+  setTimeout(panZoom, 1000);
 
   return `
     <div id="svg-container">

@@ -1,24 +1,60 @@
-import { describeArc } from './arc.js';
-import { Tree, treeWidth, treeHeight } from './Tree.js';
-import { Skill } from './Skill.js';
-import { Badge } from './Badge.js';
-import { Avatar } from './Avatar.js';
+import { Tree } from './Tree.js';
 import { SvgContainer } from './SvgContainer.js';
+import { Students } from './Students.js';
 
 const skillBoxSize = 120;
 const width = skillBoxSize;
 const height = skillBoxSize;
 
-export const Skills = (state) => {
-  console.info('Skills');
+let isMusicPlaying = false;
+const element = document.createElement('div');
+element.id = 'skills-page';
+let state = {};
+export const Skills = (props) => {
+  console.log('Skills, props: ', props);
+  state.student = props.student;
+  if (!state.skills) {
+    console.info('Fetching skills');
+    fetch('/tree')
+      .then(r => r.json())
+      .then(r => {
+        state.skills = r.skills;
+        state.levels = r.levels;
+        state.points = r.points;
+        state.categoryLevels = r.categoryLevels;
+        state.homework = r.homework;
+        state.questPoints = r.questPoints;
+        Skills(props);
+      });
+
+    element.innerHTML = 'Loading...';
+    return element;
+  }
+  console.info('Rendering skills tree');
 
   const tree = Tree(state);
 
+  console.log('Rendering svg cont');
   const svgContainer = SvgContainer({
     width: 1000,
     height: 1000,
     children: tree,
   });
 
-  return svgContainer;
+  if (!isMusicPlaying) {
+    document.body.addEventListener('click', () => {
+      isMusicPlaying = true;
+      var audio = new Audio('/audio/tristram.webm');
+      audio.volume = 0.2;
+      audio.play();
+    });
+  }
+
+  element.innerHTML = `
+    ${Students(state)}
+    ${svgContainer}
+  `;
+
+  return element;
 };
+
