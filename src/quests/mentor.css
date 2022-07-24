@@ -141,7 +141,9 @@
   display: inline-block;
 }
 
-.is-completed, .is-completed::selection, .is-completed .icon::selection {
+#mentor .is-completed,
+#mentor .is-completed::selection,
+#mentor .is-completed .icon::selection {
   background: #39a239;
   color: white;
   cursor: not-allowed;
