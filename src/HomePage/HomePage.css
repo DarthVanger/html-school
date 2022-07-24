@@ -3,15 +3,8 @@
   --secondary: #d86deb;
 }
 
-html, body, #app {
-  overflow: hidden;
+#home-page {
   height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#app {
   display: grid;
   grid-template-rows: [top] 70px [center] auto [bottom] 70px;
   grid-template-columns: [left] 160px [center] auto [right] 160px;

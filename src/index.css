@@ -1,7 +1,4 @@
-@import 'Login.css';
-@import 'BottomBar.css';
-@import 'typography.css';
-@import 'HomePage/HomePage.css';
+@import 'app.css';
 
 :root {
   --top-border-size: 70px;

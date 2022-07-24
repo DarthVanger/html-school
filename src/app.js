@@ -1,6 +1,5 @@
 import { getStudent, setStudent } from './session.js';
-import { Login } from './Login.js';
-import { HomePage } from './HomePage/HomePage.js';
+import { Router } from './Router.js';
 
 const id = 'App';
 
@@ -12,24 +11,51 @@ const element = document.createElement('div');
 element.id = id;
 const state = {
   student: getStudent(),
+  route: location.hash,
 };
 
+const updateRouteInHash = (value) => {
+  location.hash = value;
+}
+
 const setState = (newState) => {
-  state.student = newState.student;
+  console.log('Set app state: ', newState);
+  for (let prop in state) {
+    if (newState[prop] !== undefined) {
+      state[prop] = newState[prop];
+      if (prop === 'route') {
+        updateRouteInHash(state[prop]);
+      }
+    }
+  }
   App();
 };
+
+const handleHashChange = () => {
+  setState({ route: location.hash });
+};
+
+window.addEventListener('hashchange', handleHashChange);
 
 export const App = () => {
   console.info('App state: ', state);
 
-  const handleLogin = (student) => {
+  state.handleLogin = (student) => {
     setStudent(student);
-    setState({ student });
+    setState({ student, route: '' });
   }
 
-  const page = state.student ? HomePage(state) : Login({ handleLogin });
+  if (!state.student) {
+    state.route = '#login';
+    updateRouteInHash(state.route);
+  }
 
-  element.innerHTML = page;
+  state.handleRouteChange = (route) => {
+    setState({ route });
+  };
+
+  element.innerHTML = '';
+  element.append(Router(state));
 
   console.log('app returning: ', element);
   return element;

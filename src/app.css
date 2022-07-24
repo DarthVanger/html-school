@@ -1,0 +1,12 @@
+@import 'Login.css';
+@import 'BottomBar.css';
+@import 'typography.css';
+@import 'HomePage/HomePage.css';
+
+html, body, #app, #router {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
