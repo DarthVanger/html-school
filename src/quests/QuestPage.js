@@ -7,11 +7,6 @@ import { saveCaretPosition } from './utils.js';
 const playground = document.createElement('div');
 import { Topbar } from './Topbar.js';
 
-const questName = location.hash.replace('#', '');
-console.log('questName: ', questName);
-const quest = quests[questName];
-console.log('quest: ', quest);
-
 playground.id = 'playground';
 playground.innerHTML = `
   ${Topbar()}
@@ -31,7 +26,7 @@ const getIframe = () => document.querySelector('iframe');
 
 export const run = () => {
   let code = `
-    <link rel="stylesheet" href="/quests/editor.css" />
+    <link rel="stylesheet" href="/src/quests/editor.css" />
     <script>
       const showJsError = (error) => {
         const existingError = document.querySelector('#error');
@@ -96,17 +91,37 @@ const addCodeRunListener = listener => {
 };
 
 const element = document.createElement('div');
-div.id = 'quest-page';
-
+element.id = 'quest-page';
 export const QuestPage = ({ questId }) => {
+  console.log('quest page');
+  const quest = quests[questId];
+  console.log('questId: ', questId);
   element.append(playground);
-  element.append(Mentor({ quest, addCodeRunListener }));
+  setTimeout(() => {
+    setCode(quest.code);
+    element.append(Mentor({ quest, addCodeRunListener }));
+    console.log('focus pocus :)');
+    getEditor().focus();
+    getRunButton().addEventListener('click', () => {
+      run();
+      getEditor().focus();
+    });
+    getEditor().addEventListener('keyup', debouncedHighlight);
+    highlight();
 
-  setCode(quest.code);
+    // Preserve line breaks
+    // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570
+    Prism.hooks.add('before-sanity-check', function (env) {
+      env.code = env.element.innerText;
+    });
+  });
+
+  return element;
 }
 
 const highlight = () => {
   const restoreCaretPosition = saveCaretPosition(getEditor());
+  console.log('highlight, editor: ', getEditor());
   Prism.highlightElement(getEditor());
   const napaleonCode = document.querySelector('#napaleon-message code');
   console.log('napaleonCode: ', napaleonCode);
@@ -119,22 +134,3 @@ const debouncedHighlight = () => {
   if (timeoutId) clearTimeout(timeoutId);
   timeoutId = setTimeout(highlight, 1000);
 };
-
-setTimeout(() => {
-  console.log('focus pocus :)');
-  getEditor().focus();
-  getRunButton().addEventListener('click', () => {
-    run();
-    getEditor().focus();
-  });
-  getEditor().addEventListener('keyup', debouncedHighlight);
-  highlight();
-
-  // Preserve line breaks
-  // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570
-  Prism.hooks.add('before-sanity-check', function (env) {
-    env.code = env.element.innerText;
-  });
-
-});
-

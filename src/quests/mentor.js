@@ -125,8 +125,8 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
   const render = () => {
     console.log('render, state: ', state);
     const imgSrc = state.isQuestCompleted ?
-      'img/napaleon-4est.png'
-      : 'img/napaleon.png';
+      'src/quests/img/napaleon-4est.png'
+      : 'src/quests/img/napaleon.png';
 
     element.innerHTML = `
       <div id="napaleon">

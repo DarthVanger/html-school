@@ -39,3 +39,53 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: #0a6db8;
 }
+
+.lessons-grid {
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lesson {
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  text-align: center;
+  border: solid pink 2px;
+}
+
+.arrow {
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
+.lesson img {
+  width: 150px;
+  height: 150px;
+  border: solid black 3px;
+  border-radius: 15px;
+}
+
+.lesson a {
+  display: block;
+}
+
+
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+svg {
+  margin: 1em;
+}
+
+svg circle, svg line {
+  --color: black;
+  stroke: var(--color);
+  fill: var(--color);
+}
+

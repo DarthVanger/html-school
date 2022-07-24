@@ -29,30 +29,30 @@ export const Levels = () => {
 
     let level1Quests = [
       {
-        imgSrc: 'img/alertXuy4ek.jpg',
+        imgSrc: 'src/quests/img/alertXuy4ek.jpg',
         ...quests.alertXuy4ek,
       },
       {
-        imgSrc: 'img/innerHTML.jpg',
+        imgSrc: 'src/quests/img/innerHTML.jpg',
         ...quests.innerHTML,
       },
       {
-        imgSrc: 'img/functions.png',
+        imgSrc: 'src/quests/img/functions.png',
         ...quests.functions,
       },
       {
-        imgSrc: 'img/variables.png',
+        imgSrc: 'src/quests/img/variables.png',
         ...quests.variables,
       },
       {
-        imgSrc: 'img/functionParameters.png',
+        imgSrc: 'src/quests/img/functionParameters.png',
         ...quests.functionParameters,
       },
     ];
 
     let level2Quests = [
       {
-        imgSrc: 'img/flying.gif',
+        imgSrc: 'src/quests/img/flying.gif',
         ...quests.flying,
       },
     ];

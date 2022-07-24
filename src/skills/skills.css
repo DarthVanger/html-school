@@ -1,14 +1,11 @@
 @import 'HomeworkBadge.css';
 @import 'QuestBadge.css';
 
-html, body, svg {
+#skills-page {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
   background: url('diablo-background.jpg');
   background-repeat: no-repeat;
   background-position: center;

@@ -3,11 +3,5 @@
 @import 'typography.css';
 @import 'HomePage/HomePage.css';
 @import 'skills/Skills.css';
-
-html, body, #app, #router {
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
+@import 'quests/quests.css';
+@import 'quests/quest.css';
