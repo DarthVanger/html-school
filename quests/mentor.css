@@ -62,12 +62,18 @@
   background-color: black;
 }
 
+#napaeon-message ::selection,
+#napaeon-message::selection {
+  background: none;
+  color: revert;
+}
+
 #napaleon-message {
   height: fit-content;
   flex: 1;
 }
 
-#napaleon-message, #napaleon-message::selection {
+#napaleon-message, #napaeon-message ::selection {
   background: #111;
   color: #eee;
   padding: 1em;
@@ -75,6 +81,8 @@
   line-height: 1.5;
   cursor: not-allowed;
 }
+
+
 /*
 #napaleon-message code {
   background: #efd291;
@@ -105,8 +113,12 @@
   background: #111;
 }
 
-#napaleon pre code, #napaleon pre code::selection  {
+#napaleon ::selection,
+#napaleon pre code, #napaleon pre code::selection,
+#napaleon code[class*=language-] ::selection {
   cursor: not-allowed;
+  background: none;!important
+  color: revert;
 }
 
 #steps-progress {

@@ -12,6 +12,7 @@ const code = `
 <body>
   <img src="/game/ship.gif" />
 </body>
+
 <script>
 
 </script>
@@ -20,7 +21,7 @@ const code = `
 export const steps = [
   {
     task: `
-Копетан! Срочно переместите корабль в точку x = 0, y = 0! Следуйте инструкциям!
+Копетан! Срочно переместите корабль в точку x = '200px'! Следуйте инструкциям!
 <pre><code class="language-javascript">
     var korabel = document.querySelector('img');
 </pre></code>
@@ -29,14 +30,34 @@ export const steps = [
     regexp: /var\s+korabel\s*=\s*document\.querySelector\('img'\);/,
   },
   {
-    task: "|c|var korabel = document.querySelector('img');\nkorabel.style.top = 200;|ce|",
-    check: "korabel.style.top = 200;",
-    regexp: /korabel\.style\.top\s*=\s*200;/,
+    task: `
+</p>
+  Корабль на связи! Сохранен в переменную под названием </em>korabel</em>. Теперь указываем ему отступ слева!
+</p>
+<pre><code class="language-javascript">
+  var korabel = document.querySelector('img');
+  korabel.style.left = '200px';
+</pre></code>
+`,
+    check: "korabel.style.left = '200px';",
+    regexp: /korabel\.style\.left\s*=\s*['"]200px['"];/,
   },
   {
-    task: "|c|var korabel = document.querySelector('img');\nkorabel.style.top = 200;\nkorabel.style.left = 100;|ce|",
-    check: "korabel.style.left = 100;",
-    regexp: /korabel\.style\.left\s*=\s*100;/,
+    task: `
+</p>
+  Отличная работа! Телепортация в точку x = '200px' Выполнена!
+</p>
+<p>
+  Корректировщики дали новую  наводку! Срочно, нужн телепорт в точку x = '350px', иначе накроет межгалактической артой!
+</p>
+<pre><code class="language-javascript">
+  var korabel = document.querySelector('img'); 
+  korabel.style.left = '200px';
+  korabel.style.left = '350px';
+</pre></code>
+`,
+    check: "korabel.style.left = '350px';",
+    regexp: /korabel\.style\.left\s*=\s*['"]350px['"];/,
   },
 ];
 
