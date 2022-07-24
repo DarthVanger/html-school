@@ -8,11 +8,10 @@ element.id = 'router';
 export const Router = (state) => {
   console.log('router, route: ', state.route);
   switch (state.route) {
-    case '':
-    case '#':
+    case '/':
       element.innerHTML = HomePage(state);
       break;
-    case '#login':
+    case '/login':
       element.innerHTML = Login(state);
       break;
     default:

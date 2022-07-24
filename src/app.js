@@ -7,16 +7,26 @@ const getElement = () => {
   return document.querySelector(`#${id}`);
 }
 
+const getRouteFromHash = () => {
+  if (location.hash.match(/^#[/]/)) {
+    return location.hash.slice(1) || '/';
+  }
+
+  return '/';
+}
+
+const updateRouteInHash = (route) => {
+  console.log('Update route in hash:' , route);
+  location.hash = '#' + route;
+}
+
+
 const element = document.createElement('div');
 element.id = id;
 const state = {
   student: getStudent(),
-  route: location.hash,
+  route: getRouteFromHash(),
 };
-
-const updateRouteInHash = (value) => {
-  location.hash = value;
-}
 
 const setState = (newState) => {
   console.log('Set app state: ', newState);
@@ -32,7 +42,7 @@ const setState = (newState) => {
 };
 
 const handleHashChange = () => {
-  setState({ route: location.hash });
+  setState({ route: getRouteFromHash() });
 };
 
 window.addEventListener('hashchange', handleHashChange);
@@ -42,11 +52,11 @@ export const App = () => {
 
   state.handleLogin = (student) => {
     setStudent(student);
-    setState({ student, route: '' });
+    setState({ student, route: '/' });
   }
 
   if (!state.student) {
-    state.route = '#login';
+    state.route = '/login';
     updateRouteInHash(state.route);
   }
 

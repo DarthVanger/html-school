@@ -34,7 +34,7 @@ export const HomePage = (state) => `
         </article>
         <article>
           <h3>ЗОДАНИЯ</h3>
-          <a href="#quests">
+          <a href="#/quests">
             <img src="src/HomePage/lessons.gif" />
           </a>
         </article>
