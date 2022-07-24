@@ -125,7 +125,8 @@ setTimeout(() => {
   getEditor().focus();
   getRunButton().addEventListener('click', () => {
     run();
-    getEditor().focus();
+    //getEditor().focus();
+    //window.scrollTo(0, 0);
   });
   getEditor().addEventListener('keyup', debouncedHighlight);
   highlight();

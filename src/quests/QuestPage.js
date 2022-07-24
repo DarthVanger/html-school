@@ -10,7 +10,6 @@ import { Topbar } from './Topbar.js';
 
 playground.id = 'playground';
 playground.innerHTML = `
-  ${Topbar()}
   <div class="grid">
     <pre id="editor">
       <code contenteditable style="white-space: pre" class="language-html" spellcheck="false"></code>
@@ -97,6 +96,7 @@ export const QuestPage = ({ questId }) => {
   console.log('quest page');
   const quest = quests[questId];
   console.log('questId: ', questId);
+  element.innerHTML += `${Topbar()}`;
   element.append(QuestStory({ quest }));
   element.append(playground);
   setTimeout(() => {
