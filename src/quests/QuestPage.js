@@ -107,6 +107,7 @@ export const QuestPage = ({ questId }) => {
     element.append(QuestStory({ quest }));
   }
   setTimeout(() => {
+    element.innerHTML += '<h2>Зоданее</h2>';
     element.append(playground);
     setCode(quest.code);
     element.append(Mentor({ quest, addCodeRunListener }));

@@ -1,1 +1,6 @@
-@import "QuestStory.css"
+@import "QuestStory.css";
+
+body {
+  background: white;
+  color: black;
+}
