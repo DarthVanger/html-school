@@ -5,6 +5,8 @@
   left: calc(-1 * var(--size) / 2);
   bottom: 0;
   left: 0;
+  height: var(--size);
+  width: var(--size);
 }
 
 #bottom-bar .avatar {

@@ -40,20 +40,20 @@ svg #rect {
   opacity: 0;
 }
 
-[class*="level-"], .badge-img[class^="level-"] {
+#skills-page [class*="level-"], .badge-img[class^="level-"] {
   opacity: 1;
   filter: invert(1) sepia(1) saturate(7) hue-rotate(356deg);
 }
 
-.level-1 {
+#skills-page .level-1 {
   filter: invert(1) sepia(1) saturate(3) hue-rotate(320deg);
 }
 
-.level-2 {
+#skills-page .level-2 {
   filter: invert(1) sepia(1) saturate(5) hue-rotate(322deg);
 }
 
-.level-3 {
+#skills-page .level-3 {
   opacity: 1;
   filter: invert(1) sepia(1) saturate(7) hue-rotate(326deg);
 }

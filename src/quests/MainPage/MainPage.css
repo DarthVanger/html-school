@@ -79,11 +79,11 @@ figure {
   margin-inline-end: 0;
 }
 
-svg {
+#home-page svg {
   margin: 1em;
 }
 
-svg circle, svg line {
+#home-page svg circle, svg line {
   --color: black;
   stroke: var(--color);
   fill: var(--color);
