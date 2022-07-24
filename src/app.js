@@ -15,9 +15,23 @@ const getRouteFromHash = () => {
   return '/';
 }
 
+addEventListener('popstate', (event) => {
+  //console.log('popstate: ', event);
+});
+
+window.addEventListener('hashchange', function(e) {
+  //console.log('hashchange o: ', e.oldURL);
+  //console.log('hashchange n: ', e.newURL);
+  if (location.hash.match(/^#\//)) {
+    //history.replaceState(null, null, e.oldURL);
+    //history.pushState(null, null, location.hash);
+  }
+});
+
 const updateRouteInHash = (route) => {
   console.log('Update route in hash:' , route);
   location.hash = '#' + route;
+  //history.pushState({ route }, '', location.hash);
 }
 
 
@@ -48,7 +62,7 @@ const handleHashChange = () => {
 window.addEventListener('hashchange', handleHashChange);
 
 export const App = () => {
-  console.info('App state: ', state);
+  //console.info('App state: ', state);
 
   state.handleLogin = (student) => {
     setStudent(student);
@@ -67,6 +81,6 @@ export const App = () => {
   element.innerHTML = '';
   element.append(Router(state));
 
-  console.log('app returning: ', element);
+  //console.log('app returning: ', element);
   return element;
 };
