@@ -1,7 +1,7 @@
 import { Login } from './Login.js';
 import { HomePage } from './HomePage/HomePage.js';
 import { NotFoundPage } from './NotFoundPage.js';
-import { Skills } from './skills/Skills.js';
+import { Skills } from './skills/skills.js';
 import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
 
