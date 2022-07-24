@@ -23,7 +23,7 @@ export const Router = (state) => {
       break;
     case '/quests':
       element.innerHTML = '';
-      element.innerHTML = QuestsPage(state);
+      element.append(QuestsPage(state));
       break;
     case state.route.match(/[/]quests[/]/)?.input:
       const questId = state.route.match(/[/]quests[/]([^/]+)/)[1];
