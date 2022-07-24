@@ -1,6 +1,90 @@
+@import 'Topbar.css';
 @import "QuestStory.css";
 
 body {
   background: white;
   color: black;
+}
+
+#playground {
+  height: 100%;
+  width: 100%;
+  --topbar-height: 50px;
+  position: relative;
+  background: black;
+}
+
+iframe {
+  border: none;
+  background: white;
+}
+
+button {
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: var(--code-font);
+}
+
+#run-button {
+  position: absolute;
+  top: 0;
+  right: 50%;
+
+  padding: 0 1em;
+  background: green;
+  color: white;
+  height: 70px;
+  line-height: 70px;
+}
+
+#playground .grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+}
+
+#editor {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+}
+
+#editor code:focus-visible {
+  outline: none;
+}
+
+#result {
+  width: 100%;
+  height: 100%;
+}
+
+
+#loader {
+  position: absolute;
+  right: 0;
+  top: var(--topbar-height);
+  background: green;
+  color: white;
+  font-size: 1.3em;
+  font-family: var(--code-font);
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#loader.show {
+  opacity: 1;
+}
+
+#playground pre[class*=language-],
+#mentor pre[class*=language-] {
+  border: none;
+  box-shadow: none;
 }
