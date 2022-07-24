@@ -19,6 +19,8 @@ export const getInnerText = (element) => {
 // https://stackoverflow.com/a/38479462/1657101
 export function saveCaretPosition(context){
     var selection = window.getSelection();
+    if (!selection.focusNode) return () => {};
+
     var range = selection.getRangeAt(0);
     range.setStart(  context, 0 );
     var len = range.toString().length;

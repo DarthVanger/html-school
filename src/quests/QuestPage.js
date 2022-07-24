@@ -112,10 +112,10 @@ export const QuestPage = ({ questId }) => {
     setCode(quest.code);
     element.append(Mentor({ quest, addCodeRunListener }));
     console.log('focus pocus :)');
-    getEditor().focus();
+    //getEditor().focus();
     getRunButton().addEventListener('click', () => {
       run();
-      getEditor().focus();
+      //getEditor().focus();
     });
     getEditor().addEventListener('keyup', debouncedHighlight);
     highlight();
@@ -131,9 +131,9 @@ export const QuestPage = ({ questId }) => {
 }
 
 const highlight = () => {
-  const restoreCaretPosition = saveCaretPosition(getEditor());
   console.log('highlight, editor: ', getEditor());
   if (getEditor()) {
+    const restoreCaretPosition = saveCaretPosition(getEditor());
     Prism.highlightElement(getEditor());
     const napaleonCodes = document.querySelectorAll('#napaleon-message code');
     napaleonCodes.forEach(c => Prism.highlightElement(c));

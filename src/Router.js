@@ -38,5 +38,7 @@ export const Router = (state) => {
       break;
   }
 
+  window.scrollTo(0, 0);
+
   return element;
 };
