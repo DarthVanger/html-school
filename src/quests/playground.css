@@ -5,6 +5,11 @@
   width: 100%;
   --topbar-height: 50px;
   position: relative;
+  background: black;
+}
+
+iframe {
+  border: none;
 }
 
 button {

@@ -6,59 +6,6 @@
   z-index: 1;
 }
 
-#mentor.collapsed {
-  height: 100px;
-}
-
-#mentor:hover::after {
-  content: '▼';
-  position: absolute;
-  background: #eee;
-  border-radius: 50%;
-  font-weight: bold;
-  --size: 50px;
-  font-size: 25px;
-  height: var(--size);
-  width: var(--size);
-  line-height: var(--size);
-  margin: 15px;
-  text-align: center;
-}
-
-#mentor.collapsed:hover::after {
-  content: '▲';
-  position: absolute;
-  background: #eee;
-  border-radius: 50%;
-  font-weight: bold;
-  --size: 50px;
-  font-size: 25px;
-  height: var(--size);
-  width: var(--size);
-  line-height: var(--size);
-  margin: 15px;
-  text-align: center;
-}
-
-#mentor {
-  overflow-y: auto;
-  scrollbar-color: rebeccapurple green;
-  scrollbar-width: thin;
-}
-
-#mentor::-webkit-scrollbar {
-  width: 4px;
-  background-color: black;
-}
-
-#mentor::-webkit-scrollbar-track {
-   background: white;
-}
-
-#mentor::-webkit-scrollbar-thumb {
-  background-color: black;
-}
-
 #napaeon-message ::selection,
 #napaeon-message::selection {
   background: none;
@@ -78,17 +25,6 @@
   line-height: 1.5;
   cursor: not-allowed;
 }
-
-
-/*
-#napaleon-message code {
-  background: #efd291;
-  padding: 3px;
-  color: black;
-  border-radius: 1px;
-  font-size: 1.3rem;
-}
-*/
 
 #napaleon-message > p:first-child {
   margin-top: 0;
