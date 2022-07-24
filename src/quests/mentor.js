@@ -96,14 +96,6 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
 
   addCodeRunListener(check);
 
-  const toggleCollapsed = () => {
-    getElement().classList.toggle('collapsed');
-  };
-
-  setTimeout(() => {
-    getElement().addEventListener('click', toggleCollapsed);
-  });
-
   const generateStepsHTML = () => {
     const code = getInnerText(getEditor());
 

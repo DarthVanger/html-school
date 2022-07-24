@@ -84,22 +84,30 @@ function replaceIframeContent(iframeElement, newHTML)
     iframeElement.contentWindow.document.close();
 }
 
-const listeners = [];
+let listeners = [];
 const notifyListeners = () => listeners.forEach(l => l());
 const addCodeRunListener = listener => {
   listeners.push(listener);
 };
+const clearCodeRunListeners = () => {
+  listeners = [];
+}
 
 const element = document.createElement('div');
 element.id = 'quest-page';
 export const QuestPage = ({ questId }) => {
+  element.innerHTML = '';
+  clearCodeRunListeners();
   console.log('quest page');
   const quest = quests[questId];
   console.log('questId: ', questId);
   element.innerHTML += `${Topbar()}`;
-  element.append(QuestStory({ quest }));
-  element.append(playground);
+  console.log('quest: ', quest);
+  if (quest.story) {
+    element.append(QuestStory({ quest }));
+  }
   setTimeout(() => {
+    element.append(playground);
     setCode(quest.code);
     element.append(Mentor({ quest, addCodeRunListener }));
     console.log('focus pocus :)');
@@ -124,11 +132,13 @@ export const QuestPage = ({ questId }) => {
 const highlight = () => {
   const restoreCaretPosition = saveCaretPosition(getEditor());
   console.log('highlight, editor: ', getEditor());
-  Prism.highlightElement(getEditor());
-  const napaleonCode = document.querySelector('#napaleon-message code');
-  console.log('napaleonCode: ', napaleonCode);
-  Prism.highlightElement(napaleonCode);
-  restoreCaretPosition();
+  if (getEditor()) {
+    Prism.highlightElement(getEditor());
+    const napaleonCode = document.querySelector('#napaleon-message code');
+    console.log('napaleonCode: ', napaleonCode);
+    Prism.highlightElement(napaleonCode);
+    restoreCaretPosition();
+  }
 };
 
 let timeoutId;
