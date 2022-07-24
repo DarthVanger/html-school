@@ -41,7 +41,7 @@ const Congrats = ({ quest }) => `
   <div class="achievements">
     ${quest?.skills?.map(skill => `
       <div class="achievement">
-        <img src="img/medal.png" />
+        <img src="src/quests/img/medal.png" />
         ${skill}
       </div>
     `).join('')}

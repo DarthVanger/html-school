@@ -3,6 +3,7 @@ import { napaleon } from './napaleon.js';
 import quests from './quests/quests.js';
 import { logCodeRun } from './api.js';
 import { saveCaretPosition } from './utils.js';
+import { QuestStory } from './QuestStory.js';
 
 const playground = document.createElement('div');
 import { Topbar } from './Topbar.js';
@@ -96,6 +97,7 @@ export const QuestPage = ({ questId }) => {
   console.log('quest page');
   const quest = quests[questId];
   console.log('questId: ', questId);
+  element.append(QuestStory({ quest }));
   element.append(playground);
   setTimeout(() => {
     setCode(quest.code);

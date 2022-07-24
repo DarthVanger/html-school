@@ -1,3 +1,4 @@
+import htmlTags from './htmlTags.js';
 import alertXuy4ek from './alertXuy4ek.js';
 import flying from './flying.js';
 import walls from './walls.js';
@@ -12,6 +13,7 @@ import variables from './variables.js';
 import functionParameters from './functionParameters.js';
 
 const quests = {
+  htmlTags,
   functionParameters,
   variables,
   innerHTML,
@@ -27,8 +29,8 @@ const quests = {
 };
 
 export const getQuestSkills = (questId) => {
-    const quest = quests[questId];
-    return quest.skills;
+  const quest = quests[questId];
+  return quest.skills;
 };
 
 export default quests;
