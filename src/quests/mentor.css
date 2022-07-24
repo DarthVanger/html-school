@@ -1,9 +1,6 @@
 #mentor {
-  position: absolute;
   display: flex;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  width: 100%;
   height: fit-content;
   background: #111;
   z-index: 1;
