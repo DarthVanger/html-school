@@ -1,4 +1,5 @@
 import htmlTags from './htmlTags.js';
+import css from './css.js';
 import alertXuy4ek from './alertXuy4ek.js';
 import flying from './flying.js';
 import walls from './walls.js';
@@ -13,6 +14,7 @@ import variables from './variables.js';
 import functionParameters from './functionParameters.js';
 
 const quests = {
+  css,
   htmlTags,
   functionParameters,
   variables,

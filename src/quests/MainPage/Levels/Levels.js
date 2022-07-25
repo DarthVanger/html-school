@@ -78,6 +78,13 @@ export const Levels = () => {
         imgSrc: 'src/quests/img/flying.gif',
         isCompleted: isQuestCompleted(quests.htmlTags),
       })}
+      <h2>CSS</h2>
+      ${Quest({
+        id: 'css',
+        skills: ['h1, p'],
+        imgSrc: 'src/quests/img/css.png',
+        isCompleted: isQuestCompleted(quests.htmlTags),
+      })}
       <h2>Базовые Команды</h2>
       ${level1QuestsListHTML}
       <h2>Перемещение Корабля</h2>
