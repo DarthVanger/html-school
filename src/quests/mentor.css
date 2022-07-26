@@ -96,8 +96,8 @@
 }
 
 .not-completed, .not-completed::selection, .not-completed .icon::selection {
-  background: #981093;
-  color: white;
+  background: #eee;
+  color: #333;
   cursor: not-allowed;
 }
 
