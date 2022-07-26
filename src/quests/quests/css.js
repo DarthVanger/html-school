@@ -35,7 +35,7 @@ const story = `
    &lt;style&gt;
      h1 {
         color: red;
-        font-size: 50px;
+        font-size: 100px;
      }
    &lt;/style&gt;
  </code></pre>
@@ -51,7 +51,7 @@ const story = `
    &lt;стиль&gt;
     заголовокУровня1 {
       цвет: красный;
-      размер-шрифта: 50пикс;
+      размер-шрифта: 100пикс;
     }
   &lt;/стиль&gt;
  </code></pre>
@@ -129,19 +129,71 @@ export const steps = [
   Теперь довай менять размер текста )
 </p>
 <p>
-  Аналогично <code>color: red;</code> вписываем в новой сстроке <code>font-size: 50px;</code>.
+  Аналогично <code>color: red;</code> вписываем в новой сстроке <code>font-size: 100px;</code>.
 </p>
 <pre><code class="language-html">
 &lt;style&gt;
   h1 {
     color: red;
-    font-size: 50px;
+    font-size: 100px;
   }
 &lt;/style&gt;
 </code></pre>
 `,
-    check: "Уписано h1 { color: red; font-size: 50px; }",
-    regexp: /h1\s*{\s*color:\s*red;\s*font-size:\s*50px;\s*}/,
+    check: "Уписано h1 { color: red; font-size: 100px; }",
+    regexp: /h1\s*{\s*color:\s*red;\s*font-size:\s*100px;[^}]*}/,
+  },
+  {
+    task: `
+<p>
+  Поменялсо размер зоголовека?)
+</p>
+<p>
+  Теперь давай сделаем Рамку! Это немного сложнее, но попробуем!
+</p>
+<p>
+  Дописуй третьей строкой внутри <code class="language-css">h1 {}</code> такой код <code class="language-css">border: black 1px solid;</code>
+</p>
+<pre><code class="language-html">
+&lt;style&gt;
+  h1 {
+    color: red;
+    font-size: 100px;
+    border: black 1px solid;
+  }
+&lt;/style&gt;
+</code></pre>
+`,
+    check: "Уписано h1 { ... border: black 1px solid; }",
+    regexp: /h1\s*{[^}]*border:\s*black 1px solid;[^}]*}/,
+  },
+  {
+    task: `
+<p>
+  Б-б-божественно!
+</p>
+<p>
+  Последний маленький штришок!
+</p>
+<p>
+  Выставим зоголвеку ширину!
+</p>
+<p>
+  Четвертым css правилом для <code class="css">h1</code> дописуй <code class="language-css">width: 200px;</code>
+</p>
+<pre><code class="language-html">
+&lt;style&gt;
+  h1 {
+    color: red;
+    font-size: 100px;
+    border: black 1px solid;
+    width: 200px;
+  }
+&lt;/style&gt;
+</code></pre>
+`,
+    check: "Уписано h1 { ... width: 200px; }",
+    regexp: /h1\s*{[^}]*width:\s*200px;[^}]*}/,
   },
 ];
 
