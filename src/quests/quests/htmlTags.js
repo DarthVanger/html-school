@@ -10,7 +10,7 @@ const story = `
       <source type="video/mp4" src="src/quests/Html/tim-berners-lee.mp4" />
     </video>
     <figcaption>
-      Редкое 1-мин интервью с о Великим Создателем Всея Интернет ХТМЛ - Sir Lord Tim Berners-Lee
+      Вещает Создатель Всея Всемирный Интернет.<p>Sir Timothy John Berners-Lee: <q>Люди еще ничего не видели. Это Революция</q>.
     </figcaption>
   </figure>
   <p>По суте ХТМЛ это упрощенный аналог Майкрософт Ворда - в текстовом файле "размечаем" текст - где заголовок, где параграф, и т.д.</p>

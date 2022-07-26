@@ -29,3 +29,11 @@
   padding: 1em;
   background: #333;
 }
+
+#quest-story figcaption p {
+  margin: 0.25em;
+}
+
+#quest-story figcaption q {
+  color: #f1764f;
+}
