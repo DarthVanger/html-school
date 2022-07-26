@@ -85,6 +85,10 @@ button {
 
 #playground pre[class*=language-],
 #mentor pre[class*=language-] {
-  border: none;
   box-shadow: none;
+  border: #eee solid 2px;
+}
+
+pre[class*=language]#editor {
+  border: none;
 }
