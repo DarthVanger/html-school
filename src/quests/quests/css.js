@@ -17,17 +17,14 @@ const story = `
   <p>
   <em>CSS Изобретен в 1996 году</em> <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">Комитетом Всемирной Паутины</a> (англ. - <em>World Wide Web Consortium</em> = <em>W3C</em>).</p>
   <p>
-    В даном интервью у самого богатого человека в Мире - Джефа Безоса - смешно как он говорит что лучшее что можно продавать через Интернет - Книги :)
-  </p>
-  <p>
-    Но в общем пацан молодец конечно - шо сказать) Был в тренде) Любил читать наверное, подумал что книги круто продавать :)
-  </p>
-
   <figure>
     <video controls>
       <source type="video/mp4" src="src/quests/Css/jeff-bezos.mp4" />
     </video>
-    <figcaption>Интервью с Jeff Bezos оч старое про Интернет</figcaption>
+    <figcaption>
+      Интервью с Jeff Bezos старое:
+      <q>Интернет вырос на 2300%. Я считаю лучше всего продавать Книги через Интернет.</q>
+    </figcaption>
   </figure>
 
   <h2>ТО ШО ВОНО РОБЭ?</h2>
