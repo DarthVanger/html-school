@@ -23,6 +23,7 @@ playground.innerHTML = `
 const getRunButton = () => document.querySelector('#run-button');
 const getEditor = () => document.querySelector('#editor > code');
 const getIframe = () => document.querySelector('iframe');
+const getStory = () => document.querySelector('#quest-story');
 
 export const run = () => {
   let code = `
@@ -131,13 +132,19 @@ export const QuestPage = ({ questId }) => {
 }
 
 const highlight = () => {
-  console.log('highlight, editor: ', getEditor());
+  console.debug('highlight, editor: ', getEditor());
   if (getEditor()) {
     const restoreCaretPosition = saveCaretPosition(getEditor());
     Prism.highlightElement(getEditor());
     const napaleonCodes = document.querySelectorAll('#napaleon-message code');
     napaleonCodes.forEach(c => Prism.highlightElement(c));
     restoreCaretPosition();
+  }
+
+  console.debug('highlight, story: ', getStory());
+  if (getStory()) {
+    const codes = getStory().querySelectorAll('code');
+    codes.forEach(c => Prism.highlightElement(c));
   }
 };
 
