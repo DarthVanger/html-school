@@ -83,7 +83,7 @@ export const Levels = () => {
         id: 'css',
         skills: ['h1, p'],
         imgSrc: 'src/quests/img/css.png',
-        isCompleted: isQuestCompleted(quests.htmlTags),
+        isCompleted: isQuestCompleted(quests.css),
       })}
       <h2>Базовые Команды</h2>
       ${level1QuestsListHTML}
