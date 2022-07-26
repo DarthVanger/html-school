@@ -4,7 +4,12 @@ const story = `
   <h2>ШО ТАКЭ CSS?</h2>
   <p>CSS = Cascading Style Sheet. По русски - "Каскадное Стиле-Дерьмо", или КСД.</p>
   <p>Дефолтные HTML стили 90-х конечно охуенные - базару нет.</p>
-  <img src="src/quests/Css/yahoo-1996.png" />
+  <figure>
+    <img src="src/quests/Css/yahoo-1996.png" />
+    <figcaption>
+      Сайт Яху - несколько месяцев до изобретения CSS в декабре 1996.
+    </figcation>
+  </figure>
   </p>
   <p>
   Но с коммерциализацией Интернета, все-таки захотелось не такой всратый дизайн.
@@ -18,16 +23,24 @@ const story = `
     Но в общем пацан молодец конечно - шо сказать) Был в тренде) Любил читать наверное, подумал что книги круто продавать :)
   </p>
 
-  <video controls>
-    <source type="video/mp4" src="src/quests/Css/jeff-bezos.mp4" />
-  </video>
+  <figure>
+    <video controls>
+      <source type="video/mp4" src="src/quests/Css/jeff-bezos.mp4" />
+    </video>
+    <figcaption>Интервью с Jeff Bezos оч старое про Интернет</figcaption>
+  </figure>
 
   <h2>ТО ШО ВОНО РОБЭ?</h2>
   <p>ЦСС позволяет задать "стили", т.е. дизайн элементов ХТМЛ документа.</p>
   <p>Нопремер: задать зоголовку синиий цвет. Сделать текст крупнее. Задать рамку, отступы.</p>
   <p>CSS пишется внутри тэга &lt;style&gt;, и у него свой синтаксис: к КАКОМУ ХТМЛ Тегу, применить какой СТИЛЬ.</p>
 
-  <img src="src/quests/Css/css-syntax.png" />
+  <figure>
+    <img src="src/quests/Css/css-syntax.png" />
+  <figcaption>
+    Синтаксис ЦСС
+  </figcaption>
+  </figure>
 
  <p>
    СТИЛЬ указывается в фигурных скобке после названия тега
@@ -61,7 +74,12 @@ const story = `
 <p>
   И если снова по-англицки )
 <p>
-<img src="src/quests/Css/css-selectors.png" />
+<figure>
+  <img src="src/quests/Css/css-selectors.png" />
+  <figcaption>
+    CSS селекторы / синтаксис / поебота
+  </figcaption>
+</figure>
 
 <p>Что ж, довай пробовадь! :)</p>
 `;

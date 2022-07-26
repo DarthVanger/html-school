@@ -1,7 +1,8 @@
 @import 'Topbar.css';
 @import "QuestStory.css";
+@import "mentor.css";
 
-body {
+#quest-page {
   background: white;
   color: black;
 }
