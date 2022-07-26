@@ -91,7 +91,6 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
       step,
       isQuestCompleted, 
     });
-
   };
 
   addCodeRunListener(check);
@@ -131,17 +130,11 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
         ${generateStepsHTML()}
       </div>
     `;
+
+    effect();
   };
 
-  const update = () => {
-
-    document.querySelector('#napaleon-message').innerHTML = `
-      ${MentorMessage({ state, quest })}
-    `;
-    document.querySelector('#steps-progress').innerHTML = `
-      ${generateStepsHTML()}
-    `;
-
+    const effect = () => setTimeout(() => {
     const img = document.querySelector('#napaleon-img');
     const height = document.querySelector('#napaleon-message').offsetHeight;
     if (height > 200) {
@@ -151,6 +144,20 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
     }
 
     getElement().classList.remove('collapsed');
+
+    const napaleonCodes = document.querySelectorAll('#napaleon-message code');
+    napaleonCodes.forEach(c => Prism.highlightElement(c));
+  });
+
+  const update = () => {
+    document.querySelector('#napaleon-message').innerHTML = `
+      ${MentorMessage({ state, quest })}
+    `;
+    document.querySelector('#steps-progress').innerHTML = `
+      ${generateStepsHTML()}
+    `;
+
+    effect();
 
   };
 
