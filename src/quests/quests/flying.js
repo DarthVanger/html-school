@@ -10,7 +10,7 @@ const code = `
 </style>
 
 <body>
-  <img src="/game/ship.gif" />
+  <img src="/img/ship.gif" />
 </body>
 
 <script>
