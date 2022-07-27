@@ -49,25 +49,12 @@ export const Levels = () => {
     },
   ];
 
-  let level2Quests = [
-    {
-      imgSrc: 'src/quests/img/flying.gif',
-      ...quests.flying,
-    },
-  ];
-
   level1Quests = level1Quests.map(q => ({
     ...q,
     isCompleted: isQuestCompleted(q),
   }));
 
-  level2Quests = level2Quests.map(q => ({
-    ...q,
-    isCompleted: isQuestCompleted(q),
-  }));
-
   const level1QuestsListHTML = QuestList(level1Quests.map(q => Quest(q)));
-  const level2QuestsListHTML = QuestList(level2Quests.map(q => Quest(q)));
 
   const html = `
     <div id="levels">
@@ -85,10 +72,24 @@ export const Levels = () => {
         imgSrc: 'src/quests/img/css.jpeg',
         isCompleted: isQuestCompleted(quests.css),
       })}
-      <h2>Базовые Команды</h2>
+
+      <h2>ЖАБАСКРИПТ</h2>
+      <h3>Базовые Команды</h3>
       ${level1QuestsListHTML}
-      <h2>Перемещение Корабля</h2>
-      ${level2QuestsListHTML}
+
+      <h3>Перемещение Корабля</h3>
+      ${Quest({
+        id: 'flying',
+        skills: ['style'],
+        imgSrc: 'src/quests/img/flying.gif',
+        isCompleted: isQuestCompleted(quests.flying),
+      })}
+      ${Quest({
+        id: 'walls',
+        skills: ['if'],
+        imgSrc: 'src/quests/img/if.png',
+        isCompleted: isQuestCompleted(quests.walls),
+      })}
     </div>
   `;
 

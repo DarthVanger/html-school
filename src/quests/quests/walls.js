@@ -1,57 +1,91 @@
-export default `
+const id = 'walls';
+
+const story = `
+  <h2>Копетан! Мы в зоподне!</h2>
+  <p>Корабль терпит крушение 3й сезон!</p>
+  <p>Копетан! Копетан!</p>
+  <p>Перед нами СТЕНА!</p>
+  <p>Корабль В нее литит и розбивается!!!</p>
+  <p>СпосааааааЙ! Пожалст)))</p>
+  <h3>Че дэдать эээ :P</h3>
+  <p>1. Не тупить )))</p>
+  <p>2. Короч у нас есь код который двигает корабль на <code class="language-javascript">x += 10</code></p>
+  <p>3. На экране также есть СТЕНА.</p>
+  <p>СТЕНА расположена на Позиции TOP = 300</p>
+  <p>4. Читоби не врезаться у стену, нужно прописать код</p>
+
+  <pre>
+  <code class="language-javascript">
+if (y > 300) {
+  alert('СТОПЭЭЭЭЭ');
+}
+  </code>
+  </pre>
+
+  <p>Собсвно как бы вот, собсно как бы вот и всё )</p>
+  <p>Так сказать))</p>
+`;
+
+const steps = [
+  {
+    task: `
+<p>
+  Почитай код, помедитируй ) Че он делоет ) Объяснение как бе сверху ☝
+</p>
+<p>
+  Найди куда нужно вписать
+</p>
+<pre><code class="language-js">
+  if (y > 300) {}
+</code></pre>
+`,
+    check: "Уписано if (y > 300) {} у нужно месте ;)",
+    regexp: /moveShip\(\)\s*{[^}]*\(\s*y\s*>\s*300\s*\)\s+{\s*}[^}]*}/,
+  },
+];
+
+const skills = ['if', 'style', 'position: absolute', '#id css selector'];
+
+const code = `
 <style>
-  video {
+  #ship {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+    width: 200px;
+    height: 200px;
   }
 
-  .ship {
+  #wall {
     position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 0.1s linear;
-  }
-
-  .wall {
-    position: absolute;
-    top: 0;
-    left: 300;
-    right: 0;
-    height: 100vh;
-    opacity: 0.7;
-    cursor: not-allowed;
+    top: 300;
+    width: 100%;
   }
 </style>
 
 <body>
-  <video autoplay loop muted>
-    <source src="/video/space-1050p.mp4" type="video/mp4" />
-  </video>
-  <img class="wall" src="/img/ice.gif"/>
-  <img class="ship" src="/game/ship.gif" />
+  <img id="ship" src="/img/ship.gif" />
+  <img id="wall" src="/img/ice.gif"/>
 </body>
 
 <script>
-  const ship = document.querySelector('.ship');
-  const video = document.querySelector('video');
+  const ship = document.querySelector('#ship');
 
-  let x = 0;
   let y = 0;
 
-  function moveShipOnClick(event) {
-    if (event.pageX < 200) {
-      x = event.pageX - 320 / 2;
-      y = event.pageY - 366 / 2;
-      ship.style.left = x;
-      ship.style.top = y;
-    }
+  function moveShip() {
+    y += 10;
+    ship.style.top = y;
   }
 
-  document.addEventListener('click', moveShipOnClick);
-
+  setInterval(moveShip, 1000);
 </script>
 `;
+
+export default {
+  story,
+  code,
+  steps,
+  skills,
+  id,
+};
