@@ -12,8 +12,10 @@ import innerHTML from './innerHTML.js';
 import functions from './functions.js';
 import variables from './variables.js';
 import functionParameters from './functionParameters.js';
+import conditionals from './conditionals.js';
 
 const quests = {
+  conditionals,
   css,
   htmlTags,
   functionParameters,

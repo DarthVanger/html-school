@@ -47,6 +47,10 @@ export const Levels = () => {
       imgSrc: 'src/quests/img/functionParameters.png',
       ...quests.functionParameters,
     },
+    {
+      imgSrc: 'src/quests/img/conditionals.png',
+      ...quests.conditionals,
+    },
   ];
 
   level1Quests = level1Quests.map(q => ({
