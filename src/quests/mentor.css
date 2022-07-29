@@ -25,14 +25,6 @@
   cursor: not-allowed;
 }
 
-#napaleon-message code {
-  padding: 5px;
-  font-size: 0.9em;
-  white-space: nowrap;
-  border-radius: 2px;
-}
-
-
 #napaleon-message > p:first-child {
   margin-top: 0;
 }

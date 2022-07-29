@@ -7,6 +7,18 @@
   color: black;
 }
 
+#quest-page h3 {
+  color: #333;
+}
+
+#quest-page *:not(pre) > code {
+  padding: 5px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+
 #playground {
   width: 100%;
   --topbar-height: 50px;
