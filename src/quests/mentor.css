@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   height: fit-content;
-  background: #111;
   z-index: 1;
 }
 
@@ -18,13 +17,21 @@
 }
 
 #napaleon-message, #napaeon-message ::selection {
-  background: #111;
-  color: #eee;
+  background: #ddd;
+  color: #222;
   padding: 1em;
   font-size: 1.3rem;
   line-height: 1.8;
   cursor: not-allowed;
 }
+
+#napaleon-message code {
+  padding: 5px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
 
 #napaleon-message > p:first-child {
   margin-top: 0;
@@ -88,17 +95,23 @@
   cursor: not-allowed;
 }
 
-.is-completed .icon {
+#mentor .is-completed .icon {
   color: #00ff00;
   border: 1px solid #00ff00;
   padding: 0px 2px 0px 4px;
   
 }
 
-.not-completed, .not-completed::selection, .not-completed .icon::selection {
-  background: #eee;
-  color: #333;
+#steps-progress .not-completed,
+#steps-progess .not-completed::selection,
+#steps-progress .not-completed .icon::selection {
+  background: #333;
+  color: #ddd;
   cursor: not-allowed;
+}
+
+#steps-progress .not-completed .icon {
+  opacity: 0.7;
 }
 
 .achievements {
