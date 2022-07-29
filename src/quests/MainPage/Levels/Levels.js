@@ -87,7 +87,7 @@ export const Levels = () => {
       ${Quest({
         id: 'walls',
         skills: ['if'],
-        imgSrc: 'src/quests/img/if.png',
+        imgSrc: 'src/quests/img/walls.gif',
         isCompleted: isQuestCompleted(quests.walls),
       })}
     </div>
