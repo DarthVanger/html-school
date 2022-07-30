@@ -193,8 +193,8 @@ const code = `
 </style>
 
 <body>
-  <img id="ship" src="/img/ship.gif" />
   <img id="wall" src="/img/ice.gif"/>
+  <img id="ship" src="/img/ship.gif" />
 </body>
 
 <script>
