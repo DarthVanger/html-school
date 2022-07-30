@@ -1,5 +1,13 @@
-export const Quest = ({ id, skills, imgSrc, isCompleted }) => {
-  const className = `quest${isCompleted && ' is-completed' || ''}` 
+import quests from '../../quests/quests.js';
+
+export const Quest = ({ id, imgSrc, isCompleted }) => {
+  const quest = quests[id];
+  let className = 'quest';
+  if (isCompleted) {
+    className += ' is-completed';
+  }
+
+  const { skills } = quest;
 
   return `
     <a id=${id} class="${className}" href="#/quests/${id}">
