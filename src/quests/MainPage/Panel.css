@@ -4,19 +4,23 @@
   color: white;
   padding: 1rem;
   background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .panel .panel-content {
-  height: 100%;
+  height: fit-content;
+  width: 70%;
   background: url('img/panel.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: 100% 100%;
   background-color: black;
-  padding: 10vh 45vh;
+  padding: 10%;
   text-align: justify;
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  /* GPU Process takes too much resources :( */
+  /* text-shadow: 1px 1px 8px #208bff, 1px 1px 22px #4a77ff */
 }
 
 .panel .panel-content p {
