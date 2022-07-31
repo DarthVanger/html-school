@@ -44,23 +44,29 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       level,
     });
 
-    const hasCompletedQuest = () => {
+    const getCompletedQuests = () => {
       const completedQuests = questPoints[student];
       if (!completedQuests) return false;
+
+      const questsBySkill = [];
 
       for (let q of completedQuests) {
         const skills = getQuestSkills(q.id);
         if (skills.includes(skill.id)) {
-          return true;
+          questsBySkill.push(q);
         }
       }
-      return false;
+
+      return questsBySkill;
     };
 
-    if (hasCompletedQuest()) {
+    const completedQuests = getCompletedQuests();
+
+    if (completedQuests?.length) {
       html += QuestBadge({
         x: x - width,
         y,
+        points: completedQuests.length,
       });
     }
 
