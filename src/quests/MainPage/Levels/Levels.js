@@ -67,7 +67,7 @@ export const Levels = () => {
         })}
       </div>
 
-      <h3>Основы Перограмированее: Фукцеи и Переменныэ</h3>
+      <h3>Основы Перограмированее: Фукцеи, Переменныэ, Условея</h3>
 
       <div class="quest-list">
         ${Quest({
@@ -82,11 +82,6 @@ export const Levels = () => {
           imgSrc: 'src/quests/img/variables.png',
           isCompleted: isQuestCompleted(quests.variables),
         })}
-      </div>
-
-      <h3>Основы LEVEL 2: Параметры Фукцеи, Условея</h3>
-
-      <div class="quest-list">
         ${Quest({
           ...quests.functionParameters,
           title: "Параметры ФукцеЙ - Продвинутые Фукцеи - и это База)))",
