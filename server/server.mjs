@@ -42,32 +42,6 @@ app.get('/quests/completed/:student', (req, res) => {
   res.json(db.data.quests[student]);
 });
 
-app.post('/code-run', async (req, res) => {
-  console.info(`POST /code-run`, req.body);
-  const codeRunInfo = req.body;
-  const { rawHeaders, httpVersion, method, socket, url } = req;
-  const { remoteAddress, remoteFamily } = socket;
-
-  db.data.codeRunLog = db.data?.codeRunLog || [];
-  db.data.codeRunLog.push({
-    date: (new Date()).toISOString(),
-    codeRunInfo,
-    requestInfo: {
-      rawHeaders,
-      httpVersion,
-      method,
-      remoteAddress,
-      remoteFamily,
-      url
-    },
-  });
-
-  db.write();
-
-  res.sendStatus(200);
-  res.end();
-});
-
 /**
  * Log quest complete
  */
