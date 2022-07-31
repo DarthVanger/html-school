@@ -1,15 +1,38 @@
+.quest-card {
+  --padding: 32px;
+  --box-size: 500px;
+  width: calc(var(--box-size) + var(--padding) * 2);;
+  border-radius: 16px;
+  background: #eee;
+  padding: var(--padding);
+  margin: 32px;
+}
+
 .quest {
-  --box-size: 200px;
   position: relative;
   cursor: pointer;
+}
+
+.quest-title {
+  background: #eee;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 2;
+  height: 4em;
+}
+
+.quest-title code {
+  background: #333;
+  color: #eee;
+  padding: 5px;
+  border-radius: 2px;
 }
 
 .quest img {
   width: var(--box-size);
   height: var(--box-size);
   border: solid black 2px;
-  border-radius: 16px;
-  margin: 16px;
 }
 
 .quest.is-completed img {
@@ -52,4 +75,3 @@
   border-radius: 4px;
   font-size: 0.8rem;
 }
-

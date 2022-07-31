@@ -1,6 +1,6 @@
 import quests from '../../quests/quests.js';
 
-export const Quest = ({ id, imgSrc, isCompleted }) => {
+export const Quest = ({ id, imgSrc, isCompleted, title }) => {
   const quest = quests[id];
   let className = 'quest';
   if (isCompleted) {
@@ -10,15 +10,18 @@ export const Quest = ({ id, imgSrc, isCompleted }) => {
   const { skills } = quest;
 
   return `
-    <a id=${id} class="${className}" href="#/quests/${id}">
-      <img src="${imgSrc}" />
-      <div class="quest-skills-list">
-        ${skills?.map(skill => `
-          <div class="quest-skill">
-            ${skill}
-          </div>
-        `).join('')}
-      </div>
-    </a>
+    <div class="quest-card">
+      <div class="quest-title">${title}</div>
+      <a id=${id} class="${className}" href="#/quests/${id}">
+        <img src="${imgSrc}" />
+        <div class="quest-skills-list">
+          ${skills?.map(skill => `
+            <div class="quest-skill">
+              ${skill}
+            </div>
+          `).join('')}
+        </div>
+      </a>
+    </div>
   `;
 };
