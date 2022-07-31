@@ -11,7 +11,6 @@ export const Quest = ({ id, imgSrc, isCompleted, title }) => {
 
   return `
     <div class="quest-card">
-      <div class="quest-title">${title}</div>
       <a id=${id} class="${className}" href="#/quests/${id}">
         <img src="${imgSrc}" />
         <div class="quest-skills-list">
@@ -22,6 +21,9 @@ export const Quest = ({ id, imgSrc, isCompleted, title }) => {
           `).join('')}
         </div>
       </a>
+      <div class="quest-card-caption">
+        <div class="quest-title">${title}</div>
+      </div>
     </div>
   `;
 };
