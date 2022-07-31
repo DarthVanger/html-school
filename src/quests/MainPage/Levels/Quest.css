@@ -6,6 +6,7 @@
   background: #eee;
   padding: var(--padding);
   margin: 32px;
+  position: relative;
 }
 
 .quest-card-caption {
@@ -14,6 +15,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.quest-card-footer {
+  position: absolute;
+  top: 0;
+  background: green;
+  color: #eee;
+  width: 100%;
+  text-align: center;
+}
+
+.quest-card-footer .curse {
+  background: red;
 }
 
 .quest {

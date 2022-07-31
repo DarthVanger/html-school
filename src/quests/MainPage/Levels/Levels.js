@@ -18,13 +18,20 @@ export const Levels = () => {
   if (!state.completedQuests) {
     setTimeout(async () => {
       const completedQuests = await getCompletedQuests({ student: getStudent() });
+      console.debug('completedQuests: ', completedQuests);
       setState({
         completedQuests,
       });
     });
   }
 
-  const isQuestCompleted = (quest) => Boolean(state.completedQuests?.find(q => q.id === quest.id));
+  const getCompletions = (quest) => state.completedQuests?.filter(q => q.id === quest.id);
+  const isQuestCompleted = (quest) => Boolean(getCompletions(quest));
+
+  const extraProps = (q) => ({
+    isCompleted: isQuestCompleted(q),
+    completions: getCompletions(q),
+  });
 
   const html = `
     <div id="levels">
@@ -34,7 +41,7 @@ export const Levels = () => {
           id: 'htmlTags',
           title: 'ГИПЕР ТЕКСТ',
           imgSrc: 'src/quests/img/flying.gif',
-          isCompleted: isQuestCompleted(quests.htmlTags),
+          ...extraProps(quests.htmlTags),
         })}
       </div>
       <h2>CSS</h2>
@@ -43,7 +50,7 @@ export const Levels = () => {
           id: 'css',
           title: '"ШО ТАКЭ CSS" АБО "КАСКАДНИЙ СТИЛЬ ЛАЙНА"',
           imgSrc: 'src/quests/img/css.jpeg',
-          isCompleted: isQuestCompleted(quests.css),
+          ...extraProps(quests.css),
         })}
       </div>
 
@@ -56,14 +63,14 @@ export const Levels = () => {
           ...quests.alertXuy4ek,
           title: "Знакомство с Жабо-Скрептом: фукцея <code>alert('xuyrek');</code>",
           imgSrc: 'src/quests/img/alertXuy4ek.jpg',
-          isCompleted: isQuestCompleted(quests.alertXuy4ek),
+          ...extraProps(quests.alertXuy4ek),
 
         })}
         ${Quest({
           ...quests.innerHTML,
           title: "Изменение наполнения докмуента: <code>innerHTML</code>",
           imgSrc: 'src/quests/img/innerHTML.jpg',
-          isCompleted: isQuestCompleted(quests.innerHTML),
+          ...extraProps(quests.innerHTML),
         })}
       </div>
 
@@ -74,25 +81,25 @@ export const Levels = () => {
           ...quests.functions,
           title: "ФУКЦЕИ: Основа Джаваскрипт - База!!!",
           imgSrc: 'src/quests/img/functions.png',
-          isCompleted: isQuestCompleted(quests.functions),
+          ...extraProps(quests.functions),
         })}
         ${Quest({
           ...quests.variables,
           title: "ПЕРЕМЕННЫЕ (VAR - Variables) - тоже База!!!",
           imgSrc: 'src/quests/img/variables.png',
-          isCompleted: isQuestCompleted(quests.variables),
+          ...extraProps(quests.variables),
         })}
         ${Quest({
           ...quests.functionParameters,
           title: "Параметры ФукцеЙ - Продвинутые Фукцеи - и это База)))",
           imgSrc: 'src/quests/img/functionParameters.png',
-          isCompleted: isQuestCompleted(quests.functionParameters),
+          ...extraProps(quests.functionParameters),
         })}
         ${Quest({
           ...quests.conditionals,
           title: "УСЛОВЕЯ (Логека): if / else - Базейшая база, основа Основ!!))",
           imgSrc: 'src/quests/img/conditionals.jpeg',
-          isCompleted: isQuestCompleted(quests.conditionals),
+          ...extraProps(quests.conditionals),
         })}
       </div>
 
@@ -104,21 +111,21 @@ export const Levels = () => {
           ...quests.flying,
           title: 'КОПЕТАН! Срочно в Полёт! У КоСмаС!',
           imgSrc: 'src/quests/img/flying.gif',
-          isCompleted: isQuestCompleted(quests.flying),
+          ...extraProps(quests.flying),
         })}
 
         ${Quest({
           ...quests.walls,
           title: 'КОПЕТАН! Корабель терпит Крушение! Сезон 3.',
           imgSrc: 'src/quests/img/walls.gif',
-          isCompleted: isQuestCompleted(quests.walls),
+          ...extraProps(quests.walls),
         })}
 
         ${/* Quest({
           ...quests.velocity,
           title: 'СПИДЫ - ФИЗЕКА',
           imgSrc: 'src/quests/img/velocity.gif',
-          isCompleted: isQuestCompleted(quests.velocity),
+          ...extraProps(quests.velocity),
         }) */ ''}
       </div>
     </div>
