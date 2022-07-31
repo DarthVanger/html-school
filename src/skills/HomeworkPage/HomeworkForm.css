@@ -1,0 +1,22 @@
+#homework-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#homework-form label {
+  font-size: 1.2rem;
+}
+#homework-form input,
+#homework-form textarea {
+  display: block;
+  width: 100%;
+  padding: 1em;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+#homework-form button {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 4px;
+}

@@ -22,6 +22,12 @@ const runApp = async () => {
   })
 };
 
+app.get('/homework/:student', (req, res) => {
+  const { student } = req.params;
+  const homework = db.data?.homework && db.data.homework[student] || [];
+  res.json(homework);
+});
+
 app.get('/tree', (req, res) => {
   console.info('GET /tree');
 
@@ -30,7 +36,7 @@ app.get('/tree', (req, res) => {
 })
 
 app.get('/quests/completed/:student', (req, res) => {
-  const {  student } = req.params;
+  const { student } = req.params;
   console.info(`GET /quests/completed/${student}`);
 
   const quests = db.data?.quests;
@@ -91,22 +97,19 @@ app.post('/quest/:id', async (req, res) => {
   res.end();
 });
 
-app.post('/tree/:skill/:student', async (req, res) => {
-  const { skill, student } = req.params;
-  console.info(`POST /tree/${skill}/${student}:`, req.params);
+app.post('/homework/:student', async (req, res) => {
+  const { student } = req.params;
+  console.info(`POST /homework/${student}:`, req.params);
 
-  if (!skill || ! student) {
+  if (!student) {
     return res.status(400).send('Bad Request');
   }
+
+  const entry = JSON.parse(req.body.homework);
 
   db.data.homework = db.data.homework || {};
   db.data.homework[student] = db.data.homework[student] || [];
 
-  const entry = {
-    skill,
-    tag: 'homework',
-    date: (new Date()).toISOString(),
-  };
 
   db.data.homework[student].push(entry);
 

@@ -1,0 +1,11 @@
+@import 'HomeworkForm.css';
+
+.modal {
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  background: #333;
+  color: #eee;
+  padding: 1em;
+  z-index: 100;
+}
+

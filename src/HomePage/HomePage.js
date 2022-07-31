@@ -45,12 +45,6 @@ export const HomePage = (state) => `
             <img src="Rating/rating.gif" />
           </a>
         </article>
-        <article>
-          <h3>ДРЕВО УМЕНИЙ</h3>
-          <img src="src/HomePage/skills-tree.gif" />
-          <a href="skills/skills/html"></a>
-        </article>
-        -->
       </section>
     </div>
 

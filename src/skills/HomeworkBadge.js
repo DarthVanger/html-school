@@ -1,4 +1,4 @@
-import { addHomework } from './api.js';
+import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 import { getHomeworkPoints } from './stats.js';
 let element;
 
@@ -17,11 +17,11 @@ export const HomeworkBadge = ({x, y, level, skill, state }) => {
 
   setTimeout(() => {
     element = document.querySelector(`#${id}`);
-    const homework = { skill, student };
 
     element?.addEventListener('click', async () => {
-      await addHomework(homework);
-      state.onChange();
+      const e = HomeworkPage({...state, skill})
+      console.log('apending: ', e);
+      document.body.append(e);
     });
   });
   
