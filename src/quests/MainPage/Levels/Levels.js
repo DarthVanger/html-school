@@ -91,7 +91,8 @@ export const Levels = () => {
         isCompleted: isQuestCompleted(quests.conditionals),
       })}
 
-      <h2>ШТО Ж - КОПЕТАН!<br/>Приготовиться Управлять Корабелем!</h2>
+      <h2>ШТО Ж - КОПЕТАН!</h2>
+      <h3>Приготовиться Управлять Корабелем!</h3>
 
       ${Quest({
         ...quests.flying,
