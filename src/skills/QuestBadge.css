@@ -1,3 +1,13 @@
-.quest-badge circle {
+.quest-badge-background {
   fill: #74c6fa;
+}
+
+.quest-badge-text-background {
+  fill: #333;
+  opacity: 0.7;
+}
+
+.quest-badge-text {
+  fill: #eee!important;
+  stroke: #eee!important;
 }

@@ -1,3 +1,5 @@
+import { Badge } from './Badge.js';
+
 export const QuestBadge = ({x, y, points}) => {
   const size = 50;
 
@@ -5,10 +7,12 @@ export const QuestBadge = ({x, y, points}) => {
   const imgY = y + size / 2;
   const cx = imgX + size / 2;
   const cy = imgY + size / 2;
+  const textBadgeSize = size / 4;
 
   return `
     <g class="quest-badge">
       <circle
+        class="quest-badge-background"
         cx="${cx}px"
         cy="${cy}px"
         r="${size / 2}px"
@@ -20,9 +24,12 @@ export const QuestBadge = ({x, y, points}) => {
         width="${size}px" height="${size}px"
       />
       ${points > 1 && `
-        <text x=${cx} y=${cy} text-anchor="middle" style="stroke: white; fill: white;">
-          ${points}
-        </text>
+        ${Badge({
+          x: cx - size / 2,
+          y: cy - size / 2,
+          level: points,
+          badgeR: textBadgeSize,
+        })}
       `}
    </g>
  `;
