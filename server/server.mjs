@@ -80,22 +80,15 @@ app.post('/quest/:id', async (req, res) => {
   db.data.quests = db.data?.quests || {};
 
   db.data.quests[student] = db.data.quests[student] || [];
-  const studentQuests = db.data.quests[student];
 
-  const existingCompletion = studentQuests.find(q => q.id === id);
-  const index = studentQuests.indexOf(existingCompletion);
-
+  const now = new Date();
   const questData = {
     id,
-    date: (new Date()).toISOString(),
+    date: now.toISOString(),
     ip,
   };
 
-  if (existingCompletion) {
-    db.data.quests[student][index] = questData;
-  } else {
-    db.data.quests[student].push(questData);
-  }
+  db.data.quests[student].push(questData);
 
   db.write();
 
