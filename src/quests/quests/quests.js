@@ -13,8 +13,10 @@ import functions from './functions.js';
 import variables from './variables.js';
 import functionParameters from './functionParameters.js';
 import conditionals from './conditionals.js';
+import velocity from './Velocity.js';
 
 const quests = {
+  velocity,
   conditionals,
   css,
   htmlTags,

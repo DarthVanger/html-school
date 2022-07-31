@@ -107,6 +107,13 @@ export const Levels = () => {
         imgSrc: 'src/quests/img/walls.gif',
         isCompleted: isQuestCompleted(quests.walls),
       })}
+
+      ${/* Quest({
+        ...quests.velocity,
+        title: 'СПИДЫ - ФИЗЕКА',
+        imgSrc: 'src/quests/img/velocity.gif',
+        isCompleted: isQuestCompleted(quests.velocity),
+      }) */ ''}
     </div>
   `;
 

@@ -1,0 +1,35 @@
+.friction-table {
+  background: #222;
+  padding: 2em;
+  border-collapse: collapse;
+}
+
+.friction-table td {
+  padding: 1em;
+  border: 1px dashed #aaa;
+}
+
+.friction-table tr {
+  border-bottom: 2px solid #aaa;
+}
+
+.friction-table tr:hover {
+  filter: invert(1);
+  background: #333;
+}
+
+.friction-table td:nth-child(1) {
+  color: #efefef;
+}
+
+.friction-table td:nth-child(2) {
+  color: #e29e21;
+}
+
+.friction-table td:nth-child(3) {
+  color: #d01a1a;
+}
+
+.friction-table td:nth-child(4) {
+  color: #32c6c6;
+}
