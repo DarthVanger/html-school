@@ -39,9 +39,15 @@ export const Levels = () => {
       <div class="quest-list">
         ${Quest({
           id: 'htmlTags',
-          title: 'ГИПЕР ТЕКСТ',
+          title: 'ГИПЕР ТЕКСТ. HTML v1.0. 1991г.',
           imgSrc: 'src/quests/img/flying.gif',
           ...extraProps(quests.htmlTags),
+        })}
+        ${Quest({
+          id: 'htmlImg',
+          title: 'Кортинке ). HTML v2.0. 1995г.',
+          imgSrc: 'src/quests/img/htmlImg.jpg',
+          ...extraProps(quests.htmlImg),
         })}
       </div>
       <h2>CSS</h2>

@@ -1,5 +1,6 @@
 #mentor {
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
   width: 100%;
   height: fit-content;
   z-index: 1;
@@ -10,12 +11,11 @@
 #napaeon-message::selection {
   background: none;
   color: revert;
-}
-*/
+} */
 
 #napaleon-message {
   height: fit-content;
-  flex: 1;
+  width: 100%;
 }
 
 #napaleon-message,
@@ -31,6 +31,11 @@
 
 #napaleon-message > p:first-child {
   margin-top: 0;
+}
+
+#napaleon-message img {
+  max-width: 400px;
+
 }
 
 #napaleon-img {
@@ -64,7 +69,6 @@
 }
 
 #steps-progress, #steps-progress ::selection {
-  flex: 1;
 }
 
 #steps-progress,
