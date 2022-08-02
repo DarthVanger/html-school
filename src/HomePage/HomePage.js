@@ -38,13 +38,6 @@ export const HomePage = (state) => `
             <img src="src/HomePage/lessons.gif" />
           </a>
         </article>
-        <!--
-        <article>
-          <h3>ДОСКА ПОМËТА</h3>
-          <a href="rating">
-            <img src="Rating/rating.gif" />
-          </a>
-        </article>
       </section>
     </div>
 
@@ -56,5 +49,7 @@ export const HomePage = (state) => `
 
     <div class="weed-border-right-bottom">
     </div>
+
+    ${BottomBar(state)}
   </div>
-` + BottomBar(state);
+`;
