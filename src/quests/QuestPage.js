@@ -96,6 +96,7 @@ const clearCodeRunListeners = () => {
 
 const element = document.createElement('div');
 element.id = 'quest-page';
+element.className = 'language-html';
 export const QuestPage = ({ questId }) => {
   element.innerHTML = '';
   clearCodeRunListeners();

@@ -5,7 +5,7 @@ import { getStudent } from '../../../session.js';
 import quests from '../../quests/quests.js';
 
 const element = document.createElement('div');
-element.id='levels';
+element.id = 'levels';
 const state = {
   completedQuests: null,
 };
