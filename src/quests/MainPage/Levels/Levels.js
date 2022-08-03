@@ -40,7 +40,6 @@ export const Levels = () => {
         ${Quest({
           id: 'htmlTags',
           title: 'ГИПЕР ТЕКСТ. HTML v1.0. 1991г.',
-          imgSrc: 'src/quests/img/flying.gif',
           ...extraProps(quests.htmlTags),
         })}
         ${Quest({

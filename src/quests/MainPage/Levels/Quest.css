@@ -118,3 +118,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.quest-html-img pre {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
