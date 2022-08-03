@@ -26,6 +26,19 @@ const story = `
   <h3>!!! Ссылка на кортинке - скопируй !!!</h3>
   <p>Єто надо будет вставить в <code>src="ссілке"</code></p>
   <p><a href="${imgLink}">${imgLink}</a></p>
+  <h2>HTML Синтоксес</h2>
+  <figure>
+    <img src="src/quests/Html/html-syntax.png" />
+    <figcaption>
+      HTML Syntax 
+    </figcaption>
+  </figure>
+  <p>Тег всегда пишется в треугольных скобке <code>&lt;tagname&gt;</code></p>
+  <p>После названия тега, через пробел, можно указать атрибуты: <code>&lt;img src="pic.jpg" class="my-img"&gt;</code>
+  <p>Атрибуты указываются ВНУТРИ треугольный скобке<code>&lt;...&gt;</code></p>
+  <p>Для примера я написал 2 атрибута: <code>src</code> и <code>class</code> .</p>
+  <p>Атрибут <code>class</code> просто для примера, его будем проходить позже.</p>
+  <p>Итак: указывается имя атрибута, потом знак равно <code>=</code> и в кавычках <code>"..."</code>значение атрибута: <code>&lt;tagname attr1="value1" attr2="value2"&gt;</code></p>
 `;
 
 const code = `
@@ -103,10 +116,17 @@ export const steps = [
 
 const skills = ['img'];
 
+const img = `
+  <div class="quest-html-img">
+    <code class="language-html">&lt;img src="..." /&gt;</code>
+  </div>
+`;
+
 export default {
   story,
   code,
   steps,
   skills,
   id,
+  img,
 };

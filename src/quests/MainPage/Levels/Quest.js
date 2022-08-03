@@ -1,6 +1,7 @@
 import quests from '../../quests/quests.js';
 
 export const Quest = ({ id, imgSrc, title, completions }) => {
+  const getElement = () => document.querySelector(`#${id}`);
   const quest = quests[id];
   let className = 'quest';
   const isCompleted = completions?.length > 0;
@@ -8,7 +9,7 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
     className += ' is-completed';
   }
 
-  const { skills } = quest;
+  const { skills, img } = quest;
 
   const displayDate = (d) => (new Date(d)).toLocaleString(
     'ru-RU',
@@ -37,10 +38,17 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
     return days;
   };
 
+  setTimeout(() => {
+    const codes = getElement().querySelectorAll('code');
+    codes.forEach(c => Prism.highlightElement(c));
+  });
+
+
   return `
-    <div class="quest-card">
-      <a id=${id} class="${className}" href="#/quests/${id}">
-        <img src="${imgSrc}" />
+    <div class="quest-card" id=${id}>
+      <a class="${className}" href="#/quests/${id}">
+        ${imgSrc && `<img src="${imgSrc}" />` || ''}
+        ${img || ''}
         <div class="quest-skills-list">
           ${skills?.map(skill => `
             <div class="quest-skill">

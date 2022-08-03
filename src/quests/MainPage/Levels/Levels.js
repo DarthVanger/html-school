@@ -46,7 +46,6 @@ export const Levels = () => {
         ${Quest({
           id: 'htmlImg',
           title: 'Кортинке ). HTML v2.0. 1995г.',
-          imgSrc: 'src/quests/img/htmlImg.jpg',
           ...extraProps(quests.htmlImg),
         })}
       </div>

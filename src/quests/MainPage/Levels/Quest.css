@@ -9,6 +9,14 @@
   position: relative;
 }
 
+.quest-card a,
+.quest-card a:visited,
+.quest-card a:hover,
+.quest-card a:active {
+  color: #eee;
+  text-decoration: none;
+}
+
 .quest-card-caption {
   --caption-size: 8rem;
   height: var(--caption-size);
@@ -56,7 +64,8 @@
   border-radius: 2px;
 }
 
-.quest img {
+.quest img,
+.quest-html-img {
   width: var(--box-size);
   height: var(--box-size);
 }
@@ -100,4 +109,12 @@
   margin: 8px;
   border-radius: 4px;
   font-size: 0.8rem;
+}
+
+.quest-html-img {
+  background: #141414;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
