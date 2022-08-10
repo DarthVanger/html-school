@@ -38,6 +38,12 @@ export const HomePage = (state) => `
             <img src="src/HomePage/lessons.gif" />
           </a>
         </article>
+        <article>
+          <h3>ПРОГРЕС</h3>
+          <a href="#/progress">
+            <img src="src/LearningProgress/learning-progress.png" />
+          </a>
+        </article>
       </section>
     </div>
 

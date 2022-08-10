@@ -4,6 +4,7 @@ import { NotFoundPage } from './NotFoundPage.js';
 import { Skills } from './skills/skills.js';
 import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
+import { LearningProgress } from './LearningProgress/LearningProgress.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 
 const element = document.createElement('div');
@@ -31,6 +32,10 @@ export const Router = (state) => {
 //      element.innerHTML = '';
 //      element.append(HomeworkPage(state));
 //      break;
+    case '/progress':
+      element.innerHTML = '';
+      element.append(LearningProgress(state));
+      break;
     case state.route.match(/[/]quests[/]/)?.input:
     case state.route.match(/[/]quests[/]/)?.input:
       const questId = state.route.match(/[/]quests[/]([^/]+)/)[1];
