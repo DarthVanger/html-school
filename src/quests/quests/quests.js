@@ -15,8 +15,10 @@ import functionParameters from './functionParameters.js';
 import conditionals from './conditionals.js';
 import velocity from './Velocity.js';
 import htmlImg from './htmlImg.js';
+import shipMotion from './shipMotion.js';
 
 const quests = {
+  shipMotion,
   htmlImg,
   velocity,
   conditionals,

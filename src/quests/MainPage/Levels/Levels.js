@@ -125,6 +125,13 @@ export const Levels = () => {
           ...extraProps(quests.walls),
         })}
 
+        ${Quest({
+          ...quests.shipMotion,
+          title: 'КОПЕТАН! ПОЛЕТЕЛИ!',
+          imgSrc: 'src/quests/img/flying.gif',
+          ...extraProps(quests.shipMotion),
+        })}
+
         ${/* Quest({
           ...quests.velocity,
           title: 'СПИДЫ - ФИЗЕКА',
