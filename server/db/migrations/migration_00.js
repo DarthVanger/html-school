@@ -4,20 +4,20 @@ export const migration_00 = async () => {
   const skills = {
     html: [
       [
-        { text: '<h1>', level: { johnny : 3, tony: 2, dimon: 3, } },
-        { text: '<p>', level: { johnny : 3, tony: 2, dimon: 3, }, },
-        { text: '<img>', level: { johnny : 3, tony: 2, dimon: 3, }, },
+        { id: 'html-h1', text: '<h1>', level: { johnny : 3, tony: 2, dimon: 3, } },
+        { id: 'html-p', text: '<p>', level: { johnny : 3, tony: 2, dimon: 3, }, },
+        { id: 'html-img', text: '<img>', level: { johnny : 3, tony: 2, dimon: 3, }, },
         { text: '<br>', level: { johnny : 3, tony: 1, dimon: 3, } },
         { text: '<hr>', level: { johnny : 3, tony: 1, dimon: 1, } },
       ],
       [
-        { text: '<a>', level: { johnny : 2, tony: 1, dimon: 3, }, },
-        { text: '<video>', level: { johnny : 3, tony: 1, dimon: 1, }, },
+        { id: 'html-a', text: '<a>', level: { johnny : 2, tony: 1, dimon: 3, }, },
+        { id: 'html-video', text: '<video>', level: { johnny : 3, tony: 1, dimon: 1, }, },
       ],
     ],
     css: [
       [
-        { text: 'h1, p', level: { johnny : 3, tony: 2, dimon: 2, }, },
+        { id: 'css-h1-p', text: 'h1, p', level: { johnny : 3, tony: 2, dimon: 2, }, },
         { text: 'color', level: { johnny : 3, tony: 2, dimon: 3, }, },
         { text: 'font\nsize', level: { johnny : 1, tony: 1, dimon: 1, }, },
         { text: 'font\nfamily', level: { johnny : 0, tony: 0, dimon: 0, } },

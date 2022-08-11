@@ -1,0 +1,16 @@
+circle {
+  fill: white;
+  stroke: black;
+}
+
+.learning-progress-item {
+}
+
+.learning-progress-item .item-text {
+  color: white;
+}
+
+.learning-progress-item svg {
+  width: 50px;
+  height: 50px;
+}
