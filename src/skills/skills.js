@@ -22,7 +22,7 @@ export const Skills = (props) => {
         state.levels = r.levels;
         state.points = r.points;
         state.categoryLevels = r.categoryLevels;
-        state.homework = r.homework;
+        state.lecturePoints = r.lecturePoints;
         state.questPoints = r.questPoints;
         Skills(props);
       });
@@ -34,6 +34,7 @@ export const Skills = (props) => {
 
   const tree = Tree(state);
 
+  console.log('skills: ', state.skills);
   console.log('Rendering svg cont');
   const svgContainer = SvgContainer({
     width: 1000,

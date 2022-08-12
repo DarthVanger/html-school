@@ -22,17 +22,17 @@ const runApp = async () => {
   })
 };
 
-app.get('/homework/:student', (req, res) => {
-  const { student } = req.params;
-  const homework = db.data?.homework && db.data.homework[student] || [];
-  res.json(homework);
-});
+//app.get('/homework/:student', (req, res) => {
+//  const { student } = req.params;
+//  const homework = db.data?.homework && db.data.homework[student] || [];
+//  res.json(homework);
+//});
 
 app.get('/tree', (req, res) => {
   console.info('GET /tree');
 
-  const { levels, points, categoryLevels, homework, questPoints } = getStats();
-  res.json({ skills: db.data.skills, levels, points, categoryLevels, homework, questPoints });
+  const { levels, points, categoryLevels, lecturePoints, questPoints } = getStats();
+  res.json({ skills: db.data.skills, levels, points, categoryLevels, lecturePoints, questPoints });
 })
 
 app.get('/quests/completed/:student', (req, res) => {

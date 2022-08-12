@@ -1,14 +1,15 @@
 import { Badge } from './Badge.js';
 import { QuestBadge } from './QuestBadge.js';
-import { HomeworkBadge } from './HomeworkBadge.js';
-import { getHomeworkPoints } from './stats.js';
+import { LecturesBadge } from './LecturesBadge.js';
+import { getSkillLevel } from './stats.js';
 import { getQuestSkills } from '../quests/quests/quests.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
+  console.debug('Rendering skill: ', skill);
   const height = skillBoxSize;
   const width = skillBoxSize;
-  const { homework, student, questPoints } = state;
-  const level = skill.level[student]  + getHomeworkPoints({homework, student, skill});
+  const { lecturePoints, student, questPoints } = state;
+  const level = getSkillLevel({lecturePoints, questPoints, student, skill});
 
   const Text = ({ text, x, y }) =>  {
     const texts = skill.text.split('\n');
@@ -90,7 +91,7 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
        y: y + height / 2,
        text: skill.text,
      })}
-     ${HomeworkBadge({
+     ${LecturesBadge({
        x: x + skillBoxSize / 2,
        y: y - skillBoxSize / 2,
        level,
