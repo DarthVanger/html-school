@@ -40,10 +40,10 @@ const getAllLecturePoints = () => {
     for (let lecture of lectures) {
       for (let skillId of lecture.skills) {
         const p = points[student][skillId];
-        if (p !== undefined) {
+        if (p) {
           points[student][skillId]++;
         } else {
-          points[student][skillId] = 0;
+          points[student][skillId] = 1;
         }
       }
     }

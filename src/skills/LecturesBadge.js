@@ -17,6 +17,8 @@ export const LecturesBadge = (props) => {
 
   const points = getLecturePoints({lecturePoints, student, skill});
 
+  console.debug('Lectures Badge. Points: ', points);
+
   return `
     <g class="homework-badge" id=${id}>
       <image

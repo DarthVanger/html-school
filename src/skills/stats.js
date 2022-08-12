@@ -14,6 +14,5 @@ export const getLecturePoints = (props) => {
   console.debug('getLecturePoints. Props: ', props);
   const points = lecturePoints[student][skill.id];
 
-  console.debug('getLecturePoints. Return: ', points);
   return points;
 };
