@@ -1,6 +1,7 @@
 import { Tree } from './Tree.js';
 import { SvgContainer } from './SvgContainer.js';
 import { Students } from './Students.js';
+import { BottomBar } from '../BottomBar.js';
 
 const skillBoxSize = 120;
 const width = skillBoxSize;
@@ -54,6 +55,7 @@ export const Skills = (props) => {
   element.innerHTML = `
     ${Students(state)}
     ${svgContainer}
+    ${BottomBar(state)}
   `;
 
   return element;
