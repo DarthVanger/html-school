@@ -254,7 +254,7 @@
 </body>
 </html>
 
-<template id="page0">
+<template id="lesson1-page0">
     <h2>
       HTML ШКОЛА
     </h2>
@@ -268,7 +268,7 @@
     </p>
 </template>
 
-<template id="page1">
+<template id="lesson1-page1">
     <h2>
       ПРЕПОД
     </h2>
@@ -282,7 +282,7 @@
     </p>
 </template>
 
-<template id="page2">
+<template id="lesson1-page2">
     <h2>
       УЧЕНИКИ
     </h2>
@@ -291,7 +291,7 @@
     </figure>
 </template>
 
-<template id="page3">
+<template id="lesson1-page3">
     <h2>
       ДИМОНЧИК
     </h2>
@@ -305,7 +305,7 @@
     </p>
 </template>
 
-<template id="page4">
+<template id="lesson1-page4">
     <h2>
       TONY
     </h2>
@@ -319,7 +319,7 @@
     </p>
 </template>
 
-<template id="page5">
+<template id="lesson1-page5">
     <h2>
       JOHNNY
     </h2>
@@ -333,7 +333,7 @@
     </p>
 </template>
 
-<template id="page6">
+<template id="lesson1-page6">
     <h2>
       KERTIS
     </h2>
@@ -347,7 +347,7 @@
     </p>
 </template>
 
-<template id="page7">
+<template id="lesson1-page7">
     <h2>
       МОТИВАЦИЯ
     </h2>
@@ -361,7 +361,7 @@
     </p>
 </template>
 
-<template id="page8">
+<template id="lesson1-page8">
     <h2>
       МОТИВАЦИЯ
     </h2>
@@ -373,7 +373,7 @@
     </figure>
 </template>
 
-<template id="page9">
+<template id="lesson1-page9">
     <h2>
       НА ОСТРИЕ РАЗВИТИЯ
     </h2>
@@ -385,7 +385,7 @@
     </figure>
 </template>
 
-<template id="page10">
+<template id="lesson1-page10">
     <h2>
       БАБКИ МИРА В ЭТОЙ СФЕРЕ
     </h2>
@@ -394,7 +394,7 @@
     </figure>
 </template>
 
-<template id="page11">
+<template id="lesson1-page11">
     <h2>
       ВАЙТИ В АЙТИ
     </h2>
@@ -406,7 +406,7 @@
     </figure>
 </template>
 
-<template id="page12">
+<template id="lesson1-page12">
     <h2>
       ЧТО ДЛЯ ЭТОГО НУЖНО
     </h2>
@@ -418,7 +418,7 @@
     </figure>
 </template>
 
-<template id="page13">
+<template id="lesson1-page13">
     <h2>
       ЧТО ДЛЯ ЭТОГО НУЖНО
     </h2>
@@ -430,7 +430,7 @@
     </figure>
 </template>
 
-<template id="page14">
+<template id="lesson1-page14">
     <h2>
       ДРОЧКА
     </h2>
@@ -439,7 +439,7 @@
     </figure>
 </template>
 
-<template id="page15">
+<template id="lesson1-page15">
     <h2>
       ДРОЧКА
     </h2>
@@ -448,7 +448,7 @@
     </figure>
 </template>
 
-<template id="page16">
+<template id="lesson1-page16">
     <h2>
       ДРОЧКА
     </h2>
@@ -457,7 +457,7 @@
     </figure>
 </template>
 
-<template id="page17">
+<template id="lesson1-page17">
     <h2>
       НАСКОЛЬКО ЭТО СЛОЖНО?
     </h2>
@@ -483,7 +483,7 @@
     </p>
 </template>
 
-<template id="page18">
+<template id="lesson1-page18">
   <div class="rules">
     <h2>
       ПРАВЕЛА
@@ -519,7 +519,7 @@
   </div>
 </template>
 
-<template id="page19">
+<template id="lesson1-page19">
     <h2>
       Первое Задание
     </h2>
@@ -532,7 +532,7 @@
     </p>
 </template>
 
-<template id="page20">
+<template id="lesson1-page20">
     <h2>
       HTML КОД
     </h2>
@@ -543,7 +543,7 @@
     </p>
 </template>
 
-<template id="page21">
+<template id="lesson1-page21">
     <h2>
       КОРТИНКЕ
     </h2>
@@ -554,7 +554,7 @@
     </p>
 </template>
 
-<template id="page22">
+<template id="lesson1-page22">
     <h2>
       В ПЗДУ ПРГРМИРВОНЕ
     </h2>
@@ -565,7 +565,7 @@
     </p>
 </template>
 
-<template id="page23">
+<template id="lesson1-page23">
     <h2>
       W3Schools
     </h2>
@@ -576,7 +576,7 @@
     </p>
 </template>
 
-<template id="page24">
+<template id="lesson1-page24">
   <div class="expectation-reality">
     <h2>
       Expectation / Reality
@@ -601,7 +601,7 @@
     </p>
 </template>
 
-<template id="page25">
+<template id="lesson1-page25">
     <h2>
       Javascript
     </h2>
@@ -612,7 +612,7 @@
     </p>
 </template>
 
-<template id="page26">
+<template id="lesson1-page26">
     <h2>
       Select
     </h2>
@@ -623,7 +623,7 @@
     </p>
 </template>
 
-<template id="page27">
+<template id="lesson1-page27">
     <h2>
       Events
     </h2>
@@ -634,7 +634,7 @@
     </p>
 </template>
 
-<template id="page28">
+<template id="lesson1-page28">
     <h2>
       В ПЛАВАНИЕ
     </h2>
@@ -1017,6 +1017,9 @@
 </template>
 
 <script>
+  const lesson = location.hash.replace('#', '').replace(/-.*$/, '');
+  console.log('Lesson: ', lesson);
+
   const left = document.querySelector('.weed-border-left');
   const right = document.querySelector('.weed-border-right');
 
@@ -1028,7 +1031,8 @@
       nextPage();
   });
 
-  let currentPage = parseInt(window.location.hash.replace('#', '')) || 0;
+  const pageHash = `#${lesson}-page`;
+  let currentPage = parseInt(location.hash.replace(/#[^0-9]+/, '')) || 0;
 
   const nextPage = () => {
       currentPage++;
@@ -1041,11 +1045,13 @@
   };
 
   const showCurrentPage = () => {
-      const page = document.querySelector('#lesson4-page' + currentPage);
+      const pageSelector = `#${lesson}-page${currentPage}`;
+      console.log('page selector', pageSelector);
+      const page = document.querySelector(pageSelector);
       const pageContent = document.querySelector('.page-content');
       pageContent.innerHTML = '';
       pageContent.append(page.cloneNode(true).content);
-      window.history.pushState('#page' + currentPage, 'page ' + currentPage, '#' + currentPage);
+      window.history.pushState('#page' + currentPage, 'page ' + currentPage, `#${pageSelector}`);
 
       const expectationsForm = document.querySelector('.expectations-form');
       if (expectationsForm) {
