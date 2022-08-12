@@ -27,7 +27,9 @@ const getQuestPoints = ({ skill, student }) => {
 };
 
 const getLecturePoints = ({ student, skill }) => {
-  return 0;
+  const allPoints = getAllLecturePoints();
+  const points = allPoints[student][skill.id] || 0;
+  return points;
 };
 
 const getAllLecturePoints = () => {
@@ -48,7 +50,6 @@ const getAllLecturePoints = () => {
       }
     }
   }
-  console.log('lecturePoints: ', points);
   return points;
 };
 
