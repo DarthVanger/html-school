@@ -28,8 +28,8 @@ export const lectures = [
     skills: ['functions'],
   },
   {
-    text: 'Основы JS: функции и переменные',
-    skills: ['functions', 'variables'],
+    text: 'Основы JS: функции и переменные. innerHTML. +=',
+    skills: ['functions', 'variables', 'innerHTML', '+='],
   },
   {
     text: 'Ноченаем делать игру: управление (keydown, click)',

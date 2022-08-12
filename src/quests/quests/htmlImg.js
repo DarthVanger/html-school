@@ -116,7 +116,7 @@ export const steps = [
   },
 ];
 
-const skills = ['img'];
+const skills = ['html-img'];
 
 const img = `
   <div class="quest-html-img">
