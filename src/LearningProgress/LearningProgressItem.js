@@ -11,6 +11,9 @@ export const LearningProgressItem = ({ item, idx }) => {
     <div class="item-text">
         УРОКЕ #${idx + 1}: ${item.text} 
     </div>
+    <a href="${item.url}">
+      СЛАЙДЫ
+    </a>
     <div class="item-skills">
         СКИЛЫ: ${item.skills.join(', ')} 
     </div>

@@ -5,8 +5,16 @@ import { LearningProgressItem } from './LearningProgressItem.js';
 export const LearningProgress = () => {
 
   const items = [
-    { text: 'ЗНОКОМСТВО - HTML: <h1>, <p>, <img>. CSS: h1, p.', skills: ['html-h1', 'html-p', 'html-img', 'css-h1-p'] },
-    { text: 'ССЫЛКЕ: <a href="...">, ВИДЕО: <video>', skills: ['html-a', 'html-video'] },
+    {
+      text: 'ЗНОКОМСТВО - HTML: <h1>, <p>, <img>. CSS: h1, p.',
+      skills: ['html-h1', 'html-p', 'html-img', 'css-h1-p'],
+      url: 'http://localhost:8080/src/slides.html#lesson1',
+    },
+    {
+      text: 'ССЫЛКЕ: <a href="...">, ВИДЕО: <video>',
+      skills: ['html-a', 'html-video'],
+      url: 'http://localhost:8080/src/slides.html#lesson2',
+    },
   ];
 
   items.forEach(it => {
