@@ -1,8 +1,7 @@
 import { Badge } from './Badge.js';
 import { QuestBadge } from './QuestBadge.js';
 import { LecturesBadge } from './LecturesBadge.js';
-import { getSkillLevel } from './stats.js';
-import { getQuestSkills } from '../quests/quests/quests.js';
+import { getSkillLevel, getQuestPoints } from './stats.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   console.debug('Rendering skill: ', skill);
@@ -45,29 +44,13 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
       level,
     });
 
-    const getCompletedQuests = () => {
-      const completedQuests = questPoints[student];
-      if (!completedQuests) return false;
-
-      const questsBySkill = [];
-
-      for (let q of completedQuests) {
-        const skills = getQuestSkills(q.id);
-        if (skills.includes(skill.id)) {
-          questsBySkill.push(q);
-        }
-      }
-
-      return questsBySkill;
-    };
-
-    const completedQuests = getCompletedQuests();
-
-    if (completedQuests?.length) {
+    const questBadgePoints = getQuestPoints({ ...state, skill });
+    console.debug('Skill(). Quest badge points: ', questBadgePoints);
+    if (questBadgePoints > 0) {
       html += QuestBadge({
         x: x - width,
         y,
-        points: completedQuests.length,
+        points: questBadgePoints,
       });
     }
 
