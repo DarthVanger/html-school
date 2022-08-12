@@ -42,5 +42,6 @@ export const lectures = [
   {
     text: 'ЭЭЭЭ КВАТОР!!! ПОЗДРАВЛЯЮ!!! :)',
     skills: ['бухич', 'дутьё'],
+    url: '/src/slides.html#lesson10',
   },
 ];
