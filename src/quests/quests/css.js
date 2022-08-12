@@ -218,7 +218,7 @@ export const steps = [
   },
 ];
 
-const skills = ['h1', 'p'];
+const skills = ['css-h1-p', 'css-color', 'css-font-size', 'css-border', 'css-width', 'css-height'];
 
 export default {
   story,

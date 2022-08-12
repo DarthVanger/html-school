@@ -42,7 +42,7 @@ export const getLecturePoints = (props) => {
   const {lecturePoints, student, skill} = props;
 
   console.debug('getLecturePoints. Props: ', props);
-  const points = lecturePoints[student][skill.id];
+  const points = lecturePoints[student][skill.id] || 0;
 
   return points;
 };

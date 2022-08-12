@@ -1,7 +1,7 @@
 export const lectures = [
   {
     text: 'ЗНОКОМСТВО - HTML: <h1>, <p>, <img>. CSS: h1, p.',
-    skills: ['html-h1', 'html-p', 'html-img', 'css-h1-p'],
+    skills: ['html-h1', 'html-p', 'html-img', 'css-h1-p', 'css-color'],
     url: 'http://localhost:8080/src/slides.html#lesson1',
   },
   {

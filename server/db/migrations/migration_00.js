@@ -18,15 +18,17 @@ export const migration_00 = async () => {
     css: [
       [
         { id: 'css-h1-p', text: 'h1, p', level: { johnny : 3, tony: 2, dimon: 2, }, },
-        { text: 'color', level: { johnny : 3, tony: 2, dimon: 3, }, },
-        { text: 'font\nsize', level: { johnny : 1, tony: 1, dimon: 1, }, },
-        { text: 'font\nfamily', level: { johnny : 0, tony: 0, dimon: 0, } },
+        { id: 'css-color', text: 'color' },
+        { id: 'css-font-size', text: 'font\nsize', level: { johnny : 1, tony: 1, dimon: 1, }, },
+        { id: 'css-font-family', text: 'font\nfamily', level: { johnny : 0, tony: 0, dimon: 0, } },
       ],
       [
-        { text: 'padding', level: { johnny : 1, tony: 1, dimon: 1, } },
-        { text: 'margin', level: { johnny : 1, tony: 1, dimon: 1, } },
-        { text: 'border', level: { johnny : 1, tony: 1, dimon: 1, } },
-        { id: 'position absolute', text: 'position\nasbolute', level: { johnny : 1, tony: 1, dimon: 1, } },
+        { id: 'css-padding', text: 'padding', level: { johnny : 1, tony: 1, dimon: 1, } },
+        { id: 'css-margin', text: 'margin', level: { johnny : 1, tony: 1, dimon: 1, } },
+        { id: 'css-border', text: 'border', level: { johnny : 1, tony: 1, dimon: 1, } },
+        { id: 'css-width', text: 'width' },
+        { id: 'css-height', text: 'height' },
+        { id: 'css-position-absolute', text: 'position\nasbolute', level: { johnny : 1, tony: 1, dimon: 1, } },
       ],
     ],
     js: [
