@@ -36,11 +36,16 @@ export const migration_00 = async () => {
         { id: 'style', text: 'style', level: { johnny: 2, tony: 1, dimon: 1, }, },
         { id: 'innerHTML', text: 'inner\nHTML', level: { johnny : 2, tony: 1, dimon: 1, }, },
         { id: 'querySelector', text: 'query\nSelector', level: { johnny : 2, tony: 1, dimon: 1, }, },
+        { id: 'console', text: 'console\log()', level: { johnny : 1, tony: 1, dimon: 1, }, },
       ],
       [
         { id: 'variables', text: 'var\niables', level: { johnny: 1, tony: 1, dimon: 1, }, },
         { id: 'functions', text: 'func\ntions', level: { johnny: 3, tony: 1, dimon: 2, }, },
         { id: '+=', text: '+=', level: { johnny: 1, tony: 1, dimon: 1, }, },
+        { id: 'event', text: 'event', level: { johnny: 1, tony: 1, dimon: 1, }, },
+        { id: 'click-event', text: 'click\nevent x/y', level: { johnny: 1, tony: 1, dimon: 1, }, },
+        { id: 'key-event', text: 'keydown\nkeyup', level: { johnny: 1, tony: 1, dimon: 1, }, },
+        { id: 'if-else', text: 'if () {}\nelse {}', level: { johnny: 1, tony: 1, dimon: 1, }, },
       ],
     ]
   };
