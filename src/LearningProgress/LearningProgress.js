@@ -8,11 +8,14 @@ export const LearningProgress = () => {
     it.text = it.text.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   });
 
-  element.innerHTML = '';
+  element.innerHTML = `
+    <h1>Learning Progress</h1>
+  `;
 
   lectures.forEach((item, idx) => {
     console.log('apend item: ', item);
-    element.append(LearningProgressItem({ item, idx }));
+    const isLastItem = (idx === lectures.length - 1);
+    element.append(LearningProgressItem({ item, idx, isLastItem }));
   });
 
   return element;

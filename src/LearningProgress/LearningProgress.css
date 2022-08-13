@@ -3,14 +3,50 @@ circle {
   stroke: black;
 }
 
+#learning-progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .learning-progress-item {
+  background: #eee;
+  color: #333;
+  padding: 1em 2em;
+  margin: 1em;
+  border-radius: 0.25em;
+  width: 1000px;
+  font-size: 1.2rem;
+  position: relative;
 }
 
 .learning-progress-item .item-text {
-  color: white;
+  margin: 0.5em;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.learning-progress-item a,
+.learning-progress-item a:link,
+.learning-progress-item a:visited,
+.learning-progress-item a:active {
+  text-decoration: none;
+  color: #196c92;
 }
 
 .learning-progress-item svg {
-  width: 50px;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
   height: 50px;
+  width: 5px;
 }
+
+.learning-progress-item svg line {
+  stroke: #3fd5ee;
+  stroke-width: 5px;
+  fill: none;
+}
+
+

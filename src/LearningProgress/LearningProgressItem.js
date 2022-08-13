@@ -1,5 +1,5 @@
 
-export const LearningProgressItem = ({ item, idx }) => {
+export const LearningProgressItem = ({ item, idx, isLastItem }) => {
   const element = document.createElement('div');
   element.className = 'learning-progress-item';
 
@@ -17,9 +17,11 @@ export const LearningProgressItem = ({ item, idx }) => {
     <div class="item-skills">
         СКИЛЫ: ${item.skills.join(', ')} 
     </div>
-    <svg>
-      <circle r="${r}" cx="${cx}" cy="${cy}" />
-    </svg>
+    ${!isLastItem && `
+      <svg>
+        <line x1="0" y1="0" x2="0" y2="100" />
+      </svg>
+    `}
   `;
 
   return element;
