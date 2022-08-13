@@ -1,3 +1,4 @@
+import { LectureSkills } from './LectureSkills.js';
 
 export const LearningProgressItem = ({ item, idx, isLastItem }) => {
   const element = document.createElement('div');
@@ -17,7 +18,7 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
       </a>
     ` || ''}
     <div class="item-skills">
-        СКИЛЫ: ${item.skills.join(', ')} 
+        СКИЛЫ: ${LectureSkills({skills: item.skills })}
     </div>
     ${!isLastItem && `
       <svg>
