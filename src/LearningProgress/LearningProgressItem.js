@@ -11,9 +11,11 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
     <div class="item-text">
         УРОКЕ #${idx + 1}: ${item.text} 
     </div>
-    <a href="${item.url}">
-      СЛАЙДЫ
-    </a>
+    ${item.url && `
+      <a href="${item.url}">
+        СЛАЙДЫ
+      </a>
+    ` || ''}
     <div class="item-skills">
         СКИЛЫ: ${item.skills.join(', ')} 
     </div>
@@ -21,7 +23,7 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
       <svg>
         <line x1="0" y1="0" x2="0" y2="100" />
       </svg>
-    `}
+    ` || ''}
   `;
 
   return element;
