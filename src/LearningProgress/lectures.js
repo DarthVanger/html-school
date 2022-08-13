@@ -44,4 +44,9 @@ export const lectures = [
     skills: ['бухич', 'дутьё'],
     url: '/src/slides.html#lesson10',
   },
+  {
+    text: 'Столкновение со стеной',
+    skills: ['if-else', 'functions', 'style'],
+    url: '/src/slides.html#lesson11',
+  },
 ];
