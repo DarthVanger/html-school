@@ -8,6 +8,10 @@ const code = `
 </script>
 `;
 
+const story = `
+  <h2>УС-ЛОВЕЯ (ЛО-ГЕКА)</h2>
+`;
+
 export const steps = [
   {
     task: `
