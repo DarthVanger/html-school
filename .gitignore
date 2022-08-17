@@ -1,6 +1,7 @@
 backup
 trash
 video
+source_video
 editing
 node_modules
 server/db/db.json
