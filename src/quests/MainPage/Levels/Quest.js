@@ -24,6 +24,8 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
     }
   );
 
+  console.log('completions: ', completions);
+
   const lastCompletion = completions?.sort((a, b) =>
     new Date(b) - new Date(a)
   )[0];
@@ -51,31 +53,31 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
 
   return `
     <div class="${cardClassName}" id=${id}>
-      <a class="${className}" href="#/quests/${id}">
-        ${imgSrc && `<img src="${imgSrc}" />` || ''}
-        ${img || ''}
-        <div class="quest-skills-list">
-          ${skills?.map(skill => `
-            <div class="quest-skill">
-              ${skill}
-            </div>
-          `).join('')}
-        </div>
-      </a>
-      <div class="quest-card-caption">
-        <div class="quest-title">${title}</div>
-        ${completions?.length && `
-          <div class="quest-card-footer">
-            <div class="completions">
-              ${completions.map(c => 
-                `Выполнено: ${displayDate(c.date)}<br>`
-              )}
-            </div>
-            <div class="curse">
-              Проклятье забвения через: ${getCurseDays(lastCompletion.date)} дней
-            </div>
+      <div class="left">
+        <a class="${className}" href="#/quests/${id}">
+          ${imgSrc && `<img src="${imgSrc}" />` || ''}
+          ${img || ''}
+          <div class="quest-skills-list">
+            ${skills?.map(skill => `
+              <div class="quest-skill">
+                ${skill}
+              </div>
+            `).join('')}
           </div>
-       `}
+        </a>
+        <div class="quest-card-caption">
+          <div class="quest-title">${title}</div>
+        </div>
+      </div>
+      <div class="right quest-card-completions">
+        <div class="completions">
+          ${completions?.map(c => 
+            `<div class="completion">Выполнено: ${displayDate(c.date)}</div>`
+          ).join('')}
+        </div>
+        <div class="curse">
+          Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
+        </div>
       </div>
     </div>
   `;

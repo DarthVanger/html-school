@@ -1,12 +1,17 @@
 .quest-card {
   --box-size: 250px;
-  width: var(--box-size);
+  width: 500px;
   border-radius: 4px;
   overflow: hidden;
   background: #eee;
   padding: var(--padding);
   margin: 32px;
   position: relative;
+  display: flex;
+}
+.quest-card .left,
+.quest-card .right {
+  width: 50%;
 }
 
 .quest-card a,
@@ -25,17 +30,16 @@
   justify-content: center;
 }
 
-.quest-card-footer {
-  position: absolute;
-  top: 0;
-  background: green;
-  color: #eee;
-  width: 100%;
-  text-align: center;
+.completion, .curse {
+  background: #4ed431;
+  color: #150404;
+  border-bottom: solid #333 2px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
 }
 
-.quest-card-footer .curse {
-  background: red;
+.quest-card-completions .curse {
+  background: #b437f3;
 }
 
 .quest {

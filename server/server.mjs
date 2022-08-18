@@ -62,34 +62,14 @@ app.post('/quest/:id', async (req, res) => {
   db.data.quests[student] = db.data.quests[student] || [];
   const studentQuests = db.data.quests[student];
 
-  const lastCompletion = studentQuests
-    .sort((a, b) => new Date(b) - new Date(a))
-    .find(q => q.id === id);
+   const now = new Date();
+   const questData = {
+     id,
+     date: now.toISOString(),
+     ip,
+   };
 
-  const lastCompletionIndex = studentQuests.indexOf(lastCompletion);
-
-  const now = new Date();
-  const questData = {
-    id,
-    date: now.toISOString(),
-    ip,
-  };
-
-  if (lastCompletion) {
-    const dateDiff = now.getTime() - (new Date(lastCompletion.date)).getTime();
-    const oneDay = 1000 * 60 * 60 * 24;
-
-    if (dateDiff < oneDay) {
-      console.debug(
-        `Student "${student}" has completed the same quest "${id}" ${dateDiff}ms ago, ` +
-        `which is less than 24 hours. Overwriting last completion.`
-      );
-      db.data.quests[student][lastCompletionIndex] = questData;
-    }
-  } else {
-    console.debug(`Student "${student}" has completed a new quest "${id}". Pushing quest to his completions.`);
-    db.data.quests[student].push(questData);
-  }
+  db.data.quests[student].push(questData);
 
   db.write();
 
