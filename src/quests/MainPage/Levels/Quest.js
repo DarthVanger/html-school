@@ -20,19 +20,15 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
     }
   );
 
-  console.log('completions: ', completions);
   const lastCompletion = completions?.length ? completions[completions.length - 1] : null;
 
-  console.log('last completion: ', lastCompletion);
 
   const isHomeworkDone = () => {
     if (lastCompletion) {
       const now = new Date();
       const lastCompletionDate = new Date(lastCompletion.date);
       const diffDays = (now - lastCompletionDate) / 1000 / 60 / 60 / 24;
-      console.debug('diffDays: ' ,diffDays);
       if (diffDays <= 7) {
-        console.log('returning true');
         return true;
       }
     }

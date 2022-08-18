@@ -12,7 +12,7 @@ const state = {
 export const Levels = (store) => {
   const setState = (newState) => {
     state.completedQuests = newState.completedQuests;
-    Levels();
+    Levels(store);
   };
 
   console.log('state.completedQuests: ', state.completedQuests);
