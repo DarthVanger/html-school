@@ -7,8 +7,7 @@ import quests from '../../quests/quests.js';
 const element = document.createElement('div');
 element.id = 'levels';
 const state = {
-  completedQuests: null,
-};
+  completedQuests: null, };
 export const Levels = (store) => {
   const setState = (newState) => {
     state.completedQuests = newState.completedQuests;
@@ -134,6 +133,7 @@ export const Levels = (store) => {
         })}
       </div>
 
+      ${  /*
       <div class="quest-list">
         ${Quest({
           ...quests.shipMotion,
@@ -142,12 +142,13 @@ export const Levels = (store) => {
           ...extraProps(quests.shipMotion),
         })}
 
-        ${/* Quest({
+         Quest({
           ...quests.velocity,
           title: 'СПИДЫ - ФИЗЕКА',
           imgSrc: 'src/quests/img/velocity.gif',
           ...extraProps(quests.velocity),
-        }) */ ''}
+        })
+      */ ''}
       </div>
     </div>
   `;
