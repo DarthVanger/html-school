@@ -4,7 +4,7 @@ import { applyMigrations } from './db/migrations/apply.js';
 
 import express from 'express'
 const app = express()
-const port = process.env.port || 8080
+const port = process.env.port || 8081
 
 app.use(express.static('./'))
 app.use(express.json());
