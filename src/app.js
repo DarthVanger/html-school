@@ -19,15 +19,6 @@ addEventListener('popstate', (event) => {
   //console.log('popstate: ', event);
 });
 
-window.addEventListener('hashchange', function(e) {
-  //console.log('hashchange o: ', e.oldURL);
-  //console.log('hashchange n: ', e.newURL);
-  if (location.hash.match(/^#\//)) {
-    //history.replaceState(null, null, e.oldURL);
-    //history.pushState(null, null, location.hash);
-  }
-});
-
 const updateRouteInHash = (route) => {
   console.log('Update route in hash:' , route);
   location.hash = '#' + route;

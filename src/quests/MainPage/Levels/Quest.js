@@ -1,6 +1,6 @@
 import quests from '../../quests/quests.js';
 
-export const Quest = ({ id, imgSrc, title, completions }) => {
+export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
   const getElement = () => document.querySelector(`#${id}`);
   const quest = quests[id];
   let className = 'quest';
@@ -24,12 +24,9 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
     }
   );
 
-  console.log('completions: ', completions);
-
   const lastCompletion = completions?.sort((a, b) =>
     new Date(b) - new Date(a)
   )[0];
-
 
   const getCurseDays = (dateString) => {
     const oneDay = 1000 * 60 * 60 * 24;
@@ -48,8 +45,11 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
   setTimeout(() => {
     const codes = getElement().querySelectorAll('code');
     codes.forEach(c => Prism.highlightElement(c));
-  });
 
+    getElement().addEventListener('click', () => {
+      onClick(id);
+    });
+  });
 
   return `
     <div class="${cardClassName}" id=${id}>

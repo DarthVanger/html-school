@@ -3,12 +3,12 @@ import { Story } from './Story.js';
 
 const element = document.createElement('div');
 element.id = 'main-page';
-export const MainPage = () => {
+export const MainPage = (state) => {
   element.innerHTML = `
-    ${Story()}
+    ${Story(state)}
   `;
 
-  element.append(Levels());
+  element.append(Levels(state));
 
   return element;
 };

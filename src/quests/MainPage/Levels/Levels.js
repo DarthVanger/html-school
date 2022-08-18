@@ -9,12 +9,13 @@ element.id = 'levels';
 const state = {
   completedQuests: null,
 };
-export const Levels = () => {
+export const Levels = (store) => {
   const setState = (newState) => {
     state.completedQuests = newState.completedQuests;
     Levels();
   };
 
+  console.log('state.completedQuests: ', state.completedQuests);
   if (!state.completedQuests) {
     setTimeout(async () => {
       const completedQuests = await getCompletedQuests({ student: getStudent() });
@@ -32,6 +33,10 @@ export const Levels = () => {
   const extraProps = (q) => ({
     isCompleted: isQuestCompleted(q),
     completions: getCompletions(q),
+    store,
+    onClick: () => {
+      state.completedQuests = null;
+    }
   });
 
   const html = `

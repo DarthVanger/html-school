@@ -1,3 +1,3 @@
 import { MainPage } from './MainPage/MainPage.js';
 
-export const QuestsPage = () => MainPage();
+export const QuestsPage = (state) => MainPage(state);
