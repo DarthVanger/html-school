@@ -1,1 +1,1 @@
-ffmpeg -i out.mp4 -ss 27 -t 212 out/cut.mp4
+ffmpeg -i out.mp4 -ss 27.5 -t 211 out/cut.mp4

@@ -10,6 +10,33 @@ const code = `
 
 const story = `
   <h2>УС-ЛОВЕЯ (ЛО-ГЕКА)</h2>
+
+  <figure>
+    <video controls>
+      <source type="video/mp4" src="/video/conditionals-lecture.mp4" />
+    </video>
+    <figcaption>
+      Твоя Бабуля объясняет как в JavaScript делается Decision Making - т.е. <code>if { ... } else { ...} </code>
+    </figcaption>
+  </figure>
+
+  <h3>Как это объяснить хз)) - Ну Логека, Условея...</h3>
+
+  <figure>
+    <img src="src/quests/img/conditionals.jpeg" />
+    <figcaption>
+      Ну смысл вот собсно)
+    </figcaption>
+  </figure>
+
+  <h3>Главное - правильно расставить СКОБКЕ )</h3>
+
+  <figure>
+    <img src="src/slides/img/js-conditionals-syntax.png" />
+    <figcaption>
+      СКОБКЕ Главное правильно поставить) - СИНТОКСИС так скозать )
+    </figcaption>
+  </figure>
 `;
 
 export const steps = [
@@ -110,6 +137,7 @@ export const steps = [
 const skills = ['if-else', 'innerHTML'];
 
 export default {
+  story,
   code,
   steps,
   skills,
