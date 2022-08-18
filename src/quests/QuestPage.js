@@ -1,7 +1,6 @@
 import { Mentor } from './mentor.js';
 import { napaleon } from './napaleon.js';
 import quests from './quests/quests.js';
-import { logCodeRun } from './api.js';
 import { saveCaretPosition } from './utils.js';
 import { QuestStory } from './QuestStory.js';
 
