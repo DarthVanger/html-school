@@ -24,9 +24,10 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
     }
   );
 
-  const lastCompletion = completions?.sort((a, b) =>
-    new Date(b) - new Date(a)
-  )[0];
+  console.log('completions: ', completions);
+  const lastCompletion = completions?.length ? completions[completions.length - 1] : null;
+
+  console.log('last completion: ', lastCompletion);
 
   const getCurseDays = (dateString) => {
     const oneDay = 1000 * 60 * 60 * 24;
