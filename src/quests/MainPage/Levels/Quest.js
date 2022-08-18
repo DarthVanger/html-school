@@ -75,9 +75,16 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
             `<div class="completion">Выполнено: ${displayDate(c.date)}</div>`
           ).join('')}
         </div>
-        <div class="curse">
-          Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
-        </div>
+        ${lastCompletion && `
+          <div class="curse">
+            Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
+          </div>
+        ` || ''}
+        ${!lastCompletion && `
+          <div class="curse">
+            Не знав та й забув
+          </div>
+        ` || ''}
       </div>
     </div>
   `;

@@ -14,6 +14,10 @@
   width: 50%;
 }
 
+.quest-card .left {
+  box-shadow: 2px 2px 2px #888;
+}
+
 .quest-card a,
 .quest-card a:visited,
 .quest-card a:hover,
