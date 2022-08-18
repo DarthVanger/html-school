@@ -117,9 +117,9 @@ export const QuestPage = ({ questId }) => {
     //getEditor().focus();
     getRunButton().addEventListener('click', () => {
       run();
+      highlight();
       //getEditor().focus();
     });
-    getEditor().addEventListener('keyup', debouncedHighlight);
     highlight();
 
     // Preserve line breaks
