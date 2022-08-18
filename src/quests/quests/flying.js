@@ -68,4 +68,5 @@ export default {
   steps,
   skills,
   id,
+  status: 'homework',
 };

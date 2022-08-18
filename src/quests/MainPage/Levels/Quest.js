@@ -4,9 +4,14 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
   const getElement = () => document.querySelector(`#${id}`);
   const quest = quests[id];
   let className = 'quest';
+  let cardClassName = 'quest-card';
   const isCompleted = completions?.length > 0;
   if (isCompleted) {
     className += ' is-completed';
+  }
+
+  if (quest.status) {
+    cardClassName += ` status-${quest.status}`;
   }
 
   const { skills, img } = quest;
@@ -45,7 +50,7 @@ export const Quest = ({ id, imgSrc, title, completions }) => {
 
 
   return `
-    <div class="quest-card" id=${id}>
+    <div class="${cardClassName}" id=${id}>
       <a class="${className}" href="#/quests/${id}">
         ${imgSrc && `<img src="${imgSrc}" />` || ''}
         ${img || ''}
