@@ -1,6 +1,6 @@
 #bottom-bar {
   --size: 200px;
-  position: absolute;
+  position: fixed;
   bottom: calc(-1 * var(--size) / 2);
   left: calc(-1 * var(--size) / 2);
   bottom: 0;
