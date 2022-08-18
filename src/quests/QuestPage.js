@@ -1,5 +1,4 @@
 import { Mentor } from './mentor.js';
-import { napaleon } from './napaleon.js';
 import quests from './quests/quests.js';
 import { saveCaretPosition } from './utils.js';
 import { QuestStory } from './QuestStory.js';
@@ -113,11 +112,9 @@ export const QuestPage = ({ questId }) => {
     setCode(quest.code);
     element.append(Mentor({ quest, addCodeRunListener }));
     console.log('focus pocus :)');
-    //getEditor().focus();
     getRunButton().addEventListener('click', () => {
       run();
       highlight();
-      //getEditor().focus();
     });
     highlight();
 
@@ -146,10 +143,4 @@ const highlight = () => {
     const codes = getStory().querySelectorAll('code');
     codes.forEach(c => Prism.highlightElement(c));
   }
-};
-
-let timeoutId;
-const debouncedHighlight = () => {
-  if (timeoutId) clearTimeout(timeoutId);
-  timeoutId = setTimeout(highlight, 1000);
 };
