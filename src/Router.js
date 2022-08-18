@@ -6,6 +6,7 @@ import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
+import { Topbar } from './Topbar.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -33,7 +34,9 @@ export const Router = (state) => {
 //      element.append(HomeworkPage(state));
 //      break;
     case '/progress':
-      element.innerHTML = '';
+      element.innerHTML = `
+        ${Topbar({ backUrl: '/#/', surface: 'black' })}
+    `
       element.append(LearningProgress(state));
       break;
     case state.route.match(/[/]quests[/]/)?.input:
