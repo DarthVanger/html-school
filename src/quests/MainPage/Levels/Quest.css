@@ -150,6 +150,10 @@
     0 0 140px 90px #0ff; /* outer orange */
 }
 
+.status-homework-done {
+  border: green solid 4px;
+}
+
 .status-forgotten {
   box-shadow:
     0 0 60px 30px #fff,  /* inner white */

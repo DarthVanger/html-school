@@ -10,10 +10,6 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
     className += ' is-completed';
   }
 
-  if (quest.status) {
-    cardClassName += ` status-${quest.status}`;
-  }
-
   const { skills, img } = quest;
 
   const displayDate = (d) => (new Date(d)).toLocaleString(
@@ -28,6 +24,28 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
   const lastCompletion = completions?.length ? completions[completions.length - 1] : null;
 
   console.log('last completion: ', lastCompletion);
+
+  const isHomeworkDone = () => {
+    if (lastCompletion) {
+      const now = new Date();
+      const lastCompletionDate = new Date(lastCompletion.date);
+      const diffDays = (now - lastCompletionDate) / 1000 / 60 / 60 / 24;
+      console.debug('diffDays: ' ,diffDays);
+      if (diffDays <= 7) {
+        console.log('returning true');
+        return true;
+      }
+    }
+    return false
+  }
+
+  if (quest.status) {
+    let status = quest.status;
+    if (quest.status === 'homework' && isHomeworkDone()) {
+      status = 'homework-done';
+    }
+    cardClassName += ` status-${status}`;
+  }
 
   const getCurseDays = (dateString) => {
     const oneDay = 1000 * 60 * 60 * 24;
