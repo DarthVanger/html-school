@@ -94,6 +94,8 @@ export const Levels = () => {
           imgSrc: 'src/quests/img/variables.png',
           ...extraProps(quests.variables),
         })}
+      </div>
+      <div class="quest-list">
         ${Quest({
           ...quests.functionParameters,
           title: "Параметры ФукцеЙ - Продвинутые Фукцеи - и это База)))",
@@ -125,7 +127,9 @@ export const Levels = () => {
           imgSrc: 'src/quests/img/walls.gif',
           ...extraProps(quests.walls),
         })}
+      </div>
 
+      <div class="quest-list">
         ${Quest({
           ...quests.shipMotion,
           title: 'КОПЕТАН! ПОЛЕТЕЛИ!',
