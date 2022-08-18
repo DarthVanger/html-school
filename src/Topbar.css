@@ -2,6 +2,7 @@
   height: var(--topbar-height);
   line-height: var(--topbar-height);
   padding-left: 1rem;
+  padding-top: 0.5rem;
   --font-size: 1.2rem;
   font-size: var(--font-size);
 }
@@ -14,11 +15,17 @@
 
 a.back-button {
   text-decoration: none;
-  color: blue;
+  color: #0c6cb8;
   letter-spacing: 1px;
 }
 
 .back-button-icon {
   height: var(--font-size);
   padding-right: 0.5rem;
+}
+
+#topbar.surface-black .back-button {
+  background: #eee;
+  padding: 0.5rem;
+  border-radius: 2px;
 }
