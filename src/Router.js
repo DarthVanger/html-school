@@ -7,6 +7,7 @@ import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 import { Topbar } from './Topbar.js';
+import { BottomBar } from './BottomBar.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -36,7 +37,9 @@ export const Router = (state) => {
     case '/progress':
       element.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
-    `
+        ${BottomBar(state)}
+      `;
+
       element.append(LearningProgress(state));
       break;
     case state.route.match(/[/]quests[/]/)?.input:
