@@ -40,6 +40,8 @@ export const Router = (state) => {
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
         ${BottomBar(state)}
       `;
+      element.append(LearningProgress(state));
+      break;
 
     case '/quiz':
       const topbar = document.createElement('div');
