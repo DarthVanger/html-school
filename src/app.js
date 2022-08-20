@@ -47,6 +47,7 @@ const setState = (newState) => {
 };
 
 const handleHashChange = () => {
+  console.log('hash change: ', getRouteFromHash());
   setState({ route: getRouteFromHash() });
 };
 

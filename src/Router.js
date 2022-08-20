@@ -1,3 +1,5 @@
+import { Topbar } from './Topbar.js';
+import { BottomBar } from './BottomBar.js';
 import { Login } from './Login.js';
 import { HomePage } from './HomePage/HomePage.js';
 import { NotFoundPage } from './NotFoundPage.js';
@@ -5,9 +7,8 @@ import { Skills } from './skills/skills.js';
 import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
+import { QuizPage } from './Quiz/QuizPage.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
-import { Topbar } from './Topbar.js';
-import { BottomBar } from './BottomBar.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -40,8 +41,18 @@ export const Router = (state) => {
         ${BottomBar(state)}
       `;
 
-      element.append(LearningProgress(state));
+    case '/quiz':
+      const topbar = document.createElement('div');
+      topbar.innerHTML = `${Topbar({ backUrl: '/#/', surface: 'black' })}`;
+      const bottomBar = document.createElement('div');
+      bottomBar.innerHTML = `${BottomBar(state)}`;
+
+      element.innerHTML = '';
+      element.append(topbar);
+      element.append(QuizPage(state));
+      element.append(bottomBar);
       break;
+
     case state.route.match(/[/]quests[/]/)?.input:
     case state.route.match(/[/]quests[/]/)?.input:
       const questId = state.route.match(/[/]quests[/]([^/]+)/)[1];

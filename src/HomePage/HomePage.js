@@ -33,7 +33,7 @@ export const HomePage = (state) => `
           </a>
         </article>
         <article>
-          <h3>ЗОДАНИЯ</h3>
+          <h3>ЗОДАНЕЯ</h3>
           <a href="#/quests">
             <img src="src/HomePage/lessons.gif" />
           </a>
@@ -42,6 +42,12 @@ export const HomePage = (state) => `
           <h3>ПРОГРЕС</h3>
           <a href="#/progress">
             <img src="src/LearningProgress/learning-progress.png" />
+          </a>
+        </article>
+        <article>
+          <h3>ЭКЗАМЕНЫ</h3>
+          <a href="#/quiz">
+            <img src="src/Quiz/quiz.jpg" />
           </a>
         </article>
       </section>
