@@ -24,6 +24,7 @@ export const AnswerVariants = () => {
   element.append(AnswerVariant({children: `
    <pre><code>
     x: 3
+    y: 0
     z: 11
     </code></pre>
    `}));
@@ -31,6 +32,7 @@ export const AnswerVariants = () => {
   element.append(AnswerVariant({children: `
    <pre><code>
     x: 3
+    y: 0
     z: 20
     </code></pre>
    `}));
