@@ -1,34 +1,21 @@
 import { Panel } from '../Quests/MainPage/Panel.js';
 
-export const AnswerVariant = ({children}) => {
+export const AnswerVariant = ({children, onClick, isSelected}) => {
   let id = `answer-variant-${Math.round(Math.random() * 1000)}`
   let element = document.createElement('div');
   element.id = id;
-  let state = {};
 
   const getElement = () => {
     return document.querySelector(`#${id}`);
   };
 
-  const setState = (newState) => {
-    state.isSelected = newState.isSelected;
-    render();
-  };
-
-  const handleClick = () => {
-    setState({
-      isSelected: !state.isSelected,
-    });
-  };
-
   setTimeout(() => {
-    getElement().addEventListener('click', handleClick);
+    getElement().addEventListener('click', onClick);
 
   });
 
   const render = () => {
-    console.log('render, state: ',state);
-    const statusClass = state.isSelected ? 'is-selected' : '';
+    const statusClass = isSelected ? 'is-selected' : '';
     console.log('status: ', statusClass);
     (getElement() || element).className = 'answer-variant ' + statusClass;
 
