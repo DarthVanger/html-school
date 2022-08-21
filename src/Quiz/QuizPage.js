@@ -1,3 +1,5 @@
+import { VariablesLecture } from './Variables/VariablesLecture.js';
+
 const element = document.createElement('div');
 element.id = "quiz-page";
 
@@ -10,13 +12,7 @@ export const QuizPage = () => {
       </video>
     </figure>
     <h3>Variables (рус. - перменные, укр. - змінні, сурж. - перменні)</h3>
-
-    <figure>
-      <video controls>
-      <source src="/video/variables-lecture.mp4" type="video/mp4" />
-      </video>
-      <figcaption>Variables lecture</figcaption>
-    </figure>
+    ${VariablesLecture()}
 
     <figure>
       <video controls>

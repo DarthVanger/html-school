@@ -46,13 +46,10 @@ export const Router = (state) => {
     case '/quiz':
       const topbar = document.createElement('div');
       topbar.innerHTML = `${Topbar({ backUrl: '/#/', surface: 'black' })}`;
-      const bottomBar = document.createElement('div');
-      bottomBar.innerHTML = `${BottomBar(state)}`;
 
       element.innerHTML = '';
       element.append(topbar);
       element.append(QuizPage(state));
-      element.append(bottomBar);
       break;
 
     case state.route.match(/[/]quests[/]/)?.input:
