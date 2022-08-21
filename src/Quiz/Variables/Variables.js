@@ -1,4 +1,4 @@
-import { AnswerVariant } from '../AnswerVariant.js';
+import { AnswerVariants } from '../AnswerVariants.js';
 const element = document.createElement('div');
 element.className = 'quiz';
 
@@ -17,39 +17,8 @@ export const Variables = () => {
       </code></pre>
       <p>Which of the following correctly depicts the state of the program after these statements are executed?
 
-    <div class="answer-variants">
-      ${AnswerVariant({children: `
-        <pre><code>
-          x: 3
-          y: undefined
-          z: 11
-        </code></pre>
-        `,
-        correct: true,
-      })}
-
-      ${AnswerVariant({children: `
-        <pre><code>
-          x: 3
-          y: undefined
-          z: 20
-        </code></pre>
-      `})}
-
-      ${AnswerVariant({children: `
-        <pre><code>
-          x: 3
-          z: 11
-        </code></pre>
-      `})}
-
-      ${AnswerVariant({children: `
-        <pre><code>
-          x: 3
-          z: 20
-        </code></pre>
-      `})}
-      </div>
+    <article class="answer-variants">
+      ${AnswerVariants()}
     </article>
 
     <h3>Фізика 8й клас</h3>

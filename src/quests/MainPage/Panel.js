@@ -1,7 +1,7 @@
-export const Panel = ({ children }) => {
+export const Panel = ({ children, className, onClick }) => {
 
   return `
-    <div class="panel">
+    <div class="panel ${className}">
       <div class="panel-content">
         ${children}
       </div>
