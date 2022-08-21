@@ -50,6 +50,14 @@ export const HomePage = (state) => `
             <img src="src/Quiz/quiz.jpg" />
           </a>
         </article>
+        <!--
+        <article>
+          <h3>КУРСАЧИ</h3>
+          <a href="#/coursework">
+            <img src="src/Courserwork/courserwork.jpeg" />
+          </a>
+        </article>
+        -->
       </section>
     </div>
 
