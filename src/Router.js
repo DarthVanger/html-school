@@ -8,7 +8,7 @@ import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
 import { QuizPage } from './Quiz/QuizPage.js';
-import { CourserworkPage } from './Courserwork/CourserworkPage.js';
+//import { CourseworkPage } from './Courserwork/CourseworkPage.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 
 const element = document.createElement('div');
@@ -53,13 +53,13 @@ export const Router = (state) => {
       element.append(QuizPage(state));
       break;
 
-    case '/coursework':
-      element.innerHTML = '';
-      element.innerHTML = `
-        ${Topbar({ backUrl: '/#/', surface: 'black' })}
-      `;
-      element.append(CourserworkPage(state));
-      break;
+//    case '/coursework':
+//      element.innerHTML = '';
+//      element.innerHTML = `
+//        ${Topbar({ backUrl: '/#/', surface: 'black' })}
+//      `;
+//      element.append(CourseworkPage(state));
+//      break;
 
     case state.route.match(/[/]quests[/]/)?.input:
     case state.route.match(/[/]quests[/]/)?.input:
