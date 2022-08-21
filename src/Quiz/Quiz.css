@@ -1,0 +1,23 @@
+.quiz-item {
+}
+
+.quiz-item pre {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.quiz-item .answer-variants {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  align-items: center;
+  grid-row-gap: 4rem;
+}
+
+.quiz-item .panel {
+  background: none;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
