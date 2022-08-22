@@ -17,25 +17,24 @@ export const Variables = () => {
     let i = 0;
     for (let q of state.questions) {
       console.debug('q: ', q);
+      console.debug('cor ans q: ', correctAnswers[i]);
       state.results[i] = (q === correctAnswers[i]);
+      i++;
     }
     console.info('results', state.results);
 
     state.isQuizFailed = state.results[0] === false;
 
-    console.info('Quiz failed');
+    if (state.isQuizFailed) {
+      console.info('Quiz failed');
+    } else {
+      console.info('Quiz Succeeded!');
+    }
+
 
     render();
 
   };
-
-  setTimeout(() => {
-    const codes = document.querySelectorAll('.quiz code');
-    codes.forEach(c => Prism.highlightElement(c));
-
-    const submitButton = document.querySelector('#quiz-submit');
-    submitButton.addEventListener('click', handleQuizSubmit);
-  });
 
   const handleVariantChange = ({question, selectedVariant }) => {
     const prev = state.questions[question];
@@ -62,7 +61,7 @@ export const Variables = () => {
         ${AnswerVariants({
           selectedVariant: state.questions[0],
           onChange: (selectedVariant) => handleVariantChange({ question: 0, selectedVariant }),
-          isCorrect: state.results[0],
+          isSelectedCorrect: state.results[0],
         })}
       </article>
 
@@ -85,6 +84,15 @@ export const Variables = () => {
       <article>
       </article>
     `;
+
+    setTimeout(() => {
+      const codes = document.querySelectorAll('.quiz code');
+      codes.forEach(c => Prism.highlightElement(c));
+
+      const submitButton = document.querySelector('#quiz-submit');
+      submitButton.addEventListener('click', handleQuizSubmit);
+    });
+
   }
 
   render();

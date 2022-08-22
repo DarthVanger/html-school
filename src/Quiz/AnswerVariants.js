@@ -1,20 +1,30 @@
 import { AnswerVariant } from './AnswerVariant.js';
 
-export const AnswerVariants = ({ selectedVariant, onChange }) => {
+export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect }) => {
+  console.info('[AnswerVariants]. isSelectedCorrect: ', isSelectedCorrect);
   const element = document.createElement('article');
 
   console.debug('AnswerVariants render. SelectedVariant: ', selectedVariant);
 
-  element.append(AnswerVariant({children: `
-    <pre><code>
-      x: 3
-      y: undefined
-      z: 11
-    </code></pre>
-    `,
-    isSelected: selectedVariant === 0,
-    onClick: () => onChange(0),
-  }));
+  const getSharedProps = (idx) => {
+    const isSelected = selectedVariant === idx;
+    const isCorrect = isSelected && isSelectedCorrect;
+    return {
+      isSelected,
+      isCorrect,
+      onClick: () => onChange(idx),
+    };
+  };
+
+    element.append(AnswerVariant({children: `
+      <pre><code>
+        x: 3
+        y: undefined
+        z: 11
+      </code></pre>
+      `,
+      ...getSharedProps(0),
+    }));
 
   element.append(AnswerVariant({children: `
     <pre><code>
@@ -23,8 +33,7 @@ export const AnswerVariants = ({ selectedVariant, onChange }) => {
       z: 20
       </code></pre>
    `,
-    isSelected: selectedVariant === 1,
-    onClick: () => onChange(1),
+      ...getSharedProps(1),
   }));
 
   element.append(AnswerVariant({children: `
@@ -34,8 +43,7 @@ export const AnswerVariants = ({ selectedVariant, onChange }) => {
      z: 11
      </code></pre>
     `,
-     isSelected: selectedVariant === 2,
-    onClick: () => onChange(2),
+    ...getSharedProps(2),
   }));
 
   element.append(AnswerVariant({children: `
@@ -45,8 +53,7 @@ export const AnswerVariants = ({ selectedVariant, onChange }) => {
      z: 20
      </code></pre>
     `,
-     isSelected: selectedVariant === 3,
-    onClick: () => onChange(3),
+    ...getSharedProps(3),
   }));
 
   return element.innerHTML;

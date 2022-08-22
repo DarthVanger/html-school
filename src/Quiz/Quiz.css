@@ -29,6 +29,10 @@
   filter: brightness(2) hue-rotate(0deg);
 }
 
+.quiz-item .answer-variant.is-correct .panel-content {
+  filter: brightness(1.3) hue-rotate(263deg);
+}
+
 .quiz-item .panel {
   background: none;
   padding: 0;
