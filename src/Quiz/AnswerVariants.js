@@ -1,6 +1,6 @@
 import { AnswerVariant } from './AnswerVariant.js';
 
-export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect }) => {
+export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect, isQuizSubmitted }) => {
   console.info('[AnswerVariants]. isSelectedCorrect: ', isSelectedCorrect);
   const element = document.createElement('article');
 
@@ -8,10 +8,12 @@ export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect })
 
   const getSharedProps = (idx) => {
     const isSelected = selectedVariant === idx;
-    const isCorrect = isSelected && isSelectedCorrect;
+    const isCorrect = isQuizSubmitted && isSelected && isSelectedCorrect;
+    const isWrong = isQuizSubmitted && isSelected && !isSelectedCorrect;
     return {
       isSelected,
       isCorrect,
+      isWrong,
       onClick: () => onChange(idx),
     };
   };

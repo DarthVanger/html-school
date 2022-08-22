@@ -1,6 +1,6 @@
 import { Panel } from '../Quests/MainPage/Panel.js';
 
-export const AnswerVariant = ({children, onClick, isSelected, isCorrect}) => {
+export const AnswerVariant = ({children, onClick, isSelected, isCorrect, isWrong}) => {
   let id = `answer-variant-${Math.round(Math.random() * 1000)}`
   let element = document.createElement('div');
   element.id = id;
@@ -21,6 +21,9 @@ export const AnswerVariant = ({children, onClick, isSelected, isCorrect}) => {
     }
     if (isCorrect) {
       statusClass += ' is-correct';
+    }
+    if (isWrong) {
+      statusClass += ' is-wrong';
     }
 
     console.log('status: ', statusClass);

@@ -26,11 +26,15 @@
 }
 
 .quiz-item .answer-variant.is-selected .panel-content {
-  filter: brightness(2) hue-rotate(0deg);
+  filter: brightness(2) hue-rotate(0deg) saturate(2);
 }
 
 .quiz-item .answer-variant.is-correct .panel-content {
-  filter: brightness(1.3) hue-rotate(263deg);
+  filter: brightness(1.5) hue-rotate(263deg) saturate(2);
+}
+
+.quiz-item .answer-variant.is-wrong .panel-content {
+  filter: brightness(1) hue-rotate(110deg) saturate(2);
 }
 
 .quiz-item .panel {

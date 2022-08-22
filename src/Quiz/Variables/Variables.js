@@ -62,6 +62,7 @@ export const Variables = () => {
           selectedVariant: state.questions[0],
           onChange: (selectedVariant) => handleVariantChange({ question: 0, selectedVariant }),
           isSelectedCorrect: state.results[0],
+          isQuizSubmitted: state.results.length > 0,
         })}
       </article>
 
