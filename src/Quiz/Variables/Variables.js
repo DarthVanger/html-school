@@ -1,4 +1,5 @@
 import { AnswerVariants } from '../AnswerVariants.js';
+import { Results } from './Results.js';
 const element = document.createElement('div');
 element.className = 'quiz';
 
@@ -7,6 +8,7 @@ const correctAnswers = [0, 1, 2, 3];
 let state = {
   questions: [-1, -1, -1, -1],
   results: [],
+  isQuizFailed: false,
 };
 
 export const Variables = () => {
@@ -18,6 +20,13 @@ export const Variables = () => {
       state.results[i] = (q === correctAnswers[i]);
     }
     console.info('results', state.results);
+
+    state.isQuizFailed = state.results[0] === false;
+
+    console.info('Quiz failed');
+
+    render();
+
   };
 
   setTimeout(() => {
@@ -58,6 +67,10 @@ export const Variables = () => {
       </article>
 
       <button type="button" id="quiz-submit">SUBMIT</button>
+
+      <h2>РЕЗУЛЬТАТИ ОЦІНЮВАННЯ</h2>
+
+      ${Results(state)}
 
       <h3>Фізика 8й клас</h3>
       <!-- A picture of 8 class kids xD -->
