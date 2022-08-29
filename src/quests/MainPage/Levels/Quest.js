@@ -28,10 +28,10 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
     const codes = getElement()?.querySelectorAll('code');
     codes?.forEach(c => Prism.highlightElement(c));
 
-    getElement()?.addEventListener('click', () => {
+    getElement()?.addEventListener('click', (e) => {
       onClick(id);
     });
-  });
+  }, 100);
 
   return `
     <a href="#/quests/${id}" class="${cardClassName}" id=${id}>

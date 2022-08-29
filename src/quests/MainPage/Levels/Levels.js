@@ -26,7 +26,6 @@ export const Levels = (store) => {
     });
   }
 
-  console.log('state.completedQuests: ', state.completedQuests);
   const getCompletions = (quest) => state.completedQuests?.filter(q => q.id === quest.id);
   const isQuestCompleted = (quest) => Boolean(getCompletions(quest));
 
