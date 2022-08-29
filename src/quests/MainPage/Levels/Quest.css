@@ -138,16 +138,16 @@
  */
 .status-new {
   box-shadow:
-    0 0 60px 30px #fff,  /* inner white */
-    0 0 100px 60px #0f0, /* middle green */
-    0 0 140px 90px #0ff; /* outer orange */
+    0 0 10px 2px #fff,  /* inner white */
+    0 0 20px 4px #0f0, /* middle green */
+    0 0 30px 6px #0ff; /* outer orange */
 }
 
 .status-homework {
   box-shadow:
-    0 0 60px 30px #fff,  /* inner white */
-    0 0 100px 60px #00f, /* middle blue */
-    0 0 140px 90px #0ff; /* outer orange */
+    0 0 10px 2px #fff,  /* inner white */
+    0 0 20px 4px #00f, /* middle blue */
+    0 0 30px 6px #0ff; /* outer orange */
 }
 
 .status-homework-done {
@@ -156,7 +156,7 @@
 
 .status-forgotten {
   box-shadow:
-    0 0 60px 30px #fff,  /* inner white */
-    0 0 100px 60px #f00, /* middle red */
-    0 0 140px 90px #f00; /* outer red */
+    0 0 10px 2px #fff,  /* inner white */
+    0 0 20px 4px #f00, /* middle red */
+    0 0 30px 6px #f00; /* outer red */
 }
