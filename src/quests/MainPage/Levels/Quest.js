@@ -1,14 +1,12 @@
 import quests from '../../quests/quests.js';
+import { getLastCompletion, getCurseDays, getQuestStatus } from './questStatus.js';
 
 export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
   const getElement = () => document.querySelector(`#${id}`);
   const quest = quests[id];
   let className = 'quest';
   let cardClassName = 'quest-card';
-  const isCompleted = completions?.length > 0;
-  if (isCompleted) {
-    className += ' is-completed';
-  }
+
 
   const { skills, img } = quest;
 
@@ -20,48 +18,16 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
     }
   );
 
-  const lastCompletion = completions?.length ? completions[completions.length - 1] : null;
+  const lastCompletion = getLastCompletion(completions);
 
-
-  const isHomeworkDone = () => {
-    if (lastCompletion) {
-      const now = new Date();
-      const lastCompletionDate = new Date(lastCompletion.date);
-      const diffDays = (now - lastCompletionDate) / 1000 / 60 / 60 / 24;
-      if (diffDays <= 7) {
-        return true;
-      }
-    }
-    return false
-  }
-
-  if (quest.status) {
-    let status = quest.status;
-    if (quest.status === 'homework' && isHomeworkDone()) {
-      status = 'homework-done';
-    }
-    cardClassName += ` status-${status}`;
-  }
-
-  const getCurseDays = (dateString) => {
-    const oneDay = 1000 * 60 * 60 * 24;
-    const oneMonth =  oneDay * 30;
-    const memoryTime = oneMonth;
-     
-    const date = new Date(dateString);
-    const now = new Date();
-
-    const diff = now.getTime() - date.getTime();
-    const remaining = oneMonth - diff;
-    const days = Math.round(remaining / oneDay); 
-    return days;
-  };
+  const status = getQuestStatus();
+  cardClassName += ` status-${status}`;
 
   setTimeout(() => {
-    const codes = getElement().querySelectorAll('code');
-    codes.forEach(c => Prism.highlightElement(c));
+    const codes = getElement()?.querySelectorAll('code');
+    codes?.forEach(c => Prism.highlightElement(c));
 
-    getElement().addEventListener('click', () => {
+    getElement()?.addEventListener('click', () => {
       onClick(id);
     });
   });

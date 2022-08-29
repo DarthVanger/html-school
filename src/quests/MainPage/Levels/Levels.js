@@ -30,14 +30,18 @@ export const Levels = (store) => {
   const getCompletions = (quest) => state.completedQuests?.filter(q => q.id === quest.id);
   const isQuestCompleted = (quest) => Boolean(getCompletions(quest));
 
-  const extraProps = (q) => ({
-    isCompleted: isQuestCompleted(q),
-    completions: getCompletions(q),
-    store,
-    onClick: () => {
-      state.completedQuests = null;
-    }
-  });
+  const extraProps = (q) => {
+    let p = {
+      isCompleted: isQuestCompleted(q),
+      completions: getCompletions(q),
+      store,
+      onClick: () => {
+        state.completedQuests = null;
+      },
+    };
+
+    return p;
+  };
 
   const html = `
     <div id="levels">
