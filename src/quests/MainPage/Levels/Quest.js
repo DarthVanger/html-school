@@ -34,14 +34,14 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
   });
 
   return `
-    <div class="${cardClassName}" id=${id}>
+    <a href="#/quests/${id}" class="${cardClassName}" id=${id}>
       ${status == 'forgotten' && `
         <div class="forgotten-status-overlay"></div>
         <div class="forgotten-status-overlay-background"></div>
         <div class="forgotten-status-box-shadow"></div>
       ` || ''}
       <div class="left">
-        <a class="${className}" href="#/quests/${id}">
+        <div class="${className}">
           ${imgSrc && `<img src="${imgSrc}" />` || ''}
           ${img || ''}
           <div class="quest-skills-list">
@@ -51,7 +51,7 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
               </div>
             `).join('')}
           </div>
-        </a>
+        </div>
         <div class="quest-card-caption">
           <div class="quest-title">${title}</div>
         </div>
@@ -73,6 +73,6 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
           </div>
         ` || ''}
       </div>
-    </div>
+    </a>
   `;
 };

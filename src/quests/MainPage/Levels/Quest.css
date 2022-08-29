@@ -17,10 +17,10 @@
   box-shadow: 2px 2px 2px #888;
 }
 
-.quest-card a,
-.quest-card a:visited,
-.quest-card a:hover,
-.quest-card a:active {
+a.quest-card,
+a.quest-card:visited,
+a.quest-card:hover,
+a.quest-card:active {
   color: #eee;
   text-decoration: none;
 }
