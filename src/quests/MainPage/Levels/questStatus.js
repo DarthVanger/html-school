@@ -1,4 +1,4 @@
-export const getQuestStatus = (completions) => {
+export const getQuestStatus = ({ quest, completions }) => {
   if (!completions?.length) {
     return 'new';
   }
@@ -25,12 +25,13 @@ export const getQuestStatus = (completions) => {
 const isCompleted = (completions) => completions?.length > 0;
   
 const isForgotten = (completions) => {
-  console.log('isF quest: ', quest);
   const cDate = new Date(completions[completions.length - 1].date);
+  console.log('cDate: ', cDate);
   const now = new Date();
-  const forgetTimeMillis = 1000 * 60 * 60 * 24 * 21;
-  const diff = now - cDate;
+  const forgetTimeMillis = 1000 * 60 * 60 * 24 * 30;
+  const diff = now.getTime() - cDate.getTime();
   console.log('diff: ', diff);
+  console.log('forgetTimeMillis: ', forgetTimeMillis);
   return diff > forgetTimeMillis;
 }
 
@@ -40,6 +41,7 @@ export const getLastCompletion = (completions) => completions?.length ? completi
 const isHomeworkDone = (completions) => {
   if (getLastCompletion(completions)) {
     const now = new Date();
+    const lastCompletion = getLastCompletion(completions);
     const lastCompletionDate = new Date(lastCompletion.date);
     const diffDays = (now - lastCompletionDate) / 1000 / 60 / 60 / 24;
     if (diffDays <= 7) {

@@ -20,7 +20,8 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
 
   const lastCompletion = getLastCompletion(completions);
 
-  const status = getQuestStatus();
+  const status = getQuestStatus({ quest, completions });
+  console.log('quest status: ', status);
   cardClassName += ` status-${status}`;
 
   setTimeout(() => {
