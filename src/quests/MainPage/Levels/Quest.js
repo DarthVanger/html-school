@@ -35,6 +35,11 @@ export const Quest = ({ id, imgSrc, title, completions, store, onClick }) => {
 
   return `
     <div class="${cardClassName}" id=${id}>
+      ${status == 'forgotten' && `
+        <div class="forgotten-status-overlay"></div>
+        <div class="forgotten-status-overlay-background"></div>
+        <div class="forgotten-status-box-shadow"></div>
+      ` || ''}
       <div class="left">
         <a class="${className}" href="#/quests/${id}">
           ${imgSrc && `<img src="${imgSrc}" />` || ''}

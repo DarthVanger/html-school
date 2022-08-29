@@ -2,7 +2,6 @@
   --box-size: 250px;
   width: 500px;
   border-radius: 4px;
-  overflow: hidden;
   background: #eee;
   padding: var(--padding);
   margin: 32px;
@@ -155,8 +154,60 @@
 }
 
 .status-forgotten {
-  box-shadow:
-    0 0 10px 2px #fff,  /* inner white */
-    0 0 20px 4px #f00, /* middle red */
-    0 0 30px 6px #f00; /* outer red */
+  /* background: black; */
+}
+
+@keyframes huerotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+    top: -50px; right: -50px; bottom: -50px; left: -50px;
+    border-radius: 50%;
+  }
+}
+
+@keyframes skull {
+  0% {
+    background-size: 100% 100%;
+    background-position: center center;
+    opacity: 0;
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    background-size: 150% 150%;
+    background-position: center center;
+    opacity: 1;
+    filter: hue-rotate(100deg);
+  }
+}
+
+.forgotten-status-overlay,
+.forgotten-status-overlay-background,
+.forgotten-status-box-shadow {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  border-radius: 4px;
+}
+
+
+.forgotten-status-overlay-background {
+  z-index: 2;
+  background-color: rgb(135 28 8 / 43%);
+}
+
+.forgotten-status-overlay {
+  background-image: url('/img/diablo-skull.jpeg');
+  animation: skull 6s infinite alternate ease-in-out,
+  huerotate 6s infinite alternate ease-in-out;
+  background-size: 100% 100%;
+  z-index: 3;
+}
+
+.forgotten-status-box-shadow {
+  animation: huerotate 6s infinite alternate ease-in-out;
+    box-shadow: 0 0 10px 2px #841707, 0 0 20px 4px #7a1616, 0 0 30px 6px #731c1c;
 }
