@@ -44,12 +44,14 @@ export const HomePage = (state) => `
             <img src="src/LearningProgress/learning-progress.png" />
           </a>
         </article>
+        <!--
         <article>
           <h3>ЭКЗАМЕНЫ</h3>
           <a href="#/quiz">
             <img src="src/Quiz/quiz.jpg" />
           </a>
         </article>
+        -->
         <!--
         <article>
           <h3>КУРСАЧИ</h3>
