@@ -4,11 +4,12 @@ import { migration_01 } from './migration_01.js';
 
 export const applyMigrations = () => {
   migration_00();
+  migration_01();
 
   if (!db.data?.students) {
-    migration_01();
+    //migration_01();
   } else {
-    console.info('migration_01 had been already applied');
+    //console.info('migration_01 had been already applied');
   }
 };
 

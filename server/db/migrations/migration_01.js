@@ -5,6 +5,7 @@ export const migration_01 = async () => {
     'johnny',
     'tony',
     'dimon',
+    'russi4',
   ];
 
   db.data.students = students;

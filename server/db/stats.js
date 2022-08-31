@@ -41,6 +41,7 @@ const getAllLecturePoints = () => {
 
     for (let lecture of lectures) {
       for (let skillId of lecture.skills) {
+        if (student == 'russi4') continue;
         const p = points[student][skillId];
         if (p) {
           points[student][skillId]++;
