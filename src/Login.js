@@ -22,6 +22,11 @@ export const Login = ({ handleLogin }) => {
       <h1>Кто ты, Сущность?</h1>
       <img src="src/HomePage/img/tardigrade.jpeg" /> <form>
         <label>
+          <input type="radio" name="student" value="other-species" checked>
+          <span>Иной вид Существа</span>
+        </label>
+
+        <label>
           <input type="radio" name="student" value="johnny"/>
           <span>Johnny</span>
         </label>
@@ -37,8 +42,8 @@ export const Login = ({ handleLogin }) => {
         </label>
 
         <label>
-          <input type="radio" name="student" value="other-species">
-          <span>Иной вид Существа</span>
+          <input type="radio" name="student" value="russi4">
+          <span>RuSSi4</span>
         </label>
       </form>
     </div>
