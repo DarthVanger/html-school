@@ -45,8 +45,13 @@ export const lectures = [
     url: '/src/slides.html#lesson10',
   },
   {
+    text: 'Перемещение кортинке из JS',
+    skills: ['functions', 'style'],
+    url: '/src/slides.html#lesson11',
+  },
+  {
     text: 'Столкновение со стеной',
     skills: ['if-else', 'functions', 'style'],
-    url: '/src/slides.html#lesson11',
+    url: '/src/slides.html#lesson12',
   },
 ];

@@ -1358,6 +1358,15 @@
 
 <template id="lesson12-page0">
   <h2>
+    Диктант)
+  </h2>
+  <ul class="dictation">
+    <li>Start</li>
+  </ul>
+</template>
+
+<template id="lesson12-page1">
+  <h2>
     Harvard
   </h2>
   <a href="https://learning.edx.org/course/course-v1:HarvardX+CS50W+Web/block-v1:HarvardX+CS50W+Web+type@sequential+block@2adc64be866f4d8e99eaf5910ba40f7e/block-v1:HarvardX+CS50W+Web+type@vertical+block@3732bbca90394afd9aeb86c197dfa426">
@@ -1370,7 +1379,8 @@
   </figure>
 </template>
 
-<template id="lesson12-page1">
+
+<template id="lesson12-page2">
   <h2>
     Games
   </h2>
@@ -1441,6 +1451,44 @@
         });
       }
 
+      const dictationItems = [
+          ['()', 'parenthesis'],
+          ['[]', 'brackets'],
+          ['{}', 'curly braces'],
+          ['?', 'question mark'],
+          [':', 'colon'],
+          [';', 'semicolon'],
+          [',', 'comma'],
+          ['.', 'dot'],
+          ['&', 'and sign (ampersand)'],
+          ['$', 'dollar sign'],
+          ['!', 'exclamation mark'],
+      ];
+
+
+      let currentDictationItem = 0;
+      const nextDictationItem = () => {
+          dictation.innerHTML += `<li>${dictationItems[currentDictationItem][0]}</li>`;
+          currentDictationItem++;
+
+          if (currentDictationItem == dictationItems.length) {
+              showDictationAnswers(currentDictationItem);
+          }
+      };
+
+      const dictation = document.querySelector('.dictation');
+      if (dictation) {
+        dictation.addEventListener('click', nextDictationItem);
+      }
+
+      const showDictationAnswers = (questionNum) => {
+          const lis = dictation.querySelectorAll('li');
+          lis.forEach((l, idx) => {
+              if (idx === 0) return;
+              l.innerHTML += ' &mdash; ' + dictationItems[idx - 1][1];
+          });
+      };
+
       const task1video = document.querySelector('#lesson4-video');
       if (task1video) {
         const showTimer = (time) => {
@@ -1460,14 +1508,14 @@
             });
 
             pre.textContent = `
-<script>
-  function moveShip() {
-      var ship = document.querySelector('img');
-      ship.style.left = '500px';
-  }
+              <script>
+                function moveShip() {
+                    var ship = document.querySelector('img');
+                    ship.style.left = '500px';
+                }
 
-  document.addEventListener('click', moveShip);
-<\/script>
+                document.addEventListener('click', moveShip);
+              <\/script>
           `;
 
             setInterval(() => {
