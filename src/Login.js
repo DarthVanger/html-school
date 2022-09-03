@@ -22,7 +22,7 @@ export const Login = ({ handleLogin }) => {
       <h1>Кто ты, Сущность?</h1>
       <img src="src/HomePage/img/tardigrade.jpeg" /> <form>
         <label>
-          <input type="radio" name="student" value="other-species" checked>
+          <input type="radio" name="student" value="other-species">
           <span>Иной вид Существа</span>
         </label>
 
