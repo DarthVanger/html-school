@@ -84,6 +84,13 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
       logQuestComplete({
         id: quest.id,
         student: getStudent(),
+      }).then((response) => {
+        if (response.status === 400) {
+          response.json().then((j) => {
+          const cooldown = j.cooldownHours.toFixed(2);
+            alert(`Cooldown! ${cooldown} hours remaining.\nLast completion date:\n${new Date(j.lastCompletion.date)}`);
+          });
+        }
       });
     }
 
