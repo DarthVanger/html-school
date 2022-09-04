@@ -7,6 +7,7 @@ import { Skills } from './skills/skills.js';
 import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
+import { Twitch } from './Twitch/Twitch.js';
 import { QuizPage } from './Quiz/QuizPage.js';
 //import { CourseworkPage } from './Courserwork/CourseworkPage.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
@@ -51,6 +52,11 @@ export const Router = (state) => {
       element.innerHTML = '';
       element.append(topbar);
       element.append(QuizPage(state));
+      break;
+
+    case '/twitch':
+      element.innerHTML = '';
+      element.innerHTML = `${Twitch({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
 //    case '/coursework':

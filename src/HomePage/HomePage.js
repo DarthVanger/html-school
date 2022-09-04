@@ -44,6 +44,12 @@ export const HomePage = (state) => `
             <img src="src/LearningProgress/learning-progress.png" />
           </a>
         </article>
+        <article>
+          <h3>ТВИЧ</h3>
+          <a href="#/twitch">
+            <img src="src/Twitch/twitch.png" />
+          </a>
+        </article>
         <!--
         <article>
           <h3>ЭКЗАМЕНЫ</h3>
