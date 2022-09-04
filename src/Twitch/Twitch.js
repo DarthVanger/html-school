@@ -36,6 +36,16 @@ export const Twitch = () => {
           <source src="/video/js-robot-level2.mp4" type="video/mp4" />
         </video>
       </figure>
+
+      <h2>
+        ЛЕВЕЛ 3 - йЙ
+      </h2>
+
+      <figure>
+        <video controls>
+          <source src="/video/js-robot-level3.mp4" type="video/mp4" />
+        </video>
+      </figure>
     </div>
   `;
 };
