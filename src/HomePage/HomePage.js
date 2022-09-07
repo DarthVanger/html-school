@@ -53,7 +53,7 @@ export const HomePage = (state) => `
         <article>
           <h3>EXPECTATION / REALITY SHOW</h3>
           <a href="#/expectation-reality">
-            <img src="src/ExpectationReality/expectation-reality.jpg" />
+            <img src="src/ExpectationReality/expectation-reality.jpeg" />
           </a>
         </article>
         <!--
