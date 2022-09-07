@@ -1,5 +1,15 @@
 const id = 'flying';
 
+const story = `
+<h2>Как Изменить Позицию Кортинке Интерак-октивно?</h2>
+<figure>
+  <video controls>
+    <source src="/video/changing-pages-interactively.mp4" type="video/mp4" />
+  </video>
+  <figcaption>Твой Дед объясняет об изменении ХТМЛ странице ИНТЕРАК-ОКЕТИВЕНО</figcaption>
+</figure>
+`;
+
 const code = `
 <style>
   img {
@@ -64,6 +74,7 @@ export const steps = [
 const skills = ['style', 'position absolute', 'querySelector'];
 
 export default {
+  story,
   code,
   steps,
   skills,
