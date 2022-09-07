@@ -50,6 +50,12 @@ export const HomePage = (state) => `
             <img src="src/Twitch/twitch.png" />
           </a>
         </article>
+        <article>
+          <h3>EXPECTATION / REALITY SHOW</h3>
+          <a href="#/expectation-reality">
+            <img src="src/ExpectationReality/expectation-reality.jpg" />
+          </a>
+        </article>
         <!--
         <article>
           <h3>ЭКЗАМЕНЫ</h3>

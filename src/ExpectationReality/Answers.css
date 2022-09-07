@@ -1,0 +1,24 @@
+.answers {
+  width: 800px;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.answer figcaption {
+  text-align: center;
+  color: green;
+}
+
+.answer-avatar img {
+  width: 100px;
+  margin: 2rem;
+}
+
+.answer .expectation span,
+.answer .reality span {
+  font-size: 3rem;
+}

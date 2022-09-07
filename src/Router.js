@@ -9,6 +9,7 @@ import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
 import { Twitch } from './Twitch/Twitch.js';
 import { QuizPage } from './Quiz/QuizPage.js';
+import { ExpectationReality } from './ExpectationReality/ExpectationReality.js';
 //import { CourseworkPage } from './Courserwork/CourseworkPage.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 
@@ -57,6 +58,11 @@ export const Router = (state) => {
     case '/twitch':
       element.innerHTML = '';
       element.innerHTML = `${Twitch({ backUrl: '/#/', surface: 'black' })}`;
+      break;
+
+    case '/expectation-reality':
+      element.innerHTML = '';
+      element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
 //    case '/coursework':
