@@ -16,8 +16,10 @@ import conditionals from './conditionals.js';
 import velocity from './Velocity.js';
 import htmlImg from './htmlImg.js';
 import shipMotion from './shipMotion.js';
+import keyboard from './keyboard.js';
 
 const quests = {
+  keyboard,
   shipMotion,
   htmlImg,
   velocity,

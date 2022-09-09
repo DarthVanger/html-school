@@ -137,6 +137,17 @@ export const Levels = (store) => {
         })}
       </div>
 
+      <h3>УПЕРОВЛЯЕМ КоРаБЕЛем СТРЕЛКАМИ</h3>
+
+      <div class="quest-list">
+        ${Quest({
+          ...quests.keyboard,
+          title: 'Уперовление корабелем кнопками',
+          imgSrc: 'src/quests/img/keyboard.webp',
+          ...extraProps(quests.keyboard),
+        })}
+      </div>
+
       ${  /*
       <div class="quest-list">
         ${Quest({

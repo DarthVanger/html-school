@@ -104,3 +104,11 @@ button {
 pre[class*=language]#editor {
   border: none;
 }
+
+#quest-story a
+#quest-story a:link,
+#quest-story a:visited {
+  text-decoration: none;
+  color: aqua;
+  font-style: normal;
+}
