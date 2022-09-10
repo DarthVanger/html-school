@@ -56,6 +56,12 @@ export const HomePage = (state) => `
             <img src="src/ExpectationReality/expectation-reality.jpeg" />
           </a>
         </article>
+        <article>
+          <h3>Neural ART УЧЕНЕКОВ</h3>
+          <a href="#/neural-art">
+            <img src="src/NeuralArt/neural-art.png" />
+          </a>
+        </article>
         <!--
         <article>
           <h3>ЭКЗАМЕНЫ</h3>

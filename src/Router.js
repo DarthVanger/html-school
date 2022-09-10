@@ -10,6 +10,7 @@ import { LearningProgress } from './LearningProgress/LearningProgress.js';
 import { Twitch } from './Twitch/Twitch.js';
 import { QuizPage } from './Quiz/QuizPage.js';
 import { ExpectationReality } from './ExpectationReality/ExpectationReality.js';
+import { NeuralArt } from './NeuralArt/NeuralArt.js';
 //import { CourseworkPage } from './Courserwork/CourseworkPage.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 
@@ -63,6 +64,14 @@ export const Router = (state) => {
     case '/expectation-reality':
       element.innerHTML = '';
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
+      break;
+
+    case '/neural-art':
+      element.innerHTML = '';
+      element.innerHTML = `
+        ${Topbar({ backUrl: '/#/', surface: 'black' })}
+        ${NeuralArt(state)}
+      `;
       break;
 
 //    case '/coursework':
