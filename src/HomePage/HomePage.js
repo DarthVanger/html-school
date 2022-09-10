@@ -59,7 +59,7 @@ export const HomePage = (state) => `
         <article>
           <h3>Neural ART УЧЕНЕКОВ</h3>
           <a href="#/neural-art">
-            <img src="src/NeuralArt/neural-art.png" />
+            <img src="src/NeuralArt/neural-art.jpg" />
           </a>
         </article>
         <!--
