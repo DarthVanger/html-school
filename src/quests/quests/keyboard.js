@@ -16,19 +16,7 @@ const story = `
 `;
 
 const code = `
-<style>
-  #ship {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-  }
-</style>
-
-<body>
-  <img id="ship" src="/img/ship.gif" />
-</body>
+<h1>Уперовление кенопеками)</h1>
 
 <script>
 
@@ -39,39 +27,55 @@ export const steps = [
   {
     task: `
 <p>
-  У нас уже есть корабль и стили для него. Но нет скрипта)
-</p>
-<p>
-  Читобы кораблик двигался по нажатию на кенопку - нужно добавить лисенер на кидаун )
+  Читобы реагировать на кЕнопЕку заюзаем СОБЫТИЕ <code>'keydown'</code>. Вписуй EVENT Listener :)
 </p>
 <pre><code>
-  document.addEventListener('keydown', moveShip);
+  document.addEventListener('keydown', handleKeydown);
 </code></pre>
 </p>
 `,
-    check: `Уписано document.addEventListener('keydown', moveShip);`,
-    regexp: /document[.]addEventListener[(]['"]keydown['"],\s*moveShip[)];/,
+    check: `Уписано document.addEventListener('keydown', handleKeydown);`,
+    regexp: /document[.]addEventListener[(]['"]keydown['"],\s*handleKeydown[)];/,
   },
   {
     task: `
 <p>
-  Куросава ) Ты добавили Ивент Лисенер, но передали в него фукцию которую еще не определили - <code>moveShip</code> - поэтому пока код будет лишь выдавать ошибке.
+  Куросава ) Ты добавили Ивент Лисенер, но передали в него фукцию которую еще не определили - <code>handleKeydown</code> - поэтому пока код будет лишь выдавать ошибке.
 </p>
 <p>
-  Читобы ошибки не было - довай добавем пока что пустую фукцию с названием <code>moveShip</code>
+  Читобы ошибки не было - довай добавем пока что пустую фукцию с названием <code>handleKeydown</code>
 </p>
 <pre><code>
-  function moveShip() {}
-  document.addEventListener('keydown', moveShip);
+  function handleKeydown() {}
+  document.addEventListener('keydown', handleKeydown);
 </code></pre>
 </p>
 `,
-    check: `Уписано function moveShip() {}`,
-    regexp: /function\s+moveShip[(]\s*[)]\s+{\s*}/,
+    check: `Уписано function handleKeydown() {}`,
+    regexp: /function\s+handleKeydown[(]\s*[)]\s+{\s*}/,
+  },
+  {
+    task: `
+<p>
+  Хорош! ) Теперь ошибке бить не должено) Но и не происходит ничего - фукцея пустая - как-бе пустышка так скаозать..
+</p>
+<p>
+  Довай упишем чито-те-то у докУмент )
+</p>
+<pre><code>
+  function handleKeydown() {
+    document.body.innerHTML += 'Кнопека ножата!!';
+  }
+  document.addEventListener('keydown', handleKeydown);
+</code></pre>
+</p>
+`,
+    check: `Уписано function handleKeydown() { document.body.innerHTML += '...' }`,
+    regexp: /function\s+handleKeydown[(]\s*[)]\s+{\s*document[.]body[.]innerHTML\s*[+][=]\s*['"][^'"+]['"];\s*}/,
   },
 ];
 
-const skills = ['img'];
+const skills = ['functions', 'innerHTML', 'event'];
 
 export default {
   story,
