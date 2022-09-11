@@ -68,7 +68,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1200px) {
   #neural-art .grid {
     display: grid;
     grid-template-columns: 1fr;
