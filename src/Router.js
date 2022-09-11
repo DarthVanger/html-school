@@ -66,7 +66,7 @@ export const Router = (state) => {
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
-    case '/neural-art':
+    case '/neural-art' || '/neural-art/':
       element.innerHTML = '';
       element.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
