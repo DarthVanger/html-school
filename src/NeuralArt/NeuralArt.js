@@ -113,7 +113,7 @@ export const NeuralArt = () => {
         </figure>
         <figure>
           <img src="src/NeuralArt/img/van4ik/logo-mj/07.jpg" />
-          <span class="points">7</span>
+          <span class="points">6</span>
           <figcaption>Van4ik Da Vin4ik</figcaption>
         </figure>
         <figure>
