@@ -14,6 +14,7 @@
 }
 
 #neural-art .grid figure {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,4 +53,17 @@
   border-image-width: 10;
   border-image-outset: 0;
   border-image-repeat: round;
+}
+
+#neural-art figure .points {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #eee;
+  color: #333;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
 }
