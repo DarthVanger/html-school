@@ -1,4 +1,6 @@
 import { BottomBar } from '../BottomBar.js';
+import { Quest } from '../quests/MainPage/Levels/Quest.js';
+import quests from '../quests/quests/quests.js';
 
 export const HomePage = (state) => `
   <div id="home-page">
@@ -22,6 +24,21 @@ export const HomePage = (state) => `
         <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
       </marquee>
 
+      <section class="homework">
+        <h3>ДоМАШЕКА!!11</h3>
+        <div id="levels">
+          <h2>HTML</h2>
+          <div class="quest-list">
+
+          <div class="quest-list">
+            ${Quest({
+              ...quests.keyboard,
+              title: 'Уперовление корабелем кнопками',
+              imgSrc: 'src/quests/img/keyboard.webp',
+            })}
+          </div>
+        </div>
+      </section>
       <!-- 
       <h2>ССЫЛКЕ</h2>
       -->
