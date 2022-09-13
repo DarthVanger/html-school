@@ -1,5 +1,4 @@
 import { Quest } from './Quest.js';
-import { QuestList } from './QuestList.js';
 import { getCompletedQuests } from './api.js';
 import { getStudent } from '../../../session.js';
 import { BottomBar } from '../../../BottomBar.js';
@@ -31,7 +30,6 @@ export const Levels = (store) => {
 
   const extraProps = (q) => {
     let p = {
-      isCompleted: isQuestCompleted(q),
       completions: getCompletions(q),
       store,
       onClick: () => {
