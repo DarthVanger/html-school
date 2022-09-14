@@ -46,11 +46,11 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
     const completionsEl = getElement().querySelector('.quest-card-completions');
 
     completionsEl.innerHTML = `
+        ${status === 'homework-done' && HomeworkDoneBadge() || ''}
         <div class="completions">
           ${completions?.map(c => 
             `
               <div class="completion">Выполнено: ${displayDate(c.date)}</div>
-              ${HomeworkDoneBadge()}
             `
           ).join('')}
         </div>
