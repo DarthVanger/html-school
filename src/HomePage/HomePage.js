@@ -5,13 +5,13 @@ import quests from '../quests/quests/quests.js';
 export const HomePage = (state) => `
   <div id="home-page">
     <div class="weed-border-left">
-      <img src="HomePage/img/logo_leftt.png" />
+      <img src="/src/HomePage/img/logo_leftt.png" />
     </div>
 
     <div class="weed-border-top-center"></div>
 
     <div class="weed-border-top-left">
-      <img src="src/HomePage/img/logo_left.png" />
+      <img src="/src/HomePage/img/logo_left.png" />
     </div>
 
     <div class="weed-border-top-right"></div>

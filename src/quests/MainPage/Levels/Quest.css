@@ -157,7 +157,7 @@ a.quest-card:active {
   z-index: 1;
 }
 
-.homework-done-badge svg, img {
+.homework-done-badge svg, .homework-done-badge img {
   width: 30px;
   margin: 5px;
 }
