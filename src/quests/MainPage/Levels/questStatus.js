@@ -44,7 +44,7 @@ const isHomeworkDone = (completions) => {
     const lastCompletion = getLastCompletion(completions);
     const lastCompletionDate = new Date(lastCompletion.date);
     const diffDays = (now - lastCompletionDate) / 1000 / 60 / 60 / 24;
-    if (diffDays <= 4) {
+    if (diffDays <= 3) {
       return true;
     }
   }
