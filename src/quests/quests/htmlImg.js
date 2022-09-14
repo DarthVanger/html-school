@@ -131,5 +131,4 @@ export default {
   skills,
   id,
   img,
-  status: 'homework',
 };

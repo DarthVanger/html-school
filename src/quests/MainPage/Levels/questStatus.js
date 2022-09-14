@@ -8,7 +8,7 @@ export const getQuestStatus = ({ quest, completions }) => {
   }
 
   if (quest.status) {
-    let status = quest.status;
+    console.log('qests tatsu 111: ', quest.status); let status = quest.status;
     if (quest.status === 'homework' && isHomeworkDone(completions)) {
       status = 'homework-done';
     }
@@ -44,7 +44,7 @@ const isHomeworkDone = (completions) => {
     const lastCompletion = getLastCompletion(completions);
     const lastCompletionDate = new Date(lastCompletion.date);
     const diffDays = (now - lastCompletionDate) / 1000 / 60 / 60 / 24;
-    if (diffDays <= 7) {
+    if (diffDays <= 4) {
       return true;
     }
   }
