@@ -15,6 +15,7 @@
 
 .quest-card .left {
   box-shadow: 2px 2px 2px #888;
+  overflow: hidden;
 }
 
 a.quest-card,
@@ -149,8 +150,40 @@ a.quest-card:active {
     0 0 30px 6px #0ff; /* outer orange */
 }
 
+.homework-done-badge {
+  position: absolute;
+  left: 20;
+  top: 20;
+  z-index: 1;
+}
+
+.homework-done-badge svg, img {
+  width: 30px;
+  margin: 5px;
+}
+
+  @keyframes highlight {
+    0% { transform: rotate(0)}
+    25% { transform: rotate(15deg) }
+    50% {  transform: rotate(-15deg) }
+    75% {  stroke: #ff8a1d;}
+  }
+
+.homework-done-badge svg {
+  transition: all 1s;
+  fill: #066c06;
+  stroke: #15ff37;
+  animation: highlight 3s ease infinite alternate;
+}
+
 .status-homework-done {
-  border: green solid 4px;
+  border: solid;
+  border-image-source: url('/img/weed-border.png');
+  border-image-slice: 50;
+  border-image-width: 10;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  padding: 20px;
 }
 
 .status-forgotten {

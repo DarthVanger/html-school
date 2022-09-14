@@ -1,6 +1,7 @@
 import quests from '../../quests/quests.js';
 import { getStudent } from '../../../session.js';
 import { getCompletedQuests } from './api.js';
+import { HomeworkDoneBadge } from './HomeworkDoneBadge.js';
 import { getLastCompletion, getCurseDays, getQuestStatus } from './questStatus.js';
 import walls from '../../quests/walls.js';
 
@@ -22,7 +23,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
     }
   );
 
-  const lastCompletion = getLastCompletion(completions);
+  let lastCompletion = getLastCompletion(completions);
 
   const status = getQuestStatus({ quest, completions });
   console.log('quest status: ', status);
@@ -33,12 +34,38 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
     console.debug('completedQuestsi n QUEST: ', completedQuests);
 
     completions = completedQuests.filter(q => q.id === quest.id);
+    lastCompletion = getLastCompletion(completions);
     console.log('completions: ', completions)
+    console.log('lastCompletion: ', lastCompletion)
 
     const status = getQuestStatus({ quest, completions });
     const card = getElement();
     console.log('Quest status: ', status);
     card.className = `quest-card status-${status}`;
+
+    const completionsEl = getElement().querySelector('.quest-card-completions');
+
+    completionsEl.innerHTML = `
+        <div class="completions">
+          ${completions?.map(c => 
+            `
+              <div class="completion">Выполнено: ${displayDate(c.date)}</div>
+              ${HomeworkDoneBadge()}
+            `
+          ).join('')}
+        </div>
+        ${lastCompletion && `
+          <div class="curse">
+            Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
+          </div>
+        ` || ''}
+        ${!lastCompletion && `
+          <div class="curse">
+            Не знав та й забув
+          </div>
+        ` || ''}
+      </div>
+    `;
   });
 
   setTimeout(() => {
@@ -74,21 +101,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
         </div>
       </div>
       <div class="right quest-card-completions">
-        <div class="completions">
-          ${completions?.map(c => 
-            `<div class="completion">Выполнено: ${displayDate(c.date)}</div>`
-          ).join('')}
-        </div>
-        ${lastCompletion && `
-          <div class="curse">
-            Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
-          </div>
-        ` || ''}
-        ${!lastCompletion && `
-          <div class="curse">
-            Не знав та й забув
-          </div>
-        ` || ''}
+        Loading...
       </div>
     </a>
   `;

@@ -25,18 +25,13 @@ export const HomePage = (state) => `
       </marquee>
 
       <section class="homework">
-        <h3>ДоМАШЕКА!!11</h3>
+        <h2>домашека!!11</h2>
         <div id="levels">
-          <h2>HTML</h2>
-          <div class="quest-list">
-
-          <div class="quest-list">
-            ${Quest({
-              ...quests.keyboard,
-              title: 'Уперовление корабелем кнопками',
-              imgSrc: 'src/quests/img/keyboard.webp',
-            })}
-          </div>
+          ${Quest({
+            ...quests.keyboard,
+            title: 'Уперовление корабелем кнопками',
+            imgSrc: 'src/quests/img/keyboard.webp',
+          })}
         </div>
       </section>
       <!-- 
