@@ -8,7 +8,7 @@ export const getQuestStatus = ({ quest, completions }) => {
   }
 
   if (quest.status) {
-    console.log('qests tatsu 111: ', quest.status); let status = quest.status;
+    let status = quest.status;
     if (quest.status === 'homework' && isHomeworkDone(completions)) {
       status = 'homework-done';
     }

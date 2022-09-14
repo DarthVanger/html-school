@@ -46,7 +46,6 @@ app.get('/quests/completed/:student', (req, res) => {
   }
 
   const result = db.data.quests[student];
-  console.info('Return', result);
   res.json(result);
 });
 
