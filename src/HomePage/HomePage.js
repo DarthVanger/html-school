@@ -59,7 +59,7 @@ export const HomePage = (state) => `
         <article>
           <h3>Делоем РЕЗЮМЕ</h3>
           <a href="#/resume">
-            <img src="src/Resume/resume.jpg" />
+            <img src="src/Resume/resume.png" />
           </a>
         </article>
         <article>
