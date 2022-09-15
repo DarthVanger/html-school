@@ -67,11 +67,6 @@ export const Router = (state) => {
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
-    case '/resume':
-      element.innerHTML = '';
-      element.innerHTML = `${Resume()}`;
-      break;
-
     case state.route.match(/\/resume\/?/)?.input:
       element.innerHTML = '';
       element.innerHTML = `
