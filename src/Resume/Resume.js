@@ -36,6 +36,12 @@ export const Resume = () => {
           <figcaption><a href="https://www.beamjobs.com/resumes/software-engineer-resume-examples">Ссылке на примеры</a></figcaption>
         </figure>
 
+        <h3>Napaleon - Frontend Developer</h3>
+        
+        <figure>
+          <img src="/src/Resume/resume-ivan.png" />
+          <figcaption><a href="https://github.com/DarthVanger/resume/blob/master/ivan-sergiienko.pdf">Резюме учитэля))</a></figcaption>
+        </figure
       </article>
     </div>
 
