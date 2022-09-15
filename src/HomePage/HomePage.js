@@ -57,6 +57,12 @@ export const HomePage = (state) => `
           </a>
         </article>
         <article>
+          <h3>Делоем РЕЗЮМЕ</h3>
+          <a href="#/resume">
+            <img src="src/Resume/resume.jpg" />
+          </a>
+        </article>
+        <article>
           <h3>EXPECTATION / REALITY SHOW</h3>
           <a href="#/expectation-reality">
             <img src="src/ExpectationReality/expectation-reality.jpeg" />

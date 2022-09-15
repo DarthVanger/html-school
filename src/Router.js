@@ -11,6 +11,7 @@ import { Twitch } from './Twitch/Twitch.js';
 import { QuizPage } from './Quiz/QuizPage.js';
 import { ExpectationReality } from './ExpectationReality/ExpectationReality.js';
 import { NeuralArt } from './NeuralArt/NeuralArt.js';
+import { Resume } from './Resume/Resume.js';
 //import { CourseworkPage } from './Courserwork/CourseworkPage.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 
@@ -66,11 +67,16 @@ export const Router = (state) => {
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
-    case state.route.match(/\/neural-art\/?/)?.input:
+    case '/resume':
+      element.innerHTML = '';
+      element.innerHTML = `${Resume()}`;
+      break;
+
+    case state.route.match(/\/resume\/?/)?.input:
       element.innerHTML = '';
       element.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
-        ${NeuralArt(state)}
+        ${Resume(state)}
       `;
       break;
 
