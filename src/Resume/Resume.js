@@ -7,8 +7,10 @@ export const Resume = () => {
         <h2>Основные разделы</h2>
         <ul>
           <li><em>Summary</em><br>I've finished as Frontend development course and I'm looking for my 1st job in IT.</li>
-          <li><em>Work Experience</em><br>2020 Bar tender; 2021 shop assistant; 2018 senior cashier / shop supervisor;</li>
           <li><em>Skills</em><br>html, css, javascript</li>
+          <li><em>Education</em><br>Kyiv Railway College</li>
+          <li><em>Courses</em><br>Harvard - Javascript(edX)<br>Frontend development - Napaleon School<br>Javascript - Codeacademy<br>Html, Css, Javascript - W3Schools</li>
+          <li><em>Work Experience</em><br>2020 Bar tender; 2021 shop assistant; 2018 senior cashier / shop supervisor;</li>
           <li><em>Languages</em><br>English - Intermediate</li>
           <li><em>Contact</em><br>phone, telegram, email</li>
         </ul>
