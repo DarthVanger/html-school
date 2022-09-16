@@ -37,3 +37,7 @@
 #quest-story figcaption q {
   color: #f1764f;
 }
+
+#quest-story ul li {
+  margin: 1em;
+}

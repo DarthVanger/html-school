@@ -144,6 +144,11 @@ export const Levels = (store) => {
           imgSrc: 'src/quests/img/keyboard.webp',
           ...extraProps(quests.keyboard),
         })}
+        ${Quest({
+          ...quests.plasma,
+          title: 'Стрэляем: Плазма :)',
+          imgSrc: 'src/quests/img/plasma.gif',
+        })}
       </div>
 
       ${  /*
