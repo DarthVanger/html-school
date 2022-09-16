@@ -5,10 +5,12 @@ export const migration_01 = async () => {
     'johnny',
     'tony',
     'dimon',
+    'insane',
     'russi4',
+    'other-species',
   ];
 
   db.data.students = students;
-  console.log('Applying migration for stuents: ', students);
+  console.log('Applying migration for students: ', students);
   await db.write();
 };
