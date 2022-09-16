@@ -34,15 +34,19 @@ a.quest-card:active {
   justify-content: center;
 }
 
-.completion, .curse {
+.completion, .curse,
+.completion, .forgotten {
   position: relative;
   color: white;
   padding: 0.5rem;
   font-size: 1.2rem;
-  margin: 0.5em;
   width: 80%;
+  color: red;
 }
 
+.completion, .forgotten path {
+  stroke: red;
+}
 .completion, .curse path {
   stroke: #4180c9;
 }

@@ -68,6 +68,11 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
             Не знав та й забув
           </div>
         ` || ''}
+        ${status == 'forgotten' && `
+          <div class="forgotten">
+            ЗАБЫТО
+          </div>
+        ` || ''}
       </div>
     `;
   });
