@@ -38,8 +38,8 @@ a.quest-card:active {
   color: white;
 }
 
-.completion, .curse,
-.completion, .forgotten {
+.completion .curse,
+.completion .forgotten {
   position: relative;
   padding: 0.5rem;
   font-size: 1.2rem;
