@@ -1,8 +1,8 @@
 @import "QuestCardBorder.css";
 
 .quest-card {
-  --width: 500px;
-  --height: 500px;
+  --width: 400px;
+  --height: 400px;
   --padding: 16px;
   --box-size: 250px;
   width: var(--width);
