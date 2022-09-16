@@ -1,6 +1,7 @@
 import { db } from './db.js';
 import { getQuestSkills } from '../../src/quests/quests/quests.js';
 import { lectures } from '../../src/LearningProgress/lectures.js';
+import { lectureStats } from './lectureStats.js';
 
 //const getHomeworkPoints = ({ student, skill }) => {
 //  if (!db.data.homework) return 0;
@@ -39,9 +40,12 @@ const getAllLecturePoints = () => {
   for (let student of students) {
     points[student] = {};
 
+    let lectureIdx = 0;
     for (let lecture of lectures) {
       for (let skillId of lecture.skills) {
-        if (student == 'russi4' || student === 'insane') continue;
+        if (!lectureStats[lectureIdx][student]) {
+          continue;
+        }
         const p = points[student][skillId];
         if (p) {
           points[student][skillId]++;
@@ -49,6 +53,7 @@ const getAllLecturePoints = () => {
           points[student][skillId] = 1;
         }
       }
+      lectureIdx++;
     }
   }
   return points;
