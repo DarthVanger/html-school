@@ -1,0 +1,58 @@
+.expectations-form {
+  padding: 2em 5em;
+}
+
+.expectations-form input {
+  font-size: 1em;
+  width: 100%;
+}
+.expectations-form label {
+  font-size: 2em;
+}
+
+#timer {
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 200px;
+}
+
+.expectation-reality {
+  padding: 0;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.expectation-reality ul {
+  list-style: none;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+
+.rules p {
+  font-size: 1.5em;
+  padding: 0 0.5em;
+  letter-spacing: 2px;
+
+}
+
+.lety4ka-tasks {
+  display: none;
+  padding: 0.5em;
+  position: absolute;
+  top: 0;
+  left: 2.5em;
+  z-index: 1;
+  text-align: left;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  line-height: 1.75;
+  background: rgba(0, 0, 0, 0.4);
+  right: 0; bottom: 2em;
+}
+
+.tag {
+  color: red;
+  font-weight: bold;
+}
