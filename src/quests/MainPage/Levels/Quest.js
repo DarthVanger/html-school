@@ -5,12 +5,12 @@ import { HomeworkDoneBadge } from './HomeworkDoneBadge.js';
 import { getLastCompletion, getCurseDays, getQuestStatus } from './questStatus.js';
 import walls from '../../quests/walls.js';
 import { QuestCardBorder } from './QuestCardBorder.js';
+import { CyberpunkBorder } from './CyberpunkBorder.js';
 
 
 export const Quest = ({ id, imgSrc, title, store, onClick }) => {
   const getElement = () => document.querySelector(`#${id}`);
   const quest = quests[id];
-  let className = 'quest';
   let cardClassName = 'quest-card';
 
   let completions = [];
@@ -62,6 +62,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
         ` || ''}
         ${!lastCompletion && `
           <div class="curse">
+            ${CyberpunkBorder({ width: 600 })}
             Не знав та й забув
           </div>
         ` || ''}
@@ -81,13 +82,16 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
   return `
     <a href="#/quests/${id}" class="${cardClassName}" id=${id}>
       ${QuestCardBorder()}
-      ${status == 'forgotten' && `
-        <div class="forgotten-status-overlay"></div>
-        <div class="forgotten-status-overlay-background"></div>
-        <div class="forgotten-status-box-shadow"></div>
-      ` || ''}
-      <div class="left">
-        <div class="${className}">
+      <div class="quest-card-title">
+        ${title}
+      </div>
+      <div class="quest-card-body">
+        ${status == 'forgotten' && `
+          <div class="forgotten-status-overlay"></div>
+          <div class="forgotten-status-overlay-background"></div>
+          <div class="forgotten-status-box-shadow"></div>
+        ` || ''}
+        <div class="quest">
           ${imgSrc && `<img src="${imgSrc}" />` || ''}
           ${img || ''}
           <div class="quest-skills-list">
@@ -98,12 +102,9 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
             `).join('')}
           </div>
         </div>
-        <div class="quest-card-caption">
-          <div class="quest-title">${title}</div>
+        <div class="quest-card-completions">
+          Loading...
         </div>
-      </div>
-      <div class="right quest-card-completions">
-        Loading...
       </div>
     </a>
   `;

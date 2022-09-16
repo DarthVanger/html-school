@@ -47,11 +47,13 @@ export const Levels = (store) => {
         ${Quest({
           id: 'htmlTags',
           title: 'ГИПЕР ТЕКСТ. HTML v1.0. 1991г.',
+          imgSrc: 'src/quests/img/html-1.png',
           ...extraProps(quests.htmlTags),
         })}
         ${Quest({
           id: 'htmlImg',
           title: 'Кортинке ). HTML v2.0. 1995г.',
+          imgSrc: 'src/quests/img/html-img.png',
           ...extraProps(quests.htmlImg),
         })}
       </div>

@@ -83,20 +83,10 @@ export const steps = [
 
 const skills = ['html-h1', 'html-p'];
 
-const img = `
-  <div class="quest-html-img">
-    <pre><code class="language-html">
-&lt;h1&gt;Zogolovok&lt;/h1&gt;
-&lt;p&gt;Paragraph&lt;/p&gt;
-    </code>
-  </div></pre>
-`;
-
 export default {
   story,
   code,
   steps,
   skills,
   id,
-  img,
 };

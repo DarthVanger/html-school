@@ -9,16 +9,9 @@
   padding: var(--padding);
   margin: 32px;
   position: relative;
-  display: flex;
-}
-.quest-card .left,
-.quest-card .right {
-  width: 50%;
 }
 
-.quest-card .left {
-  box-shadow: 2px 2px 2px #888;
-  overflow: hidden;
+.quest-card-body {
 }
 
 a.quest-card,
@@ -38,16 +31,17 @@ a.quest-card:active {
 }
 
 .completion, .curse {
-  background: #4ed431;
-  color: #150404;
-  border-bottom: solid #333 2px;
+  position: relative;
+  color: white;
   padding: 0.5rem;
   font-size: 1.2rem;
+  margin: 0.5em;
 }
 
-.quest-card-completions .curse {
-  background: #b437f3;
+.completion, .curse path {
+  stroke: red;
 }
+
 
 .quest {
   position: relative;
@@ -55,21 +49,22 @@ a.quest-card:active {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1em;
 }
 
 
-.quest-title {
+.quest-card-title {
   --padding: 8px;
   padding: var(--padding);
-  background: #eee;
-  color: #333;
+  color: #3afaf5;
+  border-bottom: solid #3afaf5 1px;
   text-align: center;
   font-size: 1rem;
   line-height: 2;
 }
 
-.quest-title code {
-  background: #333;
+.quest-card-title code {
+  background: black;
   color: #eee;
   padding: 2px 4px;
   border-radius: 2px;
@@ -77,8 +72,7 @@ a.quest-card:active {
 
 .quest img,
 .quest-html-img {
-  width: var(--box-size);
-  height: var(--box-size);
+  width: 60%;
 }
 
 .quest.is-completed img {
@@ -123,7 +117,7 @@ a.quest-card:active {
 }
 
 .quest-html-img {
-  background: #141414;
+  background: black;
   
   display: flex;
   align-items: center;
@@ -139,12 +133,14 @@ a.quest-card:active {
 /* Glow :)
  * https://codersblock.com/blog/creating-glow-effects-with-css/
  */
+/*
 .status-new {
   box-shadow:
-    0 0 10px 2px #fff,  /* inner white */
-    0 0 20px 4px #0f0, /* middle green */
-    0 0 30px 6px #0ff; /* outer orange */
+    0 0 10px 2px #fff,
+    0 0 20px 4px #0f0,
+    0 0 30px 6px #0ff;
 }
+*/
 
 .status-homework {
   box-shadow:
