@@ -1,0 +1,15 @@
+svg.quest-card-border {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.quest-card-border path {
+  stroke: #0c6cb8;
+  fill: none;
+  stroke-width: 1;
+}

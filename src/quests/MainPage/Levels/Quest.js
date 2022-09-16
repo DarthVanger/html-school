@@ -4,6 +4,7 @@ import { getCompletedQuests } from './api.js';
 import { HomeworkDoneBadge } from './HomeworkDoneBadge.js';
 import { getLastCompletion, getCurseDays, getQuestStatus } from './questStatus.js';
 import walls from '../../quests/walls.js';
+import { QuestCardBorder } from './QuestCardBorder.js';
 
 
 export const Quest = ({ id, imgSrc, title, store, onClick }) => {
@@ -79,6 +80,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
 
   return `
     <a href="#/quests/${id}" class="${cardClassName}" id=${id}>
+      ${QuestCardBorder()}
       ${status == 'forgotten' && `
         <div class="forgotten-status-overlay"></div>
         <div class="forgotten-status-overlay-background"></div>
