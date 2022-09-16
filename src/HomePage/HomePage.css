@@ -186,3 +186,7 @@ h3 {
 .homework {
   padding: 0;
 }
+
+.homework .quest-card {
+  padding-top: 32px;
+}

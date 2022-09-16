@@ -37,15 +37,14 @@ a.quest-card:active {
 .completion, .curse,
 .completion, .forgotten {
   position: relative;
-  color: white;
   padding: 0.5rem;
   font-size: 1.2rem;
   width: 80%;
-  color: red;
+  color: #e44138;
 }
 
 .completion, .forgotten path {
-  stroke: red;
+  stroke: #e44138;
 }
 .completion, .curse path {
   stroke: #4180c9;
@@ -64,7 +63,7 @@ a.quest-card:active {
 .quest-card-title {
   --padding: 8px;
   padding: var(--padding);
-  color: #3afaf5;
+  color: #67a4ff;
   border-bottom: solid #3afaf5 1px;
   text-align: center;
   font-size: 1rem;
