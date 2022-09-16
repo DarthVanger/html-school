@@ -3,7 +3,7 @@
 .quest-card {
   --width: 500px;
   --height: 500px;
-  --padding: 16px;
+  --padding: 16px 32px;
   --box-size: 250px;
   width: var(--width);
   height: var(--height);
@@ -41,10 +41,13 @@ a.quest-card:active {
 .curse,
 .forgotten {
   position: relative;
-  padding: 0.5rem;
   font-size: 1.2rem;
   width: 80%;
   color: #e44138;
+}
+
+.quest-card-completions .new  {
+  color: white;
 }
 
 .forgotten path {
@@ -155,10 +158,10 @@ a.quest-card:active {
 
 .status-new path,
 .status-homework path {
-  filter: drop-shadow(0px 0px 0.5px #fff)
-    drop-shadow(0 0 0.5px #00f)
-    drop-shadow(0px 0px 0.5px #0ff)
-    blur(0.5px)
+  filter: drop-shadow(0px 0px 1px #fff)
+    drop-shadow(0 0 1px #00f)
+    drop-shadow(0px 0px 1px #0ff)
+    blur(1px)
     brightness(110%)
     url(#glow);
 }
@@ -166,6 +169,14 @@ a.quest-card:active {
   filter: drop-shadow(0px 0px 1px #f00)
     drop-shadow(0 0 1px #f00)
     drop-shadow(0px 0px 1px #f00)
+    blur(1px)
+    brightness(110%)
+    url(#glow);
+}
+.status-completed path {
+  filter: drop-shadow(0px 0px 1px #0f0)
+    drop-shadow(0 0 1px #0f0)
+    drop-shadow(0px 0px 1px #0f0)
     blur(1px)
     brightness(110%)
     url(#glow);

@@ -63,8 +63,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
         ` || ''}
         -->
         ${!lastCompletion && `
-          <div class="curse">
-            ${CyberpunkBorder({ width: 600 })}
+          <div class="new">
             Не знав та й забув
           </div>
         ` || ''}
