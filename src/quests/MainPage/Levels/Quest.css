@@ -1,17 +1,21 @@
 @import "QuestCardBorder.css";
 
 .quest-card {
+  --width: 500px;
+  --height: 500px;
   --padding: 16px;
   --box-size: 250px;
-  width: 500px;
-  height: 500px;
+  width: var(--width);
+  height: var(--height);
   border-radius: 4px;
   padding: var(--padding);
   margin: 32px;
   position: relative;
+  overflow: hidden;
 }
 
 .quest-card-body {
+  width: 100%;
 }
 
 a.quest-card,
@@ -36,12 +40,12 @@ a.quest-card:active {
   padding: 0.5rem;
   font-size: 1.2rem;
   margin: 0.5em;
+  width: 80%;
 }
 
 .completion, .curse path {
-  stroke: red;
+  stroke: #4180c9;
 }
-
 
 .quest {
   position: relative;
@@ -142,11 +146,22 @@ a.quest-card:active {
 }
 */
 
-.status-homework {
-  box-shadow:
-    0 0 10px 2px #fff,  /* inner white */
-    0 0 20px 4px #00f, /* middle blue */
-    0 0 30px 6px #0ff; /* outer orange */
+.status-new path,
+.status-homework path {
+  filter: drop-shadow(0px 0px 0.5px #fff)
+    drop-shadow(0 0 0.5px #00f)
+    drop-shadow(0px 0px 0.5px #0ff)
+    blur(0.5px)
+    brightness(110%)
+    url(#glow);
+}
+.status-forgotten path {
+  filter: drop-shadow(0px 0px 1px #f00)
+    drop-shadow(0 0 1px #f00)
+    drop-shadow(0px 0px 1px #f00)
+    blur(1px)
+    brightness(110%)
+    url(#glow);
 }
 
 .homework-done-badge {

@@ -8,8 +8,8 @@ svg.cyberpunk-border {
 }
 
 svg.quest-card-border {
-  width: 500px;
-  height: 500px;
+  width: var(--width);
+  height: var(--height);
 }
 
 svg.cyberpunk-border {
@@ -28,6 +28,7 @@ svg.cyberpunk-border {
   fill: none;
   stroke-width: 1;
 }
+
 
 .cyberpunk-border path {
   stroke-width: 4;
