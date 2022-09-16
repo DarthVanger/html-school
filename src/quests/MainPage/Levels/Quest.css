@@ -34,6 +34,10 @@ a.quest-card:active {
   justify-content: center;
 }
 
+.completion {
+  color: white;
+}
+
 .completion, .curse,
 .completion, .forgotten {
   position: relative;
@@ -43,7 +47,7 @@ a.quest-card:active {
   color: #e44138;
 }
 
-.completion, .forgotten path {
+.forgotten path {
   stroke: #e44138;
 }
 .completion, .curse path {
