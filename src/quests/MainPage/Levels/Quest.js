@@ -55,11 +55,13 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
             `
           ).join('')}
         </div>
+        <!--
         ${lastCompletion && `
           <div class="curse">
             Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
           </div>
         ` || ''}
+        -->
         ${!lastCompletion && `
           <div class="curse">
             ${CyberpunkBorder({ width: 600 })}
