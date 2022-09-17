@@ -67,6 +67,12 @@ export const Router = (state) => {
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
+    case '/neural-art':
+      element.innerHTML = '';
+      element.innerHTML = `${NeuralArt()}`;
+      
+      break;
+
     case state.route.match(/\/resume\/?/)?.input:
       element.innerHTML = '';
       element.innerHTML = `
