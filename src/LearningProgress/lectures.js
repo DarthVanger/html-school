@@ -54,4 +54,14 @@ export const lectures = [
     skills: ['if-else', 'functions', 'style'],
     url: '/src/slides.html#lesson12',
   },
+  {
+    text: 'Передвижение кнопеками; Запуск Ракеты',
+    skills: ['if-else', 'functions', 'style'],
+    url: '/src/slides.html#lesson13',
+  },
+  {
+    text: 'Git. Refactoring. Top-down Design.',
+    skills: ['git', 'git clone', 'git add', 'git commit', 'git push', 'git pull', 'top-down design', 'refactoring'],
+    url: '/src/slides.html#lesson14',
+  },
 ];
