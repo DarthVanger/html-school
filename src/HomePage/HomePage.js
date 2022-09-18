@@ -29,16 +29,11 @@ export const HomePage = (state) => `
         <div id="levels">
           <div class="quest-list">
             ${Quest({
-              ...quests.keyboard,
-              title: 'Уперовление корабелем кнопками',
-              imgSrc: 'src/quests/img/keyboard.webp',
+              ...quests.layers,
+              title: 'Слои Игры',
+              imgSrc: 'src/quests/img/spaceship.gif',
             })}
-            ${Quest({
-              ...quests.plasma,
-              title: 'Стрэляем: Плазма :)',
-              imgSrc: 'src/quests/img/plasma.gif',
-            })}
-          <div class="quest-list">
+          </div>
         </div>
       </section>
       <!-- 

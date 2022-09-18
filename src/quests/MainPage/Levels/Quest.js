@@ -32,6 +32,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
 
   setTimeout(async () => {
     const completedQuests = await getCompletedQuests({ student: getStudent() });
+    console.log('quest.id:', quest.id);
     console.debug('completedQuestsi n QUEST: ', completedQuests);
 
     completions = completedQuests.filter(q => q.id === quest.id);

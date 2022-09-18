@@ -17,8 +17,10 @@ import velocity from './Velocity.js';
 import htmlImg from './htmlImg.js';
 import shipMotion from './shipMotion.js';
 import keyboard from './keyboard.js';
+import layers from './layers.js';
 
 const quests = {
+  layers,
   keyboard,
   shipMotion,
   htmlImg,

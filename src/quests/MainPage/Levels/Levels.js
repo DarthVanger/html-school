@@ -65,6 +65,12 @@ export const Levels = (store) => {
           imgSrc: 'src/quests/img/css.jpeg',
           ...extraProps(quests.css),
         })}
+        ${Quest({
+          ...quests.layers,
+          title: 'Позиция... АБСОЛЮТ - СЛОИ',
+          imgSrc: 'src/quests/img/spaceship.gif',
+          ...extraProps(quests.layers),
+        })}
       </div>
 
       <h2>ЖАБАСКРИПТ</h2>
@@ -150,6 +156,7 @@ export const Levels = (store) => {
           ...quests.plasma,
           title: 'Стрэляем: Плазма :)',
           imgSrc: 'src/quests/img/plasma.gif',
+          ...extraProps(quests.plasma),
         })}
       </div>
 

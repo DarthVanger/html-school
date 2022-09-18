@@ -86,7 +86,9 @@ a.quest-card:active {
 
 .quest img,
 .quest-html-img {
-  width: 60%;
+  max-width: 100%;
+  min-height: 300px;
+  max-height: 400px;
 }
 
 .quest.is-completed img {
