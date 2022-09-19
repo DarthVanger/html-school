@@ -22,6 +22,20 @@ const story = `
   </figure>
   <p>Когда мы откроем наш "размеченый" текстовый файл с разрешением ".html" в Браузере, он считает <em>Теги</em> (<code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>), и отобразит зоголовке жирным, параграф с отступом - и тагдале.</p>
   <p>Попробуй, это легко :)</p>
+
+  <h2>Harvard Lecture</h2>
+  <figure>
+    <video controls>
+      <source type="video/mp4" src="/video/harvard/html.mp4" />
+    </video>
+    <figcaption>
+      Лекция Гарварда с пояснением что токое HTML и как его юзать
+    </figcaption>
+  </figure>
+
+  <p>
+     Если больше любишь читать - вот все то же самое от Гарварда текстом: <a href="https://cs50.harvard.edu/web/2020/notes/0/">Harvard Notes: HTML and CSS</a>
+  </p>
 `;
 
 const code = `
