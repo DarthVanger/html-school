@@ -13,6 +13,87 @@ const story = `
       </a>
     </figcaption>
   </figure>
+
+  <h3>Первое: <code>position: absolute</code></h3>
+
+  <p>
+    По дефолту элементы HTML (заголовки, параграфы, кортинке) отображаютя друг под другом - как в Ворде.
+  </p>
+
+  <p>
+    <code>position: absolute</code> полностью меняет позиционирование элемента - он будет отоображаться НЕ ПОД другими элементами на экране, а ПОВЕРХ других элементов, в заданных "абсолютных" координатах: <code>top</code> - отступ от ВЕРХА ЭКРАНА, и <code>left</code> - отступ от ЛЕВОГО КРАЯ ЭКРАНА.
+  </p>
+
+  <figure>
+    <img src="/src/quests/img/css-position-absolute.gif" />
+    <figcaption>Демонстрация "абсолютного" позиционирования - т.е. когда элементы ПОВЕРХ друг-друга, а НЕ ПОД.
+  </figure>
+  
+  <p>
+    Проще всего понять это на перемере - посмотри ссылке:
+    <ul>
+      <li>
+        <a href="https://css-tricks.com/almanac/properties/p/position/">Absolute position CSS Tricks</a>
+      </li>
+      <li>
+        <a href="https://www.w3schools.com/css/css_positioning.asp">W3Schools CSS position absolute</a>
+      </li>
+    </ul>
+  </p>
+
+  <h3>ВТОРОЕ: css animation <code>@keyframes {}</code></h3>
+  <p>
+    CSS позволяет делать простые анимации - допустим двигать кортинке :)
+  </p>
+  <p>
+    Анимации объявляются внутри <code>&lt;style&gt;</code> тэга (как и css правила) следующим образом:
+    <pre><code>
+      &lt;style&gt;
+        @keyframes my-animation {
+          from {
+            width: 200px;
+          }
+          to {
+            width: 400px;
+          }
+        }
+
+        img {
+          animation: my-animation 3s;
+        }
+      &lt;/style&gt;
+    </code></pre>
+  </p>
+  <p>
+    <ul>
+      <li>
+        <code>@keyframes my-animation {}</code> - объявляет анимацию под названием <code>my-animation</code>
+      </li>
+      <li>
+        <code>from {}</code> внутри <code>@keyframes {}</code> - задает КАКИЕ СТИЛИ будут ВНАЧАЛЕ анимации.
+      </li>
+      <li>
+        <code>to {}</code> внутри <code>@keyframes {}</code> - задает КАКИЕ СТИЛИ будут В КОНЦЕ анимации.
+      </li>
+      <li>
+        <code>animation: my-animation 3s;</code> внутри <code>img {}</code> - Говорит чтоб имейдж анимировался в соотвествии с <code>my-animation</code> три секунды. Т.е. начался ширина кортинке будет <code>width: 200px</code>, и за 3 секунды она плавно изменится до <code>width: 400px</code>.
+      </li>
+      <li>
+        Собственно как бы вот, собственно вот и все :)
+      </li>
+    </ul>
+  </p>
+  <p>
+    Ссылке по <code>@keyframes</code> (css animation):
+    <ul>
+      <li>
+        <a href="https://www.joshwcomeau.com/animation/keyframe-animations/">Interactive guide to css keyframes animations</a>
+      </li>
+      <li>
+        <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp">W3Schools css animation keyframes</a>
+      </li>
+    </ul>
+  </p>
 `;
 
 const code = `

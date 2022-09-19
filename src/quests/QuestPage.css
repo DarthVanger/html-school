@@ -112,3 +112,8 @@ pre[class*=language]#editor {
   color: aqua;
   font-style: normal;
 }
+
+#quest-story p,
+#quest-story li {
+  line-height: 1.75em;
+}
