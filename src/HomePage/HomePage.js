@@ -59,6 +59,12 @@ export const HomePage = (state) => `
           </a>
         </article>
         <article>
+          <h3>СЛОВАРЕК</h3>
+          <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">
+            <img src="/src/img/vocabulary.jpeg" />
+          </a>
+        </article>
+        <article>
           <h3>Делоем РЕЗЮМЕ</h3>
           <a href="#/resume">
             <img src="src/Resume/resume.png" />

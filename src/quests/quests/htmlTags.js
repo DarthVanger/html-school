@@ -36,6 +36,38 @@ const story = `
   <p>
      Если больше любишь читать - вот все то же самое от Гарварда текстом: <a href="https://cs50.harvard.edu/web/2020/notes/0/">Harvard Notes: HTML and CSS</a>
   </p>
+
+  <h3>Словарек для Видео</h3>
+  <p>
+  <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">
+    Ссылке на СЛОВАРЬ Гугл Док
+  </a>
+
+  <ul>
+    ${
+      [
+        ['()', 'parentheses'],
+        ['[]', 'brackets'],
+        ['{}', 'curly braces'],
+        ['<>', 'angle brackets'],
+        ['?', 'question mark'],
+        [':', 'colon'],
+        [';', 'semicolon'],
+        [',', 'comma'],
+        ['.', 'dot'],
+        ['&', 'and sign (ampersand)'],
+        ['$', 'dollar sign'],
+        ['!', 'exclamation mark'],
+        ['отступ', 'indentation'],
+        ['внутри', 'inside'],
+        ['вне', 'outside'],
+        ['изменить', 'modify'],
+        ['элемент', 'element'],
+      ].map(x => `<li>${x[0]} &mdash; ${x[1]}</li>`)
+      .join('')
+    }
+    </ul>
+  </p>
 `;
 
 const code = `

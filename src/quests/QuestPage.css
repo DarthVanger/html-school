@@ -109,7 +109,7 @@ pre[class*=language]#editor {
 #quest-story a:link,
 #quest-story a:visited {
   text-decoration: none;
-  color: aqua;
+  color: #285bcb;
   font-style: normal;
 }
 
