@@ -55,9 +55,6 @@ export const Coursework = () => {
         У Stanford (охуенный универ) есть открытый курс на ютубе - CS106a - Computer Sciene 106a :) Вот материалы: <a href="https://see.stanford.edu/course/cs106a">https://see.stanford.edu/course/cs106a</a>
       </p>
       <p>
-        Домашки идут по возрастанию сложности
-      </p>
-      <p>
         NOTE: Домашки для Java, но можно сделать их же и на Javascript :) Я помогу.
       </p>
       <div class="grid">
@@ -79,17 +76,6 @@ export const Coursework = () => {
             <figcaption>
               <a href="https://see.stanford.edu/materials/icspmcs106a/19-assignment-3-breakout.pdf">
                 https://see.stanford.edu/materials/icspmcs106a/19-assignment-3-breakout.pdf
-              </a>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="card">
-          <h5>Hangman Game</h5>
-          <figure>
-            <img src="/src/Coursework/img/hangman.png" />
-            <figcaption>
-              <a href="https://see.stanford.edu/materials/icspmcs106a/27-assignment-4-hangman.pdf">
-                https://see.stanford.edu/materials/icspmcs106a/27-assignment-4-hangman.pdf
               </a>
             </figcaption>
           </figure>
