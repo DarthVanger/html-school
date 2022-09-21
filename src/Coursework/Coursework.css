@@ -1,0 +1,12 @@
+#coursework article {
+  padding: 1em;
+}
+
+#coursework article figure {
+  text-align: center;
+}
+
+#coursework article figure img {
+  max-width: 100%;
+  max-height: 80vh;
+}

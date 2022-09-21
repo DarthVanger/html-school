@@ -12,7 +12,7 @@ import { QuizPage } from './Quiz/QuizPage.js';
 import { ExpectationReality } from './ExpectationReality/ExpectationReality.js';
 import { NeuralArt } from './NeuralArt/NeuralArt.js';
 import { Resume } from './Resume/Resume.js';
-//import { CourseworkPage } from './Courserwork/CourseworkPage.js';
+import { Coursework } from './Coursework/Coursework.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 
 const element = document.createElement('div');
@@ -81,13 +81,13 @@ export const Router = (state) => {
       `;
       break;
 
-//    case '/coursework':
-//      element.innerHTML = '';
-//      element.innerHTML = `
-//        ${Topbar({ backUrl: '/#/', surface: 'black' })}
-//      `;
-//      element.append(CourseworkPage(state));
-//      break;
+    case '/coursework':
+      element.innerHTML = '';
+      element.innerHTML = `
+        ${Topbar({ backUrl: '/#/', surface: 'black' })}
+      `;
+      element.append(Coursework(state));
+      break;
 
     case state.route.match(/[/]quests[/]/)?.input:
     case state.route.match(/[/]quests[/]/)?.input:
