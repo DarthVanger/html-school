@@ -5,7 +5,7 @@ export const migration_01 = async () => {
     'johnny',
     'tony',
     'dimon',
-    'insane',
+    'valik_h',
     'russi4',
     'other-species',
   ];
