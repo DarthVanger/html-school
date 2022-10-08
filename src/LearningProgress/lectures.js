@@ -64,4 +64,19 @@ export const lectures = [
     skills: ['git', 'git clone', 'git add', 'git commit', 'git push', 'git pull', 'top-down design', 'refactoring'],
     url: '/src/slides.html#lesson14',
   },
+  {
+    text: 'Не помню',
+    skills: ['git'],
+    url: '/src/slides.html#lesson15',
+  },
+  {
+    text: 'Бухаем',
+    skills: ['git'],
+    url: '/src/slides.html#lesson16',
+  },
+  {
+    text: 'Курсачи выбор и т.д.',
+    skills: ['git'],
+    url: '/src/slides.html#lesson17',
+  },
 ];
