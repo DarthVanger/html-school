@@ -60,22 +60,27 @@ export const lectures = [
     url: '/src/slides.html#lesson13',
   },
   {
-    text: 'Git. Refactoring. Top-down Design.',
+    text: 'Четверть-Кватор. Знакомство с Git.',
     skills: ['git', 'git clone', 'git add', 'git commit', 'git push', 'git pull', 'top-down design', 'refactoring'],
     url: '/src/slides.html#lesson14',
   },
   {
-    text: 'Не помню',
+    text: 'Переносим код в Git. Refactoring. Top-down Design.',
     skills: ['git'],
     url: '/src/slides.html#lesson15',
   },
   {
-    text: 'Бухаем',
+    text: 'Виски 12-летней выдержки. Продолжаем переносить код. Git.',
     skills: ['git'],
     url: '/src/slides.html#lesson16',
   },
   {
-    text: 'Курсачи выбор и т.д.',
+    text: 'Продолжаем переносить код: движение Земли, столкновение объектов.',
+    skills: ['git'],
+    url: '/src/slides.html#lesson17',
+  },
+  {
+    text: 'Курсачи: 1-я итерация. Переменные и стринги. Онемация ракеты.',
     skills: ['git'],
     url: '/src/slides.html#lesson17',
   },
