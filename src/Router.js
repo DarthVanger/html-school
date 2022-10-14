@@ -43,7 +43,6 @@ export const Router = (state) => {
     case '/progress':
       element.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
-        ${BottomBar(state)}
       `;
       element.append(LearningProgress(state));
       break;
