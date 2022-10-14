@@ -190,7 +190,7 @@ export const lectures = [
       'Ивент ЗаЛупа',
       'Онемация ракеты при стрельбе по цели',
     ],
-    skills: ['git'],
+    skills: ['git', 'english', 'presentation', 'setTimeout', 'event loop'],
     url: '/src/slides.html#lesson18',
   },
   {
