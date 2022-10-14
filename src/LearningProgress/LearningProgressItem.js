@@ -12,6 +12,11 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
     <div class="item-text">
         УРОКЕ #${idx + 1}: ${item.text} 
     </div>
+    <ol class="lesson-items">
+      ${item.items.map(lessonItem => `
+        <li><span>${lessonItem}</span></li>
+      `).join('')}
+    </ol>
     ${item.url && `
       <a href="${item.url}">
         СЛАЙДЫ
