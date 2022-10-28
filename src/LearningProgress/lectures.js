@@ -204,4 +204,21 @@ export const lectures = [
     skills: ['git'],
     url: '/src/slides.html#lesson19',
   },
+  {
+    text: 'Курсачи: 3-я итерация. Столкновения объекта с 4-х сторон. Алгебра 8й клас.',
+    items: [
+      '[7 min] Димон: показуем расказуем че по Курсу Мишиган (2-я неделя - Quiz)',
+      '[7 min] Тони: показуем свой личный сайт: че там епта)',
+      '[7 min] Джони: показуем Pull Request (код) для кнопки Start Game',
+      '[15 min] Peremena',
+      '[10 min] English: British Parliament',
+      '[15 min] Algebra 8th grade: Rectangle in Cartesian coordinates',
+      '[15 min] Peremena',
+      '[25 min] Rectangle in Cartesian coordinates: coding',
+      '[15 min] Peremena',
+      '[15 min] Git push baby',
+    ],
+    skills: ['if-else', 'git', 'english', 'functions'],
+    url: '/src/slides.html#lesson20',
+  },
 ];
