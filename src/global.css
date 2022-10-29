@@ -1,8 +1,33 @@
+:root {
+  --primary: #04ff67;
+  --secondary: #d86deb;
+}
+
 a,
 a:link,
 a:visited {
   text-decoration: none;
   color: #285bcb;
   font-style: normal;
+}
+
+
+
+* {
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(--secondary);
+}
+
+*::-webkit-scrollbar-track {
+   background: var(--primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
 }
 
