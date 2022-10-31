@@ -42,14 +42,15 @@ export const Login = ({ handleLogin }) => {
         </label>
 
         <label>
+          <input type="radio" name="student" value="mister-smith">
+          <span>Mister Smith</span>
+        </label>
+
+        <label>
           <input type="radio" name="student" value="dr_p0n4ek">
           <span>&lt; dr_p0n4ek &gt;</span>
         </label>
 
-        <label>
-          <input type="radio" name="student" value="mister-smith">
-          <span>Mister Smith</span>
-        </label>
       </form>
     </div>
   `;
