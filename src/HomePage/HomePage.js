@@ -24,18 +24,7 @@ export const HomePage = (state) => `
         <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
       </marquee>
 
-      <section class="homework">
-        <h2>домашека!!11</h2>
-        <div id="levels">
-          <div class="quest-list">
-            ${Quest({
-              ...quests.layers,
-              title: 'Слои Игры',
-              imgSrc: 'src/quests/img/spaceship.gif',
-            })}
-          </div>
-        </div>
-      </section>
+
       <!-- 
       <h2>ССЫЛКЕ</h2>
       -->
