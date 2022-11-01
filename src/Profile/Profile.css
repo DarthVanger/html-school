@@ -1,0 +1,6 @@
+#avatarCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    border: solid red 2px;
+}

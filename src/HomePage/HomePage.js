@@ -1,6 +1,7 @@
 import { BottomBar } from '../BottomBar.js';
 import { Quest } from '../quests/MainPage/Levels/Quest.js';
 import quests from '../quests/quests/quests.js';
+import { Profile } from '../Profile/Profile.js';
 
 export const HomePage = (state) => `
   <div id="home-page">
@@ -24,10 +25,8 @@ export const HomePage = (state) => `
         <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
       </marquee>
 
+      ${Profile(state)}
 
-      <!-- 
-      <h2>ССЫЛКЕ</h2>
-      -->
       <section id="main-page-links">
         <article>
           <h3>ДРЕВО УМЕНИЙ</h3>

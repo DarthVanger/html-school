@@ -45,32 +45,33 @@ export const BottomBar = ({ student }) => {
     const levelProgress = getLevelProgress(state.points);
     const levelProgressDegrees = levelProgress * 90;
 
-    const html = `
-      <div id="bottom-bar">
-        <img class="avatar" src="img/${student}.jpg" />
-        <svg>
-          <path d="${describeArc(0, size + 2, size, 0, levelProgressDegrees)}" class="level-progress-arc" />
-        </svg>
-        <div id="level">
-          ${state.level}
-        </div>
-        <div id="level-progress">
-          ${levelProgress * 100}%
-        </div>
-        <div id="points">
-          Exp: ${state.points}
-        </div>
+    const element = document.createElement('div');
+    element.id = 'bottom-bar';
+
+    element.innerHTML = `
+      <img class="avatar" src="img/${student}.jpg" />
+      <svg>
+        <path d="${describeArc(0, size + 2, size, 0, levelProgressDegrees)}" class="level-progress-arc" />
+      </svg>
+      <div id="level">
+        ${state.level}
+      </div>
+      <div id="level-progress">
+        ${levelProgress * 100}%
+      </div>
+      <div id="points">
+        Exp: ${state.points}
       </div>
     `;
 
     if (getElement()) {
       const parent = getElement().parentNode;
       getElement().remove();
-      parent.innerHTML += html;
+      parent.append(element);
       addListeners();
     }
 
-    return html;
+    return element.outerHTML;
   };
 
   return render();
