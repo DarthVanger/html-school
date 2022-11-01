@@ -47,7 +47,7 @@ export const Avatar3d = () => {
       var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
       let groundMaterial = new BABYLON.StandardMaterial("Ground Material", scene);
       ground.material = groundMaterial;
-      let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.rootUrl, scene);
+      let groundTexture = new BABYLON.Texture('https://www.babylonjs-playground.com/textures/country.hdr', scene);
       ground.material.diffuseTexture = groundTexture;
 
       BABYLON.SceneLoader.ImportMesh("", Assets.meshes.Yeti.rootUrl, Assets.meshes.Yeti.filename, scene, function(newMeshes){
