@@ -62,18 +62,6 @@ export const Avatar3d = () => {
     });
 
     
-      var knotMaterial = new BABYLON.GridMaterial("knotMaterial", scene);
-      knotMaterial.majorUnitFrequency = 8;
-      knotMaterial.minorUnitVisibility = 0.45;
-      knotMaterial.gridRatio = 0.3;
-      knotMaterial.mainColor = new BABYLON.Color3(0, 0, 0);
-      knotMaterial.lineColor = new BABYLON.Color3(0.0, 1.0, 0.0);
-        
-      var knot = BABYLON.Mesh.CreateTorusKnot("knot", 3, 1, 128, 64, 2, 3, scene);
-      knot.position.y = 12.0;
-      knot.position.x = 6;
-      knot.material = knotMaterial;
-  
       var groundMaterial = new BABYLON.GridMaterial("groundMaterial", scene);
       groundMaterial.majorUnitFrequency = 5;
       groundMaterial.minorUnitVisibility = 0.45;
@@ -96,6 +84,11 @@ export const Avatar3d = () => {
       
       var skySphere = BABYLON.Mesh.CreateSphere("skySphere", 30, 110, scene);
       skySphere.material = skyMaterial;
+
+      BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Matilda/", "scene.gltf", scene, function (meshes) {
+      const scene = meshes[0];
+      scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+});
       
       engine.runRenderLoop(function () {
         camera.alpha += 0.003;
