@@ -71,7 +71,7 @@ export const Avatar3d = () => {
       groundMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
       groundMaterial.opacity = 0.98;
     
-      var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/heightMap.png", 100, 100, 100, 0, 10, scene, false);
+      var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "src/Profile/heightMap.png", 100, 100, 100, 0, 10, scene, false);
       ground.material = groundMaterial;
   
       var skyMaterial = new BABYLON.GridMaterial("skyMaterial", scene);
@@ -86,9 +86,11 @@ export const Avatar3d = () => {
       skySphere.material = skyMaterial;
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Matilda/", "scene.gltf", scene, function (meshes) {
-      const scene = meshes[0];
-      scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-});
+        const scene = meshes[0];
+        scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+      });
+
+      //var cube = BABYLON.
       
       engine.runRenderLoop(function () {
         camera.alpha += 0.003;
