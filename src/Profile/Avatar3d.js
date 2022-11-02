@@ -34,67 +34,80 @@ export const Avatar3d = () => {
       var scene = new BABYLON.Scene(engine);
       scene.clearColor = BABYLON.Color3.Black();
     
-      // This creates and positions a free camera (non-mesh)
-      var camera = new BABYLON.ArcRotateCamera("camera1", - Math.PI / 3, 5 * Math.PI / 12, 50, new BABYLON.Vector3(0, 5, 0), scene);
+      var camera = new BABYLON.ArcRotateCamera("camera1",  - Math.PI / 3, 5 * Math.PI / 12, 50, new BABYLON.Vector3(0, 13, 0), scene);
 
-      const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 5, 0));
+      const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 13, 0));
     
       // This attaches the camera to the canvas
       camera.attachControl(canvas, true);
-        
-      var defaultGridMaterial = new BABYLON.GridMaterial("default", scene);
-      defaultGridMaterial.majorUnitFrequency = 5;
-      defaultGridMaterial.gridRatio = 0.5;
-      //
-      var sphereMaterial = new BABYLON.StandardMaterial("Sphere Material", scene);
-      sphereMaterial.diffuseTexture = new BABYLON.Texture("/img/tony.jpg", scene);
     
-     //BABYLON.SceneLoader.ImportMeshAsync("him", "/src/Profile/Dude/", "Dude.babylon", scene).then((result) => {
-     //   var sphere = result.meshes[0];
-     //   sphere.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25);
-     //           
-     //   scene.beginAnimation(result.skeletons[0], 0, 100, true, 1.0);
-
-     //   sphere.position.y = 0;
-     //   sphere.position.x = -6;
-     //   sphere.material = sphereMaterial; 
-     //});
-
-    
-      var groundMaterial = new BABYLON.GridMaterial("groundMaterial", scene);
-      groundMaterial.majorUnitFrequency = 5;
-      groundMaterial.minorUnitVisibility = 0.45;
-      groundMaterial.gridRatio = 2;
+      var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+      //groundMaterial.majorUnitFrequency = 5;
+      //groundMaterial.minorUnitVisibility = 0.45;
+      //groundMaterial.gridRatio = 2;
       groundMaterial.backFaceCulling = false;
-      groundMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
-      groundMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
-      groundMaterial.opacity = 0.98;
+      //groundMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
+      //groundMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+      //groundMaterial.opacity = 0.98;
+
+      groundMaterial.diffuseTexture = new BABYLON.Texture("/src/Profile/weed.png");
     
-      var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "src/Profile/heightMap.png", 100, 100, 100, 0, 10, scene, false);
+      var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "src/Profile/heightMap.png", 100, 82, 100, 0, 10, scene, false);
       ground.material = groundMaterial;
   
-      var skyMaterial = new BABYLON.GridMaterial("skyMaterial", scene);
-      skyMaterial.majorUnitFrequency = 6;
-      skyMaterial.minorUnitVisibility = 0.43;
-      skyMaterial.gridRatio = 0.5;
-      skyMaterial.mainColor = new BABYLON.Color3(0, 0.05, 0.2);
-      skyMaterial.lineColor = new BABYLON.Color3(0, 1.0, 1.0);	
-      skyMaterial.backFaceCulling = false;
-      
-      var skySphere = BABYLON.Mesh.CreateSphere("skySphere", 30, 110, scene);
-      skySphere.material = skyMaterial;
+      //var skyMaterial = new BABYLON.GridMaterial("skyMaterial", scene);
+      //skyMaterial.majorUnitFrequency = 6;
+      //skyMaterial.minorUnitVisibility = 0.43;
+      //skyMaterial.gridRatio = 0.5;
+      //skyMaterial.mainColor = new BABYLON.Color3(0, 0.05, 0.2);
+      //skyMaterial.lineColor = new BABYLON.Color3(0, 1.0, 1.0);	
+      //skyMaterial.backFaceCulling = false;
+
+      //var skySphere = BABYLON.Mesh.CreateSphere("skySphere", 90, 330, scene);
+      //skySphere.material = skyMaterial;
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
         scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-        scene.position.y = 5;
+        scene.position.y = 6;
+      });
+
+      let bong;
+
+      let boxPosition = {
+        y: 18,
+        height: 6,
+      };
+
+      let bongPosition = {
+        y: boxPosition.y + boxPosition.height / 2,
+      };
+
+      BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Bong/", "scene.gltf", scene, function (meshes) {
+        const scene = meshes[0];
+        scene.scaling = new BABYLON.Vector3(1, 1, 1);
+        scene.position.y = bongPosition.y;
+        scene.position.x = 0;
+        scene.position.z = -10;
+        bong = scene;
+      });
+
+      BABYLON.SceneLoader.ImportMesh("", "/src/Profile/House/", "scene.gltf", scene, function (meshes) {
+        const scene = meshes[0];
+        scene.scaling = new BABYLON.Vector3(50, 50, 50);
+        scene.position.x = 0;
+        scene.position.y = 62;
       });
 
       const box = BABYLON.MeshBuilder.CreateBox("box", {
-        width: 10,
-        height: 10,
-        depth: 10,
+        width: 6,
+        height: 6,
+        depth: 6,
       });
+
+      box.position.y = boxPosition.y;
+      box.position.x = 0;
+      box.position.z = -10;
 
       var boxMaterial = new BABYLON.StandardMaterial("mat", scene);
 boxMaterial.backFaceCulling = true;
@@ -105,8 +118,26 @@ boxMaterial.backFaceCulling = true;
 
       box.material = boxMaterial;
 
+      let isBongMovingUp = true;
       engine.runRenderLoop(function () {
-        camera.alpha += 0.003;
+        camera.alpha += 0.001;
+        if (bong) {
+
+          box.rotation.y += 0.003;
+          if (isBongMovingUp && bong.position.y >= bongPosition.y + 3) {
+            isBongMovingUp = false;
+          }
+
+          if (bong.position.y <= bongPosition.y) {
+            isBongMovingUp = true;
+          }
+
+          if (isBongMovingUp) {
+            bong.position.y += 0.01;
+          } else {
+            bong.position.y -= 0.01;
+          }
+        }
       });	
 
       return scene;
