@@ -38,6 +38,8 @@ export const Avatar3d = () => {
 
       const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 13, 0));
     
+      light.intensity = 0.5;
+
       // This attaches the camera to the canvas
       camera.attachControl(canvas, true);
     
