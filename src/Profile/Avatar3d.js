@@ -37,6 +37,8 @@ export const Avatar3d = () => {
       var camera = new BABYLON.ArcRotateCamera("camera1",  - Math.PI / 3, 5 * Math.PI / 12, 50, new BABYLON.Vector3(0, 13, 0), scene);
 
       const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 13, 0));
+
+      light.intensity = 0.7;
     
       // This attaches the camera to the canvas
       camera.attachControl(canvas, true);
@@ -54,6 +56,30 @@ export const Avatar3d = () => {
     
       var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "src/Profile/heightMap.png", 100, 82, 100, 0, 10, scene, false);
       ground.material = groundMaterial;
+
+      const faceSize = 90;
+      var face = BABYLON.Mesh.CreateGroundFromHeightMap("face", "src/Profile/faceHeight.png", faceSize, faceSize, faceSize, 0, 30, scene, false);
+      face.rotation.x = -Math.PI / 2;
+      face.rotation.y = Math.PI;
+      face.rotation.z = 0;
+      face.position.x = 0;
+      face.position.y = faceSize / 2 + 12; 
+      face.position.z = -103;
+      var faceMaterial = new BABYLON.StandardMaterial("faceMaterial", scene);
+      faceMaterial.majorUnitFrequency = 5;
+      faceMaterial.minorUnitVisibility = 0.45;
+      faceMaterial.gridRatio = 2;
+      faceMaterial.backFaceCulling = false;
+      faceMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
+      faceMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+      faceMaterial.opacity = 0.98;
+      faceMaterial.backFaceCulling = false;
+      faceMaterial.reflectionColor = new BABYLON.Color3(0, 0, 0);
+      faceMaterial.diffuseTexture = new BABYLON.Texture("/img/dimon.jpg");
+
+      //faceMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+
+      face.material = faceMaterial;
   
       //var skyMaterial = new BABYLON.GridMaterial("skyMaterial", scene);
       //skyMaterial.majorUnitFrequency = 6;
