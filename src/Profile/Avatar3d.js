@@ -283,7 +283,6 @@ boxMaterial.backFaceCulling = true;
     });
 
     document.addEventListener('keyup', (e) => {
-      console.log('e: ', e);
       if (e.keyCode == 87) { isWPressed = false; }
       if (e.keyCode == 65) { isAPressed = false; }
       if (e.keyCode == 83) { isSPressed = false; }
@@ -296,7 +295,7 @@ boxMaterial.backFaceCulling = true;
         if (!scene.isReady()){return;}
 
         const phi = box.rotation.y;
-        const theta = box.rotation.x;
+        const theta = box.rotation.x - Math.PI  / 2;
         var playerSpeed=0.2;
         const r =  playerSpeed;
 
@@ -308,13 +307,13 @@ boxMaterial.backFaceCulling = true;
 
           if (isWPressed==true) {
             //box.locallyTranslate(new BABYLON.Vector3(0, 0, 0.1));
-            var forwards = new BABYLON.Vector3(-x, y, -z);
+            var forwards = new BABYLON.Vector3(x, y, z);
             box.moveWithCollisions(forwards);
           }
 
           if (isSPressed==true) {
             //box.locallyTranslate(new BABYLON.Vector3(0, 0, -0.1));
-            var backwards = new BABYLON.Vector3(x, y, z);
+            var backwards = new BABYLON.Vector3(-x, y, -z);
             box.moveWithCollisions(backwards);
           }
         }
