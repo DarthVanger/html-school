@@ -49,17 +49,16 @@ export const Avatar3d = () => {
       var sphereMaterial = new BABYLON.StandardMaterial("Sphere Material", scene);
       sphereMaterial.diffuseTexture = new BABYLON.Texture("/img/tony.jpg", scene);
     
-      //var sphere = BABYLON.Mesh.CreateSphere("sphere", 20, 9, scene);
-     BABYLON.SceneLoader.ImportMeshAsync("him", "/src/Profile/Dude/", "Dude.babylon", scene).then((result) => {
-        var sphere = result.meshes[0];
-        sphere.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25);
-                
-        scene.beginAnimation(result.skeletons[0], 0, 100, true, 1.0);
+     //BABYLON.SceneLoader.ImportMeshAsync("him", "/src/Profile/Dude/", "Dude.babylon", scene).then((result) => {
+     //   var sphere = result.meshes[0];
+     //   sphere.scaling = new BABYLON.Vector3(0.25, 0.25, 0.25);
+     //           
+     //   scene.beginAnimation(result.skeletons[0], 0, 100, true, 1.0);
 
-        sphere.position.y = 0;
-        sphere.position.x = -6;
-        sphere.material = sphereMaterial; 
-    });
+     //   sphere.position.y = 0;
+     //   sphere.position.x = -6;
+     //   sphere.material = sphereMaterial; 
+     //});
 
     
       var groundMaterial = new BABYLON.GridMaterial("groundMaterial", scene);
@@ -88,10 +87,24 @@ export const Avatar3d = () => {
       BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
         scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+        scene.position.y = 5;
       });
 
-      //var cube = BABYLON.
-      
+      const box = BABYLON.MeshBuilder.CreateBox("box", {
+        width: 10,
+        height: 10,
+        depth: 10,
+      });
+
+      var boxMaterial = new BABYLON.StandardMaterial("mat", scene);
+boxMaterial.backFaceCulling = true;
+      boxMaterial.reflectionTexture = new BABYLON.CubeTexture("/src/Profile/Cube/dimon", scene);
+      boxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+      boxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+      boxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+      box.material = boxMaterial;
+
       engine.runRenderLoop(function () {
         camera.alpha += 0.003;
       });	
