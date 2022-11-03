@@ -200,7 +200,7 @@ export const Scene3d = (state) => {
       let bong;
 
       let bongPosition = {
-        y: 18,
+        y: 12,
       };
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Bong/", "scene.gltf", scene, function (meshes) {
