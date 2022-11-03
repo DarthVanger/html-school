@@ -235,8 +235,12 @@ boxMaterial.backFaceCulling = true;
       scene.registerBeforeRender (() => {
         if (!scene.isReady()){return;}
 
-        const phi = camera.rotation.y;
-        const theta = camera.rotation.x + Math.PI / 2;
+        if (!(isWPressed || isSPressed || isQPressed || isEPressed || isAPressed || isDPressed)) {
+          return;
+        }
+
+        let phi = camera.rotation.y;
+        let theta = camera.rotation.x + Math.PI / 2;
         var playerSpeed = 0.5;
         const r = playerSpeed;
 
@@ -244,44 +248,44 @@ boxMaterial.backFaceCulling = true;
         var z = r*parseFloat(Math.cos(phi) * Math.sin(theta));
         var y = r*parseFloat(Math.cos(theta));
 
-        if (isWPressed || isSPressed) {
+        const cameraRotStep = 0.05;
 
-          if (isWPressed==true) {
-            var forwards = new BABYLON.Vector3(x, y, z);
-            box.moveWithCollisions(forwards);
-          }
+        if (isWPressed==true) {
+          var forwards = new BABYLON.Vector3(x, y, z);
+          box.moveWithCollisions(forwards);
+        }
 
-          if (isSPressed==true) {
-            var backwards = new BABYLON.Vector3(-x, -y, -z);
-            box.moveWithCollisions(backwards);
-          }
+        if (isSPressed==true) {
+          var backwards = new BABYLON.Vector3(-x, -y, -z);
+          box.moveWithCollisions(backwards);
         }
 
         if (isQPressed==true) {
           box.addRotation(-0.01,0,0);
-          camera.rotation.x -= 0.05;
+          camera.rotation.x -= cameraRotStep;
         }
 
         if (isEPressed==true) {
           box.addRotation(0.01, 0, 0);
-          camera.rotation.x += 0.05;
+          camera.rotation.x += cameraRotStep;
         }
 
         if (isAPressed==true) {
           box.addRotation(0,-0.01,0);
-          camera.rotation.y -= 0.05;
+          camera.rotation.y -= cameraRotStep;
         }
 
         if (isDPressed==true) {
           box.addRotation(0,0.01,0);
-          camera.rotation.y += 0.05;
+          camera.rotation.y += cameraRotStep;
         }
 
-        const boxR = Math.hypot(box.position.x, box.position.y, box.position.z);
-        const camR = boxR + cameraRadius;
-        var camX = box.position.x - cameraRadius*parseFloat(Math.sin(phi) * Math.sin(theta));
-        var camZ = box.position.z - cameraRadius*parseFloat(Math.cos(phi) * Math.sin(theta));
-        var camY = box.position.y - cameraRadius*parseFloat(Math.cos(theta));
+        phi = camera.rotation.y;
+        theta = camera.rotation.x + Math.PI / 2;
+
+        var camX = box.position.x - cameraRadius * parseFloat(Math.sin(phi) * Math.sin(theta));
+        var camZ = box.position.z - cameraRadius * parseFloat(Math.cos(phi) * Math.sin(theta));
+        var camY = box.position.y - cameraRadius * parseFloat(Math.cos(theta));
 
         camera.position.x = camX;
         camera.position.y = camY;
