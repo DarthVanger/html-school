@@ -71,8 +71,8 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
        level,
      })}
      ${path1}
-     ${!isCss && path2}
-     ${isCss && path2Css}
+     ${!isCss && path2 || ''}
+     ${isCss && path2Css || ''}
      ${path3}
    </g>
   `;
@@ -93,7 +93,7 @@ const SkillsLine = ({ skills, x, y, state }) => skills.map((skill, idx) => {
      ${isLastBox && Path({
        x: x + skillBoxSize / 2,
        y: skillBoxSize + skillY,
-     })};
+     }) || ''};
   `;
  });
 

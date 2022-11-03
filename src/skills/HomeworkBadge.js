@@ -26,7 +26,7 @@ export const HomeworkBadge = ({x, y, level, skill, state }) => {
   });
   
   return `
-    <g class="homework-badge" id=${id}>
+    <g class="homework-badge" id="${id}">
       <image
         href="src/skills/img/book.png"
         x="${imgX}"

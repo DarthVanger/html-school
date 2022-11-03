@@ -6,23 +6,11 @@ export const Badge = ({x, y, level, badgeR }) => {
   const size = width;
   
   return `
-    <defs>
-      <rect id="${id}" x="${x + size / 2}" y="${y + size / 2}" width="${size}" height="${size}" rx="50%"
-
-      class="badge-rect"
-      />
-      <clipPath id="clipPath-${id}">
-        <use xlink:href="#${id}"/>
-      </clipPath>
-    </defs>
-
-    <use xlink:href="#${id}" />
     <image
       href="src/skills/img/texture-100x100.jpg"
       x="${x + height / 2}"
       y="${y + height / 2}"
       width="${size}" height="${size}"
-      clip-path="url(#clipPath-${id})"
       class="badge-img level-${level}"
     />
    <text x="${x + size + 2}" y="${y + size + 2}"

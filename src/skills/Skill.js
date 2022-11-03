@@ -25,10 +25,10 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
     `;
 
     texts.forEach((text, idx) => {
-      const textEncoded = text.replace('>', '&gt').replace('<', '&lt');
+      const textEncoded = text.replace('>', '&gt;').replace('<', '&lt;');
 
       html += `
-      <text x=${x} y=${y + idx * lineHeight}
+      <text x="${x}" y="${y + idx * lineHeight}"
        text-anchor="middle"
        alignment-baseline="middle"
       >
@@ -59,7 +59,7 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
 
 
   return `
-    <g class="skill}" width="${width}" height="${height}">
+    <g class="skill" width="${width}" height="${height}">
      <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
       <image
         href="src/skills/img/texture-100x100.jpg"

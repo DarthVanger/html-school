@@ -27,6 +27,7 @@ export const HomePage = (state) => `
       </marquee>
 
       ${Scene3d(state)}
+
       ${Profile(state)}
 
       <section id="main-page-links">

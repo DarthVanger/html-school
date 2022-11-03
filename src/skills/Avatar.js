@@ -11,16 +11,6 @@ export const Avatar = ({ levels, points, selectedStudent }) => {
   const angle = 2 * Math.PI * levelProgress;
 
   return `
-  <defs>
-    <rect id="rect" x="${x}" y="${y}" width="${size}" height="${size}" rx="50%"
-
-    />
-    <clipPath id="clip">
-      <use xlink:href="#rect"/>
-    </clipPath>
-  </defs>
-
-    <use xlink:href="#rect" stroke-width="2" stroke="black"/>
     <image
       class="avatar avatar-johnny"
       href="img/johnny.jpg"
@@ -28,7 +18,6 @@ export const Avatar = ({ levels, points, selectedStudent }) => {
       x="${x}"
       y="${y}"
       width="${size}" height="${size}"
-      clip-path="url(#clip)"
     />
     <image
       class="avatar avatar-tony hide"
@@ -37,7 +26,6 @@ export const Avatar = ({ levels, points, selectedStudent }) => {
       x="${x}"
       y="${y}"
       width="${size}" height="${size}"
-      clip-path="url(#clip)"
     />
     <image
       class="avatar avatar-dimon hide"
@@ -46,7 +34,6 @@ export const Avatar = ({ levels, points, selectedStudent }) => {
       x="${x}"
       y="${y}"
       width="${size}" height="${size}"
-      clip-path="url(#clip)"
     />
     <circle stroke-width="2px" stroke="black" fill="transparent" cx="${x}" cy="${y}" r="${size / 2}" />
     ${StudentLevelBadge({

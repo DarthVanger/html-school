@@ -20,7 +20,7 @@ export const LecturesBadge = (props) => {
   console.debug('Lectures Badge. Points: ', points);
 
   return `
-    <g class="homework-badge" id=${id}>
+    <g class="homework-badge lectures-badge" id="${id}">
       <image
         href="src/skills/img/book.png"
         x="${imgX}"

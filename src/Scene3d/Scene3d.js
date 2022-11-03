@@ -1,7 +1,31 @@
-export const Scene3d = () => {
+import { SvgSkills } from '../skills/SvgSkills.js';
+
+export const Scene3d = (state) => {
   console.log('Scene3d()');
-  setTimeout(async () => {
+
+  const init = async () => {
     var canvas = document.getElementById("avatarCanvas");
+
+    const skills = await fetch('/tree')
+      .then(r => r.json())
+      .then(r => {
+        let t = {};
+        t.skills = r.skills;
+        t.levels = r.levels;
+        t.points = r.points;
+        t.categoryLevels = r.categoryLevels;
+        t.lecturePoints = r.lecturePoints;
+        t.questPoints = r.questPoints;
+        return t;
+      });
+
+    console.log('Scene3d state: ', state);
+    console.log('Scene3d skills: ', skills);
+    const svg = SvgSkills({
+      ...state,
+      ...skills,
+    });
+
 
     console.log('canvas: ', canvas);
     var startRenderLoop = function (engine, canvas) {
@@ -16,6 +40,7 @@ export const Scene3d = () => {
     var engine = null;
     var scene = null;
     var sceneToRender = null;
+
     var createDefaultEngine = function() {
       const defaultEngine =  new BABYLON.Engine(canvas, true, {
         preserveDrawingBuffer: true,
@@ -126,19 +151,37 @@ export const Scene3d = () => {
       wallMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
       wallMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
       wallMaterial.opacity = 0.98;
-      wallMaterial.backFaceCulling = false;
       wallMaterial.reflectionColor = new BABYLON.Color3(0, 0, 0);
       wallMaterial.diffuseTexture = new BABYLON.Texture("/src/Scene3d/wall.jpeg");
       wallMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-      wall.material = wallMaterial;
-  
+      var oneMesh = BABYLON.MeshBuilder.CreateGround("one", {width: 20, height: 20}, scene);
+      oneMesh.position.y = 30;
+      oneMesh.rotation.x = BABYLON.Tools.ToRadians(270);
+      oneMesh.material = new BABYLON.StandardMaterial("oneMaterial", scene);
+      //ground.material.backFaceCulling = false; // So the material can also be seen from behind
 
-      BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
-        const scene = meshes[0];
-        scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-        scene.position.y = 6;
-      });
+      //var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?><svg id="svg8" width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg"><g id="layer1" transform="translate(0 -263.13)"><g id="flowRoot3710" transform="matrix(3.6571 0 0 2.1776 -170.71 -1373.6)" stroke-width="1px" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal" aria-label="1"><path id="path11" d="m46.98 765.4h3.4375v-11.865l-3.7396 0.75v-1.9167l3.7188-0.75h2.1042v13.781h3.4375v1.7708h-8.9583z" style=""/></g></g></svg>';
+      var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svg;
+      console.log('oneSVGString: ', oneSVGString);
+      var oneSVGBlob = new Blob([oneSVGString], {"type":'image/svg+xml'});
+      var oneSVGURL = URL.createObjectURL(oneSVGBlob);
+      var oneTexture = new BABYLON.Texture(oneSVGURL, scene); // or you can just load the SVG as a file normally :v
+      console.log('oneTexture: ', oneTexture);
+      oneTexture.hasAlpha = true; // enables transparency
+      oneMesh.material.diffuseTexture = oneTexture;
+      oneMesh.material.backFaceCulling = false;
+      oneMesh.material.mainColor = new BABYLON.Color3(1, 1, 1);
+      oneMesh.material.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+      oneMesh.material.reflectionColor = new BABYLON.Color3(0, 0, 0);
+      //oneMesh.material.diffuseTexture = new BABYLON.Texture("/src/Scene3d/wall.jpeg");
+      oneMesh.material.specularColor = new BABYLON.Color3(0, 0, 0);
+
+      //BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
+      //  const scene = meshes[0];
+      //  scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+      //  scene.position.y = 6;
+      //});
 
       let bong;
 
@@ -330,7 +373,9 @@ boxMaterial.backFaceCulling = true;
     window.addEventListener("resize", function () {
       engine.resize();
     });
-  });
+  }
+
+  setTimeout(init);
 
   return `
     <canvas id="avatarCanvas"></canvas>
