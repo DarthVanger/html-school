@@ -2,6 +2,7 @@ import { Badge } from './Badge.js';
 import { QuestBadge } from './QuestBadge.js';
 import { LecturesBadge } from './LecturesBadge.js';
 import { getSkillLevel, getQuestPoints } from './stats.js';
+import { texture } from './img/texture.js';
 
 export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
   console.debug('Rendering skill: ', skill);
@@ -62,7 +63,7 @@ export const Skill = ({ skill, x, y, skillBoxSize, state }) => {
     <g class="skill" width="${width}" height="${height}">
      <rect x="${x}" y="${y}" width="${skillBoxSize}" height="${skillBoxSize}"></rect>
       <image
-        href="src/skills/img/texture-100x100.jpg"
+        href="${texture}"
         height="${height}"
         width="${width}"
         x="${x}"
