@@ -14,6 +14,7 @@ import { NeuralArt } from './NeuralArt/NeuralArt.js';
 import { Resume } from './Resume/Resume.js';
 import { Coursework } from './Coursework/Coursework.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
+import { Scene3d } from './Scene3d/Scene3d.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -31,6 +32,12 @@ export const Router = (state) => {
     case '/skills':
       element.innerHTML = '';
       element.append(Skills(state));
+      break;
+    case '/3d':
+      element.innerHTML = '';
+      element.innerHTML = `
+        ${Scene3d(state)}
+      `;
       break;
     case '/quests':
       element.innerHTML = '';
