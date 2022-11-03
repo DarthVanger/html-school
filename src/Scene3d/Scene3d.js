@@ -139,6 +139,7 @@ export const Scene3d = (state) => {
       wall.position.x = wallNorthPosition.x;
       wall.position.y = wallNorthPosition.y; 
       wall.position.z = wallNorthPosition.z;
+
       var wallMaterial = new BABYLON.StandardMaterial("wallMaterial", scene);
       wallMaterial.majorUnitFrequency = 5;
       wallMaterial.minorUnitVisibility = 0.45;
@@ -147,9 +148,13 @@ export const Scene3d = (state) => {
       wallMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
       wallMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
       wallMaterial.opacity = 0.98;
+      wallMaterial.backFaceCulling = false;
       wallMaterial.reflectionColor = new BABYLON.Color3(0, 0, 0);
       wallMaterial.diffuseTexture = new BABYLON.Texture("/src/Scene3d/wall.jpeg");
       wallMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+      wall.material = wallMaterial;
+
 
       var skills = BABYLON.MeshBuilder.CreateGround("one", {width: 120, height: 120}, scene);
       skills.position.y = 45;
