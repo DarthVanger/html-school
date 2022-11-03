@@ -79,18 +79,11 @@ export const Scene3d = (state) => {
 
       //camera.fov = Math.PI / 2;
 
-      // Add a light
-      var light1 = new BABYLON.PointLight("light1", new BABYLON.Vector3(0,4,0), scene);
-      light1.diffuse = new BABYLON.Color3(1, 0.4, 0.4);
-      light1.specular = new BABYLON.Color3(0.5, 0.2, 0.2);
-      light1.intensity = 1;
-      light1.range = 10;
-
       const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 13, 0));
 
       light.intensity = 0.7;
 
-      const light3 = new BABYLON.HemisphericLight("light3", new BABYLON.Vector3(5, 5, 5));
+      const light3 = new BABYLON.HemisphericLight("light3", new BABYLON.Vector3(0, 0, -1));
 
       // This attaches the camera to the canvas
       camera.attachControl(canvas, true);
