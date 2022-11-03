@@ -158,13 +158,13 @@ export const Scene3d = (state) => {
       wallMaterial.diffuseTexture = new BABYLON.Texture("/src/Scene3d/wall.jpeg");
       wallMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-      var oneMesh = BABYLON.MeshBuilder.CreateGround("one", {width: 100, height: 100}, scene);
-      oneMesh.position.y = 25;
-      oneMesh.position.x = 48;
-      oneMesh.position.z = -5;
-      oneMesh.rotation.x = BABYLON.Tools.ToRadians(270);
-      oneMesh.rotation.y = BABYLON.Tools.ToRadians(90);
-      oneMesh.material = new BABYLON.StandardMaterial("oneMaterial", scene);
+      var skills = BABYLON.MeshBuilder.CreateGround("one", {width: 120, height: 120}, scene);
+      skills.position.y = 45;
+      skills.position.x = 48;
+      skills.position.z = -25;
+      skills.rotation.x = BABYLON.Tools.ToRadians(270);
+      skills.rotation.y = BABYLON.Tools.ToRadians(90);
+      skills.material = new BABYLON.StandardMaterial("oneMaterial", scene);
       ground.material.backFaceCulling = false; // So the material can also be seen from behind
 
 
@@ -175,12 +175,12 @@ export const Scene3d = (state) => {
       var oneTexture = new BABYLON.Texture(oneSVGURL, scene); // or you can just load the SVG as a file normally :v
       console.log('oneTexture: ', oneTexture);
       oneTexture.hasAlpha = true; // enables transparency
-      oneMesh.material.diffuseTexture = oneTexture;
-      oneMesh.material.backFaceCulling = false;
-      oneMesh.material.mainColor = new BABYLON.Color3(1, 1, 1);
-      oneMesh.material.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
-      oneMesh.material.reflectionColor = new BABYLON.Color3(0, 0, 0);
-      oneMesh.material.specularColor = new BABYLON.Color3(0, 0, 0);
+      skills.material.diffuseTexture = oneTexture;
+      skills.material.backFaceCulling = false;
+      skills.material.mainColor = new BABYLON.Color3(1, 1, 1);
+      skills.material.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+      skills.material.reflectionColor = new BABYLON.Color3(0, 0, 0);
+      skills.material.specularColor = new BABYLON.Color3(0, 0, 0);
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
