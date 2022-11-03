@@ -1,5 +1,6 @@
 import { Badge } from './Badge.js';
 import { Skill } from './Skill.js';
+import { rock } from './img/rock.js';
 
 const skillBoxSize = 120;
 let treeHeights = [];
@@ -48,7 +49,7 @@ const SkillsLineHeading = ({ text, x, y, level }) => {
   return `
     <g class="category">
       <image
-        href="src/skills/img/rock.jpg"
+        href="${rock}"
         height="${height}"
         width="${width}"
         x="${x}"

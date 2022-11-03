@@ -162,6 +162,7 @@ export const Scene3d = (state) => {
       //ground.material.backFaceCulling = false; // So the material can also be seen from behind
 
       //var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?><svg id="svg8" width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg"><g id="layer1" transform="translate(0 -263.13)"><g id="flowRoot3710" transform="matrix(3.6571 0 0 2.1776 -170.71 -1373.6)" stroke-width="1px" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal" aria-label="1"><path id="path11" d="m46.98 765.4h3.4375v-11.865l-3.7396 0.75v-1.9167l3.7188-0.75h2.1042v13.781h3.4375v1.7708h-8.9583z" style=""/></g></g></svg>';
+
       var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svg;
       console.log('oneSVGString: ', oneSVGString);
       var oneSVGBlob = new Blob([oneSVGString], {"type":'image/svg+xml'});
