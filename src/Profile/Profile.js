@@ -1,9 +1,7 @@
-import { Avatar3d } from './Avatar3d.js';
-
 export const Profile = () => {
   return `
     <div id="profile">
-      ${Avatar3d()}
+      <h2>Profile :)</h2>
     </div>
   `;
 };

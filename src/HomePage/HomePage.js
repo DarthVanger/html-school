@@ -1,6 +1,7 @@
 import { BottomBar } from '../BottomBar.js';
 import { Quest } from '../quests/MainPage/Levels/Quest.js';
 import quests from '../quests/quests/quests.js';
+import { Scene3d } from '../Scene3d/Scene3d.js';
 import { Profile } from '../Profile/Profile.js';
 
 export const HomePage = (state) => `
@@ -25,6 +26,7 @@ export const HomePage = (state) => `
         <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
       </marquee>
 
+      ${Scene3d(state)}
       ${Profile(state)}
 
       <section id="main-page-links">
