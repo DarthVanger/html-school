@@ -23,7 +23,7 @@ export const SvgSkills = (props) => {
 
   //return svg;
   return `
-    <svg height="1000" width="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+    <svg height="2000" width="2000" viewBox="-100 0 2000 2000" xmlns="http://www.w3.org/2000/svg">
       <style>
 
     /* HomeworkBadge.css */

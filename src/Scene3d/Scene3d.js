@@ -83,12 +83,14 @@ export const Scene3d = (state) => {
       var light1 = new BABYLON.PointLight("light1", new BABYLON.Vector3(0,4,0), scene);
       light1.diffuse = new BABYLON.Color3(1, 0.4, 0.4);
       light1.specular = new BABYLON.Color3(0.5, 0.2, 0.2);
-      light1.intensity = 4;
+      light1.intensity = 1;
       light1.range = 10;
 
       const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 13, 0));
 
       light.intensity = 0.7;
+
+      const light3 = new BABYLON.HemisphericLight("light3", new BABYLON.Vector3(5, 5, 5));
 
       // This attaches the camera to the canvas
       camera.attachControl(canvas, true);
@@ -155,13 +157,15 @@ export const Scene3d = (state) => {
       wallMaterial.diffuseTexture = new BABYLON.Texture("/src/Scene3d/wall.jpeg");
       wallMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-      var oneMesh = BABYLON.MeshBuilder.CreateGround("one", {width: 20, height: 20}, scene);
-      oneMesh.position.y = 30;
+      var oneMesh = BABYLON.MeshBuilder.CreateGround("one", {width: 100, height: 100}, scene);
+      oneMesh.position.y = 25;
+      oneMesh.position.x = 48;
+      oneMesh.position.z = -5;
       oneMesh.rotation.x = BABYLON.Tools.ToRadians(270);
+      oneMesh.rotation.y = BABYLON.Tools.ToRadians(90);
       oneMesh.material = new BABYLON.StandardMaterial("oneMaterial", scene);
-      //ground.material.backFaceCulling = false; // So the material can also be seen from behind
+      ground.material.backFaceCulling = false; // So the material can also be seen from behind
 
-      //var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?><svg id="svg8" width="128" height="128" version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg"><g id="layer1" transform="translate(0 -263.13)"><g id="flowRoot3710" transform="matrix(3.6571 0 0 2.1776 -170.71 -1373.6)" stroke-width="1px" style="font-feature-settings:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal" aria-label="1"><path id="path11" d="m46.98 765.4h3.4375v-11.865l-3.7396 0.75v-1.9167l3.7188-0.75h2.1042v13.781h3.4375v1.7708h-8.9583z" style=""/></g></g></svg>';
 
       var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svg;
       console.log('oneSVGString: ', oneSVGString);
@@ -175,14 +179,13 @@ export const Scene3d = (state) => {
       oneMesh.material.mainColor = new BABYLON.Color3(1, 1, 1);
       oneMesh.material.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
       oneMesh.material.reflectionColor = new BABYLON.Color3(0, 0, 0);
-      //oneMesh.material.diffuseTexture = new BABYLON.Texture("/src/Scene3d/wall.jpeg");
       oneMesh.material.specularColor = new BABYLON.Color3(0, 0, 0);
 
-      //BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
-      //  const scene = meshes[0];
-      //  scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-      //  scene.position.y = 6;
-      //});
+      BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
+        const scene = meshes[0];
+        scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
+        scene.position.y = 6;
+      });
 
       let bong;
 
