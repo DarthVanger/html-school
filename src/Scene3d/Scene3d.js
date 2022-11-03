@@ -105,7 +105,8 @@ export const Scene3d = (state) => {
       var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
       groundMaterial.backFaceCulling = false;
       groundMaterial.diffuseTexture = new BABYLON.Texture("/src/Scene3d/weed.png");
-      var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "src/Scene3d/heightMap.png", 100, 82, 100, 0, 10, scene, false);
+      var ground = BABYLON.Mesh.CreateGround("ground", 100, 150, 100, 0, 10, scene );
+      ground.position.z = -20;
       ground.material = groundMaterial;
 
       const harvardSize = 100;
@@ -184,7 +185,7 @@ export const Scene3d = (state) => {
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
         scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-        scene.position.y = 6;
+        scene.position.y = 0;
       });
 
       let bong;
