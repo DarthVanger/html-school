@@ -30,43 +30,109 @@ export const Avatar3d = () => {
 
     var createScene = function () {
 
-      // This creates a basic Babylon Scene object (non-mesh)
+      let boxSize = 4;
+      let boxPosition = {
+        y: 10,
+        x: 0,
+        z: -20,
+      };
+
       var scene = new BABYLON.Scene(engine);
       scene.clearColor = BABYLON.Color3.Black();
     
-      var camera = new BABYLON.ArcRotateCamera("camera1",  - Math.PI / 3, 5 * Math.PI / 12, 50, new BABYLON.Vector3(0, 13, 0), scene);
+      // https://www.babylonjs-playground.com/#Y2XX5A
+      var camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 0, 0), scene);
+      const cameraRadius = 20;
+
+      camera.rotation.x = 0;
+      camera.rotation.y = 0;
+      camera.rotation.z = 0;
+
+      camera.attachControl(canvas, true);
+
+      camera.checkCollisions=false;
+
+      //camera.fov = Math.PI / 2;
+
+      // Add a light
+      var light1 = new BABYLON.PointLight("light1", new BABYLON.Vector3(0,4,0), scene);
+      light1.diffuse = new BABYLON.Color3(1, 0.4, 0.4);
+      light1.specular = new BABYLON.Color3(0.5, 0.2, 0.2);
+      light1.intensity = 4;
+      light1.range = 10;
 
       const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 13, 0));
-    
-      light.intensity = 0.5;
+
+      light.intensity = 0.7;
 
       // This attaches the camera to the canvas
       camera.attachControl(canvas, true);
     
-      var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
-      //groundMaterial.majorUnitFrequency = 5;
-      //groundMaterial.minorUnitVisibility = 0.45;
-      //groundMaterial.gridRatio = 2;
-      groundMaterial.backFaceCulling = false;
-      //groundMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
-      //groundMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
-      //groundMaterial.opacity = 0.98;
+      const wallSize = 100;
+      const wallNorthPosition = {
+        z: -103,
+        x: -4,
+        y: wallSize / 2,
+      };
 
+      var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+      groundMaterial.backFaceCulling = false;
       groundMaterial.diffuseTexture = new BABYLON.Texture("/src/Profile/weed.png");
-    
       var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "src/Profile/heightMap.png", 100, 82, 100, 0, 10, scene, false);
       ground.material = groundMaterial;
-  
-      //var skyMaterial = new BABYLON.GridMaterial("skyMaterial", scene);
-      //skyMaterial.majorUnitFrequency = 6;
-      //skyMaterial.minorUnitVisibility = 0.43;
-      //skyMaterial.gridRatio = 0.5;
-      //skyMaterial.mainColor = new BABYLON.Color3(0, 0.05, 0.2);
-      //skyMaterial.lineColor = new BABYLON.Color3(0, 1.0, 1.0);	
-      //skyMaterial.backFaceCulling = false;
 
-      //var skySphere = BABYLON.Mesh.CreateSphere("skySphere", 90, 330, scene);
-      //skySphere.material = skyMaterial;
+      const harvardSize = 100;
+
+      const wallSouthPosition = {
+        z: 53,
+        x: -4,
+        y: harvardSize / 2,
+      };
+
+      var harvard = BABYLON.Mesh.CreateGroundFromHeightMap("harvard", "src/Profile/harvardHeight.png", harvardSize, harvardSize, harvardSize, 0, 30, scene, false);
+      harvard.rotation.x = -Math.PI / 2;
+      //harvard.rotation.y = Math.PI;
+      harvard.rotation.z = 0;
+      harvard.position.x = wallSouthPosition.x;
+      harvard.position.y = wallSouthPosition.y;
+      harvard.position.z = wallSouthPosition.z;
+      var harvardMaterial = new BABYLON.StandardMaterial("harvardMaterial", scene);
+      harvardMaterial.majorUnitFrequency = 5;
+      harvardMaterial.minorUnitVisibility = 0.45;
+      harvardMaterial.gridRatio = 2;
+      harvardMaterial.backFaceCulling = false;
+      harvardMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
+      harvardMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+      harvardMaterial.opacity = 0.98;
+      harvardMaterial.backFaceCulling = false;
+      harvardMaterial.reflectionColor = new BABYLON.Color3(0, 0, 0);
+      harvardMaterial.diffuseTexture = new BABYLON.Texture("/src/Profile/harvard.jpeg");
+      harvardMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+      harvard.material = harvardMaterial;
+
+      var wall = BABYLON.Mesh.CreateGroundFromHeightMap("wall", "src/Profile/wallHeight.png", wallSize, wallSize, wallSize, 0, 30, scene, false);
+      wall.rotation.x = -Math.PI / 2;
+      wall.rotation.y = Math.PI;
+      wall.rotation.z = 0;
+      wall.position.x = wallNorthPosition.x;
+      wall.position.y = wallNorthPosition.y; 
+      wall.position.z = wallNorthPosition.z;
+      var wallMaterial = new BABYLON.StandardMaterial("wallMaterial", scene);
+      wallMaterial.majorUnitFrequency = 5;
+      wallMaterial.minorUnitVisibility = 0.45;
+      wallMaterial.gridRatio = 2;
+      wallMaterial.backFaceCulling = false;
+      wallMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
+      wallMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+      wallMaterial.opacity = 0.98;
+      wallMaterial.backFaceCulling = false;
+      wallMaterial.reflectionColor = new BABYLON.Color3(0, 0, 0);
+      wallMaterial.diffuseTexture = new BABYLON.Texture("/src/Profile/wall.jpeg");
+      wallMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+      wall.material = wallMaterial;
+  
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
@@ -76,13 +142,8 @@ export const Avatar3d = () => {
 
       let bong;
 
-      let boxPosition = {
-        y: 18,
-        height: 6,
-      };
-
       let bongPosition = {
-        y: boxPosition.y + boxPosition.height / 2,
+        y: 18,
       };
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Profile/Bong/", "scene.gltf", scene, function (meshes) {
@@ -102,14 +163,20 @@ export const Avatar3d = () => {
       });
 
       const box = BABYLON.MeshBuilder.CreateBox("box", {
-        width: 6,
-        height: 6,
-        depth: 6,
+        width: boxSize,
+        height: boxSize,
+        depth: boxSize,
       });
 
       box.position.y = boxPosition.y;
-      box.position.x = 0;
-      box.position.z = -10;
+      box.position.x = boxPosition.x;
+      box.position.z = boxPosition.z; 
+      box.rotation.y = 0;
+      box.rotation.x = 0;
+      box.rotation.z = 0;
+      camera.position.y = boxPosition.y;
+      camera.position.x = boxPosition.x;
+      camera.position.z = boxPosition.z;
 
       var boxMaterial = new BABYLON.StandardMaterial("mat", scene);
 boxMaterial.backFaceCulling = true;
@@ -122,7 +189,6 @@ boxMaterial.backFaceCulling = true;
 
       let isBongMovingUp = true;
       engine.runRenderLoop(function () {
-        camera.alpha += 0.001;
         if (bong) {
 
           box.rotation.y += 0.003;
@@ -141,6 +207,93 @@ boxMaterial.backFaceCulling = true;
           }
         }
       });	
+
+
+    // WASD control of Player "character".
+    let isWPressed = false;
+    let isAPressed = false;
+    let isSPressed = false;
+    let isDPressed = false;
+    let isQPressed = false;
+    let isEPressed = false;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.keyCode == 87){isWPressed=true;}
+        if (e.keyCode == 65){isAPressed=true;}
+        if (e.keyCode == 83){isSPressed = true;}
+        if (e.keyCode == 68){isDPressed=true;}
+        if (e.key == "q") { isQPressed = true; }
+        if (e.key == "e") { isEPressed = true; }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode == 87) { isWPressed = false; }
+      if (e.keyCode == 65) { isAPressed = false; }
+      if (e.keyCode == 83) { isSPressed = false; }
+      if (e.keyCode == 68) { isDPressed = false; }
+      if (e.key == "q") { isQPressed = false; }
+      if (e.key == "e") { isEPressed = false; }
+    });
+
+      scene.registerBeforeRender (() => {
+        if (!scene.isReady()){return;}
+
+        if (!(isWPressed || isSPressed || isQPressed || isEPressed || isAPressed || isDPressed)) {
+          return;
+        }
+
+        let phi = camera.rotation.y;
+        let theta = camera.rotation.x + Math.PI / 2;
+        var playerSpeed = 0.5;
+        const r = playerSpeed;
+
+        var x = r*parseFloat(Math.sin(phi) * Math.sin(theta));
+        var z = r*parseFloat(Math.cos(phi) * Math.sin(theta));
+        var y = r*parseFloat(Math.cos(theta));
+
+        const cameraRotStep = 0.05;
+
+        if (isWPressed==true) {
+          var forwards = new BABYLON.Vector3(x, y, z);
+          box.moveWithCollisions(forwards);
+        }
+
+        if (isSPressed==true) {
+          var backwards = new BABYLON.Vector3(-x, -y, -z);
+          box.moveWithCollisions(backwards);
+        }
+
+        if (isQPressed==true) {
+          box.addRotation(-0.01,0,0);
+          camera.rotation.x -= cameraRotStep;
+        }
+
+        if (isEPressed==true) {
+          box.addRotation(0.01, 0, 0);
+          camera.rotation.x += cameraRotStep;
+        }
+
+        if (isAPressed==true) {
+          box.addRotation(0,-0.01,0);
+          camera.rotation.y -= cameraRotStep;
+        }
+
+        if (isDPressed==true) {
+          box.addRotation(0,0.01,0);
+          camera.rotation.y += cameraRotStep;
+        }
+
+        phi = camera.rotation.y;
+        theta = camera.rotation.x + Math.PI / 2;
+
+        var camX = box.position.x - cameraRadius * parseFloat(Math.sin(phi) * Math.sin(theta));
+        var camZ = box.position.z - cameraRadius * parseFloat(Math.cos(phi) * Math.sin(theta));
+        var camY = box.position.y - cameraRadius * parseFloat(Math.cos(theta));
+
+        camera.position.x = camX;
+        camera.position.y = camY;
+        camera.position.z = camZ;
+      });
 
       return scene;
     };
