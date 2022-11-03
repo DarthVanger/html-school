@@ -167,7 +167,6 @@ export const Scene3d = (state) => {
 
 
       var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svg;
-      console.log('oneSVGString: ', oneSVGString);
       var oneSVGBlob = new Blob([oneSVGString], {"type":'image/svg+xml'});
       var oneSVGURL = URL.createObjectURL(oneSVGBlob);
       var oneTexture = new BABYLON.Texture(oneSVGURL, scene); // or you can just load the SVG as a file normally :v
@@ -184,6 +183,18 @@ export const Scene3d = (state) => {
         const scene = meshes[0];
         scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
         scene.position.y = 0;
+      });
+
+      let ship;
+      BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/SpaceShip/", "scene.gltf", scene, function (meshes) {
+        const scene = meshes[0];
+        scene.scaling = new BABYLON.Vector3(10, 10, 10);
+        scene.position.y = 5;
+        ship = scene;
+        ship.position.y = boxPosition.y;
+        ship.position.x = boxPosition.x;
+        ship.position.z = boxPosition.z;
+        ship.addRotation(0, Math.PI, 0);
       });
 
       let bong;
@@ -203,41 +214,19 @@ export const Scene3d = (state) => {
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/House/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
-        scene.scaling = new BABYLON.Vector3(50, 50, 50);
         scene.position.x = 0;
         scene.position.y = 62;
+        scene.scaling = new BABYLON.Vector3(50, 50, 50);
       });
 
-      const box = BABYLON.MeshBuilder.CreateBox("box", {
-        width: boxSize,
-        height: boxSize,
-        depth: boxSize,
-      });
-
-      box.position.y = boxPosition.y;
-      box.position.x = boxPosition.x;
-      box.position.z = boxPosition.z; 
-      box.rotation.y = 0;
-      box.rotation.x = 0;
-      box.rotation.z = 0;
       camera.position.y = boxPosition.y;
       camera.position.x = boxPosition.x;
-      camera.position.z = boxPosition.z;
-
-      var boxMaterial = new BABYLON.StandardMaterial("mat", scene);
-boxMaterial.backFaceCulling = true;
-      boxMaterial.reflectionTexture = new BABYLON.CubeTexture("/src/Scene3d/Cube/dimon", scene);
-      boxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-      boxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-      boxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-
-      box.material = boxMaterial;
+      camera.position.z = boxPosition.z - + cameraRadius;
 
       let isBongMovingUp = true;
       engine.runRenderLoop(function () {
         if (bong) {
 
-          box.rotation.y += 0.003;
           if (isBongMovingUp && bong.position.y >= bongPosition.y + 3) {
             isBongMovingUp = false;
           }
@@ -298,43 +287,44 @@ boxMaterial.backFaceCulling = true;
         var y = r*parseFloat(Math.cos(theta));
 
         const cameraRotStep = 0.05;
+        const shipRotStep = cameraRotStep;
 
         if (isWPressed==true) {
           var forwards = new BABYLON.Vector3(x, y, z);
-          box.moveWithCollisions(forwards);
+          ship.moveWithCollisions(forwards);
         }
 
         if (isSPressed==true) {
           var backwards = new BABYLON.Vector3(-x, -y, -z);
-          box.moveWithCollisions(backwards);
+          ship.moveWithCollisions(backwards);
         }
 
         if (isQPressed==true) {
-          box.addRotation(-0.01,0,0);
+          ship.addRotation(-shipRotStep,0,0);
           camera.rotation.x -= cameraRotStep;
         }
 
         if (isEPressed==true) {
-          box.addRotation(0.01, 0, 0);
+          ship.addRotation(shipRotStep,0,0);
           camera.rotation.x += cameraRotStep;
         }
 
         if (isAPressed==true) {
-          box.addRotation(0,-0.01,0);
+          ship.addRotation(0,-shipRotStep,0);
           camera.rotation.y -= cameraRotStep;
         }
 
         if (isDPressed==true) {
-          box.addRotation(0,0.01,0);
+          ship.addRotation(0,shipRotStep,0);
           camera.rotation.y += cameraRotStep;
         }
 
         phi = camera.rotation.y;
         theta = camera.rotation.x + Math.PI / 2;
 
-        var camX = box.position.x - cameraRadius * parseFloat(Math.sin(phi) * Math.sin(theta));
-        var camZ = box.position.z - cameraRadius * parseFloat(Math.cos(phi) * Math.sin(theta));
-        var camY = box.position.y - cameraRadius * parseFloat(Math.cos(theta));
+        var camX = ship.position.x - cameraRadius * parseFloat(Math.sin(phi) * Math.sin(theta));
+        var camZ = ship.position.z - cameraRadius * parseFloat(Math.cos(phi) * Math.sin(theta));
+        var camY = ship.position.y - cameraRadius * parseFloat(Math.cos(theta));
 
         camera.position.x = camX;
         camera.position.y = camY;
