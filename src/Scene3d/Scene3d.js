@@ -90,9 +90,9 @@ export const Scene3d = (state) => {
     
       const wallSize = 100;
       const wallNorthPosition = {
-        z: -103,
+        z: -83,
         x: -4,
-        y: wallSize / 2,
+        y: wallSize  / 2 + 10,
       };
 
       var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
@@ -107,10 +107,10 @@ export const Scene3d = (state) => {
       const wallSouthPosition = {
         z: 53,
         x: -4,
-        y: harvardSize / 2,
+        y: harvardSize / 2 + 15,
       };
 
-      var harvard = BABYLON.Mesh.CreateGroundFromHeightMap("harvard", "src/Scene3d/harvardHeight.png", harvardSize, harvardSize, harvardSize, 0, 30, scene, false);
+      var harvard = BABYLON.Mesh.CreateGroundFromHeightMap("harvard", "src/Scene3d/harvardHeight.png", harvardSize, harvardSize + 30, harvardSize, 0, 30, scene, false);
       harvard.rotation.x = -Math.PI / 2;
       //harvard.rotation.y = Math.PI;
       harvard.rotation.z = 0;
@@ -132,7 +132,7 @@ export const Scene3d = (state) => {
 
       harvard.material = harvardMaterial;
 
-      var wall = BABYLON.Mesh.CreateGroundFromHeightMap("wall", "src/Scene3d/wallHeight.png", wallSize, wallSize, wallSize, 0, 30, scene, false);
+      var wall = BABYLON.Mesh.CreateGroundFromHeightMap("wall", "src/Scene3d/wallHeight.png", wallSize, wallSize + 17, wallSize, 0, 30, scene, false);
       wall.rotation.x = -Math.PI / 2;
       wall.rotation.y = Math.PI;
       wall.rotation.z = 0;
