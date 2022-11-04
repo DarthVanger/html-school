@@ -22,8 +22,22 @@ export const Profile = (state) => {
     y: cy - 18,
   }
 
+  const questText = {
+    x: cx - 55,
+    y: cy - 55,
+  }
+
+  const questNumberText = {
+    x: cx - 45,
+    y: cy - 42,
+  }
+
   const getLevelNumberText = () => {
     return document.querySelector('#level-number-text');
+  };
+
+  const getQuestNumberText = () => {
+    return document.querySelector('#quest-number-text');
   };
 
   fetch('/tree')
@@ -36,8 +50,9 @@ export const Profile = (state) => {
       state.lecturePoints = r.lecturePoints;
       state.questPoints = r.questPoints;
       const level = state.levels[state.student];
-      console.log('111');
+      const questsNum = state.questPoints[state.student].length;
       getLevelNumberText().innerHTML = level;
+      getQuestNumberText().innerHTML = questsNum;
     });
 
   return `
@@ -59,6 +74,14 @@ export const Profile = (state) => {
         </text>
 
         <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}" style="font-size: ${fontSize}">
+          0
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}" style="font-size: ${fontSize}">
+          Домашка
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}" style="font-size: ${fontSize}">
           0
         </text>
       </svg>
