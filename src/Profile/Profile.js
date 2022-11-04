@@ -32,6 +32,16 @@ export const Profile = (state) => {
     y: cy - 42,
   }
 
+  const lecturePointsText = {
+    x: cx,
+    y: cy - 84,
+  }
+
+  const lecturePointsNumberText = {
+    x: cx + 6,
+    y: cy - 71,
+  }
+
   const getLevelNumberText = () => {
     return document.querySelector('#level-number-text');
   };
@@ -39,6 +49,21 @@ export const Profile = (state) => {
   const getQuestNumberText = () => {
     return document.querySelector('#quest-number-text');
   };
+
+  const getLecturePointsNumberText = () => {
+    return document.querySelector('#quest-lecture-points-number-text');
+  };
+
+  const calculateLecturePoints = () => {
+    const studentPoints = state.lecturePoints[state.student];
+    let sum = 0;
+
+    for (let x in studentPoints) {
+      sum += studentPoints[x];
+    }
+
+    return sum
+  }
 
   fetch('/tree')
     .then(r => r.json())
@@ -51,8 +76,10 @@ export const Profile = (state) => {
       state.questPoints = r.questPoints;
       const level = state.levels[state.student];
       const questsNum = state.questPoints[state.student].length;
+      const lecturePoints = calculateLecturePoints();
       getLevelNumberText().innerHTML = level;
       getQuestNumberText().innerHTML = questsNum;
+      getLecturePointsNumberText().innerHTML = lecturePoints;
     });
 
   return `
@@ -82,6 +109,14 @@ export const Profile = (state) => {
         </text>
 
         <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}" style="font-size: ${fontSize}">
+          0
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}" style="font-size: ${fontSize}">
+          Лекции
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}" style="font-size: ${fontSize}">
           0
         </text>
       </svg>
