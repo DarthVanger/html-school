@@ -52,6 +52,16 @@ export const Profile = (state) => {
     y: cy - 42,
   }
 
+  const repeatsText = {
+    x: cx + 54,
+    y: cy + 50,
+  }
+
+  const repeatsNumberText = {
+    x: cx + 60,
+    y: cy + 60,
+  }
+
   const getLevelNumberText = () => {
     return document.querySelector('#level-number-text');
   };
@@ -68,6 +78,10 @@ export const Profile = (state) => {
     return document.querySelector('#quest-experience-number-text');
   };
 
+  const getRepeatsNumberText = () => {
+    return document.querySelector('#repeats-number-text');
+  };
+
   const calculateLecturePoints = () => {
     const studentPoints = state.lecturePoints[state.student];
     let sum = 0;
@@ -76,7 +90,24 @@ export const Profile = (state) => {
       sum += studentPoints[x];
     }
 
-    return sum
+    return sum;
+  }
+
+  const calculateRepeats = () => {
+    const quests = state.questPoints[state.student];
+    const map = {};
+
+    for (let q of quests) {
+      map[q.id] = map[q.id] ? (map[q.id] + 1) : 1;
+    }
+
+    let sum = 0;
+    for (let q in map) {
+      const c = map[q];
+      sum += c - 1;
+    }
+
+    return sum;
   }
 
   fetch('/tree')
@@ -92,10 +123,12 @@ export const Profile = (state) => {
       const questsNum = state.questPoints[state.student].length;
       const lecturePoints = calculateLecturePoints();
       const experience = state.points[state.student];
+      const repeats = calculateRepeats();
       getLevelNumberText().innerHTML = level;
       getQuestNumberText().innerHTML = questsNum;
       getLecturePointsNumberText().innerHTML = lecturePoints;
       getExperienceNumberText().innerHTML = experience;
+      getRepeatsNumberText().innerHTML = repeats;
     });
 
   return `
@@ -141,6 +174,14 @@ export const Profile = (state) => {
         </text>
 
         <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}" style="font-size: ${fontSize}">
+          0
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}" style="font-size: ${fontSize}">
+          Повторение
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}" style="font-size: ${fontSize}">
           0
         </text>
       </svg>
