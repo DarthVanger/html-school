@@ -25,6 +25,8 @@ export const HomePage = (state) => `
         <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
       </marquee>
 
+      ${Profile(state)}
+
       <section id="main-page-links">
         <article>
           <h3>ДРЕВО УМЕНИЙ</h3>
