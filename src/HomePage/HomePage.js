@@ -27,7 +27,7 @@ export const HomePage = (state) => `
 
       <section id="main-page-links">
         <article>
-          <h3>ДРЕВО УМЕНИЙ <a href="#/3d">ДДД</a></h3>
+          <h3>ДРЕВО УМЕНИЙ</h3>
           <a href="#/skills">
             <img src="src/HomePage/skills-tree.gif" />
           </a>
