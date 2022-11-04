@@ -42,6 +42,16 @@ export const Profile = (state) => {
     y: cy - 71,
   }
 
+  const experienceText = {
+    x: cx + 53,
+    y: cy - 55,
+  }
+
+  const experienceNumberText = {
+    x: cx + 62,
+    y: cy - 42,
+  }
+
   const getLevelNumberText = () => {
     return document.querySelector('#level-number-text');
   };
@@ -52,6 +62,10 @@ export const Profile = (state) => {
 
   const getLecturePointsNumberText = () => {
     return document.querySelector('#quest-lecture-points-number-text');
+  };
+
+  const getExperienceNumberText = () => {
+    return document.querySelector('#quest-experience-number-text');
   };
 
   const calculateLecturePoints = () => {
@@ -77,9 +91,11 @@ export const Profile = (state) => {
       const level = state.levels[state.student];
       const questsNum = state.questPoints[state.student].length;
       const lecturePoints = calculateLecturePoints();
+      const experience = state.points[state.student];
       getLevelNumberText().innerHTML = level;
       getQuestNumberText().innerHTML = questsNum;
       getLecturePointsNumberText().innerHTML = lecturePoints;
+      getExperienceNumberText().innerHTML = experience;
     });
 
   return `
@@ -117,6 +133,14 @@ export const Profile = (state) => {
         </text>
 
         <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}" style="font-size: ${fontSize}">
+          0
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}" style="font-size: ${fontSize}">
+          Экспа
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}" style="font-size: ${fontSize}">
           0
         </text>
       </svg>
