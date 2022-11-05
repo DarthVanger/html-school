@@ -221,4 +221,21 @@ export const lectures = [
     skills: ['if-else', 'git', 'english', 'functions'],
     url: '/src/slides.html#lesson20',
   },
+  {
+    text: 'Курсачи: 4-я итерация. Летучки. Загружаем сайт в Инторенет.',
+    items: [
+      '[7 min] Димон: показуем расказуем че по Курсу Мишиган (все закончил?)',
+      '[7 min] Тони: какой сайт вышел по итогу',
+      '[7 min] Джони: показуем Pull Request для кнопки Start Game',
+      '[15 min] Peremena',
+      '[10 min] English: videos',
+      '[15 min] Загружаем сайт в Инторонеты',
+      '[15 min] Peremena',
+      '[25 min] JavaScript Модули',
+      '[15 min] Peremena',
+      '[25 min] Летучки по столкновению объектов',
+    ],
+    skills: ['if-else', 'git', 'english', 'functions'],
+    url: '/src/slides.html#lesson21',
+  },
 ];
