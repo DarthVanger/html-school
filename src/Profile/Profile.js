@@ -19,7 +19,7 @@ export const Profile = (state) => {
 
   const levelNumberText = {
     x: cx,
-    y: cy - 18,
+    y: cy - 16,
   }
 
   const questText = {
@@ -54,11 +54,21 @@ export const Profile = (state) => {
 
   const repeatsText = {
     x: cx + 54,
-    y: cy + 50,
+    y: cy + 49,
   }
 
   const repeatsNumberText = {
     x: cx + 60,
+    y: cy + 60,
+  }
+
+  const nothingText = {
+    x: cx + -54,
+    y: cy + 49,
+  }
+
+  const nothingNumberText = {
+    x: cx + -48,
     y: cy + 60,
   }
 
@@ -149,7 +159,7 @@ export const Profile = (state) => {
         Level
         </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}" style="font-size: ${fontSize}">
+        <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}" style="font-size: ${fontSize * 1.5}">
           0
         </text>
 
@@ -184,6 +194,15 @@ export const Profile = (state) => {
         <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}" style="font-size: ${fontSize}">
           0
         </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}" style="font-size: ${fontSize}">
+        Нихуя
+        </text>
+
+        <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}" style="font-size: ${fontSize}">
+          0
+        </text>
+      </svg>
       </svg>
     </div>
   `;
