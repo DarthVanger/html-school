@@ -1,5 +1,9 @@
 @import 'global.css';
 
+.page-content h2 {
+  color: #1b9833!important;
+}
+
 .expectations-form {
   padding: 2em 5em;
 }
@@ -122,4 +126,64 @@
   height: calc(var(--height));
   max-height: unset;
   max-width: 100%;
+}
+
+.certificate .pechat {
+  position: absolute;
+  bottom: 5em;
+  right: 10em;
+  width: 150px;
+  height: 150px;
+}
+
+.certificate .pechat img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes opac {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.certificate .pechat img:nth-child(1) {
+  animation: opac 2s infinite alternate;
+}
+
+.certificate .pechat img:nth-child(2) {
+  animation: opac 2s alternate-reverse infinite;
+}
+
+.page-content h2.cert-heading {
+  font-family: "Times New Roman";
+  letter-spacing: 10px;
+  font-size: 3em;
+}
+
+.certificate .text {
+  position: absolute;
+  left: 8em;
+  top: 10em;
+  font-family: monospace;
+  letter-spacing: 4px;
+}
+
+.certificate .text p {
+  font-size: 1.3em;
+  padding: 0;
+  margin: 1em;
+  text-align: justify;
+}
+
+.certificate .text p.student {
+  color: pink;
+  font-size: 3em;
+  letter-spacing: 10px;
+  text-align: center;
+  line-height: 0.5;
 }
