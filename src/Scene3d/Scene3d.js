@@ -271,13 +271,12 @@ export const Scene3d = (state) => {
     let isEPressed = false;
 
     document.addEventListener('keydown', (e) => {
-      console.log('keydown e.key: ', e.key);
-        if (e.key == "w"){isWPressed=true;}
-        if (e.key == "a"){isAPressed=true;}
-        if (e.key == "s"){isSPressed = true;}
-        if (e.key == "d"){isDPressed=true;}
-        if (e.key == "q") { isQPressed = true; }
-        if (e.key == "e") { isEPressed = true; }
+      if (e.key == "w"){isWPressed=true;}
+      if (e.key == "a"){isAPressed=true;}
+      if (e.key == "s"){isSPressed = true;}
+      if (e.key == "d"){isDPressed=true;}
+      if (e.key == "q") { isQPressed = true; }
+      if (e.key == "e") { isEPressed = true; }
     });
 
     document.addEventListener('keyup', (e) => {
