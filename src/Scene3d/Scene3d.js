@@ -271,6 +271,7 @@ export const Scene3d = (state) => {
     let isEPressed = false;
 
     document.addEventListener('keydown', (e) => {
+      console.log('keydown e.key: ', e.key);
         if (e.key == "w"){isWPressed=true;}
         if (e.key == "a"){isAPressed=true;}
         if (e.key == "s"){isSPressed = true;}
