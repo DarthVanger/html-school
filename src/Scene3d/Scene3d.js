@@ -1,4 +1,5 @@
 import { SvgSkills } from '../skills/SvgSkills.js';
+import { SvgProfile } from '../Profile/SvgProfile.js';
 
 export const Scene3d = (state) => {
   console.log('Scene3d()');
@@ -19,11 +20,15 @@ export const Scene3d = (state) => {
         return t;
       });
 
-    console.log('Scene3d state: ', state);
-    console.log('Scene3d skills: ', skills);
     const skillsSvg = SvgSkills({
       ...state,
       ...skills,
+    });
+
+    const profileSvg = SvgProfile({
+      ...state,
+      ...skills,
+      is3d: true,
     });
 
 
@@ -163,9 +168,20 @@ export const Scene3d = (state) => {
       skills.rotation.x = BABYLON.Tools.ToRadians(270);
       skills.rotation.y = BABYLON.Tools.ToRadians(90);
       skills.material = new BABYLON.StandardMaterial("oneMaterial", scene);
-      ground.material.backFaceCulling = false; // So the material can also be seen from behind
+      skills.material.backFaceCulling = false; // So the material can also be seen from behind
 
       svgTexture(skills, skillsSvg);
+
+      var profile = BABYLON.MeshBuilder.CreateGround("profile", {width: 120, height: 120}, scene);
+      profile.position.y = 45;
+      profile.position.x = -49;
+      profile.position.z = -25;
+      profile.rotation.x = BABYLON.Tools.ToRadians(270);
+      profile.rotation.y = BABYLON.Tools.ToRadians(90);
+      profile.rotation.z = BABYLON.Tools.ToRadians(180);
+      profile.material = new BABYLON.StandardMaterial("profileMat", scene);
+      profile.material.backFaceCulling = false; // So the material can also be seen from behind
+      svgTexture(profile, profileSvg);
 
       function svgTexture(shape, svgString) {
         var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svgString;

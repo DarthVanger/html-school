@@ -1,73 +1,73 @@
 import { cyberProfile } from './cyberProfile.js';
 
 export const SvgProfile = (state) => {
-  const height = 296;
-  const width = 526;
+  const height = 296 * 4;
+  const width = 526 * 4;
   const x = 0;
   const y = 0;
-  const fontSize = 5;
+  const fontSize = state.is3d ? '2em' : '1em';
 
   const cx = width / 2;
   const cy = height / 2;
 
   const levelText = {
     x: cx,
-    y: cy + 25,
+    y: cy + 0.084 * height,
   }
 
   const levelNumberText = {
     x: cx,
-    y: cy - 16,
+    y: cy - 0.054 * height,
   }
 
   const questText = {
-    x: cx - 55,
-    y: cy - 55,
+    x: cx - 0.1 * width,
+    y: cy - 0.185 * height,
   }
 
   const questNumberText = {
-    x: cx - 45,
-    y: cy - 42,
+    x: cx - 0.085 * width,
+    y: cy - 0.14 * height,
   }
 
   const lecturePointsText = {
     x: cx,
-    y: cy - 84,
+    y: cy - 0.283 * height,
   }
 
   const lecturePointsNumberText = {
-    x: cx + 6,
-    y: cy - 71,
+    x: cx + 0.01 * width,
+    y: cy - 0.239 * height,
   }
 
   const experienceText = {
-    x: cx + 53,
-    y: cy - 55,
+    x: cx + 0.1 * width,
+    y: cy - 0.185 * height,
   }
 
   const experienceNumberText = {
-    x: cx + 62,
-    y: cy - 42,
+    x: cx + 0.12 * width,
+    y: cy - 0.138 * height,
   }
 
   const repeatsText = {
-    x: cx + 54,
-    y: cy + 49,
+    x: cx + 0.102 * width,
+    y: cy + 0.165 * height,
   }
 
   const repeatsNumberText = {
-    x: cx + 60,
-    y: cy + 60,
+    x: cx + 0.115 * width,
+    y: cy + 0.21 * height,
   }
 
   const nothingText = {
-    x: cx + -54,
-    y: cy + 49,
+    x: cx - 0.105 * width,
+    y: cy + 0.165 * height,
   }
 
   const nothingNumberText = {
-    x: cx + -48,
-    y: cy + 60,
+    x: cx - 0.094 * width,
+    y: cy + 0.21 * height,
   }
 
   const getLevelNumberText = () => {
@@ -129,7 +129,17 @@ export const SvgProfile = (state) => {
   const repeats = calculateRepeats();
 
   return `
-    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        text {
+          fill: #60a7ac;
+          font-size: ${fontSize};
+        }
+        #level-number-text {
+          font-size: ${fontSize * 1.5};
+        }
+      </style>
+
       <image
         href="${cyberProfile}"
         width="${width}"
@@ -138,51 +148,51 @@ export const SvgProfile = (state) => {
         y="${y}"
         preserveAspectRatio="none"
       />
-      <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}">
       Level
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}" style="font-size: ${fontSize * 1.5}">
+      <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}">
         ${level}
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}">
         Домашка
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}">
         ${questsNum}
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}">
         Лекции
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}">
       ${lecturePoints}
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}">
         Экспа
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}">
       ${experience}
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}">
         Повторение
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}">
       ${repeats}
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}">
       Нихуя
       </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}" style="font-size: ${fontSize}">
+      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
       0
       </text>
     </svg>
