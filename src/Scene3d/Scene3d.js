@@ -21,7 +21,7 @@ export const Scene3d = (state) => {
 
     console.log('Scene3d state: ', state);
     console.log('Scene3d skills: ', skills);
-    const svg = SvgSkills({
+    const skillsSvg = SvgSkills({
       ...state,
       ...skills,
     });
@@ -165,19 +165,21 @@ export const Scene3d = (state) => {
       skills.material = new BABYLON.StandardMaterial("oneMaterial", scene);
       ground.material.backFaceCulling = false; // So the material can also be seen from behind
 
+      svgTexture(skills, skillsSvg);
 
-      var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svg;
-      var oneSVGBlob = new Blob([oneSVGString], {"type":'image/svg+xml'});
-      var oneSVGURL = URL.createObjectURL(oneSVGBlob);
-      var oneTexture = new BABYLON.Texture(oneSVGURL, scene); // or you can just load the SVG as a file normally :v
-      console.log('oneTexture: ', oneTexture);
-      oneTexture.hasAlpha = true; // enables transparency
-      skills.material.diffuseTexture = oneTexture;
-      skills.material.backFaceCulling = false;
-      skills.material.mainColor = new BABYLON.Color3(1, 1, 1);
-      skills.material.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
-      skills.material.reflectionColor = new BABYLON.Color3(0, 0, 0);
-      skills.material.specularColor = new BABYLON.Color3(0, 0, 0);
+      function svgTexture(shape, svgString) {
+        var oneSVGString = '<?xml version="1.0" encoding="UTF-8"?>' + svgString;
+        var oneSVGBlob = new Blob([oneSVGString], {"type":'image/svg+xml'});
+        var oneSVGURL = URL.createObjectURL(oneSVGBlob);
+        var texture = new BABYLON.Texture(oneSVGURL, scene); // or you can just load the SVG as a file normally :v
+        texture.hasAlpha = true; // enables transparency
+        shape.material.diffuseTexture = texture;
+        shape.material.backFaceCulling = false;
+        shape.material.mainColor = new BABYLON.Color3(1, 1, 1);
+        shape.material.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
+        shape.material.reflectionColor = new BABYLON.Color3(0, 0, 0);
+        shape.material.specularColor = new BABYLON.Color3(0, 0, 0);
+      }
 
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
