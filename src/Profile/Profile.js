@@ -146,64 +146,65 @@ export const Profile = (state) => {
       <!--
       <img src="/src/Profile/cyber-skills.jpg" />
       -->
-      <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-        <image
-          href="${cyberProfile}"
-          width="${width}"
-          height="${height}"
-          x="${x}"
-          y="${y}"
-          preserveAspectRatio="none"
-        />
-        <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}" style="font-size: ${fontSize}">
-        Level
-        </text>
+      <a href="#/3d">
+        <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+          <image
+            href="${cyberProfile}"
+            width="${width}"
+            height="${height}"
+            x="${x}"
+            y="${y}"
+            preserveAspectRatio="none"
+          />
+          <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}" style="font-size: ${fontSize}">
+          Level
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}" style="font-size: ${fontSize * 1.5}">
-          0
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}" style="font-size: ${fontSize * 1.5}">
+            0
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}" style="font-size: ${fontSize}">
-          Домашка
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}" style="font-size: ${fontSize}">
+            Домашка
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}" style="font-size: ${fontSize}">
-          0
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}" style="font-size: ${fontSize}">
+            0
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}" style="font-size: ${fontSize}">
-          Лекции
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}" style="font-size: ${fontSize}">
+            Лекции
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}" style="font-size: ${fontSize}">
-          0
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}" style="font-size: ${fontSize}">
+            0
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}" style="font-size: ${fontSize}">
-          Экспа
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}" style="font-size: ${fontSize}">
+            Экспа
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}" style="font-size: ${fontSize}">
-          0
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}" style="font-size: ${fontSize}">
+            0
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}" style="font-size: ${fontSize}">
-          Повторение
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}" style="font-size: ${fontSize}">
+            Повторение
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}" style="font-size: ${fontSize}">
-          0
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}" style="font-size: ${fontSize}">
+            0
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}" style="font-size: ${fontSize}">
-        Нихуя
-        </text>
+          <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}" style="font-size: ${fontSize}">
+          Нихуя
+          </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}" style="font-size: ${fontSize}">
-          0
-        </text>
-      </svg>
-      </svg>
+          <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}" style="font-size: ${fontSize}">
+            0
+          </text>
+        </svg>
+      </a>
     </div>
   `;
 };
