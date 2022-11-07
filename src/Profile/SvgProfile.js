@@ -123,10 +123,10 @@ export const SvgProfile = (state) => {
   }
 
   const level = state.levels[state.student];
-  const questsNum = state.questPoints[state.student].length;
+  const questsNum = state.questPoints[state.student]?.length || 0;
   const lecturePoints = calculateLecturePoints();
   const experience = state.points[state.student];
-  const repeats = calculateRepeats();
+  const repeats = questsNum > 0 ? calculateRepeats() : 0;
 
   return `
     <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
