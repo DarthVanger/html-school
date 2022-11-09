@@ -2283,6 +2283,42 @@
   </p>
 </template>
 
+<template id="lesson22-page1">
+  <h2>Новый Мотериал: ОБЪЕКТО</h2>
+  <p>
+    Что такое ОБЪЕКТО?
+  </p>
+  <p>
+    Насколько это сложенно?)
+  </p>
+</template>
+
+<template id="lesson22-page2">
+  <h2>ПЕРЕМЕР: ТОЧКЕ</h2>
+  <p>
+    <pre>
+    <code>
+      let point = {
+        x: 1,
+        y: 2,
+      };
+
+      document.body.innerHTML += 'point: ';
+      document.body.innerHTML += point;
+      document.body.innerHTML += '<br>';
+      document.body.innerHTML += 'point.x: ';
+      document.body.innerHTML += point.x;
+      document.body.innerHTML += '<br>';
+      document.body.innerHTML += 'point.y: ';
+      document.body.innerHTML += point.y;
+
+      console.log('point: ');
+      console.log(point);
+    </code>
+    </pre>
+  </p>
+</template>
+
 <script>
   let currentTime = 0;
   const lesson = location.hash.replace('#', '').replace(/-.*$/, '');
