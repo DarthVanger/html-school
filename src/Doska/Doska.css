@@ -1,0 +1,27 @@
+#doska-pometa {
+  height: 2em;
+  overflow: hidden;
+  background: url('/src/Doska/pomet.jpeg') repeat-y;
+  background-size: 100% auto;
+  color: black;
+  text-align: center;
+  position: relative;
+}
+
+#doska-pometa .left, #doska-pometa .right {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0;
+  margin: 0;
+}
+
+#doska-pometa.expand {
+  height: auto;
+  transition: all 1s;
+}
+
+#doska-pometa .entry {
+  display: flex;
+}
+#doska-pometa .entry img {
+  width: 100px;
+}
