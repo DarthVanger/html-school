@@ -27,7 +27,7 @@
     font-size: 24px;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
   }
 
   .weed-border-top-left {
@@ -157,6 +157,7 @@
     position: absolute;
     top: 80px;
     left: 200px;
+    display: none;
   }
 
   .expectation-reality {
@@ -2284,21 +2285,23 @@
   </figure>
 </template>
 
-<template id="lesson22-page0">
+<template id="lesson22-page1">
   <h2>English: РОЗМИНКЕ</h2>
   <p>
     <a href="https://www.youtube.com/watch?v=6s2UJBFDCoA">Developper vs QA Engineer</a>
   </p>
 </template>
 
-<template id="lesson22-page0">
+<template id="lesson22-page2">
   <h2>[5 min] English: КАЖДЫЙ О СЕБЕ ПО ПРЕДЛОЖЕНИЮ</h2>
-  <p>
-    <a href="https://www.youtube.com/watch?v=o5YF-0ISyVA&t=70s">Школа</a>
-  </p>
+  <figure>
+    <video controls>
+      <source src="/video/school.mp4" />
+    </video>
+  </figure>
 </template>
 
-<template id="lesson22-page0">
+<template id="lesson22-page3">
   <div class="rules">
     <h2>
       НОВЕНЬКИМ: ПРАВЕЛА
@@ -2329,69 +2332,32 @@
     </p>
 
     <p>
+      <b>Новенькие - первыми делают задания на уроке.</b>
+    </p>
+
+    <p>
       <a href="rating.html">Rating page</a>
     </p>
   </div>
 
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page4">
   <h2>БАНКИ ЗА ДОМАШКУ</h2>
   <p>
+    ДОСКА ПОМËТА
   </p>
 </template>
 
-<template id="lesson22-pageX">
-  <h2>ЗОДАНЕЕ</h2>
-  <p class="task">
-    Написать Фукцею, которая умножает число на 2.
-    <pre>
-    <code>
-      print(add2(5)); // выводит 10 на экран
-    </code>
-    </pre>
-  </p>
-</template>
-
-<template id="lesson22-page0">
-  <h2>Set Theory</h2>
-  <p>
-    <a href="https://www.youtube.com/watch?v=6s2UJBFDCoA">Комбінаторика. Початки теорії множини.</a>
-  </p>
-</template>
-
-<template id="lesson22-pageX">
-  <h2>Venn Diagrams</h2>
-  <p>
-    <a href="https://www.youtube.com/watch?v=b6t0994ZZDA">Venn Diagrams: Shading Regions for Two Sets</a>
-  </p>
-</template>
-
-<template id="lesson22-pageX">
-  <h2>Venn Diagrams</h2>
-  <p>
-    <a href="https://www.youtube.com/watch?v=b6t0994ZZDA">Venn Diagrams: Shading Regions for Two Sets</a>
-  </p>
-</template>
-https://www.youtube.com/watch?v=7cTWea9YAJE
-
-
-<template id="lesson22-page0">
-  <h2>YouTube Розминке :)</h2>
-  <p>
-    <a href="https://www.youtube.com/watch?v=6s2UJBFDCoA">Developper vs QA Engineer</a>
-  </p>
-</template>
-
-<template id="lesson22-pageX">
+<template id="lesson22-page5">
   <h2>ЭКЗАМЕН</h2>
+  <p>-10 банок - отчислен</p>
   <p>
-    -10 банок - отчислен
     10+ банок - пятерочка твердая
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page6">
   <h2>ЗАДАЧА</h2>
   <p>
     КТО НЕ СДЕЛАЕТ - ОТЧИСЛЕН.
@@ -2401,45 +2367,46 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
-  <h2>ВЫЧИСЛИТЬ ТРОЙНОЙ ИНТЕГРАЛ</h2>
+<template id="lesson22-page7">
+  <h2>[5 сек] РАЗМИНКА: ТРОЙНОЙ ИНТЕГРАЛ</h2>
   <figure>
-    <img src="img/integral-task.jpg" />
+    <img src="img/triple-int.png" />
   </figure>
 </template>
 
-<template id="lesson22-pageX">
-  <h2>ВЫЧИСЛИТЬ ТРОЙНОЙ ИНТЕГРАЛ</h2>
+<template id="lesson22-page8">
+  <h2>РЕШЕНИЕ</h2>
   <figure>
-    <img src="img/integral-volume.jpg" />
+    <img src="img/int-solution.png" />
   </figure>
 </template>
 
-<template id="Начинаем новый материал">
-  <h2>RECT Фукцея</h2>
+<template id="lesson22-page9">
+  <h2>УРОК №22</h2>
   <figure>
-    <img src="img/rect-function.jpg" />
+    <img src="img/rect-function.jpeg" />
+    <figcaption>RECT function</figcaption>
   </figure>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page10">
   <h2>What is a Function?</h2>
   <p>
     Чито токое Фукцея?
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page11">
   <h2>What is a Function?</h2>
   <figure>
     <img src="img/js-function.png" />
     <figcaption>
-      А чИтО эТо?
+      <a href="https://www.youtube.com/watch?v=7cTWea9YAJE">А чИтО эТо?</a>
     </figcaption>
   </figure>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page12">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая печатает переданный текст на экран.
@@ -2452,7 +2419,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page13">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая умножает число на 2.
@@ -2465,7 +2432,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page14">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая складывает 2 числа, и отнимает 3.
@@ -2478,7 +2445,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page15">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая возращает true если число больше 2.
@@ -2492,7 +2459,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page16">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая возращает true если число в квадрате меньше Пи.
@@ -2506,7 +2473,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page17">
   <h2>Новый Мотериал: ОБЪЕКТО</h2>
   <p>
     Что такое ОБЪЕКТО?
@@ -2516,7 +2483,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-page2">
+<template id="lesson22-page18">
   <h2>ПЕРЕМЕР: ТОЧКЕ</h2>
   <p>
     <pre>
@@ -2543,7 +2510,7 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page19">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая принимает точку как обьект { x , y }, и возращает расстояние точки до начала координат (0, 0) числом.
@@ -2567,13 +2534,14 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page20">
   <h2>РЕКТ</h2>
   <figure>
-    <img src="img/rectangle.jpg" />
+    <img src="img/rectangle.jpeg" />
   </figure>
 </template>
-<template id="lesson22-pageX">
+
+<template id="lesson22-page21">
   <h2>РЕКТ</h2>
   <p>
     <pre>
@@ -2588,20 +2556,20 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page22">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею, которая печатает на экран координаты и размер прямоульника { x, y, width, height }
     <pre>
     <code>
       printRect({ x: 0, y: 0, width: 100, height: 200 });
-      // печататает x: 0<br/>y: 0</br>width: 100</br>height:100<br/>
+      // печататает x: 0&lt;br&gt;y: 0&lt;br&gt;width: 100&lt;br&gt;height:100&lt;br&gt;
     </code>
     </pre>
   </p>
 </template>
 
-<template id="lesson22-pageX">
+<template id="lesson22-page23">
   <h2>ЗОДАНЕЕ</h2>
   <p class="task">
     Написать Фукцею isInsideRect(point, rect), которая возвращает true, если точка внутри прямоугольника, и false, если вне.
@@ -2629,6 +2597,82 @@ https://www.youtube.com/watch?v=7cTWea9YAJE
       isInsideRect(poin2, rect); // false
     </code>
     </pre>
+  </p>
+</template>
+
+<template id="lesson22-page24">
+  <h2>RECT COLLISION FUNCTION</h2>
+  <p class="task">
+    Написать Фукцею rectsIntersect(rect1, rect2), которая возвращает true, если прямоугольники пересекаются, и false, если не.
+
+    <pre>
+    <code>
+      const rect1 = {
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 200,
+      }
+
+      const rect2 = {
+        x: 50,
+        y: 50,
+        width: 100,
+        height: 200,
+      };
+
+      const rect3 = {
+        x: 50,
+        y: 300,
+        width: 100,
+        height: 200,
+      };
+
+      rectsIntersect(rect1, rect2); // true
+      rectsIntersect(rect1, rect3); // false
+      rectsIntersect(rect2, rect3); // false
+    </code>
+    </pre>
+  </p>
+</template>
+
+<template id="lesson22-page25">
+  <h2>Вносим в код нашу RECT COLLISION FUNCTION</h2>
+  <p>
+    <ol>
+      <li>Определяем прямоугольники Корабля, Земли, Ракеты как Объекты { x, y, width, height }</li>
+      <li>Внутри isWallShipCollision используем rectsIntersect(wallRect, shipRect)</li>
+      <li>Внутри isRocketShipCollision используем rectsIntersect(rockerRect, shipRect)</li>
+    </ol>
+  </p>
+</template>
+
+<template id="lesson22-page26">
+  <h2>Добавляем еще 2 стены</h2>
+  <p>
+    <ol>
+      <li>Добавляем еще 2 стены, т.е. будет 3 у нас теперь )</li>
+      <li>С помощью rectsIntersect(wallRect, shipRect) легко добавляем столкновение для новых стен</li>
+    </ol>
+  </p>
+</template>
+
+<template id="lesson22-page27">
+  <h2>GG WP :)</h2>
+  <p>КОНЕКЦ</p>
+</template>
+
+<template id="lesson22-page28">
+  <h2>Set Theory</h2>
+  <p>
+    <a href="https://www.youtube.com/watch?v=6s2UJBFDCoA">Комбінаторика. Початки теорії множини.</a>
+  </p>
+</template>
+
+<template id="lesson22-page29">
+  <h2>Venn Diagrams</h2>
+  <p>
+    <a href="https://www.youtube.com/watch?v=b6t0994ZZDA">Venn Diagrams: Shading Regions for Two Sets</a>
   </p>
 </template>
 

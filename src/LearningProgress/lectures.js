@@ -238,4 +238,20 @@ export const lectures = [
     skills: ['if-else', 'git', 'english', 'functions'],
     url: '/src/slides.html#lesson21',
   },
+  {
+    text: 'Фукцеи, обьекты. rectIntersection function',
+    items: [
+      'Чито токое фукцея?',
+      'Пишем простые функции',
+      'Что токое Обьъкт?',
+      'Пишем функции сложнее',
+      'Пишем функцию пересечения двух прямоугольников',
+      'Используем объекты в нашей игре',
+      'Используем функцию rectIntersection в нашей игре',
+      'Добавляем 3 стены',
+      'git push',
+    ],
+    skills: ['if-else', 'functions', 'object'],
+    url: '/src/slides.html#lesson22',
+  },
 ];
