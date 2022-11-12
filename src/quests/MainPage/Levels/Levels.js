@@ -160,17 +160,6 @@ export const Levels = (store) => {
         })}
       </div>
 
-      <h3>Столкновение Прямоугольников в Декартовой Системе Координат</h3>
-
-      <div class="quest-list">
-        ${Quest({
-          ...quests.collisionFunction,
-          title: 'Столкновение Прямоугольников',
-          imgSrc: 'src/quests/img/collisionFunction.webp',
-          ...extraProps(quests.collisionFunction),
-        })}
-      </div>
-
       <div class="quest-list">
         ${Quest({
           ...quests.keyboard,
