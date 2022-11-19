@@ -259,9 +259,11 @@ export const lectures = [
       'Ставим Unity',
       'Функцея distance(point)',
       'Функцея printRect(rect)',
-      'Функцея isInsideRect(point, rect)',
+      'Димон: шо там Мишиган',
+      'Johnny: шо там start game button',
+      'Git merge and squash',
     ],
-    skills: ['if-else', 'functions', 'object', 'unity'],
+    skills: ['if-else', 'functions', 'object', 'unity', 'git'],
     url: '/src/slides.html#lesson23',
   },
   //{
