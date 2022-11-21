@@ -62,7 +62,7 @@ export const Scene3d = (state) => {
 
       let boxSize = 4;
       let boxPosition = {
-        y: 10,
+        y: 20,
         x: 0,
         z: -20,
       };
@@ -197,6 +197,14 @@ export const Scene3d = (state) => {
         shape.material.specularColor = new BABYLON.Color3(0, 0, 0);
       }
 
+      BABYLON.SceneLoader.ImportMesh("", "/3d-models/terrain/", "scene.gltf", scene, function (meshes) {
+        const scene = meshes[0];
+        scene.scaling = new BABYLON.Vector3(1, 1, 1);
+        scene.position.y = 0;
+        scene.position.x = 0;
+        scene.position.z = 0;
+      });
+
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
         scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
@@ -221,21 +229,6 @@ export const Scene3d = (state) => {
         y: 12,
       };
 
-      BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Bong/", "scene.gltf", scene, function (meshes) {
-        const scene = meshes[0];
-        scene.scaling = new BABYLON.Vector3(1, 1, 1);
-        scene.position.y = bongPosition.y;
-        scene.position.x = 0;
-        scene.position.z = -10;
-        bong = scene;
-      });
-
-      BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/House/", "scene.gltf", scene, function (meshes) {
-        const scene = meshes[0];
-        scene.position.x = 0;
-        scene.position.y = 62;
-        scene.scaling = new BABYLON.Vector3(50, 50, 50);
-      });
 
       camera.position.y = boxPosition.y;
       camera.position.x = boxPosition.x;
