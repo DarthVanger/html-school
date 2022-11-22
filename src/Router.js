@@ -16,6 +16,7 @@ import { Resume } from './Resume/Resume.js';
 import { Coursework } from './Coursework/Coursework.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 import { Scene3d } from './Scene3d/Scene3d.js';
+import { Game3d } from './Game3d/Game3d.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -41,6 +42,12 @@ export const Router = (state) => {
       element.innerHTML = '';
       element.innerHTML = `
         ${Scene3d(state)}
+      `;
+      break;
+    case '/game-3d':
+      element.innerHTML = '';
+      element.innerHTML = `
+        ${Game3d(state)}
       `;
       break;
     case '/quests':

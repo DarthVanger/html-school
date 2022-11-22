@@ -1,5 +1,7 @@
 import { SvgSkills } from '../skills/SvgSkills.js';
 import { SvgProfile } from '../Profile/SvgProfile.js';
+import { House } from './House.js';
+import { Bong } from './Bong.js';
 
 export const Scene3d = (state) => {
   console.log('Scene3d()');
@@ -69,6 +71,9 @@ export const Scene3d = (state) => {
 
       var scene = new BABYLON.Scene(engine);
       scene.clearColor = BABYLON.Color3.Black();
+
+      House({scene});
+      Bong({scene, y: 12});
     
       // https://www.babylonjs-playground.com/#Y2XX5A
       var camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 0, 0), scene);
@@ -197,14 +202,6 @@ export const Scene3d = (state) => {
         shape.material.specularColor = new BABYLON.Color3(0, 0, 0);
       }
 
-      BABYLON.SceneLoader.ImportMesh("", "/3d-models/terrain/", "scene.gltf", scene, function (meshes) {
-        const scene = meshes[0];
-        scene.scaling = new BABYLON.Vector3(1, 1, 1);
-        scene.position.y = 0;
-        scene.position.x = 0;
-        scene.position.z = 0;
-      });
-
       BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/Matilda/", "scene.gltf", scene, function (meshes) {
         const scene = meshes[0];
         scene.scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
@@ -223,36 +220,9 @@ export const Scene3d = (state) => {
         ship.addRotation(0, Math.PI, 0);
       });
 
-      let bong;
-
-      let bongPosition = {
-        y: 12,
-      };
-
-
       camera.position.y = boxPosition.y;
       camera.position.x = boxPosition.x;
       camera.position.z = boxPosition.z - + cameraRadius;
-
-      let isBongMovingUp = true;
-      engine.runRenderLoop(function () {
-        if (bong) {
-
-          if (isBongMovingUp && bong.position.y >= bongPosition.y + 3) {
-            isBongMovingUp = false;
-          }
-
-          if (bong.position.y <= bongPosition.y) {
-            isBongMovingUp = true;
-          }
-
-          if (isBongMovingUp) {
-            bong.position.y += 0.01;
-          } else {
-            bong.position.y -= 0.01;
-          }
-        }
-      });	
 
 
     // WASD control of Player "character".
