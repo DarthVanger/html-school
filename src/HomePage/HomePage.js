@@ -28,19 +28,6 @@ export const HomePage = (state) => {
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
 
-        <section class="homework">
-          <h2>домашека!!11</h2>
-          <div id="levels">
-            <div class="quest-list">
-              ${Quest({
-                ...quests.functionParameters,
-                title: 'Function Parameters',
-                imgSrc: 'src/quests/img/functionParameters.png',
-              })}
-            </div>
-          </div>
-        </section>
-
         ${Doska(state)}
 
         ${Profile(state)}
