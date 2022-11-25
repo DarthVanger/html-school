@@ -3,10 +3,10 @@ import { Results } from './Results.js';
 const element = document.createElement('div');
 element.className = 'quiz';
 
-const correctAnswers = [0, 2, 2, 2, 1];
+const correctAnswers = [0, 2, 2, 2, 2, 2, 1];
 
 let state = {
-  questions: [-1, -1, -1, -1, -1],
+  questions: [-1, -1, -1, -1, -1, -1, -1],
   results: [],
   isQuizFailed: false,
   isQuizSubmitted: false,
@@ -100,6 +100,105 @@ export const Variables = () => {
         </div>
       </article>
 
+
+      <article class="quiz-item language-js">
+        <pre><code>
+          function sum() {
+            var x = 5;
+            var y = 7;
+            return x + y;
+          }
+
+          const sum1 = sum(5, 7);
+          const sum2 = sum(3, 2);
+
+        </code></pre>
+        <p>Which of the following correctly depicts the state of the program after these statements are executed?
+
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[1],
+            onChange: (selectedVariant) => handleVariantChange({ question: 1, selectedVariant }),
+            isSelectedCorrect: state.results[1],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  sum1: 12
+                  sum2: 5
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 5
+                  sum2: 5
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 12
+                  sum2: 12
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  Error
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
+      </article>
+
+      <article class="quiz-item language-js">
+        <pre><code>
+          function sum(x, y) {
+            x = 5;
+            y = 7;
+            return x + y;
+          }
+
+          const sum1 = sum(5, 7);
+          const sum2 = sum(3, 2);
+
+        </code></pre>
+        <p>Which of the following correctly depicts the state of the program after these statements are executed?
+
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[2],
+            onChange: (selectedVariant) => handleVariantChange({ question: 2, selectedVariant }),
+            isSelectedCorrect: state.results[2],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  sum1: 12
+                  sum2: 5
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 5
+                  sum2: 5
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 12
+                  sum2: 12
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  Error
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
+      </article>
+
       <article class="quiz-item language-js">
         <pre><code>
           function sum() {
@@ -120,9 +219,9 @@ export const Variables = () => {
 
         <div class="answer-variants">
           ${AnswerVariants({
-            selectedVariant: state.questions[1],
-            onChange: (selectedVariant) => handleVariantChange({ question: 1, selectedVariant }),
-            isSelectedCorrect: state.results[1],
+            selectedVariant: state.questions[3],
+            onChange: (selectedVariant) => handleVariantChange({ question: 3, selectedVariant }),
+            isSelectedCorrect: state.results[3],
             isQuizSubmitted: state.isQuizSubmitted,
             answers: [
               `
@@ -153,7 +252,6 @@ export const Variables = () => {
           })}
         </div>
       </article>
-
       <article class="quiz-item language-js">
         <pre><code>
           function sum(x, y) {
@@ -174,9 +272,9 @@ export const Variables = () => {
 
         <div class="answer-variants">
           ${AnswerVariants({
-            selectedVariant: state.questions[2],
-            onChange: (selectedVariant) => handleVariantChange({ question: 2, selectedVariant }),
-            isSelectedCorrect: state.results[2],
+            selectedVariant: state.questions[4],
+            onChange: (selectedVariant) => handleVariantChange({ question: 4, selectedVariant }),
+            isSelectedCorrect: state.results[4],
             isQuizSubmitted: state.isQuizSubmitted,
             answers: [
               `
@@ -229,9 +327,9 @@ export const Variables = () => {
 
         <div class="answer-variants">
           ${AnswerVariants({
-            selectedVariant: state.questions[3],
-            onChange: (selectedVariant) => handleVariantChange({ question: 3, selectedVariant }),
-            isSelectedCorrect: state.results[3],
+            selectedVariant: state.questions[5],
+            onChange: (selectedVariant) => handleVariantChange({ question: 5, selectedVariant }),
+            isSelectedCorrect: state.results[5],
             isQuizSubmitted: state.isQuizSubmitted,
             answers: [
               `
@@ -283,9 +381,9 @@ export const Variables = () => {
 
         <div class="answer-variants">
           ${AnswerVariants({
-            selectedVariant: state.questions[4],
-            onChange: (selectedVariant) => handleVariantChange({ question: 4, selectedVariant }),
-            isSelectedCorrect: state.results[4],
+            selectedVariant: state.questions[6],
+            onChange: (selectedVariant) => handleVariantChange({ question: 6, selectedVariant }),
+            isSelectedCorrect: state.results[6],
             isQuizSubmitted: state.isQuizSubmitted,
             answers: [
               `
@@ -316,6 +414,7 @@ export const Variables = () => {
           })}
         </div>
       </article>
+
 
       <button type="button" id="quiz-submit">SUBMIT</button>
 
