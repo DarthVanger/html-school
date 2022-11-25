@@ -2,7 +2,7 @@ export const Results = ({ results, questions, isQuizFailed }) => {
   if (isQuizFailed) {
     return `
       <h3>ПРОВАЛ :( БЕТЕР ЛАК НЕКСТ ТАЙМ БЕЙБИ</h3>
-      <h4>Пояснения</h4>
+      <h3>Пояснения</h3>
       <figure>
         <video controls height="420">
         <source src="/video/immolate-improved.mp4" type="video/mp4" />

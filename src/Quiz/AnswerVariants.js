@@ -1,6 +1,6 @@
 import { AnswerVariant } from './AnswerVariant.js';
 
-export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect, isQuizSubmitted }) => {
+export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect, isQuizSubmitted, answers }) => {
   console.info('[AnswerVariants]. isSelectedCorrect: ', isSelectedCorrect);
   const element = document.createElement('article');
 
@@ -18,43 +18,23 @@ export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect, i
     };
   };
 
-    element.append(AnswerVariant({children: `
-      <pre><code>
-        x: 3
-        y: undefined
-        z: 11
-      </code></pre>
-      `,
+    element.append(AnswerVariant({
+      children: answers[0],
       ...getSharedProps(0),
     }));
 
-  element.append(AnswerVariant({children: `
-    <pre><code>
-      x: 3
-      y: undefined
-      z: 20
-      </code></pre>
-   `,
-      ...getSharedProps(1),
+  element.append(AnswerVariant({
+    children: answers[1],
+    ...getSharedProps(1),
   }));
 
-  element.append(AnswerVariant({children: `
-    <pre><code>
-     x: 3
-     y: 0
-     z: 11
-     </code></pre>
-    `,
+  element.append(AnswerVariant({
+    children: answers[2],
     ...getSharedProps(2),
   }));
 
-  element.append(AnswerVariant({children: `
-    <pre><code>
-     x: 3
-     y: 0
-     z: 20
-     </code></pre>
-    `,
+  element.append(AnswerVariant({
+    children: answers[3],
     ...getSharedProps(3),
   }));
 

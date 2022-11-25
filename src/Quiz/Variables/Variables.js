@@ -3,17 +3,20 @@ import { Results } from './Results.js';
 const element = document.createElement('div');
 element.className = 'quiz';
 
-const correctAnswers = [0, 1, 2, 3];
+const correctAnswers = [0, 2, 2, 2, 1];
 
 let state = {
-  questions: [-1, -1, -1, -1],
+  questions: [-1, -1, -1, -1, -1],
   results: [],
   isQuizFailed: false,
+  isQuizSubmitted: false,
 };
 
 export const Variables = () => {
   const handleQuizSubmit = () => {
     console.info('handleQuizSubmit');
+    state.isQuizSubmitted = true;
+
     let i = 0;
     for (let q of state.questions) {
       console.debug('q: ', q);
@@ -23,7 +26,7 @@ export const Variables = () => {
     }
     console.info('results', state.results);
 
-    state.isQuizFailed = state.results[0] === false;
+    state.isQuizFailed = state.results.some(r => r === false);
 
     if (state.isQuizFailed) {
       console.info('Quiz failed');
@@ -57,33 +60,270 @@ export const Variables = () => {
         </code></pre>
         <p>Which of the following correctly depicts the state of the program after these statements are executed?
 
-      <article class="answer-variants">
-        ${AnswerVariants({
-          selectedVariant: state.questions[0],
-          onChange: (selectedVariant) => handleVariantChange({ question: 0, selectedVariant }),
-          isSelectedCorrect: state.results[0],
-          isQuizSubmitted: state.results.length > 0,
-        })}
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[0],
+            onChange: (selectedVariant) => handleVariantChange({ question: 0, selectedVariant }),
+            isSelectedCorrect: state.results[0],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  x: 3
+                  y: undefined
+                  z: 11
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  x: 3
+                  y: undefined
+                  z: 20
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  x: 3
+                  y: 0
+                  z: 11
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  x: 3
+                  y: 0
+                  z: 20
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
+      </article>
+
+      <article class="quiz-item language-js">
+        <pre><code>
+          function sum() {
+            return x1 + y1;
+          }
+
+          const x1 = 3;
+          const y1 = 0;
+
+          const x2 = 8;
+          const y2 = 5;
+
+          const sum1 = sum(x1, y1);
+          const sum2 = sum(x2, y2);
+
+        </code></pre>
+        <p>Which of the following correctly depicts the state of the program after these statements are executed?
+
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[1],
+            onChange: (selectedVariant) => handleVariantChange({ question: 1, selectedVariant }),
+            isSelectedCorrect: state.results[1],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 13
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 13
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
+      </article>
+
+      <article class="quiz-item language-js">
+        <pre><code>
+          function sum(x, y) {
+            return x1 + y1;
+          }
+
+          const x1 = 3;
+          const y1 = 0;
+
+          const x2 = 8;
+          const y2 = 5;
+
+          const sum1 = sum(x1, y1);
+          const sum2 = sum(x2, y2);
+
+        </code></pre>
+        <p>Which of the following correctly depicts the state of the program after these statements are executed?
+
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[2],
+            onChange: (selectedVariant) => handleVariantChange({ question: 2, selectedVariant }),
+            isSelectedCorrect: state.results[2],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 13
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 13
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
+      </article>
+
+      <article class="quiz-item language-js">
+        <pre><code>
+          function sum(x, y) {
+            return x1 + y1;
+            return x2 + y2;
+          }
+
+          const x1 = 3;
+          const y1 = 0;
+
+          const x2 = 8;
+          const y2 = 5;
+
+          const sum1 = sum(x1, y1);
+          const sum2 = sum(x2, y2);
+
+        </code></pre>
+        <p>Which of the following correctly depicts the state of the program after these statements are executed?
+
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[3],
+            onChange: (selectedVariant) => handleVariantChange({ question: 3, selectedVariant }),
+            isSelectedCorrect: state.results[3],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 13
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 13
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
+      </article>
+
+      <article class="quiz-item language-js">
+        <pre><code>
+          function sum(x, y) {
+            return x + y;
+          }
+
+          const x1 = 3;
+          const y1 = 0;
+
+          const x2 = 8;
+          const y2 = 5;
+
+          const sum1 = sum(x1, y1);
+          const sum2 = sum(x2, y2);
+
+        </code></pre>
+        <p>Which of the following correctly depicts the state of the program after these statements are executed?
+
+        <div class="answer-variants">
+          ${AnswerVariants({
+            selectedVariant: state.questions[4],
+            onChange: (selectedVariant) => handleVariantChange({ question: 4, selectedVariant }),
+            isSelectedCorrect: state.results[4],
+            isQuizSubmitted: state.isQuizSubmitted,
+            answers: [
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 13
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 3
+                  sum2: 3
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 13
+                  sum2: 13
+                </code></pre>
+              `,
+            ],
+          })}
+        </div>
       </article>
 
       <button type="button" id="quiz-submit">SUBMIT</button>
 
-      <h2>РЕЗУЛЬТАТИ ОЦІНЮВАННЯ</h2>
+      ${state.isQuizSubmitted && `
+        <h2>РЕЗУЛЬТАТИ ОЦІНЮВАННЯ</h2>
 
-      ${Results(state)}
-
-      <h3>Фізика 8й клас</h3>
-      <!-- A picture of 8 class kids xD -->
-      <!-- video of school: from the movie or youtube: meme about nicknames in Zoom :) -->
-      <!-- A page from ukr book -->
-      <!-- A problem from ukr book: vehicle goes with friction -->
-      <article>
-      </article>
-
-      <h3>Physics</h3>
-      <!-- MIT / Harvard / etc good free book with explanation and problem -->
-      <article>
-      </article>
+        ${Results(state)}
+      ` || ''}
     `;
 
     setTimeout(() => {
