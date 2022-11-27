@@ -39,7 +39,9 @@ export const Variables = () => {
 
   };
 
-  const handleVariantChange = ({question, selectedVariant }) => {
+  const handleVariantChange = ({ question, selectedVariant }) => {
+    var audio = new Audio('/video/millionaire.mp3');
+    audio.play();
     const prev = state.questions[question];
     const next = selectedVariant;
     if (next !== prev) {

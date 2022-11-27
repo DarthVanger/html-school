@@ -60,23 +60,18 @@ export const Game3d = (state) => {
       // This creates a basic Babylon Scene object (non-mesh)
       var scene = new BABYLON.Scene(engine);
 
-      // This creates and positions a free camera (non-mesh)
-      var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+      // Parameters : name, position, scene
+      var camera = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
 
-      // Enable mouse wheel inputs.
-      camera.inputs.addMouseWheel();
-      
-      // Change the mouse wheel Y axis to controll the cameras height in the scene:
-      //camera.inputs.attached["mousewheel"].wheelYMoveRelative = BABYLON.Coordinate.Y;
-      
-      // Revese the mouse wheel Y axis direction:
-      // camera.inputs.attached["mousewheel"].wheelPrecisionY = -1;
+      // Targets the camera to a particular position
+      camera.setTarget(new BABYLON.Vector3(0, 0, -10));
 
-      // This targets the camera to scene origin
-      camera.setTarget(BABYLON.Vector3.Zero());
+      // Sets the sensitivity of the camera to movement and rotation
+      camera.angularSensibility = 10;
+      camera.moveSensibility = 10;
 
-      // This attaches the camera to the canvas
-      camera.attachControl(true);
+      // Attach the camera to the canvas
+      camera.attachControl(canvas, true);
 
       // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
       var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
