@@ -70,7 +70,7 @@ export const Game3d = (state) => {
 
       const camera = createCamera({scene, canvas});
       //camera.position = new BABYLON.Vector3(0, 50, 0);
-      camera.minZ = 2;
+      camera.minZ = 1;
       camera.setTarget(new BABYLON.Vector3(boxPosition.x, boxPosition.y, boxPosition.z));
 
       const assumedFramesPerSecond = 60;
@@ -107,12 +107,12 @@ export const Game3d = (state) => {
           return
         }
 
-        if (e.x >= screen.width / 2) {
+        if (e.x >= screen.width / 2 && e.y >= screen.height / 2) {
           isForwardsPressed = true;
           return;
         }
 
-        if (e.x < screen.width / 2) {
+        if (e.x < screen.width / 2 && e.y >= screen.height / 2) {
           isBackwardsPressed = true;
           return;
         }
@@ -175,6 +175,45 @@ export const Game3d = (state) => {
           camera.position.y -= y;
           camera.position.z -= z;
         }
+
+        const deg = 10;
+
+        const iframe = getIframe();
+
+        const rot = {
+          x: camera.rotation.x / Math.PI * 180,
+          y: camera.rotation.y / Math.PI * 180,
+          z: camera.rotation.z / Math.PI * 180,
+        };
+
+        const cam = {
+          x: camera?.position.x * 30 || 0,
+          y: camera?.position.y * 30 || 0,
+          z: (camera?.position.z * 30) || 0,
+        };
+
+        const distanceToCamera = Math.hypot(cam.x, cam.y, cam.z) || 30;
+        const R = distanceToCamera;
+        console.log("R: ", R);
+
+        const pos = {
+          x: R * Math.sin(camera.rotation.y) * 10,
+          y: R * Math.sin(camera.rotation.x) * 10,
+          z: cam.z,
+        }
+        const cameraDist = 30;
+
+        console.log('pos: ', pos);
+        iframe.style.transform = '';
+        iframe.style.transform += `perspective(500px)`;
+        iframe.style.transform += `translate3d(${-pos.x}px, ${-pos.y}px, ${pos.z}px)`;
+        iframe.style.transform += `rotate3d(1, 0, 0, ${rot.x}deg)`;
+        iframe.style.transform += `rotate3d(0, 1, 0, ${rot.y}deg)`;
+        iframe.style.transform += `rotate3d(0, 0, 1, ${rot.z}deg)`;
+        //iframe.style.transform += `translate3d(0, 0, ${pos.z}px)`;
+        //iframe.style.transform += ` perspective(${pos.y}px)`;
+        //iframe.style.transform += ` perspective(${pos.y}px)`;
+
       });
 
       return scene;
@@ -183,9 +222,12 @@ export const Game3d = (state) => {
 
   };
 
+  const getIframe = () => document.querySelector('iframe');
+
   setTimeout(init);
 
   return `
     <canvas id="canvas"></canvas>
+    <iframe src="src/slides.html#lesson24-page0"width="100%" height="100%"></iframe>
   `;
 };
