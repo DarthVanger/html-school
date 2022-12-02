@@ -64,7 +64,7 @@ export const Game3d = (state) => {
 
       let boxPosition = {
         y: 10,
-        x: -65,
+        x: -130,
         z: -45,
       };
 
@@ -75,8 +75,8 @@ export const Game3d = (state) => {
       camera.position.x = boxPosition.x;
       camera.position.y = boxPosition.y;
       camera.position.z = boxPosition.z + camDist;
-      camera.rotation.y = Math.PI / 2 - 0.7;
-      camera.rotation.x = 0//-Math.PI / 10;
+      camera.rotation.y = Math.PI / 2 - 0.5;
+      camera.rotation.x = -0.2;
 
       const assumedFramesPerSecond = 60;
       const earthGravity = -9.81;
@@ -125,7 +125,22 @@ export const Game3d = (state) => {
         ground.position.x = 0;
         ground.position.z = 0;
         ground.checkCollisions = true;
-        ground.showBoundBox = true;
+      });
+
+      const truckStart = {
+        x: 0,
+        y: 50,
+        z: 20,
+      };
+
+      let truck;
+      BABYLON.SceneLoader.ImportMesh("", "/3d-models/truck/", "scene.gltf", scene, function (meshes) {
+        truck = meshes[0];
+        truck.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
+        truck.position.y = truckStart.y;
+        truck.position.x = truckStart.x;
+        truck.position.z = truckStart.z;
+        truck.addRotation(0.5, 0, 0);
       });
 
       let ship;
