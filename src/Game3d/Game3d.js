@@ -63,15 +63,20 @@ export const Game3d = (state) => {
       var scene = new BABYLON.Scene(engine);
 
       let boxPosition = {
-        y: 0,
-        x: 0,
-        z: 50,
+        y: 10,
+        x: -65,
+        z: -45,
       };
 
       const camera = createCamera({scene, canvas});
       //camera.position = new BABYLON.Vector3(0, 50, 0);
       camera.minZ = 1;
-      camera.setTarget(new BABYLON.Vector3(boxPosition.x, boxPosition.y, boxPosition.z));
+      const camDist = 10;
+      camera.position.x = boxPosition.x;
+      camera.position.y = boxPosition.y;
+      camera.position.z = boxPosition.z + camDist;
+      camera.rotation.y = Math.PI / 2 - 0.7;
+      camera.rotation.x = 0//-Math.PI / 10;
 
       const assumedFramesPerSecond = 60;
       const earthGravity = -9.81;
@@ -89,12 +94,6 @@ export const Game3d = (state) => {
 
       // Default intensity is 1. Let's dim the light a small amount
       light.intensity = 0.7;
-
-      // Our built-in 'sphere' shape.
-      var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
-
-      // Move the sphere upward 1/2 its height
-      sphere.position.y = 1;
 
 
       let isForwardsPressed = false;
@@ -135,6 +134,7 @@ export const Game3d = (state) => {
         scene.scaling = new BABYLON.Vector3(10, 10, 10);
         scene.position.y = 5;
         ship = scene;
+        const camDist = 2;
         ship.position.y = boxPosition.y;
         ship.position.x = boxPosition.x;
         ship.position.z = boxPosition.z;
@@ -192,7 +192,7 @@ export const Game3d = (state) => {
           z: (camera?.position.z * 30) || 0,
         };
 
-        const distanceToCamera = Math.hypot(cam.x, cam.y, cam.z) || 30;
+        const distanceToCamera = Math.hypot(boxPosition - cam.x, boxPosition - cam.y, boxPosition - cam.z) || 30;
         const R = distanceToCamera;
         console.log("R: ", R);
 
@@ -201,7 +201,6 @@ export const Game3d = (state) => {
           y: R * Math.sin(camera.rotation.x) * 10,
           z: cam.z,
         }
-        const cameraDist = 30;
 
         console.log('pos: ', pos);
         iframe.style.transform = '';
