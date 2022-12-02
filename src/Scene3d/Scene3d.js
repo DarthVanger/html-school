@@ -225,7 +225,6 @@ export const Scene3d = (state) => {
       camera.position.z = boxPosition.z - + cameraRadius;
 
 
-    // WASD control of Player "character".
     let isWPressed = false;
     let isAPressed = false;
     let isSPressed = false;

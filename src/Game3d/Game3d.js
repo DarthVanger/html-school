@@ -1,3 +1,5 @@
+import { createCamera } from './camera.js';
+
 export const Game3d = (state) => {
     
   const init = async () => {
@@ -5,7 +7,6 @@ export const Game3d = (state) => {
     var scene = null;
     var sceneToRender = null;
     var canvas = document.getElementById("canvas");
-
 
     var startRenderLoop = function (engine, canvas) {
       console.log('start render loop');
@@ -49,6 +50,7 @@ export const Game3d = (state) => {
 
       startRenderLoop(engine, canvas);
 
+
       scene = createScene();
     };
 
@@ -60,18 +62,20 @@ export const Game3d = (state) => {
       // This creates a basic Babylon Scene object (non-mesh)
       var scene = new BABYLON.Scene(engine);
 
-      // Parameters : name, position, scene
-      var camera = new BABYLON.DeviceOrientationCamera("DevOr_camera", new BABYLON.Vector3(0, 0, 0), scene);
+      const camera = createCamera({scene, canvas});
+      camera.position = new BABYLON.Vector3(0, 50, 0);
+      camera.minZ = 2;
 
-      // Targets the camera to a particular position
-      camera.setTarget(new BABYLON.Vector3(0, 0, -10));
+      const assumedFramesPerSecond = 60;
+      const earthGravity = -9.81;
+      scene.gravity = new BABYLON.Vector3(0, earthGravity / assumedFramesPerSecond, 0);
 
-      // Sets the sensitivity of the camera to movement and rotation
-      camera.angularSensibility = 10;
-      camera.moveSensibility = 10;
+      camera.applyGravity = true;
 
-      // Attach the camera to the canvas
-      camera.attachControl(canvas, true);
+      camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
+
+      scene.collisionsEnabled = true;
+      camera.checkCollisions = true;
 
       // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
       var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
@@ -85,16 +89,25 @@ export const Game3d = (state) => {
       // Move the sphere upward 1/2 its height
       sphere.position.y = 1;
 
-      // Our built-in 'ground' shape.
-      var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
-
+      let ground;
       BABYLON.SceneLoader.ImportMesh("", "/3d-models/terrain/", "scene.gltf", scene, function (meshes) {
-        const scene = meshes[0];
-        scene.scaling = new BABYLON.Vector3(1, 1, 1);
-        scene.position.y = 0;
-        scene.position.x = 0;
-        scene.position.z = 0;
+        ground = meshes[0];
+        ground.scaling = new BABYLON.Vector3(1, 1, 1);
+        ground.position.y = 0;
+        ground.position.x = 0;
+        ground.position.z = 0;
+        ground.checkCollisions = true;
+        ground.showBoundBox = true;
       });
+
+      scene.onBeforeRenderObservable.add(() => {
+        //if (ground.intersectsMesh(hitBox) && scene.getMeshByName("car").intersectsMesh(hitBox)) {
+        //    return;
+        //}
+        //camera.rotation.x += 0.01;
+      });
+
+
 
       return scene;
   }
