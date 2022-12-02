@@ -196,9 +196,9 @@ export const Game3d = (state) => {
         const iframe = getIframe();
 
         const rot = {
-          x: camera.rotation.x / Math.PI * 180,
-          y: camera.rotation.y / Math.PI * 180,
-          z: camera.rotation.z / Math.PI * 180,
+          x: camera.rotation.x / Math.PI * 180 + 5,
+          y: camera.rotation.y / Math.PI * 180 + 60,
+          z: camera.rotation.z / Math.PI * 180 + 10,
         };
 
         const cam = {
@@ -207,14 +207,20 @@ export const Game3d = (state) => {
           z: (camera?.position.z * 30) || 0,
         };
 
-        const distanceToCamera = Math.hypot(boxPosition - cam.x, boxPosition - cam.y, boxPosition - cam.z) || 30;
-        const R = distanceToCamera;
+        const cameraOriginDistance = Math.hypot(boxPosition - cam.x, boxPosition - cam.y, boxPosition - cam.z) || 30;
+        const R = cameraOriginDistance;
         console.log("R: ", R);
 
+        const shift = {
+          x: 1500,
+          y: -300,
+          z: 0,
+        };
+
         const pos = {
-          x: R * Math.sin(camera.rotation.y) * 10,
-          y: R * Math.sin(camera.rotation.x) * 10,
-          z: cam.z,
+          x: R * Math.sin(camera.rotation.y) * 10 + shift.x,
+          y: R * Math.sin(camera.rotation.x) * 10 + shift.y,
+          z: cam.z + shift.z,
         }
 
         console.log('pos: ', pos);
