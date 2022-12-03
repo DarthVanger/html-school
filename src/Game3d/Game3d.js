@@ -62,7 +62,7 @@ export const Game3d = (state) => {
       // This creates a basic Babylon Scene object (non-mesh)
       var scene = new BABYLON.Scene(engine);
 
-      let boxPosition = {
+      let initialPlayerPosition = {
         y: 10,
         x: -130,
         z: -45,
@@ -72,11 +72,11 @@ export const Game3d = (state) => {
       //camera.position = new BABYLON.Vector3(0, 50, 0);
       camera.minZ = 1;
       const camDist = 10;
-      camera.position.x = boxPosition.x;
-      camera.position.y = boxPosition.y;
-      camera.position.z = boxPosition.z + camDist;
-      camera.rotation.y = Math.PI / 2 - 0.5;
-      camera.rotation.x = -0.2;
+      camera.position.x = initialPlayerPosition.x;
+      camera.position.y = initialPlayerPosition.y;
+      camera.position.z = initialPlayerPosition.z + camDist;
+      //camera.rotation.y = Math.PI / 2 - 0.5;
+      //camera.rotation.x = -0.2;
 
       const assumedFramesPerSecond = 60;
       const earthGravity = -9.81;
@@ -143,19 +143,6 @@ export const Game3d = (state) => {
         truck.addRotation(0.5, 0, 0);
       });
 
-      let ship;
-      BABYLON.SceneLoader.ImportMesh("", "/src/Scene3d/SpaceShip/", "scene.gltf", scene, function (meshes) {
-        const scene = meshes[0];
-        scene.scaling = new BABYLON.Vector3(10, 10, 10);
-        scene.position.y = 5;
-        ship = scene;
-        const camDist = 2;
-        ship.position.y = boxPosition.y;
-        ship.position.x = boxPosition.x;
-        ship.position.z = boxPosition.z;
-        ship.addRotation(0, Math.PI, 0);
-      });
-
       scene.onBeforeRenderObservable.add(() => {
         // use quaternion because camera.rotation is not changing for DeviceOrientationCamera for some reason :)
         const cameraRot = camera.rotationQuaternion.toEulerAngles();
@@ -168,10 +155,6 @@ export const Game3d = (state) => {
         var z = r*parseFloat(Math.cos(phi) * Math.sin(theta));
         var y = r*parseFloat(Math.cos(theta));
 
-        const cameraRotStep = 0.05;
-        const shipRotStep = cameraRotStep;
-
-        
         if (isForwardsPressed) {
           var forwards = new BABYLON.Vector3(x, y, z);
           ship.moveWithCollisions(forwards);
@@ -187,9 +170,6 @@ export const Game3d = (state) => {
           camera.position.y -= y;
           camera.position.z -= z;
         }
-
-        const deg = 10;
-
       });
 
       return scene;
@@ -197,8 +177,6 @@ export const Game3d = (state) => {
 
 
   };
-
-  const getIframe = () => document.querySelector('iframe');
 
   setTimeout(init);
 
