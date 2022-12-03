@@ -1,5 +1,7 @@
 import { createCamera } from './camera.js';
 
+let pic;
+
 export const Game3d = (state) => {
     
   const init = async () => {
@@ -132,7 +134,7 @@ export const Game3d = (state) => {
       var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
       // Default intensity is 1. Let's dim the light a small amount
-      light.intensity = 0.7;
+      //light.intensity = 0.7;
 
       let ground;
       BABYLON.SceneLoader.ImportMesh("", "/3d-models/terrain/", "scene.gltf", scene, function (meshes) {
@@ -217,6 +219,27 @@ export const Game3d = (state) => {
             }
           }
         }
+
+        if (slide == 2) {
+          if (pic.position.y >= 60) {
+            pic.position.y -= 0.5;
+            light.intesity = Math.sin(Math.random());
+          }
+        }
+
+        if (slide == 3) {
+          if (pic.position.y >= 60) {
+            pic.position.y -= 0.5;
+            light.intesity = Math.sin(Math.random());
+          }
+        }
+
+        if (slide == 4) {
+          if (pic.position.y >= 60) {
+            pic.position.y -= 0.5;
+            light.intesity = Math.sin(Math.random());
+          }
+        }
       });
 
       const nextSlideBtn = document.querySelector('#next-slide-btn');
@@ -235,13 +258,50 @@ export const Game3d = (state) => {
       }
 
       function renderSlide(slide) {
+        console.log('rendering slide #', slide);
         if (slide == 1) {
           var colaMusic = new BABYLON.Sound("colaMusic", "/sounds/colaMusic.wav", scene, null, { autoplay: true });
         }
-        nextSlideBtn.style.display = 'none';
-        setTimeout(() => {nextSlideBtn.style.display = 'block';}, 2000);
-      }
 
+        if (slide == 2) {
+          var picMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
+          picMaterial.backFaceCulling = false;
+          //picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/language-drops.png");
+          picMaterial.diffuseTexture = new BABYLON.VideoTexture("video", "/video/kef.mp4", scene, true);
+          pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
+          pic.position.y = 160;
+          pic.rotation.x = -Math.PI / 2;
+          pic.rotation.z = Math.PI / 2;
+          pic.material = picMaterial;
+        }
+
+        if (slide == 3) {
+          scene.removeMesh(pic);
+          var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
+          picMaterial.backFaceCulling = false;
+          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/dimon-michigan.jpeg");
+          pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
+          pic.position.y = 160;
+          pic.rotation.x = -Math.PI / 2;
+          pic.rotation.z = Math.PI / 2;
+          pic.material = picMaterial;
+        }
+
+        if (slide == 4) {
+          scene.removeMesh(pic);
+          var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
+          picMaterial.backFaceCulling = false;
+          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/ivan-michigan.png");
+          pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
+          pic.position.y = 160;
+          pic.rotation.x = -Math.PI / 2;
+          pic.rotation.z = Math.PI / 2;
+          pic.material = picMaterial;
+        }
+
+        nextSlideBtn.style.display = 'none';
+        setTimeout(() => {nextSlideBtn.style.display = 'block';}, 1000);
+      }
 
       return scene;
   }
