@@ -70,34 +70,23 @@ export const Game3d = (state) => {
       [moveForwardsBtn, moveBackwardsBtn].forEach(btn => {
         btn.addEventListener('contextmenu', event => {
           event.preventDefault();
-          event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-          event.stopImmediatePropagation();
-          return false;
         });
       });
 
       ['mousedown', 'touchstart'].forEach(evt => moveForwardsBtn.addEventListener(evt, () => {
-        //evt?.preventDefault();
         isForwardsPressed = true;
-        return false;
       }));
 
       ['mouseup', 'touchend'].forEach(evt => moveForwardsBtn.addEventListener(evt, () => {
-        //evt?.preventDefault();
         isForwardsPressed = false;
-        return false;
       }));
 
         ['mousedown', 'touchstart'].forEach(evt => moveBackwardsBtn.addEventListener(evt, () => {
-        //evt?.preventDefault();
         isBackwardsPressed = true;
-        return false;
       }));
 
       ['mouseup', 'touchend'].forEach(evt => moveBackwardsBtn.addEventListener(evt, () => {
-        //evt?.preventDefault();
         isBackwardsPressed = false;
-        return false;
       }));
     };
 
