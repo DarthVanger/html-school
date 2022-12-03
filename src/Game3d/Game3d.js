@@ -56,7 +56,50 @@ export const Game3d = (state) => {
 
     initFunction().then(() => {
       sceneToRender = scene;
+      setTimeout(onMount);
     });
+
+
+      let isForwardsPressed = false;
+      let isBackwardsPressed = false;
+
+    const onMount = () => {
+      const moveForwardsBtn = document.querySelector('#move-forwards-btn');
+      const moveBackwardsBtn = document.querySelector('#move-backwards-btn');
+
+      [moveForwardsBtn, moveBackwardsBtn].forEach(btn => {
+        btn.addEventListener('contextmenu', event => {
+          event.preventDefault();
+          event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
+          event.stopImmediatePropagation();
+          return false;
+        });
+      });
+
+      ['mousedown', 'touchstart'].forEach(evt => moveForwardsBtn.addEventListener(evt, () => {
+        //evt?.preventDefault();
+        isForwardsPressed = true;
+        return false;
+      }));
+
+      ['mouseup', 'touchend'].forEach(evt => moveForwardsBtn.addEventListener(evt, () => {
+        //evt?.preventDefault();
+        isForwardsPressed = false;
+        return false;
+      }));
+
+        ['mousedown', 'touchstart'].forEach(evt => moveBackwardsBtn.addEventListener(evt, () => {
+        //evt?.preventDefault();
+        isBackwardsPressed = true;
+        return false;
+      }));
+
+      ['mouseup', 'touchend'].forEach(evt => moveBackwardsBtn.addEventListener(evt, () => {
+        //evt?.preventDefault();
+        isBackwardsPressed = false;
+        return false;
+      }));
+    };
 
     var createScene = function () {
       // This creates a basic Babylon Scene object (non-mesh)
@@ -97,28 +140,6 @@ export const Game3d = (state) => {
 
       // Default intensity is 1. Let's dim the light a small amount
       light.intensity = 0.7;
-
-
-      let isForwardsPressed = false;
-      let isBackwardsPressed = false;
-
-      document.body.addEventListener('click', (e) => {
-        if (isForwardsPressed || isBackwardsPressed) {
-          isForwardsPressed = false;
-          isBackwardsPressed = false;
-          return
-        }
-
-        if (e.x >= screen.width / 2 && e.y >= screen.height / 2) {
-          isForwardsPressed = true;
-          return;
-        }
-
-        if (e.x < screen.width / 2 && e.y >= screen.height / 2) {
-          isBackwardsPressed = true;
-          return;
-        }
-      });
 
       let ground;
       BABYLON.SceneLoader.ImportMesh("", "/3d-models/terrain/", "scene.gltf", scene, function (meshes) {
@@ -177,5 +198,10 @@ export const Game3d = (state) => {
 
   return `
     <canvas id="canvas"></canvas>
+    <navbar>
+      <img src="/img/dimon.jpg" id="move-backwards-btn" />
+      <img src="/img/dimon.jpg" id="move-forwards-btn" />
+    </navbar>
+
   `;
 };
