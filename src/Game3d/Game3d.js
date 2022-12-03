@@ -223,21 +223,36 @@ export const Game3d = (state) => {
         if (slide == 2) {
           if (pic.position.y >= 60) {
             pic.position.y -= 0.5;
-            light.intesity = Math.sin(Math.random());
           }
         }
 
         if (slide == 3) {
           if (pic.position.y >= 60) {
             pic.position.y -= 0.5;
-            light.intesity = Math.sin(Math.random());
           }
         }
 
         if (slide == 4) {
           if (pic.position.y >= 60) {
             pic.position.y -= 0.5;
-            light.intesity = Math.sin(Math.random());
+          }
+        }
+
+        if (slide == 5) {
+          if (pic.position.y >= 80) {
+            pic.position.y -= 0.5;
+          }
+        }
+
+        if (slide == 6) {
+          if (pic.position.y >= 80) {
+            pic.position.y -= 0.5;
+          }
+        }
+
+        if (slide == 7) {
+          if (pic.position.y >= 80) {
+            pic.position.y -= 0.5;
           }
         }
       });
@@ -299,10 +314,47 @@ export const Game3d = (state) => {
           pic.material = picMaterial;
         }
 
+        if (slide == 5) {
+          scene.removeMesh(pic);
+          var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
+          picMaterial.backFaceCulling = false;
+          picMaterial.diffuseTexture = new BABYLON.VideoTexture("video", "/video/tibees/square-root-with-subs.mp4", scene, true);
+          pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
+          pic.position.y = 160;
+          pic.rotation.x = -Math.PI / 2;
+          pic.rotation.z = Math.PI / 2;
+          pic.material = picMaterial;
+        }
+
+        if (slide == 6) {
+          scene.removeMesh(pic);
+          var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
+          picMaterial.backFaceCulling = false;
+          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/game-task-slide.jpg");
+          pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
+          pic.position.y = 160;
+          pic.rotation.x = -Math.PI / 2;
+          pic.rotation.z = Math.PI / 2;
+          pic.material = picMaterial;
+        }
+
+        if (slide == 7) {
+          scene.removeMesh(pic);
+          var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
+          picMaterial.backFaceCulling = false;
+          picMaterial.diffuseTexture = new BABYLON.VideoTexture("video", "/video/gamedev/create-project.mp4", scene, true);
+          pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
+          pic.position.y = 160;
+          pic.rotation.x = -Math.PI / 2;
+          pic.rotation.z = Math.PI / 2;
+          pic.material = picMaterial;
+        }
+
         nextSlideBtn.style.display = 'none';
         setTimeout(() => {nextSlideBtn.style.display = 'block';}, 1000);
       }
 
+      
       return scene;
   }
 
