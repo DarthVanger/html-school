@@ -4,10 +4,6 @@ import { applyMigrations } from './db/migrations/apply.js';
 import https from 'https';
 import fs from 'fs';
 
-var privateKey  = fs.readFileSync('certs/privkey.pem', 'utf8');
-var certificate = fs.readFileSync('certs/cert.pem', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
-
 import express from 'express'
 const app = express()
 const port = process.env.port || 8080
@@ -23,10 +19,20 @@ const runApp = async () => {
   console.info('Applying migrations');
   applyMigrations();
 
-  var httpsServer = https.createServer(credentials, app);
-  httpsServer.listen(port, () => {
-    console.log(`Listening on port ${port}`)
-  });
+  if (!process.env.LOCAL) {
+    var httpsServer = https.createServer(credentials, app);
+    var privateKey  = fs.readFileSync('certs/privkey.pem', 'utf8');
+    var certificate = fs.readFileSync('certs/cert.pem', 'utf8');
+    var credentials = {key: privateKey, cert: certificate};
+
+    httpsServer.listen(port, () => {
+      console.log(`HTTPS Listening on port ${port}`)
+    });
+  } else {
+    app.listen(port, () => {
+      console.log(`HTTP Listening on port ${port}`)
+    });
+  }
 };
 
 //app.get('/homework/:student', (req, res) => {
