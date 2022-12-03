@@ -88,14 +88,18 @@ export const Game3d = (state) => {
       ['mouseup', 'touchend'].forEach(evt => moveBackwardsBtn.addEventListener(evt, () => {
         isBackwardsPressed = false;
       }));
+
+
     };
 
     var createScene = function () {
       // This creates a basic Babylon Scene object (non-mesh)
       var scene = new BABYLON.Scene(engine);
 
+      let slide = 0;
+
       const initialTruckPosition = {
-        x: 0,
+        x: 400,
         y: 50,
         z: 30,
       };
@@ -150,6 +154,8 @@ export const Game3d = (state) => {
         truck.addRotation(0.5, 0, 0);
       });
 
+      let truckKeyFrame = 0;
+      let truckAngle = 0;
       scene.onBeforeRenderObservable.add(() => {
         // Have to use quaternion for DeviceOrientationCamera and camera.rotation for universalcamera)
         const cameraRot = camera?.rotationQuaternion?.toEulerAngles() || camera.rotation;
@@ -175,7 +181,67 @@ export const Game3d = (state) => {
           camera.position.y -= y;
           camera.position.z -= z;
         }
+
+        if (slide == 1) {
+          const truckStopX = 0;
+          if (truckKeyFrame == 0) {
+            console.log('truckKeyFrame 0');
+            if (truck.position.x >= -402) {
+                truck.position.x -= 1; 
+            }
+
+            if (truck.position.x <= -400) {
+              truckKeyFrame = 1;
+            }
+          }
+
+          if (truckKeyFrame == 1) {
+            console.log('truckKeyFrame 1');
+            if (truck.position.x < truckStopX) {
+              truck.position.x += 1; 
+              if (truckAngle <= Math.PI) {
+                truckAngle += 0.01;
+                truck.addRotation(0, 0.01, 0);
+              }
+              if (truck.position.x >= truckStopX) {
+                truckKeyFrame = 2;
+              }
+            }
+          }
+
+          if (truckKeyFrame == 2) {
+            console.log('truckKeyFrame 2');
+            if (truckAngle >= 0) {
+              truckAngle -= 0.01;
+              truck.addRotation(0, -0.01, 0);
+            }
+          }
+        }
       });
+
+      const nextSlideBtn = document.querySelector('#next-slide-btn');
+      nextSlideBtn.addEventListener('click', nextSlide);
+      nextSlideBtn.addEventListener('contextmenu', e => e.preventDefault() && prevSlide());
+
+      function nextSlide() {
+        console.log('nextSlide');
+        slide++;
+        renderSlide(slide);
+      }
+
+      function prevSlide() {
+        slide--;
+        renderSlide(slide);
+      }
+
+      function renderSlide(slide) {
+        if (slide == 1) {
+          var colaMusic = new BABYLON.Sound("colaMusic", "/sounds/colaMusic.wav", scene, null, { autoplay: true });
+        }
+        nextSlideBtn.style.display = 'none';
+        setTimeout(() => {nextSlideBtn.style.display = 'block';}, 2000);
+      }
+
 
       return scene;
   }
@@ -190,6 +256,9 @@ export const Game3d = (state) => {
     <navbar>
       <div id="move-backwards-btn">
         <img src="/src/Game3d/img/arrow-down.png" />
+      </div>
+      <div id="next-slide-btn">
+        Next
       </div>
       <div id="move-forwards-btn">
         <img src="/src/Game3d/img/arrow-up.png" />
