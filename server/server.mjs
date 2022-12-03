@@ -1,6 +1,12 @@
 import { db, loadDb } from './db/db.js';
 import { getStats } from './db/stats.js';
 import { applyMigrations } from './db/migrations/apply.js';
+import https from 'https';
+import fs from 'fs';
+
+var privateKey  = fs.readFileSync('certs/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('certs/cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 
 import express from 'express'
 const app = express()
@@ -17,9 +23,10 @@ const runApp = async () => {
   console.info('Applying migrations');
   applyMigrations();
 
-  app.listen(port, () => {
+  var httpsServer = https.createServer(credentials, app);
+  httpsServer.listen(port, () => {
     console.log(`Listening on port ${port}`)
-  })
+  });
 };
 
 //app.get('/homework/:student', (req, res) => {
