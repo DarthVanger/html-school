@@ -154,7 +154,6 @@ export const Game3d = (state) => {
 
         if (isForwardsPressed) {
           var forwards = new BABYLON.Vector3(x, y, z);
-          ship.moveWithCollisions(forwards);
           camera.position.x += x;
           camera.position.y += y;
           camera.position.z += z;
@@ -162,7 +161,6 @@ export const Game3d = (state) => {
 
         if (isBackwardsPressed) {
           var backwards = new BABYLON.Vector3(-x, -y, -z);
-          ship.moveWithCollisions(backwards);
           camera.position.x -= x;
           camera.position.y -= y;
           camera.position.z -= z;
