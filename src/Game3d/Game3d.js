@@ -62,6 +62,12 @@ export const Game3d = (state) => {
       // This creates a basic Babylon Scene object (non-mesh)
       var scene = new BABYLON.Scene(engine);
 
+      const initialTruckPosition = {
+        x: 0,
+        y: 50,
+        z: 30,
+      };
+
       let initialPlayerPosition = {
         y: 10,
         x: -130,
@@ -69,14 +75,11 @@ export const Game3d = (state) => {
       };
 
       const camera = createCamera({scene, canvas});
-      //camera.position = new BABYLON.Vector3(0, 50, 0);
-      camera.minZ = 1;
-      const camDist = 10;
       camera.position.x = initialPlayerPosition.x;
       camera.position.y = initialPlayerPosition.y;
-      camera.position.z = initialPlayerPosition.z + camDist;
-      //camera.rotation.y = Math.PI / 2 - 0.5;
-      //camera.rotation.x = -0.2;
+      camera.position.z = initialPlayerPosition.z;
+      camera.rotation.y = Math.PI / 2 - 0.5;
+      camera.rotation.x = -0.2;
 
       const assumedFramesPerSecond = 60;
       const earthGravity = -9.81;
@@ -127,25 +130,19 @@ export const Game3d = (state) => {
         ground.checkCollisions = true;
       });
 
-      const truckStart = {
-        x: 0,
-        y: 50,
-        z: 20,
-      };
-
       let truck;
       BABYLON.SceneLoader.ImportMesh("", "/3d-models/truck/", "scene.gltf", scene, function (meshes) {
         truck = meshes[0];
         truck.scaling = new BABYLON.Vector3(0.2, 0.2, 0.2);
-        truck.position.y = truckStart.y;
-        truck.position.x = truckStart.x;
-        truck.position.z = truckStart.z;
+        truck.position.y = initialTruckPosition.y;
+        truck.position.x = initialTruckPosition.x;
+        truck.position.z = initialTruckPosition.z;
         truck.addRotation(0.5, 0, 0);
       });
 
       scene.onBeforeRenderObservable.add(() => {
-        // use quaternion because camera.rotation is not changing for DeviceOrientationCamera for some reason :)
-        const cameraRot = camera.rotationQuaternion.toEulerAngles();
+        // Have to use quaternion for DeviceOrientationCamera and camera.rotation for universalcamera)
+        const cameraRot = camera?.rotationQuaternion?.toEulerAngles() || camera.rotation;
         let phi = cameraRot.y;
         let theta = cameraRot.x + Math.PI / 2;
         var playerSpeed = 0.5;

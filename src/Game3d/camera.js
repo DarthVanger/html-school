@@ -1,6 +1,9 @@
 export const createCamera = ({scene, canvas}) => {
-  return deviceOrientationCamera({scene, canvas});
-  //return universalCamera({scene, canvas});
+  if (screen.width < 1000) {
+    return deviceOrientationCamera({scene, canvas});
+  } else {
+    return universalCamera({scene, canvas});
+  }
   //return flyCamrea({scene, canvas});
 };
 
