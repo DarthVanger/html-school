@@ -188,8 +188,12 @@ export const Game3d = (state) => {
   return `
     <canvas id="canvas"></canvas>
     <navbar>
-      <img src="/img/dimon.jpg" id="move-backwards-btn" />
-      <img src="/img/dimon.jpg" id="move-forwards-btn" />
+      <div id="move-backwards-btn">
+        <img src="/src/Game3d/img/arrow-down.png" />
+      </div>
+      <div id="move-forwards-btn">
+        <img src="/src/Game3d/img/arrow-up.png" />
+      </div>
     </navbar>
 
   `;
