@@ -82,7 +82,7 @@ export const Game3d = (state) => {
       const earthGravity = -9.81;
       scene.gravity = new BABYLON.Vector3(0, earthGravity / assumedFramesPerSecond, 0);
 
-      camera.applyGravity = true;
+      //camera.applyGravity = true;
 
       camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
 
@@ -157,13 +157,10 @@ export const Game3d = (state) => {
       });
 
       scene.onBeforeRenderObservable.add(() => {
-        //if (ground.intersectsMesh(hitBox) && scene.getMeshByName("car").intersectsMesh(hitBox)) {
-        //    return;
-        //}
-        //camera.rotation.x += 0.01;
-        //
-        let phi = camera.rotation.y;
-        let theta = camera.rotation.x + Math.PI / 2;
+        // use quaternion because camera.rotation is not changing for DeviceOrientationCamera for some reason :)
+        const cameraRot = camera.rotationQuaternion.toEulerAngles();
+        let phi = cameraRot.y;
+        let theta = cameraRot.x + Math.PI / 2;
         var playerSpeed = 0.5;
         const r = playerSpeed;
 
@@ -193,47 +190,6 @@ export const Game3d = (state) => {
 
         const deg = 10;
 
-        const iframe = getIframe();
-
-        const rot = {
-          x: camera.rotation.x / Math.PI * 180 + 5,
-          y: camera.rotation.y / Math.PI * 180 + 60,
-          z: camera.rotation.z / Math.PI * 180 + 10,
-        };
-
-        const cam = {
-          x: camera?.position.x * 30 || 0,
-          y: camera?.position.y * 30 || 0,
-          z: (camera?.position.z * 30) || 0,
-        };
-
-        const cameraOriginDistance = Math.hypot(boxPosition - cam.x, boxPosition - cam.y, boxPosition - cam.z) || 30;
-        const R = cameraOriginDistance;
-        console.log("R: ", R);
-
-        const shift = {
-          x: 1500,
-          y: -300,
-          z: 0,
-        };
-
-        const pos = {
-          x: R * Math.sin(camera.rotation.y) * 10 + shift.x,
-          y: R * Math.sin(camera.rotation.x) * 10 + shift.y,
-          z: cam.z + shift.z,
-        }
-
-        console.log('pos: ', pos);
-        iframe.style.transform = '';
-        iframe.style.transform += `perspective(500px)`;
-        iframe.style.transform += `translate3d(${-pos.x}px, ${-pos.y}px, ${pos.z}px)`;
-        iframe.style.transform += `rotate3d(1, 0, 0, ${rot.x}deg)`;
-        iframe.style.transform += `rotate3d(0, 1, 0, ${rot.y}deg)`;
-        iframe.style.transform += `rotate3d(0, 0, 1, ${rot.z}deg)`;
-        //iframe.style.transform += `translate3d(0, 0, ${pos.z}px)`;
-        //iframe.style.transform += ` perspective(${pos.y}px)`;
-        //iframe.style.transform += ` perspective(${pos.y}px)`;
-
       });
 
       return scene;
@@ -248,6 +204,5 @@ export const Game3d = (state) => {
 
   return `
     <canvas id="canvas"></canvas>
-    <iframe src="src/slides.html#lesson24-page0"width="100%" height="100%"></iframe>
   `;
 };

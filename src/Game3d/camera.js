@@ -1,6 +1,6 @@
 export const createCamera = ({scene, canvas}) => {
-  //return deviceOrientationCamera({scene, canvas});
-  return universalCamera({scene, canvas});
+  return deviceOrientationCamera({scene, canvas});
+  //return universalCamera({scene, canvas});
   //return flyCamrea({scene, canvas});
 };
 
@@ -10,7 +10,7 @@ const deviceOrientationCamera = ({scene, canvas}) => {
 
   // Targets the camera to a particular position
   //camera.setTarget(new BABYLON.Vector3(0, 0, -10));
-  camera.setTarget(new BABYLON.Vector3(0, 0, -10));
+  //camera.setTarget(new BABYLON.Vector3(0, 0, -10));
 
   // Sets the sensitivity of the camera to movement and rotation
   camera.angularSensibility = 10;
