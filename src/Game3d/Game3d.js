@@ -3,7 +3,6 @@ import { createCamera } from './camera.js';
 let pic;
 
 export const Game3d = (state) => {
-    
   const init = async () => {
     var engine = null;
     var scene = null;
