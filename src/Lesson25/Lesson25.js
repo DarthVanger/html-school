@@ -2,7 +2,7 @@ import { createCamera } from './camera.js';
 
 let pic;
 
-export const Game3d = (state) => {
+export const Lesson25 = (state) => {
   const init = async () => {
     var engine = null;
     var scene = null;
@@ -280,7 +280,7 @@ export const Game3d = (state) => {
         if (slide == 2) {
           var picMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
           picMaterial.backFaceCulling = false;
-          //picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/language-drops.png");
+          //picMaterial.diffuseTexture = new BABYLON.Texture("/src/Lesson25/img/language-drops.png");
           picMaterial.diffuseTexture = new BABYLON.VideoTexture("video", "/video/kef.mp4", scene, true);
           pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
           pic.position.y = 160;
@@ -293,7 +293,7 @@ export const Game3d = (state) => {
           scene.removeMesh(pic);
           var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
           picMaterial.backFaceCulling = false;
-          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/dimon-michigan.jpeg");
+          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Lesson25/img/dimon-michigan.jpeg");
           pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
           pic.position.y = 160;
           pic.rotation.x = -Math.PI / 2;
@@ -305,7 +305,7 @@ export const Game3d = (state) => {
           scene.removeMesh(pic);
           var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
           picMaterial.backFaceCulling = false;
-          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/ivan-michigan.png");
+          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Lesson25/img/ivan-michigan.png");
           pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
           pic.position.y = 160;
           pic.rotation.x = -Math.PI / 2;
@@ -329,7 +329,7 @@ export const Game3d = (state) => {
           scene.removeMesh(pic);
           var picMaterial = new BABYLON.StandardMaterial("picMaterial", scene);
           picMaterial.backFaceCulling = false;
-          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Game3d/img/game-task-slide.jpg");
+          picMaterial.diffuseTexture = new BABYLON.Texture("/src/Lesson25/img/game-task-slide.jpg");
           pic = BABYLON.MeshBuilder.CreateGround("pic", { width: 100, height: 100});
           pic.position.y = 160;
           pic.rotation.x = -Math.PI / 2;
@@ -366,13 +366,13 @@ export const Game3d = (state) => {
     <canvas id="canvas"></canvas>
     <navbar>
       <div id="move-backwards-btn">
-        <img src="/src/Game3d/img/arrow-down.png" />
+        <img src="/src/Lesson25/img/arrow-down.png" />
       </div>
       <div id="next-slide-btn">
         Next
       </div>
       <div id="move-forwards-btn">
-        <img src="/src/Game3d/img/arrow-up.png" />
+        <img src="/src/Lesson25/img/arrow-up.png" />
       </div>
     </navbar>
 

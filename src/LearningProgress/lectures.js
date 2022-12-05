@@ -277,4 +277,20 @@ export const lectures = [
     skills: ['if-else', 'functions', 'object'],
     url: '/src/slides.html#lesson24',
   },
+  {
+    text: '25 УРОКЕ! КеФ :) Бухич. Игра. Гит.',
+    items: [
+      'Новенькие: устонавлеваем Гит',
+      'Игра: синхронизируемся через Гит',
+      'Игра: Rename wall/ground -> enemy1',
+      'Игра: Чиним столкновение Корабля с Enemy1',
+      'Игра: Добавляем Enemy2',
+      'Игра: Движение Enemy2',
+      'git clone, git pull',
+      'git status, git log',
+      'git diff, git add, git push',
+    ],
+    skills: ['git', 'kef', 'if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
+    url: '/#/lesson-25',
+  },
 ];
