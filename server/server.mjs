@@ -19,10 +19,10 @@ const runApp = async () => {
   console.info('Applying migrations');
   applyMigrations();
 
-  if (!process.env.LOCAL) {
+  if (process.env.HTTPS) {
     var httpsServer = https.createServer(credentials, app);
     var privateKey  = fs.readFileSync('certs/privkey.pem', 'utf8');
-    var certificate = fs.readFileSync('certs/cert.pem', 'utf8');
+    var certificate = fs.readFileSync('certs/fullchain.pem', 'utf8');
     var credentials = {key: privateKey, cert: certificate};
 
     httpsServer.listen(port, () => {
