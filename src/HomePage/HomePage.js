@@ -32,59 +32,54 @@ export const HomePage = (state) => {
 
         ${Profile(state)}
 
+        <h2>НАВЧАННЯ</h2>
         <section id="main-page-links">
           <article>
-            <h3>ДРЕВО УМЕНИЙ</h3>
             <a href="#/skills">
-              <img src="src/HomePage/skills-tree.gif" />
+              ДРЕВО УМЕНИЙ
             </a>
           </article>
           <article>
-            <h3>ЗОДАНЕЯ</h3>
             <a href="#/quests">
-              <img src="src/HomePage/lessons.gif" />
+              ЗОДАНЕЯ
             </a>
           </article>
           <article>
-            <h3>ПРОГРЕС</h3>
             <a href="#/progress">
-              <img src="src/LearningProgress/learning-progress.png" />
+              ПРОГРЕС
             </a>
           </article>
           <article>
-            <h3>СЛОВАРЕК</h3>
-            <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">
-              <img src="/src/img/vocabulary.jpeg" />
-            </a>
-          </article>
-          <article>
-            <h3>КУРСАЧ</h3>
-            <a href="#/coursework">
-              <img src="/src/Coursework/coursework.jpeg" />
-            </a>
-          </article>
-          <article>
-            <h3>ЭКЗАМЕНЫ</h3>
             <a href="#/quiz">
-              <img src="src/Quiz/quiz.jpg" />
+              ЭКЗАМЕНЫ
+            </a>
+          </article>
+        </section>
+        <h2>МАТЕРІАЛИ</h2>
+        <section id="main-page-links">
+          <article>
+            <a href="#/coursework">
+              КУРСАЧ
             </a>
           </article>
           <article>
-            <h3>Neural ART УЧЕНЕКОВ</h3>
+            <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">
+            СЛОВАРЕК
+            </a>
+          </article>
+          <article>
             <a href="#/neural-art">
-              <img src="src/NeuralArt/neural-art.jpg" />
+              Neural ART УЧЕНЕКОВ
             </a>
           </article>
           <article>
-            <h3>EXPECTATION / REALITY</h3>
             <a href="#/expectation-reality">
-              <img src="src/ExpectationReality/expectation-reality.jpeg" />
+              EXPECTATION / REALITY
             </a>
           </article>
           <article>
-            <h3>Делоем РЕЗЮМЕ</h3>
             <a href="#/resume">
-              <img src="src/Resume/resume.png" />
+              Делоем РЕЗЮМЕ
             </a>
           </article>
         </section>

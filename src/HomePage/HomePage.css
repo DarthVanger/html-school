@@ -77,8 +77,7 @@
   height: 70px;
   line-height: 70px;
   color: #5418b9;
-  margin: 0;
-  margin-bottom: 1em;
+  margin: 1em 0;
   letter-spacing: 4px;
 }
 
@@ -138,14 +137,37 @@ section {
 
 section#main-page-links {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+section#main-page-links  article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+
+section#main-page-links a,
+section#main-page-links a:active,
+section#main-page-links a:visited,
+section#main-page-links a:link {
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  color: #81fa41;
 }
 
 section#main-page-links article {
-  width: 30%;
-  margin: 0 10%;
-  margin-bottom: 10%;
+  height: 8rem;
+  width: 320px;
+  background: url('/src/HomePage/img/cyberpunk-grid-1.jpg');
+  background-size: 100% 100%;
+}
+
+section#main-page-links:nth-of-type(2) article {
+  background-image: url('/src/HomePage/img/cyberpunk-grid-2.jpg');
 }
 
 section#main-page-links article img {
