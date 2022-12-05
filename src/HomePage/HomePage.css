@@ -159,11 +159,22 @@ section#main-page-links a:link {
   color: #81fa41;
 }
 
+@keyframes gridColor {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
 section#main-page-links article {
   height: 8rem;
   width: 320px;
   background: url('/src/HomePage/img/cyberpunk-grid-1.jpg');
   background-size: 100% 100%;
+  animation: gridColor 3s alternate infinite;
+
 }
 
 section#main-page-links:nth-of-type(2) article {
