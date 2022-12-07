@@ -58,6 +58,7 @@ export const Router = (state) => {
     case '/katakombi':
       element.innerHTML = '';
       element.append(Katakombi(state));
+
       break;
 //    case '/homework':
 //      element.innerHTML = '';
