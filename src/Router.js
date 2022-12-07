@@ -17,6 +17,7 @@ import { Coursework } from './Coursework/Coursework.js';
 //import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
 import { Scene3d } from './Scene3d/Scene3d.js';
 import { Lesson25 } from './Lesson25/Lesson25.js';
+import { Katakombi } from './Katakombi/Katakombi.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -53,6 +54,10 @@ export const Router = (state) => {
     case '/quests':
       element.innerHTML = '';
       element.append(QuestsPage(state));
+      break;
+    case '/katakombi':
+      element.innerHTML = '';
+      element.append(Katakombi(state));
       break;
 //    case '/homework':
 //      element.innerHTML = '';
