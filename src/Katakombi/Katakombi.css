@@ -1,34 +1,92 @@
 #catacombs {
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
 }
 
 #catacombs .levels {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: grid;
-  width: 300vw;
-  height: 300vh;
-  grid-template-columns: 1fr 1fr 1fr;
-  transition: all 2s;
+  position: relative;
 }
 
-#catacombs .levels.p-1 { left: 0; top: 0; }
-#catacombs .levels.p-2 { left: -100vw; top: 0; }
-#catacombs .levels.p-3 { left: -200vw; top: 0; }
-#catacombs .levels.p-4 { left: -200vw; top: -100vh; }
-#catacombs .levels.p-5 { left: -100vw; top: -100vh;  }
-#catacombs .levels.p-6 { left: 0; top: -100vh; }
-#catacombs .levels.p-7 { left: 0; top: -200vh; }
-#catacombs .levels.p-8 { left: -100vw; top: -200vh; }
-#catacombs .levels.p-9 { left: -200vw; top: -200vh; }
+@keyframes top-down {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: 0;
+  }
+}
 
+@keyframes cur-down {
+  from {
+    top: 0;
+  }
+  to {
+    top: -100vh;
+  }
+}
+
+@keyframes bottom-up {
+  from {
+    top: -100vh;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes cur-up {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100vh;
+  }
+}
+
+.btn {
+  position: absolute;
+}
+
+.btn-up {
+  left: 50%;
+  top: 0;
+}
+
+.btn-down {
+  left: 50%;
+  bottom: 0;
+}
+
+.btn-left {
+  top: 50%;
+  left: 0;
+}
+.btn-right {
+  top: 50%;
+  right: 0;
+}
+
+
+#catacombs .level.left { left: -100vw; top: 0; }
+#catacombs .level.right { right: -100vw; top: 0; }
+#catacombs .levels.top { left: 0; top: -100vh; }
+#catacombs .levels.bottom { left: 0; bottom: -100vh; }
+
+#catacombs .level.cur-down { left: 0; top: 0; animation: cur-down 2s; }
+#catacombs .level.top-down { left: 0; top: 100vh; animation: top-down 2s; }
+
+#catacombs .level.cur-up { left: 0; top: 0; animation: cur-up 2s; }
+#catacombs .level.bottom-up { left: 0; top: 100vh; animation: bottom-up 2s; }
+
+#catacombs .level.cur {
+  display: block;
+  left: 0;
+}
 
 #catacombs .level {
-  position: relative;
+  left: -200vw;
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
   color: black;
   font-weight: bold;
   font-family: monospace;
