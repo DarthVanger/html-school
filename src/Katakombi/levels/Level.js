@@ -17,7 +17,7 @@ export const Level = (level) => {
   setTimeout(() => {
     getCode().focus();
 
-    const fires = [];
+    let fires = [];
     getCode().addEventListener('keyup', (event) => {
       const fire = document.createElement('img');
       fire.src = '/src/Katakombi/img/fire.gif';
@@ -35,15 +35,26 @@ export const Level = (level) => {
       const padding = 20;
       fire.style.left = offset * 24.2 + padding - 24.2;
       fire.style.top = newLinesNum * lineHeight - 8 + padding;
-      console.log('event: ', event.key);
-      if (!['Enter', ' '].includes(event.key)) {
+      if (!['Enter', ' ', 'Backspace'].includes(event.key)) {
         el.append(fire);
+      }
+
+      if (event.key != 'Backspace') {
         fires.push(fire);
       }
 
       if (event.key == 'Backspace') {
-        el.removeChild(fires[l]);
-        fires.splice(l, 1);
+        try {
+          el.removeChild(fires[l]);
+        } catch (e) {
+          console.error(e);
+        }
+
+        try {
+          fires.splice(l, 1);
+        } catch (e) {
+          console.error(e);
+        }
       }
     });
   });
