@@ -16,16 +16,19 @@ export const Level = (level) => {
 
   setTimeout(() => {
     getCode().focus();
-    //document.body.addEventListener('keypress', () => {
-    //  console.log(code);
-    //  getCode().innerHTML += 'AA';
-    //});
+    getCode().addEventListener('keypress', () => {
+      const fire = document.createElement('img');
+      fire.src = '/src/Katakombi/img/fire.gif';
+      fire.className = 'fire';
+      console.log('sel start: ', getCode().selectionStart);
+      const s = document.getSelection();
+      const offset = s.focusOffset;
+      console.log('offset', offset);
+      fire.style.left = offset * 19.2 - 5;
+      el.append(fire);
+    });
   });
 
-  const fire = document.createElement('img');
-  fire.src = '/src/Katakombi/img/fire.gif';
-  fire.className = 'fire';
-  el.append(fire);
 
   // https://www.youtube.com/watch?v=_hU_5CcF7Tg
   const video = document.createElement('video');
@@ -45,7 +48,6 @@ export const Level = (level) => {
   el.append(levelText);
 
   for (let test of level.tests()) {
-    console.log('test: ', test);
     levelText.innerHTML += `<div>${test.name}</div>`;
   }
 
@@ -60,4 +62,5 @@ export const nextLevel = () => {
   curLevel = (curLevel + 1) % levels.length;
   return Level(shuffled[curLevel]);
 }
+
 

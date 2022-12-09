@@ -201,12 +201,19 @@
   box-shadow: 0 0 5vmin hsl(30, 100%, 50%), inset 0 0 5vmin hsl(30, 100%, 50%);
 }
 
+.level {
+  --font-size: 32px;
+}
 .code {
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   z-index: 20;
   caret-color: transparent;
   cursor: default;
+  font-family: monospace;
+  color: white;
+  font-size: var(--font-size);
+  letter-spacing: 0;
 }
 
 .code:focus {
@@ -217,7 +224,8 @@
 
 .fire {
   position: absolute;
-  top: 0;
+  top: -5;
   left: 0;
   z-index: 10;
+  width: var(--font-size);
 }
