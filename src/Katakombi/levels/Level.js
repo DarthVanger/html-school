@@ -1,9 +1,11 @@
 import { BgImg } from './BgImg.js';
+import { FireCircle } from './FireCircle.js';
 import { levels } from './levels.js';
 export const Level = (level) => {
   const el = document.createElement('article');
   el.className = 'level';
   el.append(BgImg());
+  el.append(FireCircle());
 
   // https://www.youtube.com/watch?v=_hU_5CcF7Tg
   const video = document.createElement('video');

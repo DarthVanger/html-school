@@ -161,3 +161,43 @@
   
 }
 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes circle {
+  from {
+    opacity: 0;
+  }
+  to { 
+    opacity: 0.7;
+  }
+}
+
+.circle {
+  z-index: 3;
+  animation: circle 5s infinite alternate;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  height: 70vmin;
+  width: 70vmin;
+  filter: url(#wavy) blur(1px);
+  opacity: 0.7;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: 10vmin;
+  left: 10vmin;
+  right: 10vmin;
+  bottom: 10vmin;
+  border: 2vmin solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 5vmin hsl(30, 100%, 50%), inset 0 0 5vmin hsl(30, 100%, 50%);
+}
+
