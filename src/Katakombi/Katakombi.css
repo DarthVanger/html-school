@@ -215,6 +215,7 @@
   font-size: var(--font-size);
   letter-spacing: 0;
   line-height: 1.5;
+  mix-blend-mode: difference;
 }
 
 .code:focus {
