@@ -77,8 +77,50 @@
 #catacombs .level.bottom-up { left: 0; top: 100vh; animation: bottom-up 2s; }
 
 #catacombs .level.cur {
-  display: block;
+  color: #eee;
+  display: flex;
   left: 0;
+}
+
+@keyframes level-text-anim {
+  from {
+    filter: hue-rotate(0deg);
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.8
+  }
+  to {
+    filter: hue-rotate(359deg);
+  }
+}
+
+#catacombs .level-text {
+  background: #6cb03a7a;
+  animation: level-text-anim 50s infinite;
+  padding: 1em;
+  border-radius: 2em;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.5em;
 }
 
 #catacombs .level {
@@ -87,10 +129,11 @@
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 2em;
   letter-spacing: 4px;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #catacombs .level img {
   position: absolute;

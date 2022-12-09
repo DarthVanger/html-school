@@ -6,10 +6,17 @@ export const Level = (level) => {
   el.append(BgImg());
 
   console.log('level: ', level);
+
+  const levelText = document.createElement('div');
+  levelText.className = 'level-text';
+  el.append(levelText);
+
   for (let test of level.tests()) {
     console.log('test: ', test);
-    el.innerHTML += `<div>${test.name}</div>`;
+    levelText.innerHTML += `<div>${test.name}</div>`;
   }
+
+  el.innerHTML += '</div>';
 
   return el;
 };
