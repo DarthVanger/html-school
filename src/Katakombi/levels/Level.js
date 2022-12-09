@@ -5,6 +5,17 @@ export const Level = (level) => {
   el.className = 'level';
   el.append(BgImg());
 
+  // https://www.youtube.com/watch?v=_hU_5CcF7Tg
+  const video = document.createElement('video');
+  video.src = '/video/smoke.mp4';
+  video.setAttribute('muted', true);
+  video.loop = true;
+  video.addEventListener('loadstart', function () {
+   this.playbackRate = 0.5;
+  });
+  video.setAttribute('autoplay', true);
+  el.append(video);
+
   console.log('level: ', level);
 
   const levelText = document.createElement('div');

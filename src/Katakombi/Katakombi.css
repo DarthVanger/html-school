@@ -115,12 +115,15 @@
 
 #catacombs .level-text {
   background: #6cb03a7a;
-  animation: level-text-anim 50s infinite;
+  /* animation: level-text-anim 50s infinite; */
+  background: none;
+  color: white;
   padding: 1em;
   border-radius: 2em;
   font-weight: bold;
   font-family: monospace;
   font-size: 1.5em;
+  mix-blend-mode: overlay;
 }
 
 #catacombs .level {
@@ -135,12 +138,23 @@
   align-items: center;
   justify-content: center;
 }
+
 #catacombs .level img {
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+#catacombs .level img,
+#catacombs .level video {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+#catacombs .level video {
+  z-index: 0;
 }
 
 #catacombs img.animate-left {
