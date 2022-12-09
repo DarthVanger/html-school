@@ -16,17 +16,25 @@ export const Level = (level) => {
 
   setTimeout(() => {
     getCode().focus();
-    getCode().addEventListener('keypress', () => {
+    getCode().addEventListener('keypress', (event) => {
       const fire = document.createElement('img');
       fire.src = '/src/Katakombi/img/fire.gif';
       fire.className = 'fire';
-      const c = getCode().value;
-      const newLinesNum = [...c.matchAll(/[\n\r]/g)].length;
       const lineHeight = 32 * 1.5;
-      const offset = newLinesNum ? c.length % newLinesNum : c.length;
+      const l = getCode().selectionStart;
+      const c = getCode().value.slice(0, l);
+      const newLines = [...c.matchAll(/[\n\r]/g)];
+      const newLinesNum = newLines.length;
+      let newLineIdx = newLines[newLines.length - 1]?.index || 0;
+      let offset = l - newLineIdx;
+      if (newLineIdx > 0) {
+        offset--;
+      }
       fire.style.left = offset * 24.2;
       fire.style.top = newLinesNum * lineHeight;
-      el.append(fire);
+      if (!['Enter', ' '].includes(event.key)) {
+        el.append(fire);
+      }
     });
   });
 
