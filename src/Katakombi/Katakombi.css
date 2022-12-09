@@ -124,7 +124,6 @@
   font-weight: bold;
   font-family: monospace;
   font-size: 1.5em;
-  mix-blend-mode: overlay;
 }
 
 #catacombs .level {
@@ -140,12 +139,12 @@
   justify-content: center;
 }
 
-#catacombs .level bg-img {
+#catacombs .level .bg-img {
   z-index: 1;
   mix-blend-mode: overlay;
 }
 
-#catacombs .level bg-img,
+#catacombs .level .bg-img,
 #catacombs .level video {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -156,10 +155,6 @@
 
 #catacombs .level video {
   z-index: 0;
-}
-
-#catacombs bg-img.animate-left {
-  
 }
 
 * {
@@ -175,6 +170,40 @@
   to { 
     opacity: 0.7;
   }
+}
+
+.level {
+  --font-size: 32px;
+}
+.code {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 20;
+  caret-color: transparent;
+  cursor: default;
+  font-family: monospace;
+  color: white;
+  font-size: var(--font-size);
+  letter-spacing: 5px;
+  line-height: 1.5;
+  background: transparent;
+}
+
+.code:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  z-index: 11;
+}
+
+.fire {
+  position: absolute;
+  top: -5;
+  left: 0;
+  z-index: 10;
+  width: 20px;
+  height: calc(var(--font-size) * 1.5);
+  object-fit: cover;
 }
 
 .circle {
@@ -201,37 +230,3 @@
   box-shadow: 0 0 5vmin hsl(30, 100%, 50%), inset 0 0 5vmin hsl(30, 100%, 50%);
 }
 
-.level {
-  --font-size: 32px;
-}
-.code {
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  z-index: 20;
-  caret-color: transparent;
-  cursor: default;
-  font-family: monospace;
-  color: white;
-  font-size: var(--font-size);
-  letter-spacing: 5px;
-  line-height: 1.5;
-  mix-blend-mode: difference;
-  background: transparent;
-}
-
-.code:focus {
-  outline: none;
-  box-shadow: none;
-  border: none;
-  z-index: 11;
-}
-
-.fire {
-  position: absolute;
-  top: -5;
-  left: 0;
-  z-index: 10;
-  width: 20px;
-  height: calc(var(--font-size) * 1.5);
-  object-fit: cover;
-}
