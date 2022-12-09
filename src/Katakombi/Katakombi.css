@@ -124,6 +124,7 @@
   font-weight: bold;
   font-family: monospace;
   font-size: 1.5em;
+  mix-blend-mode: overlay;
 }
 
 #catacombs .level {
@@ -182,7 +183,7 @@
   caret-color: transparent;
   cursor: default;
   font-family: monospace;
-  color: white;
+  color: red;
   font-size: var(--font-size);
   letter-spacing: 5px;
   line-height: 1.5;
@@ -193,17 +194,20 @@
   outline: none;
   box-shadow: none;
   border: none;
+  overflow: auto;
   z-index: 11;
+  resize: none;
 }
 
 .fire {
   position: absolute;
   top: -5;
   left: 0;
-  z-index: 10;
+  z-index: 15;
   width: 20px;
   height: calc(var(--font-size) * 1.5);
   object-fit: cover;
+  mix-blend-mode: luminosity; 
 }
 
 .circle {
