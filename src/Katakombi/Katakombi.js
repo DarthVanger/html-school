@@ -1,22 +1,9 @@
 import { levels } from './levels/levels.js';
+import { Level, nextLevel } from './levels/Level.js';
 
 const element = document.createElement('article');
 element.id = 'catacombs';
 export const Katakombi = () => {
-  const getSrc = i => `/src/Katakombi/img/catacombs-${i % 6 + 1}.jpeg`;
-
-  const Level = (i, j) => {
-    const el = document.createElement('div');
-    el.className = 'level';
-    const img = document.createElement('img');
-    let text = `Level ${i}, ${j}`;
-    console.log(`Level ${i} ${j} text: ${text}`);
-    el.append(text);
-    el.append(img);
-    img.src = getSrc(i);
-    return el;
-  }
-
   const levelsElem = document.createElement('div');
   levelsElem.className = 'levels';
   element.append(levelsElem);
@@ -96,7 +83,8 @@ export const Katakombi = () => {
   let levelElems = [];
   for (let i=0; i<3; i++) {
     for (let j=0; j<3; j++) {
-      const level = Level(i, j);
+      const level = nextLevel();;
+      console.log('level: ', level);
       levelsElem.append(level);
       levelElems.push(level);
     }
