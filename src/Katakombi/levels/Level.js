@@ -7,6 +7,26 @@ export const Level = (level) => {
   el.append(BgImg());
   el.append(FireCircle());
 
+  const code = document.createElement('div');
+  code.contentEditable = true;
+  code.className = 'code';
+  el.append(code);
+
+  const getCode = () => document.querySelector('.cur .code');
+
+  setTimeout(() => {
+    getCode().focus();
+    //document.body.addEventListener('keypress', () => {
+    //  console.log(code);
+    //  getCode().innerHTML += 'AA';
+    //});
+  });
+
+  const fire = document.createElement('img');
+  fire.src = '/src/Katakombi/img/fire.gif';
+  fire.className = 'fire';
+  el.append(fire);
+
   // https://www.youtube.com/watch?v=_hU_5CcF7Tg
   const video = document.createElement('video');
   video.src = '/video/smoke.mp4';

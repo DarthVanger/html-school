@@ -139,12 +139,12 @@
   justify-content: center;
 }
 
-#catacombs .level img {
+#catacombs .level bkg-img {
   z-index: 1;
   mix-blend-mode: overlay;
 }
 
-#catacombs .level img,
+#catacombs .level bkg-img,
 #catacombs .level video {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -157,7 +157,7 @@
   z-index: 0;
 }
 
-#catacombs img.animate-left {
+#catacombs bkg-img.animate-left {
   
 }
 
@@ -201,3 +201,23 @@
   box-shadow: 0 0 5vmin hsl(30, 100%, 50%), inset 0 0 5vmin hsl(30, 100%, 50%);
 }
 
+.code {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 20;
+  caret-color: transparent;
+  cursor: default;
+}
+
+.code:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.fire {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
