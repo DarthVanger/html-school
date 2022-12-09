@@ -1,21 +1,25 @@
+import { levels } from './levels/levels.js';
+
 const element = document.createElement('article');
 element.id = 'catacombs';
 export const Katakombi = () => {
   const getSrc = i => `/src/Katakombi/img/catacombs-${i % 6 + 1}.jpeg`;
 
-  const Level = (i) => {
+  const Level = (i, j) => {
     const el = document.createElement('div');
     el.className = 'level';
     const img = document.createElement('img');
-    el.append(`Level ${i}`);
+    let text = `Level ${i}, ${j}`;
+    console.log(`Level ${i} ${j} text: ${text}`);
+    el.append(text);
     el.append(img);
     img.src = getSrc(i);
     return el;
   }
 
-  const levels = document.createElement('div');
-  levels.className = 'levels';
-  element.append(levels);
+  const levelsElem = document.createElement('div');
+  levelsElem.className = 'levels';
+  element.append(levelsElem);
 
   const buttons = document.createElement('div');
   buttons.className = 'buttons';
@@ -90,14 +94,14 @@ export const Katakombi = () => {
   }
 
   let levelElems = [];
-  for (let i=0; i<9; i++) {
-    const level = Level(i);
-    levels.append(level);
-    if (i == 0) {
-      level.classList.add('cur');
+  for (let i=0; i<3; i++) {
+    for (let j=0; j<3; j++) {
+      const level = Level(i, j);
+      levelsElem.append(level);
+      levelElems.push(level);
     }
-    levelElems.push(level);
   }
+  levelElems[0].classList.add('cur');
 
   music();
 
