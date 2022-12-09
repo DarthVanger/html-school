@@ -162,7 +162,6 @@
   
 }
 
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -215,12 +214,14 @@
   color: white;
   font-size: var(--font-size);
   letter-spacing: 0;
+  line-height: 1.5;
 }
 
 .code:focus {
   outline: none;
   box-shadow: none;
   border: none;
+  z-index: 11;
 }
 
 .fire {
@@ -228,5 +229,7 @@
   top: -5;
   left: 0;
   z-index: 10;
-  width: var(--font-size);
+  width: 20px;
+  height: calc(var(--font-size) * 1.5);
+  object-fit: cover;
 }

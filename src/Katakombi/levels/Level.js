@@ -24,7 +24,7 @@ export const Level = (level) => {
       const s = document.getSelection();
       const offset = s.focusOffset;
       console.log('offset', offset);
-      fire.style.left = offset * 19.2 - 5;
+      fire.style.left = offset * 19.2;
       el.append(fire);
     });
   });
