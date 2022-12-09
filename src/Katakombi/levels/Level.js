@@ -7,8 +7,8 @@ export const Level = (level) => {
   el.append(BgImg());
   el.append(FireCircle());
 
-  const code = document.createElement('div');
-  code.contentEditable = true;
+  const code = document.createElement('textarea');
+  //code.contentEditable = true;
   code.className = 'code';
   el.append(code);
 
@@ -20,11 +20,12 @@ export const Level = (level) => {
       const fire = document.createElement('img');
       fire.src = '/src/Katakombi/img/fire.gif';
       fire.className = 'fire';
-      console.log('sel start: ', getCode().selectionStart);
-      const s = document.getSelection();
-      const offset = s.focusOffset;
-      console.log('offset', offset);
-      fire.style.left = offset * 19.2;
+      const c = getCode().value;
+      const newLinesNum = [...c.matchAll(/[\n\r]/g)].length;
+      const lineHeight = 32 * 1.5;
+      const offset = newLinesNum ? c.length % newLinesNum : c.length;
+      fire.style.left = offset * 24.2;
+      fire.style.top = newLinesNum * lineHeight;
       el.append(fire);
     });
   });

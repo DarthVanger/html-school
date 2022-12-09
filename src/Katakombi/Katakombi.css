@@ -213,9 +213,10 @@
   font-family: monospace;
   color: white;
   font-size: var(--font-size);
-  letter-spacing: 0;
+  letter-spacing: 5px;
   line-height: 1.5;
   mix-blend-mode: difference;
+  background: transparent;
 }
 
 .code:focus {
