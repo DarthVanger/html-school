@@ -114,6 +114,7 @@
 }
 
 #catacombs .level-text {
+  position: absolute;
   background: #6cb03a7a;
   /* animation: level-text-anim 50s infinite; */
   background: none;
