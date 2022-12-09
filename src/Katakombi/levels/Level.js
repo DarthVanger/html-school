@@ -31,7 +31,7 @@ export const Level = (level) => {
         offset--;
       }
       fire.style.left = offset * 24.2;
-      fire.style.top = newLinesNum * lineHeight;
+      fire.style.top = newLinesNum * lineHeight - 8;
       if (!['Enter', ' '].includes(event.key)) {
         el.append(fire);
       }

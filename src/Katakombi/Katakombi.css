@@ -207,7 +207,8 @@
   width: 20px;
   height: calc(var(--font-size) * 1.5);
   object-fit: cover;
-  mix-blend-mode: luminosity; 
+  mix-blend-mode: color-dodge; 
+  opacity: 0.7;
 }
 
 .circle {
