@@ -30,8 +30,9 @@ export const Level = (level) => {
       if (newLineIdx > 0) {
         offset--;
       }
-      fire.style.left = offset * 24.2;
-      fire.style.top = newLinesNum * lineHeight - 8;
+      const padding = 20;
+      fire.style.left = offset * 24.2 + padding;
+      fire.style.top = newLinesNum * lineHeight - 8 + padding;
       if (!['Enter', ' '].includes(event.key)) {
         el.append(fire);
       }

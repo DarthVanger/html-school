@@ -197,6 +197,7 @@
   overflow: auto;
   z-index: 11;
   resize: none;
+  padding: 20px;
 }
 
 .fire {
