@@ -293,4 +293,18 @@ export const lectures = [
     skills: ['git', 'kef', 'if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
     url: '/#/lesson-25',
   },
+  {
+    text: 'Выпускники MICHIGAN! Игра, гит, фукцеи, хуюкцеи',
+    items: [
+      'Ваня выпуск, Димон - супер выпускник',
+      'Новенькие: правела, устонавлеваем Гит',
+      'Игра: синхронизируемся через Гит',
+      'git clone, git pull',
+      'Игра: enemy2 - столкновение',
+      'git status, git log',
+      'git diff, git add, git push',
+    ],
+    skills: ['git', 'if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
+    url: '/src/slides.html#lesson26',
+  },
 ];
