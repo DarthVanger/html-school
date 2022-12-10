@@ -54,11 +54,13 @@ export const HomePage = (state) => {
               ЭКЗАМЕНЫ
             </a>
           </article>
+          <!--
           <article>
             <a href="#/katakombi">
               КАТАКОМБЫ
             </a>
           </article>
+          -->
         </section>
         <h2>МАТЕРІАЛИ</h2>
         <section id="main-page-links">
