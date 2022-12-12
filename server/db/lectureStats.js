@@ -1,7 +1,7 @@
 import { lectures } from '../../src/LearningProgress/lectures.js';
 
 export const lectureStats = lectures.map((lecture, idx) => {
-  const from = i => idx >= i ? 1 : 0;
+  const from = i => idx >= (i - 1) ? 1 : 0;
   return {
     'other-species': 0,
     dimon: from(0),
