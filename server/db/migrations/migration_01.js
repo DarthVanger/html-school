@@ -7,7 +7,7 @@ export const migration_01 = async () => {
     'dimon',
     'valik_h',
     'mister-smith',
-    'dr_p0n4ek',
+    'mazerTim',
   ];
 
   db.data.students = students;
