@@ -49,7 +49,28 @@ export const migration_00 = async () => {
         { id: 'key-event', text: 'keydown\nkeyup'  },
         { id: 'if-else', text: 'if () {}\nelse {}'  },
       ],
-    ]
+    ],
+    git: [
+      [
+        { id: 'git-status', text: 'git status' },
+        { id: 'git-clone', text: 'git clone' },
+        { id: 'git-add', text: 'git add' },
+        { id: 'git-commit', text: 'git commit' },
+        { id: 'github', text: 'github' },
+        { id: 'git-push', text: 'git push' },
+        { id: 'git-pull', text: 'git pull' },
+        { id: 'git-log', text: 'git log' },
+        { id: 'git-diff', text: 'git diff' },
+      ],
+      [
+        { id: 'git-merge', text: 'git merge' },
+      ],
+    ],
+    gamedev: [
+      [
+        { id: 'geometry', text: 'geometry' },
+      ],
+    ],
   };
 
   db.data.skills = skills;

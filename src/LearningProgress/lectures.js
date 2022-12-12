@@ -304,7 +304,7 @@ export const lectures = [
       'git status, git log',
       'git diff, git add, git push',
     ],
-    skills: ['git', 'if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
+    skills: ['if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
     url: '/src/slides.html#lesson26',
   },
 ];
