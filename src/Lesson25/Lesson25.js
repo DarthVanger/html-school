@@ -364,7 +364,7 @@ export const Lesson25 = (state) => {
 
   return `
     <canvas id="canvas"></canvas>
-    <navbar>
+    <navbar class="lesson25-navbar">
       <div id="move-backwards-btn">
         <img src="/src/Lesson25/img/arrow-down.png" />
       </div>
