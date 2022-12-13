@@ -69,7 +69,12 @@ export const Level = (level) => {
    this.playbackRate = 0.5;
   });
   video.setAttribute('autoplay', true);
+  video.classList.add('hide');
   el.append(video);
+
+  document.addEventListener('click', () => {
+    video.classList.remove('hide');
+  });
 
   console.log('level: ', level);
 
