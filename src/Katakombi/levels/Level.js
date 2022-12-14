@@ -5,10 +5,8 @@ export const Level = (level) => {
   const el = document.createElement('article');
   el.className = 'level';
   el.append(BgImg());
-  el.append(FireCircle());
 
   const code = document.createElement('textarea');
-  //code.contentEditable = true;
   code.className = 'code';
   el.append(code);
 
@@ -16,64 +14,6 @@ export const Level = (level) => {
 
   setTimeout(() => {
     getCode().focus();
-
-    let fires = [];
-    getCode().addEventListener('keyup', (event) => {
-      const fire = document.createElement('img');
-      fire.src = '/src/Katakombi/img/fire.gif';
-      fire.className = 'fire';
-      const lineHeight = 32 * 1.5;
-      const l = getCode().selectionStart;
-      const c = getCode().value.slice(0, l);
-      const newLines = [...c.matchAll(/[\n\r]/g)];
-      const newLinesNum = newLines.length;
-      let newLineIdx = newLines[newLines.length - 1]?.index || 0;
-      let offset = l - newLineIdx;
-      if (newLineIdx > 0) {
-        offset--;
-      }
-      const padding = 20;
-      fire.style.left = offset * 24.2 + padding - 24.2;
-      fire.style.top = newLinesNum * lineHeight - 8 + padding;
-      if (!['Enter', ' ', 'Backspace'].includes(event.key)) {
-        el.append(fire);
-      }
-
-      if (event.key != 'Backspace') {
-        fires.push(fire);
-      }
-
-      if (event.key == 'Backspace') {
-        try {
-          el.removeChild(fires[l]);
-        } catch (e) {
-          console.error(e);
-        }
-
-        try {
-          fires.splice(l, 1);
-        } catch (e) {
-          console.error(e);
-        }
-      }
-    });
-  });
-
-
-  // https://www.youtube.com/watch?v=_hU_5CcF7Tg
-  const video = document.createElement('video');
-  video.src = '/video/smoke.mp4';
-  video.setAttribute('muted', true);
-  video.loop = true;
-  video.addEventListener('loadstart', function () {
-   this.playbackRate = 0.5;
-  });
-  video.setAttribute('autoplay', true);
-  video.classList.add('hide');
-  el.append(video);
-
-  document.addEventListener('click', () => {
-    video.classList.remove('hide');
   });
 
   console.log('level: ', level);

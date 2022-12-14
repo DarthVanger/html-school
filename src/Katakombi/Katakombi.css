@@ -43,6 +43,7 @@
 
 .btn {
   position: absolute;
+  z-index: 2;
 }
 
 .btn-up {
@@ -114,6 +115,7 @@
 }
 
 #catacombs .level-text {
+  z-index: 1;
   position: absolute;
   background: #6cb03a7a;
   /* animation: level-text-anim 50s infinite; */
@@ -124,7 +126,6 @@
   font-weight: bold;
   font-family: monospace;
   font-size: 1.5em;
-  mix-blend-mode: overlay;
 }
 
 #catacombs .level {
@@ -142,7 +143,6 @@
 
 #catacombs .level .bg-img {
   z-index: 1;
-  mix-blend-mode: overlay;
 }
 
 #catacombs .level .bg-img,
@@ -162,24 +162,16 @@
   display: none;
 }
 
-* {
+#catacombs * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-@keyframes circle {
-  from {
-    opacity: 0;
-  }
-  to { 
-    opacity: 0.7;
-  }
-}
-
 .level {
   --font-size: 32px;
 }
+
 .code {
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -203,41 +195,3 @@
   resize: none;
   padding: 20px;
 }
-
-.fire {
-  position: absolute;
-  top: -5;
-  left: 0;
-  z-index: 15;
-  width: 20px;
-  height: calc(var(--font-size) * 1.5);
-  object-fit: cover;
-  mix-blend-mode: color-dodge; 
-  opacity: 0.7;
-}
-
-.circle {
-  display: none;
-  z-index: 3;
-  animation: circle 5s infinite alternate;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  height: 70vmin;
-  width: 70vmin;
-  filter: url(#wavy) blur(1px);
-  opacity: 0.7;
-}
-
-.circle::before {
-  content: "";
-  position: absolute;
-  top: 10vmin;
-  left: 10vmin;
-  right: 10vmin;
-  bottom: 10vmin;
-  border: 2vmin solid hsl(0, 0%, 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 5vmin hsl(30, 100%, 50%), inset 0 0 5vmin hsl(30, 100%, 50%);
-}
-
