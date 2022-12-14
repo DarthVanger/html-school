@@ -10,13 +10,29 @@ export const Level = (level) => {
   code.className = 'code';
   el.append(code);
 
-  const getCode = () => document.querySelector('.cur .code');
+  const getCode = () => el.querySelector('.code');
 
   setTimeout(() => {
     getCode().focus();
+
+      console.log('add ev lis');
+    getCode().addEventListener('keyup', (event) => {
+      debouncedCodeCheck();
+    });
   });
 
+  let debounceTimeoutId;
+  const debouncedCodeCheck = () => {
+    if (debounceTimeoutId) clearTimeout(debounceTimeoutId);
+    debounceTimeoutId = setTimeout(codeCheck, 1000);
+  };
+
   console.log('level: ', level);
+
+  const codeCheck = () => {
+    const code = getCode(0).value;
+    console.log('code check. ', code);
+  };
 
   const levelText = document.createElement('div');
   levelText.className = 'level-text';
