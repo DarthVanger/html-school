@@ -1,11 +1,4 @@
 #doska-pometa {
-  height: 2em;
-  overflow: hidden;
-  background: url('/src/Doska/pomet.jpeg') repeat-y;
-  background-size: 100% auto;
-  color: black;
-  text-align: center;
-  position: relative;
 }
 
 #doska-pometa .left, #doska-pometa .right {
@@ -25,3 +18,16 @@
 #doska-pometa .entry img {
   width: 100px;
 }
+
+#doska-pometa .student-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+#doska-pometa .ava img {
+  width: 100px;
+  height: 100px;
+  margin-right: 0.5em;
+}
+

@@ -48,20 +48,59 @@ export const Doska = (state) => {
           if (!lastWeekByStudent[student]) {
             lastWeekByStudent[student] =  [];
           }
-          lastWeekByStudent[student].push(hw);
+
+          const homework = {
+            ...hw,
+            points: getHomeworkPoints(hw),
+          };
+
+          lastWeekByStudent[student].push(homework);
 
           lastWeekHomeworks.push({
             student,
-            homework: {
-              ...hw,
-              points: getHomeworkPoints(hw),
-            },
+            homework,
           });
         }
       }
     };
 
     console.log('lastWeekByStudent: ', lastWeekByStudent);
+
+    let studRows = [];
+    for (let student in lastWeekByStudent) {
+      console.log('student: ', student);
+      const studHws = lastWeekByStudent[student];
+      const points = studHws.reduce((acc, cur) => {
+        console.log('acc: ', acc);
+        console.log('cur: ', cur);
+        return acc + cur.points
+      }, 0);
+
+      studRows.push({
+        student,
+        points,
+        numHws: studHws.length,
+      });
+    }
+
+    studRows.sort((a, b) => b.points - a.points);
+
+    let html = '';
+    studRows.forEach(({ student, points, numHws }) => {
+        html += `
+          <div class="student-row">
+            <div class="ava">
+              <img src="img/${student}.jpg" />
+            </div>
+            <div class="plus-exp">
+              + ${points} exp
+            </div>
+            <div class="num-homeworks">
+              &nbsp;(${numHws} зоданей)
+            </div>
+          </div>
+        `;
+    });
 
     const formatDate = (d) => {
       const date = new Date(d);
@@ -70,24 +109,11 @@ export const Doska = (state) => {
       return date.toLocaleDateString("uk-UA", options); // Saturday, September 17, 2016
     }
 
-    const homeworkListHtml = lastWeekHomeworks.reverse().map(({ student, homework }) => `
-      <div class="entry">
-        <div class="left">
-          <img src="/img/${student}.jpg" />
-          <div>${student}</div>
-        </div>
-        <div class="right">
-          <p>${homework.id} - ${formatDate(homework.date)}</p>
-        </div>
-      </div>
-    `).join('');;
 
     getElement().innerHTML = `
-      <button type="button" class="expand">ДОСКА ПОМËТА</button>
-      ${homeworkListHtml}
+      <h2>ДОСКА ПОМËТА</h2>
+      ${html}
     `;
-
-    getElement().querySelector('.expand').addEventListener('click', expand);
 
     console.log('homeworks: ', homeworks);
     console.log('lastWeekHomeworks: ', lastWeekHomeworks);
