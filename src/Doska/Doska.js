@@ -1,5 +1,6 @@
 const element = document.createElement('div');
 element.id = 'doska-pometa';
+import { getQuestSkills } from '../quests/quests/quests.js';
 
 export const Doska = (state) => {
   const getElement = () => document.querySelector('#doska-pometa');
@@ -23,11 +24,16 @@ export const Doska = (state) => {
     }
   }
 
+  const getHomeworkPoints = (hw) => {
+    return getQuestSkills(hw.id)?.length;
+  }
+
   const render = () => {
     const homeworks = state.questPoints;
     console.log('homeworks: ', homeworks);
     const now = new Date();
     let lastWeekHomeworks = [];
+    let lastWeekByStudent = {};
     for (let student in homeworks) {
       for (let hw of homeworks[student]) {
         const d = hw.date;
@@ -39,13 +45,23 @@ export const Doska = (state) => {
         const diffDays = diffMinutes / 60 / 24;
 
         if (diffDays < 7) {
+          if (!lastWeekByStudent[student]) {
+            lastWeekByStudent[student] =  [];
+          }
+          lastWeekByStudent[student].push(hw);
+
           lastWeekHomeworks.push({
             student,
-            homework: hw,
+            homework: {
+              ...hw,
+              points: getHomeworkPoints(hw),
+            },
           });
         }
       }
     };
+
+    console.log('lastWeekByStudent: ', lastWeekByStudent);
 
     const formatDate = (d) => {
       const date = new Date(d);
