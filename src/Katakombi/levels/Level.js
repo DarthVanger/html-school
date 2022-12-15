@@ -17,21 +17,24 @@ export const Level = (level) => {
 
       console.log('add ev lis');
     getCode().addEventListener('keyup', (event) => {
-      debouncedCodeCheck();
+      debouncedCodeCheck(level);
     });
   });
 
   let debounceTimeoutId;
-  const debouncedCodeCheck = () => {
+  const debouncedCodeCheck = (level) => {
     if (debounceTimeoutId) clearTimeout(debounceTimeoutId);
-    debounceTimeoutId = setTimeout(codeCheck, 1000);
+    debounceTimeoutId = setTimeout(() => codeCheck(level), 1000);
   };
 
   console.log('level: ', level);
 
-  const codeCheck = () => {
+  const codeCheck = (level) => {
     const code = getCode(0).value;
-    console.log('code check. ', code);
+    console.log('code check. leveL;', level);
+    console.log('code check. code:', code);
+    const f = eval(code);
+    console.log('f: ', f);
   };
 
   const levelText = document.createElement('div');
