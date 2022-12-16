@@ -80,13 +80,16 @@ export const Doska = (state) => {
         student,
         points,
         numHws: studHws.length,
+        hws: studHws,
       });
     }
 
     studRows.sort((a, b) => b.points - a.points);
 
+    const hwCutLimit = 4;
+
     let html = '';
-    studRows.forEach(({ student, points, numHws }) => {
+    studRows.forEach(({ student, points, hws, numHws }) => {
         html += `
           <div class="student-row">
             <div class="ava">
@@ -94,9 +97,7 @@ export const Doska = (state) => {
             </div>
             <div class="plus-exp">
               + ${points} exp
-            </div>
-            <div class="num-homeworks">
-              &nbsp;(${numHws} зоданей)
+              &nbsp;(${numHws} зоданей: ${hws.map(hw => hw.id).slice(0, hwCutLimit).join(', ')}${hws.length > hwCutLimit && ', ...' || ''})
             </div>
           </div>
         `;
