@@ -75,6 +75,15 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
         ` || ''}
       </div>
     `;
+
+
+    /*
+    const forgottenSkullEl = getElement().querySelector('.quest-card-body');
+
+    forgottenSkullEl.innerHTML = (status == 'forgotten') && `
+      <div class="forgotten-status-overlay"></div>
+    ` || '';
+    */
   });
 
   setTimeout(() => {
@@ -93,11 +102,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
         ${title}
       </div>
       <div class="quest-card-body">
-        ${status == 'forgotten' && `
-          <div class="forgotten-status-overlay"></div>
-          <div class="forgotten-status-overlay-background"></div>
-          <div class="forgotten-status-box-shadow"></div>
-        ` || ''}
+        <div class="forgotten-skull"></div>
         <div class="quest">
           ${imgSrc && `<img src="${imgSrc}" />` || ''}
           ${img || ''}

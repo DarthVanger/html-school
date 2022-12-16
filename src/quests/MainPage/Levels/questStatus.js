@@ -26,12 +26,9 @@ const isCompleted = (completions) => completions?.length > 0;
   
 const isForgotten = (completions) => {
   const cDate = new Date(completions[completions.length - 1].date);
-  console.log('cDate: ', cDate);
   const now = new Date();
   const forgetTimeMillis = 1000 * 60 * 60 * 24 * 30;
   const diff = now.getTime() - cDate.getTime();
-  console.log('diff: ', diff);
-  console.log('forgetTimeMillis: ', forgetTimeMillis);
   return diff > forgetTimeMillis;
 }
 

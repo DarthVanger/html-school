@@ -146,42 +146,15 @@ a.quest-card:active {
   margin: 0;
 }
 
-/* Glow :)
- * https://codersblock.com/blog/creating-glow-effects-with-css/
- */
-/*
-.status-new {
-  box-shadow:
-    0 0 10px 2px #fff,
-    0 0 20px 4px #0f0,
-    0 0 30px 6px #0ff;
-}
-*/
-
 .status-new path,
 .status-homework path {
-  filter: drop-shadow(0px 0px 1px #fff)
-    drop-shadow(0 0 1px #00f)
-    drop-shadow(0px 0px 1px #0ff)
-    blur(1px)
-    brightness(110%)
-    url(#glow);
+  stroke: blue;
 }
 .status-forgotten path {
-  filter: drop-shadow(0px 0px 1px #f00)
-    drop-shadow(0 0 1px #f00)
-    drop-shadow(0px 0px 1px #f00)
-    blur(1px)
-    brightness(110%)
-    url(#glow);
+  stroke: red;
 }
 .status-completed path {
-  filter: drop-shadow(0px 0px 1px #0f0)
-    drop-shadow(0 0 1px #0f0)
-    drop-shadow(0px 0px 1px #0f0)
-    blur(1px)
-    brightness(110%)
-    url(#glow);
+  stroke: green;
 }
 
 .homework-done-badge {
@@ -261,11 +234,6 @@ a.quest-card:active {
 }
 
 
-.forgotten-status-overlay-background {
-  z-index: 2;
-  background-color: rgb(135 28 8 / 43%);
-}
-
 .forgotten-status-overlay {
   background-image: url('/img/diablo-skull.jpeg');
   animation: skull 6s infinite alternate ease-in-out,
@@ -274,7 +242,3 @@ a.quest-card:active {
   z-index: 3;
 }
 
-.forgotten-status-box-shadow {
-  animation: huerotate 6s infinite alternate ease-in-out;
-    box-shadow: 0 0 10px 2px #841707, 0 0 20px 4px #7a1616, 0 0 30px 6px #731c1c;
-}
