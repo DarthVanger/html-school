@@ -10,11 +10,11 @@ const tests = (f) => [
   },
   {
     name: 'sum(0, 0) returns 0',
-    test: () => f(0) == 0 
+    test: () => f(0, 0) == 0 
   },
   {
     name: 'sum(100, -200) returns -100',
-    test: () => f(-200) == -100
+    test: () => f(100, -200) == -100
   },
 ];
 

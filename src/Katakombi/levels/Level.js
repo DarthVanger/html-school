@@ -39,6 +39,8 @@ export const Level = (level) => {
   const getLevelText = () => el.querySelector('.level-text');
 
   const renderTests = (code) => {
+    console.log('length: ', level.tests().length);
+    let testResults = Array(level.tests().length).fill(false);
     getLevelText()?.remove();
     const levelText = document.createElement('div');
     levelText.className = 'level-text';
@@ -47,7 +49,7 @@ export const Level = (level) => {
     console.log('code: ', `(${code || "''"})`);
 
     const oshibke = (e) => {
-      levelText.innerHTML += `<div class="oshibke">${e.message}</div>`;
+      levelText.innerHTML += `<div class="oshibke">ОШИБКЕ: ${e.message}</div>`;
     }
 
     try {
@@ -59,28 +61,39 @@ export const Level = (level) => {
 
     try {
       f();
+      levelText.innerHTML += `<div class="status-true">function ${level.id} is defined</div>`;
     } catch (e) {
       if (e.message.match(/f is not a function/)) {
         console.log('f is mnot a function!');
-        levelText.innerHTML += `<div class="status-false">function is defined</div>`;
+        levelText.innerHTML += `<div class="status-false">function ${level.id} is defined</div>`;
       } else {
         oshibke(e);
       }
       f = () => -666;
     }
 
+    let i = 0;
     for (let test of level.tests(f)) {
       let testResult = false;
       try {
         testResult = test.test();
+        testResults[i] = testResult;
       } catch (e) {
         oshibke(e);
       }
       levelText.innerHTML += `<div class="status-${testResult}">${test.name}</div>`;
       console.log('opendo!', levelText.innerHTML);
+      i++;
     }
 
     el.append(levelText);
+
+    console.log('test results', testResults);
+    if (testResults.every(r => r)) {
+      console.log('all tests passed');
+    } else {
+      console.log('not all tests passed');
+    }
   };
 
   renderTests('');
@@ -90,11 +103,11 @@ export const Level = (level) => {
   return el;
 };
 
-let curLevel = 0;
+let curLevel = 1;
 export const nextLevel = () => {
-  const shuffled = levels.sort( () => .5 - Math.random() );
+  //const shuffled = levels.sort( () => .5 - Math.random() );
   curLevel = (curLevel + 1) % levels.length;
-  return Level(shuffled[curLevel]);
+  return Level(levels[curLevel]);
 }
 
 
