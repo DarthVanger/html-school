@@ -307,4 +307,17 @@ export const lectures = [
     skills: ['if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
     url: '/src/slides.html#lesson26',
   },
+  {
+    text: 'Игра, фукцеи, хуюкцеи, гит',
+    items: [
+      'Димон, Ваня - Advanced CSS - красавы! Че там ваще кста?)',
+      'Игра: синхронизируемся через Гит',
+      'git clone, git pull',
+      'Игра: refactoring - продолжаем делать фукцеи',
+      'git status, git log',
+      'git diff, git add, git push',
+    ],
+    skills: ['if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
+    url: '/src/slides.html#lesson27',
+  },
 ];
