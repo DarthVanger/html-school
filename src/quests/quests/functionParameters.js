@@ -37,7 +37,7 @@ export const steps = [
   },
 ];
 
-const skills = ['functions'];
+const skills = ['functions', 'function-parameters'];
 
 export default {
   code,
