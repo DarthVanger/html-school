@@ -3,7 +3,7 @@ import { Level, nextLevel } from './levels/Level.js';
 
 const element = document.createElement('article');
 element.id = 'catacombs';
-export const Katakombi = () => {
+export const Katakombi = (state) => {
   const levelsElem = document.createElement('div');
   levelsElem.className = 'levels';
   element.append(levelsElem);
@@ -83,7 +83,7 @@ export const Katakombi = () => {
   let levelElems = [];
   for (let i=0; i<3; i++) {
     for (let j=0; j<3; j++) {
-      const level = nextLevel();;
+      const level = Level({ state, level: levels[0] });
       console.log('level: ', level);
       levelsElem.append(level);
       levelElems.push(level);

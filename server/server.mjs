@@ -115,6 +115,26 @@ app.post('/quest/:id', async (req, res) => {
   res.end();
 });
 
+app.post('/catacombs', async (req, res) => {
+  console.info(`POST catacombs:`, req.body);
+
+  const { student, levelId, code } = req.body;
+
+  db.data.catacombs = db.data.catacombs || {};
+  db.data.catacombs[student] = db.data.catacombs[student] || {};
+  const studCata = db.data.catacombs[student];
+  const now = new Date();
+  const entry = {
+    date: now.toISOString(),
+    code,
+  };
+  studCata[levelId] = entry;
+
+  await db.write();
+  console.info('DB write Success', entry);
+  res.json(entry);
+});
+
 app.post('/homework/:student', async (req, res) => {
   const { student } = req.params;
   console.info(`POST /homework/${student}:`, req.params);

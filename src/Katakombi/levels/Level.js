@@ -1,7 +1,8 @@
+import { saveCatacombsState } from '../api.js';
 import { BgImg } from './BgImg.js';
 import { FireCircle } from './FireCircle.js';
 import { levels } from './levels.js';
-export const Level = (level) => {
+export const Level = ({ state, level }) => {
   const el = document.createElement('article');
   el.className = 'level';
   el.append(BgImg());
@@ -39,17 +40,15 @@ export const Level = (level) => {
   const getLevelText = () => el.querySelector('.level-text');
 
   const renderTests = (code) => {
-    console.log('length: ', level.tests().length);
     let testResults = Array(level.tests().length).fill(false);
     getLevelText()?.remove();
     const levelText = document.createElement('div');
     levelText.className = 'level-text';
 
     let f;
-    console.log('code: ', `(${code || "''"})`);
 
     const oshibke = (e) => {
-      levelText.innerHTML += `<div class="oshibke">ОШИБКЕ: ${e.message}</div>`;
+      levelText.innerHTML += `<div class="oshibke">ошибке: ${e.message}</div>`;
     }
 
     try {
@@ -82,7 +81,6 @@ export const Level = (level) => {
         oshibke(e);
       }
       levelText.innerHTML += `<div class="status-${testResult}">${test.name}</div>`;
-      console.log('opendo!', levelText.innerHTML);
       i++;
     }
 
@@ -91,10 +89,25 @@ export const Level = (level) => {
     console.log('test results', testResults);
     if (testResults.every(r => r)) {
       console.log('all tests passed');
+      showArrowForward();
     } else {
       console.log('not all tests passed');
     }
+
+    if (code) {
+      saveCatacombsState({
+        student: state.student,
+        code,
+        levelId: level.id,
+      });
+    }
   };
+
+  function saveState() {
+  }
+
+  function showArrowForward() {
+  }
 
   renderTests('');
 
