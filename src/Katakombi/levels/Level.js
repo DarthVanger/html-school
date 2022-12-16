@@ -29,12 +29,19 @@ export const Level = (level) => {
 
   console.log('level: ', level);
 
+  // https://stackoverflow.com/questions/7399024/how-can-i-use-js-eval-to-return-a-value
+  const execFun = (code) => {
+    return eval(`(() => { ${code}})()`);
+  };
+
   const codeCheck = (level) => {
     const code = getCode(0).value;
     console.log('code check. leveL;', level);
     console.log('code check. code:', code);
-    const f = eval(code);
+    //const f = execFun(code);
+    const f = eval(`(${code})`);
     console.log('f: ', f);
+    console.log('f(2): ', f(2));
   };
 
   const levelText = document.createElement('div');
