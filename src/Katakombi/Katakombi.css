@@ -1,3 +1,5 @@
+@import 'levels/Level.css';
+
 #catacombs {
 }
 
@@ -176,10 +178,10 @@
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   z-index: 20;
-  caret-color: transparent;
+  caret-color: red;
   cursor: default;
   font-family: monospace;
-  color: red;
+  color: white;
   font-size: var(--font-size);
   letter-spacing: 5px;
   line-height: 1.5;

@@ -29,28 +29,61 @@ export const Level = (level) => {
 
   console.log('level: ', level);
 
-  // https://stackoverflow.com/questions/7399024/how-can-i-use-js-eval-to-return-a-value
-  const execFun = (code) => {
-    return eval(`(() => { ${code}})()`);
-  };
-
   const codeCheck = (level) => {
     const code = getCode(0).value;
-    console.log('code check. leveL;', level);
     console.log('code check. code:', code);
-    //const f = execFun(code);
-    const f = eval(`(${code})`);
-    console.log('f: ', f);
-    console.log('f(2): ', f(2));
+
+    renderTests(code);
   };
 
-  const levelText = document.createElement('div');
-  levelText.className = 'level-text';
-  el.append(levelText);
+  const getLevelText = () => el.querySelector('.level-text');
 
-  for (let test of level.tests()) {
-    levelText.innerHTML += `<div>${test.name}</div>`;
-  }
+  const renderTests = (code) => {
+    getLevelText()?.remove();
+    const levelText = document.createElement('div');
+    levelText.className = 'level-text';
+
+    let f;
+    console.log('code: ', `(${code || "''"})`);
+
+    const oshibke = (e) => {
+      levelText.innerHTML += `<div class="oshibke">${e.message}</div>`;
+    }
+
+    try {
+      f = eval(`(${code || "''"})`);
+    } catch (e) {
+      oshibke(e);
+      f = () => -666;
+    }
+
+    try {
+      f();
+    } catch (e) {
+      if (e.message.match(/f is not a function/)) {
+        console.log('f is mnot a function!');
+        levelText.innerHTML += `<div class="status-false">function is defined</div>`;
+      } else {
+        oshibke(e);
+      }
+      f = () => -666;
+    }
+
+    for (let test of level.tests(f)) {
+      let testResult = false;
+      try {
+        testResult = test.test();
+      } catch (e) {
+        oshibke(e);
+      }
+      levelText.innerHTML += `<div class="status-${testResult}">${test.name}</div>`;
+      console.log('opendo!', levelText.innerHTML);
+    }
+
+    el.append(levelText);
+  };
+
+  renderTests('');
 
   el.innerHTML += '</div>';
 
