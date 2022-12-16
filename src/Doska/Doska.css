@@ -1,24 +1,6 @@
 #doska-pometa {
 }
 
-#doska-pometa .left, #doska-pometa .right {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 0;
-  margin: 0;
-}
-
-#doska-pometa.expand {
-  height: auto;
-  transition: all 1s;
-}
-
-#doska-pometa .entry {
-  display: flex;
-}
-#doska-pometa .entry img {
-  width: 100px;
-}
-
 #doska-pometa .student-row {
   display: flex;
   align-items: center;
@@ -29,5 +11,8 @@
   width: 100px;
   height: 100px;
   margin-right: 0.5em;
+}
+
+#doska-pometa .student-row .info {
 }
 

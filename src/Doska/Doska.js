@@ -68,19 +68,21 @@ export const Doska = (state) => {
 
     let studRows = [];
     for (let student in lastWeekByStudent) {
-      console.log('student: ', student);
       const studHws = lastWeekByStudent[student];
       const points = studHws.reduce((acc, cur) => {
-        console.log('acc: ', acc);
-        console.log('cur: ', cur);
         return acc + cur.points
       }, 0);
+
+      const curLevel = state.levels[student];
+      const prevLevel = Math.floor((state.points[student] - points) / 10);
 
       studRows.push({
         student,
         points,
         numHws: studHws.length,
         hws: studHws,
+        curLevel,
+        prevLevel,
       });
     }
 
@@ -89,15 +91,20 @@ export const Doska = (state) => {
     const hwCutLimit = 4;
 
     let html = '';
-    studRows.forEach(({ student, points, hws, numHws }) => {
+    studRows.forEach(({ student, points, hws, numHws, curLevel, prevLevel }) => {
         html += `
           <div class="student-row">
             <div class="ava">
               <img src="img/${student}.jpg" />
             </div>
-            <div class="plus-exp">
-              + ${points} exp
-              &nbsp;(${numHws} зоданей: ${hws.map(hw => hw.id).slice(0, hwCutLimit).join(', ')}${hws.length > hwCutLimit && ', ...' || ''})
+            <div class="info">
+              <div class="plus-exp">
+                + ${points} exp
+                &nbsp;(${numHws} зоданей: ${hws.map(hw => hw.id).slice(0, hwCutLimit).join(', ')}${hws.length > hwCutLimit && ', ...' || ''})
+              </div>
+              <div class="level-gain">
+                Level: ${prevLevel} -> ${curLevel}
+              </div>
             </div>
           </div>
         `;
