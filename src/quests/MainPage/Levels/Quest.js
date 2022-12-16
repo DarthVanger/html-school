@@ -48,6 +48,17 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
     const completionsEl = getElement().querySelector('.quest-card-completions');
 
     completionsEl.innerHTML = `
+      <div class="quest-status">
+        ${!lastCompletion && `
+          <div class="new">
+            Ше не робив
+          </div>
+        ` || ''}
+        ${status == 'forgotten' && `
+          <div class="forgotten">
+            ЗАБЫТО
+          </div>
+        ` || ''}
         ${status === 'homework-done' && HomeworkDoneBadge() || ''}
         <div class="completions">
           ${completions?.map(c => 
@@ -56,23 +67,6 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
             `
           ).join('')}
         </div>
-        <!--
-        ${lastCompletion && `
-          <div class="curse">
-            Проклятье забвения через: ${getCurseDays(lastCompletion?.date)} дней
-          </div>
-        ` || ''}
-        -->
-        ${!lastCompletion && `
-          <div class="new">
-            Не знав та й забув
-          </div>
-        ` || ''}
-        ${status == 'forgotten' && `
-          <div class="forgotten">
-            ЗАБЫТО
-          </div>
-        ` || ''}
       </div>
     `;
 
@@ -104,18 +98,15 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
       <div class="quest-card-body">
         <div class="forgotten-skull"></div>
         <div class="quest">
-          ${imgSrc && `<img src="${imgSrc}" />` || ''}
-          ${img || ''}
-          <div class="quest-skills-list">
-            ${skills?.map(skill => `
-              <div class="quest-skill">
-                ${skill}
-              </div>
-            `).join('')}
+          <div class="quest-card-completions">
+            Loading...
           </div>
-        </div>
-        <div class="quest-card-completions">
-          Loading...
+          <div class="quest-skills-list">
+            <div>
+              + ${skills.length} exp
+            </div>
+            skills: ${skills.join(', ')}
+          </div>
         </div>
       </div>
     </a>

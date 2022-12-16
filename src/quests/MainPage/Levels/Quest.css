@@ -16,6 +16,7 @@
 
 .quest-card-body {
   width: 100%;
+  text-align: left;
 }
 
 a.quest-card,
@@ -58,12 +59,12 @@ a.quest-card:active {
 }
 
 .quest {
-  position: relative;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(var(--height) - 100px);
 }
 
 
@@ -84,16 +85,6 @@ a.quest-card:active {
   border-radius: 2px;
 }
 
-.quest img,
-.quest-html-img {
-  max-width: 100%;
-  min-height: 300px;
-  max-height: 400px;
-}
-
-.quest.is-completed img {
-}
-
 .quest.is-completed::after {
   content: "✔";
   position: absolute;
@@ -110,45 +101,12 @@ a.quest-card:active {
 }
 
 .quest-skills-list {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: var(--box-size);
-  overflow: hidden;
-  padding: 2em;
-  display: none;
+  color: #aaa;
+  font-size: 0.8em;
 }
 
-.quest:hover .quest-skills-list {
-  display: flex;
-}
-
-.quest-skill {
-  background: rgb(127, 178, 222);
-  color: white;
-  padding: 8px;
-  margin: 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-}
-
-.quest-html-img {
-  background: black;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.quest-html-img pre {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.status-new path,
-.status-homework path {
-  stroke: blue;
+.status-new path {
+  stroke: white;
 }
 .status-forgotten path {
   stroke: red;
