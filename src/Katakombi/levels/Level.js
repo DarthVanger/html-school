@@ -1,4 +1,4 @@
-import { saveCatacombsState } from '../api.js';
+import { saveCatacombsState, getCatacombsState } from '../api.js';
 import { BgImg } from './BgImg.js';
 import { FireCircle } from './FireCircle.js';
 import { levels } from './levels.js';
@@ -13,7 +13,10 @@ export const Level = ({ state, level }) => {
 
   const getCode = () => el.querySelector('.code');
 
-  setTimeout(() => {
+  setTimeout(async () => {
+    const catacombsState = await getCatacombsState();
+    console.log('cata state: ', catacombsState);
+    getCode().value = catacombsState[state.student][level.id].code || '';
     getCode().focus();
 
       console.log('add ev lis');

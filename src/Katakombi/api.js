@@ -8,3 +8,8 @@ export const saveCatacombsState = async (payload)  => {
     body: JSON.stringify(payload),
   });
 };
+
+export const getCatacombsState = async ()  => {
+  const resp = await fetch(`/catacombs`)
+  return resp.json();
+};

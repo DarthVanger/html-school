@@ -115,6 +115,11 @@ app.post('/quest/:id', async (req, res) => {
   res.end();
 });
 
+app.get('/catacombs', async (req, res) => {
+  console.info(`GET catacombs`);
+  res.json(db.data.catacombs);
+});
+
 app.post('/catacombs', async (req, res) => {
   console.info(`POST catacombs:`, req.body);
 
