@@ -96,13 +96,11 @@ export const Katakombi = (state) => {
   return element;
 }
 
+let isMusicPlaying = false;
 function music() {
-  let isMusicPlaying = false;
-  document.body.addEventListener('click', () => {
-    if (!isMusicPlaying) {
-      isMusicPlaying = true;
-      const audio = new Audio('/video/catacombs.mp3');
-      audio.play();
-    }
-  });
+  if (!isMusicPlaying) {
+    isMusicPlaying = true;
+    const audio = new Audio('/video/catacombs.mp3');
+    audio.play();
+  }
 }

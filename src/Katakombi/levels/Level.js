@@ -14,15 +14,20 @@ export const Level = ({ state, level }) => {
   const getCode = () => el.querySelector('.code');
 
   setTimeout(async () => {
-    const catacombsState = await getCatacombsState();
-    console.log('cata state: ', catacombsState);
-    getCode().value = catacombsState[state.student][level.id].code || '';
+    try {
+      const catacombsState = await getCatacombsState();
+      console.log('cata state: ', catacombsState);
+      getCode().value = catacombsState[state.student][level.id].code || '';
+    } catch (e) {
+      console.error('Failed to fetch catacombs state: ', e);
+    }
     getCode().focus();
 
       console.log('add ev lis');
     getCode().addEventListener('keyup', (event) => {
       debouncedCodeCheck(level);
     });
+    codeCheck(level);
   });
 
   let debounceTimeoutId;
@@ -46,19 +51,29 @@ export const Level = ({ state, level }) => {
     let testResults = Array(level.tests().length).fill(false);
     getLevelText()?.remove();
     const levelText = document.createElement('div');
+    let f;
+
+    if (code) {
+      saveCatacombsState({
+        student: state.student,
+        code,
+        levelId: level.id,
+      });
+    }
+
     levelText.className = 'level-text';
 
-    let f;
+    el.append(levelText);
 
     const oshibke = (e) => {
       levelText.innerHTML += `<div class="oshibke">ошибке: ${e.message}</div>`;
     }
 
     try {
+      eval(code || '');
       f = eval(`(${code || "''"})`);
     } catch (e) {
       oshibke(e);
-      f = () => -666;
     }
 
     try {
@@ -87,30 +102,14 @@ export const Level = ({ state, level }) => {
       i++;
     }
 
-    el.append(levelText);
-
     console.log('test results', testResults);
+
     if (testResults.every(r => r)) {
       console.log('all tests passed');
-      showArrowForward();
     } else {
       console.log('not all tests passed');
     }
-
-    if (code) {
-      saveCatacombsState({
-        student: state.student,
-        code,
-        levelId: level.id,
-      });
-    }
   };
-
-  function saveState() {
-  }
-
-  function showArrowForward() {
-  }
 
   renderTests('');
 
