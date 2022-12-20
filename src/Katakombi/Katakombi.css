@@ -48,14 +48,15 @@
   z-index: 2;
 }
 
-.btn-up {
-  left: 50%;
-  top: 0;
-}
-
-.btn-down {
+.btn-forward {
   left: 50%;
   bottom: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.btn-forward.show {
+  opacity: 1;
 }
 
 .btn-left {

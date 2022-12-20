@@ -11,14 +11,10 @@ export const Katakombi = (state) => {
   const buttons = document.createElement('div');
   buttons.className = 'buttons';
 
-  const btnUp = document.createElement('button');
-  btnUp.className = 'btn btn-up';
-  btnUp.innerHTML = 'up';
-  buttons.append(btnUp);
-  const btnDown = document.createElement('button');
-  btnDown.className = 'btn btn-down';
-  btnDown.innerHTML = 'down';
-  buttons.append(btnDown);
+  const btnForward = document.createElement('button');
+  btnForward.className = 'btn btn-forward';
+  btnForward.innerHTML = 'forward';
+  buttons.append(btnForward);
   const btnRight = document.createElement('button');
   btnRight.className = 'btn btn-right';
   btnRight.innerHTML = 'right';
@@ -28,8 +24,7 @@ export const Katakombi = (state) => {
   btnLeft.innerHTML = 'left';
   buttons.append(btnLeft);
 
-  btnUp.addEventListener('click', moveUp);
-  btnDown.addEventListener('click', moveDown);
+  btnForward.addEventListener('click', moveForward);
   btnRight.addEventListener('click', moveRight);
   btnLeft.addEventListener('click', moveLeft);
 
@@ -53,7 +48,7 @@ export const Katakombi = (state) => {
     }, animTime);
   }
 
-  function moveUp () {
+  function moveForward () {
     let lcur = ly;
     ly = (ly + 1) % 3;
     levelElems[ly].classList.add('bottom-up');
@@ -80,11 +75,14 @@ export const Katakombi = (state) => {
     levelElems[lcur].classList.add('cur-left');
   }
 
+  function onComplete () {
+    btnForward.classList.add('show');
+  }
+
   let levelElems = [];
   for (let i=0; i<3; i++) {
     for (let j=0; j<3; j++) {
-      const level = Level({ state, level: levels[0] });
-      console.log('level: ', level);
+      const level = Level({ state, level: levels[0], onComplete });
       levelsElem.append(level);
       levelElems.push(level);
     }

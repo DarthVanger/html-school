@@ -2,7 +2,7 @@ import { saveCatacombsState, getCatacombsState } from '../api.js';
 import { BgImg } from './BgImg.js';
 import { FireCircle } from './FireCircle.js';
 import { levels } from './levels.js';
-export const Level = ({ state, level }) => {
+export const Level = ({ state, level, onComplete }) => {
   const el = document.createElement('article');
   el.className = 'level';
   el.append(BgImg());
@@ -106,6 +106,8 @@ export const Level = ({ state, level }) => {
 
     if (testResults.every(r => r)) {
       console.log('all tests passed');
+      onComplete();
+      el.classList.add('complete');
     } else {
       console.log('not all tests passed');
     }

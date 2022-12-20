@@ -8,3 +8,12 @@
 .oshibke {
   color: red;
 }
+
+.level {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.level.complete {
+  opacity: 0;
+}
