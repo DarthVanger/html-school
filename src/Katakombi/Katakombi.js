@@ -1,5 +1,16 @@
 import { levels } from './levels/levels.js';
 import { Level, nextLevel } from './levels/Level.js';
+import {
+  TopLeftCorner,
+  TopEnd,
+  TopRightCorner,
+  LeftEnd,
+  Empty,
+  RightEnd,
+  BottomLeftCorner,
+  BottomEnd,
+  BottomRightCorner,
+} from './map.js';
 
 const element = document.createElement('article');
 element.id = 'catacombs';
@@ -79,15 +90,35 @@ export const Katakombi = (state) => {
     btnForward.classList.add('show');
   }
 
+  const map = [
+    [ TopLeftCorner(), TopEnd(), TopEnd(), TopEnd(), TopRightCorner() ],
+    [ LeftEnd(), Empty(), Empty(), Empty(), RightEnd() ],
+    [ LeftEnd(), Empty(), Empty(), Empty(), RightEnd() ],
+    [ LeftEnd(), Empty(), Empty(), Empty(), RightEnd() ],
+    [ BottomLeftCorner(), BottomEnd(), BottomEnd(), BottomEnd(), BottomRightCorner() ],
+  ];
+
+
   let levelElems = [];
+  const cell = map[0][0];
+  levelsElem.append(cell.left);
+  levelsElem.append(cell.right);
+  levelsElem.append(cell.front);
+  levelsElem.append(cell.back);
+  /*
   for (let i=0; i<3; i++) {
     for (let j=0; j<3; j++) {
-      const level = Level({ state, level: levels[0], onComplete });
+      //const level = Level({ state, level: levels[0], onComplete });
+      const level = map[i][j].left;
+      console.log('level: ', level);
       levelsElem.append(level);
       levelElems.push(level);
     }
   }
   levelElems[0].classList.add('cur');
+  */
+
+  cell.front.classList.add('cur');
 
   music();
 
