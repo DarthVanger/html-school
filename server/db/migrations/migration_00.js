@@ -48,6 +48,7 @@ export const migration_00 = async () => {
         { id: 'click-event', text: 'click\nevent x/y'  },
         { id: 'key-event', text: 'keydown\nkeyup'  },
         { id: 'if-else', text: 'if () {}\nelse {}'  },
+        { id: 'objects', text: 'objects'  },
       ],
     ],
     git: [

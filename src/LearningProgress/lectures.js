@@ -308,7 +308,7 @@ export const lectures = [
     url: '/src/slides.html#lesson26',
   },
   {
-    text: 'Игра, фукцеи, хуюкцеи, гит',
+    text: 'Игра, объекты, git',
     items: [
       'Димон, Ваня - Advanced CSS - красавы! Че там ваще кста?)',
       'Игра: синхронизируемся через Гит',
@@ -318,6 +318,21 @@ export const lectures = [
       'git diff, git add, git push',
     ],
     skills: ['if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
+    url: '/src/slides.html#lesson27',
+  },
+  {
+    text: 'Обьекты: о5 25. Игра продолжаем',
+    items: [
+      'Штрафы: хто не сделал домашку делаем CodeAcedemy',
+      'Обиекты: исчо раз поисинияю',
+      'Литучка: пишем функцию sum(x, y) и sum({ x, y })',
+      'Игра: синхронизируемся через Гит',
+      'Игра: refactoring - renderEnemy()',
+      'Игра: refactoring - запиздячиваем enemyVelocity в обиекты ))',
+      'git status, git log',
+      'git diff, git add, git commit, git push',
+    ],
+    skills: ['objects', 'functions', 'git-add', 'git-push', 'git-pull', 'git-log', 'git-diff'],
     url: '/src/slides.html#lesson27',
   },
 ];
