@@ -18,6 +18,7 @@ import { Coursework } from './Coursework/Coursework.js';
 import { Scene3d } from './Scene3d/Scene3d.js';
 import { Lesson25 } from './Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
+import { Slides } from './SlidesV2/Slides.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -80,11 +81,6 @@ export const Router = (state) => {
       element.append(QuizPage(state));
       break;
 
-    case '/twitch':
-      element.innerHTML = '';
-      element.innerHTML = `${Twitch({ backUrl: '/#/', surface: 'black' })}`;
-      break;
-
     case '/expectation-reality':
       element.innerHTML = '';
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
@@ -110,6 +106,13 @@ export const Router = (state) => {
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
       `;
       element.append(Coursework(state));
+      break;
+
+    case state.route.match(/[/]slides[/]/)?.input:
+      const lessonName = state.route.replace(/[/]slides[/]/, '');
+      console.log('render lesson');
+      element.innerHTML = '';
+      element.append(Slides({lessonName}));
       break;
 
     case state.route.match(/[/]quests[/]/)?.input:
