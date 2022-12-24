@@ -20,3 +20,30 @@
   border-image-repeat: round;
   padding: 20px;
 }
+
+.lesson article {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.lesson article .content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.lesson article figure {
+  width: 100%;
+  text-align: center;
+}
+
+.lesson article figure img {
+  height: 80vh;
+}
+
+.lesson article figure figcaption {
+  text-align: center;
+  font-size: 3rem;
+  padding: 0.5em;
+}

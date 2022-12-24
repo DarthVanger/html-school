@@ -13,20 +13,13 @@ export const Lesson28 = () => {
         <h2>Objects</h2>
 
         <article>
-          <h1>Уроке #28</h1>
-          <section class="content">
-            <h2>Погенали )</h2>
-          </section>
-        </article>
-
-        <article>
           <section class="content">
             <figure>
               <img src="/img/lesson28/za-vstre4y.jpeg" />
+              <figcaption>
+                За ВстречУ! За УроК!
+              </figcaption>
             </figure>
-            <figcaption>
-              За ВстречУ! За УроК!
-            </figcaption>
           </section>
         </article>
 
