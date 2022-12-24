@@ -1,7 +1,8 @@
-export const Timer = (min) => {
+export const Timer = ({min, id}) => {
   const el = document.createElement('div');
-  el.id = 'task-timer';
-  const getEl = () => document.querySelector('#task-timer') || el;
+  el.className = 'task-timer';
+  el.id = id;
+  const getEl = () => document.querySelector(`#${id}`) || el;
   let sec = min * 60;
 
   const render = () => {

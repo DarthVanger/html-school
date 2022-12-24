@@ -78,9 +78,9 @@ export const Lesson28 = () => {
     articles.forEach((article, idx) => {
       if (idx == curSlideIdx) {
         article.style.display = 'block';
-        const timer = parseInt(article.getAttribute('data-timer'));
-        if (timer) {
-          article.innerHTML += Timer(timer);
+        const min = parseInt(article.getAttribute('data-timer'));
+        if (min) {
+          article.innerHTML += Timer({ id: 'task-1', min });
         }
       } else {
         article.style.display = 'none';
