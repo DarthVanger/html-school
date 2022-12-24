@@ -152,9 +152,6 @@ export const Lesson28 = () => {
           <video>
             <source src="/video/gamedev/unity-editor-overview.mp4" type="video/mp4" />
           </video>
-          <figcaption>
-            За ВстречУ! За УроК!
-          </figcaption>
         </figure>
         <article>
           <section class="content">
@@ -178,7 +175,7 @@ export const Lesson28 = () => {
     articles.forEach(article => {
       article.style.display = 'none';
     });
-    section.addEventListener('click', () => showSection(section, idx));
+    section.querySelector('h2').addEventListener('click', () => showSection(section, idx));
   });
 
   function renderCurSlide() {
@@ -206,7 +203,7 @@ export const Lesson28 = () => {
     h1.style.display = 'none';
     const h2 = sectionEl.querySelector('h2');
     h2.style.display = 'none';
-    el.querySelector('.lesson-sections').classList.remove('lesson-sections');
+    el?.querySelector('.lesson-sections')?.classList?.remove('lesson-sections');
     renderCurSlide();
   }
 
