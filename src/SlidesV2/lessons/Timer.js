@@ -1,6 +1,6 @@
-export const Timer = ({min, id}) => {
+export const Timer = ({min, id, className}) => {
   const el = document.createElement('div');
-  el.className = 'task-timer';
+  el.className = className;
   el.id = id;
   const getEl = () => document.querySelector(`#${id}`) || el;
   let sec = min * 60;
@@ -9,8 +9,6 @@ export const Timer = ({min, id}) => {
     const min = parseInt(sec / 60);
     const minSec = sec % 60;
     const pad = x => String(x).padStart(2, '0');
-    console.log('set el inner html');
-    console.log(' el', el);
     getEl().innerHTML = `${pad(min)}:${pad(minSec)}`;
   };
 

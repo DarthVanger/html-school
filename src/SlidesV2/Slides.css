@@ -53,6 +53,13 @@
 .task-timer {
   position: absolute;
   right: 1rem;
-  top: 1rem;
-  font-size: 4rem;
+  top: 0;
+  font-size: 3rem;
+}
+
+.pomodoro-timer {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  font-size: 3rem;
 }

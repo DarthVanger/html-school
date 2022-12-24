@@ -64,13 +64,13 @@ export const Lesson28 = () => {
   `;
 
   const sections = el.querySelectorAll('section.pomodoro');
-  sections.forEach(section => {
+  sections.forEach((section, idx) => {
     const h2 = section.querySelector('h2');
     const articles = section.querySelectorAll('article');
     articles.forEach(article => {
       article.style.display = 'none';
     });
-    section.addEventListener('click', () => showSection(section));
+    section.addEventListener('click', () => showSection(section, idx));
   });
 
   function renderCurSlide() {
@@ -80,7 +80,7 @@ export const Lesson28 = () => {
         article.style.display = 'block';
         const min = parseInt(article.getAttribute('data-timer'));
         if (min) {
-          article.innerHTML += Timer({ id: 'task-1', min });
+          article.innerHTML += Timer({ id: 'task-1', min , className: 'task-timer'});
         }
       } else {
         article.style.display = 'none';
@@ -88,12 +88,12 @@ export const Lesson28 = () => {
     });
   }
 
-  function showSection(sectionEl) {
+  function showSection(sectionEl, idx) {
+    sectionEl.innerHTML += Timer({ id: `section-${idx}`, min: 25, className: 'pomodoro-timer'});
     curSection = sectionEl;
     curSlideIdx = 0;
     sections.forEach(section => section.style.display = 'none');
     sectionEl.style.display = 'block';
-    console.log('section El: ', sectionEl);
     const h1 = el.querySelector('h1');
     h1.style.display = 'none';
     const h2 = sectionEl.querySelector('h2');
