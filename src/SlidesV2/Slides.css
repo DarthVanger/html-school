@@ -1,7 +1,22 @@
 .lesson {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   height: 100%;
 }
-.lesson .section.pomodoro {
+
+.lesson h1 {
+  text-align: center;
+}
+
+.lesson-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.lesson-sections section.pomodoro {
+  border: solid;
+  border-image-source: url('/img/weed-border.png');
+  border-image-slice: 50;
+  border-image-width: 10;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  padding: 20px;
 }
