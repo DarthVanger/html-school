@@ -3,6 +3,44 @@
   --secondary: #d86deb;
 }
 
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 16px;
+  background: black;
+  color: #ddd;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+j
+body {
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+body::-webkit-scrollbar {
+  width: 2px;
+  background-color: black;
+}
+
+body::-webkit-scrollbar-track {
+   background: #aaa;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0a6db8;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
 a,
 a:link,
 a:visited {
@@ -11,6 +49,12 @@ a:visited {
   font-style: normal;
 }
 
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
 
 
 * {
