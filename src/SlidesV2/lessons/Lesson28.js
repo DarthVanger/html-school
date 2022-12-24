@@ -3,6 +3,7 @@ import { Lety4ka } from './Lety4ka.js';
 
 export const Lesson28 = () => {
   const el = document.createElement('div');
+  el.className = "lesson";
   let curSection;
   let curSlideIdx;
   el.innerHTML = `
@@ -50,17 +51,20 @@ export const Lesson28 = () => {
     </section>
 
     <section class="pomodoro">
-      <h2>Game</h2>
+      <h2>Game #1</h2>
     </section>
 
     <section class="pomodoro">
-      <h2>Game</h2>
+      <h2>Game #2</h2>
     </section>
 
     <section class="pomodoro">
       <h2>Unity</h2>
     </section>
-
+    
+    <section class="pomodoro">
+      <h2>Feedback</h2>
+    </section>
   `;
 
   const sections = el.querySelectorAll('section.pomodoro');
