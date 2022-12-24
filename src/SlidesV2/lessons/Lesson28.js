@@ -111,8 +111,8 @@ export const Lesson28 = () => {
       </section>
 
       <section class="pomodoro">
+        <h2>Codeacedemy</h2>
         <article>
-          <h2>Codeacedemy</h2>
           <section class="content">
             <p>
               Go домашку :)
@@ -164,6 +164,11 @@ export const Lesson28 = () => {
       
       <section class="pomodoro">
         <h2>Feedback</h2>
+        <article>
+          <section class="content">
+            <p>Фидек за занятие и годд</p>
+          </section>
+        </article>
       </section>
     </div>
   `;
