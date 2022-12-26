@@ -1,0 +1,18 @@
+#homework p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0.5em;
+  padding: 0;
+}
+
+#homework b {
+  color: #cd24ff;
+}
+
+#homework figure {
+  max-height: initial;
+}
+#homework img {
+  height: initial;
+}
+

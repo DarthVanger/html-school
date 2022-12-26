@@ -3,6 +3,7 @@ import { Quest } from '../quests/MainPage/Levels/Quest.js';
 import quests from '../quests/quests/quests.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
+import { Homework } from '../Homework/Homework.js';
 
 export const HomePage = (state) => {
 
@@ -27,6 +28,8 @@ export const HomePage = (state) => {
         <marquee>
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
+
+        ${Homework(state)}
 
         ${Doska(state)}
 
