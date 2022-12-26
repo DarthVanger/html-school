@@ -6,7 +6,7 @@ export const Homework28 = () => {
       <p>А именно - самый первый - <b><a href="https://www.codecademy.com/courses/introduction-to-javascript/lessons/introduction-to-javascript">Introduction to Javascript</a></b>.</p>
       <p>Ниже инструксийон, со скриншотион :)</p>
       <p>
-        <b>Кто Хочет - делает любой другой модуль \ урок CodeAcedemy, на любом языке программирования</b>
+        <b>Кто Хочет - делает любой другой модуль \ урок CodeAcedemy, на любом языке программирования</b>.
       </p>
       <figure>
         <img src="/img/homework/hw28-1.png" />
