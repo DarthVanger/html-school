@@ -45,7 +45,7 @@ app.get('/tree', (req, res) => {
   console.info('GET /tree');
 
   const { levels, points, categoryLevels, lecturePoints, questPoints } = getStats();
-  res.json({ skills: db.data.skills, levels, points, categoryLevels, lecturePoints, questPoints, codeAcademy: db.data.codeAcademy });
+  res.json({ skills: db.data.skills, levels, points, categoryLevels, lecturePoints, questPoints, codeAcademy: db.data.codeAcademy, students: db.data.students });
 })
 
 app.get('/quests/completed/:student', (req, res) => {

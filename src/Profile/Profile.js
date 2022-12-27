@@ -18,6 +18,7 @@ export const Profile = (state) => {
       state.lecturePoints = r.lecturePoints;
       state.questPoints = r.questPoints;
       state.codeAcademy = r.codeAcademy;
+      state.students = r.students;
 
       getElement().innerHTML = render();
     });

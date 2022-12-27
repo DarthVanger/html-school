@@ -5,18 +5,6 @@ import { getQuestSkills } from '../quests/quests/quests.js';
 export const Doska = (state) => {
   const getElement = () => document.querySelector('#doska-pometa');
 
-  let isExpanded = false;
-
-  const expand = () => {
-    if (!isExpanded) {
-      getElement().className = 'expand';
-      isExpanded = true;
-    } else {
-      getElement().className = '';
-      isExpanded = false;
-    }
-  }
-
   const renderWhenReady = () => {
     if (!state.questPoints) {
       setTimeout(render, 500);
@@ -28,25 +16,61 @@ export const Doska = (state) => {
     return getQuestSkills(hw.id)?.length;
   }
 
-  const render = () => {
+  const calculateCodeAcademyPoints = ({ student, codeAcademy }) => {
+    if (!codeAcademy[student]?.length) {
+      return 0;
+    }
+    return [...codeAcademy[student]].reverse()[0].points;
+  }
+
+  const getLastWeekCodeAcademy = () => {
+    let lastWeekCa = {};
+    const codeAcademy = state.codeAcademy;
+    for (let student in codeAcademy) {
+      for (let ca of codeAcademy[student]) {
+        if (!fresherThanWeek(ca.date)) {
+          if (!lastWeekCa[student]) {
+            lastWeekCa[student] =  [];
+          }
+
+          lastWeekCa[student].push(ca);
+        }
+      }
+    }
+
+    let ret = {};
+    for (let student in codeAcademy) {
+      const currentCaPoints = calculateCodeAcademyPoints({ student, codeAcademy });
+      console.log('cur ca points: ', currentCaPoints);
+      const lastWeekCaPoints = calculateCodeAcademyPoints({ student, codeAcademy: lastWeekCa });
+      console.log('lastWeekCaPoints ca points: ', lastWeekCaPoints);
+
+      ret[student] = currentCaPoints - lastWeekCaPoints;
+    }
+
+    return ret;
+  }
+
+  const fresherThanWeek = (d) => {
+    const date = new Date(d)
+    const now = new Date();
+    const diff = now.getTime() - date.getTime();
+    const diffMinutes = diff / 1000 / 60;
+
+    const diffDays = diffMinutes / 60 / 24;
+
+    return diffDays < 7;
+  };
+
+  const getLastWeekHwByStudent = () => {
     const homeworks = state.questPoints;
     console.log('homeworks: ', homeworks);
-    const now = new Date();
-    let lastWeekHomeworks = [];
-    let lastWeekByStudent = {};
+    let lastWeekHwByStudent = {};
     for (let student in homeworks) {
       for (let hw of homeworks[student]) {
-        const d = hw.date;
-        const date = new Date(d)
-        const now = new Date();
-        const diff = now.getTime() - date.getTime();
-        const diffMinutes = diff / 1000 / 60;
-
-        const diffDays = diffMinutes / 60 / 24;
-
-        if (diffDays < 7) {
-          if (!lastWeekByStudent[student]) {
-            lastWeekByStudent[student] =  [];
+        if (fresherThanWeek(hw.date)) {
+          if (!lastWeekHwByStudent[student]) {
+            lastWeekHwByStudent[student] =  [];
           }
 
           const homework = {
@@ -54,24 +78,32 @@ export const Doska = (state) => {
             points: getHomeworkPoints(hw),
           };
 
-          lastWeekByStudent[student].push(homework);
-
-          lastWeekHomeworks.push({
-            student,
-            homework,
-          });
+          lastWeekHwByStudent[student].push(homework);
         }
       }
     };
 
-    console.log('lastWeekByStudent: ', lastWeekByStudent);
+    return lastWeekHwByStudent;
+  };
+
+  const render = () => {
+    const lastWeekHwByStudent = getLastWeekHwByStudent();
+    console.log('lastWeekHwByStudent: ', lastWeekHwByStudent);
+
+    const lastWeekCodeAcademy = getLastWeekCodeAcademy();
 
     let studRows = [];
-    for (let student in lastWeekByStudent) {
-      const studHws = lastWeekByStudent[student];
-      const points = studHws.reduce((acc, cur) => {
+    console.log('state.students: ', state.students);
+    for (let student of state.students) {
+      const studHws = lastWeekHwByStudent[student];
+      const studCa = lastWeekCodeAcademy[student] || 0;
+      let points = studHws?.reduce((acc, cur) => {
         return acc + cur.points
-      }, 0);
+      }, 0) || 0;
+      points += studCa;
+
+      console.log('student: ', student, 'points: ', points);
+      if (points == 0) continue;
 
       const curLevel = state.levels[student];
       const prevLevel = Math.floor((state.points[student] - points) / 10);
@@ -79,10 +111,11 @@ export const Doska = (state) => {
       studRows.push({
         student,
         points,
-        numHws: studHws.length,
+        numHws: studHws?.length || 0,
         hws: studHws,
         curLevel,
         prevLevel,
+        codeAcademyGain: studCa,
       });
     }
 
@@ -91,7 +124,7 @@ export const Doska = (state) => {
     const hwCutLimit = 4;
 
     let html = '';
-    studRows.forEach(({ student, points, hws, numHws, curLevel, prevLevel }) => {
+    studRows.forEach(({ student, points, hws, numHws, curLevel, prevLevel, codeAcademyGain }) => {
         html += `
           <div class="student-row">
             <div class="ava">
@@ -100,7 +133,10 @@ export const Doska = (state) => {
             <div class="info">
               <div class="plus-exp">
                 + ${points} exp
-                &nbsp;(${numHws} зоданей: ${hws.map(hw => hw.id).slice(0, hwCutLimit).join(', ')}${hws.length > hwCutLimit && ', ...' || ''})
+                &nbsp;(+${codeAcademyGain}% Codecademy)
+                ${numHws > 0 && `
+                  &nbsp;(${numHws} зоданей: ${hws.map(hw => hw.id).slice(0, hwCutLimit).join(', ')}${hws.length > hwCutLimit && ', ...' || ''})
+                ` || ''}
               </div>
               <div class="level-gain">
                 Level: ${prevLevel} -> ${curLevel}
@@ -123,8 +159,6 @@ export const Doska = (state) => {
       ${html}
     `;
 
-    console.log('homeworks: ', homeworks);
-    console.log('lastWeekHomeworks: ', lastWeekHomeworks);
   }
 
   renderWhenReady();
