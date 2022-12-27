@@ -71,6 +71,8 @@ export const SvgProfile = (state) => {
     y: cy + 0.21 * height,
   }
 
+  const getSvg = () => document.querySelector('svg');
+
   const getLevelNumberText = () => {
     return document.querySelector('#level-number-text');
   };
@@ -93,6 +95,10 @@ export const SvgProfile = (state) => {
 
   const getCodeAcademyNumberText = () => {
     return document.querySelector('#codecademy');
+  }
+
+  const getCodeAcademyText = () => {
+    return document.querySelector('#codecademy-text');
   }
 
   const calculateLecturePoints = () => {
@@ -147,17 +153,46 @@ export const SvgProfile = (state) => {
     return state.points[state.student] + calculateCodeAcademyPoints();
   }
 
-  function handleCodeAcademyChange(e) {
-    const codeAcademyText = getCodeAcademyNumberText();
-    const newValue = parseInt(codeAcademyText.textContent);
-    if (!newValue) {
-      console.log('couldnt not parse new codecademy level, not  saving');
-      return;
-    }
-    const points = newValue;
-    state.codeAcademy[student] = points;
+  function plusCodeAcademy() {
+    const student = state.student;
+    const points = ++state.codeAcademy[student];
     recomputeExp();
     saveCodeAcademy({ student, points });
+  }
+
+  function minusCodeAcademy() {
+    const student = state.student;
+    if (state.codeAcademy[student] <= 1) {
+      return;
+    }
+    const points = --state.codeAcademy[student];
+    recomputeExp();
+    saveCodeAcademy({ student, points });
+  }
+
+  let isCodeAcademySelected = false;
+
+  function keyupListener(e) {
+    if (e.key == 'p') {
+      plusCodeAcademy();
+    }
+    if (e.key == 'm') {
+      minusCodeAcademy();
+    }
+  }
+
+  function handleCodeAcademyClick(e) {
+
+    if (!isCodeAcademySelected) {
+      isCodeAcademySelected = true;
+      getSvg().classList.add('selected');
+      document.addEventListener('keyup', keyupListener);
+    } else {
+      isCodeAcademySelected = false;
+      console.log('remov even lis');
+      document.removeEventListener('keyup', keyupListener, false);
+      getSvg().classList.remove('selected');
+    }
   }
 
   function recomputeExp() {
@@ -167,79 +202,78 @@ export const SvgProfile = (state) => {
   };
 
   setTimeout(() => {
-    document.querySelector('#profile-svg-container').addEventListener('input', handleCodeAcademyChange);
+    [getCodeAcademyText(), getCodeAcademyNumberText()].forEach(el => {
+      el.addEventListener('click', handleCodeAcademyClick);
+    });
   });
 
   return `
-    <div id="profile-svg-container" contenteditable>
+    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        text {
+          fill: #60a7ac;
+          font-size: ${fontSize};
+        }
+        #level-number-text {
+          font-size: ${fontSize * 1.5};
+        }
+      </style>
 
-      <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-        <style>
-          text {
-            fill: #60a7ac;
-            font-size: ${fontSize};
-          }
-          #level-number-text {
-            font-size: ${fontSize * 1.5};
-          }
-        </style>
+      <image
+        href="${cyberProfile}"
+        width="${width}"
+        height="${height}"
+        x="${x}"
+        y="${y}"
+        preserveAspectRatio="none"
+      />
+      <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}">
+      Level
+      </text>
 
-        <image
-          href="${cyberProfile}"
-          width="${width}"
-          height="${height}"
-          x="${x}"
-          y="${y}"
-          preserveAspectRatio="none"
-        />
-        <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}">
-        Level
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}">
+        ${level}
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}">
-          ${level}
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}">
+        Домашка
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}">
-          Домашка
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}">
+        ${questsNum}
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}">
-          ${questsNum}
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}">
+        Лекции
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}">
-          Лекции
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}">
+      ${lecturePoints}
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}">
-        ${lecturePoints}
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}">
+        Экспа
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}">
-          Экспа
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}">
+      ${experience}
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}">
-        ${experience}
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}">
+        Повторение
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}">
-          Повторение
-        </text>
+      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}">
+      ${repeats}
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}">
-        ${repeats}
-        </text>
+      <text id="codecademy-text" dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}">
+      Академия Кода
+      </text>
 
-        <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}">
-        Академия Кода
-        </text>
-
-        <text id="codecademy" dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
-        &nbsp;&nbsp;${codeAcademy}
-        </text>
-      </svg>
-    </div>
+      <text id="codecademy" dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
+      ${codeAcademy}
+      </text>
+    </svg>
   `;
 };

@@ -1,13 +1,11 @@
-#profile-svg-container,
 #profile svg {
   width: 100%;
   height: 100%;
+  transition: all 1s;
 }
 
-#profile-svg-container:focus {
-  outline: none;
-  border: none;
-  box-shadow: none;
+#profile svg.selected {
+  filter: hue-rotate(-110deg);
 }
 
 #profile svg text {
@@ -24,4 +22,9 @@
   border: none;
   outline: none;
   box-shadow: none;
+}
+
+#codecademy,
+#codecademy-text {
+  cursor: pointer;
 }
