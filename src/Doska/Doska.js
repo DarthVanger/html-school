@@ -20,12 +20,13 @@ export const Doska = (state) => {
     if (!codeAcademy[student]?.length) {
       return 0;
     }
-    return [...codeAcademy[student]].reverse()[0].points;
+    return [...codeAcademy[student]][0].points;
   }
 
   const getLastWeekCodeAcademy = () => {
     let lastWeekCa = {};
     const codeAcademy = state.codeAcademy;
+    console.log('codeAcademy:', codeAcademy);
     for (let student in codeAcademy) {
       for (let ca of codeAcademy[student]) {
         if (!fresherThanWeek(ca.date)) {
