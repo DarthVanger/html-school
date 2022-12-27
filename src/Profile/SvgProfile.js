@@ -137,11 +137,17 @@ export const SvgProfile = (state) => {
     return `Loading...`;
   }
 
+  if (!state.codeAcademy) {
+    state.codeAcademy = {
+      [state.student]: 0,
+    };
+  }
+
+
   const student = state.student;
   const questsNum = state.questPoints[state.student]?.length || 0;
   const lecturePoints = calculateLecturePoints();
   const repeats = questsNum > 0 ? calculateRepeats() : 0;
-  const codeAcademy = calculateCodeAcademyPoints();
   const experience = calcExp();
   const level = calcLevel();
 
@@ -272,7 +278,7 @@ export const SvgProfile = (state) => {
       </text>
 
       <text id="codecademy" dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
-      ${codeAcademy}
+      ${state.codeAcademy[state.student]}
       </text>
     </svg>
   `;

@@ -6,9 +6,11 @@ export const Profile = (state) => {
     return document.querySelector('#profile');
   };
 
+  state.isProfileLoading = true;
   fetch('/tree')
     .then(r => r.json())
     .then(r => {
+      state.isProfileLoading = false;
       state.skills = r.skills;
       state.levels = r.levels;
       state.points = r.points;
@@ -22,7 +24,7 @@ export const Profile = (state) => {
 
   function render() {
     return `
-      ${SvgProfile(state)}
+      ${state.isProfileLoading ? 'Loading...' : SvgProfile(state)}
     `;
   }
 
