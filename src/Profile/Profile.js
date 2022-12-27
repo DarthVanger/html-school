@@ -15,15 +15,14 @@ export const Profile = (state) => {
       state.categoryLevels = r.categoryLevels;
       state.lecturePoints = r.lecturePoints;
       state.questPoints = r.questPoints;
+      state.codeAcademy = r.codeAcademy;
 
       getElement().innerHTML = render();
     });
 
   function render() {
     return `
-        <a href="#/3d">
-          ${SvgProfile(state)}
-        </a>
+      ${SvgProfile(state)}
     `;
   }
 

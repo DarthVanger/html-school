@@ -45,7 +45,7 @@ app.get('/tree', (req, res) => {
   console.info('GET /tree');
 
   const { levels, points, categoryLevels, lecturePoints, questPoints } = getStats();
-  res.json({ skills: db.data.skills, levels, points, categoryLevels, lecturePoints, questPoints });
+  res.json({ skills: db.data.skills, levels, points, categoryLevels, lecturePoints, questPoints, codeAcademy: db.data.codeAcademy });
 })
 
 app.get('/quests/completed/:student', (req, res) => {
@@ -138,6 +138,23 @@ app.post('/catacombs', async (req, res) => {
   await db.write();
   console.info('DB write Success', entry);
   res.json(entry);
+});
+
+app.post('/code-academy', async (req, res) => {
+  console.info(`POST /code-academy`, req.body);
+  const { student, points } = req.body;
+
+  if (!student || !points) {
+    return res.status(400).send('Bad Request');
+  }
+
+  db.data.codeAcademy = db.data.codeAcademy || {};
+  db.data.codeAcademy[student] = points;
+
+  await db.write();
+  console.info(`DB write Success. Student: ${student}, points: ${points}`);
+  res.sendStatus(200);
+  res.end();
 });
 
 app.post('/homework/:student', async (req, res) => {

@@ -29,7 +29,6 @@ export const HomePage = (state) => {
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
 
-        ${Homework(state)}
 
         ${Doska(state)}
 

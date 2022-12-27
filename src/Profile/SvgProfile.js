@@ -1,4 +1,5 @@
 import { cyberProfile } from './cyberProfile.js';
+import { saveCodeAcademy } from './api.js';
 
 export const SvgProfile = (state) => {
   const height = 296 * 4;
@@ -90,6 +91,10 @@ export const SvgProfile = (state) => {
     return document.querySelector('#repeats-number-text');
   };
 
+  const getCodeAcademyNumberText = () => {
+    return document.querySelector('#codecademy');
+  }
+
   const calculateLecturePoints = () => {
     const studentPoints = state.lecturePoints[state.student];
     let sum = 0;
@@ -99,6 +104,10 @@ export const SvgProfile = (state) => {
     }
 
     return sum;
+  }
+
+  const calculateCodeAcademyPoints = () => {
+    return state.codeAcademy[state.student];
   }
 
   const calculateRepeats = () => {
@@ -122,79 +131,115 @@ export const SvgProfile = (state) => {
     return `Loading...`;
   }
 
-  const level = state.levels[state.student];
+  const student = state.student;
   const questsNum = state.questPoints[state.student]?.length || 0;
   const lecturePoints = calculateLecturePoints();
-  const experience = state.points[state.student];
   const repeats = questsNum > 0 ? calculateRepeats() : 0;
+  const codeAcademy = calculateCodeAcademyPoints();
+  const experience = calcExp();
+  const level = calcLevel();
+
+  function calcLevel() {
+    return parseInt(calcExp() / 10);
+  }
+
+  function calcExp() {
+    return state.points[state.student] + calculateCodeAcademyPoints();
+  }
+
+  function handleCodeAcademyChange(e) {
+    const codeAcademyText = getCodeAcademyNumberText();
+    const newValue = parseInt(codeAcademyText.textContent);
+    if (!newValue) {
+      console.log('couldnt not parse new codecademy level, not  saving');
+      return;
+    }
+    const points = newValue;
+    state.codeAcademy[student] = points;
+    recomputeExp();
+    saveCodeAcademy({ student, points });
+  }
+
+  function recomputeExp() {
+    getCodeAcademyNumberText().textContent = calculateCodeAcademyPoints();
+    getExperienceNumberText().textContent = calcExp();
+    getLevelNumberText().textContent = calcLevel();
+  };
+
+  setTimeout(() => {
+    document.querySelector('#profile-svg-container').addEventListener('input', handleCodeAcademyChange);
+  });
 
   return `
-    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-      <style>
-        text {
-          fill: #60a7ac;
-          font-size: ${fontSize};
-        }
-        #level-number-text {
-          font-size: ${fontSize * 1.5};
-        }
-      </style>
+    <div id="profile-svg-container" contenteditable>
 
-      <image
-        href="${cyberProfile}"
-        width="${width}"
-        height="${height}"
-        x="${x}"
-        y="${y}"
-        preserveAspectRatio="none"
-      />
-      <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}">
-      Level
-      </text>
+      <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          text {
+            fill: #60a7ac;
+            font-size: ${fontSize};
+          }
+          #level-number-text {
+            font-size: ${fontSize * 1.5};
+          }
+        </style>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}">
-        ${level}
-      </text>
+        <image
+          href="${cyberProfile}"
+          width="${width}"
+          height="${height}"
+          x="${x}"
+          y="${y}"
+          preserveAspectRatio="none"
+        />
+        <text dominant-baseline="middle" text-anchor="middle" x="${levelText.x}" y="${levelText.y}">
+        Level
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}">
-        Домашка
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" id="level-number-text" x="${levelNumberText.x}" y="${levelNumberText.y}">
+          ${level}
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}">
-        ${questsNum}
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" x="${questText.x}" y="${questText.y}">
+          Домашка
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}">
-        Лекции
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" id="quest-number-text" x="${questNumberText.x}" y="${questNumberText.y}">
+          ${questsNum}
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}">
-      ${lecturePoints}
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" x="${lecturePointsText.x}" y="${lecturePointsText.y}">
+          Лекции
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}">
-        Экспа
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" id="quest-lecture-points-number-text" x="${lecturePointsNumberText.x}" y="${lecturePointsNumberText.y}">
+        ${lecturePoints}
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}">
-      ${experience}
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" x="${experienceText.x}" y="${experienceText.y}">
+          Экспа
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}">
-        Повторение
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" id="quest-experience-number-text" x="${experienceNumberText.x}" y="${experienceNumberText.y}">
+        ${experience}
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}">
-      ${repeats}
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" x="${repeatsText.x}" y="${repeatsText.y}">
+          Повторение
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}">
-      Нихуя
-      </text>
+        <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${repeatsNumberText.x}" y="${repeatsNumberText.y}">
+        ${repeats}
+        </text>
 
-      <text dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
-      0
-      </text>
-    </svg>
+        <text dominant-baseline="middle" text-anchor="middle" x="${nothingText.x}" y="${nothingText.y}">
+        Академия Кода
+        </text>
+
+        <text id="codecademy" dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
+        &nbsp;&nbsp;${codeAcademy}
+        </text>
+      </svg>
+    </div>
   `;
 };
