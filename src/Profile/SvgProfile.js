@@ -2,6 +2,17 @@ import { cyberProfile } from './cyberProfile.js';
 import { saveCodeAcademy } from './api.js';
 
 export const SvgProfile = (state) => {
+  const calculateCodeAcademyPoints = () => {
+    if (!state.codeAcademy[state.student]) {
+      return 0;
+    }
+    return state.codeAcademy[state.student].reverse()[0].points;
+  }
+
+  const localState = {
+    codeAcademyPoints: calculateCodeAcademyPoints(),
+  };
+
   const height = 296 * 4;
   const width = 526 * 4;
   const x = 0;
@@ -112,10 +123,6 @@ export const SvgProfile = (state) => {
     return sum;
   }
 
-  const calculateCodeAcademyPoints = () => {
-    return state.codeAcademy[state.student];
-  }
-
   const calculateRepeats = () => {
     const quests = state.questPoints[state.student];
     const map = {};
@@ -139,14 +146,11 @@ export const SvgProfile = (state) => {
 
   if (!state.codeAcademy) {
     state.codeAcademy = {
-      [state.student]: 0,
+      [state.student]: {
+        points: 0,
+      }
     };
   }
-
-  if (!state.codeAcademy[state.student]) {
-    state.codeAcademy[state.student] = 0;
-  }
-
 
   const student = state.student;
   const questsNum = state.questPoints[state.student]?.length || 0;
@@ -160,24 +164,22 @@ export const SvgProfile = (state) => {
   }
 
   function calcExp() {
-    return state.points[state.student] + calculateCodeAcademyPoints();
+    return state.points[state.student] + localState.codeAcademyPoints;
   }
 
   function plusCodeAcademy() {
     const student = state.student;
-    const points = ++state.codeAcademy[student];
+    const points = ++localState.codeAcademyPoints;
     recomputeExp();
-    saveCodeAcademy({ student, points });
   }
 
   function minusCodeAcademy() {
     const student = state.student;
-    if (state.codeAcademy[student] <= 1) {
+    if (localState.codeAcademyPoints <= 1 ) {
       return;
     }
-    const points = --state.codeAcademy[student];
+    const points = --localState.codeAcademyPoints;
     recomputeExp();
-    saveCodeAcademy({ student, points });
   }
 
   let isCodeAcademySelected = false;
@@ -201,11 +203,12 @@ export const SvgProfile = (state) => {
       isCodeAcademySelected = false;
       document.removeEventListener('keyup', keyupListener, false);
       getSvg().classList.remove('selected');
+      saveCodeAcademy({ student: state.student, points: localState.codeAcademyPoints });
     }
   }
 
   function recomputeExp() {
-    getCodeAcademyNumberText().textContent = calculateCodeAcademyPoints();
+    getCodeAcademyNumberText().textContent = localState.codeAcademyPoints;
     getExperienceNumberText().textContent = calcExp();
     getLevelNumberText().textContent = calcLevel();
   };
@@ -281,7 +284,7 @@ export const SvgProfile = (state) => {
       </text>
 
       <text id="codecademy" dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
-      ${state.codeAcademy[state.student]}
+      ${localState.codeAcademyPoints}
       </text>
     </svg>
   `;

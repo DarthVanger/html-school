@@ -149,11 +149,18 @@ app.post('/code-academy', async (req, res) => {
   }
 
   db.data.codeAcademy = db.data.codeAcademy || {};
-  db.data.codeAcademy[student] = points;
+  db.data.codeAcademy[student] = db.data.codeAcademy[student] || [];
+  const now = new Date();
+  const entry = {
+    date: now.toISOString(),
+    points,
+  };
+
+  db.data.codeAcademy[student].push(entry);
 
   await db.write();
   console.info(`DB write Success. Student: ${student}, points: ${points}`);
-  res.sendStatus(200);
+  res.json(entry);
   res.end();
 });
 
