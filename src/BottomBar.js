@@ -13,7 +13,6 @@ export const BottomBar = ({ student }) => {
   };
 
   const setState = (newState) => {
-    console.log('setState: ', newState);
     state.level = newState.level;
     state.points = newState.points;
     render();

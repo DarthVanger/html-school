@@ -143,6 +143,10 @@ export const SvgProfile = (state) => {
     };
   }
 
+  if (!state.codeAcademy[state.student]) {
+    state.codeAcademy[state.student] = 0;
+  }
+
 
   const student = state.student;
   const questsNum = state.questPoints[state.student]?.length || 0;
@@ -195,7 +199,6 @@ export const SvgProfile = (state) => {
       document.addEventListener('keyup', keyupListener);
     } else {
       isCodeAcademySelected = false;
-      console.log('remov even lis');
       document.removeEventListener('keyup', keyupListener, false);
       getSvg().classList.remove('selected');
     }
