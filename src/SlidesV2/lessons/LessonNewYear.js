@@ -160,11 +160,21 @@ const html = `
       <h2>Joystick</h2>
       <article>
         <section class="content">
-          <p>
-            Палочка удовольстивия
-          </p>
+          <h2>Палочка удовольстивия</h2>
+          <p>Joy Stick :)</p>
         </section>
       </article>
+
+      <article data-timer="5">
+        <section class="content">
+          <pre><code>
+            window.addEventListener("gamepadconnected", (event) => {
+              alert('Подключился хуесос №' + event.gamepad.index);
+            });
+          </code></pre>
+        </section>
+      </article>
+
     </section>
 
     <section class="pomodoro">
