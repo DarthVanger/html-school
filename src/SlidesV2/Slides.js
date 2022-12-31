@@ -4,11 +4,11 @@ export const Slides = ({lessonName}) => {
   const el = document.createElement('div');
   el.className = "slides";
   const lessons = {
-    lesson28: Lesson28(),
-    lessonnewyear: LessonNewYear(),
+    lesson28: Lesson28,
+    lessonnewyear: LessonNewYear,
   };
   console.log('lessonname: ', lessonName);
-  el.append(lessons[lessonName]);
+  el.append(lessons[lessonName]());
   return el;
 };
 
