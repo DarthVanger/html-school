@@ -168,11 +168,23 @@ const html = `
     </section>
 
     <section class="pomodoro">
+      <h2>Joystick #2</h2>
+      <article>
+        <section class="content">
+          <p>
+            Йо йо йо :)
+          </p>
+        </section>
+      </article>
+    </section>
+
+
+    <section class="pomodoro">
       <h2>English speaking club</h2>
       <article>
         <section class="content">
           <figure>
-            <video>
+            <video controls>
               <source src="/video/carol-nato.mp4" type="video/mp4" />
             </video>
           </figure>
@@ -194,17 +206,6 @@ const html = `
               New Year's Resolutions
             </figcaption>
           </figure>
-        </section>
-      </article>
-    </section>
-
-    <section class="pomodoro">
-      <h2>Joystick #2</h2>
-      <article>
-        <section class="content">
-          <p>
-            Йо йо йо :)
-          </p>
         </section>
       </article>
     </section>

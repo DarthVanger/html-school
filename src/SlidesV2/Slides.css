@@ -40,7 +40,8 @@
   text-align: center;
 }
 
-.lesson article figure img {
+.lesson article figure img,
+.lesson article figure video {
   height: 80vh;
 }
 
