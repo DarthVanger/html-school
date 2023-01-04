@@ -333,6 +333,22 @@ export const lectures = [
       'git diff, git add, git commit, git push',
     ],
     skills: ['objects', 'functions', 'git-add', 'git-push', 'git-pull', 'git-log', 'git-diff'],
-    url: '/src/slides.html#lesson27',
+    url: '#/slides/lesson28',
+  },
+  {
+    text: 'НОВЫЙ ГОД ) 31-е)',
+    items: [
+      'Провожаем Год',
+      'Встречаем Год',
+      'Коктейли',
+      'Джойстик: хуесос подключился',
+      'Джойстик: выводим на экран значение нажатия курка',
+      'Джойстик: Сдвигаем кортинке в соответсвии с ножатеем курока',
+      'Джойстик: мультипрлеер: 2 курка: кіт пес )',
+      'Бухич',
+      'Споры',
+    ],
+    skills: ['бухич', 'дутьё', 'joystick', 'multiplayer'],
+    url: '#/slides/lesson29',
   },
 ];

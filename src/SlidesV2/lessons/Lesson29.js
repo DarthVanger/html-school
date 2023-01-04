@@ -231,4 +231,4 @@ const html = `
   </div>
 `;
 
-export const LessonNewYear = () => Lesson({ html });
+export const Lesson29 = () => Lesson({ html });
