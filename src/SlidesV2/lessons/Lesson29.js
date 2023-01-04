@@ -175,19 +175,35 @@ const html = `
         </section>
       </article>
 
-    </section>
-
-    <section class="pomodoro">
-      <h2>Joystick #2</h2>
       <article>
+        <h2>Cat Dog Game</h2>
         <section class="content">
           <p>
-            Йо йо йо :)
+            60 раз в сек считываем значение курка, и двигаем кортинке соответсвенно
+          </p>
+          <p>
+            <a href="/catdog">ССЫЛКЕ на КІТ ПЕС ГРУ :)</a>
+          </p>
+          <p>
+            Код для скачки
+          </p>
+          <p>
+            <ul>
+              <li>
+                <a href="/catdog/index.html">index.html</a>
+              </li>
+              <li>
+                <a href="/catdog/app.js">app.js</a>
+              </li>
+              <li>
+                <a href="/catdog/cat.js">app.js</a>
+              </li>
+            </ul>
           </p>
         </section>
       </article>
-    </section>
 
+    </section>
 
     <section class="pomodoro">
       <h2>English speaking club</h2>
