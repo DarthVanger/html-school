@@ -157,7 +157,7 @@ const html = `
     </section>
 
     <section class="pomodoro">
-      <h2>Joystick</h2>
+      <h2>Joystick Intro</h2>
       <article>
         <section class="content">
           <h2>Палочка удовольстивия</h2>
@@ -178,7 +178,7 @@ const html = `
     </section>
 
     <section class="pomodoro">
-        <h2>Cat Dog Game</h2>
+      <h2>Cat Dog Game</h2>
         
       <article>
         <section class="content">
@@ -186,7 +186,7 @@ const html = `
             60 раз в сек считываем значение курка, и двигаем кортинке соответсвенно.
           </p>
           <p>
-            <a href="/catdog">ССЫЛКЕ на КІТ ПЕС ГРУ :)</a>
+            <a href="/catdog" target="_blank">ССЫЛКЕ на КІТ ПЕС ГРУ :)</a>
           </p>
           <p>
             Код для скачки
@@ -194,60 +194,19 @@ const html = `
           <p>
             <ul>
               <li>
-                <a href="/catdog/index.html">index.html</a>
+                <a href="/catdog/index.html" target="_blank">index.html</a>
               </li>
               <li>
-                <a href="/catdog/app.js">app.js</a>
+                <a href="/catdog/app.js" target="_blank">app.js</a>
               </li>
               <li>
-                <a href="/catdog/pes.jpg">pes.jpg</a>
+                <a href="/catdog/pes.jpg" target="_blank">pes.jpg</a>
               </li>
               <li>
-                <a href="/catdog/cat.jpg">cat.jpg</a>
+                <a href="/catdog/cat.jpg" target="_blank">cat.jpg</a>
               </li>
             </ul>
           </p>
-        </section>
-      </article>
-
-    </section>
-
-    <section class="pomodoro">
-      <h2>English speaking club</h2>
-      <article>
-        <section class="content">
-          <figure>
-            <video controls>
-              <source src="/video/carol-nato.mp4" type="video/mp4" />
-            </video>
-          </figure>
-        </section>
-      </article>
-
-      <article>
-        <section class="content">
-          <h2>Discussion</h2>
-          <p>So this is are our allies... NATO POWER...</p>
-          <p>Thoughts? :)</p>
-        </section>
-      </article>
-
-      <article>
-        <section class="content">
-            <img src="/img/lesson-new-year/new-years-resolutions.jpeg" />
-            <figcaption>
-              New Year's Resolutions
-            </figcaption>
-          </figure>
-        </section>
-      </article>
-    </section>
-
-    <section class="pomodoro">
-      <h2>Feedback</h2>
-      <article>
-        <section class="content">
-          <p>Фидек за занятие и годд</p>
         </section>
       </article>
     </section>

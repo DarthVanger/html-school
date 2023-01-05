@@ -19,6 +19,27 @@ const html = `
         </section>
       </article>
     </section>
+
+    <section class="pomodoro">
+      <h2>English speaking club</h2>
+      <article>
+        <section class="content">
+          <figure>
+            <video controls>
+              <source src="/video/carol-nato.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+          <h2>Discussion</h2>
+          <p>So this is are our allies... NATO POWER...</p>
+          <p>Thoughts? :)</p>
+        </section>
+      </article>
+    </section>
   </div>
 `;
 
