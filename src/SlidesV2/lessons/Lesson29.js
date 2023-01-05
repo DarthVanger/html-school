@@ -175,11 +175,15 @@ const html = `
         </section>
       </article>
 
-      <article>
+    </section>
+
+    <section class="pomodoro">
         <h2>Cat Dog Game</h2>
+        
+      <article>
         <section class="content">
           <p>
-            60 раз в сек считываем значение курка, и двигаем кортинке соответсвенно
+            60 раз в сек считываем значение курка, и двигаем кортинке соответсвенно.
           </p>
           <p>
             <a href="/catdog">ССЫЛКЕ на КІТ ПЕС ГРУ :)</a>
@@ -196,7 +200,10 @@ const html = `
                 <a href="/catdog/app.js">app.js</a>
               </li>
               <li>
-                <a href="/catdog/cat.js">app.js</a>
+                <a href="/catdog/pes.jpg">pes.jpg</a>
+              </li>
+              <li>
+                <a href="/catdog/cat.jpg">cat.jpg</a>
               </li>
             </ul>
           </p>
