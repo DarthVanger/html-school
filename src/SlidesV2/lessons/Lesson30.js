@@ -18,6 +18,16 @@ const html = `
           </figure>
         </section>
       </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <img src="/img/lesson30/retro.png" />
+            <figcaption>
+              <a href="https://miro.com/welcomeonboard/ZGVKaWlucEZaT21uM3R5b2RibVJPSERWMU5PWGltZW1OWE4xaVJVaFp2NU8wOUp5Q2dFUzB4cWUzdVJXTEdyZnwzMDc0NDU3MzQ5NDM5MDU5OTU4fDI=?share_link_id=467555990444">Miro Invite Link</a>
+           </figcaption>
+        </section>
+      </article>
     </section>
 
     <section class="pomodoro">
