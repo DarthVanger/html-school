@@ -13,9 +13,8 @@ export const LearningProgress = () => {
   `;
 
   lectures.forEach((item, idx) => {
-    console.log('apend item: ', item);
-    const isLastItem = (idx === lectures.length - 1);
-    element.append(LearningProgressItem({ item, idx, isLastItem }));
+    const isLastItem = idx === 0;
+    element.prepend(LearningProgressItem({ item, idx, isLastItem }));
   });
 
   return element;
