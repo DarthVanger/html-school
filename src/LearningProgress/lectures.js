@@ -351,4 +351,16 @@ export const lectures = [
     skills: ['бухич', 'дутьё', 'joystick', 'multiplayer'],
     url: '#/slides/lesson29',
   },
+  {
+    text: '30-е занятие) Retrospective. Game. Objects. Gepard.',
+    items: [
+      '30-е занятие юхууу!',
+      'Ретроспектива',
+      'Игра: группируем все по обьектам',
+      'Gepard',
+      'English: Unity',
+    ],
+    skills: ['work-process', 'js-objects', 'refactoring', 'physics'],
+    url: '#/slides/lesson30',
+  },
 ];
