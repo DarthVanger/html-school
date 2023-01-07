@@ -25,20 +25,21 @@ function zaprosBanki(student) {
 
 socket.addHandler('zaprosBanki', handleZaprosBanki);
 
-function handleZaprosBanki(student) {
-  showZaprosBankiVote(student);
+function handleZaprosBanki({ student, requester }) {
+  console.log('requester: ', requester);
+  showZaprosBankiVote({ student, requester });
 }
 
-function showZaprosBankiVote(student) {
-  document.body.append(ZaprosBankiVote({ student }));
+function showZaprosBankiVote({ student, requester }) {
+  document.body.append(ZaprosBankiVote({ student, requester }));
 }
 
-function ZaprosBankiVote({ student }) {
+function ZaprosBankiVote({ student, requester }) {
   const el = document.createElement('section');
   el.id = 'zapros-banki-vote';
 
   el.innerHTML = `
-    Zapros banki for ${student}
+    Zapros banki from ${requester} for ${student}
   `;
 
   return el;

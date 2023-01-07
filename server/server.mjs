@@ -34,7 +34,15 @@ const runApp = async () => {
     });
 
     console.log('sending mes');
-    ws.send('something');
+    const mes = {
+      name: 'zaprosBanki',
+      payload: {
+        student: 'dimon',
+        requester: 'napaleon',
+      }
+    };
+
+    ws.send(JSON.stringify(mes));
   });
 
   // Enable WebSockets
