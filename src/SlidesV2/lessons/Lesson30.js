@@ -40,6 +40,34 @@ const html = `
           <p>And yeah, Merry Christmas!!</p>
         </section>
       </article>
+
+      <article>
+        <section class="content">
+          <h2>Discussion</h2>
+          <p>So this is are our allies... NATO POWER...</p>
+          <p>Thoughts? :)</p>
+          <p>And yeah, Merry Christmas!!</p>
+        </section>
+      </article>
+
+      ${Lety4ka()}
+
+      <article data-timer="5">
+        <section class="content">
+          <pre class="language-js"><code>
+            // Implement function sum(a, b), which takes two numbers, and returns their sum, minus 4.
+            
+            var x = sum(2, 3); // 2 + 3 - 4 = 1
+            console.log('x = ');
+            console.log(x);
+            <li>Print the value of variable x on the screen</li>
+            <li>Print "&lt;br /&gt;" on the screen</li>
+            <li>Print text "y:" on the screen</li>
+            <li>Print the value of variable y on the screen</li>
+          </code></pre>
+        </section>
+      </article>
+
     </section>
 
     <section class="pomodoro">
