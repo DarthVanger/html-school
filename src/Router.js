@@ -19,6 +19,7 @@ import { Scene3d } from './Scene3d/Scene3d.js';
 import { Lesson25 } from './Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
 import { Slides } from './SlidesV2/Slides.js';
+import { Banki } from './Banki/Banki.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -35,6 +36,9 @@ export const Router = (state) => {
       break;
     case '/learn':
       element.innerHTML = Learn(state);
+      break;
+    case '/banki':
+      element.append(Banki(state));
       break;
     case '/skills':
       element.innerHTML = '';

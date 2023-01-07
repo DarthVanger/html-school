@@ -3,7 +3,10 @@ export const BankiStudent = ({ student }) => {
   el.id = `banki-${student}`;
   
   el.innerHTML = `
-    <p>Banki student :) ${student}</p>
+    <p>
+      <img src="/img/${student}.jpg" class="student-ava" />
+      Banki student :) ${student}
+    </p>
   `;
 
   return el;

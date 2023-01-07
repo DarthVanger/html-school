@@ -131,27 +131,27 @@ h1 {
   letter-spacing: 10px;
 }
 
-section {
+#home-page section {
   padding: 0 2em;
 }
 
-section#main-page-links {
+#home-page section#main-page-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-section#main-page-links  article {
+#home-page section#main-page-links  article {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1em;
 }
 
-section#main-page-links a,
-section#main-page-links a:active,
-section#main-page-links a:visited,
-section#main-page-links a:link {
+#home-page section#main-page-links a,
+#home-page section#main-page-links a:active,
+#home-page section#main-page-links a:visited,
+#home-page section#main-page-links a:link {
   text-align: center;
   letter-spacing: 4px;
   font-size: 1.5em;
