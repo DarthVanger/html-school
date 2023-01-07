@@ -24,13 +24,13 @@ socket.onmessage = (e) => {
 export const requestZaprosBanki = (payload) => {
   socket.send(JSON.stringify({
     name: 'zaprosBanki',
-    payload: JSON.stringify(payload),
+    payload,
   }));
 };
 
 export const sendVote = (payload) => {
   socket.send(JSON.stringify({
     name: 'vote',
-    payload: JSON.stringify(payload),
+    payload,
   }));
 };

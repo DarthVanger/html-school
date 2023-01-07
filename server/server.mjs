@@ -40,7 +40,7 @@ const runApp = async () => {
         console.log('sending mes');
         const mes = {
           name: 'zaprosBanki',
-          payload: JSON.parse(payload),
+          payload,
         };
 
         ws.send(JSON.stringify(mes));
@@ -48,7 +48,7 @@ const runApp = async () => {
 
       if (data.name == 'vote') {
         console.log('Received "vote" event', data);
-        const { student, vote } = JSON.parse(data.payload);
+        const { student, vote } = data.payload;
         votes[student] = vote;
         const mes = {
           name: 'vote',
