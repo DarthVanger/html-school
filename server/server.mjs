@@ -1,6 +1,7 @@
 import { db, loadDb } from './db/db.js';
 import { getStats } from './db/stats.js';
 import { applyMigrations } from './db/migrations/apply.js';
+import { studentsApp } from './studentsApp.js';
 import https from 'https';
 import fs from 'fs';
 
@@ -184,6 +185,8 @@ app.post('/homework/:student', async (req, res) => {
   console.info('DB write Success', entry);
   res.json(entry);
 });
+
+studentsApp({app, db});
 
 (async () => {
   await runApp();
