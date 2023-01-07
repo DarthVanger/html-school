@@ -94,4 +94,4 @@ const html = `
   </div>
 `;
 
-export const Lesson30 = () => Lesson({ html });
+export const Lesson30 = (props) => Lesson({ html, ...props });

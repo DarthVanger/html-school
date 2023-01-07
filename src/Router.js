@@ -112,7 +112,7 @@ export const Router = (state) => {
       const lessonName = state.route.replace(/[/]slides[/]/, '');
       console.log('render lesson');
       element.innerHTML = '';
-      element.append(Slides({lessonName}));
+      element.append(Slides({state, lessonName}));
       break;
 
     case state.route.match(/[/]quests[/]/)?.input:

@@ -2,7 +2,7 @@ import { Timer } from './Timer.js';
 import { Lety4ka } from './Lety4ka.js';
 import { Banki } from '../../Banki/Banki.js';
 
-export const Lesson = ({ html }) => {
+export const Lesson = ({ state, html, lessonName }) => {
   const el = document.createElement('div');
   el.className = "lesson";
   let curSection;
@@ -67,7 +67,7 @@ export const Lesson = ({ html }) => {
     renderCurSlide();
   }
 
-  el.append(Banki());
+  el.append(Banki({state, lessonName}));
 
   return el;
 }
