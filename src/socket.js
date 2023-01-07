@@ -4,7 +4,6 @@ const listeners = {};
 export const addHandler = (c, f) => {
   listeners[c] = listeners[c] ? listeners[c] : [];
   listeners[c].push(f);
-  console.log('lis updated, lis: ', listeners);
 };
 
 const socket = new WebSocket(url);
@@ -25,6 +24,13 @@ socket.onmessage = (e) => {
 export const requestZaprosBanki = (payload) => {
   socket.send(JSON.stringify({
     name: 'zaprosBanki',
+    payload: JSON.stringify(payload),
+  }));
+};
+
+export const sendVote = (payload) => {
+  socket.send(JSON.stringify({
+    name: 'vote',
     payload: JSON.stringify(payload),
   }));
 };

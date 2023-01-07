@@ -28,11 +28,13 @@ const runApp = async () => {
 
   const wss = new WebSocketServer({ noServer: true });
 
+  let votes;
   wss.on('connection', ws => {
     ws.on('message', function message(d) {
       const data = JSON.parse(d);
       console.log('received: %s', data);
       if (data.name == 'zaprosBanki') {
+        votes = {};
         const { payload } = data;
         console.log('yuoho');
         console.log('sending mes');
@@ -41,6 +43,16 @@ const runApp = async () => {
           payload: JSON.parse(payload),
         };
 
+        ws.send(JSON.stringify(mes));
+      }
+
+      if (data.name == 'vote') {
+        const { student, vote } = data;
+        votes[student] = vote;
+        const mes = {
+          name: 'vote',
+          payload: { votes, student, vote },
+        };
         ws.send(JSON.stringify(mes));
       }
     });
