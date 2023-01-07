@@ -43,7 +43,11 @@ function ZaprosBankiVote({ student, requester }) {
   el.id = 'zapros-banki-vote';
 
   el.innerHTML = `
-    Zapros banki from ${requester} for ${student}
+    <h1>Zapros banki for ${student} from ${requester}</h1>
+    <article>
+      <div>Yes</div>
+      <div>No</div>
+    </article>
   `;
 
   return el;

@@ -5,4 +5,20 @@
 #zapros-banki-vote {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: black;
+}
+
+#zapros-banki-vote article {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#zapros-banki-vote article div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
 }
