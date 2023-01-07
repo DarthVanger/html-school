@@ -4,6 +4,7 @@ import { applyMigrations } from './db/migrations/apply.js';
 import { studentsApp } from './studentsApp.js';
 import https from 'https';
 import fs from 'fs';
+import { WebSocketServer } from 'ws';
 
 import express from 'express'
 const app = express()
@@ -11,6 +12,7 @@ const port = process.env.port || 8080
 
 app.use(express.static('./'))
 app.use(express.json());
+
 
 const runApp = async () => {
   await loadDb();
@@ -20,20 +22,28 @@ const runApp = async () => {
   console.info('Applying migrations');
   applyMigrations();
 
-  if (process.env.HTTPS) {
-    var httpsServer = https.createServer(credentials, app);
-    var privateKey  = fs.readFileSync('certs/privkey.pem', 'utf8');
-    var certificate = fs.readFileSync('certs/fullchain.pem', 'utf8');
-    var credentials = {key: privateKey, cert: certificate};
+  const server = app.listen(port, () => {
+    console.log(`HTTP Listening on port ${port}`)
+  });
 
-    httpsServer.listen(port, () => {
-      console.log(`HTTPS Listening on port ${port}`)
+  const wss = new WebSocketServer({ noServer: true });
+
+  wss.on('connection', ws => {
+    ws.on('message', function message(data) {
+      console.log('received: %s', data);
     });
-  } else {
-    app.listen(port, () => {
-      console.log(`HTTP Listening on port ${port}`)
+
+    console.log('sending mes');
+    ws.send('something');
+  });
+
+  // Enable WebSockets
+  // https://masteringjs.io/tutorials/express/websockets
+  server.on('upgrade', (request, socket, head) => {
+    wss.handleUpgrade(request, socket, head, socket => {
+      wss.emit('connection', socket, request);
     });
-  }
+  });
 };
 
 //app.get('/homework/:student', (req, res) => {
