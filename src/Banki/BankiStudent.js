@@ -1,8 +1,11 @@
 import * as socket from '../socket.js';
 
-export const BankiStudent = ({ student }) => {
+export const BankiStudent = ({ student, state }) => {
+  console.log('BankiStudent state ', state);
+  const userStudent = state.student;
   const el = document.createElement('section');
-  el.id = `banki-${student}`;
+  const id = `banki-${student}`;
+  el.id = id;
   
   el.innerHTML = `
     <p>
@@ -13,14 +16,15 @@ export const BankiStudent = ({ student }) => {
   el.addEventListener('click', () => handleStudentClick(student));
 
   function handleStudentClick(student) {
-    zaprosBanki(student);
+    console.log('handleStudentClick');
+    initiateZaprosBanki({ student, requester: userStudent });
   }
 
   return el;
 };
 
-function zaprosBanki(student) {
-  requestZaprosBanki();
+function initiateZaprosBanki(zapros) {
+  socket.requestZaprosBanki(zapros);
 }
 
 socket.addHandler('zaprosBanki', handleZaprosBanki);

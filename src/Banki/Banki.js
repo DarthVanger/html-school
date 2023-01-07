@@ -1,9 +1,8 @@
 import { BankiStudent } from './BankiStudent.js';
 
-export const Banki = ({ state, lessonName }) => {
+export const Banki = (state) => {
   const el = document.createElement('section');
   el.id = 'banki';
-
 
   setTimeout(async () => {
     el.innerHTML = `
@@ -21,8 +20,7 @@ export const Banki = ({ state, lessonName }) => {
     for (let student of students)  {
       if (inactiveStudents.includes(student)) continue;
 
-      el.append(BankiStudent({ student }));
-      console.log('student' , student);
+      el.append(BankiStudent({ student, state }));
     }
   });
 

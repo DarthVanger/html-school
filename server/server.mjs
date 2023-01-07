@@ -29,20 +29,22 @@ const runApp = async () => {
   const wss = new WebSocketServer({ noServer: true });
 
   wss.on('connection', ws => {
-    ws.on('message', function message(data) {
+    ws.on('message', function message(d) {
+      const data = JSON.parse(d);
       console.log('received: %s', data);
+      if (data.name == 'zaprosBanki') {
+        const { payload } = data;
+        console.log('yuoho');
+        console.log('sending mes');
+        const mes = {
+          name: 'zaprosBanki',
+          payload: JSON.parse(payload),
+        };
+
+        ws.send(JSON.stringify(mes));
+      }
     });
 
-    console.log('sending mes');
-    const mes = {
-      name: 'zaprosBanki',
-      payload: {
-        student: 'dimon',
-        requester: 'napaleon',
-      }
-    };
-
-    ws.send(JSON.stringify(mes));
   });
 
   // Enable WebSockets

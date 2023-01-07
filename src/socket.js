@@ -21,3 +21,10 @@ socket.onmessage = (e) => {
   console.log('listeners', lis);
   lis?.forEach(f => f(mes.payload));
 };
+
+export const requestZaprosBanki = (payload) => {
+  socket.send(JSON.stringify({
+    name: 'zaprosBanki',
+    payload: JSON.stringify(payload),
+  }));
+};
