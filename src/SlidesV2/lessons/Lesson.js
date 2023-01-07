@@ -1,5 +1,6 @@
 import { Timer } from './Timer.js';
 import { Lety4ka } from './Lety4ka.js';
+import { Banki } from '../../Banki/Banki.js';
 
 export const Lesson = ({ html }) => {
   const el = document.createElement('div');
@@ -65,6 +66,8 @@ export const Lesson = ({ html }) => {
     curSlideIdx--;
     renderCurSlide();
   }
+
+  el.append(Banki());
 
   return el;
 }
