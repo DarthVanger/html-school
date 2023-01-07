@@ -47,12 +47,14 @@ const runApp = async () => {
       }
 
       if (data.name == 'vote') {
-        const { student, vote } = data;
+        console.log('Received "vote" event', data);
+        const { student, vote } = JSON.parse(data.payload);
         votes[student] = vote;
         const mes = {
           name: 'vote',
           payload: { votes, student, vote },
         };
+        console.log('sending mes: ', mes);
         ws.send(JSON.stringify(mes));
       }
     });
