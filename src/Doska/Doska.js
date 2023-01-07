@@ -60,8 +60,18 @@ export const Doska = (state) => {
 
     const diffDays = diffMinutes / 60 / 24;
 
-    return diffDays < 7;
+    if (isChirstamsHolidays(now)) {
+      return diffDays <= 14;
+    }
+
+    return diffDays <= 7;
   };
+
+  // Jan 1-8 Holidays :)
+  function isChirstamsHolidays(now) {
+    return now.getMonth() === 0 && now.getDate() <= 8;
+  }
+
 
   const getLastWeekHwByStudent = () => {
     const homeworks = state.questPoints;
