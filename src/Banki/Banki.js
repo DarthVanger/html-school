@@ -64,7 +64,6 @@ export const Banki = (state) => {
     `;
 
     setTimeout(() => {
-      console.log('add even lis for ', getYesBtn());
       getYesBtn().addEventListener('click', handleYesClick);
       getNoBtn().addEventListener('click', handleNoClick);
     });
