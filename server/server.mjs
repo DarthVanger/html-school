@@ -59,6 +59,22 @@ const runApp = async () => {
       ws.send(lastVoteMsg);
     }
 
+    if (!db.data.banki) {
+      db.data.banki = {};
+      for (let student of db.data.students) {
+        db.data.banki[student] = {
+          earned: 0,
+          smoked: 0,
+        }
+      }
+    }
+
+    console.log('send banki');
+    ws.send(JSON.stringify({
+      name: 'banki',
+      payload: db.data.banki,
+    }));
+
     wsClients.push(ws);
     console.log('wsClients: ', wsClients.length);
     ws.on('message', function message(d) {

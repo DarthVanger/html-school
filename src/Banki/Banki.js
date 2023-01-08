@@ -35,6 +35,11 @@ export const Banki = (state) => {
 
 
   socket.addHandler('zaprosBanki', handleZaprosBanki);
+  socket.addHandler('banki', handleBanki);
+
+  function handleBanki(banki) {
+    state.banki = banki;
+  }
 
   function handleZaprosBanki({ student, requester }) {
     console.log('handleZaprosBanki');
@@ -64,6 +69,7 @@ export const Banki = (state) => {
     `;
 
     setTimeout(() => {
+      console.log('add even lis for ', getYesBtn());
       getYesBtn().addEventListener('click', handleYesClick);
       getNoBtn().addEventListener('click', handleNoClick);
     });

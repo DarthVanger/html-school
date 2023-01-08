@@ -3,6 +3,7 @@ import * as socket from '../socket.js';
 export const BankiStudent = ({ student, state }) => {
   const userStudent = state.student;
   const el = document.createElement('section');
+  const getBankiEl = () => el.querySelector('.banki');
   const id = `banki-${student}`;
   el.id = id;
   el.className = 'banki-student';
@@ -18,6 +19,20 @@ export const BankiStudent = ({ student, state }) => {
   `;
 
   el.addEventListener('click', () => handleStudentClick(student));
+
+  const handleBanki = (banki) => {
+    for (let student in banki) {
+      const studentBanki = banki[student];
+      getBankiEl().innerHTML = `
+        <div>Earned: ${studentBanki.earned}</div>
+        <div>Smoked: ${studentBanki.smoked}</div>
+      `;
+      
+    }
+  };
+
+  socket.addHandler('banki', handleBanki);
+  handleBanki(state.banki);
 
   function handleStudentClick(student) {
     console.log('handleStudentClick');
