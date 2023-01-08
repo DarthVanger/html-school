@@ -88,22 +88,16 @@ const runApp = async () => {
           return Object.values(votes).filter(v => !v).length > 1;
         }
 
-        if (isVoteResultYes(votes)) {
-          console.log('vote res yes')
+        function voteEnd({ passed }) {
+          console.log('vote end. Passed: ', passed);
           const mes = {
             name: 'voteEnd',
-            payload: { votes, passed: true },
+            payload: { votes, passed },
           };
           wsSendAll(JSON.stringify(mes));
-        }
 
-        if (isVoteResultNo(votes)) {
-          console.log('vote res no')
-          const mes = {
-            name: 'voteEnd',
-            payload: { votes, passed: false },
-          };
-          wsSendAll(JSON.stringify(mes));
+          votes = null;
+          zaprosBanki = null;
         }
 
         const mes = {
@@ -112,6 +106,16 @@ const runApp = async () => {
         };
 
         wsSendAll(JSON.stringify(mes));
+
+        if (isVoteResultYes(votes)) {
+          voteEnd({ passed: true });
+          return;
+        }
+
+        if (isVoteResultNo(votes)) {
+          voteEnd({ passed: false });
+          return;
+        }
       }
     });
 
