@@ -1,4 +1,5 @@
-const url = process.env.ws_url || `ws://localhost:8080`;
+//const url = `ws://localhost:8080`;
+const url = `ws://napaleon.space`;
 
 const listeners = {};
 export const addHandler = (c, f) => {
