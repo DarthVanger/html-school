@@ -66,7 +66,7 @@ const runApp = async () => {
       }
     }
 
-    console.log('send banki');
+    console.log('send banki:', db.data.banki);
     ws.send(JSON.stringify({
       name: 'banki',
       payload: db.data.banki,
