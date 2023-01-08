@@ -48,7 +48,14 @@ const runApp = async () => {
 
 
   let votes;
+  let zaprosBanki;
   wss.on('connection', ws => {
+    console.log('zaprosBanki: ', zaprosBanki);
+    if (zaprosBanki) {
+      console.log('send zapros banki!');
+      ws.send(zaprosBanki);
+    }
+
     wsClients.push(ws);
     console.log('wsClients: ', wsClients.length);
     ws.on('message', function message(d) {
@@ -64,18 +71,46 @@ const runApp = async () => {
           payload,
         };
 
-        wsSendAll(JSON.stringify(mes));
+        zaprosBanki = JSON.stringify(mes);
+        wsSendAll(zaprosBanki);
       }
 
       if (data.name == 'vote') {
         console.log('Received "vote" event', data);
         const { student, vote } = data.payload;
         votes[student] = vote;
+
+        function isVoteResultYes() {
+          return Object.values(votes).filter(v => v).length > 1;
+        }
+
+        function isVoteResultNo() {
+          return Object.values(votes).filter(v => !v).length > 1;
+        }
+
+        if (isVoteResultYes(votes)) {
+          console.log('vote res yes')
+          const mes = {
+            name: 'voteEnd',
+            payload: { votes, passed: true },
+          };
+          wsSendAll(JSON.stringify(mes));
+        }
+
+        if (isVoteResultNo(votes)) {
+          console.log('vote res no')
+          const mes = {
+            name: 'vote_end',
+            payload: { votes, passed: false },
+          };
+          wsSendAll(JSON.stringify(mes));
+        }
+
         const mes = {
           name: 'vote',
           payload: { votes, student, vote },
         };
-        console.log('sending mes: ', mes);
+
         wsSendAll(JSON.stringify(mes));
       }
     });

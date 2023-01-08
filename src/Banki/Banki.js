@@ -5,6 +5,8 @@ export const Banki = (state) => {
   const el = document.createElement('section');
   el.id = 'banki';
 
+  let voteEnded = false;
+
   const userStudent = state.student;
 
   setTimeout(async () => {
@@ -72,8 +74,10 @@ export const Banki = (state) => {
     }
 
     socket.addHandler('vote', handleVote);
+    socket.addHandler('voteEnd', handleVoteEnd);
 
     function handleVote({ votes, student, vote }) {
+      if (voteEnded) return;
       getVotesEl().innerHTML = ``;
       for (let stud in votes) {
         getVotesEl().innerHTML += `
@@ -83,6 +87,14 @@ export const Banki = (state) => {
       console.log(`${student} voted ${vote ? 'yes' : 'no'}`);
     }
 
+    function handleVoteEnd({ votes, passed }) {
+      voteEnded = true;
+      if (passed) {
+        el.innerHTML = `banka zawitana!!`;
+      } else {
+        el.innerHTML = `banka otklonena ((`;
+      }
+    }
 
     return el;
   }
