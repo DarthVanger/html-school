@@ -112,6 +112,10 @@ export const Banki = (state) => {
           <h3>Банка Отклонена ((</h3>
         `;
       }
+
+      setTimeout(() => {
+        el.remove();
+      }, 3000);
     }
 
     return el;
