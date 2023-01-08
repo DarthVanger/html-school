@@ -128,8 +128,9 @@ const runApp = async () => {
           };
           wsSendAll(JSON.stringify(mes));
 
-          console.log('voteState: ', voteState);
-          giveBanka(voteState.student);
+          if (passed) {
+            giveBanka(voteState.student);
+          }
           voteState = null;
         }
 
