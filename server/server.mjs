@@ -13,6 +13,7 @@ const port = process.env.port || 8080
 app.use(express.static('./'))
 app.use(express.json());
 
+let wsClients = [];
 
 const runApp = async () => {
   await loadDb();
@@ -26,10 +27,30 @@ const runApp = async () => {
     console.log(`HTTP Listening on port ${port}`)
   });
 
+  const clients = [];
   const wss = new WebSocketServer({ noServer: true });
+
+  //wss.on('request', function(request) {
+  //  const connection = request.accept('any-protocol', request.origin);
+  //  clients.push(connection);
+
+  //  connection.on('message', function(message) {
+  //    //broadcast the message to all the clients
+  //    clients.forEach(function(client) {
+  //      client.send(message.utf8Data);
+  //    });
+  //  });
+  //});
+  //
+  function wsSendAll(mes) {
+    wsClients.forEach(ws => ws.send(mes));
+  }
+
 
   let votes;
   wss.on('connection', ws => {
+    wsClients.push(ws);
+    console.log('wsClients: ', wsClients.length);
     ws.on('message', function message(d) {
       const data = JSON.parse(d);
       console.log('received: %s', data);
@@ -43,7 +64,7 @@ const runApp = async () => {
           payload,
         };
 
-        ws.send(JSON.stringify(mes));
+        wsSendAll(JSON.stringify(mes));
       }
 
       if (data.name == 'vote') {
@@ -55,7 +76,7 @@ const runApp = async () => {
           payload: { votes, student, vote },
         };
         console.log('sending mes: ', mes);
-        ws.send(JSON.stringify(mes));
+        wsSendAll(JSON.stringify(mes));
       }
     });
 
