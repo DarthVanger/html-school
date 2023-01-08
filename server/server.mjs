@@ -46,17 +46,14 @@ const runApp = async () => {
     wsClients.forEach(ws => ws.send(mes));
   }
 
-
-  let votes;
-  let zaprosBanki;
-  let lastVoteMsg;
+  let vote;
   wss.on('connection', ws => {
-    if (zaprosBanki) {
-      ws.send(zaprosBanki);
+    if (vote?.zaprosBanki) {
+      ws.send(JSON.stringify(vote.zaprosBanki));
     }
 
-    if (lastVoteMsg) {
-      ws.send(lastVoteMsg);
+    if (vote?.lastVoteMsg) {
+      ws.send(JSON.stringify(vote.lastVoteMsg));
     }
 
     if (!db.data.banki) {
@@ -81,53 +78,56 @@ const runApp = async () => {
       const data = JSON.parse(d);
       console.log('received: %s', data);
       if (data.name == 'zaprosBanki') {
-        votes = {};
         const { payload } = data;
-        console.log('yuoho');
-        console.log('sending mes');
+        const { student, requester } = payload;
+
+        vote = {
+          student,
+          requester,
+          votes: {},
+        };
+
         const mes = {
           name: 'zaprosBanki',
           payload,
         };
 
-        zaprosBanki = JSON.stringify(mes);
-        wsSendAll(zaprosBanki);
+        vote.zaprosBanki = mes;
+        wsSendAll(JSON.stringify(mes));
       }
 
       if (data.name == 'vote') {
         console.log('Received "vote" event', data);
         const { student, vote } = data.payload;
-        votes[student] = vote;
+        vote.votes[student] = vote;
 
         function isVoteResultYes() {
-          return Object.values(votes).filter(v => v).length > 1;
+          return Object.values(vote.votes).filter(v => v).length > 1;
         }
 
         function isVoteResultNo() {
-          return Object.values(votes).filter(v => !v).length > 1;
+          return Object.values(vote.votes).filter(v => !v).length > 1;
         }
 
         function voteEnd({ passed }) {
           console.log('vote end. Passed: ', passed);
           const mes = {
             name: 'voteEnd',
-            payload: { votes, passed },
+            payload: { votes: vote.votes, passed },
           };
           wsSendAll(JSON.stringify(mes));
 
-          votes = null;
-          zaprosBanki = null;
-          lastVoteMsg = null;
+          vote = null;
         }
 
-        const mes = JSON.stringify({
+        const mes = {
           name: 'vote',
           payload: { votes, student, vote },
-        });
+        };
 
-        lastVoteMsg = mes;
+        vote.lastVoteMsg = mes;
 
-        wsSendAll(mes);
+        wsSendAll(JSON.stringify(mes));
 
         if (isVoteResultYes(votes)) {
           voteEnd({ passed: true });
