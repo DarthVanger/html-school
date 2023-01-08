@@ -22,7 +22,6 @@ export const BankiStudent = ({ student, state }) => {
   el.addEventListener('click', () => handleStudentClick(student));
 
   const handleBanki = (banki) => {
-    console.log('handle banki:', banki);
     const studentBanki = banki[student] || {};
 
     let weedsEarnedHtml = ``;
@@ -42,7 +41,10 @@ export const BankiStudent = ({ student, state }) => {
   };
 
   socket.addHandler('banki', handleBanki);
-  handleBanki(state.banki);
+
+  if (state.banki) {
+    handleBanki(state.banki);
+  }
 
   function handleStudentClick(student) {
     console.log('handleStudentClick');
