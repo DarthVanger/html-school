@@ -1,4 +1,5 @@
 import * as socket from '../socket.js';
+import { WeedSvg } from '../WeedSvg.js';
 
 export const BankiStudent = ({ student, state }) => {
   const userStudent = state.student;
@@ -23,9 +24,20 @@ export const BankiStudent = ({ student, state }) => {
   const handleBanki = (banki) => {
     console.log('handle banki:', banki);
     const studentBanki = banki[student] || {};
+
+    let weedsEarnedHtml = ``;
+    for (let i = 0; i < studentBanki.earned; i++) {
+      weedsEarnedHtml += WeedSvg({});
+    }
+
+    let weedsSmokedHtml = ``;
+    for (let i = 0; i < studentBanki.smoked; i++) {
+      weedsSmokedHtml += WeedSvg({ className: 'smoked' });
+    }
+
     getBankiEl().innerHTML = `
-      <div>Earned: ${studentBanki.earned}</div>
-      <div>Smoked: ${studentBanki.smoked}</div>
+      <div>Earned: ${studentBanki.earned} ${weedsEarnedHtml}</div>
+      <div>Smoked: ${studentBanki.smoked} ${weedsSmokedHtml}</div>
     `;
   };
 

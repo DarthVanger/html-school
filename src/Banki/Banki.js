@@ -55,7 +55,7 @@ export const Banki = (state) => {
     const getArticle = () => el.querySelector('article');
 
     el.innerHTML = `
-      <h1>Zapros banki for ${student} from ${requester}</h1>
+      <h1>${requester.toUpperCase()}</i> запрашивает банку для ${student.toUpperCase()}</h1>
       <article class="yes-no-btns">
         <div id="yes-btn">Yes</div>
         <div id="no-btn">No</div>
