@@ -76,6 +76,6 @@ export const migration_00 = async () => {
 
   db.data.skills = skills;
 
-  console.log('Applying migration for skills: ', skills);
+  console.log('Applying migration for skills.');
   await db.write();
 };

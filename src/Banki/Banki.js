@@ -23,12 +23,7 @@ export const Banki = (state) => {
 
     el.innerHTML = ``;
 
-    const inactiveStudents = ['other-species', 'mazerTim'];
-    students.unshift('napaleon');
-
     for (let student of students)  {
-      if (inactiveStudents.includes(student)) continue;
-
       el.append(BankiStudent({ student, state }));
     }
   });

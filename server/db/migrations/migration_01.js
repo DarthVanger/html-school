@@ -2,12 +2,13 @@ import { db } from '../db.js';
 
 export const migration_01 = async () => {
   const students = [
+    'napaleon',
     'johnny',
     'tony',
     'dimon',
-    'valik_h',
     'mister-smith',
-    'mazerTim',
+    'valik_h',
+    //'mazerTim',
     'other-species',
   ];
 
