@@ -5,11 +5,16 @@ export const BankiStudent = ({ student, state }) => {
   const el = document.createElement('section');
   const id = `banki-${student}`;
   el.id = id;
+  el.className = 'banki-student';
   
   el.innerHTML = `
-    <p>
-      <img src="/img/${student}.jpg" class="student-ava" /> Banki student :) ${student}
-    </p>
+    <figure class="student-ava">
+      <img src="/img/${student}.jpg" />
+    </figure>
+    <div class="banki">
+      Banki
+    </div>
+
   `;
 
   el.addEventListener('click', () => handleStudentClick(student));

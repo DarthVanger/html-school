@@ -1,5 +1,15 @@
-#banki .student-ava {
+#banki .banki-student {
+}
+
+#banki .banki-student .student-ava img {
   width: 100%;
+}
+
+@media (min-width: 500px) {
+  #banki .banki-student .student-ava img {
+    width: auto;
+    height: 50vh;
+  }
 }
 
 #zapros-banki-vote {
