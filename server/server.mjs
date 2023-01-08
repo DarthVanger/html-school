@@ -49,11 +49,14 @@ const runApp = async () => {
 
   let votes;
   let zaprosBanki;
+  let lastVoteMsg;
   wss.on('connection', ws => {
-    console.log('zaprosBanki: ', zaprosBanki);
     if (zaprosBanki) {
-      console.log('send zapros banki!');
       ws.send(zaprosBanki);
+    }
+
+    if (lastVoteMsg) {
+      ws.send(lastVoteMsg);
     }
 
     wsClients.push(ws);
@@ -98,14 +101,17 @@ const runApp = async () => {
 
           votes = null;
           zaprosBanki = null;
+          lastVoteMsg = null;
         }
 
-        const mes = {
+        const mes = JSON.stringify({
           name: 'vote',
           payload: { votes, student, vote },
-        };
+        });
 
-        wsSendAll(JSON.stringify(mes));
+        lastVoteMsg = mes;
+
+        wsSendAll(mes);
 
         if (isVoteResultYes(votes)) {
           voteEnd({ passed: true });
