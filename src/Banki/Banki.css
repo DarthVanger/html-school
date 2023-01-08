@@ -12,6 +12,13 @@
 
 #zapros-banki-vote article {
   flex-grow: 1;
+}
+
+#zapros-banki-vote article img {
+  width: 100%;
+}
+
+#zapros-banki-vote article.yes-no-btns {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

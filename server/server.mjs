@@ -100,7 +100,7 @@ const runApp = async () => {
         if (isVoteResultNo(votes)) {
           console.log('vote res no')
           const mes = {
-            name: 'vote_end',
+            name: 'voteEnd',
             payload: { votes, passed: false },
           };
           wsSendAll(JSON.stringify(mes));

@@ -1,11 +1,15 @@
 import * as socket from '../socket.js';
 import { BankiStudent } from './BankiStudent.js';
 
+const getPlusBankaImg = () => {
+  const randIdx = Math.round(Math.random() * 8 + 1);
+
+  return `/img/banki/plus-banka/${randIdx}.gif`;
+};
+
 export const Banki = (state) => {
   const el = document.createElement('section');
   el.id = 'banki';
-
-  let voteEnded = false;
 
   const userStudent = state.student;
 
@@ -48,10 +52,11 @@ export const Banki = (state) => {
     const getVotesEl = () => document.querySelector('#votes');
     const getYesBtn = () => document.querySelector('#yes-btn');
     const getNoBtn = () => document.querySelector('#no-btn');
+    const getArticle = () => el.querySelector('article');
 
     el.innerHTML = `
       <h1>Zapros banki for ${student} from ${requester}</h1>
-      <article>
+      <article class="yes-no-btns">
         <div id="yes-btn">Yes</div>
         <div id="no-btn">No</div>
       </article>
@@ -77,22 +82,35 @@ export const Banki = (state) => {
     socket.addHandler('voteEnd', handleVoteEnd);
 
     function handleVote({ votes, student, vote }) {
-      if (voteEnded) return;
       getVotesEl().innerHTML = ``;
+      let idx = 0;
       for (let stud in votes) {
         getVotesEl().innerHTML += `
           ${stud}: ${vote ? 'yes' : 'no'}
         `;
+
+        if (idx < Object.keys(votes).length - 1) {
+          getVotesEl().innerHTML += ', '
+        } else {
+          getVotesEl().innerHTML += '.'
+        }
+
+        idx++;
       }
       console.log(`${student} voted ${vote ? 'yes' : 'no'}`);
     }
 
     function handleVoteEnd({ votes, passed }) {
-      voteEnded = true;
       if (passed) {
-        el.innerHTML = `banka zawitana!!`;
+        getArticle().classList.remove('yes-no-btns');
+        getArticle().innerHTML = `
+          <h3>Банка Засчитана!!!</h3>
+          <img src=${getPlusBankaImg()} />
+        `;
       } else {
-        el.innerHTML = `banka otklonena ((`;
+        getArticle().innerHTML = `
+          <h3>Банка Отклонена ((</h3>
+        `;
       }
     }
 
