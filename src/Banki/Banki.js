@@ -29,15 +29,10 @@ export const Banki = (state) => {
 
 
   socket.addHandler('zaprosBanki', handleZaprosBanki);
-  socket.addHandler('vote', handleVote);
 
   function handleZaprosBanki({ student, requester }) {
     console.log('handleZaprosBanki');
     showZaprosBankiVote({ student, requester });
-  }
-
-  function handleVote({ votes, student, vote }) {
-    console.log(`${student} voted ${vote ? 'yes' : 'no'}`);
   }
 
   function showZaprosBankiVote({ student, requester }) {
@@ -48,6 +43,7 @@ export const Banki = (state) => {
     const el = document.createElement('section');
     el.id = 'zapros-banki-vote';
 
+    const getVotesEl = () => document.querySelector('#votes');
     const getYesBtn = () => document.querySelector('#yes-btn');
     const getNoBtn = () => document.querySelector('#no-btn');
 
@@ -57,6 +53,7 @@ export const Banki = (state) => {
         <div id="yes-btn">Yes</div>
         <div id="no-btn">No</div>
       </article>
+      <div id="votes"></div>
     `;
 
     setTimeout(() => {
@@ -73,6 +70,19 @@ export const Banki = (state) => {
     function handleNoClick() {
       socket.sendVote({ student: userStudent, vote: false }); 
     }
+
+    socket.addHandler('vote', handleVote);
+
+    function handleVote({ votes, student, vote }) {
+      getVotesEl().innerHTML = ``;
+      for (let stud in votes) {
+        getVotesEl().innerHTML += `
+          ${stud}: ${vote ? 'yes' : 'no'}
+        `;
+      }
+      console.log(`${student} voted ${vote ? 'yes' : 'no'}`);
+    }
+
 
     return el;
   }
