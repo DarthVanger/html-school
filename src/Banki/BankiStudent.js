@@ -21,14 +21,12 @@ export const BankiStudent = ({ student, state }) => {
   el.addEventListener('click', () => handleStudentClick(student));
 
   const handleBanki = (banki) => {
-    for (let student in banki) {
-      const studentBanki = banki[student];
-      getBankiEl().innerHTML = `
-        <div>Earned: ${studentBanki.earned}</div>
-        <div>Smoked: ${studentBanki.smoked}</div>
-      `;
-      
-    }
+    console.log('handle banki:', banki);
+    const studentBanki = banki[student] || {};
+    getBankiEl().innerHTML = `
+      <div>Earned: ${studentBanki.earned}</div>
+      <div>Smoked: ${studentBanki.smoked}</div>
+    `;
   };
 
   socket.addHandler('banki', handleBanki);

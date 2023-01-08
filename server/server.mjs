@@ -46,14 +46,14 @@ const runApp = async () => {
     wsClients.forEach(ws => ws.send(mes));
   }
 
-  let vote;
+  let voteState;
   wss.on('connection', ws => {
-    if (vote?.zaprosBanki) {
-      ws.send(JSON.stringify(vote.zaprosBanki));
+    if (voteState?.zaprosBanki) {
+      ws.send(JSON.stringify(voteState.zaprosBanki));
     }
 
-    if (vote?.lastVoteMsg) {
-      ws.send(JSON.stringify(vote.lastVoteMsg));
+    if (voteState?.lastVoteMsg) {
+      ws.send(JSON.stringify(voteState.lastVoteMsg));
     }
 
     if (!db.data.banki) {
@@ -72,6 +72,17 @@ const runApp = async () => {
       payload: db.data.banki,
     }));
 
+    const giveBanka = (student) => {
+      console.log('giveBanka to student ', student);
+      db.data.banki[student].earned++;
+      db.write();
+      console.log('db.data.banki ', db.data.banki);
+      wsSendAll(JSON.stringify({
+        name: 'banki',
+        payload: db.data.banki,
+      }));
+    };
+
     wsClients.push(ws);
     console.log('wsClients: ', wsClients.length);
     ws.on('message', function message(d) {
@@ -81,7 +92,7 @@ const runApp = async () => {
         const { payload } = data;
         const { student, requester } = payload;
 
-        vote = {
+        voteState = {
           student,
           requester,
           votes: {},
@@ -92,49 +103,51 @@ const runApp = async () => {
           payload,
         };
 
-        vote.zaprosBanki = mes;
+        voteState.zaprosBanki = mes;
         wsSendAll(JSON.stringify(mes));
       }
 
       if (data.name == 'vote') {
         console.log('Received "vote" event', data);
         const { student, vote } = data.payload;
-        vote.votes[student] = vote;
+        voteState.votes[student] = vote;
 
         function isVoteResultYes() {
-          return Object.values(vote.votes).filter(v => v).length > 1;
+          return Object.values(voteState.votes).filter(v => v).length > 1;
         }
 
         function isVoteResultNo() {
-          return Object.values(vote.votes).filter(v => !v).length > 1;
+          return Object.values(voteState.votes).filter(v => !v).length > 1;
         }
 
         function voteEnd({ passed }) {
           console.log('vote end. Passed: ', passed);
           const mes = {
             name: 'voteEnd',
-            payload: { votes: vote.votes, passed },
+            payload: { votes: voteState.votes, passed },
           };
           wsSendAll(JSON.stringify(mes));
 
-          vote = null;
+          console.log('voteState: ', voteState);
+          giveBanka(voteState.student);
+          voteState = null;
         }
 
         const mes = {
           name: 'vote',
-          payload: { votes, student, vote },
+          payload: { votes: voteState.votes, student, vote },
         };
 
-        vote.lastVoteMsg = mes;
+        voteState.lastVoteMsg = mes;
 
         wsSendAll(JSON.stringify(mes));
 
-        if (isVoteResultYes(votes)) {
+        if (isVoteResultYes(voteState.votes)) {
           voteEnd({ passed: true });
           return;
         }
 
-        if (isVoteResultNo(votes)) {
+        if (isVoteResultNo(voteState.votes)) {
           voteEnd({ passed: false });
           return;
         }
