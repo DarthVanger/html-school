@@ -118,11 +118,11 @@ const runApp = async () => {
         voteState.votes[student] = vote;
 
         function isVoteResultYes() {
-          return Object.values(voteState.votes).filter(v => v).length > 1;
+          return Object.values(voteState.votes).filter(v => v).length >= 3;
         }
 
         function isVoteResultNo() {
-          return Object.values(voteState.votes).filter(v => !v).length > 1;
+          return Object.values(voteState.votes).filter(v => !v).length >= 3;
         }
 
         function voteEnd({ passed }) {
