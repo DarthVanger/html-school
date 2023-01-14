@@ -19,7 +19,12 @@ export const BankiStudent = ({ student, state }) => {
 
   `;
 
-  el.addEventListener('click', () => handleStudentClick(student));
+  const ava = el.querySelector('figure');
+  ava.addEventListener('click', () => handleStudentClick(student));
+
+  const handleSmoke = (payload) => {
+    console.log('handleSmoke: ', payload);
+  };
 
   const handleBanki = (banki) => {
     const studentBanki = banki[student] || {};
@@ -40,10 +45,24 @@ export const BankiStudent = ({ student, state }) => {
     `;
   };
 
+  setTimeout(() => {
+    getBankiEl().addEventListener('click', handleBankiClick);
+  });
+
+  function handleBankiClick() {
+    console.log('handleBankiClick');
+    initiateSmoke({ student, requester: userStudent });
+  }
+
   socket.addHandler('banki', handleBanki);
+  socket.addHandler('smoke', handleSmoke);
 
   if (state.banki) {
     handleBanki(state.banki);
+  }
+
+  if (state.smoke) {
+    handleSmoke(state.banki);
   }
 
   function handleStudentClick(student) {
@@ -54,6 +73,12 @@ export const BankiStudent = ({ student, state }) => {
   function initiateZaprosBanki(zapros) {
     socket.requestZaprosBanki(zapros);
   }
+
+  function initiateSmoke(zapros) {
+    socket.requestSmoke(zapros);
+  }
+
+
 
   return el;
 };

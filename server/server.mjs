@@ -47,9 +47,14 @@ const runApp = async () => {
   }
 
   let voteState;
+  let smokeState;
   wss.on('connection', ws => {
     if (voteState?.zaprosBanki) {
       ws.send(JSON.stringify(voteState.zaprosBanki));
+    }
+
+    if (smokeState) {
+      ws.send(JSON.stringify(smokeState));
     }
 
     if (voteState?.lastVoteMsg) {
@@ -153,6 +158,26 @@ const runApp = async () => {
           return;
         }
       }
+
+      if (data.name == 'smoke') {
+        console.log('WS: smoke');
+        const { payload } = data;
+
+        const { student, requester } = payload;
+
+        smokeState = {
+          student,
+          requester,
+        };
+
+        const mes = {
+          name: 'smoke',
+          payload: smokeState,
+        };
+
+        wsSendAll(JSON.stringify(mes));
+      }
+
     });
 
   });
