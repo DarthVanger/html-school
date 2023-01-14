@@ -29,6 +29,14 @@ export const requestZaprosBanki = (payload) => {
   }));
 };
 
+export const requestSmoke = (payload) => {
+  console.log('requestSmoke', payload);
+  socket.send(JSON.stringify({
+    name: 'smoke',
+    payload,
+  }));
+};
+
 export const sendVote = (payload) => {
   socket.send(JSON.stringify({
     name: 'vote',

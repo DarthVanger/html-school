@@ -363,4 +363,15 @@ export const lectures = [
     skills: ['work-process', 'js-objects', 'refactoring', 'physics'],
     url: '#/slides/lesson30',
   },
+  {
+    text: 'Russi4 - Академия Буряка. Гепард. Хз)',
+    items: [
+      'Литучка',
+      'Russi4 - Академия Буряка',
+      'Игра: рефакторенг, показуем Русекку',
+      'Gepard: Зодачу решаем',
+    ],
+    skills: ['js-objects', 'refactoring', 'physics'],
+    url: '#/slides/lesson31',
+  },
 ];
