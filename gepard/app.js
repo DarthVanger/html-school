@@ -1,6 +1,6 @@
 console.log('app.js xuyyyyyyyy');
 
-fps = 1;
+const fps = 1;
 
 const bullet = document.querySelector('#bullet');
 
@@ -15,6 +15,10 @@ const Va = 10;
 // 50px per fps or
 const Vx = 30;
 const Vy = 40;
+
+// Меняем размер клетчатого баг-граунда заданного в CSS )
+// Клетка шириной и длиной нашего шага - нашей скорости)
+document.body.style.backgroundSize = `${Vx}px ${Vy}px`;
 
 const point = {
   x: 300,
