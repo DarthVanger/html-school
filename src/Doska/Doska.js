@@ -26,7 +26,6 @@ export const Doska = (state) => {
   const getLastWeekCodeAcademy = () => {
     let lastWeekCa = {};
     const codeAcademy = state.codeAcademy;
-    console.log('codeAcademy:', codeAcademy);
     for (let student in codeAcademy) {
       for (let ca of codeAcademy[student]) {
         if (!fresherThanWeek(ca.date)) {
@@ -42,9 +41,7 @@ export const Doska = (state) => {
     let ret = {};
     for (let student in codeAcademy) {
       const currentCaPoints = calculateCodeAcademyPoints({ student, codeAcademy });
-      console.log('cur ca points: ', currentCaPoints);
       const lastWeekCaPoints = calculateCodeAcademyPoints({ student, codeAcademy: lastWeekCa });
-      console.log('lastWeekCaPoints ca points: ', lastWeekCaPoints);
 
       ret[student] = currentCaPoints - lastWeekCaPoints;
     }
@@ -65,7 +62,6 @@ export const Doska = (state) => {
 
   const getLastWeekHwByStudent = () => {
     const homeworks = state.questPoints;
-    console.log('homeworks: ', homeworks);
     let lastWeekHwByStudent = {};
     for (let student in homeworks) {
       for (let hw of homeworks[student]) {
@@ -89,12 +85,12 @@ export const Doska = (state) => {
 
   const render = () => {
     const lastWeekHwByStudent = getLastWeekHwByStudent();
-    console.log('lastWeekHwByStudent: ', lastWeekHwByStudent);
+    console.info('Doska: lastWeekHwByStudent: ', lastWeekHwByStudent);
 
     const lastWeekCodeAcademy = getLastWeekCodeAcademy();
 
     let studRows = [];
-    console.log('state.students: ', state.students);
+    console.info('Doska: state.students: ', state.students);
     for (let student of state.students) {
       const studHws = lastWeekHwByStudent[student];
       const studCa = lastWeekCodeAcademy[student] || 0;
@@ -103,7 +99,6 @@ export const Doska = (state) => {
       }, 0) || 0;
       points += studCa;
 
-      console.log('student: ', student, 'points: ', points);
       if (points == 0) continue;
 
       const curLevel = state.levels[student];

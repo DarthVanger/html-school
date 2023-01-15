@@ -14,7 +14,7 @@ socket.onopen = (e) => {
 };
 
 socket.onmessage = (e) => {
-  console.log('sock e.data', e.data);
+  console.debug('socket message: ', e.data);
   const mes = JSON.parse(e.data);
   console.log('sock message', mes);
   const lis = listeners[mes.name];

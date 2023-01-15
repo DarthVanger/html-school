@@ -30,9 +30,9 @@ export const HomePage = (state) => {
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
 
-        ${GeoGebra(state)}
-
         ${Homework(state)}
+
+        ${GeoGebra(state)}
 
         ${Doska(state)}
 
