@@ -115,7 +115,9 @@ const runApp = async () => {
       if (data.name == 'vote') {
         console.log('Received "vote" event', data);
         const { student, vote } = data.payload;
-        voteState.votes[student] = vote;
+	if (voteState?.votes) {
+     	voteState.votes[student] = vote;
+	}
 
         function isVoteResultYes() {
           return Object.values(voteState.votes).filter(v => v).length >= 3;
