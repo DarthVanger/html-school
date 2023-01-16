@@ -3,120 +3,6 @@
 #catacombs {
 }
 
-#catacombs .levels {
-  position: relative;
-}
-
-@keyframes top-down {
-  from {
-    top: 100vh;
-  }
-  to {
-    top: 0;
-  }
-}
-
-@keyframes cur-down {
-  from {
-    top: 0;
-  }
-  to {
-    top: -100vh;
-  }
-}
-
-@keyframes bottom-up {
-  from {
-    top: -100vh;
-  }
-  to {
-    top: 0;
-  }
-}
-
-@keyframes cur-up {
-  from {
-    top: 0;
-  }
-  to {
-    top: 100vh;
-  }
-}
-
-.btn {
-  position: absolute;
-  z-index: 2;
-}
-
-.btn-forward {
-  left: 50%;
-  bottom: 0;
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.btn-forward.show {
-  opacity: 1;
-}
-
-.btn-left {
-  top: 50%;
-  left: 0;
-}
-.btn-right {
-  top: 50%;
-  right: 0;
-}
-
-
-#catacombs .level.left { left: -100vw; top: 0; }
-#catacombs .level.right { right: -100vw; top: 0; }
-#catacombs .levels.top { left: 0; top: -100vh; }
-#catacombs .levels.bottom { left: 0; bottom: -100vh; }
-
-#catacombs .level.cur-down { left: 0; top: 0; animation: cur-down 2s; }
-#catacombs .level.top-down { left: 0; top: 100vh; animation: top-down 2s; }
-
-#catacombs .level.cur-up { left: 0; top: 0; animation: cur-up 2s; }
-#catacombs .level.bottom-up { left: 0; top: 100vh; animation: bottom-up 2s; }
-
-#catacombs .level.cur {
-  color: #eee;
-  display: flex;
-  left: 0;
-}
-
-@keyframes level-text-anim {
-  from {
-    filter: hue-rotate(0deg);
-    opacity: 1;
-  }
-  10% {
-    opacity: 0.7;
-  }
-  20% {
-    opacity: 1;
-  }
-  30% {
-    opacity: 0.5;
-  }
-  30% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 0.8
-  }
-  to {
-    filter: hue-rotate(359deg);
-  }
-}
-
 #catacombs .level-text {
   z-index: 1;
   position: absolute;
@@ -131,21 +17,7 @@
   font-size: 1.5em;
 }
 
-#catacombs .level {
-  left: -200vw;
-  position: absolute;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  letter-spacing: 4px;
-  padding: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #catacombs .level .bg-img {
-  z-index: 1;
 }
 
 #catacombs .level .bg-img,

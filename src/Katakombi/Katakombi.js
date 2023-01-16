@@ -1,12 +1,18 @@
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
-import { Level, nextLevel } from './levels/Level.js';
+import { Level } from './levels/Level.js';
 
-const element = document.createElement('article');
+const element = document.createElement('section');
 element.id = 'catacombs';
 export const Katakombi = (state) => {
 
   element.append(BgImg());
+  element.append(Level({
+    state,
+    level: levels[0],
+    onComplete: () => { console.log('level complete!') },
+  }));
+  //element.append(Level1());
 
   //music();
 
