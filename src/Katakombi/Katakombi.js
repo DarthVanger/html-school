@@ -1,16 +1,6 @@
+import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level, nextLevel } from './levels/Level.js';
-import {
-  TopLeftCorner,
-  TopEnd,
-  TopRightCorner,
-  LeftEnd,
-  Empty,
-  RightEnd,
-  BottomLeftCorner,
-  BottomEnd,
-  BottomRightCorner,
-} from './map.js';
 
 const element = document.createElement('article');
 element.id = 'catacombs';
@@ -50,25 +40,11 @@ export const Katakombi = (state) => {
     btnForward.classList.add('show');
   }
 
-  const map = [
-    [ TopLeftCorner(), TopEnd(), TopEnd(), TopEnd(), TopRightCorner() ],
-    [ LeftEnd(), Empty(), Empty(), Empty(), RightEnd() ],
-    [ LeftEnd(), Empty(), Empty(), Empty(), RightEnd() ],
-    [ LeftEnd(), Empty(), Empty(), Empty(), RightEnd() ],
-    [ BottomLeftCorner(), BottomEnd(), BottomEnd(), BottomEnd(), BottomRightCorner() ],
-  ];
 
 
-  let levelElems = [];
-  const cell = map[0][0];
-  levelsElem.append(cell.left);
-  levelsElem.append(cell.right);
-  levelsElem.append(cell.front);
-  levelsElem.append(cell.back);
+  levelsElem.append(BgImg());
 
-  cell.front.classList.add('cur');
-
-  music();
+  //music();
 
   return element;
 }
