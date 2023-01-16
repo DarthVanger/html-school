@@ -26,38 +26,12 @@ export const Katakombi = (state) => {
   btnForward.className = 'btn btn-forward';
   btnForward.innerHTML = 'forward';
   buttons.append(btnForward);
-  const btnRight = document.createElement('button');
-  btnRight.className = 'btn btn-right';
-  btnRight.innerHTML = 'right';
-  buttons.append(btnRight);
-  const btnLeft = document.createElement('button');
-  btnLeft.className = 'btn btn-left';
-  btnLeft.innerHTML = 'left';
-  buttons.append(btnLeft);
-
-  btnForward.addEventListener('click', moveForward);
-  btnRight.addEventListener('click', moveRight);
-  btnLeft.addEventListener('click', moveLeft);
-
 
   element.append(buttons);
 
   const animTime = 2000;
   let lx = 0;
   let ly = 0;
-
-  function moveDown () {
-    let lcur = ly;
-    ly = (ly + 1) % 3;
-    levelElems[lcur].classList.add('cur-down');
-    levelElems[ly].classList.add('top-down');
-    levelElems[ly].classList.add('cur');
-    setTimeout(() => {
-      levelElems[lcur].classList.remove('cur');
-      levelElems[lcur].classList.remove('cur-down');
-      levelElems[ly].classList.remove('top-down');
-    }, animTime);
-  }
 
   function moveForward () {
     let lcur = ly;
@@ -70,20 +44,6 @@ export const Katakombi = (state) => {
       levelElems[lcur].classList.remove('cur-up');
       levelElems[ly].classList.remove('bottom-up');
     }, animTime);
-  }
-
-  function moveRight () {
-    let lcur = ly;
-    ly = (ly + 1) % 3;
-    levelElems[ly].classList.add('left-right');
-    levelElems[lcur].classList.add('cur-right');
-  }
-
-  function moveLeft () {
-    let lcur = ly;
-    ly = (ly + 1) % 3;
-    levelElems[ly].classList.add('righ-left');
-    levelElems[lcur].classList.add('cur-left');
   }
 
   function onComplete () {
@@ -105,18 +65,6 @@ export const Katakombi = (state) => {
   levelsElem.append(cell.right);
   levelsElem.append(cell.front);
   levelsElem.append(cell.back);
-  /*
-  for (let i=0; i<3; i++) {
-    for (let j=0; j<3; j++) {
-      //const level = Level({ state, level: levels[0], onComplete });
-      const level = map[i][j].left;
-      console.log('level: ', level);
-      levelsElem.append(level);
-      levelElems.push(level);
-    }
-  }
-  levelElems[0].classList.add('cur');
-  */
 
   cell.front.classList.add('cur');
 
