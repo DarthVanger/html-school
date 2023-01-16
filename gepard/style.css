@@ -37,3 +37,31 @@ body {
   background: aqua;
   opacity: 50%;
 }
+
+#line-x-300,
+#line-x-300-text {
+  position: absolute;
+  left: 300;
+  top: 0;
+}
+
+#line-y-400,
+#line-y-400-text {
+  position: absolute;
+  top: 400;
+  left: 0;
+}
+
+#line-x-300 {
+  width: 1px;
+  height: 100vh;
+  border-left: dashed red 2px;
+  bottom: 0;
+}
+
+#line-y-400 {
+  height: 1px;
+  border-top: dashed red 2px;
+  width: 100vw;
+  bottom: 0;
+}
