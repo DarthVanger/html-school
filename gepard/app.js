@@ -39,10 +39,8 @@ console.log('time : ', 10 / fps + 'sec');
 function step() {
   bulletX += Vx;
   bulletY += Vy;
-  const bottomRightCornerX = bulletX - bulletWidth;
-  const bottomRightCornerY = bulletY - bulletHeight;
-  bullet.style.left = bottomRightCornerX + 'px';
-  bullet.style.top = bottomRightCornerY + 'px';
+  bullet.style.left = bulletX + 'px';
+  bullet.style.top = bulletY + 'px';
 }
 
 setInterval(step, 1000 / fps);
