@@ -19,27 +19,9 @@ export const Katakombi = (state) => {
 
   element.append(buttons);
 
-  const animTime = 2000;
-  let lx = 0;
-  let ly = 0;
-
-  function moveForward () {
-    let lcur = ly;
-    ly = (ly + 1) % 3;
-    levelElems[ly].classList.add('bottom-up');
-    levelElems[ly].classList.add('cur');
-    levelElems[lcur].classList.add('cur-up');
-    setTimeout(() => {
-      levelElems[lcur].classList.remove('cur');
-      levelElems[lcur].classList.remove('cur-up');
-      levelElems[ly].classList.remove('bottom-up');
-    }, animTime);
-  }
-
   function onComplete () {
     btnForward.classList.add('show');
   }
-
 
 
   levelsElem.append(BgImg());
