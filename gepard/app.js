@@ -5,8 +5,10 @@ const shahedVx = 10;
 
 const shahed = document.querySelector('#shahed');
 const bullet = document.querySelector('#bullet');
+const circle = document.querySelector('#circle');
 
 let shahedX = 300;
+let circleX = 0;
 let bulletX = 0;
 let bulletY = 0;
 let bulletWidth = 30;
@@ -40,13 +42,24 @@ console.log('screen with is : ', screen.width);
 console.log('steps : ', point.x / Vx);
 console.log('time : ', 10 / fps + 'sec');
 
+let stepNum = 0;
 function step() {
+  stepNum +=1;
   shahedX += shahedVx;
+  circleX += Vx;
   bulletX += Vx;
   bulletY += Vy;
+
   bullet.style.left = bulletX + 'px';
   bullet.style.top = bulletY + 'px';
   shahed.style.left = shahedX + 'px';
+
+  // Calculate speed of the bullet
+  const speed = Math.sqrt(Vx*Vx + Vy*Vy);
+  // Calculate distance bullet traveled
+  const distance = speed * stepNum;
+  // Set circle radius to the distance bullet traveled
+  circle.setAttribute('r', distance);
 }
 
 setInterval(step, 1000 / fps);
