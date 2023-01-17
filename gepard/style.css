@@ -24,20 +24,24 @@ body {
   transform: translate(-50%, -50%);
 }
 
-#xuy4ek {
+#shahed {
+  transform: translate(-50%, -50%);
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 300px;
-  height: 400px;
-  background: aqua;
-  opacity: 50%;
+  left: 300px;
+  top: 400px;
 }
 
 #line-x-300,
 #line-x-300-text {
   position: absolute;
   left: 300;
+  top: 0;
+}
+
+#line-x-400,
+#line-x-400-text {
+  position: absolute;
+  left: 400;
   top: 0;
 }
 
@@ -48,7 +52,8 @@ body {
   left: 0;
 }
 
-#line-x-300 {
+#line-x-300,
+#line-x-400 {
   width: 1px;
   height: 100vh;
   border-left: dashed red 4px;
@@ -63,6 +68,7 @@ body {
 }
 
 #line-x-300-text, 
+#line-x-400-text,
 #line-y-400-text {
   font-size: 24px;
   font-weight: bold;

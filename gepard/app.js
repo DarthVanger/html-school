@@ -1,13 +1,17 @@
 console.log('app.js xuyyyyyyyy');
 
 const fps = 1;
+const shahedVx = 10;
 
+const shahed = document.querySelector('#shahed');
 const bullet = document.querySelector('#bullet');
 
+let shahedX = 300;
 let bulletX = 0;
 let bulletY = 0;
 let bulletWidth = 30;
 let bulletHeight = 30;
+
 
 // 10px per fps
 const Va = 10;
@@ -37,10 +41,12 @@ console.log('steps : ', point.x / Vx);
 console.log('time : ', 10 / fps + 'sec');
 
 function step() {
+  shahedX += shahedVx;
   bulletX += Vx;
   bulletY += Vy;
   bullet.style.left = bulletX + 'px';
   bullet.style.top = bulletY + 'px';
+  shahed.style.left = shahedX + 'px';
 }
 
 setInterval(step, 1000 / fps);
