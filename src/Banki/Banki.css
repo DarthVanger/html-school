@@ -43,13 +43,3 @@
     height: 80vh;
   }
 }
-
-.weed-svg {
-  width: 40px;
-  fill: #066c06;
-  stroke: #15ff37;
-}
-
-.weed-svg.smoked {
-  stroke: #ff8a1d;
-}

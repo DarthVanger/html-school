@@ -74,3 +74,13 @@ figure {
 *::-webkit-scrollbar-thumb {
   background-color: var(--secondary);
 }
+
+.weed-svg {
+  width: 40px;
+  fill: #066c06;
+  stroke: #15ff37;
+}
+
+.weed-svg.smoked {
+  stroke: #ff8a1d;
+}
