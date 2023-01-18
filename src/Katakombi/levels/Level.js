@@ -107,7 +107,6 @@ export const Level = ({ state, level, onComplete }) => {
     if (testResults.every(r => r)) {
       console.log('all tests passed');
       onComplete();
-      el.classList.add('complete');
     } else {
       console.log('not all tests passed');
     }
