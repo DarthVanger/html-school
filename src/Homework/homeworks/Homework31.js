@@ -92,4 +92,9 @@ export const Homework31  = () => `
   Т.е. какие нужно взять Vx и Vy, чтобы попасть во второго Дрона, и при этом 
   <pre><code>sqrt(Vx^2 + Vy^2) = 50</code></pre> ?
 </p>
+
+<figure>
+  <img src="/img/homework/drone2-screen.jpg">
+  <figcaption>Попасти у Дрона</figcaption>
+</figure>
 `;
