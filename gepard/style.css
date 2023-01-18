@@ -31,6 +31,13 @@ body {
   top: 400px;
 }
 
+#drone2 {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 300px;
+  top: 400px;
+}
+
 #line-x-300,
 #line-x-300-text {
   position: absolute;
