@@ -13,15 +13,19 @@ const pingInterval = 5000;
 socket.onopen = (e) => {
   console.info('Websocket open:', e);
   setInterval(sendPing, pingInterval);
+  console.info('Send get_banki_state');
+  sendJSON({
+    name: 'get_banki_state',
+  });
 };
 
 const sendJSON = j => socket.send(JSON.stringify(j));
 
 const sendPing = () => {
-  const student = localhost.getItem('student');
+  const student = localStorage.getItem('student');
   console.info(`Sending ping from ${student}`);
 
-  socket.send({
+  sendJSON({
     name: 'ping',
     payload: {
       student,

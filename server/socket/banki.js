@@ -1,8 +1,13 @@
-import { socket, wsSendAll } from './socket.js';
-
-export const bankiSocketHandler = data => {
+let voteState;
+let smokeState;
+import { db } from '../db/db.js';
+export const bankiSocketHandler = ({
+  data,
+  socket,
+  wsSendAll,
+}) => {
   const { payload } = data;
-
+  
   const handleZaprosBanki = (payload) => {
     const { student, requester } = payload;
     voteState = {
@@ -25,7 +30,7 @@ export const bankiSocketHandler = data => {
 
   }
 
-    if (data.name == 'vote') {
+  if (data.name == 'vote') {
       console.log('Received "vote" event', data);
       const { student, vote } = data.payload;
 if (voteState?.votes) {
@@ -91,5 +96,48 @@ if (voteState?.votes) {
       };
 
       wsSendAll(JSON.stringify(mes));
+    }
+
+    console.log('data: ', data);
+
+    if (data.name == 'get_banki_state') {
+      console.log('Received get_banki_state');
+      if (voteState?.zaprosBanki) {
+        socket.send(JSON.stringify(voteState.zaprosBanki));
+      }
+      if (smokeState) {
+        socket.send(JSON.stringify(smokeState));
+      }
+
+      if (voteState?.lastVoteMsg) {
+        socket.send(JSON.stringify(voteState.lastVoteMsg));
+      }
+
+      if (!db.data.banki) {
+        db.data.banki = {};
+        for (let student of db.data.students) {
+          db.data.banki[student] = {
+            earned: 0,
+            smoked: 0,
+          }
+        }
+      }
+
+      console.log('WS: send banki');
+      socket.send(JSON.stringify({
+        name: 'banki',
+        payload: db.data.banki,
+      }));
+
+      const giveBanka = (student) => {
+        console.log('giveBanka to student ', student);
+        db.data.banki[student].earned++;
+        db.write();
+        console.log('db.data.banki ', db.data.banki);
+        wsSendAll(JSON.stringify({
+          name: 'banki',
+          payload: db.data.banki,
+        }));
+      };
     }
 };

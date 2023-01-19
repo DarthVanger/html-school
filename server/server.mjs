@@ -5,7 +5,7 @@ import { studentsApi } from './studentsApi.js';
 import { homeworkApi } from './homeworkApi.js';
 import { questApi } from './questApi.js';
 import { catacombsApi } from './catacombsApi.js';
-import { socket } from './socket/socket.js';
+import { socket, initSocket } from './socket/socket.js';
 
 import express from 'express'
 const app = express()
@@ -16,6 +16,7 @@ app.use(express.json());
 
 const runApp = async () => {
   await loadDb();
+  await initSocket();
   if (!db.data) db.data = {};
   console.log('Db loaded');
 
