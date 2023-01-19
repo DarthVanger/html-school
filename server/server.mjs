@@ -4,6 +4,7 @@ import { applyMigrations } from './db/migrations/apply.js';
 import { studentsApi } from './studentsApi.js';
 import { homeworkApi } from './homeworkApi.js';
 import { questApi } from './questApi.js';
+import { catacombsApi } from './catacombsApi.js';
 import https from 'https';
 import fs from 'fs';
 import { WebSocketServer } from 'ws';
@@ -203,34 +204,12 @@ app.get('/tree', (req, res) => {
 })
 
 
-app.get('/catacombs', async (req, res) => {
-  console.info(`GET catacombs`);
-  res.json(db.data.catacombs);
-});
-
-app.post('/catacombs', async (req, res) => {
-  console.info(`POST catacombs:`, req.body);
-
-  const { student, levelId, code } = req.body;
-
-  db.data.catacombs = db.data.catacombs || {};
-  db.data.catacombs[student] = db.data.catacombs[student] || {};
-  const studCata = db.data.catacombs[student];
-  const now = new Date();
-  const entry = {
-    date: now.toISOString(),
-    code,
-  };
-  studCata[levelId] = entry;
-
-  await db.write();
-  console.info('DB write Success', entry);
-  res.json(entry);
-});
 
 studentsApi({app, db});
 homeworkApi({app, db});
 questApi({app, db});
+catacombsApi({app, db});
+
 
 (async () => {
   await runApp();
