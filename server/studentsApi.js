@@ -1,4 +1,4 @@
-export const studentsApp = ({app, db}) => {
+export const studentsApi = ({app, db}) => {
   app.get('/students', (req, res) => {
     console.info(`GET /students`);
 

@@ -9,6 +9,7 @@ export const Katakombi = (state) => {
   let level;
 
   const handleLevelComplete = () => {
+    //sendKatakombiLevelComplete({ level, student: state.student });
     nextLevel();
   };
 

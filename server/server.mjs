@@ -1,7 +1,8 @@
 import { db, loadDb } from './db/db.js';
 import { getStats } from './db/stats.js';
 import { applyMigrations } from './db/migrations/apply.js';
-import { studentsApp } from './studentsApp.js';
+import { studentsApi } from './studentsApi.js';
+import { homeworkApi } from './homeworkApi.js';
 import https from 'https';
 import fs from 'fs';
 import { WebSocketServer } from 'ws';
@@ -193,12 +194,6 @@ const runApp = async () => {
   });
 };
 
-//app.get('/homework/:student', (req, res) => {
-//  const { student } = req.params;
-//  const homework = db.data?.homework && db.data.homework[student] || [];
-//  res.json(homework);
-//});
-
 app.get('/tree', (req, res) => {
   console.info('GET /tree');
 
@@ -298,52 +293,8 @@ app.post('/catacombs', async (req, res) => {
   res.json(entry);
 });
 
-app.post('/code-academy', async (req, res) => {
-  console.info(`POST /code-academy`, req.body);
-  const { student, points } = req.body;
-
-  if (!student || !points) {
-    return res.status(400).send('Bad Request');
-  }
-
-  db.data.codeAcademy = db.data.codeAcademy || {};
-  db.data.codeAcademy[student] = db.data.codeAcademy[student] || [];
-  const now = new Date();
-  const entry = {
-    date: now.toISOString(),
-    points,
-  };
-
-  db.data.codeAcademy[student].push(entry);
-
-  await db.write();
-  console.info(`DB write Success. Student: ${student}, points: ${points}`);
-  res.json(entry);
-  res.end();
-});
-
-app.post('/homework/:student', async (req, res) => {
-  const { student } = req.params;
-  console.info(`POST /homework/${student}:`, req.params);
-
-  if (!student) {
-    return res.status(400).send('Bad Request');
-  }
-
-  const entry = JSON.parse(req.body.homework);
-
-  db.data.homework = db.data.homework || {};
-  db.data.homework[student] = db.data.homework[student] || [];
-
-
-  db.data.homework[student].push(entry);
-
-  await db.write();
-  console.info('DB write Success', entry);
-  res.json(entry);
-});
-
-studentsApp({app, db});
+studentsApi({app, db});
+homeworkApi({app, db});
 
 (async () => {
   await runApp();

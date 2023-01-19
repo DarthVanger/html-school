@@ -45,3 +45,10 @@ export const sendVote = (payload) => {
     payload,
   });
 };
+
+export const sendKatakombiLevelComplete = (payload) => {
+  sendJSON({
+    name: 'vote',
+    payload,
+  });
+};
