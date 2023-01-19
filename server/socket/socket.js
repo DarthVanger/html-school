@@ -10,32 +10,32 @@ export function wsSendAll(mes) {
 }
 
 export const initSocket = async () => {
-  let wsClients = [];
+  let wsClients = {};
 
-  const clients = [];
-  const studentsOnline = db.data.students.map(s => ({
-    s: false,
-  }));
+  const studentsOnline = {};
+  for (let student of db.data.students) {
+    studentsOnline[student] = false;
+  }
 
-  const pingSocketHandler = (msg) => {
+  const pingSocketHandler = (msg, ws) => {
+    console.log('pingSocketHandler, msg: ', msg);
     if (msg.name == 'ping') {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
       studentsOnline[student] = true;
+      wsClients[student] = ws;
+      console.log('studentsOnline: ', studentsOnline);
+      console.log('wsClients: ', Object.keys(wsClients));
     }
   };
 
   socket.on('connection', ws => {
-    wsClients.push(ws);
+    ws.on('message', msg => handleWebsocketMessage(msg, ws));
 
-    console.log('wsClients: ', wsClients.length);
-
-    ws.on('message', handleWebsocketMessage);
-
-    function handleWebsocketMessage(d) {
+    function handleWebsocketMessage(d, ws) {
       console.debug('socket received message: %s', d);
       const data = JSON.parse(d);
-      pingSocketHandler(d);
+      pingSocketHandler(data, ws);
       bankiSocketHandler({
         data,
         socket: ws,

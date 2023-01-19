@@ -13,6 +13,7 @@ const pingInterval = 5000;
 socket.onopen = (e) => {
   console.info('Websocket open:', e);
   setInterval(sendPing, pingInterval);
+  sendPing();
   console.info('Send get_banki_state');
   sendJSON({
     name: 'get_banki_state',
