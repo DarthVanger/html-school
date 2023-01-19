@@ -6,7 +6,7 @@ const tests = (f) => [
   },
   {
     name: 'times2(100) returns 200',
-    test: () => f(200) == 200,
+    test: () => f(100) == 200,
   },
   {
     name: 'times2(0) returns 0',

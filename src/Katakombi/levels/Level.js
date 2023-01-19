@@ -19,7 +19,7 @@ export const Level = ({ state, level, onComplete }) => {
       console.log('cata state: ', catacombsState);
       getCode().value = catacombsState[state.student][level.id].code || '';
     } catch (e) {
-      console.error('Failed to fetch catacombs state: ', e);
+      console.log('Failed to fetch catacombs state: ', e);
     }
     getCode().focus();
 

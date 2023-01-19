@@ -5,13 +5,32 @@ import { Level } from './levels/Level.js';
 const element = document.createElement('section');
 element.id = 'catacombs';
 export const Katakombi = (state) => {
+  let levelNum = 0;
+  let level;
+
+  const handleLevelComplete = () => {
+    nextLevel();
+  };
+
+  const nextLevel = () => {
+    level.remove();
+    levelNum++;
+    console.log(`rendering level ${levelNum}`);
+    level = Level({
+      state,
+      level: levels[levelNum],
+      onComplete: handleLevelComplete,
+    });
+    element.append(level);
+  };
 
   element.append(BgImg());
-  element.append(Level({
+  level = Level({
     state,
     level: levels[0],
-    onComplete: () => { console.log('level complete!') },
-  }));
+    onComplete: handleLevelComplete,
+  });
+  element.append(level);
   //element.append(Level1());
 
   //music();
