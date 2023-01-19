@@ -1,5 +1,5 @@
-//const url = `ws://localhost:8080`;
-const url = `ws://napaleon.space`;
+const url = `ws://localhost:8080`;
+//const url = `ws://napaleon.space`;
 
 const listeners = {};
 export const addHandler = (c, f) => {
@@ -8,12 +8,27 @@ export const addHandler = (c, f) => {
 };
 
 const socket = new WebSocket(url);
+const pingInterval = 5000;
 
 socket.onopen = (e) => {
-  console.log('sock open', e);
+  console.info('Websocket open:', e);
+  setInterval(sendPing, pingInterval);
 };
 
 const sendJSON = j => socket.send(JSON.stringify(j));
+
+const sendPing = () => {
+  const student = localhost.getItem('student');
+  console.info(`Sending ping from ${student}`);
+
+  socket.send({
+    name: 'ping',
+    payload: {
+      student,
+    },
+  });
+};
+
 
 socket.onmessage = (e) => {
   console.debug('socket message: ', e.data);

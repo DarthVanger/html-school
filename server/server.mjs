@@ -5,9 +5,7 @@ import { studentsApi } from './studentsApi.js';
 import { homeworkApi } from './homeworkApi.js';
 import { questApi } from './questApi.js';
 import { catacombsApi } from './catacombsApi.js';
-import https from 'https';
-import fs from 'fs';
-import { WebSocketServer } from 'ws';
+import { socket } from './socket/socket.js';
 
 import express from 'express'
 const app = express()
@@ -15,8 +13,6 @@ const port = process.env.port || 8080
 
 app.use(express.static('./'))
 app.use(express.json());
-
-let wsClients = [];
 
 const runApp = async () => {
   await loadDb();
@@ -30,168 +26,11 @@ const runApp = async () => {
     console.log(`HTTP Listening on port ${port}`)
   });
 
-  const clients = [];
-  const wss = new WebSocketServer({ noServer: true });
-
-  //wss.on('request', function(request) {
-  //  const connection = request.accept('any-protocol', request.origin);
-  //  clients.push(connection);
-
-  //  connection.on('message', function(message) {
-  //    //broadcast the message to all the clients
-  //    clients.forEach(function(client) {
-  //      client.send(message.utf8Data);
-  //    });
-  //  });
-  //});
-  //
-  function wsSendAll(mes) {
-    wsClients.forEach(ws => ws.send(mes));
-  }
-
-  let voteState;
-  let smokeState;
-  wss.on('connection', ws => {
-    if (voteState?.zaprosBanki) {
-      ws.send(JSON.stringify(voteState.zaprosBanki));
-    }
-
-    if (smokeState) {
-      ws.send(JSON.stringify(smokeState));
-    }
-
-    if (voteState?.lastVoteMsg) {
-      ws.send(JSON.stringify(voteState.lastVoteMsg));
-    }
-
-    if (!db.data.banki) {
-      db.data.banki = {};
-      for (let student of db.data.students) {
-        db.data.banki[student] = {
-          earned: 0,
-          smoked: 0,
-        }
-      }
-    }
-
-    console.log('WS: send banki');
-    ws.send(JSON.stringify({
-      name: 'banki',
-      payload: db.data.banki,
-    }));
-
-    const giveBanka = (student) => {
-      console.log('giveBanka to student ', student);
-      db.data.banki[student].earned++;
-      db.write();
-      console.log('db.data.banki ', db.data.banki);
-      wsSendAll(JSON.stringify({
-        name: 'banki',
-        payload: db.data.banki,
-      }));
-    };
-
-    wsClients.push(ws);
-    console.log('wsClients: ', wsClients.length);
-    ws.on('message', function message(d) {
-      const data = JSON.parse(d);
-      console.log('received: %s', data);
-      if (data.name == 'zaprosBanki') {
-        const { payload } = data;
-        const { student, requester } = payload;
-
-        voteState = {
-          student,
-          requester,
-          votes: {},
-        };
-
-        const mes = {
-          name: 'zaprosBanki',
-          payload,
-        };
-
-        voteState.zaprosBanki = mes;
-        wsSendAll(JSON.stringify(mes));
-      }
-
-      if (data.name == 'vote') {
-        console.log('Received "vote" event', data);
-        const { student, vote } = data.payload;
-	if (voteState?.votes) {
-     	voteState.votes[student] = vote;
-	}
-
-        function isVoteResultYes() {
-          return Object.values(voteState.votes).filter(v => v).length >= 3;
-        }
-
-        function isVoteResultNo() {
-          return Object.values(voteState.votes).filter(v => !v).length >= 3;
-        }
-
-        function voteEnd({ passed }) {
-          console.log('vote end. Passed: ', passed);
-          const mes = {
-            name: 'voteEnd',
-            payload: { votes: voteState.votes, passed },
-          };
-          wsSendAll(JSON.stringify(mes));
-
-          if (passed) {
-            giveBanka(voteState.student);
-          }
-          voteState = null;
-        }
-
-        const mes = {
-          name: 'vote',
-          payload: { votes: voteState.votes, student, vote },
-        };
-
-        voteState.lastVoteMsg = mes;
-
-        wsSendAll(JSON.stringify(mes));
-
-        if (isVoteResultYes(voteState.votes)) {
-          voteEnd({ passed: true });
-          return;
-        }
-
-        if (isVoteResultNo(voteState.votes)) {
-          voteEnd({ passed: false });
-          return;
-        }
-      }
-
-      if (data.name == 'smoke') {
-        console.log('WS: smoke');
-        const { payload } = data;
-
-        const { student, requester } = payload;
-
-        smokeState = {
-          student,
-          requester,
-        };
-
-        const mes = {
-          name: 'smoke',
-          payload: smokeState,
-        };
-
-        wsSendAll(JSON.stringify(mes));
-      }
-
-    });
-
-  });
-
   // Enable WebSockets
   // https://masteringjs.io/tutorials/express/websockets
-  server.on('upgrade', (request, socket, head) => {
-    wss.handleUpgrade(request, socket, head, socket => {
-      wss.emit('connection', socket, request);
+  server.on('upgrade', (request, ws, head) => {
+    socket.handleUpgrade(request, ws, head, ws => {
+      socket.emit('connection', ws, request);
     });
   });
 };
