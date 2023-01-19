@@ -13,6 +13,8 @@ socket.onopen = (e) => {
   console.log('sock open', e);
 };
 
+const sendJSON = j => socket.send(JSON.stringify(j));
+
 socket.onmessage = (e) => {
   console.debug('socket message: ', e.data);
   const mes = JSON.parse(e.data);
@@ -23,23 +25,23 @@ socket.onmessage = (e) => {
 };
 
 export const requestZaprosBanki = (payload) => {
-  socket.send(JSON.stringify({
+  sendJSON({
     name: 'zaprosBanki',
     payload,
-  }));
+  });
 };
 
 export const requestSmoke = (payload) => {
   console.log('requestSmoke', payload);
-  socket.send(JSON.stringify({
+  sendJSON({
     name: 'smoke',
     payload,
-  }));
+  });
 };
 
 export const sendVote = (payload) => {
-  socket.send(JSON.stringify({
+  sendJSON({
     name: 'vote',
     payload,
-  }));
+  });
 };
