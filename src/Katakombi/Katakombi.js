@@ -1,6 +1,7 @@
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level } from './levels/Level.js';
+import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 
 const element = document.createElement('section');
 element.id = 'catacombs';
@@ -32,6 +33,7 @@ export const Katakombi = (state) => {
     onComplete: handleLevelComplete,
   });
   element.append(level);
+  element.append(OnlineStudents(state));
   //element.append(Level1());
 
   //music();

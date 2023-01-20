@@ -20,6 +20,7 @@
 #catacombs .level .bg-img {
 }
 
+#catacombs .bg-img,
 #catacombs .level .bg-img,
 #catacombs .level video {
   position: absolute;
