@@ -22,7 +22,7 @@ export const bankiSocketHandler = ({
     };
 
     voteState.zaprosBanki = mes;
-    wsSendAll(JSON.stringify(mes));
+    wsSendAll(mes);
   }
 
   if (data.name == 'zaprosBanki') {
@@ -51,7 +51,7 @@ if (voteState?.votes) {
           name: 'voteEnd',
           payload: { votes: voteState.votes, passed },
         };
-        wsSendAll(JSON.stringify(mes));
+        wsSendAll(mes);
 
         if (passed) {
           giveBanka(voteState.student);
@@ -66,7 +66,7 @@ if (voteState?.votes) {
 
       voteState.lastVoteMsg = mes;
 
-      wsSendAll(JSON.stringify(mes));
+      wsSendAll(mes);
 
       if (isVoteResultYes(voteState.votes)) {
         voteEnd({ passed: true });
@@ -95,7 +95,7 @@ if (voteState?.votes) {
         payload: smokeState,
       };
 
-      wsSendAll(JSON.stringify(mes));
+      wsSendAll(mes);
     }
 
     console.log('data: ', data);
@@ -134,10 +134,10 @@ if (voteState?.votes) {
         db.data.banki[student].earned++;
         db.write();
         console.log('db.data.banki ', db.data.banki);
-        wsSendAll(JSON.stringify({
+        wsSendAll({
           name: 'banki',
           payload: db.data.banki,
-        }));
+        });
       };
     }
 };

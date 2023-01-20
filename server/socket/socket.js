@@ -5,13 +5,15 @@ import { WebSocketServer } from 'ws';
 
 export const socket = new WebSocketServer({ noServer: true });
 
+let aliveClients = {};
+
 export function wsSendAll(mes) {
-  wsClients.forEach(ws => ws.send(mes));
+  for (let student in aliveClients) {
+    aliveClients[student].send(JSON.stringify(mes));
+  }
 }
 
 export const initSocket = async () => {
-  let wsClients = {};
-
   const studentsOnline = {};
   for (let student of db.data.students) {
     studentsOnline[student] = false;
@@ -23,9 +25,13 @@ export const initSocket = async () => {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
       studentsOnline[student] = true;
-      wsClients[student] = ws;
+      aliveClients[student] = ws;
       console.log('studentsOnline: ', studentsOnline);
-      console.log('wsClients: ', Object.keys(wsClients));
+      console.log('aliveClients: ', Object.keys(aliveClients));
+      wsSendAll({
+        name: 'online_students',
+        payload: studentsOnline,
+      });
     }
   };
 
@@ -44,3 +50,17 @@ export const initSocket = async () => {
     }
   });
 }
+
+// https://github.com/websockets/ws#how-to-detect-and-close-broken-connections
+const pingInterval = 5000;
+const interval = setInterval(() => {
+  socket.clients.forEach(function each(ws) {
+    const aliveClientsArray = Object.values(aliveClients);
+    const isAlive = aliveClientsArray.includes(ws);
+    if (isAlive === false) return ws.terminate();
+  });
+}, 5000);
+
+socket.on('close', function close() {
+  clearInterval(interval);
+});
