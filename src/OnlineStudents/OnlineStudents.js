@@ -5,6 +5,10 @@ export const OnlineStudents = () => {
   const element = document.createElement('div');
   element.id = 'online-students';
 
+  element.addEventListener('click', () => {
+    element.style.display = 'none';
+  });
+
   const handleOnlineStudents = (payload) => {
     console.log('handleOnlineStudents: ', payload);
     const onlineStudentsMap = payload;
@@ -20,7 +24,6 @@ export const OnlineStudents = () => {
     }
 
     const studentElements = element.querySelectorAll('.student');
-    console.log('studentElements:' , studentElements);
     let idx = 0;
     for (let student in onlineStudentsMap) {
         const isOnline = onlineStudentsMap[student];

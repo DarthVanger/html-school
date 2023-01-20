@@ -1,11 +1,25 @@
 #online-students {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 21;
   display: flex;
   align-items: stretch;
   --border-width: 2px;
+}
+
+#online-students:hover:after {
+  content: 'Закрыть нахуй';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  color: #ff5555;
+  background: black;
+  opacity: 0.8;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 #online-students .student-ava {
@@ -22,11 +36,11 @@
 
 #online-students .student-ava {
   filter: grayscale(100%);
+  transition: all 1s;
 }
 
 #online-students .student-ava.online {
     filter: grayscale(0%);
-    transition: all 1s;
     border: var(--border-width) solid #0cff0c;
     border-radius: 7px;
     box-shadow: 0 0 10px #0cff0c,
