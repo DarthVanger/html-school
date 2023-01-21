@@ -3,6 +3,7 @@ import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level } from './levels/Level.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
+import { Timer } from './Timer.js';
 
 const element = document.createElement('section');
 element.id = 'catacombs';
@@ -43,8 +44,22 @@ export const Katakombi = (state) => {
       vidIntro.remove();
       const vidLevel1 = Video({ src: '/video/katakombi/girl.mp4' });
       element.append(vidLevel1);
+
       setTimeout(() => {
         element.append(level);
+
+        element.append(Timer({
+          min: 5,
+          id: 'level-1-timer',
+          className: 'task-timer',
+        }));
+
+
+        setTimeout(() => {
+          vidLevel1.remove();
+          const vidLevel1End = Video({ src: '/video/katakombi/girl2.mp4' });
+          element.append(vidLevel1End);
+        }, 5 * 60 * 1000);
       }, 23000);
 
     }, 5000);
