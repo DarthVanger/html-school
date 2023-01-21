@@ -5,7 +5,6 @@ import { levels } from './levels.js';
 export const Level = ({ state, level, onComplete }) => {
   const el = document.createElement('article');
   el.className = 'level';
-  el.append(BgImg());
 
   const code = document.createElement('textarea');
   code.className = 'code';

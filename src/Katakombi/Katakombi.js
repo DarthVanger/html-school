@@ -1,3 +1,4 @@
+import { Video } from './Video.js';
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level } from './levels/Level.js';
@@ -26,14 +27,34 @@ export const Katakombi = (state) => {
     element.append(level);
   };
 
-  element.append(BgImg());
   level = Level({
     state,
     level: levels[0],
     onComplete: handleLevelComplete,
   });
-  element.append(level);
+
   element.append(OnlineStudents(state));
+
+  const start = () => {
+    startButton.remove();
+    const vidIntro = Video({ src: '/video/katakombi/zastavka.mp4' });
+    element.append(vidIntro);
+    setTimeout(() => {
+      vidIntro.remove();
+      const vidLevel1 = Video({ src: '/video/katakombi/girl.mp4' });
+      element.append(vidLevel1);
+      setTimeout(() => {
+        element.append(level);
+      }, 23000);
+
+    }, 5000);
+  };
+
+  const startButton = document.createElement('button');
+  startButton.id = 'start-button';
+  startButton.innerHTML = 'Start';
+  startButton.addEventListener('click', start);
+  element.append(startButton);
   //element.append(Level1());
 
   //music();
