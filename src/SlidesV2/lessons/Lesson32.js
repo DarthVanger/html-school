@@ -68,7 +68,7 @@ export const Lesson32 = () => {
 
       <figure>
         <video controls>
-          <source src="/video/lesson32/publish-website-to-internet.mp4"></source>
+          <source src="/video/lesson32/github2.mp4"></source>
         </video>
         <figcaption>
           ДРУГА СПРОБА - ВИЙШЛО - МОЖНА ДИВИТИСЯ
