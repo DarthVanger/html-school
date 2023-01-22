@@ -3,6 +3,7 @@ import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level } from './levels/Level.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
+import { KataHome } from './KataHome.js';
 import { Timer } from './Timer.js';
 
 const element = document.createElement('section');
@@ -37,7 +38,6 @@ export const Katakombi = (state) => {
   element.append(OnlineStudents(state));
 
   const start = () => {
-    startButton.remove();
     const vidIntro = Video({ src: '/video/katakombi/zastavka.mp4' });
     element.append(vidIntro);
     setTimeout(() => {
@@ -65,13 +65,8 @@ export const Katakombi = (state) => {
     }, 5000);
   };
 
-  const startButton = document.createElement('button');
-  startButton.id = 'start-button';
-  startButton.innerHTML = 'Start';
-  startButton.addEventListener('click', start);
-  element.append(startButton);
+  element.append(KataHome({ onStartBtnClick: start }));
   //element.append(Level1());
-
   //music();
 
   return element;
