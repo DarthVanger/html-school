@@ -1,3 +1,4 @@
+import { saveCatacombsState, getCatacombsState } from './api.js';
 import { Video } from './Video.js';
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
@@ -10,6 +11,17 @@ element.id = 'catacombs';
 export const Katakombi = (state) => {
   let levelNum = 0;
   let level;
+  let catacombsState;
+
+  setTimeout(async () => {
+    try {
+      catacombsState = await getCatacombsState();
+    } catch (e) {
+      console.error('Failed to fetch catacombs state: ', e);
+    }
+
+    element.append(KataHome({ catacombsState, onStartBtnClick: start }));
+  });
 
   const handleLevelComplete = () => {
     //sendKatakombiLevelComplete({ level, student: state.student });
@@ -19,7 +31,7 @@ export const Katakombi = (state) => {
   const nextLevel = () => {
     level.remove();
     levelNum++;
-    console.log(`rendering level ${levelNum}`);
+    console.info(`Katakombi: Rendering level #${levelNum}`);
     level = Level({
       state,
       level: levels[levelNum],
@@ -62,7 +74,6 @@ export const Katakombi = (state) => {
     }, 5000);
   };
 
-  element.append(KataHome({ onStartBtnClick: start }));
   //element.append(Level1());
   //music();
 

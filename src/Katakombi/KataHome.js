@@ -1,6 +1,6 @@
 import { KataRating } from './KataRating.js';
 
-export const KataHome = ({ onStartBtnClick }) => {
+export const KataHome = ({ onStartBtnClick, catacombsState }) => {
   const element = document.createElement('div');
   element.id = 'kata-home';
 
@@ -9,7 +9,7 @@ export const KataHome = ({ onStartBtnClick }) => {
     onStartBtnClick();
   }
 
-  element.append(KataRating());
+  element.append(KataRating({ catacombsState }));
 
   const startButton = document.createElement('button');
   startButton.id = 'start-button';
