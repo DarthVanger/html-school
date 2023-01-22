@@ -1,7 +1,13 @@
 export const catacombsApi = ({app, db}) => {
   app.get('/catacombs', async (req, res) => {
     console.info(`GET catacombs`);
-    res.json(db.data.catacombs);
+    const cata = {...db.data.catacombs};
+    for (let stud of db.data.students) {
+      if (!cata[stud]) {
+        cata[stud] = null;
+      }
+    }
+    res.json(cata);
   });
 
   app.post('/catacombs', async (req, res) => {

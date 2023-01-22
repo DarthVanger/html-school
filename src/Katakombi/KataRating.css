@@ -1,0 +1,8 @@
+#kata-rating {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+#kata-rating .student-ava img {
+  width: 100px;
+}

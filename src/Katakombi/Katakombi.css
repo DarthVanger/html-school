@@ -1,4 +1,5 @@
 @import 'levels/Level.css';
+@import 'KataHome.css';
 
 #catacombs #start-button {
   position: absolute;

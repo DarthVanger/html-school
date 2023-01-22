@@ -79,7 +79,7 @@ export const Level = ({ state, level, onComplete }) => {
       levelText.innerHTML += `<div class="status-true">function ${level.id} is defined</div>`;
     } catch (e) {
       if (e.message.match(/f is not a function/)) {
-        console.log('f is mnot a function!');
+        console.debug('Level code check: f is not a function!');
         levelText.innerHTML += `<div class="status-false">function ${level.id} is defined</div>`;
       } else {
         oshibke(e);
@@ -100,13 +100,11 @@ export const Level = ({ state, level, onComplete }) => {
       i++;
     }
 
-    console.log('test results', testResults);
-
     if (testResults.every(r => r)) {
-      console.log('all tests passed');
+      console.info('Level: all tests passed');
       onComplete();
     } else {
-      console.log('not all tests passed');
+      console.debug('Level: Not all tests passed');
     }
   };
 

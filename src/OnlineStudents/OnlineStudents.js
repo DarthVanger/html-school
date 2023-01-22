@@ -10,7 +10,7 @@ export const OnlineStudents = () => {
   });
 
   const handleOnlineStudents = (payload) => {
-    console.log('handleOnlineStudents: ', payload);
+    console.debug('handleOnlineStudents: ', payload);
     const onlineStudentsMap = payload;
     if (!areStudentsRendered) {
       for (let student in onlineStudentsMap) {
