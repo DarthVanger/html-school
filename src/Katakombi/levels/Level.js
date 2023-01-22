@@ -22,7 +22,6 @@ export const Level = ({ state, level, onComplete }) => {
     }
     getCode().focus();
 
-      console.log('add ev lis');
     getCode().addEventListener('keyup', (event) => {
       debouncedCodeCheck(level);
     });
