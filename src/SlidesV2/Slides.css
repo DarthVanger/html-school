@@ -35,6 +35,11 @@
   line-height: 2;
 }
 
+.lesson article p {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 .lesson article figure {
   width: 100%;
   text-align: center;
