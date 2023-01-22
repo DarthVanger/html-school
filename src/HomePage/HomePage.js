@@ -4,7 +4,7 @@ import quests from '../quests/quests/quests.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
 import { Homework } from '../Homework/Homework.js';
-import { GeoGebra } from '../GeoGebra/GeoGebra.js';
+import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 
 export const HomePage = (state) => {
 
@@ -31,8 +31,6 @@ export const HomePage = (state) => {
         </marquee>
 
         ${Homework(state)}
-
-        ${GeoGebra(state)}
 
         ${Doska(state)}
 

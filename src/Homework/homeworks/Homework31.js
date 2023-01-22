@@ -1,3 +1,4 @@
+import { GeoGebra } from '../../GeoGebra/GeoGebra.js';
 import { WeedSvg } from '../../WeedSvg.js';
 
 export const Homework31  = () => `

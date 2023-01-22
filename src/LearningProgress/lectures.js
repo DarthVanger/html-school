@@ -374,4 +374,14 @@ export const lectures = [
     skills: ['js-objects', 'refactoring', 'physics'],
     url: '#/slides/lesson31',
   },
+  {
+    text: 'Гра, паблішим сайт в Інторонет, Гепард - Фізика',
+    items: [
+      'Литучка - Катакомбі',
+      'Паблішим сайти в Інторонети',
+      'Гепард - Фізика - попадаєм в точку та на випередження :)',
+    ],
+    skills: ['js-objects', 'refactoring', 'physics', 'devops'],
+    url: '#/slides/lesson32',
+  },
 ];
