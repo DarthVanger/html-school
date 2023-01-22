@@ -28,7 +28,7 @@ export const Lesson32 = () => {
         <li>English: Prodigy Breath, Coolio Gangsta Paradise</li>
         <li>English Speaking Club: chat in English :) 15 min</li>
         <li>Опублікували Гру в Інторонети!! <a href="https://darthvanger.github.io/ghost-of-kyiv/">https://darthvanger.github.io/ghost-of-kyiv/</a> &mdash; як це робиться &mdash; гугли "Publish website github". Але врахуй, у тебе нема прав доступу до Settings нашого ghost-of-kyiv. Тільки НАПАЛЕОН має доступ до Settings. Тому у тебе вони просто не показуються. Якщо ти створиш свій репозиторій - ти побачиш вкладку Settings і там Pages, і там зможеш опублікувати сайт :)</li>
-        <li>Тоні Опублікував свій сайт в Інторонети!! Перший нах!1 з усіх :) Ні в кого нема більше сайту в Інторнонеті) <a href="https://antonpetlovanyi.github.io/my-personal-website/">&gt;&gt;ССІЛКЕ НА ТОНІ САЙТ&lt;&lt;</li>
+        <li>Тоні Опублікував свій сайт в Інторонети!! Перший нах!1 з усіх :) Ні в кого нема більше сайту в Інторнонеті) <a href="https://antonpetlovanyi.github.io/my-personal-website/">&gt;&gt;ССІЛКЕ НА ТОНІ САЙТ&lt;&lt;</a></li>
       </ol>
 
       <h2>Гепард - Пояснює Тоні і Джоні</h2>
