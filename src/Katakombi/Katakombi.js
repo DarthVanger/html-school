@@ -2,7 +2,6 @@ import { Video } from './Video.js';
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level } from './levels/Level.js';
-import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 import { KataHome } from './KataHome.js';
 import { Timer } from './Timer.js';
 
@@ -34,8 +33,6 @@ export const Katakombi = (state) => {
     level: levels[0],
     onComplete: handleLevelComplete,
   });
-
-  element.append(OnlineStudents(state));
 
   const start = () => {
     const vidIntro = Video({ src: '/video/katakombi/zastavka.mp4' });
