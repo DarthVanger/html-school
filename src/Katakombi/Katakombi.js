@@ -6,10 +6,12 @@ import { Level } from './levels/Level.js';
 import { KataHome } from './KataHome.js';
 import { Timer } from './Timer.js';
 
+let timer;
+
 const element = document.createElement('section');
 element.id = 'catacombs';
 export const Katakombi = (state) => {
-  let levelNum = 0;
+  let levelNum;
   let level;
   let catacombsState;
 
@@ -21,57 +23,74 @@ export const Katakombi = (state) => {
     }
 
     element.append(KataHome({ catacombsState, onStartBtnClick: start }));
+
+    render({ catacombsState });
   });
+
+
+  const render = ({ catacombsState }) => {
+    const studState = catacombsState[state.student];
+    console.info('[Katakombi] student state', studState);
+    levelNum = Object.keys(studState).length - 1;
+    console.info('[Katakombi] student level num', levelNum);
+    level = levels[levelNum];
+  };
 
   const handleLevelComplete = () => {
     //sendKatakombiLevelComplete({ level, student: state.student });
     nextLevel();
   };
 
+  const renderLevel = (level) => {
+    console.info(`[Katakombi] Rendering level id ${level.id}`);
+    const levelElement = Level({
+      state,
+      level,
+      onComplete: handleLevelComplete,
+    });
+    element.append(levelElement);
+
+    timer?.remove();
+
+    timer = Timer({
+      min: 5,
+      id: 'katakombi-level-timer',
+      className: 'task-timer',
+    });
+
+    element.append(timer);
+  };
+
   const nextLevel = () => {
     level.remove();
     levelNum++;
-    console.info(`Katakombi: Rendering level #${levelNum}`);
-    level = Level({
-      state,
-      level: levels[levelNum],
-      onComplete: handleLevelComplete,
-    });
-    element.append(level);
+    level = levels[levelNum];
+    console.info(`[Katakombi] Rendering level #${levelNum}`);
+    renderLevel(level);
   };
 
-  level = Level({
-    state,
-    level: levels[0],
-    onComplete: handleLevelComplete,
-  });
+  const vidIntro = Video({ src: '/video/katakombi/zastavka-loop.mp4' });
+  vidIntro.loop = true;
+
+  const introVidDuration = 5000;
+  element.append(vidIntro);
 
   const start = () => {
-    const vidIntro = Video({ src: '/video/katakombi/zastavka.mp4' });
-    element.append(vidIntro);
+    vidIntro.remove();
+    const vidLevel1 = Video({ src: '/video/katakombi/girl.mp4' });
+    element.append(vidLevel1);
+
     setTimeout(() => {
-      vidIntro.remove();
-      const vidLevel1 = Video({ src: '/video/katakombi/girl.mp4' });
-      element.append(vidLevel1);
+      renderLevel(level);
+
 
       setTimeout(() => {
-        element.append(level);
+        vidLevel1.remove();
+        const vidLevel1End = Video({ src: '/video/katakombi/girl2.mp4' });
+        element.append(vidLevel1End);
 
-        element.append(Timer({
-          min: 5,
-          id: 'level-1-timer',
-          className: 'task-timer',
-        }));
-
-
-        setTimeout(() => {
-          vidLevel1.remove();
-          const vidLevel1End = Video({ src: '/video/katakombi/girl2.mp4' });
-          element.append(vidLevel1End);
-        }, 5 * 60 * 1000);
-      }, 23000);
-
-    }, 5000);
+      }, 5 * 60 * 1000);
+    }, 23000);
   };
 
   //element.append(Level1());
