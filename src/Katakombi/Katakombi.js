@@ -14,6 +14,7 @@ export const Katakombi = (state) => {
   let levelNum;
   let level;
   let catacombsState;
+  let kataHome;
 
   setTimeout(async () => {
     try {
@@ -22,7 +23,8 @@ export const Katakombi = (state) => {
       console.error('Failed to fetch catacombs state: ', e);
     }
 
-    element.append(KataHome({ catacombsState, onStartBtnClick: start }));
+    kataHome = KataHome({ catacombsState, onStartBtnClick: start });
+    element.append(kataHome);
 
     render({ catacombsState });
   });
@@ -75,23 +77,34 @@ export const Katakombi = (state) => {
   const introVidDuration = 5000;
   element.append(vidIntro);
 
-  const start = () => {
+  const wait = async (t) => new Promise(resolve => setTimeout(resolve, t));
+
+  const start = async () => {
+    vidIntro.classList.add('fade-out');
+    kataHome.classList.add('fade-out');
+    console.log('FADE OUT');
+    await wait(5000);
     vidIntro.remove();
-    const vidLevel1 = Video({ src: '/video/katakombi/girl.mp4' });
-    element.append(vidLevel1);
+    console.log('APEND VID');
+    const levelVid = Video({ src: '/video/katakombi/girl.mp4' });
+    levelVid.classList.add('fade-in');
+    element.append(levelVid);
+    await wait(5000);
+
+    vidIntro.remove();
 
     setTimeout(() => {
       renderLevel(level);
 
-
       setTimeout(() => {
-        vidLevel1.remove();
+        levelVid.remove();
         const vidLevel1End = Video({ src: '/video/katakombi/girl2.mp4' });
         element.append(vidLevel1End);
 
       }, 5 * 60 * 1000);
     }, 23000);
   };
+
 
   //element.append(Level1());
   //music();
