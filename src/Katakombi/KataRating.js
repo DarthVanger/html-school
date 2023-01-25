@@ -22,9 +22,9 @@ export const KataRating = ({ catacombsState }) => {
         </figure>
       `;
 
-      const completionDate = catacombsState[student] ? catacombsState[student][level.id] : null;
+      const isComplete = catacombsState[student] ? catacombsState[student][level.id]?.isComplete : false;
 
-      if (completionDate) {
+      if (isComplete) {
         element.innerHTML += ava;
       } else {
         element.innerHTML += `<div>xuy</div>`;

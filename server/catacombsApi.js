@@ -13,7 +13,7 @@ export const catacombsApi = ({app, db}) => {
   app.post('/catacombs', async (req, res) => {
     console.info(`POST catacombs:`, req.body);
 
-    const { student, levelId, code } = req.body;
+    const { student, levelId, code, isComplete } = req.body;
 
     db.data.catacombs = db.data.catacombs || {};
     db.data.catacombs[student] = db.data.catacombs[student] || {};
@@ -22,6 +22,7 @@ export const catacombsApi = ({app, db}) => {
     const entry = {
       date: now.toISOString(),
       code,
+      isComplete,
     };
     studCata[levelId] = entry;
 

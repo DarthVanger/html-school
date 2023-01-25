@@ -50,15 +50,6 @@ export const Level = ({ state, level, onComplete }) => {
     getLevelText()?.remove();
     const levelText = document.createElement('div');
     let f;
-
-    if (code) {
-      saveCatacombsState({
-        student: state.student,
-        code,
-        levelId: level.id,
-      });
-    }
-
     levelText.className = 'level-text';
 
     el.append(levelText);
@@ -100,12 +91,25 @@ export const Level = ({ state, level, onComplete }) => {
       i++;
     }
 
+    let isTaskComplete;
     if (testResults.every(r => r)) {
       console.info('Level: all tests passed');
+      isTaskComplete = true;
       onComplete();
     } else {
+      isTaskComplete = false;
       console.debug('Level: Not all tests passed');
     }
+
+    if (code) {
+      saveCatacombsState({
+        student: state.student,
+        code,
+        levelId: level.id,
+        isComplete: isTaskComplete,
+      });
+    }
+
   };
 
   renderTests('');
