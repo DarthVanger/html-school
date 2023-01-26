@@ -7,7 +7,8 @@ import { KataHome } from './KataHome.js';
 import { Timer } from './Timer.js';
 import { levelVideos } from './levelVideos.js';
 
-const fadeDuration = 5000;
+//const fadeDuration = 5000;
+const fadeDuration = 1000;
 
 let timer;
 
@@ -42,7 +43,7 @@ export const Katakombi = (state) => {
     const studState = catacombsState[state.student];
     console.info('[Katakombi] student state', studState);
     if (!studState) return 0;
-    const completed = Object.keys(studState).filter(x => x.isComplete);
+    const completed = Object.keys(studState).filter(x => studState[x].isComplete);
     return completed.length;
   };
 
@@ -50,7 +51,6 @@ export const Katakombi = (state) => {
     levelNum = getStudLevelNum();
     console.info('[Katakombi] student level num', levelNum);
     level = levels[levelNum];
-    levelVid = levelVideos[levelNum];
   };
 
   const handleLevelComplete = async () => {
@@ -60,10 +60,10 @@ export const Katakombi = (state) => {
     levelVid.startVid.classList.add('fade-out');
     await wait(fadeDuration);
 
-    const vid = Video({ src: levelVid.endVid.src });
+    const vid = Video({ src: levelVideos[levelNum].endVid.src });
     vid.classList.add('fade-in');
     element.append(vid);
-    await wait(levelVid.endVid.duration - 5000);
+    await wait(levelVideos[levelNum].endVid.duration - 5000);
     vid.classList.add('fade-out');
     await wait(fadeDuration);
     nextLevel();
@@ -95,13 +95,13 @@ export const Katakombi = (state) => {
       introVid.remove();
     }
 
-    const video = Video({ src: levelVid.startVid.src });
+    levelVid = Video({ src: levelVideos[levelNum].startVid.src });
 
-    element.append(video);
-    video.classList.add('fade-in');
-    video.play();
+    element.append(levelVid);
+    levelVid.classList.add('fade-in');
+    levelVid.play();
 
-    await wait(levelVid.startVid.duration);
+    await wait(levelVideos[levelNum].startVid.duration);
 
     element.append(levelElement);
 
@@ -118,7 +118,6 @@ export const Katakombi = (state) => {
     levelElement.remove();
     levelNum++;
     level = levels[levelNum];
-    levelVid = levelVideos[levelNum];
 
     console.info(`[Katakombi] Rendering level #${levelNum}`);
     renderLevel(level);

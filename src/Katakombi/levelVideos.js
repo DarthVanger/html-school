@@ -7,4 +7,10 @@ export const levelVideos = [
     startVid: { src: '/video/katakombi/02-visioner-convulsions.mp4', duration: 15020 },
     endVid: { src: '/video/katakombi/02-visioner-ghosts.mp4', duration: 32030 },
   }
-];
+].map(x => (
+  {
+    ...x,
+    startVid: {...x.startVid, duration: 1000 },
+    endVid: {...x.endVid, duration: 1000 }
+  })
+);
