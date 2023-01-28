@@ -1,16 +1,15 @@
 export const levelVideos = [
-  {
-    startVid: { src: '/video/katakombi/01-lock.mp4', duration: 33030 },
-    endVid: { src:'/video/katakombi/01-entrance.mp4', duration: 32030 },
-  },
-  {
-    startVid: { src: '/video/katakombi/02-visioner-convulsions.mp4', duration: 15020 },
-    endVid: { src: '/video/katakombi/02-visioner-ghosts.mp4', duration: 32030 },
-  }
-].map(x => (
-  {
-    ...x,
-    startVid: {...x.startVid, duration: 1000 },
-    endVid: {...x.endVid, duration: 1000 }
-  })
-);
+  '01-lock.mp4',
+  '02-entrance.mp4',
+  '02-visioner-ghosts.mp4',
+  '03-visioner-convulsions.mp4',
+  '04-visioner-ghosts.mp4',
+  '05-visioner-spit.mp4',
+  '06-lawyer-visits-ghosts.mp4',
+  '07-lawyer-visits-ghosts.mp4',
+  '08-lawyer-visits-ghosts.mp4',
+  '09-lawyer-sees-girl.mp4',
+  '10-lawyer-dies.mp4',
+  '11-girl-bathroom-start.mp4',
+  '12-girl-bathroom-with-ghost.mp4',
+];

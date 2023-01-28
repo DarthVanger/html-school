@@ -57,10 +57,9 @@ export const Katakombi = (state) => {
     //sendKatakombiLevelComplete({ level, student: state.student });
 
 
-    levelVid.startVid.classList.add('fade-out');
-    await wait(fadeDuration);
+    levelVid.remove();
 
-    const vid = Video({ src: levelVideos[levelNum].endVid.src });
+    const vid = Video({ src: levelVideos[levelNum] });
     vid.classList.add('fade-in');
     element.append(vid);
     await wait(levelVideos[levelNum].endVid.duration - 5000);
