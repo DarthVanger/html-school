@@ -1,7 +1,14 @@
 import { getCatacombsState } from './api.js';
 import { KataRating } from './KataRating.js';
 
-export const KataHome = ({ onStartBtnClick }) => {
+export const getStudLevelNum = (studState) => {
+  console.info('[Katakombi] student state', studState);
+  if (!studState) return 0;
+  const completed = Object.keys(studState).filter(x => studState[x].isComplete);
+  return completed.length;
+};
+
+export const KataHome = ({ state, onStartBtnClick }) => {
   const element = document.createElement('div');
   element.id = 'kata-home';
 
@@ -31,7 +38,7 @@ export const KataHome = ({ onStartBtnClick }) => {
 
     const startButton = document.createElement('button');
     startButton.id = 'start-button';
-    startButton.innerHTML = 'Start';
+    startButton.innerHTML = `Start level #${getStudLevelNum(catacombsState[state.student])}`;
 
     startButton.addEventListener('click', () => {
       startButton.remove();

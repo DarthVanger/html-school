@@ -2,7 +2,7 @@ import { Video } from './Video.js';
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
 import { Level } from './levels/Level.js';
-import { KataHome } from './KataHome.js';
+import { KataHome, getStudLevelNum } from './KataHome.js';
 import { Timer } from './Timer.js';
 import { levelVideos } from './levelVideos.js';
 
@@ -34,21 +34,13 @@ export const Katakombi = (state) => {
   let kataHome;
   let levelElement;
 
-  const getStudLevelNum = () => {
-    const studState = catacombsState[state.student];
-    console.info('[Katakombi] student state', studState);
-    if (!studState) return 0;
-    const completed = Object.keys(studState).filter(x => studState[x].isComplete);
-    return completed.length;
-  };
-
   const renderKataHome = () => {
     introVid = Video({ src: '/video/katakombi/zastavka-loop.mp4' });
     introVid.loop = true;
     element.append(introVid);
     introVid.play();
 
-    kataHome = KataHome({ onStartBtnClick: handleStartGameClick });
+    kataHome = KataHome({ state, onStartBtnClick: handleStartGameClick });
     element.append(kataHome);
   };
 
@@ -101,7 +93,6 @@ export const Katakombi = (state) => {
     introVid.classList.add('fade-out');
     const fadeDuration = 2000;
 
-
     setTimeout(() => {
       kataHome.remove();
       introVid.remove();
@@ -110,7 +101,7 @@ export const Katakombi = (state) => {
       renderLevel(level);
     }, fadeDuration);
 
-    levelNum = getStudLevelNum();
+    levelNum = getStudLevelNum(catacombsState[state.student]);
     level = levels[levelNum];
 
   };
