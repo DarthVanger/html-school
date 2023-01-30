@@ -81,17 +81,35 @@
 }
 
 .fade-out {
-  animation: fade-in 5s linear reverse backwards!important;
+  animation: fade-in 2s linear reverse backwards!important;
   animation-delay: 0;
 }
 
 #kata-home {
   opacity: 0;
   animation: fade-in 2s linear forwards;
-  animation-delay: 3.5s;
 }
 
 .fade-in {
   opacity: 0;
-  animation: fade-in 5s forwards;
+  animation: fade-in 2s forwards;
+}
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: red;
+  opacity: 0.5;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#kata-start-image {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
 }

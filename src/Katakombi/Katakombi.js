@@ -1,4 +1,3 @@
-import { saveCatacombsState, getCatacombsState } from './api.js';
 import { Video } from './Video.js';
 import { BgImg } from './levels/BgImg.js';
 import { levels } from './levels/levels.js';
@@ -7,37 +6,33 @@ import { KataHome } from './KataHome.js';
 import { Timer } from './Timer.js';
 import { levelVideos } from './levelVideos.js';
 
-//const fadeDuration = 5000;
-const fadeDuration = 1000;
-
 let timer;
 
-const element = document.createElement('section');
-element.id = 'catacombs';
+const wait = async (t) => new Promise(resolve => setTimeout(resolve, t));
+
 export const Katakombi = (state) => {
+  const element = document.createElement('section');
+  element.id = 'catacombs';
+
+  const startImg = document.createElement('img');
+  startImg.src = '/img/napaleon.jpg';
+  startImg.id = 'kata-start-image';
+
+  startImg.addEventListener('click', () => {
+    startImg.remove();
+    renderKataHome();
+  });
+
+  element.append(startImg);
+
+  let catacombsState;
+  let introVid;
   let levelNum = 0;
   let level;
   let levelVid;
-  let catacombsState;
+  let levelVidElement;
   let kataHome;
   let levelElement;
-
-  const introVid = Video({ src: '/video/katakombi/zastavka-loop.mp4' });
-  introVid.loop = true;
-  element.append(introVid);
-
-  setTimeout(async () => {
-    try {
-      catacombsState = await getCatacombsState();
-    } catch (e) {
-      console.error('Failed to fetch catacombs state: ', e);
-    }
-
-    kataHome = KataHome({ catacombsState, onStartBtnClick: start });
-    element.append(kataHome);
-
-    render({ catacombsState });
-  });
 
   const getStudLevelNum = () => {
     const studState = catacombsState[state.student];
@@ -47,31 +42,30 @@ export const Katakombi = (state) => {
     return completed.length;
   };
 
-  const render = ({ catacombsState }) => {
-    levelNum = getStudLevelNum();
-    console.info('[Katakombi] student level num', levelNum);
-    level = levels[levelNum];
+  const renderKataHome = () => {
+    introVid = Video({ src: '/video/katakombi/zastavka-loop.mp4' });
+    introVid.loop = true;
+    element.append(introVid);
+    introVid.play();
+
+    kataHome = KataHome({ onStartBtnClick: handleStartGameClick });
+    element.append(kataHome);
   };
 
   const handleLevelComplete = async () => {
+    console.info(`[Katakombi] handleLevelComplete for level #${levelNum}, id ${level.id}`);
     //sendKatakombiLevelComplete({ level, student: state.student });
 
+    levelVidElement.remove();
+    levelElement.remove();
+    levelNum++;
+    level = levels[levelNum];
 
-    levelVid.remove();
-
-    const vid = Video({ src: levelVideos[levelNum] });
-    vid.classList.add('fade-in');
-    element.append(vid);
-    await wait(levelVideos[levelNum].endVid.duration - 5000);
-    vid.classList.add('fade-out');
-    await wait(fadeDuration);
-    nextLevel();
+    renderLevel(level);
   };
 
-  const wait = async (t) => new Promise(resolve => setTimeout(resolve, t));
-
   const renderLevel = async (level) => {
-    console.info(`[Katakombi] Rendering level id ${level.id}`);
+    console.info(`[Katakombi] Rendering level id ${level.id}, num=${levelNum}`);
 
     timer?.remove();
 
@@ -81,26 +75,14 @@ export const Katakombi = (state) => {
       onComplete: handleLevelComplete,
     });
 
-    if (kataHome) {
-      kataHome.classList.add('fade-out');
-      setTimeout(() => {
-        kataHome.remove();
-      }, fadeDuration);
-    }
+    levelVid = levelVideos[levelNum];
+    levelVidElement = Video({ src: levelVid.src });
+    levelVidElement.classList.add('fade-in');
 
-    if (levelNum === 0) {
-      introVid.classList.add('fade-out');
-      await wait(fadeDuration);
-      introVid.remove();
-    }
+    element.append(levelVidElement);
+    levelVidElement.play();
 
-    levelVid = Video({ src: levelVideos[levelNum].startVid.src });
-
-    element.append(levelVid);
-    levelVid.classList.add('fade-in');
-    levelVid.play();
-
-    await wait(levelVideos[levelNum].startVid.duration);
+    await wait(levelVid.duration * 1000);
 
     element.append(levelElement);
 
@@ -113,22 +95,27 @@ export const Katakombi = (state) => {
     element.append(timer);
   };
 
-  const nextLevel = () => {
-    levelElement.remove();
-    levelNum++;
+  const handleStartGameClick = ({ catacombsState: cs }) => {
+    catacombsState = cs;
+    kataHome.classList.add('fade-out');
+    introVid.classList.add('fade-out');
+    const fadeDuration = 2000;
+
+
+    setTimeout(() => {
+      kataHome.remove();
+      introVid.remove();
+
+      console.info('[Katakombi] Start level num', levelNum);
+      renderLevel(level);
+    }, fadeDuration);
+
+    levelNum = getStudLevelNum();
     level = levels[levelNum];
 
-    console.info(`[Katakombi] Rendering level #${levelNum}`);
-    renderLevel(level);
   };
 
 
-  const start = async () => {
-    renderLevel(level);
-  };
-
-
-  //element.append(Level1());
   //music();
 
   return element;
