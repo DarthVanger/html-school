@@ -1,6 +1,12 @@
 @import 'levels/Level.css';
 @import 'KataHome.css';
 
+#catacombs {
+  font-family: BloodyTerror;
+  --blood: #ff00009c;
+  color: var(--blood);
+}
+
 #catacombs #start-button {
   position: absolute;
   top: 50%;
@@ -8,9 +14,6 @@
   transform: translate(-50%, -50%);
   z-index: 22;
   padding : 0.5em;
-}
-
-#catacombs {
 }
 
 #catacombs .level-text {
@@ -95,21 +98,35 @@
   animation: fade-in 2s forwards;
 }
 
-.overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: red;
-  opacity: 0.5;
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #kata-start-image {
   width: 100vw;
   height: 100vh;
   max-width: 100vw;
   max-height: 100vh;
   object-fit: cover;
+}
+
+#catacombs .overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  letter-spacing: 24px;
+  line-height: 3;
+}
+
+#kata-home .overlay {
+  background: black;
+  opacity: 0.5;
+}
+
+.kata-hint {
+  position: absolute;
+  bottom: 1em;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
 }

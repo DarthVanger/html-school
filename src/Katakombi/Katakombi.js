@@ -5,6 +5,7 @@ import { Level } from './levels/Level.js';
 import { KataHome, getStudLevelNum } from './KataHome.js';
 import { Timer } from './Timer.js';
 import { levelVideos } from './levelVideos.js';
+import { StartScreen } from './StartScreen.js';
 
 let timer;
 
@@ -14,16 +15,14 @@ export const Katakombi = (state) => {
   const element = document.createElement('section');
   element.id = 'catacombs';
 
-  const startImg = document.createElement('img');
-  startImg.src = '/img/napaleon.jpg';
-  startImg.id = 'kata-start-image';
-
-  startImg.addEventListener('click', () => {
-    startImg.remove();
+  const showKataHome = () => {
+    startScreen.remove();
     renderKataHome();
-  });
+  };
 
-  element.append(startImg);
+  const startScreen = StartScreen({ onClick: showKataHome });
+  element.append(startScreen);
+
 
   let catacombsState;
   let introVid;
