@@ -7,18 +7,11 @@ export const getStudLevelNum = (studState) => {
   return completed.length;
 };
 
-
 export const KataRating = ({ state, catacombsState }) => {
   const element = document.createElement('article');
   element.id = 'kata-rating';
 
   const studLvlNum = getStudLevelNum(catacombsState[state.student]);
-
-  const Row = () => {
-    const el = document.createElement('div');
-    el.className = 'level-row';
-    return el;
-  }
 
   let lvlIdx = 0;
   for (let level of levels) {
@@ -26,11 +19,8 @@ export const KataRating = ({ state, catacombsState }) => {
     cell.innerHTML = `№${lvlIdx}`
     element.append(cell);
     if (lvlIdx == studLvlNum) {
-      console.log('add cl to el : ', element);
       cell.classList.add('next-lvl');
     }
-    //const row = Row();
-    //element.append(row);
 
     for (let student in catacombsState) {
       const ava = `
