@@ -5,9 +5,9 @@ export const Video = ({src}) => {
   `;
   element.className = 'bg-img';
 
-  setTimeout(() => {
-    element.play();
-  });
+  //setTimeout(() => {
+  //  element.play();
+  //});
 
   return element;
 };

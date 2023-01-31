@@ -11,21 +11,30 @@ let timer;
 
 const wait = async (t) => new Promise(resolve => setTimeout(resolve, t));
 
+const fadeDuration = 2000;
+
 export const Katakombi = (state) => {
   const element = document.createElement('section');
   element.id = 'catacombs';
 
+  let introVid;
+
+  introVid = Video({ src: '/video/katakombi/zastavka.mp4' });
+  element.append(introVid);
+
   const showKataHome = () => {
-    startScreen.remove();
+    startScreen.classList.add('fade-out');
+    setTimeout(() => {
+      startScreen.remove();
+    }, fadeDuration);
+    introVid.play();
     renderKataHome();
   };
 
   const startScreen = StartScreen({ onClick: showKataHome });
   element.append(startScreen);
 
-
   let catacombsState;
-  let introVid;
   let levelNum = 0;
   let level;
   let levelVid;
@@ -34,11 +43,6 @@ export const Katakombi = (state) => {
   let levelElement;
 
   const renderKataHome = () => {
-    introVid = Video({ src: '/video/katakombi/zastavka-loop.mp4' });
-    introVid.loop = true;
-    element.append(introVid);
-    introVid.play();
-
     kataHome = KataHome({ state, onStartBtnClick: handleStartGameClick });
     element.append(kataHome);
   };
@@ -90,7 +94,6 @@ export const Katakombi = (state) => {
     catacombsState = cs;
     kataHome.classList.add('fade-out');
     introVid.classList.add('fade-out');
-    const fadeDuration = 2000;
 
     setTimeout(() => {
       kataHome.remove();

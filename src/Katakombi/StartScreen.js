@@ -1,12 +1,7 @@
 export const StartScreen = ({ onClick }) => {
   const element = document.createElement('div');
-  const startImg = document.createElement('img');
-  startImg.src = '/img/katakombi/zastavka.jpeg';
-  startImg.id = 'kata-start-image';
 
   element.addEventListener('click', onClick);
-
-  element.append(startImg);
 
   const textOverlay = document.createElement('div');
   textOverlay.className = 'overlay';
