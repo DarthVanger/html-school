@@ -1,8 +1,18 @@
 import { levels } from './levels/levels.js';
 
-export const KataRating = ({ catacombsState }) => {
+export const getStudLevelNum = (studState) => {
+  console.info('[Katakombi] student state', studState);
+  if (!studState) return 0;
+  const completed = Object.keys(studState).filter(x => studState[x].isComplete);
+  return completed.length;
+};
+
+
+export const KataRating = ({ state, catacombsState }) => {
   const element = document.createElement('article');
   element.id = 'kata-rating';
+
+  const studLvlNum = getStudLevelNum(catacombsState[state.student]);
 
   const Row = () => {
     const el = document.createElement('div');
@@ -10,8 +20,15 @@ export const KataRating = ({ catacombsState }) => {
     return el;
   }
 
+  let lvlIdx = 0;
   for (let level of levels) {
-    element.innerHTML += `<div>${level.id}</div>`;
+    const cell = document.createElement('div');
+    cell.innerHTML = `№${lvlIdx}`
+    element.append(cell);
+    if (lvlIdx == studLvlNum) {
+      console.log('add cl to el : ', element);
+      cell.classList.add('next-lvl');
+    }
     //const row = Row();
     //element.append(row);
 
@@ -31,6 +48,8 @@ export const KataRating = ({ catacombsState }) => {
       }
 
     }
+
+    lvlIdx++;
   }
 
   return element;
