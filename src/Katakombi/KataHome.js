@@ -36,9 +36,9 @@ export const KataHome = ({ state, onStartBtnClick }) => {
 
     element.append(KataRating({ catacombsState }));
 
-    const startButton = document.createElement('button');
+    const startButton = document.createElement('div');
     startButton.id = 'start-button';
-    startButton.innerHTML = `Start level #${getStudLevelNum(catacombsState[state.student])}`;
+    startButton.innerHTML = `/7O4ATU 3ABDAHH9| №${getStudLevelNum(catacombsState[state.student])}`;
 
     startButton.addEventListener('click', () => {
       startButton.remove();

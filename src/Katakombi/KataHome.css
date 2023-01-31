@@ -1,1 +1,13 @@
 @import 'KataRating.css';
+
+#kata-home #start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 22;
+  padding: 0.5em;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+}
+
