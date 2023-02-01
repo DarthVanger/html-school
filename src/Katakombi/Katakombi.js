@@ -18,6 +18,7 @@ export const Katakombi = (state) => {
   const element = document.createElement('section');
   element.id = 'catacombs';
 
+  let kataHome;
   let wasStartGameClicked = false;
 
   const introVidDuration = 5000;
@@ -27,6 +28,7 @@ export const Katakombi = (state) => {
   element.append(introVid);
 
   const showKataHome = () => {
+    if (kataHome) return;
     startScreen.classList.add('fade-out');
     setTimeout(() => {
       startScreen.classList.add('fade-out');
@@ -53,7 +55,6 @@ export const Katakombi = (state) => {
   let level;
   let levelVid;
   let levelVidElement;
-  let kataHome;
   let levelElement;
 
   const renderKataHome = () => {

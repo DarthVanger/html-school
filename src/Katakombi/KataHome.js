@@ -34,7 +34,8 @@ export const KataHome = ({ state, onStartBtnClick }) => {
     startButton.id = 'start-button';
     startButton.innerHTML = `/7O4ATU 3ABDAHH9| №${getStudLevelNum(catacombsState[state.student])}`;
 
-    startButton.addEventListener('click', () => {
+    startButton.addEventListener('click', function handleClick () {
+      startButton.removeEventListener('click', handleClick);
       fadeOut(startButton)
       onStartBtnClick({ catacombsState });
     });
