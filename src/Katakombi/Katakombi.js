@@ -18,6 +18,8 @@ export const Katakombi = (state) => {
   const element = document.createElement('section');
   element.id = 'catacombs';
 
+  let wasStartGameClicked = false;
+
   const introVidDuration = 5000;
   const introVid = Video({ src: '/video/katakombi/zastavka.mp4' });
   const wallsVid = Video({ src: '/video/katakombi/building-footage.mp4' });
@@ -31,6 +33,7 @@ export const Katakombi = (state) => {
     }, fadeDuration);
     introVid.play();
     setTimeout(() => {
+      if (wasStartGameClicked) return;
       introVid.classList.add('fade-out');
       setTimeout(() => introVid.remove(), fadeDuration);
       element.append(wallsVid);
@@ -101,13 +104,16 @@ export const Katakombi = (state) => {
   };
 
   const handleStartGameClick = ({ catacombsState: cs }) => {
+    wasStartGameClicked = true;
     catacombsState = cs;
     kataHome.classList.add('fade-out');
     introVid.classList.add('fade-out');
+    wallsVid.classList.add('fade-out');
 
     setTimeout(() => {
       kataHome.remove();
       introVid.remove();
+      wallsVid.remove();
 
       console.info('[Katakombi] Start level num', levelNum);
       renderLevel(level);
