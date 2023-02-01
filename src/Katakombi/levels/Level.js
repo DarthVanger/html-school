@@ -74,7 +74,7 @@ export const Level = ({ state, level, onComplete }) => {
     }
 
     try {
-      f();
+      level.tests(f)[0].test();
       levelText.innerHTML += `<div class="status-true">function ${level.id} is defined</div>`;
     } catch (e) {
       if (e.message.match(/f is not a function/)) {
