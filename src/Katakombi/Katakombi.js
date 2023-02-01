@@ -41,6 +41,7 @@ export const Katakombi = (state) => {
       setTimeout(() => introVid.remove(), fadeDuration);
       element.append(wallsVid);
       wallsVid.classList.add('fade-in');
+      wallsVid.loop = true;
       wallsVid.play();
     }, introVidDuration);
 
