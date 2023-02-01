@@ -16,9 +16,10 @@
   color: white;
   padding: 1em;
   border-radius: 2em;
-  font-weight: bold;
-  font-family: monospace;
+  font-family: 'BLOODYTERROR';
   font-size: 1.5em;
+  letter-spacing: 7px;
+  line-height: 2;
 }
 
 #catacombs .bg-img {
