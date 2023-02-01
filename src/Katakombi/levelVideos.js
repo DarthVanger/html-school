@@ -1,7 +1,6 @@
 export const levelVideos = [
   { src: '/video/katakombi/01-lock.mp4', duration: 33 },
-  { src: '/video/katakombi/02-entrance.mp4', duration: 32 },
-  { src: '/video/katakombi/03-visioner-convulsions.mp4', duration: 15 },
+  { src: '/video/katakombi/02-entrance-and-visioner-convulsions.mp4', duration: 39 },
   { src: '/video/katakombi/04-visioner-ghosts.mp4', duration: 32 },
   { src: '/video/katakombi/05-visioner-spit.mp4', duration: 10 },
   { src: '/video/katakombi/06-lawyer-visits-ghosts.mp4', duration: 23 },
