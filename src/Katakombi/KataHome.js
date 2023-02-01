@@ -1,5 +1,6 @@
 import { getCatacombsState } from './api.js';
 import { KataRating, getStudLevelNum } from './KataRating.js';
+import { fadeOut } from './fade.js';
 
 export const KataHome = ({ state, onStartBtnClick }) => {
   const element = document.createElement('div');
@@ -34,7 +35,7 @@ export const KataHome = ({ state, onStartBtnClick }) => {
     startButton.innerHTML = `/7O4ATU 3ABDAHH9| №${getStudLevelNum(catacombsState[state.student])}`;
 
     startButton.addEventListener('click', () => {
-      startButton.remove();
+      fadeOut(startButton)
       onStartBtnClick({ catacombsState });
     });
 
