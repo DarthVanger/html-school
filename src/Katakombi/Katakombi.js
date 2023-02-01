@@ -90,17 +90,37 @@ export const Katakombi = (state) => {
     element.append(levelVidElement);
     levelVidElement.play();
 
-    await wait(levelVid.duration * 1000);
+    let isTaskShown = false;
+    const showTask = () => {
+      isTaskShown = true;
+      hint.remove();
 
-    element.append(levelElement);
+      element.append(levelElement);
 
-    timer = Timer({
-      min: 5,
-      id: `katakombi-level-timer-${level.id}`,
-      className: 'task-timer',
+      timer = Timer({
+        min: 5,
+        id: `katakombi-level-timer-${level.id}`,
+        className: 'task-timer',
+      });
+
+      element.append(timer);
+    };
+
+    const showTaskTimeoutId = setTimeout(showTask, levelVid.duration * 1000);
+
+    let hint = document.createElement('p');
+    hint.className = 'kata-hint';
+    hint.innerHTML = `Press S to skip the video`;
+    element.append(hint);
+
+    document.addEventListener('keydown', function handleSkipVideoClick(e) {
+      if (e.key == 's' || e.key == 'S') {
+        if (!isTaskShown) {
+          clearTimeout(showTaskTimeoutId);
+          showTask();
+        }
+      }
     });
-
-    element.append(timer);
   };
 
   const handleStartGameClick = ({ catacombsState: cs }) => {
