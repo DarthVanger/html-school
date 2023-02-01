@@ -1,9 +1,15 @@
 #kata-rating {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  padding: 16px;
+  padding-top: 25px;
+}
+
+/* grid cells */
+#kata-rating > * {
+  height: 50px;
+  display: flex;
   align-items: center;
-  align-self: center;
+  justify-content: center;
 }
 
 #kata-rating .student-ava img {
@@ -13,3 +19,4 @@
 #kata-rating .next-lvl {
   color: #b200ff;
 }
+
