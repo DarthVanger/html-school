@@ -31,8 +31,10 @@ export const KataRating = ({ state, catacombsState }) => {
 
       const isComplete = catacombsState[student] ? catacombsState[student][level.id]?.isComplete : false;
 
-      if (isComplete) {
+      if (isComplete && lvlIdx == studLvlNum - 1) {
         element.innerHTML += ava;
+      } else if (isComplete) {
+        element.innerHTML += `<div>.</div>`;
       } else {
         element.innerHTML += `<div>x</div>`;
       }
