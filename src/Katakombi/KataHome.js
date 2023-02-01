@@ -32,7 +32,7 @@ export const KataHome = ({ state, onStartBtnClick }) => {
 
     const startButton = document.createElement('div');
     startButton.id = 'start-button';
-    startButton.innerHTML = `/7O4ATU 3ABDAHH9| №${getStudLevelNum(catacombsState[state.student])}`;
+    startButton.innerHTML = `/7O4ATU 3ABDAHH9| #${getStudLevelNum(catacombsState[state.student])}`;
 
     startButton.addEventListener('click', function handleClick () {
       startButton.removeEventListener('click', handleClick);

@@ -34,7 +34,7 @@ export const KataRating = ({ state, catacombsState }) => {
       if (isComplete) {
         element.innerHTML += ava;
       } else {
-        element.innerHTML += `<div>xuy</div>`;
+        element.innerHTML += `<div>x</div>`;
       }
 
     }
