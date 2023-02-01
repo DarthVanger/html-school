@@ -3,6 +3,7 @@
 
 #catacombs {
   font-family: BloodyTerror;
+  letter-spacing: 4px;
   --blood: #ff00009c;
   color: var(--blood);
 }
@@ -10,6 +11,7 @@
 #catacombs .level-text {
   z-index: 1;
   position: absolute;
+  bottom: 0;
   background: #6cb03a7a;
   /* animation: level-text-anim 50s infinite; */
   background: none;
@@ -47,11 +49,12 @@
   caret-color: red;
   cursor: default;
   font-family: monospace;
-  color: white;
+  color: #eee;
   font-size: var(--font-size);
   letter-spacing: 5px;
   line-height: 1.5;
   background: transparent;
+  padding: 20px;
 }
 
 .code:focus {
@@ -61,7 +64,6 @@
   overflow: auto;
   z-index: 11;
   resize: none;
-  padding: 20px;
 }
 
 @keyframes fade-in {

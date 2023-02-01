@@ -12,10 +12,10 @@
 }
 
 .status-false {
-  color: red;
+  color: #b4003b;
 }
 .status-true {
-  color: green;
+  color: #0077b9;
 }
 
 .oshibke {
@@ -30,4 +30,3 @@
 .level.complete {
   opacity: 0;
 }
-
