@@ -18,9 +18,10 @@ export const Katakombi = (state) => {
   const element = document.createElement('section');
   element.id = 'catacombs';
 
-  let introVid;
+  const introVidDuration = 5000;
+  const introVid = Video({ src: '/video/katakombi/zastavka.mp4' });
+  const wallsVid = Video({ src: '/video/katakombi/building-footage.mp4' });
 
-  introVid = Video({ src: '/video/katakombi/zastavka.mp4' });
   element.append(introVid);
 
   const showKataHome = () => {
@@ -29,6 +30,14 @@ export const Katakombi = (state) => {
       startScreen.remove();
     }, fadeDuration);
     introVid.play();
+    setTimeout(() => {
+      introVid.classList.add('fade-out');
+      setTimeout(() => introVid.remove(), fadeDuration);
+      element.append(wallsVid);
+      wallsVid.classList.add('fade-in');
+      wallsVid.play();
+    }, introVidDuration);
+
     renderKataHome();
   };
 
