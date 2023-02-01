@@ -8,7 +8,7 @@ export const StartScreen = ({ onClick }) => {
   textOverlay.style = 'cursor: pointer';
   textOverlay.innerHTML = `
     <p>13 3ABDAHb</p>
-    <p>/7o Java...Script</p>
+    <p>3 Java...Script</p>
   `;
 
   const hint = document.createElement('p');
