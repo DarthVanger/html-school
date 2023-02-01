@@ -10,7 +10,7 @@ export const KataHome = ({ state, onStartBtnClick }) => {
 
   element.innerHTML = `
     <section class="overlay" id="loading">
-      ЗОГРУЗКА
+      Z O G R U Z K A
     </section>
   `;
 

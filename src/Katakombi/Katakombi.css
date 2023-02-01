@@ -8,22 +8,6 @@
   color: var(--blood);
 }
 
-#catacombs .level-text {
-  z-index: 1;
-  position: absolute;
-  bottom: 0;
-  background: #6cb03a7a;
-  /* animation: level-text-anim 50s infinite; */
-  background: none;
-  color: white;
-  padding: 1em;
-  border-radius: 2em;
-  font-family: 'BLOODYTERROR';
-  font-size: 1.5em;
-  letter-spacing: 7px;
-  line-height: 2;
-}
-
 #catacombs .bg-img {
   z-index: -1;
 }

@@ -12,6 +12,8 @@ export const Level = ({ state, level, onComplete }) => {
 
   const getCode = () => el.querySelector('.code');
 
+  let levelText;
+
   setTimeout(async () => {
     try {
       const catacombsState = await getCatacombsState();
@@ -48,7 +50,7 @@ export const Level = ({ state, level, onComplete }) => {
   const renderTests = (code) => {
     let testResults = Array(level.tests().length).fill(false);
     getLevelText()?.remove();
-    const levelText = document.createElement('div');
+    levelText = document.createElement('div');
     let f;
     levelText.className = 'level-text';
 
@@ -115,6 +117,24 @@ export const Level = ({ state, level, onComplete }) => {
   renderTests('');
 
   el.innerHTML += '</div>';
+
+  el.innerHTML +=`<p class="kata-hint">Press H to hide the task</p> `;
+
+  let isTaskShown = true;
+  document.addEventListener('keydown', (e) => {
+    if (e.key == 'h' || e.key == 'H') {
+      if (isTaskShown) {
+        levelText.style.display = 'none'; 
+        isTaskShown = false;
+        document.querySelector('.kata-hint').innerHTML = `Press H to show the task`;
+
+      } else {
+        levelText.style.display = 'block'; 
+        isTaskShown = true;
+        document.querySelector('.kata-hint').innerHTML = `Press H to hide the task`;
+      }
+    }
+  });
 
   return el;
 };
