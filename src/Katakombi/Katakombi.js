@@ -93,7 +93,7 @@ export const Katakombi = (state) => {
 
     timer = Timer({
       min: 5,
-      id: 'katakombi-level-timer',
+      id: `katakombi-level-timer-${level.id}`,
       className: 'task-timer',
     });
 
