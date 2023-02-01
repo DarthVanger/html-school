@@ -11,6 +11,8 @@ export const Level = ({ state, level, onComplete }) => {
   code.className = 'code fade-in';
   el.append(code);
 
+  let isTaskShown = true;
+
   const getCode = () => el.querySelector('.code');
 
   let levelText;
@@ -116,6 +118,10 @@ export const Level = ({ state, level, onComplete }) => {
       });
     }
 
+    if (!isTaskShown) {
+      levelText.style.display = 'none'; 
+    }
+
   };
 
   renderTests('');
@@ -124,7 +130,6 @@ export const Level = ({ state, level, onComplete }) => {
 
   el.innerHTML +=`<p class="kata-hint">Press H to hide the task</p> `;
 
-  let isTaskShown = true;
   document.addEventListener('keydown', (e) => {
     if (e.key == 'h' || e.key == 'H') {
       if (isTaskShown) {
