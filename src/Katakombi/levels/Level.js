@@ -23,12 +23,15 @@ export const Level = ({ state, level, onComplete }) => {
     } catch (e) {
       console.log('Failed to fetch catacombs state: ', e);
     }
-    getCode().focus();
 
     getCode().addEventListener('keyup', (event) => {
       debouncedCodeCheck(level);
     });
     codeCheck(level);
+
+    setTimeout(() => {
+      getCode().focus();
+    }, 3000);
   });
 
   let debounceTimeoutId;
