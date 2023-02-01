@@ -9,10 +9,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  --font-size: 32px;
+}
+
+.code {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 20;
+  caret-color: red;
+  cursor: default;
+  font-family: monospace;
+  color: #eee;
+  font-size: var(--font-size);
+  letter-spacing: 5px;
+  line-height: 1.5;
+  background: transparent;
+  padding: 20px;
 }
 
 .status-false {
-  color: #b4003b;
+  color: var(--blood);
 }
 .status-true {
   color: #0077b9;
@@ -34,7 +50,7 @@
 #catacombs .level-text {
   z-index: 1;
   position: absolute;
-  bottom: 1em;
+  bottom: 1.5em;
   background: #6cb03a7a;
   /* animation: level-text-anim 50s infinite; */
   background: none;
@@ -42,7 +58,7 @@
   padding: 1em;
   border-radius: 2em;
   font-family: 'BLOODYTERROR';
-  font-size: 1.5em;
+  font-size: 1.5rem;
   letter-spacing: 7px;
   line-height: 2;
 }
