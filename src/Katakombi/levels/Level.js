@@ -7,7 +7,7 @@ export const Level = ({ state, level, onComplete }) => {
   el.className = 'level';
 
   const code = document.createElement('textarea');
-  code.className = 'code';
+  code.className = 'code fade-in';
   el.append(code);
 
   const getCode = () => el.querySelector('.code');

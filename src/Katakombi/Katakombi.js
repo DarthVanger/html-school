@@ -29,7 +29,8 @@ export const Katakombi = (state) => {
   const showKataHome = () => {
     startScreen.classList.add('fade-out');
     setTimeout(() => {
-      startScreen.remove();
+      startScreen.classList.add('fade-out');
+      setTimeout(() => startScreen.remove(), fadeDuration);
     }, fadeDuration);
     introVid.play();
     setTimeout(() => {
@@ -96,11 +97,12 @@ export const Katakombi = (state) => {
       hint.remove();
 
       element.append(levelElement);
+      levelElement.classList.add('fade-in');
 
       timer = Timer({
         min: 5,
         id: `katakombi-level-timer-${level.id}`,
-        className: 'task-timer',
+        className: 'task-timer fade-in',
       });
 
       element.append(timer);
