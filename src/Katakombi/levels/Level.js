@@ -55,7 +55,7 @@ export const Level = ({ state, level, onComplete }) => {
     el.append(levelText);
 
     const oshibke = (e) => {
-      levelText.innerHTML += `<div class="oshibke">ошибке: ${e.message}</div>`;
+      levelText.innerHTML += `<div class="oshibke">ERROR: ${e.message}</div>`;
     }
 
     try {
