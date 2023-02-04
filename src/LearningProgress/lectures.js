@@ -384,4 +384,24 @@ export const lectures = [
     skills: ['js-objects', 'refactoring', 'physics', 'devops'],
     url: '#/slides/lesson32',
   },
+  {
+    text: 'Дімона пул реквест. Гіт конфлікти. Створюєм таски',
+    items: [
+      'Github projects - типа jira',
+      'Димон - фиксим git conflicts',
+      'Створюєм таски по грі',
+    ],
+    skills: ['git'],
+    url: '#/slides/lesson33',
+  },
+  {
+    text: 'Gatling gun; documnent.createElement()',
+    items: [
+      'Літучка: Гатлінг gun',
+      'Мержим пул реквести',
+      'document.createElement()',
+    ],
+    skills: ['git'],
+    url: '#/slides/lesson34',
+  },
 ];
