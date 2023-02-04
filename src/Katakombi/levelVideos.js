@@ -3,9 +3,6 @@ export const levelVideos = [
   { src: '/video/katakombi/02-entrance-and-visioner-convulsions.mp4', duration: 39 },
   { src: '/video/katakombi/04-visioner-ghosts.mp4', duration: 32 },
   { src: '/video/katakombi/05-visioner-spit-and-lawyer-visit.mp4', duration: 31 },
-  { src: '/video/katakombi/07-lawyer-visits-ghosts.mp4', duration: 20 },
-  { src: '/video/katakombi/09-lawyer-sees-girl.mp4', duration: 25 },
-  { src: '/video/katakombi/10-lawyer-dies.mp4', duration: 49.5 },
-  { src: '/video/katakombi/11-girl-bathroom-start.mp4', duration: 15 },
-  { src: '/video/katakombi/12-girl-bathroom-with-ghost.mp4', duration: 28 },
+  { src: '/video/katakombi/06-lawyer-dies.mp4', duration: 74 },
+  { src: '/video/katakombi/07-girl-bathroom-with-ghost.mp4', duration: 33 },
 ];
