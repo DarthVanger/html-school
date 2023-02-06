@@ -15,6 +15,7 @@ export const Slides = ({state, lessonName}) => {
     lesson31: Lesson31,
     lesson32: Lesson32,
     lesson34: Lesson34,
+    lesson35: Lesson35,
   };
   console.log('lessonname: ', lessonName);
   el.append(lessons[lessonName]({state, lessonName}));

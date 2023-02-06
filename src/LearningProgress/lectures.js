@@ -397,11 +397,24 @@ export const lectures = [
   {
     text: 'Gatling gun; documnent.createElement()',
     items: [
-      'Літучка: Гатлінг gun',
+      'Літучка: Робим Гатлінг gun',
       'Мержим пул реквести',
-      'document.createElement()',
+      'Гра: Спрощуємо Дімона код для Гатлінг гану',
+      'Нова тема: розбиваєм гру на МОДУЛІ (import/export)',
     ],
     skills: ['git'],
+    url: '#/slides/lesson34',
+  },
+  {
+    text: 'Gatling gun; documnent.createElement()',
+    items: [
+      '35-те заняття!! Бухіч.',
+      'Оналез Дошки: що зроблено за 2 тижні, що будем робити далі.',
+      'Оналез Ретроспективи: що за 5 тижнів покращили',
+      'Гра: Підчищаем, розбиваєм на файли.',
+      'Нова тема: Цикли. Генерація рівнів.',
+    ],
+    skills: ['git', 'js'],
     url: '#/slides/lesson34',
   },
 ];

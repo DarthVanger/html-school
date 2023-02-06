@@ -2,7 +2,7 @@ import { Lety4ka } from './Lety4ka.js';
 import { Lesson } from './Lesson.js';
 
 const html = `
-  <h1>Lesson #34. Новое Начало.</h1>
+  <h1>Lesson #34. Новое Начало. o5 25.</h1>
   <div class="lesson-sections">
     <section class="pomodoro">
       <h2>o5 25</h2>
