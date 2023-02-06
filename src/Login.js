@@ -57,6 +57,16 @@ export const Login = ({ handleLogin }) => {
         </label>
 
         <label>
+          <input type="radio" name="student" value="mazerTim">
+          <span>marezTim</span>
+        </label>
+
+        <label>
+          <input type="radio" name="student" value="alex">
+          <span>alex</span>
+        </label>
+
+        <label>
           <input type="radio" name="student" value="napaleon">
           <span>Napaleon</span>
         </label>
