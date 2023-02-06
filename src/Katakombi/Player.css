@@ -1,0 +1,11 @@
+#music-player {
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#music-player:hover {
+  opacity: 1;
+  transition: all 1s;
+}

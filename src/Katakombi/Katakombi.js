@@ -6,7 +6,9 @@ import { KataHome } from './KataHome.js';
 import { getStudLevelNum } from './KataRating.js';
 import { Timer } from './Timer.js';
 import { levelVideos } from './levelVideos.js';
+import { levelMusic } from './levelMusic.js';
 import { StartScreen } from './StartScreen.js';
+import { Player, playMusic } from './Player.js';
 
 let timer;
 
@@ -26,9 +28,13 @@ export const Katakombi = (state) => {
   const wallsVid = Video({ src: '/video/katakombi/building-footage.mp4' });
 
   element.append(introVid);
+  element.append(Player());
 
   const showKataHome = () => {
     if (kataHome) return;
+
+    playMusic();
+
     startScreen.classList.add('fade-out');
     setTimeout(() => {
       startScreen.classList.add('fade-out');
@@ -42,7 +48,7 @@ export const Katakombi = (state) => {
       element.append(wallsVid);
       wallsVid.classList.add('fade-in');
       wallsVid.loop = true;
-      wallsVid.play();
+      //wallsVid.play();
     }, introVidDuration);
 
     renderKataHome();
@@ -55,6 +61,7 @@ export const Katakombi = (state) => {
   let levelNum = 0;
   let level;
   let levelVid;
+  let levelMus;
   let levelVidElement;
   let levelElement;
 
@@ -108,6 +115,9 @@ export const Katakombi = (state) => {
       });
 
       element.append(timer);
+
+      levelMus = new Audio(levelMusic[levelNum]);
+      setTimeout(() => { levelMus.play() }, 2000);
     };
 
     const showTaskTimeoutId = setTimeout(showTask, levelVid.duration * 1000);
