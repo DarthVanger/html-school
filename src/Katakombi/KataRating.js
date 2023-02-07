@@ -1,7 +1,7 @@
 import { levels } from './levels/levels.js';
 
 export const getStudLevelNum = (studState) => {
-  console.info('[Katakombi] student state', studState);
+  console.debug('[Katakombi] getStudLevelNum for studState:', studState);
   if (!studState) return 0;
   const completed = Object.keys(studState).filter(x => studState[x].isComplete);
   return completed.length;
@@ -32,7 +32,7 @@ export const KataRating = ({ state, catacombsState }) => {
 
       const isComplete = catacombsState[student] ? catacombsState[student][level.id]?.isComplete : false;
 
-      if (isComplete && lvlIdx == studLvlNum - 1) {
+      if (isComplete && lvlIdx == getStudLevelNum(catacombsState[student]) - 1) {
         element.innerHTML += ava;
       } else if (isComplete) {
         element.innerHTML += `<div>.</div>`;
