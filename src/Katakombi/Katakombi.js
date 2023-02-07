@@ -104,6 +104,8 @@ export const Katakombi = (state) => {
     element.append(levelVidElement);
     levelVidElement.play();
 
+    setTimeout(playRandomTrack, levelVid.duration * 1000);
+
     let isTaskShown = false;
     const showTask = () => {
       console.info('[Katakombi] showTask');
@@ -120,8 +122,6 @@ export const Katakombi = (state) => {
       });
 
       element.append(timer);
-
-      setTimeout(playRandomTrack, 3000);
     };
 
     const showTaskTimeoutId = setTimeout(showTask, levelVid.duration * 1000);
