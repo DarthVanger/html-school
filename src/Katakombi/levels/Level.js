@@ -128,22 +128,26 @@ export const Level = ({ state, level, onComplete }) => {
 
   el.innerHTML += '</div>';
 
-  el.innerHTML +=`<p class="kata-hint">Press H to hide the task</p> `;
+  el.innerHTML +=`<p class="kata-hint">Hide Task</p> `;
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key == 'h' || e.key == 'H') {
+  setTimeout(() => {
+    const kataHint = document.querySelector('.kata-hint');
+    console.log('kataHint:' , kataHint);
+
+    kataHint.style.cursor = 'pointer';
+
+    kataHint.addEventListener('click', () => {
       if (isTaskShown) {
         levelText.style.display = 'none'; 
         isTaskShown = false;
-        document.querySelector('.kata-hint').innerHTML = `Press H to show the task`;
-
+        kataHint.innerHTML = `Show Task`;
       } else {
         levelText.style.display = 'block'; 
         isTaskShown = true;
-        document.querySelector('.kata-hint').innerHTML = `Press H to hide the task`;
+        kataHint.innerHTML = `Hide Task`;
       }
-    }
-  });
+    });
+  }, 2000);
 
   return el;
 };

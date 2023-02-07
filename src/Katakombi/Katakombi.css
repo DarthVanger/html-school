@@ -31,7 +31,7 @@
 .code {
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
-  z-index: 20;
+  z-index: 1;
   caret-color: red;
   cursor: default;
   font-family: monospace;
@@ -48,7 +48,6 @@
   box-shadow: none;
   border: none;
   overflow: auto;
-  z-index: 11;
   resize: none;
 }
 
@@ -108,6 +107,7 @@
   text-align: center;
   width: 100%;
   font-size: 0.8rem;
+  z-index: 2;
 }
 
 #catacombs .task-timer {

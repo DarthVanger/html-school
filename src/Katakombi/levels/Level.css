@@ -50,16 +50,16 @@
 #catacombs .level-text {
   z-index: 1;
   position: absolute;
-  bottom: 1.5em;
-  background: #6cb03a7a;
-  /* animation: level-text-anim 50s infinite; */
-  background: none;
+  bottom: 0;
   color: white;
   padding: 1em;
-  border-radius: 2em;
+  padding-bottom: 2.5em;
   font-family: 'BLOODYTERROR';
   font-size: 1.5rem;
   letter-spacing: 7px;
   line-height: 2;
 }
 
+#catacombs .level-text:hover {
+  background: black;
+}
