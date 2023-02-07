@@ -8,7 +8,7 @@ export const Homework34  = () => `
 </p>
 
 <p>
-  Остальным - <a href="/#/katakombi">КАТАКОМБІ</a>.
+  ВСЕМ - <a href="/#/katakombi">КАТАКОМБІ</a>.
 </p>
 
 <p>
