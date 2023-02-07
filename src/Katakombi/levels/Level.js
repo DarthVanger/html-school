@@ -147,7 +147,7 @@ export const Level = ({ state, level, onComplete }) => {
         kataHint.innerHTML = `Hide Task`;
       }
     });
-  }, 2000);
+  });
 
   return el;
 };

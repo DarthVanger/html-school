@@ -97,12 +97,6 @@ export const Katakombi = (state) => {
 
     timer?.remove();
 
-    levelElement = Level({
-      state,
-      level,
-      onComplete: handleLevelComplete,
-    });
-
     levelVid = levelVideos[levelNum];
     levelVidElement = Video({ src: levelVid.src });
     levelVidElement.classList.add('fade-in');
@@ -118,6 +112,12 @@ export const Katakombi = (state) => {
       console.info('[Katakombi] showTask');
       isTaskShown = true;
       hint.remove();
+
+      levelElement = Level({
+        state,
+        level,
+        onComplete: handleLevelComplete,
+      });
 
       element.append(levelElement);
       levelElement.classList.add('fade-in');
