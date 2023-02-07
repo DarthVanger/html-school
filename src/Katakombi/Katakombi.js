@@ -41,13 +41,17 @@ export const Katakombi = (state) => {
     }, fadeDuration);
     introVid.play();
     setTimeout(() => {
-      if (wasStartGameClicked) return;
+      if (wasStartGameClicked) {
+        console.log('[Katakombi] NOT Playing building footage video, as "start game" was already clicked');
+        return;
+      } 
+      console.log('[Katakombi] Play building footage video');
       introVid.classList.add('fade-out');
       setTimeout(() => introVid.remove(), fadeDuration);
       element.append(wallsVid);
       wallsVid.classList.add('fade-in');
       wallsVid.loop = true;
-      //wallsVid.play();
+      wallsVid.play();
     }, introVidDuration);
 
     renderKataHome();
