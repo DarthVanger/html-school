@@ -1,6 +1,7 @@
 @import 'levels/Level.css';
 @import 'KataHome.css';
 @import 'Player.css';
+@import 'Volume.css';
 
 #catacombs {
   font-family: BloodyTerror;

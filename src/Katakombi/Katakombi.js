@@ -9,6 +9,7 @@ import { levelVideos } from './levelVideos.js';
 import { levelMusic } from './levelMusic.js';
 import { StartScreen } from './StartScreen.js';
 import { Player, playRandomTrack, pauseMusic } from './Player.js';
+import { Volume, getVolume } from './Volume.js';
 
 let timer;
 
@@ -29,6 +30,7 @@ export const Katakombi = (state) => {
 
   element.append(introVid);
   element.append(Player());
+  element.append(Volume());
 
   const showKataHome = () => {
     console.log('showKataHome');
@@ -39,7 +41,10 @@ export const Katakombi = (state) => {
       startScreen.classList.add('fade-out');
       setTimeout(() => startScreen.remove(), fadeDuration);
     }, fadeDuration);
+
+    introVid.volume = getVolume();
     introVid.play();
+
     setTimeout(() => {
       if (wasStartGameClicked) {
         console.log('[Katakombi] NOT Playing building footage video, as "start game" was already clicked');
@@ -51,6 +56,7 @@ export const Katakombi = (state) => {
       element.append(wallsVid);
       wallsVid.classList.add('fade-in');
       wallsVid.loop = true;
+      wallsVid.volume = getVolume();
       wallsVid.play();
     }, introVidDuration);
 
@@ -102,6 +108,7 @@ export const Katakombi = (state) => {
     levelVidElement.classList.add('fade-in');
 
     element.append(levelVidElement);
+    levelVidElement.volume = getVolume();
     levelVidElement.play();
 
     setTimeout(playRandomTrack, levelVid.duration * 1000);
