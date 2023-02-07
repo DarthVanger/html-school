@@ -9,14 +9,20 @@ const listeners = [];
 export const onVolumeChange = f => listeners.push(f);
 
 export const Volume = () => {
-  const element = document.createElement('input');
-  element.type =  'range';
+  const element = document.createElement('div');
   element.id = 'volume';
-  element.className = 'slider';
-  element.min =  0;
-  element.max = 1;
-  element.step = 'any';
-  element.value = volume;
+
+
+  const input = document.createElement('input');
+  input.type =  'range';
+  input.className = 'slider';
+  input.min =  0;
+  input.max = 1;
+  input.step = 'any';
+  input.value = volume;
+
+  element.append(document.createTextNode('🔊'));
+  element.append(input);
 
   const setVolume = (newVolume) => {
     console.log(`[Volume] setVolume to ${newVolume}`);
@@ -36,14 +42,14 @@ export const Volume = () => {
     listeners.forEach(l => l(newVolume));
   };
 
-  element.addEventListener('change', (event) => {
+  input.addEventListener('change', (event) => {
     const newVolume = event.target.value;
     console.log('volume changed to: ', newVolume);
     setVolume(newVolume);
   });
 
   setTimeout(() => {
-    setVolume(element.value);
+    setVolume(input.value);
   });
 
   return element;

@@ -3,12 +3,13 @@
   bottom: 1.5em;
   left: 1em;
   z-index: 100;
-  width: 100px;
+  width: 140px;
 }
 
 .slider {
+  margin-left: 10px;
   -webkit-appearance: none;
-  width: 100%;
+  width: 100px;
   height: 5px;
   background: var(--blood);
   outline: none;
