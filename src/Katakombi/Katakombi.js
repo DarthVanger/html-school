@@ -8,7 +8,7 @@ import { Timer } from './Timer.js';
 import { levelVideos } from './levelVideos.js';
 import { levelMusic } from './levelMusic.js';
 import { StartScreen } from './StartScreen.js';
-import { Player, playMusic } from './Player.js';
+import { Player, playRandomTrack, pauseMusic } from './Player.js';
 
 let timer;
 
@@ -75,6 +75,7 @@ export const Katakombi = (state) => {
 
     levelVidElement.remove();
     levelElement.remove();
+    pauseMusic();
     levelNum++;
     level = levels[levelNum];
 
@@ -116,7 +117,7 @@ export const Katakombi = (state) => {
 
       element.append(timer);
 
-      setTimeout(playMusic, 3000);
+      setTimeout(playRandomTrack, 3000);
     };
 
     const showTaskTimeoutId = setTimeout(showTask, levelVid.duration * 1000);

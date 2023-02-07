@@ -1,11 +1,18 @@
 #music-player {
   position: absolute;
-  opacity: 0;
-  bottom: 0;
-  right: 0;
+  bottom: 1em;
+  right: 1em;
+  font-size: 1rem;
+  font-family: monospace;
+  letter-spacing: 0;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
-#music-player:hover {
-  opacity: 1;
-  transition: all 1s;
+#music-player marquee {
+  width: 100px;
 }
