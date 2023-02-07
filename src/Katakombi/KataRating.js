@@ -10,6 +10,7 @@ export const getStudLevelNum = (studState) => {
 export const KataRating = ({ state, catacombsState }) => {
   const element = document.createElement('article');
   element.id = 'kata-rating';
+  element.style.gridTemplateColumns = `repeat(${Object.keys(catacombsState).length + 1}, 1fr)`;
 
   const studLvlNum = getStudLevelNum(catacombsState[state.student]);
 
