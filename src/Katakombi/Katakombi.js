@@ -73,6 +73,7 @@ export const Katakombi = (state) => {
   let levelMus;
   let levelVidElement;
   let levelElement;
+  let playMusicTimeoutId;
 
   const renderKataHome = () => {
     kataHome = KataHome({ state, onStartBtnClick: handleStartGameClick });
@@ -85,7 +86,12 @@ export const Katakombi = (state) => {
 
     levelVidElement.remove();
     levelElement.remove();
+
+    // in case level is complete before video finished playing,
+    // clear the timeout for playing music after video end :)
+    clearTimeout(playMusicTimeoutId);
     pauseMusic();
+
     levelNum++;
     level = levels[levelNum];
 
@@ -105,7 +111,7 @@ export const Katakombi = (state) => {
     levelVidElement.volume = getVolume();
     levelVidElement.play();
 
-    setTimeout(playRandomTrack, levelVid.duration * 1000);
+    playMusicTimeoutId = setTimeout(playRandomTrack, levelVid.duration * 1000);
 
     let isTaskShown = false;
     const showTask = () => {
