@@ -2,23 +2,25 @@ const getPlayer = () => document.querySelector('#music-player');
 import { levelMusic } from './levelMusic.js';
 
 let isPlaying = false;
-let curTrackIdx = 0;
-let curTrack = levelMusic[0];
+let curTrack;
 let audio;
+const getRandomTrack = () => levelMusic[Math.floor(Math.random() * levelMusic.length)];
+
 export const Player = () => {
   const element = document.createElement('div');
+  curTrack = getRandomTrack();
   audio = new Audio(curTrack.path);
   element.id = 'music-player';
+  audio.load();
 
   return element;
 };
 
 export const playMusic = () => {
   isPlaying = true;
-  curTrack = [++curTrackIdx];
+  console.log(`Player: playing track: "${curTrack.title}"`);
   audio.play();
 
-  console.log('curTrack.title: ', curTrack);
   getPlayer().innerHTML = `
     ${curTrack.title}
   `;

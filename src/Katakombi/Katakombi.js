@@ -31,9 +31,8 @@ export const Katakombi = (state) => {
   element.append(Player());
 
   const showKataHome = () => {
+    console.log('showKataHome');
     if (kataHome) return;
-
-    playMusic();
 
     startScreen.classList.add('fade-out');
     setTimeout(() => {
@@ -102,6 +101,7 @@ export const Katakombi = (state) => {
 
     let isTaskShown = false;
     const showTask = () => {
+      console.info('[Katakombi] showTask');
       isTaskShown = true;
       hint.remove();
 
@@ -116,8 +116,7 @@ export const Katakombi = (state) => {
 
       element.append(timer);
 
-      levelMus = new Audio(levelMusic[levelNum]);
-      setTimeout(() => { levelMus.play() }, 2000);
+      setTimeout(playMusic, 3000);
     };
 
     const showTaskTimeoutId = setTimeout(showTask, levelVid.duration * 1000);
@@ -158,17 +157,5 @@ export const Katakombi = (state) => {
 
   };
 
-
-  //music();
-
   return element;
-}
-
-let isMusicPlaying = false;
-function music() {
-  if (!isMusicPlaying) {
-    isMusicPlaying = true;
-    const audio = new Audio('/video/catacombs.mp3');
-    audio.play();
-  }
 }
