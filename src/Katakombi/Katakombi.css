@@ -6,7 +6,7 @@
 #catacombs {
   font-family: BloodyTerror;
   letter-spacing: 4px;
-  --blood: #ff00009c;
+  --blood: #902020;
   color: var(--blood);
 }
 
