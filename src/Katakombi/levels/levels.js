@@ -5,6 +5,8 @@ import { distancePoints } from './distancePoints.js';
 import { rectanglePerimeter } from './rectanglePerimeter.js';
 import { isPointInRectangle } from './isPointInRectangle.js';
 import { isGreaterThanPi } from './isGreaterThanPi.js';
+import { rectangleIntersection } from './rectangleIntersection.js';
+import { foobar } from './foobar.js';
 
 export const levels = [
   minus2,
@@ -12,8 +14,8 @@ export const levels = [
   sum,
   distance,
   rectanglePerimeter,
-  distancePoints,
   isPointInRectangle,
-  //rectangleIntersection,
-  //foobar,
+  distancePoints,
+  foobar,
+  rectangleIntersection,
 ];
