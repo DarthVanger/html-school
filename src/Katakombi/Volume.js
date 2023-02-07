@@ -1,6 +1,8 @@
 const getElement = () => document.querySelector('#volume');
 
-let volume = 0.3;
+const defaultVolume = 0.3;
+const savedVolume = localStorage.getItem('volume');
+let volume =  savedVolume ? Number(savedVolume) : defaultVolume;
 
 const listeners = [];
 
@@ -18,6 +20,8 @@ export const Volume = () => {
 
   const setVolume = (newVolume) => {
     console.log(`[Volume] setVolume to ${newVolume}`);
+
+    localStorage.setItem('volume', newVolume);
 
     volume = newVolume;
 
