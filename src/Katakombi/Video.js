@@ -4,6 +4,7 @@ export const Video = ({src}) => {
     <source src="${src}" type="video/mp4">
   `;
   element.className = 'bg-img';
+  element.volume = 0.5;
 
   //setTimeout(() => {
   //  element.play();

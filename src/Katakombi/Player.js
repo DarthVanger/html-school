@@ -11,6 +11,7 @@ export const Player = () => {
   const element = document.createElement('div');
   curTrack = getRandomTrack();
   audio = new Audio(curTrack.path);
+  audio.volume = 0.5;
   element.id = 'music-player';
   audio.load();
 
