@@ -8,4 +8,5 @@ export const levelVideos = [
   { src: '/video/katakombi/08-girl-bathroom-im-sorry.mp4', duration: 98 },
   { src: '/video/katakombi/09-father-smashing-chair.mp4', duration: 18.8 },
   { src: '/video/katakombi/10-visioner-in-the-chair.mp4', duration: 52 },
+  { src: '/video/katakombi/11-katy-vs-shakal.mp4', duration: 40.7 },
 ];
