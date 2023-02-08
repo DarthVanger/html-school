@@ -93,13 +93,14 @@ export const Katakombi = (state) => {
     pauseMusic();
 
     levelNum++;
+    
     level = levels[levelNum];
 
     renderLevel(level);
   };
 
   const renderLevel = async (level) => {
-    console.info(`[Katakombi] Rendering level id ${level.id}, num=${levelNum}`);
+    console.info(`[Katakombi] Rendering level id ${level?.id}, num=${levelNum}`);
 
     timer?.remove();
 
@@ -118,6 +119,13 @@ export const Katakombi = (state) => {
       console.info('[Katakombi] showTask');
       isTaskShown = true;
       hint.remove();
+
+      const isFinishScreen = levelNum === levels.length;
+
+      if (isFinishScreen) {
+        console.log('[Katakombi] Katakombi finished! All levels complete!');
+        return;
+      }
 
       levelElement = Level({
         state,
@@ -172,7 +180,6 @@ export const Katakombi = (state) => {
 
     levelNum = getStudLevelNum(catacombsState[state.student]);
     level = levels[levelNum];
-
   };
 
   return element;
