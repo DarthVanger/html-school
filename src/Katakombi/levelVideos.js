@@ -6,4 +6,6 @@ export const levelVideos = [
   { src: '/video/katakombi/06-lawyer-dies.mp4', duration: 72 },
   { src: '/video/katakombi/07-girl-bathroom-with-ghost.mp4', duration: 33 },
   { src: '/video/katakombi/08-girl-bathroom-im-sorry.mp4', duration: 98 },
+  { src: '/video/katakombi/09-father-smashing-chair.mp4', duration: 18.8 },
+  { src: '/video/katakombi/10-visioner-in-the-chair.mp4', duration: 52 },
 ];
