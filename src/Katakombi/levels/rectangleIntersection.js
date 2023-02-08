@@ -13,8 +13,8 @@ const tests = (f) => [
     test: () => f({ x: -10, y: 0, w: 10, h: 10 }, { x: -20, y: -5, w: 20, h: 20 }) === true,
   },
   {
-    name: 'rectangleIntersection({ x: -10, y: -10, w: 10, h: 10 }, { x: -20, y: -15, w: 20, h: 20 }) returns false',
-    test: () => f({ x: -10, y: -10, w: 10, h: 10 }, { x: -20, y: -15, w: 20, h: 20 }) === false,
+    name: 'rectangleIntersection({ x: -10, y: -10, w: 10, h: 10 }, { x: -20, y: -40, w: 20, h: 20 }) returns false',
+    test: () => f({ x: -10, y: -10, w: 10, h: 10 }, { x: -20, y: -40, w: 20, h: 20 }) === false,
   },
 ];
 
