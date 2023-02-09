@@ -12,11 +12,22 @@
   justify-content: center;
 }
 
+#kata-rating figure.student-ava,
 #kata-rating .student-ava img {
   height: 50px;
+  width: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 #kata-rating .next-lvl {
   color: #b200ff;
 }
 
+#kata-rating .student-ava.online {
+    filter: grayscale(0%);
+    border: var(--border-width) solid #0cff0c;
+    border-radius: 7px;
+    box-shadow: 0 0 10px #0cff0c,
+      0 0 15px #0cff0c;
+}

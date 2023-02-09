@@ -1,7 +1,7 @@
+import * as socket from '../socket.js';
 import { levels } from './levels/levels.js';
 
 export const getStudLevelNum = (studState) => {
-  console.debug('[Katakombi] getStudLevelNum for studState:', studState);
   if (!studState) return 0;
   const completed = Object.keys(studState).filter(x => studState[x].isComplete);
   return completed.length;
@@ -14,6 +14,24 @@ export const KataRating = ({ state, catacombsState }) => {
 
   const studLvlNum = getStudLevelNum(catacombsState[state.student]);
 
+  let onlineStudentsMap = {};
+
+  const handleOnlineStudents = (payload) => {
+    console.debug('handleOnlineStudents: ', payload);
+    onlineStudentsMap = payload;
+    const avas = document.querySelectorAll('.student-ava');
+    avas.forEach(ava => {
+      const stud = ava.getAttribute('data-student');
+      if (onlineStudentsMap[stud]) {
+        ava.classList.add('online');
+      } else {
+        ava.classList.remove('online');
+      }
+    });
+  }
+
+  socket.addHandler('online_students', handleOnlineStudents);
+
   let lvlIdx = 0;
   for (let level of levels) {
     const cell = document.createElement('div');
@@ -25,7 +43,7 @@ export const KataRating = ({ state, catacombsState }) => {
 
     for (let student in catacombsState) {
       const ava = `
-        <figure class="student student-ava">
+        <figure class="student student-ava" data-student="${student}">
           <img src="/img/${student}.jpg" />
         </figure>
       `;
