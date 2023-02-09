@@ -38,22 +38,24 @@ export const initSocket = async () => {
       const timePast = now.getTime() - lastOnlineDate.getTime();
       const isOnline = timePast <= pingInterval * 2;
 
-      const studOnlineLog = db.data.onlineLog[student];
+      if (student) {
+        const studOnlineLog = db.data.onlineLog[student];
 
-      if (!isOnline) {
-        studOnlineLog.push({
-          date: now,
-          durationMinutes: 0,
-        });
-      } else {
-        studOnlineLog[studOnlineLog.length - 1].durationMinutes += pingInterval / 1000 / 60;
+        if (!isOnline) {
+          studOnlineLog.push({
+            date: now,
+            durationMinutes: 0,
+          });
+        } else {
+          studOnlineLog[studOnlineLog.length - 1].durationMinutes += pingInterval / 1000 / 60;
+        }
+
+        db.write();
       }
-
-      db.write();
       
       studentsOnline[student] = now;
       aliveClients[student] = ws;
-
+      ws.isAlive = true;
 
       const payload = studentsOnline;
       //for (let stud of db.data.students) {
@@ -87,10 +89,11 @@ export const initSocket = async () => {
 const interval = setInterval(() => {
   socket.clients.forEach(function each(ws) {
     const aliveClientsArray = Object.values(aliveClients);
-    const isAlive = aliveClientsArray.includes(ws);
-    if (isAlive === false) return ws.terminate();
+    if (ws.isAlive === false) return ws.terminate();
+
+    ws.isAlive = false;
   });
-}, pingInterval);
+}, pingInterval + 1000);
 
 socket.on('close', function close() {
   clearInterval(interval);
