@@ -58,6 +58,14 @@
   font-size: 1.5rem;
   letter-spacing: 7px;
   line-height: 2;
+
+  max-height: 100vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
 }
 
 #catacombs .level-text:hover {
