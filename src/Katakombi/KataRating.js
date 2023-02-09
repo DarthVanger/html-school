@@ -32,8 +32,36 @@ export const KataRating = ({ state, catacombsState }) => {
       } else {
         ava.classList.remove('online');
       }
+
+      const localeOptions = {
+        era: 'long',
+        month: 'long',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      };
+
+      const figcap = ava.querySelector('figcaption');
+
+      const neverOnline = lastOnlineDate.getTime() === 0;
+
+      if (neverOnline) {
+        figcap.innerHTML = `
+          Last Online: Never
+        `;
+      } else {
+        figcap.innerHTML = `
+          Last Online<br>${lastOnlineDate.toLocaleDateString('en-US', localeOptions)}
+        `;
+      }
+
+      if (isOnline) {
+        figcap.innerHTML = `
+          Is Online Now!
+        `;
+      }
     });
-  }
+  };
 
   socket.addHandler('online_students', handleOnlineStudents);
 
@@ -50,6 +78,7 @@ export const KataRating = ({ state, catacombsState }) => {
       const ava = `
         <figure class="student student-ava" data-student="${student}">
           <img src="/img/${student}.jpg" />
+          <figcaption></figcaption>
         </figure>
       `;
 

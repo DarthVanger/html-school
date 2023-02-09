@@ -18,7 +18,7 @@ export const initSocket = async () => {
   let studentsOnline = {}
   for (let student of db.data.students) {
     if (!studentsOnline[student]) {
-      studentsOnline[student] = new Date('1970-01-01T00:00:00');
+      studentsOnline[student] = new Date(0);
     }
   }
 
