@@ -15,31 +15,42 @@ export function wsSendAll(mes) {
 }
 
 export const initSocket = async () => {
+  if (!db.data.onlineLog) {
+    db.data.onlineLog = {};
+  }
   let studentsOnline = {}
   for (let student of db.data.students) {
     if (!studentsOnline[student]) {
       studentsOnline[student] = new Date(0);
+      db.data.onlineLog[student] = [];
     }
   }
 
   const pingSocketHandler = (msg, ws) => {
-    console.log('pingSocketHandler, msg: ', msg);
     if (msg.name == 'ping') {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
+      const lastOnlineDate = studentsOnline[student] ;
       const now = new Date();
+      const timePast = now.getTime() - lastOnlineDate.getTime();
+      const isOnline = timePast <= pingInterval * 2;
+
+      const studOnlineLog = db.data.onlineLog[student];
+
+      if (!isOnline) {
+        studOnlineLog.push({
+          date: now,
+          durationMinutes: 0,
+        });
+      } else {
+        studOnlineLog[studOnlineLog.length - 1].durationMinutes += pingInterval / 1000 / 60;
+      }
+
+      db.write();
+      
       studentsOnline[student] = now;
       aliveClients[student] = ws;
 
-      for (let s in studentsOnline) {
-        const lastOnlineDate = studentsOnline[s];
-        const timePast = now.getTime() - lastOnlineDate.getTime();
-        if (timePast > pingInterval) {
-          console.log(`Student ${s} went Offline`);
-          //delete studentsOnline[s];
-          //delete aliveClients[s];
-        }
-      }
 
       const payload = studentsOnline;
       //for (let stud of db.data.students) {
