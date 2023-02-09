@@ -25,6 +25,7 @@ const sendPing = () => {
   const student = localStorage.getItem('student');
   if (!student) {
     console.log('Not sending ping until student logs in');
+    return;
   }
 
   console.debug(`Sending ping from ${student}`);
