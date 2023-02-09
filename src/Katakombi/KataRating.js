@@ -22,7 +22,12 @@ export const KataRating = ({ state, catacombsState }) => {
     const avas = document.querySelectorAll('.student-ava');
     avas.forEach(ava => {
       const stud = ava.getAttribute('data-student');
-      if (onlineStudentsMap[stud]) {
+      const lastOnlineDate = new Date(onlineStudentsMap[stud]);
+      const now = new Date();
+      const timePast = now.getTime() - lastOnlineDate.getTime();
+      const pingInterval = 5000;
+      const isOnline = timePast <= pingInterval;
+      if (isOnline) {
         ava.classList.add('online');
       } else {
         ava.classList.remove('online');
