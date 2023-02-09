@@ -10,6 +10,12 @@ export const addHandler = (c, f) => {
 const socket = new WebSocket(url);
 const pingInterval = 5000;
 
+let onlineStudents;
+
+export const getOnlineStudents = () => {
+  return onlineStudents;
+};
+
 socket.onopen = (e) => {
   console.info('Websocket opened');
   setInterval(sendPing, pingInterval);
@@ -41,6 +47,12 @@ const sendPing = () => {
     },
   });
 };
+
+const handleOnlineStudents = (payload) => {
+  onlineStudents = payload;
+}
+
+addHandler('online_students', handleOnlineStudents);
 
 
 socket.onmessage = (e) => {

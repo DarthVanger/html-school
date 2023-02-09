@@ -63,7 +63,10 @@ export const KataRating = ({ state, catacombsState }) => {
     });
   };
 
-  socket.addHandler('online_students', handleOnlineStudents);
+  setTimeout(() => {
+    socket.addHandler('online_students', handleOnlineStudents);
+    handleOnlineStudents(socket.getOnlineStudents());
+  });
 
   let lvlIdx = 0;
   for (let level of levels) {
