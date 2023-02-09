@@ -19,6 +19,14 @@ socket.onopen = (e) => {
   });
 };
 
+socket.onclose = (e) => {
+  console.info('Websocket closed:', e);
+};
+
+socket.onerror = (e) => {
+  console.error('Websocket error:', e);
+};
+
 const sendJSON = j => socket.send(JSON.stringify(j));
 
 const sendPing = () => {
