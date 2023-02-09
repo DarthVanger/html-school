@@ -30,7 +30,7 @@ export const initSocket = async () => {
     if (msg.name == 'ping') {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
-      const lastOnlineDate = studentsOnline[student] ;
+      const lastOnlineDate = studentsOnline[student] || new Date(0);
       const now = new Date();
       const timePast = now.getTime() - lastOnlineDate.getTime();
       const isOnline = timePast <= pingInterval * 2;
