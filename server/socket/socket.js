@@ -26,10 +26,13 @@ export const initSocket = async () => {
     }
   }
 
+  console.log('initSocket. studentsOnline: ', studentsOnline);
+
   const pingSocketHandler = (msg, ws) => {
     if (msg.name == 'ping') {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
+      console.log('ping. studentsOnline: ', studentsOnline);
       const lastOnlineDate = studentsOnline[student] || new Date(0);
       const now = new Date();
       const timePast = now.getTime() - lastOnlineDate.getTime();
