@@ -18,22 +18,23 @@ export const initSocket = async () => {
   if (!db.data.onlineLog) {
     db.data.onlineLog = {};
   }
-  let studentsOnline = {}
+  if (!db.data.studentsOnline) {
+    db.data.studentsOnline = {};
+  }
   for (let student of db.data.students) {
-    if (!studentsOnline[student]) {
-      studentsOnline[student] = new Date(0);
+    if (!db.data.studentsOnline[student]) {
+      db.data.studentsOnline[student] = new Date(0);
       db.data.onlineLog[student] = [];
     }
   }
 
-  console.log('initSocket. studentsOnline: ', studentsOnline);
+  console.log('initSocket. studentsOnline: ', db.data.studentsOnline);
 
   const pingSocketHandler = (msg, ws) => {
     if (msg.name == 'ping') {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
-      console.log('ping. studentsOnline: ', studentsOnline);
-      const lastOnlineDate = studentsOnline[student] || new Date(0);
+      const lastOnlineDate = new Date(db.data.studentsOnline[student]);
       const now = new Date();
       const timePast = now.getTime() - lastOnlineDate.getTime();
       const isOnline = timePast <= pingInterval * 2;
@@ -53,14 +54,11 @@ export const initSocket = async () => {
         db.write();
       }
       
-      studentsOnline[student] = now;
+      db.data.studentsOnline[student] = now;
       aliveClients[student] = ws;
       ws.isAlive = true;
 
-      const payload = studentsOnline;
-      //for (let stud of db.data.students) {
-      //  payload[stud] = stud in studentsOnline;
-      //};
+      const payload = db.data.studentsOnline;
 
       wsSendAll({
         name: 'online_students',
