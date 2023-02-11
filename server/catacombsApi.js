@@ -19,11 +19,27 @@ export const catacombsApi = ({app, db}) => {
     db.data.catacombs[student] = db.data.catacombs[student] || {};
     const studCata = db.data.catacombs[student];
     const now = new Date();
+
+    const existingEntry = studCata[levelId];
+
     const entry = {
       date: now.toISOString(),
       code,
       isComplete,
     };
+
+    if (!existingEntry && code) {
+      entry.startDate = now.toISOString();
+    }
+
+    if (existingEntry) {
+      entry.startDate = existingEntry.startDate;
+    }
+
+    if (isComplete) {
+      entry.completionDate = now.toISOString();
+    }
+
     studCata[levelId] = entry;
 
     await db.write();
