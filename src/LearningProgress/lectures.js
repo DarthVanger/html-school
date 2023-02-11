@@ -406,7 +406,7 @@ export const lectures = [
     url: '#/slides/lesson34',
   },
   {
-    text: 'Gatling gun; documnent.createElement()',
+    text: '35-те заняття, бухіч) Генерація рівнів',
     items: [
       '35-те заняття!! Бухіч.',
       'Оналез Дошки: що зроблено за 2 тижні, що будем робити далі.',
@@ -415,6 +415,6 @@ export const lectures = [
       'Нова тема: Цикли. Генерація рівнів.',
     ],
     skills: ['git', 'js'],
-    url: '#/slides/lesson34',
+    url: '#/slides/lesson35',
   },
 ];

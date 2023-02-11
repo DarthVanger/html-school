@@ -4,6 +4,7 @@ import { Lesson30 } from './lessons/Lesson30.js';
 import { Lesson31 } from './lessons/Lesson31.js';
 import { Lesson32 } from './lessons/Lesson32.js';
 import { Lesson34 } from './lessons/Lesson34.js';
+import { Lesson35 } from './lessons/Lesson35.js';
 
 export const Slides = ({state, lessonName}) => {
   const el = document.createElement('div');
