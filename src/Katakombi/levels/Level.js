@@ -135,6 +135,7 @@ export const Level = ({ state, level, onComplete }) => {
 
     document.addEventListener('keydown', e => {
       const isCtrlT = (e.key == 't' || e.key == 'T') && e.ctrlKey;
+      e.preventDefault();
       if (!isCtrlT) return;
 
       if (isTaskShown) {
