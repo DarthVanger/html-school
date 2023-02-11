@@ -128,24 +128,24 @@ export const Level = ({ state, level, onComplete }) => {
 
   el.innerHTML += '</div>';
 
-  el.innerHTML +=`<p class="kata-hint">Press Ctrl + T to Hide Task</p> `;
+  el.innerHTML +=`<p class="kata-hint">Press Ctrl + Y to Hide Task</p> `;
 
   setTimeout(() => {
     const kataHint = document.querySelector('.kata-hint');
 
     document.addEventListener('keydown', e => {
-      const isCtrlT = (e.key == 't' || e.key == 'T') && e.ctrlKey;
+      const isCtrlY = (e.key == 'y' || e.key == 'Y') && e.ctrlKey;
       e.preventDefault();
-      if (!isCtrlT) return;
+      if (!isCtrlY) return;
 
       if (isTaskShown) {
         levelText.style.display = 'none'; 
         isTaskShown = false;
-        kataHint.innerHTML = `Press Ctrl T to Show Task`;
+        kataHint.innerHTML = `Press Ctrl Y to Show Task`;
       } else {
         levelText.style.display = 'block'; 
         isTaskShown = true;
-        kataHint.innerHTML = `Press Ctrl T to Hide Task`;
+        kataHint.innerHTML = `Press Ctrl Y to Hide Task`;
       }
     });
   });
