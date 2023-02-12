@@ -1,6 +1,6 @@
 import { BackButton } from './BackButton.js'
-export const Topbar = () => `
-  <div id="topbar">
+export const BottomBar = () => `
+  <div id="quests-bottom-bar">
     ${BackButton()}
   </div>
 `;

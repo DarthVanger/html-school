@@ -5,6 +5,7 @@ import { QuestStory } from './QuestStory.js';
 
 const playground = document.createElement('div');
 import { Topbar } from './Topbar.js';
+import { BottomBar } from './BottomBar.js';
 
 playground.id = 'playground';
 playground.innerHTML = `
@@ -117,6 +118,8 @@ export const QuestPage = ({ questId }) => {
       highlight();
     });
     highlight();
+
+    element.innerHTML += `${BottomBar()}`;
 
     // Preserve line breaks
     // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570

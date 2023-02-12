@@ -7,23 +7,6 @@
   font-size: var(--font-size);
 }
 
-.back-button {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-}
-
-a.back-button {
-  text-decoration: none;
-  color: #0c6cb8;
-  letter-spacing: 1px;
-}
-
-.back-button-icon {
-  height: var(--font-size);
-  padding-right: 0.5rem;
-}
-
 #topbar.surface-black .back-button {
   background: #eee;
   padding: 0.5rem;

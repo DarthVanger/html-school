@@ -1,0 +1,16 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+a.back-button {
+  text-decoration: none;
+  color: #0c6cb8;
+  letter-spacing: 1px;
+}
+
+.back-button-icon {
+  height: 1em;
+  padding-right: 0.5rem;
+}

@@ -110,3 +110,10 @@ pre[class*=language]#editor {
 #quest-story li {
   line-height: 1.75em;
 }
+
+#quests-bottom-bar {
+  height: 3em;
+  line-height: 2em;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
