@@ -38,7 +38,7 @@ const sendJSON = j => socket.send(JSON.stringify(j));
 const sendPing = () => {
   const student = localStorage.getItem('student');
 
-  console.debug(`Sending ping from student ${student}`);
+  //console.debug(`Sending ping from student ${student}`);
 
   sendJSON({
     name: 'ping',
@@ -56,7 +56,7 @@ addHandler('online_students', handleOnlineStudents);
 
 
 socket.onmessage = (e) => {
-  console.debug('socket message: ', e.data);
+  //console.debug('socket message: ', e.data);
   const mes = JSON.parse(e.data);
   const lis = listeners[mes.name];
   lis?.forEach(f => f(mes.payload));
