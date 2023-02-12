@@ -78,7 +78,7 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
       <div class="forgotten-status-overlay"></div>
     ` || '';
     */
-  });
+  }, 1000);
 
   setTimeout(() => {
     const codes = getElement()?.querySelectorAll('code');
