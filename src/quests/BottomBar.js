@@ -1,6 +1,11 @@
 import { BackButton } from './BackButton.js'
-export const BottomBar = () => `
-  <div id="quests-bottom-bar">
+export const BottomBar = () => {
+  const element = document.createElement('div');
+  element.id = 'quests-bottom-bar';
+  element.innerHTML = `
     ${BackButton()}
-  </div>
-`;
+  `;
+
+  return element;
+}
+

@@ -50,7 +50,9 @@ export const run = () => {
     </script>
   `;
 
-  code += getEditor().textContent;
+  const editorCode = getEditor().textContent;
+  code += editorCode
+  console.log('[QuestPage] running code: ', editorCode);
   playground.querySelector('iframe').remove();
   const iframe = document.createElement('iframe');
   iframe.id = "result";
@@ -113,13 +115,15 @@ export const QuestPage = ({ questId }) => {
     setCode(quest.code);
     element.append(Mentor({ quest, addCodeRunListener }));
     console.log('focus pocus :)');
+    console.log('run button: ', getRunButton());
     getRunButton().addEventListener('click', () => {
+      console.log('[QuestPage] run button clicked');
       run();
       highlight();
     });
     highlight();
 
-    element.innerHTML += `${BottomBar()}`;
+    element.append(BottomBar);
 
     // Preserve line breaks
     // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570
