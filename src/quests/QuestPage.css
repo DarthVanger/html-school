@@ -112,8 +112,8 @@ pre[class*=language]#editor {
 }
 
 #quests-bottom-bar {
-  height: 3em;
-  line-height: 2em;
+  height: 4rem;
+  line-height: 2rem;
   padding: 1rem;
   font-size: 1.2rem;
 }

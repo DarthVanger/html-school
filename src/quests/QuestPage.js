@@ -123,7 +123,7 @@ export const QuestPage = ({ questId }) => {
     });
     highlight();
 
-    element.append(BottomBar);
+    element.append(BottomBar());
 
     // Preserve line breaks
     // https://github.com/PrismJS/prism/issues/1764#issuecomment-467421570
