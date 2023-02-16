@@ -5,6 +5,7 @@ import { Lesson31 } from './lessons/Lesson31.js';
 import { Lesson32 } from './lessons/Lesson32.js';
 import { Lesson34 } from './lessons/Lesson34.js';
 import { Lesson35 } from './lessons/Lesson35.js';
+import { Lesson36 } from './lessons/Lesson36.js';
 
 export const Slides = ({state, lessonName}) => {
   const el = document.createElement('div');
@@ -17,6 +18,7 @@ export const Slides = ({state, lessonName}) => {
     lesson32: Lesson32,
     lesson34: Lesson34,
     lesson35: Lesson35,
+    lesson36: Lesson36,
   };
   console.log('lessonname: ', lessonName);
   el.append(lessons[lessonName]({state, lessonName}));
