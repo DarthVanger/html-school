@@ -1,14 +1,17 @@
 #vangers #message-panel {
   position: absolute;
-  top: 11%;
+  top: 10.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #99ae05;
   font-size: 1rem;
   height: 12%;
+  width: 47vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1.1;
+  text-align: center;
 }
 
 #vangers #message-panel p {
