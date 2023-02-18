@@ -2,6 +2,8 @@ export const Vangers = () => {
   const element = document.createElement('section');
   element.id = 'vangers';
 
+  let step = localStorage.getItem('vangers-step') || 0;
+
   const paragraphs = [
     `
         Ну здравствуй, Вангер!
@@ -44,7 +46,7 @@ export const Vangers = () => {
         Погоди куда рвешься писать код... Создаем второй файл <code>particles.js</code> - для Частиц нашего Мира...
     `,
     `
-        Файл <code>particles.js</code>подключай в <code>app.js</code> с помощью <code>import './particles.js'</code>.
+        Файл <code>particles.js</code> подключай в <code>app.js</code> с помощью <code>import './particles.js'</code>.
         Да не забуть в <code>index.html</code> добавить <code>type="module"</code> внутрь тэга <code>&lt;script&gt;</code.
     `,
     `
@@ -87,10 +89,40 @@ export const Vangers = () => {
     `,
   ];
 
+  function nextStep() {
+    if (step > paragraphs.length - 1) return;
+    step++;
+    showStep(step);
+  };
+
+  function prevStep() {
+    if (step < 1) return;
+    step--;
+    showStep(step);
+  };
+
+  function showStep(s) {
+    console.log('Show step: ', s);
+    localStorage.setItem('vangers-step', s);
+    messageElement.innerHTML = paragraphs[s];
+  }
+
   const messagePanel = document.createElement('article');
-  messagePanel.innerHTML = paragraphs[0];
+  const messageElement = document.createElement('p');
   messagePanel.id = 'message-panel';
+  messageElement.innerHTML = paragraphs[step];
+  messagePanel.append(messageElement);
   element.append(messagePanel);
+
+  const nextStepBtn = document.createElement('div');
+  nextStepBtn.id = 'next-step-btn';
+  nextStepBtn.addEventListener('click', nextStep);
+  element.append(nextStepBtn);
+
+  const prevStepBtn = document.createElement('div');
+  prevStepBtn.id = 'prev-step-btn';
+  prevStepBtn.addEventListener('click', prevStep);
+  element.append(prevStepBtn);
 
   const backgroundImg = document.createElement('img');
   backgroundImg.src = '/img/vangers/fostral.jpg';
