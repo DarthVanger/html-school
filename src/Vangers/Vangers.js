@@ -6,6 +6,8 @@ export const Vangers = () => {
 
   const paragraphs = [
     `
+    `,
+    `
         Ну здравствуй, Вангер!
         Сегодня тебе предстоит сложная задача...
         Ты должен Создать Новый Мир...
@@ -128,6 +130,15 @@ export const Vangers = () => {
   backgroundImg.src = '/img/vangers/fostral.jpg';
   backgroundImg.id = 'background-img';
   element.append(backgroundImg);
+
+  const videoContainer = document.createElement('div');
+  videoContainer.id = 'video-container';
+  const video = document.createElement('video');
+  video.src = '/video/vangers/fostral.mp4';
+  videoContainer.append(video);
+
+  element.append(videoContainer);
+
 
   return element;
 };

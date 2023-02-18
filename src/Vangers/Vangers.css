@@ -18,13 +18,14 @@
 #vangers #background-img {
   position: absolute;
   z-index: -1;
-  width: 100%;
-  top: 0; left: 0;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 #vangers #background-img {
   height: 100vh;
-  width: 100vw;
 }
 
 #next-step-btn {
@@ -47,4 +48,18 @@
 
 #vangers code {
   color: #d16407;
+}
+
+#vangers #video-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+#vangers #video-container video {
+  height: 100vh;
+  opacity: 50%;
 }
