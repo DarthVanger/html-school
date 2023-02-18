@@ -100,6 +100,11 @@ figure {
   animation-delay: 0;
 }
 
+.fade-out-1s {
+  animation: fade-out 1s linear forwards!important;
+  animation-delay: 0;
+}
+
 .fade-in {
   opacity: 0;
   animation: fade-in 2s forwards;

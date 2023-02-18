@@ -140,12 +140,16 @@ export const Vangers = () => {
   const introVid = document.createElement('video');
   introVid.id = 'intro-vid';
   introVid.src = '/video/vangers/open.mp4';
-  const introVidDuration = 4000;
-  const fadeDuration = 2000;
+  const introVidDuration = 5000;
+  const fadeDuration = 1000;
+  setTimeout(() => {
+      introVid.volume = 0;
+  }, 4500);
+
   introVid.addEventListener('click', () => {
     introVid.play();
     setTimeout(() => {
-      introVid.classList.add('fade-out');
+      introVid.classList.add('fade-out-1s');
       setTimeout(() => {
         introVid.remove();
         playMusic();
