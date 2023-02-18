@@ -77,7 +77,7 @@ export const Vangers = () => {
         Слиплися все 100 точек в верхний левый угол? Хорошо...
     `,
     `
-        Довай задодим Частицам случайные позиции... <code>let x = Math.random() * screen.width;</code>, и для <code>let y = Math.random() * screen.height;</code>
+        Довай задодим Частицам случайные позиции... <code>let x = Math.random() * screen.width;</code>, и для <code>let y = Math.random() * screen.height;</code>. Эти переменные используй в хтмле... <code>... = \`&lt;div style="position: absolute; left: \${x}px; top: \${y}px;"&gt;.&lt;/div&gt;\`</code>
     `,
     `
         Мир обретает Форму... Хаоса... Космоса... Стали частицы в рандомные позиции на экране, Вангер?
