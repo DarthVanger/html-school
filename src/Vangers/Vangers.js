@@ -117,8 +117,9 @@ export const Vangers = () => {
   messagePanel.append(messageElement);
   element.append(messagePanel);
 
-  const nextStepBtn = document.createElement('div');
-  nextStepBtn.id = 'next-step-btn';
+  const nextStepBtn = document.createElement('img');
+  nextStepBtn.src = '/img/vangers/next-button.png';
+  nextStepBtn.id = 'next-step-img';
   nextStepBtn.addEventListener('click', nextStep);
   element.append(nextStepBtn);
 

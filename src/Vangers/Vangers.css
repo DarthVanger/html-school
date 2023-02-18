@@ -35,24 +35,6 @@ body.vangers-page {
   transform: translate(-50%, 0);
 }
 
-#next-step-btn {
-  position: absolute;
-  right: 19%;
-  top: 4%;
-  width: 6%;
-  height: 16%;
-  cursor: pointer;
-}
-
-#prev-step-btn {
-  position: absolute;
-  left: 19%;
-  top: 4%;
-  width: 6%;
-  height: 16%;
-  cursor: pointer;
-}
-
 #vangers code {
   color: #d16407;
 }
@@ -82,6 +64,16 @@ body.vangers-page {
   top: 50%;
   transform: translate(-50%, -50%);
   height: 100vh;
+}
+
+#vangers #next-step-img {
+  position: absolute;
+  top: -0.2vh;
+  right: 50%;
+  transform: translate(66.5vh, 0);
+  animation: btnanimation 4s infinite alternate;
+  height: 22.2vh;
+  cursor: pointer;
 }
 
 #vangers #prev-step-img {
