@@ -107,6 +107,7 @@ export const Vangers = () => {
     console.log('Show step: ', s);
     localStorage.setItem('vangers-step', s);
     messageElement.innerHTML = paragraphs[s];
+    video.play();
   }
 
   const messagePanel = document.createElement('article');
@@ -138,7 +139,6 @@ export const Vangers = () => {
   videoContainer.append(video);
 
   element.append(videoContainer);
-
 
   return element;
 };
