@@ -6,8 +6,6 @@ export const Vangers = () => {
 
   const paragraphs = [
     `
-    `,
-    `
         Ну здравствуй, Вангер!
         Сегодня тебе предстоит сложная задача...
         Ты должен Создать Новый Мир...
@@ -56,12 +54,12 @@ export const Vangers = () => {
         Внутри файла <code>particles.js</code> выведи у докУмент точечку текстом пожалуйста... <code>"."</code>
     `,
     `
-        Получилось? Эта точка - твоя первая частица, Вангер. Это твой Новый Мир.
+        Получилось? Эта точка - твоя первая частица, Вангер! Это твой Новый Мир!..
         Добавь теперь 100 точек, сто частиц. С помощью цикла <code>while</code>.
     `,
     `
-        Сто Частиц... Сто Точек... Мы Создаем Материю, не менее, Вангерок ты мой.
-        Необходимо задать Пространство. Каждая Частица должна быть не точкой, но Элементом...
+        Сто Частиц... Сто Точек... Мы Создаем Материю, не менее, Вангерок ты мой!..
+        Необходимо задать Пространство... Каждая Частица должна быть не точкой, но Элементом...
     `,
     `
         В <code>app.js</code> Вместо ста точек текстом, добавляй 100 раз в докУмент вот такой ХТМЛ: <code>&lt;div&gt;.&lt;/div&gt;</code>
@@ -137,8 +135,32 @@ export const Vangers = () => {
   const video = document.createElement('video');
   video.src = '/video/vangers/fostral.mp4';
   videoContainer.append(video);
-
   element.append(videoContainer);
 
+  const introVid = document.createElement('video');
+  introVid.id = 'intro-vid';
+  introVid.src = '/video/vangers/open.mp4';
+  const introVidDuration = 4000;
+  const fadeDuration = 2000;
+  introVid.addEventListener('click', () => {
+    introVid.play();
+    setTimeout(() => {
+      introVid.classList.add('fade-out');
+      setTimeout(() => {
+        introVid.remove();
+        playMusic();
+        video.play();
+      }, fadeDuration);
+    }, introVidDuration);
+  });
+  element.append(introVid);
+
   return element;
+};
+
+const audio = new Audio('/video/vangers/fostral.mp3');
+audio.volume = 0.1;
+
+const playMusic = () => {
+  audio.play();
 };
