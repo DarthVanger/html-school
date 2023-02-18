@@ -169,6 +169,7 @@ export const Vangers = () => {
 };
 
 const audio = new Audio('/video/vangers/fostral.mp3');
+audio.loop = true;
 audio.volume = 0.1;
 
 const playMusic = () => {
