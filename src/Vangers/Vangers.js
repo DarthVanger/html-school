@@ -92,6 +92,8 @@ export const Vangers = () => {
   ];
 
   function nextStep() {
+    nextStepBtn.classList.add('push');
+    setTimeout(() => { nextStepBtn.classList.remove('push') }, 4000);
     if (step > paragraphs.length - 1) return;
     step++;
     showStep(step);

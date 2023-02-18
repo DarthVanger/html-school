@@ -66,31 +66,36 @@ body.vangers-page {
   height: 100vh;
 }
 
+#vangers .push {
+  animation: btnanimation 2s infinite alternate;
+}
+
 #vangers #next-step-img {
+  opacity: 0;
   position: absolute;
   top: -0.2vh;
   right: 50%;
   transform: translate(66.5vh, 0);
-  animation: btnanimation 4s infinite alternate;
   height: 22.2vh;
   cursor: pointer;
 }
 
 #vangers #prev-step-img {
+  opacity: 0;
   position: absolute;
   top: 0;
   left: 50%;
-  animation: btnanimation 4s infinite alternate;
   height: 20.6vh;
+  animation: btnanimation 4s infinite alternate;
   transform: translate(-65.2vh, 0);
   cursor: pointer;
 }
 
 @keyframes btnanimation {
   from {
-    opacity: 1;
+    opacity: 0;
   }
   to {
-    opacity: 0;
+    opacity: 1;
   }
 }
