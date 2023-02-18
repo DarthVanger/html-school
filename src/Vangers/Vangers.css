@@ -1,3 +1,11 @@
+body.vangers-page {
+  overflow: hidden;
+}
+
+#vangers {
+  width: fit-content;
+}
+
 #vangers #message-panel {
   position: absolute;
   top: 10.5%;
@@ -21,14 +29,10 @@
 #vangers #background-img {
   position: absolute;
   z-index: -1;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-}
-
-#vangers #background-img {
-  height: 100vh;
 }
 
 #next-step-btn {
@@ -78,4 +82,23 @@
   top: 50%;
   transform: translate(-50%, -50%);
   height: 100vh;
+}
+
+#vangers #prev-step-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  animation: btnanimation 4s infinite alternate;
+  height: 20.6vh;
+  transform: translate(-65.2vh, 0);
+  cursor: pointer;
+}
+
+@keyframes btnanimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

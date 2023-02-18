@@ -2,6 +2,8 @@ export const Vangers = () => {
   const element = document.createElement('section');
   element.id = 'vangers';
 
+  document.body.className = 'vangers-page';
+
   let step = localStorage.getItem('vangers-step') || 0;
 
   const paragraphs = [
@@ -120,8 +122,9 @@ export const Vangers = () => {
   nextStepBtn.addEventListener('click', nextStep);
   element.append(nextStepBtn);
 
-  const prevStepBtn = document.createElement('div');
-  prevStepBtn.id = 'prev-step-btn';
+  const prevStepBtn = document.createElement('img');
+  prevStepBtn.src = '/img/vangers/prev-button.png';
+  prevStepBtn.id = 'prev-step-img';
   prevStepBtn.addEventListener('click', prevStep);
   element.append(prevStepBtn);
 
