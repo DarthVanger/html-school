@@ -54,16 +54,16 @@ export const steps = [
 </p>
 `,
     check: `Уписано <code>let skokoRaz = 0;</code>`,
-    regexp: new RegExp(`let\s+skokoRaz\s*=\s*0;?`),
+    regexp: /let\s+skokoRaz\s*=\s*0;?/
   },
   {
     task: `
 <p>
-  Молодца. Теперь <code>while</code> пустой пишем <code>while () {}</code>. Синтоксис такой же как у <code>if () {}</code> да и на синтоксес функцей похож тоже :)
+  Молодца. Теперь <code>while</code> пустой пишем <code>while (false) {}</code>. Синтоксис такой же как у <code>if () {}</code> да и на синтоксес функцей похож тоже :). В круглые скобки <code>false</code> мы пишем пока что просто так, чтобы не было ошибки - пустое условие быть не может. Потом заменим <code>false</code>на настоящее условие.
 </p>
 `,
-    check: `Уписано <code>let skokoRaz = 0;</code>`,
-    regexp: new RegExp(`while\s*[(]\s*[)]\s*{\s*}`),
+    check: `Уписано <code>while (false) {}</code>`,
+    regexp: /while\s*[(]\s*(false|skokoRaz < 100?)\s*[)]\s*{[^}]*}/
   },
   {
     task: `
@@ -77,12 +77,12 @@ export const steps = [
 </p>
 `,
     check: `Уписано <code>{ skokoRaz = +1; }</code>`,
-    regexp: new RegExp(`{\s*skokoRaz\s*=\s*skokoRaz\s*[+]\s*1`),
+    regexp: /{\s*skokoRaz\s*=\s*skokoRaz\s*[+]\s*1/
   },
   {
     task: `
 <p>
-  Наконец, мы можем добавить условие в круглые скобки:
+  Наконец, мы можем добавить условие в круглые скобки, вместо <code>false</code>:
   <pre><code>
     while (skokoRaz < 10) {
       skokoRaz = skokoRaz + 1;
@@ -91,7 +91,7 @@ export const steps = [
 </p>
 `,
     check: `Уписано <code>while ( skokoRaz < 10)</code>`,
-    regexp: new RegExp(`while\s*[(]\s*skokoRaz\s*[<]\s*10[)]`),
+    regexp: /while\s*[(]\s*skokoRaz\s*[<]\s*100?[)]/
   },
   {
     task: `
@@ -100,7 +100,7 @@ export const steps = [
 </p>
 
 </p>
-  Довай же выведем! :) Пиши <code>document.body.innerHTML += 'xuy4ek!</code>' ВНУТРЬ фигруных скобок, т.е. ВНУТРЬ цикла.
+  Довай же выведем! :) Пиши <code>document.body.innerHTML += 'xuy4ek!'</code> ВНУТРЬ фигруных скобок, т.е. ВНУТРЬ цикла.
 
   <pre><code>
     while (skokoRaz < 10) {
@@ -111,7 +111,7 @@ export const steps = [
 </p>
 `,
     check: `Уписано <code>document.body.innerHTML += 'xuy4ek!'; ВНУТРЬ цикла</code>`,
-    regexp: new RegExp(`while\s*[(]\s*skokoRaz\s*[<]\s*10[)]\s*[{][^}]+document[.]body[.]innerHTML\s*[+][=]\s*[']xuy4ek[!]['];?\s*}`),
+    regexp: /while\s*[(]\s*skokoRaz\s*[<]\s*100?[)]\s*[{][^}]+document[.]body[.]innerHTML\s*[+][=]\s*[']xuy4ek[!]['];?\s*}/
   },
   {
     task: `
@@ -128,7 +128,7 @@ export const steps = [
 </p>
 `,
     check: `Уписано <code>while ( skokoRaz < 100)</code>`,
-    regexp: new RegExp(`while\s*[(]\s*skokoRaz\s*[<]\s*100[)]`),
+    regexp: /while\s*[(]\s*skokoRaz\s*[<]\s*100[)]/
   },
 ];
 
