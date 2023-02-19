@@ -51,6 +51,7 @@ export const run = () => {
   `;
 
   const editorCode = getEditor().textContent;
+
   code += editorCode
   console.log('[QuestPage] running code: ', editorCode);
   playground.querySelector('iframe').remove();
@@ -112,12 +113,23 @@ export const QuestPage = ({ questId }) => {
   setTimeout(() => {
     element.innerHTML += '<h2>Зоданее</h2>';
     element.append(playground);
-    setCode(quest.code);
+    const savedCode = localStorage.getItem(quest.id);
+    if (!savedCode) {
+      setCode(quest.code);
+    } else {
+      setTimeout(() => {
+        getEditor().textContent = savedCode;
+        run();
+        highlight();
+      });
+    }
+
     element.append(Mentor({ quest, addCodeRunListener }));
     console.log('focus pocus :)');
     console.log('run button: ', getRunButton());
     getRunButton().addEventListener('click', () => {
       console.log('[QuestPage] run button clicked');
+      localStorage.setItem(quest.id, getEditor().textContent);
       run();
       highlight();
     });
