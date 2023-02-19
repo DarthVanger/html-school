@@ -7,7 +7,9 @@ import quests from '../../quests/quests.js';
 const element = document.createElement('div');
 element.id = 'levels';
 const state = {
-  completedQuests: null, };
+  completedQuests: null,
+};
+
 export const Levels = (store) => {
   const setState = (newState) => {
     state.completedQuests = newState.completedQuests;
@@ -172,6 +174,17 @@ export const Levels = (store) => {
           title: 'Стрэляем: Плазма :)',
           imgSrc: 'src/quests/img/plasma.gif',
           ...extraProps(quests.plasma),
+        })}
+      </div>
+
+      <h3>Масивы и циклы</h3>
+
+      <div class="quest-list">
+        ${Quest({
+          ...quests.whileLoop,
+          title: 'While loop: как вывести текст в докУмент 100 раз',
+          imgSrc: 'src/quests/img/keyboard.webp',
+          ...extraProps(quests.whileLoop),
         })}
       </div>
 

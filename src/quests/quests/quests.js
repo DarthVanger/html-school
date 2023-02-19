@@ -18,6 +18,7 @@ import htmlImg from './htmlImg.js';
 import shipMotion from './shipMotion.js';
 import keyboard from './keyboard.js';
 import layers from './layers.js';
+import whileLoop from './whileLoop.js';
 
 const quests = {
   layers,
@@ -40,6 +41,7 @@ const quests = {
   plasma,
   plasma2,
   functions,
+  whileLoop,
 };
 
 export const getQuestSkills = (questId) => {
