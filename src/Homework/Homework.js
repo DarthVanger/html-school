@@ -5,11 +5,12 @@ import { Homework32 } from './homeworks/Homework32.js';
 import { Homework33 } from './homeworks/Homework33.js';
 import { Homework34 } from './homeworks/Homework34.js';
 import { Homework35 } from './homeworks/Homework35.js';
+import { Homework36 } from './homeworks/Homework36.js';
 
 export const Homework = (state) => {
   return `
     <div id="homework">
-      ${Homework35(state)}
+      ${Homework36(state)}
     </div>
   `;
 };
