@@ -1,7 +1,6 @@
 import { Topbar } from './Topbar.js';
 import { BottomBar } from './BottomBar.js';
 import { Login } from './Login.js';
-import { Learn } from './Learn/Learn.js';
 import { HomePage } from './HomePage/HomePage.js';
 import { NotFoundPage } from './NotFoundPage.js';
 import { Skills } from './skills/skills.js';
@@ -33,9 +32,6 @@ export const Router = (state) => {
       break;
     case '/login':
       element.innerHTML = Login(state);
-      break;
-    case '/learn':
-      element.innerHTML = Learn(state);
       break;
     case '/banki':
       element.append(Banki(state));
