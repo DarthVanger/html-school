@@ -19,6 +19,7 @@ import { Lesson25 } from './Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
 import { Slides } from './SlidesV2/Slides.js';
 import { Banki } from './Banki/Banki.js';
+import { Vangers } from './Vangers/Vangers.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -106,6 +107,11 @@ export const Router = (state) => {
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
       `;
       element.append(Coursework(state));
+      break;
+
+    case '/vangers':
+      element.innerHTML = '';
+      element.append(Vangers(state));
       break;
 
     case state.route.match(/[/]slides[/]/)?.input:
