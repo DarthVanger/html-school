@@ -418,7 +418,7 @@ export const lectures = [
     url: '#/slides/lesson35',
   },
   {
-    text: 'Создание Вселенной: частицы, пространство, время движение.',
+    text: 'Создание Вселенной: частицы, пространство, время и движение.',
     items: [
       'Вангеры :)',
       'Частицы: выводим 100 точек у докУмент (while дщщз)',
@@ -428,5 +428,13 @@ export const lectures = [
     ],
     skills: ['git', 'js', 'physics', 'while-loop', 'querySelectorAll', 'forEach', 'setInterval'],
     url: '#/slides/lesson36',
+  },
+  {
+    text: '37',
+    items: [
+      'Летучка на синтаксис: function, if, while',
+    ],
+    skills: ['fucntions', 'if-else', 'while'],
+    url: '#/slides/lesson37',
   },
 ];
