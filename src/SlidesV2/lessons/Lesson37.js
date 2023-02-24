@@ -66,6 +66,12 @@ const html = `
           <p>В чем разница в синтоксисе функции, if, и while?
         </section>
       </article>
+
+      <article>
+        <section class="content">
+          <a href="/#/quiz">Экзамен</a>
+        </section>
+      </article>
     </section>
   </div>
 `;
