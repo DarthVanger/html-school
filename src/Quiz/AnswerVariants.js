@@ -18,10 +18,10 @@ export const AnswerVariants = ({ selectedVariant, onChange, isSelectedCorrect, i
     };
   };
 
-    element.append(AnswerVariant({
-      children: answers[0],
-      ...getSharedProps(0),
-    }));
+  element.append(AnswerVariant({
+    children: answers[0],
+    ...getSharedProps(0),
+  }));
 
   element.append(AnswerVariant({
     children: answers[1],

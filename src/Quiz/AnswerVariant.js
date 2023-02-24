@@ -1,7 +1,7 @@
 import { Panel } from '../quests/MainPage/Panel.js';
 
 export const AnswerVariant = ({children, onClick, isSelected, isCorrect, isWrong}) => {
-  let id = `answer-variant-${Math.round(Math.random() * 1000)}`
+  let id = `answer-variant-${Math.round(Math.random() * 100000)}`
   let element = document.createElement('div');
   element.id = id;
 
@@ -11,7 +11,6 @@ export const AnswerVariant = ({children, onClick, isSelected, isCorrect, isWrong
 
   setTimeout(() => {
     getElement().addEventListener('click', onClick);
-
   });
 
   const render = () => {
@@ -27,9 +26,9 @@ export const AnswerVariant = ({children, onClick, isSelected, isCorrect, isWrong
     }
 
     console.log('status: ', statusClass);
-    (getElement() || element).className = 'answer-variant ' + statusClass;
+    element.className = 'answer-variant ' + statusClass;
 
-    (getElement() || element).innerHTML = `
+    element.innerHTML = `
       ${Panel({
         children,
       })}

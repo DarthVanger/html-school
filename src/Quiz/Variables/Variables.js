@@ -3,7 +3,7 @@ import { Results } from './Results.js';
 const element = document.createElement('div');
 element.className = 'quiz';
 
-const correctAnswers = [0, 2, 2, 2, 2, 2, 1];
+const correctAnswers = [1, 3, 0, 3, 1, 2, 2];
 
 let state = {
   questions: [-1, -1, -1, -1, -1, -1, -1],
@@ -12,13 +12,22 @@ let state = {
   isQuizSubmitted: false,
 };
 
+var backgroudnMusic = new Audio('/video/quiz/anxious.mp3');
+backgroudnMusic.loop = true;
+
 export const Variables = () => {
+  backgroudnMusic.play();
+  document.addEventListener('click', () => {
+    backgroudnMusic.play();
+  });
+
   const handleQuizSubmit = () => {
     console.info('handleQuizSubmit');
     state.isQuizSubmitted = true;
 
     let i = 0;
     for (let q of state.questions) {
+      console.log('q #' + i);
       console.debug('q: ', q);
       console.debug('cor ans q: ', correctAnswers[i]);
       state.results[i] = (q === correctAnswers[i]);
@@ -37,10 +46,12 @@ export const Variables = () => {
 
     render();
 
+    var audio = new Audio('/video/quiz/finish.mp3');
+    audio.play();
   };
 
   const handleVariantChange = ({ question, selectedVariant }) => {
-    var audio = new Audio('/video/millionaire.mp3');
+    var audio = new Audio('/video/quiz/millionaire.mp3');
     audio.play();
     const prev = state.questions[question];
     const next = selectedVariant;
@@ -73,14 +84,14 @@ export const Variables = () => {
                 <pre><code>
                   x: 3
                   y: undefined
-                  z: 11
+                  z: 20
                 </code></pre>
               `,
               `
                 <pre><code>
                   x: 3
                   y: undefined
-                  z: 20
+                  z: 11
                 </code></pre>
               `,
               `
@@ -138,13 +149,13 @@ export const Variables = () => {
               `,
               `
                 <pre><code>
-                  sum1: 12
-                  sum2: 12
+                  Error
                 </code></pre>
               `,
               `
                 <pre><code>
-                  Error
+                  sum1: 12
+                  sum2: 12
                 </code></pre>
               `,
             ],
@@ -176,6 +187,12 @@ export const Variables = () => {
               `
                 <pre><code>
                   sum1: 12
+                  sum2: 12
+                </code></pre>
+              `,
+              `
+                <pre><code>
+                  sum1: 12
                   sum2: 5
                 </code></pre>
               `,
@@ -183,12 +200,6 @@ export const Variables = () => {
                 <pre><code>
                   sum1: 5
                   sum2: 5
-                </code></pre>
-              `,
-              `
-                <pre><code>
-                  sum1: 12
-                  sum2: 12
                 </code></pre>
               `,
               `
@@ -240,24 +251,25 @@ export const Variables = () => {
               `,
               `
                 <pre><code>
-                  sum1: 3
-                  sum2: 3
+                  sum1: 13
+                  sum2: 13
                 </code></pre>
               `,
               `
                 <pre><code>
-                  sum1: 13
-                  sum2: 13
+                  sum1: 3
+                  sum2: 3
                 </code></pre>
               `,
             ],
           })}
         </div>
       </article>
+
       <article class="quiz-item language-js">
         <pre><code>
           function sum(x, y) {
-            return x1 + y1;
+            return x + y;
           }
 
           const x1 = 3;
@@ -312,7 +324,6 @@ export const Variables = () => {
         <pre><code>
           function sum(x, y) {
             return x1 + y1;
-            return x2 + y2;
           }
 
           const x1 = 3;
@@ -366,7 +377,8 @@ export const Variables = () => {
       <article class="quiz-item language-js">
         <pre><code>
           function sum(x, y) {
-            return x + y;
+            return x1 + y1;
+            return x2 + y2;
           }
 
           const x1 = 3;
@@ -416,7 +428,6 @@ export const Variables = () => {
           })}
         </div>
       </article>
-
 
       <button type="button" id="quiz-submit">SUBMIT</button>
 

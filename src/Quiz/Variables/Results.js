@@ -12,7 +12,7 @@ export const Results = ({ results, questions, isQuizFailed }) => {
     `;
   } else {
     return `
-      Success!! Quiz Passed!!!
+      <img src="/img/quiz/snoop.webp" style="width: 100%;" />
     `;
   }
 };
