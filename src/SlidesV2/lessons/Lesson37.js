@@ -60,6 +60,81 @@ const html = `
           </figure>
         </section>
       </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <img src="/img/lesson37/brendan-eich.jpeg" />
+            <figcaption>
+              Хто это?
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <img src="/img/lesson37/wiki.png" />
+            <figcaption>
+              Хто это?
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+            <p>На что Javascript больше похож - на Java или на C?</p>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <video controls>
+              <source src="/video/lesson37/interview.mp4" type="video/mp4" />
+            </video>
+            <figcaption>
+              Brendan Eich - Inventor of JavaScript <a href="https://www.coursera.org/learn/internet-history/lecture/BMfdW/brendan-eich-inventor-of-javascript" target="_blank">(Coursera)</a>
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <img src="/img/lesson37/brave.png" />
+            <figcaption>
+              Brave Browser <a href="https://en.wikipedia.org/wiki/Brave_(web_browser)">Wiki</a>
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <img src="/img/lesson37/chromium-chem.png" />
+            <figcaption>
+              Chromium
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+
+      <article>
+        <section class="content">
+          <figure>
+            <img src="/img/lesson37/chromium.png" />
+            <figcaption>
+              Chromium <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Wiki</a>
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+
     </section>
 
     <section class="pomodoro">
