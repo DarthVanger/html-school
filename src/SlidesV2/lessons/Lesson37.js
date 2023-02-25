@@ -45,6 +45,24 @@ const html = `
     </section>
 
     <section class="pomodoro">
+      <h2>Ысторыя Ынтэрэнетов</h2>
+
+      <article>
+        <section class="content">
+          <figure>
+            <video controls>
+              <source src="/video/lesson37/atnt.webm" type="video/webm" />
+            </video>
+            <figcaption>
+              Реклама AT&T хз какого года :)
+              <a href="https://www.youtube.com/watch?v=2kfIFDX9kE4" target="_blank">(YouTube)</a>
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+    </section>
+
+    <section class="pomodoro">
       <h2>Синтоксис</h2>
 
       <article>
