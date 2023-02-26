@@ -20,6 +20,7 @@ import { Katakombi } from './Katakombi/Katakombi.js';
 import { Slides } from './SlidesV2/Slides.js';
 import { Banki } from './Banki/Banki.js';
 import { Vangers } from './Vangers/Vangers.js';
+import { Quiz2 } from './Quiz2/Quiz2.js';
 
 const element = document.createElement('div');
 element.id = 'router';
@@ -112,6 +113,11 @@ export const Router = (state) => {
     case '/vangers':
       element.innerHTML = '';
       element.append(Vangers(state));
+      break;
+
+    case '/quiz2':
+      element.innerHTML = '';
+      element.append(Quiz2(state));
       break;
 
     case state.route.match(/[/]slides[/]/)?.input:
