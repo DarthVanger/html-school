@@ -56,19 +56,62 @@ const paragraphs = [
   Дабы избежать сбоев в ДНК нашего Мира.
   `,
 `
-`,
-`
   Открываем VsCode. Там Файл -> открыть папку. Выбираем нашу новосозданную папку <code>vangers</code>.
 `,
 `
-  Открывавем Терминал. ВВыбираем Git Bash. Вбовавок тому что мы создали 
+  Открывавем Терминал. ВВыбираем Git Bash.
 `,
 `
-  В ней index.html, а там "Hello epta"...
+  Теперь. Чтобы создать локальный Гит Репозеторей, мы пишем в Терминале <code>git init</code>
+`,
+`
+  Initialized empty Git repository in <code>C:/Users/User/Documents/projects/vangers/.git/</code>
+  Гит создал папку <code>.git</code> и вывел тебе Путь к Ней.
 `,
 `
   Справился, ширшавый? Молодец...
-  Как ты понимаешь для Создания Мира потребуется JavaScript...
+  Чтобы сделать первый Коммит, нам нужено что-то Добаветь.
+  И добавим мы index.html.
+  Создавай в папке <code>vangers/</code> файл <code>index.html</code>
+`,
+`
+  В <code>index.html</code> пишем <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code>.
+`,
+`
+  Файл есть &mdash; можем комитить.
+  Добавляй свой файл: <code>git add index.html</code>
+`,
+`
+  Проверь <code>git status</code> - стал <code>index.html</code> зелененьким?
+`,
+`
+  Теперь наконец <code>git commit -m "Add index.html"</code>
+`,
+`
+  Все! Репозеторий создан, Первый Коммит Есть!
+  Отсалось связать локальный репозиторий с облачным на Гитхабе.
+`,
+`
+  Все! Репозеторий создан, Первый Коммит Есть!
+  Осталось связать локальный репозиторий с облачным на Гитхабе.
+`,
+`
+  Облачные, онлайн репозиитории в Гиите называются "remote".
+  Чтобы связать облачный репозиторий с нашим локальнім пишем <code>git remote add origin ссілке</code>. Ссілке копируем с Гитхаба.
+ Открываем свернутый браузер, там ссілке сразу же сверху где Quick Setup.
+`,
+`
+  Нихуя не відало)) Єто ок. Єто значіт все ок.
+  Репозитории свяязані! Ура!
+  Можем <code>git push</code> делать!
+`,
+`
+  fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    <code>git push --set-upstream origin master</code>
+
+    Делай что говоріт Гіт, Вангер1
 `,
 `
   Подключи JS отдельным файлом <code>&lt;script src="app.js"&gt;</code>.
