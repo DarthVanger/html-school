@@ -1,9 +1,9 @@
-const name = "Chapter 1. Particles";
+const title = "Chapter 1. Particle";
 
 const paragraphs = [
 `
-  Ну здравствуй, Вангер!
-  Сегодня тебе предстоит сложная задача...
+  Привет, Вангер! Как доехал, не запыхался?
+  У меня для тебя новая "интересная" задача...
   Ты должен Создать Новый Мир...
 `,
 `
@@ -38,8 +38,8 @@ const paragraphs = [
   Создай файл <code>app.js</code> и выведи с него в докУмент текст <code>"app.js file loaded"</code>.
 `,
 `
-Убедился что <code>app.js</code> рабочий?
-Погоди куда рвешься писать код... Создаем второй файл <code>particles.js</code> - для Частиц нашего Мира...
+  Убедился что <code>app.js</code> рабочий?
+  Погоди куда рвешься писать код... Создаем второй файл <code>particles.js</code> - для Частиц нашего Мира...
 `,
 `
   Файл <code>particles.js</code> подключай в <code>app.js</code> с помощью <code>import './particles.js'</code>.
@@ -47,14 +47,20 @@ const paragraphs = [
     `,
     `
   Всё вам, Вангерам, обьяснять надо... На своих Мехосах помешались.
-  Внутри файла <code>particles.js</code> выведи у докУмент текст "Частица" пожалуйста... <code>"."</code>
+  Внутри файла <code>particles.js</code> выведи у докУмент кортинке - добавь в innerHTML <code>document.body.innerHTML += '<img src="http://napaelon.space/img/paricle.png">';</code>
     `,
-    `
-    Получилось? Этот текст - твоя первая Частица, Вангер! Это твой Новый Мир!..
-    `,
-  ];
+`
+  Получилось? Эта Картинка - твоя первая Частица, Вангер! Это твой Новый Мир!..
+`,
+];
+
+const hints = [
+  '<a href="http://napaleon.space/#/quests/innerHTML">Домашка по innerHTML</a>',
+  '<a href="http://napaleon.space/#/quests/htmlImg">Домашка по HTML &lt;img&gt;</a>',
+];
 
 export const Chapter1 = {
-  name,
+  title,
   paragraphs,
-}
+  cover: '/img/vangers/particle.jpg',
+};

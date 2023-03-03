@@ -1,10 +1,14 @@
-import { Chapter1 } from './Chapter1.js';
+export const Chapter = ({ chapter }) => {
+  const element = document.createElement('article');
+  element.className = 'chapter';
 
-export const Vangers = () => {
-  const element = document.createElement('section');
-  element.id = 'vangers';
+  const cover = document.createElement('img');
+  img.src = chapter.cover;
+  element.append(img);
 
-  document.body.className = 'vangers-page';
+  const title = document.createElement('h1');
+  title.innerText = chapter.title;
+  element.append(title);
 
   let step = localStorage.getItem('vangers-step') || 0;
 
@@ -55,42 +59,5 @@ export const Vangers = () => {
   backgroundImg.id = 'background-img';
   element.append(backgroundImg);
 
-  const videoContainer = document.createElement('div');
-  videoContainer.id = 'video-container';
-  const video = document.createElement('video');
-  video.src = '/video/vangers/fostral.mp4';
-  videoContainer.append(video);
-  element.append(videoContainer);
-
-  const introVid = document.createElement('video');
-  introVid.id = 'intro-vid';
-  introVid.src = '/video/vangers/open.mp4';
-  const introVidDuration = 5000;
-  const fadeDuration = 1000;
-  setTimeout(() => {
-      introVid.volume = 0;
-  }, 4500);
-
-  introVid.addEventListener('click', () => {
-    introVid.play();
-    setTimeout(() => {
-      introVid.classList.add('fade-out-1s');
-      setTimeout(() => {
-        introVid.remove();
-        playMusic();
-        video.play();
-      }, fadeDuration);
-    }, introVidDuration);
-  });
-  element.append(introVid);
-
   return element;
-};
-
-const audio = new Audio('/video/vangers/fostral.mp3');
-audio.loop = true;
-audio.volume = 0.1;
-
-const playMusic = () => {
-  audio.play();
 };
