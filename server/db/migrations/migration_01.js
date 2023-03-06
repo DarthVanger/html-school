@@ -11,6 +11,7 @@ export const migration_01 = async () => {
     'mazerTim',
     'russi4',
     'alex',
+    'yrtz',
     'other-species',
   ];
 
