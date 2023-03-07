@@ -430,11 +430,26 @@ export const lectures = [
     url: '#/slides/lesson36',
   },
   {
-    text: '37',
+    text: 'Литучки, экзамены, граветацея',
     items: [
       'Летучка на синтаксис: function, if, while',
+      'Экзамен',
+      'Гравитация: первая попытка',
     ],
     skills: ['fucntions', 'if-else', 'while'],
     url: '#/slides/lesson37',
+  },
+  {
+    text: 'Каникулы',
+    items: [],
+    skills: [],
+    url: '',
+  },
+  {
+    text: 'Каникулы',
+    items: [
+    ],
+    skills: [],
+    url: '',
   },
 ];
