@@ -10,9 +10,9 @@
 }
 
 #homework figure {
-  max-height: initial;
+  text-align: center;
 }
 #homework img {
-  height: initial;
+  max-width: 100%;
 }
 

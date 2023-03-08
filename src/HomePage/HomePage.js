@@ -3,7 +3,7 @@ import { Quest } from '../quests/MainPage/Levels/Quest.js';
 import quests from '../quests/quests/quests.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
-import { Homework } from '../Homework/Homework.js';
+import { CurrentHomework } from '../Homework/CurrentHomework.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 
 export const HomePage = (state) => {
@@ -30,7 +30,7 @@ export const HomePage = (state) => {
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
 
-        ${Homework(state)}
+        ${CurrentHomework(state)}
 
         ${Doska(state)}
 
@@ -38,6 +38,11 @@ export const HomePage = (state) => {
 
         <h2>НАВЧАННЯ</h2>
         <section id="main-page-links">
+          <article>
+            <a href="#/homework">
+              ДОМАШКА
+            </a>
+          </article>
           <article>
             <a href="#/skills">
               ДРЕВО УМЕНИЙ
@@ -58,13 +63,11 @@ export const HomePage = (state) => {
               ЭКЗАМЕНЫ
             </a>
           </article>
-          <!--
           <article>
             <a href="#/katakombi">
               КАТАКОМБЫ
             </a>
           </article>
-          -->
         </section>
         <h2>МАТЕРІАЛИ</h2>
         <section id="main-page-links">

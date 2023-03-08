@@ -13,7 +13,7 @@ import { ExpectationReality } from './ExpectationReality/ExpectationReality.js';
 import { NeuralArt } from './NeuralArt/NeuralArt.js';
 import { Resume } from './Resume/Resume.js';
 import { Coursework } from './Coursework/Coursework.js';
-//import { HomeworkPage } from './HomeworkPage/HomeworkPage.js';
+import { Homework } from './Homework/Homework.js';
 import { Scene3d } from './Scene3d/Scene3d.js';
 import { Lesson25 } from './Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
@@ -118,6 +118,11 @@ export const Router = (state) => {
     case '/quiz2':
       element.innerHTML = '';
       element.append(Quiz2(state));
+      break;
+
+    case '/homework':
+      element.innerHTML = '';
+      element.append(Homework(state));
       break;
 
     case state.route.match(/[/]slides[/]/)?.input:
