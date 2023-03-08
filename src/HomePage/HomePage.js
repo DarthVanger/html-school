@@ -7,6 +7,10 @@ import { CurrentHomework } from '../Homework/CurrentHomework.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 
 export const HomePage = (state) => {
+  setTimeout(() => {
+    const onlineStudentsContainer = document.querySelector('#online-students-container');
+    onlineStudentsContainer.append(OnlineStudents(state));
+  });
 
   return `
     <div id="home-page">
@@ -29,6 +33,8 @@ export const HomePage = (state) => {
         <marquee>
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
+
+        <div id="online-students-container"></div>
 
         ${CurrentHomework(state)}
 

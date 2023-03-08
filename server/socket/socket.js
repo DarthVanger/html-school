@@ -34,6 +34,11 @@ export const initSocket = async () => {
     if (msg.name == 'ping') {
       const { student } = msg.payload;
       console.log(`PING from student ${student}`);
+      if (!student) {
+        console.warn('Received ping from "null" student. Ignoring.');
+        return;
+      }
+
       const lastOnlineDate = new Date(db.data.studentsOnline[student]);
       const now = new Date();
       const timePast = now.getTime() - lastOnlineDate.getTime();

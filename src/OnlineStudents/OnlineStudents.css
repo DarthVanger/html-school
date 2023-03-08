@@ -1,37 +1,19 @@
 #online-students {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 21;
-  display: flex;
-  align-items: stretch;
-  --border-width: 2px;
-}
-
-#online-students:hover:after {
-  content: 'Закрыть нахуй';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  color: #ff5555;
-  background: black;
-  opacity: 0.8;
-  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  flex-wrap: wrap;
+  --border-width: 2px;
 }
 
 #online-students .student-ava {
-  width: calc(100vw / 8 - var(--border-width));
-  height: calc(100vw / 8 - var(--border-width));
   margin: var(--border-width);
 }
 
 #online-students .student-ava img {
-  width: 100%;
-  height: 100%;
   border-radius: 7px;
+  width: 200px;
+  height: 200px;
 }
 
 #online-students .student-ava {
@@ -45,4 +27,21 @@
     border-radius: 7px;
     box-shadow: 0 0 10px #0cff0c,
       0 0 15px #0cff0c;
+}
+#online-students .student-ava figcaption {
+  height: 4em;
+  background: black;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+#online-students .student-ava:hover figcaption {
+  display: flex;
+  opacity: 1;
 }
