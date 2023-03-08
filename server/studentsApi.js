@@ -6,4 +6,12 @@ export const studentsApi = ({app, db}) => {
 
     res.json(students);
   });
+
+  app.get('/students/online-log', (req, res) => {
+    console.info(`GET /students/online-log`);
+
+    const onlineLog = db.data?.onlineLog;
+
+    res.json(onlineLog);
+  });
 };

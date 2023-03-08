@@ -67,8 +67,6 @@ export const OnlineStudents = () => {
           Is Online Now!
         `;
       }
-
-
     }
   }
 
