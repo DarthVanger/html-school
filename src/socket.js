@@ -12,6 +12,8 @@ const pingInterval = 5000;
 
 let onlineStudents;
 
+let isTabActive = true;
+
 export const getOnlineStudents = () => {
   return onlineStudents;
 };
@@ -44,6 +46,7 @@ const sendPing = () => {
     name: 'ping',
     payload: {
       student,
+      isTabActive: isTabActive,
     },
   });
 };
@@ -90,3 +93,31 @@ export const sendKatakombiLevelComplete = (payload) => {
     payload,
   });
 };
+
+document.addEventListener('visibilitychange', () => {
+  setActivityTimeout();
+  isTabActive = document.visibilityState !== 'hidden';
+});
+
+const activityTimeout = 15000 * 60;
+let activityTimeoutId;
+
+const setActivityTimeout = () => {
+  activityTimeoutId = setTimeout(() => {
+    isTabActive = false;
+  }, activityTimeout);
+};
+
+setActivityTimeout();
+
+document.addEventListener('mousemove', () => {
+  isTabActive = true;
+  clearTimeout(activityTimeoutId);
+  setActivityTimeout();
+});
+
+document.addEventListener('keydown', () => {
+  isTabActive = true;
+  clearTimeout(activityTimeoutId);
+  setActivityTimeout();
+});
