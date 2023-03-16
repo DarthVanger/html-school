@@ -1,9 +1,11 @@
 #chat {
   height: 80vh;
-  width: 100%;
+  width: 90%;
   overflow-y: scroll;
   margin-bottom: 1em;
   border: solid white 2px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 #chat .post {
