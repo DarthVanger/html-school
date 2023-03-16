@@ -1,5 +1,7 @@
 import { db } from '../db/db.js';
 import { bankiSocketHandler } from './banki.js';
+import { chatSocketHandler } from './chat.js';
+import { pingSocketHandler } from './ping.js';
 
 import { WebSocketServer } from 'ws';
 
@@ -30,56 +32,14 @@ export const initSocket = async () => {
 
   console.log('initSocket. studentsOnline: ', db.data.studentsOnline);
 
-  const pingSocketHandler = (msg, ws) => {
-    if (msg.name == 'ping') {
-      const { student, isTabActive } = msg.payload;
-      console.log(`PING from student ${student}, isTabActive: ${isTabActive}`);
-      if (!student) {
-        console.warn('Received ping from "null" student. Ignoring.');
-        return;
-      }
-
-      aliveClients[student] = ws;
-      ws.isAlive = true;
-
-      if (!isTabActive) return;
-
-      const lastOnlineDate = new Date(db.data.studentsOnline[student]);
-      const now = new Date();
-      const timePast = now.getTime() - lastOnlineDate.getTime();
-      const isOnline = timePast <= pingInterval * 2;
-
-      const studOnlineLog = db.data.onlineLog[student];
-
-      if (!isOnline) {
-        studOnlineLog.push({
-          date: now,
-          durationMinutes: 0,
-        });
-      } else {
-        studOnlineLog[studOnlineLog.length - 1].durationMinutes += pingInterval / 1000 / 60;
-      }
-
-      db.write();
-      
-      db.data.studentsOnline[student] = now;
-
-      const payload = db.data.studentsOnline;
-
-      wsSendAll({
-        name: 'online_students',
-        payload,
-      });
-    }
-  };
-
   socket.on('connection', ws => {
     ws.on('message', msg => handleWebsocketMessage(msg, ws));
 
     function handleWebsocketMessage(d, ws) {
-      console.debug('socket received message: %s', d);
+      //console.debug('socket received message: %s', d);
       const data = JSON.parse(d);
-      pingSocketHandler(data, ws);
+      pingSocketHandler({ data, ws, aliveClients, pingInterval, wsSendAll });
+      chatSocketHandler({ data, wsSendAll });
       bankiSocketHandler({
         data,
         socket: ws,

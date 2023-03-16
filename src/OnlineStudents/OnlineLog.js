@@ -16,16 +16,11 @@ export const OnlineLog = () => {
         [stud]: getTotalOnlineMinutes(onlineLog[stud]),
     })).sort((a, b) => Object.values(b)[0] - Object.values(a)[0]);
 
-    console.log('totalMinutesByStud' , totalMinutesByStud);
-
     const onlineByDay = {};
     for (let entry of totalMinutesByStud) {
-      console.log('entry:' , entry);
       const student = Object.keys(entry)[0];
       onlineByDay[student] = onlineByDayUnsorted[student];
     }
-
-    console.log('online by day: ', onlineByDay);
 
     for (let student in onlineByDay) {
       let html = '';
@@ -92,7 +87,6 @@ const getOnlineByDay = (onlineLog) =>  {
     }
     onlineByDay[student] = byDay;
   }
-  console.log(onlineByDay);
   return onlineByDay;
 };
 

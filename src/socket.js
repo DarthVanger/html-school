@@ -10,6 +10,9 @@ export const addHandler = (c, f) => {
 const socket = new WebSocket(url);
 const pingInterval = 5000;
 
+
+export const sendJSON = j => socket.send(JSON.stringify(j));
+
 let onlineStudents;
 
 let isTabActive = true;
@@ -25,6 +28,12 @@ socket.onopen = (e) => {
   sendJSON({
     name: 'get_banki_state',
   });
+  sendJSON({
+    name: 'get_banki_state',
+  });
+  sendJSON({
+    name: 'chat_get_messages',
+  });
 };
 
 socket.onclose = (e) => {
@@ -34,8 +43,6 @@ socket.onclose = (e) => {
 socket.onerror = (e) => {
   console.error('Websocket error:', e);
 };
-
-const sendJSON = j => socket.send(JSON.stringify(j));
 
 const sendPing = () => {
   const student = localStorage.getItem('student');

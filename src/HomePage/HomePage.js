@@ -6,6 +6,7 @@ import { Doska } from '../Doska/Doska.js';
 import { CurrentHomework } from '../Homework/CurrentHomework.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 import { OnlineLog } from '../OnlineStudents/OnlineLog.js';
+import { Chat } from '../Chat/Chat.js';
 
 export const HomePage = (state) => {
   setTimeout(() => {
@@ -13,6 +14,8 @@ export const HomePage = (state) => {
     const onlineLogContainer = document.querySelector('#online-log-container');
     onlineStudentsContainer.append(OnlineStudents(state));
     onlineLogContainer.append(OnlineLog(state));
+    const chatContainer = document.querySelector('#chat-container');
+    chatContainer.append(Chat(state));
   });
 
   return `
@@ -36,6 +39,9 @@ export const HomePage = (state) => {
         <marquee>
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
+
+        <h2>Chat</h2>
+        <div id="chat-container"></div>
 
         <div id="online-students-container"></div>
         <div id="online-log-container"></div>
