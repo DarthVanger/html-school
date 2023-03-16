@@ -450,7 +450,7 @@ export const lectures = [
     items: [
       'Кафе',
       'Кальян',
-      'Кафе, кальян, делаем Star Wars Intro для игры',
+      'Делаем Star Wars Intro для игры',
     ],
     skills: ['css-transform', 'setInterval', 'variables'],
     url: '',
