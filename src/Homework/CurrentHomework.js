@@ -1,4 +1,4 @@
-import { Homework39 } from './homeworks/Homework38.js';
+import { Homework39 } from './homeworks/Homework39.js';
 
 export const CurrentHomework = (state) => {
   return `
