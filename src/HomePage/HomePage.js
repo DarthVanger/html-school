@@ -7,15 +7,22 @@ import { CurrentHomework } from '../Homework/CurrentHomework.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 import { OnlineLog } from '../OnlineStudents/OnlineLog.js';
 import { Chat } from '../Chat/Chat.js';
+import { AddToHomeScreen } from '../AddToHomeScreen/AddToHomeScreen.js';
 
 export const HomePage = (state) => {
   setTimeout(() => {
     const onlineStudentsContainer = document.querySelector('#online-students-container');
-    const onlineLogContainer = document.querySelector('#online-log-container');
+
     onlineStudentsContainer.append(OnlineStudents(state));
+
+    const onlineLogContainer = document.querySelector('#online-log-container');
     onlineLogContainer.append(OnlineLog(state));
+
     const chatContainer = document.querySelector('#chat-container');
     chatContainer.append(Chat(state));
+
+    const addToHomeScreenContainer = document.querySelector('#add-to-home-screen-container');
+    addToHomeScreenContainer.append(AddToHomeScreen());
   });
 
   return `
@@ -39,6 +46,8 @@ export const HomePage = (state) => {
         <marquee>
           <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
         </marquee>
+
+        <div id="add-to-home-screen-container"></div>
 
         <h2>Chat</h2>
         <div id="chat-container"></div>
