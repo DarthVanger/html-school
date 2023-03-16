@@ -8,6 +8,7 @@ import { Homework35 } from './homeworks/Homework35.js';
 import { Homework36 } from './homeworks/Homework36.js';
 import { Homework37 } from './homeworks/Homework37.js';
 import { Homework38 } from './homeworks/Homework38.js';
+import { Homework39 } from './homeworks/Homework39.js';
 import { Topbar } from '../Topbar.js';
 
 export const Homework = (state) => {
@@ -16,6 +17,7 @@ export const Homework = (state) => {
   element.innerHTML = `
     <div id="homework">
       ${Topbar({ backUrl: '/#', surface: 'black' })}
+      ${Homework39(state)}
       ${Homework38(state)}
       ${Homework37(state)}
       ${Homework36(state)}
