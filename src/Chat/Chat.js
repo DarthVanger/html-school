@@ -24,7 +24,7 @@ export const Chat = (state) => {
   function handleChatNewMessage(payload) {
     console.debug('handleChatNewMessage: ', payload);
     const newMessage = payload;
-    messages.push(newMessage);
+    messages.unshift(newMessage);
     render({ messages });
 
   }
@@ -35,16 +35,29 @@ export const Chat = (state) => {
     const newMessageForm = NewMessageForm({ student });
     element.append(newMessageForm);
 
+
     for (let message of messages) {
-      element.append(Author(message));
-      element.append(Date(message));
-      element.append(Message(message));
+      const post = document.createElement('article');
+      post.className = 'post';
+      post.append(Author(message));
+
+      const dateAndMessage = document.createElement('div');
+      dateAndMessage.append(Date(message));
+      dateAndMessage.append(Message(message));
+      post.append(dateAndMessage);
+
+      element.append(post);
     }
 
     newMessageForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(e.target);
       const message = formData.get('message');
+      if (message === '') {
+        console.info('Chat: not sending empty message');
+        return;
+      }
+
       const payload = {
         author: student,
         message,

@@ -3,7 +3,7 @@ export const NewMessageForm = ({ student }) => {
   form.id = 'new-message-form';
   form.innerHTML = `
     <div>
-      ${student}: <input type="text" name="message"></input>
+      <textarea rows="4" name="message"></textarea>
     </div>
     <div>
       <button type="submit">Send message</button>

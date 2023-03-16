@@ -1,6 +1,36 @@
 #chat {
-  border: solid pink 2px;
-  height: 200px;
+  height: 80vh;
   width: 100%;
+  overflow-y: scroll;
   margin-bottom: 1em;
+  border: solid white 2px;
+}
+
+#chat .post {
+  display: flex;
+}
+
+#chat .ava {
+  width: 75px;
+  height: 75px;
+}
+
+#chat .author {
+  margin-right: 0.5em;
+}
+
+#new-message-form textarea {
+  width: 100%;
+  margin-bottom: 0.5em;
+  font-size: 1.5rem;
+  padding: 0.5em;
+}
+
+#new-message-form button {
+  font-size: 1.5rem;
+}
+
+#chat .message {
+  white-space: pre-line;
+  margin-bottom: 0.5em;
 }

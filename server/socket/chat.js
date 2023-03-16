@@ -29,12 +29,12 @@ export const chatSocketHandler = ({
     const date = new Date();
     const dateString = date.toISOString();
     const newMessage = {
-      dateString,
+      date: dateString,
       author,
       message,
     };
 
-    db.data.chat.push(newMessage);
+    db.data.chat.unshift(newMessage);
 
     wsSendAll({
       name: 'chat_new_message',
