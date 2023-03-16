@@ -26,11 +26,34 @@ export const Chat = (state) => {
     const newMessage = payload;
     messages.unshift(newMessage);
     render({ messages });
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(`New message from ${newMessage.author}: ${newMessage.message.slice(0, 80)}`);
+    }
+  }
 
+  function askNotificationsPermissions() {
+    Notification.requestPermission().then((permission) => {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        const notification = new Notification("Привіт! Нотифікації від Напалеона включені!");
+      }
+    });
   }
 
   function render({ messages }) {
     element.innerHTML = ``;
+
+    let notificationsButton;
+    if (Notification.permission !== 'granted') {
+      notificationsButton = document.createElement('button');
+      notificationsButton.innerHTML = `Turn on Notifications`;
+      notificationsButton.addEventListener('click', askNotificationsPermissions);
+    } else {
+      notificationsButton = document.createElement('div');
+      notificationsButton.style.border = 'solid green 1px';
+      notificationsButton.innerHTML = `Notifications are enabled ✅`;
+    }
+    element.append(notificationsButton);
 
     const newMessageForm = NewMessageForm({ student });
     element.append(newMessageForm);
