@@ -446,13 +446,14 @@ export const lectures = [
     url: '',
   },
   {
-    text: 'Кафе, кальян, делаем Star Wars Intro для игры',
+    text: "Там не було кав'ярні і кальяну. А Стар варс розбити на пункти:",
     items: [
-      'Кафе',
-      'Кальян',
-      'Делаем Star Wars Intro для игры',
+      'Додавання музики в скрипт',
+      'цсс стилі',
+      'анімація',
+      'шрифти',
     ],
-    skills: ['css-transform', 'setInterval', 'variables'],
+    skills: ['css-transform', 'setInterval', 'variables', 'js-audio', 'fonts'],
     url: '',
   },
 ];
