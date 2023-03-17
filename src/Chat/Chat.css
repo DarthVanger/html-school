@@ -46,7 +46,7 @@
   white-space: pre-line;
   margin-bottom: 0.5em;
 }
-
-#chat img {
-  width: 100%;
+#chat .message .img {
+  max-width: 80vw;
+  max-height: 50vh;
 }
