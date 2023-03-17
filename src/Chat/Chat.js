@@ -7,7 +7,7 @@ import { FileForm } from './FileForm.js';
 
 export const Chat = (state) => {
   let messages = [];
-  const element = document.createElement('section');
+  const element = document.createElement('div');
   element.id = 'chat';
   element.innerHTML = 'Loading...';
 

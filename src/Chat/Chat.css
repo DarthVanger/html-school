@@ -1,11 +1,15 @@
 #chat {
   height: 80vh;
-  width: 90%;
   overflow-y: scroll;
   margin-bottom: 1em;
   border: solid white 2px;
-  margin-left: 1em;
-  margin-right: 1em;
+}
+
+@media (min-width: 768px) {
+  #chat {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 #chat .post {
@@ -46,7 +50,7 @@
   white-space: pre-line;
   margin-bottom: 0.5em;
 }
-#chat .message .img {
-  max-width: 80vw;
+#chat .message img {
+  max-width: 65vw;
   max-height: 50vh;
 }
