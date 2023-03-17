@@ -8,6 +8,17 @@
   background: black;
 }
 
+@media (max-width: 768px) {
+  #home-page {
+    grid-template-rows: [top] 5px [center] auto [bottom] 5px;
+    grid-template-columns: [left] 5px [center] auto [right] 5px;
+  }
+
+  #bottom-bar {
+    display: none;
+  }
+}
+
 .page-content {
   grid-row: center / bottom;
   grid-column: center / right;
