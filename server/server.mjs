@@ -7,9 +7,22 @@ import { questApi } from './questApi.js';
 import { catacombsApi } from './catacombsApi.js';
 import { socket, initSocket } from './socket/socket.js';
 
+import fs from 'fs';
+import http from 'http';
+import https from 'https';
+const certsDir = '/etc/letsencrypt/live/napaleon.space';
+
 import express from 'express'
 const app = express()
+const isLocal = process.env.isLocal;
 const port = process.env.port || 8080
+
+let credentials;
+if (!isLocal) {
+  const privateKey  = fs.readFileSync(`${certsDir}/privkey.pem`, 'utf8');
+  const certificate = fs.readFileSync(`${certsDir}/fullchain.pem`, 'utf8');
+  credentials = {key: privateKey, cert: certificate};
+}
 
 app.use(express.static('./'))
 app.use(express.json());
@@ -23,9 +36,25 @@ const runApp = async () => {
   console.info('Applying migrations');
   applyMigrations();
 
-  const server = app.listen(port, () => {
-    console.log(`HTTP Listening on port ${port}`)
-  });
+  let server;
+
+  if (!isLocal) {
+    server = https.createServer(credentials, app);
+    server.listen(443);
+
+    const httpApp = express()
+    const httpServer = http.createServer(httpApp);
+
+    // https://stackoverflow.com/a/7458587/1657101
+    // set up a route to redirect http to https
+    httpApp.get('*', function(req, res) {  
+      res.redirect('https://' + req.headers.host + req.url);
+    });
+
+    httpServer.listen(80);
+  } else {
+    server = http.createServer(app);
+  }
 
   // Enable WebSockets
   // https://masteringjs.io/tutorials/express/websockets
