@@ -67,11 +67,8 @@ export const Chat = (state) => {
       const post = document.createElement('article');
       post.className = 'post';
       post.append(Author(message));
-
-      const dateAndMessage = document.createElement('div');
-      dateAndMessage.append(Date(message));
-      dateAndMessage.append(Message(message));
-      post.append(dateAndMessage);
+      post.append(Date(message));
+      post.append(Message(message));
 
       element.append(post);
     }
