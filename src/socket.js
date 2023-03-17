@@ -1,5 +1,5 @@
-const url = `ws://localhost:8080`;
-//const url = `wss://napaleon.space`;
+//const url = `ws://localhost:8080`;
+const url = `wss://napaleon.space`;
 
 const listeners = {};
 export const addHandler = (c, f) => {
