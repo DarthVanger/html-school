@@ -54,6 +54,7 @@ const runApp = async () => {
     httpServer.listen(80);
   } else {
     server = http.createServer(app);
+    server.listen(port);
   }
 
   // Enable WebSockets
