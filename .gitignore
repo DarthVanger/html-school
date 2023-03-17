@@ -9,3 +9,6 @@ editing
 node_modules
 server/db/db.json
 sounds
+
+upload
+upload-temp

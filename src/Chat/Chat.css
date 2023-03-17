@@ -36,3 +36,7 @@
   white-space: pre-line;
   margin-bottom: 0.5em;
 }
+
+#chat img {
+  width: 100%;
+}

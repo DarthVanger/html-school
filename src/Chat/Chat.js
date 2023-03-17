@@ -3,6 +3,7 @@ import { Author } from './Author.js';
 import { Message } from './Message.js';
 import { Date } from './Date.js';
 import { NewMessageForm } from './NewMessageForm.js';
+import { FileForm } from './FileForm.js';
 
 export const Chat = (state) => {
   let messages = [];
@@ -55,8 +56,11 @@ export const Chat = (state) => {
     }
     element.append(notificationsButton);
 
-    const newMessageForm = NewMessageForm({ student });
+    const newMessageForm = NewMessageForm({ socket, student });
     element.append(newMessageForm);
+    
+    const fileForm = FileForm({ socket, student });
+    element.append(fileForm);
 
 
     for (let message of messages) {
@@ -71,26 +75,6 @@ export const Chat = (state) => {
 
       element.append(post);
     }
-
-    newMessageForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const message = formData.get('message');
-      if (message === '') {
-        console.info('Chat: not sending empty message');
-        return;
-      }
-
-      const payload = {
-        author: student,
-        message,
-      };
-
-      socket.sendJSON({
-        name: 'chat_new_message',
-        payload,
-      });
-    });
   };
 
   return element;
