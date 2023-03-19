@@ -456,4 +456,16 @@ export const lectures = [
     skills: ['css-transform', 'setInterval', 'variables', 'js-audio', 'fonts'],
     url: '',
   },
+  {
+    text: "Online: КотоКомбы, Stanford Домашка по Пиромидке",
+    items: [
+      'Онлайн Встреча',
+      'КотоКомбы',
+      'Stanford Домашка по Пиромидке',
+      'Пивко',
+      'Ваня сделал Stanford Домашка по Breakout Game',
+    ],
+    skills: ['stanford', 'loop', 'while-loop', 'variables'],
+    url: '#/slides/lesson40',
+  },
 ];
