@@ -21,7 +21,7 @@ export const chatApi = ({app, db}) => {
     dest: "upload-temp/",
   });
 
-  const exts = ['.png', '.jpg', '.jpeg', '.webm'];
+  const exts = ['.png', '.jpg', '.jpeg', '.webm', '.mp4'];
 
   app.post(
     "/chat/file",

@@ -50,7 +50,8 @@
   white-space: pre-line;
   margin-bottom: 0.5em;
 }
-#chat .message img {
+#chat .message img,
+#chat .message video {
   max-width: 65vw;
   max-height: 50vh;
 }

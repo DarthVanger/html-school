@@ -29,7 +29,7 @@ export const FileForm = ({ socket, student }) => {
     });
 
     if (!uploadResult.ok) {
-      alert('oshibka zogruzke');
+      alert('oshibka zogruzke. Rozhreweni formate: kortinke jpg, png, gif, ili mp4 video');
       return;
     } else {
       console.log('yspex zogruzke file!');
