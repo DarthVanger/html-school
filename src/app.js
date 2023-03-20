@@ -1,5 +1,6 @@
 import { getStudent, setStudent } from './session.js';
 import { Router } from './Router.js';
+import { Navbar } from './Navbar/Navbar.js';
 
 const id = 'App';
 
@@ -71,6 +72,8 @@ export const App = () => {
   };
 
   element.innerHTML = '';
+  console.log('append navbar ', Navbar(state));
+  element.append(Navbar(state));
   element.append(Router(state));
 
   //console.log('app returning: ', element);

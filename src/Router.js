@@ -21,132 +21,152 @@ import { Slides } from './SlidesV2/Slides.js';
 import { Banki } from './Banki/Banki.js';
 import { Vangers } from './Vangers/Vangers.js';
 import { Quiz2 } from './Quiz2/Quiz2.js';
-
-const element = document.createElement('div');
-element.id = 'router';
+import { Study } from './Study/Study.js';
+import { Resources } from './Resources/Resources.js';
+import { Chat } from './Chat/Chat.js';
+import { OnlineLog } from './OnlineStudents/OnlineLog.js';
 
 export const Router = (state) => {
+  const element = document.createElement('div');
+  element.id = 'router';
+  const pageSlot = document.createElement('div');
+  pageSlot.innerHTML = 'asdf';
+  element.append(pageSlot);
+
   console.log('router, route: ', state.route);
   console.log('router, state: ', state);
+
   switch (state.route) {
     case '/':
-      element.innerHTML = HomePage(state);
+      pageSlot.innerHTML = '';
+      pageSlot.append(HomePage(state));
       break;
     case '/login':
-      element.innerHTML = Login(state);
+      pageSlot.innerHTML = Login(state);
+      break;
+    case '/chat':
+      pageSlot.innerHTML = '';
+      pageSlot.append(Chat(state));
+      break;
+    case '/study':
+      pageSlot.innerHTML = '';
+      pageSlot.append(Study(state));
+      break;
+    case '/resources':
+      pageSlot.innerHTML = '';
+      pageSlot.append(Resources(state));
+      break;
+    case '/online-log':
+      pageSlot.innerHTML = '';
+      pageSlot.append(OnlineLog(state));
       break;
     case '/banki':
-      element.append(Banki(state));
+      pageSlot.append(Banki(state));
       break;
     case '/skills':
-      element.innerHTML = '';
-      element.append(Skills(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(Skills(state));
       break;
     case '/3d':
-      element.innerHTML = '';
-      element.innerHTML = `
+      pageSlot.innerHTML = '';
+      pageSlot.innerHTML = `
         ${Scene3d(state)}
       `;
       break;
     case '/lesson-25':
-      element.innerHTML = '';
-      element.innerHTML = `
+      pageSlot.innerHTML = '';
+      pageSlot.innerHTML = `
         ${Lesson25(state)}
       `;
       break;
     case '/quests':
-      element.innerHTML = '';
-      element.append(QuestsPage(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(QuestsPage(state));
       break;
     case '/katakombi':
-      element.innerHTML = '';
-      element.append(Katakombi(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(Katakombi(state));
 
-      break;
-//    case '/homework':
-//      element.innerHTML = '';
-//      element.append(HomeworkPage(state));
-//      break;
     case '/progress':
-      element.innerHTML = `
+      pageSlot.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
       `;
-      element.append(LearningProgress(state));
+      pageSlot.append(LearningProgress(state));
       break;
 
     case '/quiz':
       const topbar = document.createElement('div');
       topbar.innerHTML = `${Topbar({ backUrl: '/#/', surface: 'black' })}`;
 
-      element.innerHTML = '';
-      element.append(topbar);
-      element.append(QuizPage(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(topbar);
+      pageSlot.append(QuizPage(state));
       break;
 
     case '/expectation-reality':
-      element.innerHTML = '';
+      pageSlot.innerHTML = '';
       element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
       break;
 
     case '/neural-art':
-      element.innerHTML = '';
-      element.innerHTML = `${NeuralArt()}`;
+      pageSlot.innerHTML = '';
+      pageSlot.innerHTML = `${NeuralArt()}`;
       
       break;
 
     case state.route.match(/\/resume\/?/)?.input:
-      element.innerHTML = '';
-      element.innerHTML = `
+      pageSlot.innerHTML = '';
+      pageSlot.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
         ${Resume(state)}
       `;
       break;
 
     case '/coursework':
-      element.innerHTML = '';
-      element.innerHTML = `
+      pageSlot.innerHTML = '';
+      pageSlot.innerHTML = `
         ${Topbar({ backUrl: '/#/', surface: 'black' })}
       `;
-      element.append(Coursework(state));
+      pageSlot.append(Coursework(state));
       break;
 
     case '/vangers':
-      element.innerHTML = '';
-      element.append(Vangers(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(Vangers(state));
       break;
 
     case '/quiz2':
-      element.innerHTML = '';
-      element.append(Quiz2(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(Quiz2(state));
       break;
 
     case '/homework':
-      element.innerHTML = '';
-      element.append(Homework(state));
+      pageSlot.innerHTML = '';
+      pageSlot.append(Homework(state));
       break;
 
     case state.route.match(/[/]slides[/]/)?.input:
       const lessonName = state.route.replace(/[/]slides[/]/, '');
       console.log('render lesson');
-      element.innerHTML = '';
-      element.append(Slides({state, lessonName}));
+      pageSlot.innerHTML = '';
+      pageSlot.append(Slides({state, lessonName}));
       break;
 
     case state.route.match(/[/]quests[/]/)?.input:
     case state.route.match(/[/]quests[/]/)?.input:
       const questId = state.route.match(/[/]quests[/]([^/]+)/)[1];
-      element.innerHTML = '';
+      pageSlot.innerHTML = '';
       state.questId = questId;
       console.log('appending quest page');
-      element.append(QuestPage(state));
+      pageSlot.append(QuestPage(state));
       break;
     default:
       console.log('404');
-      element.innerHTML = NotFoundPage(state);
+      pageSlot.innerHTML = NotFoundPage(state);
       break;
   }
 
   window.scrollTo(0, 0);
 
-  return element;
+  return pageSlot;
 };

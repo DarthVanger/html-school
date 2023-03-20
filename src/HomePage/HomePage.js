@@ -4,133 +4,63 @@ import quests from '../quests/quests/quests.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
-import { OnlineLog } from '../OnlineStudents/OnlineLog.js';
-import { Chat } from '../Chat/Chat.js';
 import { AddToHomeScreen } from '../AddToHomeScreen/AddToHomeScreen.js';
 
 export const HomePage = (state) => {
+  const element = document.createElement('div');
+  element.id = 'home-page';
+
   setTimeout(() => {
     const onlineStudentsContainer = document.querySelector('#online-students-container');
 
     onlineStudentsContainer.append(OnlineStudents(state));
 
-    const onlineLogContainer = document.querySelector('#online-log-container');
-    onlineLogContainer.append(OnlineLog(state));
-
-    const chatContainer = document.querySelector('#chat-container');
-    chatContainer.append(Chat(state));
-
     const addToHomeScreenContainer = document.querySelector('#add-to-home-screen-container');
     addToHomeScreenContainer.append(AddToHomeScreen());
   });
 
-  return `
-    <div id="home-page">
-      <div class="weed-border-left">
-        <img src="/src/HomePage/img/logo_leftt.png" />
-      </div>
-
-      <div class="weed-border-top-center"></div>
-
-      <div class="weed-border-top-left">
-        <img src="/src/HomePage/img/logo_left.png" />
-      </div>
-
-      <div class="weed-border-top-right"></div>
-
-      <div class="weed-border-right">
-      </div>
-
-      <div align="justify" class="page-content">
-        <marquee>
-          <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
-        </marquee>
-
-        <div id="add-to-home-screen-container"></div>
-
-        <h2>Chat</h2>
-        <div id="chat-container"></div>
-
-        <div id="online-students-container"></div>
-        <div id="online-log-container"></div>
-
-        ${Doska(state)}
-
-        ${Profile(state)}
-
-        <h2>НАВЧАННЯ</h2>
-        <section id="main-page-links">
-          <article>
-            <a href="#/homework">
-              ДОМАШКА
-            </a>
-          </article>
-          <article>
-            <a href="#/skills">
-              ДРЕВО УМЕНИЙ
-            </a>
-          </article>
-          <article>
-            <a href="#/quests">
-              ЗОДАНЕЯ
-            </a>
-          </article>
-          <article>
-            <a href="#/progress">
-              ПРОГРЕС
-            </a>
-          </article>
-          <article>
-            <a href="#/quiz">
-              ЭКЗАМЕНЫ
-            </a>
-          </article>
-          <article>
-            <a href="#/katakombi">
-              КАТАКОМБЫ
-            </a>
-          </article>
-        </section>
-        <h2>МАТЕРІАЛИ</h2>
-        <section id="main-page-links">
-          <article>
-            <a href="#/coursework">
-              КУРСАЧ
-            </a>
-          </article>
-          <article>
-            <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">
-            СЛОВАРЕК
-            </a>
-          </article>
-          <article>
-            <a href="#/neural-art">
-              Neural ART УЧЕНЕКОВ
-            </a>
-          </article>
-          <article>
-            <a href="#/expectation-reality">
-              EXPECTATION / REALITY
-            </a>
-          </article>
-          <article>
-            <a href="#/resume">
-              Делоем РЕЗЮМЕ
-            </a>
-          </article>
-        </section>
-      </div>
-
-      <div class="weed-border-left-bottom">
-      </div>
-
-      <div class="weed-border-bottom-center">
-      </div>
-
-      <div class="weed-border-right-bottom">
-      </div>
-
-      ${BottomBar(state)}
+  element.innerHTML =  `
+    <div class="weed-border-left">
+      <img src="/src/HomePage/img/logo_leftt.png" />
     </div>
+
+    <div class="weed-border-top-center"></div>
+
+    <div class="weed-border-top-left">
+      <img src="/src/HomePage/img/logo_left.png" />
+    </div>
+
+    <div class="weed-border-top-right"></div>
+
+    <div class="weed-border-right">
+    </div>
+
+    <div align="justify" class="page-content">
+      <marquee>
+        <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
+      </marquee>
+
+      <div id="add-to-home-screen-container"></div>
+
+      <div id="online-students-container"></div>
+
+      ${Doska(state)}
+
+      ${Profile(state)}
+    </div>
+
+
+    <div class="weed-border-left-bottom">
+    </div>
+
+    <div class="weed-border-bottom-center">
+    </div>
+
+    <div class="weed-border-right-bottom">
+    </div>
+
+    ${BottomBar(state)}
   `;
+
+  return element;
 }

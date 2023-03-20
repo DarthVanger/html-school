@@ -1,0 +1,13 @@
+#navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#navbar a {
+  background: #eee;
+  color: #333;
+  padding: 2px 8px;
+  margin: 0;
+  margin-bottom: 8px;
+}
