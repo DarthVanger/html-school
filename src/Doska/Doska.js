@@ -1,9 +1,16 @@
 const element = document.createElement('div');
 element.id = 'doska-pometa';
 import { getQuestSkills } from '../quests/quests/quests.js';
+import { getExperience } from '../api.js';
 
 export const Doska = (state) => {
   const getElement = () => document.querySelector('#doska-pometa');
+
+  setTimeout(async () => {
+  
+    const experience = await getExperience();
+    console.log('experience: ', experience);
+  });
 
   const renderWhenReady = () => {
     if (!state.questPoints) {

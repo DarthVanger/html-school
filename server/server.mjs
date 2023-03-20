@@ -6,6 +6,7 @@ import { homeworkApi } from './homeworkApi.js';
 import { questApi } from './questApi.js';
 import { catacombsApi } from './catacombsApi.js';
 import { chatApi } from './chatApi.js';
+import { experienceApi } from './experience/experienceApi.js';
 import { socket, initSocket } from './socket/socket.js';
 
 import fs from 'fs';
@@ -81,6 +82,7 @@ homeworkApi({app, db});
 questApi({app, db});
 catacombsApi({app, db});
 chatApi({app, db});
+experienceApi({app, db});
 
 
 (async () => {

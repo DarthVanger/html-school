@@ -6,3 +6,8 @@ export const getLevelInfo = async ({ student })  => {
       points: r.points[student],
     }));
 };
+
+export const getExperience = () => {
+  return fetch(`/experience`)
+    .then(r => r.json());
+};
