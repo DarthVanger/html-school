@@ -3,7 +3,6 @@ import { Quest } from '../quests/MainPage/Levels/Quest.js';
 import quests from '../quests/quests/quests.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
-import { CurrentHomework } from '../Homework/CurrentHomework.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 import { OnlineLog } from '../OnlineStudents/OnlineLog.js';
 import { Chat } from '../Chat/Chat.js';
@@ -54,8 +53,6 @@ export const HomePage = (state) => {
 
         <div id="online-students-container"></div>
         <div id="online-log-container"></div>
-
-        ${CurrentHomework(state)}
 
         ${Doska(state)}
 

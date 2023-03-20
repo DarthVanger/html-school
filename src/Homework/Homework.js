@@ -1,3 +1,4 @@
+import { Topbar } from '../Topbar.js';
 import { Homework28 } from './homeworks/Homework28.js';
 import { Homework29 } from './homeworks/Homework29.js';
 import { Homework31 } from './homeworks/Homework31.js';
@@ -9,7 +10,7 @@ import { Homework36 } from './homeworks/Homework36.js';
 import { Homework37 } from './homeworks/Homework37.js';
 import { Homework38 } from './homeworks/Homework38.js';
 import { Homework39 } from './homeworks/Homework39.js';
-import { Topbar } from '../Topbar.js';
+import { Homework40 } from './homeworks/Homework40.js';
 
 export const Homework = (state) => {
   const element = document.createElement('div');
@@ -17,6 +18,7 @@ export const Homework = (state) => {
   element.innerHTML = `
     <div id="homework">
       ${Topbar({ backUrl: '/#', surface: 'black' })}
+      ${Homework40(state)}
       ${Homework39(state)}
       ${Homework38(state)}
       ${Homework37(state)}
