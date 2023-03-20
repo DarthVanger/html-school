@@ -46,7 +46,8 @@ export const Router = (state) => {
       break;
     case '/chat':
       pageSlot.innerHTML = '';
-      pageSlot.append(Chat(state));
+      const chat = Chat(state);
+      pageSlot.append(chat);
       break;
     case '/study':
       pageSlot.innerHTML = '';

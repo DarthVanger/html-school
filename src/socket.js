@@ -2,12 +2,23 @@
 const url = `wss://napaleon.space`;
 
 const listeners = {};
-export const addHandler = (c, f) => {
+export const addHandler = (c, f, opts) => {
+  const id = opts?.id || Math.random();
+
   listeners[c] = listeners[c] ? listeners[c] : [];
-  listeners[c].push(f);
+
+  if (opts) { 
+    const existingLis = listeners[c].find(lis => lis.id === opts.id);
+    const index = listeners[c].indexOf(existingLis);
+    if (existingLis) {
+      listeners[c].splice(index, 1);
+    };
+  }
+
+  listeners[c].push({ f, id });
 };
 
-const socket = new WebSocket(url);
+export const socket = new WebSocket(url);
 const pingInterval = 5000;
 
 
@@ -69,7 +80,7 @@ socket.onmessage = (e) => {
   //console.debug('socket message: ', e.data);
   const mes = JSON.parse(e.data);
   const lis = listeners[mes.name];
-  lis?.forEach(f => f(mes.payload));
+  lis?.forEach(lis => lis.f(mes.payload))
 };
 
 export const requestZaprosBanki = (payload) => {

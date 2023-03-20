@@ -13,7 +13,13 @@ export const Chat = (state) => {
 
   const { student } = state;
 
-  socket.addHandler('chat_receive_messages', handleChatReceiveMessages);
+  socket.addHandler('chat_receive_messages', handleChatReceiveMessages, { id: 'chat-rcv-msg' });
+
+  setTimeout(() => {
+    if (socket.socket.readyState === WebSocket.OPEN) {
+      socket.sendJSON({ name: 'chat_get_messages' });
+    }
+  });
 
   function handleChatReceiveMessages(payload) {
     console.debug('handleChatReceiveMessages: ', payload);
