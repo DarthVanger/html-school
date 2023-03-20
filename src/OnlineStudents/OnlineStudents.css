@@ -47,4 +47,7 @@
 #online-students .student-ava:hover figcaption {
   display: flex;
   opacity: 1;
+  width: 200px;
+  background: black;
+  font-size: 1rem;
 }

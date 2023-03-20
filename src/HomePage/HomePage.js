@@ -42,10 +42,12 @@ export const HomePage = (state) => {
 
       <div id="add-to-home-screen-container"></div>
 
+      <h2>Зараз Онлайн</h2>
       <div id="online-students-container"></div>
 
       ${Doska(state)}
 
+      <h2>Профіль</h2>
       ${Profile(state)}
     </div>
 
