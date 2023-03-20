@@ -1,19 +1,19 @@
 #online-students {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
-  --border-width: 2px;
 }
 
 #online-students .student-ava {
-  margin: var(--border-width);
+  width: 60px;
+  height: 60px;
 }
 
 #online-students .student-ava img {
   border-radius: 7px;
-  width: 200px;
-  height: 200px;
+  width: 60px;
+  height: 60px;
 }
 
 #online-students .student-ava {
@@ -28,7 +28,10 @@
     box-shadow: 0 0 10px #0cff0c,
       0 0 15px #0cff0c;
 }
+
 #online-students .student-ava figcaption {
+  display: none;
+  opacity: 0;
   height: 4em;
   background: black;
   color: #eee;
@@ -36,7 +39,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   line-height: 1.5;
   padding: 1rem;
 }

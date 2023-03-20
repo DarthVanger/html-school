@@ -92,34 +92,34 @@
   letter-spacing: 4px;
 }
 
-#home-page .page-content p {
+#home-page .page-content > p {
   padding: 1em;
 }
 
-#home-page .page-content figure {
+#home-page .page-content > figure {
   text-align: center;
   margin: 0;
   max-height: 100%;
   position: relative;
 }
 
-#home-page .page-content figure img {
+#home-page .page-content > figure img {
   height: calc(100vh - 280px - 2em);
   max-width: 100%;
 }
 
-#home-page .page-content figure video {
+#home-page .page-content > figure video {
   max-height: calc(100vh - 280px);
   width: auto;
 }
 
-#home-page .page-content figcaption {
+#home-page .page-content > figcaption {
   font-size: 1.5rem;
   margin-top: 1em;
   letter-spacing: 4px;
 }
 
-#home-page .page-content p {
+#home-page .page-content > p {
 }
 
 #home-page td {

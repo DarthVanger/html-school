@@ -32,6 +32,8 @@ export const OnlineStudents = () => {
       const timePast = now.getTime() - lastOnlineDate.getTime();
       const pingInterval = 5000;
       const isOnline = timePast <= pingInterval;
+      const neverOnline = lastOnlineDate.getTime() === 0;
+      const offlineForMonth = neverOnline || timePast > 1000 * 60 * 60 * 24 * 30;
 
       if (isOnline) {
         studentElements.item(idx).classList.add('online');
@@ -50,8 +52,6 @@ export const OnlineStudents = () => {
 
       const figcap = studEl.querySelector('figcaption');
 
-      const neverOnline = lastOnlineDate.getTime() === 0;
-
       if (neverOnline) {
         figcap.innerHTML = `
           Last Online:<br> Never
@@ -66,6 +66,11 @@ export const OnlineStudents = () => {
         figcap.innerHTML = `
           Is Online Now!
         `;
+      }
+
+
+      if (offlineForMonth) {
+        studEl.style.display = 'none';
       }
     }
   }
