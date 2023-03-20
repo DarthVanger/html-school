@@ -19,7 +19,7 @@
   }
 }
 
-.page-content {
+#home-page .page-content {
   grid-row: center / bottom;
   grid-column: center / right;
 
@@ -29,58 +29,58 @@
   overflow: hidden;
 }
 
-.weed-border-top-left {
+#home-page .weed-border-top-left {
   grid-row: top;
   grid-column: left;
 }
 
-.weed-border-top-right {
+#home-page .weed-border-top-right {
   grid-row: top;
   grid-column: right;
   background: url("img/logo_left.png");
   transform: rotate(180deg) scaleY(-1);
 }
 
-.weed-border-left {
+#home-page .weed-border-left {
   grid-row: span;
   grid-column: left;
   background: url("img/logo_leftt.png");
 }
 
-.weed-border-right {
+#home-page .weed-border-right {
   grid-column: right;
   background: url("img/logo_leftt.png");
   transform: rotate(180deg);
 }
 
-.weed-border-top-center {
+#home-page .weed-border-top-center {
   grid-row: top / center;
   grid-column: center / right;
   background: url("img/logo_top.png");
 }
 
-.weed-border-bottom-center {
+#home-page .weed-border-bottom-center {
   grid-column: center;
   grid-row: bottom;
   background: url("img/logo_top.png");
   transform: scaleY(-1);
 }
 
-.weed-border-right-bottom {
+#home-page .weed-border-right-bottom {
   grid-row: bottom;
   grid-column: right;
   background: url("img/logo_left.png");
   transform: rotate(180deg);
 }
 
-.weed-border-left-bottom {
+#home-page .weed-border-left-bottom {
   grid-row: bottom;
   grid-column: left;
   background: url("img/logo_left.png");
   transform: scaleY(-1);
 }
 
-.page-content h2 {
+#home-page .page-content h2 {
   text-align: center;
   background-image: url('img/heading-background.png');
   background-position: center;
@@ -92,51 +92,51 @@
   letter-spacing: 4px;
 }
 
-.page-content p {
+#home-page .page-content p {
   padding: 1em;
 }
 
-.page-content figure {
+#home-page .page-content figure {
   text-align: center;
   margin: 0;
   max-height: 100%;
   position: relative;
 }
 
-.page-content figure img {
+#home-page .page-content figure img {
   height: calc(100vh - 280px - 2em);
   max-width: 100%;
 }
 
-.page-content figure video {
+#home-page .page-content figure video {
   max-height: calc(100vh - 280px);
   width: auto;
 }
 
-.page-content figcaption {
+#home-page .page-content figcaption {
   font-size: 1.5rem;
   margin-top: 1em;
   letter-spacing: 4px;
 }
 
-.page-content p {
+#home-page .page-content p {
 }
 
-td {
+#home-page td {
   padding: 0;
   height: 100%;
 }
 
-.height100 {
+#home-page .height100 {
   height: 100%;
 }
 
-.page-content iframe {
+#home-page .page-content iframe {
   width: 80vw;
   height: 70vh;
 }
 
-h1 {
+#home-page h1 {
   margin: 0;
   margin-bottom: 0.5em;
   letter-spacing: 10px;
@@ -179,7 +179,7 @@ h1 {
   }
 }
 
-section#main-page-links article {
+#home-page section#main-page-links article {
   height: 8rem;
   width: 320px;
   background: url('/src/HomePage/img/cyberpunk-grid-1.jpg');
@@ -188,15 +188,15 @@ section#main-page-links article {
 
 }
 
-section#main-page-links:nth-of-type(2) article {
+#home-page section#main-page-links:nth-of-type(2) article {
   background-image: url('/src/HomePage/img/cyberpunk-grid-2.jpg');
 }
 
-section#main-page-links article img {
+#home-page section#main-page-links article img {
   width: 100%;
 }
 
-h3 {
+#home-page h3 {
   letter-spacing: 4px;
   font-size: 1.5em;
   margin: 0.5em 0;
@@ -204,14 +204,14 @@ h3 {
   color: var(--primary);
 }
 
-.page-content {
+#home-page .page-content {
   overflow-y: scroll;
 }
 
-.homework {
+#home-page .homework {
   padding: 0;
 }
 
-.homework .quest-card {
+#home-page .homework .quest-card {
   padding-top: 32px;
 }
