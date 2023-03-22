@@ -114,8 +114,13 @@ To push the current branch and set the remote as upstream, use
     Делай что говоріт Гіт, Вангер1
 `,
 `
-  Подключи JS отдельным файлом <code>&lt;script src="app.js"&gt;</code>.
-  Создай файл <code>app.js</code> и выведи с него в докУмент текст <code>"app.js file loaded"</code>.
+  Ура! Комит запушен, молодца! :) Возвращемся в <code>index.html</code>. Подключи JS отдельным файлом <code>&lt;script src="app.js"&gt;</code>.
+`,
+`
+  Создай файл <code>app.js</code> и выведи с него в докУмент текст <code>"жиес зогружен!"</code>.
+`,
+`
+  Комитем! Пиши <code>git add .</code> далее <code>git commit -m "Create app.js"</code>. И Пуш! <code>git push</code>.
 `,
 `
   Убедился что <code>app.js</code> рабочий?

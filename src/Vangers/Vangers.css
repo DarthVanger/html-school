@@ -8,11 +8,8 @@ body.vangers-page {
   width: fit-content;
 }
 
-#vangers #message-panel {
-  position: absolute;
-  top: 10.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#vangers #message-panel,
+#vangers #hint {
   color: #99ae05;
   font-size: 1rem;
   height: 12%;
@@ -22,6 +19,13 @@ body.vangers-page {
   justify-content: center;
   line-height: 1.1;
   text-align: center;
+}
+
+#vangers #message-panel {
+  position: absolute;
+  top: 10.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #vangers #message-panel p {
@@ -100,4 +104,15 @@ body.vangers-page {
   to {
     opacity: 1;
   }
+}
+
+#vangers #hint {
+  position: absolute;
+  left: 32vw;
+  top: 23vh;
+  background: black;
+  border-radius: 35%;
+  width: 174px;
+  height: 151px;
+  word-break: break-word;
 }

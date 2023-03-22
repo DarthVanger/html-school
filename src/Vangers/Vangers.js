@@ -1,7 +1,14 @@
 import { Chapter1 } from './Chapter1.js';
+import {
+  checkVangersRepoCreated,
+  getGithubName,
+  checkFirstCommitCreated,
+  checkAppJsCreated, 
+} from './Proverka.js';
 
-export const Vangers = () => {
+export const Vangers = (state) => {
   const element = document.createElement('section');
+  const student = state.student;
   element.id = 'vangers';
 
   document.body.className = 'vangers-page';
@@ -10,7 +17,49 @@ export const Vangers = () => {
 
   const paragraphs = Chapter1.paragraphs;
 
-  function nextStep() {
+  async function nextStep() {
+    if (step === 10) {
+      console.log('step is 10!');
+      const isRepoCreated = await checkVangersRepoCreated(student);
+      if (!isRepoCreated) {
+        console.log('repo not created can not go next step');
+        const githubName = getGithubName(student);
+        const repoUrl = `https://github.com/${githubName}/vangers`;
+        hint.innerHTML = `<div>Создай репозиторей ёпта. <a href="${repoUrl}" target="_blank">${repoUrl}</a> По ссылке-то 404!</div>`;
+        return;
+      } else {
+        console.log('repo is created, going to next step');
+      }
+    }
+
+    if (step === 27) {
+      console.log('step is 27!');
+      const isCommitCreated = await checkFirstCommitCreated(student);
+      if (!isCommitCreated) {
+        console.log('commit not created can not go next step');
+        const githubName = getGithubName(student);
+        const commitHistoryUrl = `https://github.com/${githubName}/vangers/commits/master`;
+        hint.innerHTML = `<div>Запуш коммиты ёпта. <a href="${commitHistoryUrl}" target="_blank">${commitHistoryUrl}</a> Коммит на Гтихабе не появился-то!</div>`;
+        return;
+      } else {
+        console.log('commit is created, going to next step');
+      }
+    }
+
+    if (step === 30) {
+      console.log('step is 30!');
+      const isAppJsCreated = await checkAppJsCreated(student);
+      if (!isAppJsCreated) {
+        console.log('app.js not created can not go next step');
+        const githubName = getGithubName(student);
+        const appJsUrl = `https://github.com/${githubName}/vangers/blob/master/app.js`;
+        hint.innerHTML = `<div>На ГитХабе app.js то нету? Ширшавый <a href="${appJsUrl}" target="_blank">${appJsUrl}</a></div>`;
+        return;
+      } else {
+        console.log('app.js is created, going to next step');
+      }
+    }
+
     nextStepBtn.classList.add('push');
     setTimeout(() => { nextStepBtn.classList.remove('push') }, 4000);
     if (step > paragraphs.length - 1) return;
@@ -61,6 +110,10 @@ export const Vangers = () => {
   video.src = '/video/vangers/fostral.mp4';
   videoContainer.append(video);
   element.append(videoContainer);
+
+  const hint = document.createElement('div');
+  hint.id = 'hint';
+  element.append(hint);
 
   const introVid = document.createElement('video');
   introVid.id = 'intro-vid';
