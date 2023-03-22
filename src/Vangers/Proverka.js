@@ -15,6 +15,14 @@ export function getGithubName(student) {
   return githubLogins[student];
 }
 
+export async function checkTimeCreated(student) {
+  const githubName = getGithubName(student);
+  const url = `https://raw.githubusercontent.com/DarthVanger/vangers/master/index.html`;
+
+  const response = await fetch(url);
+  const text = await response.text();
+  console.log('file text: ', text);
+}
 
 export async function checkAppJsCreated(student) {
   const githubName = getGithubName(student);

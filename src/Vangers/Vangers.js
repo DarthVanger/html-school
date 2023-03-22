@@ -4,6 +4,7 @@ import {
   getGithubName,
   checkFirstCommitCreated,
   checkAppJsCreated, 
+  checkTimeCreated,
 } from './Proverka.js';
 
 export const Vangers = (state) => {
@@ -48,6 +49,7 @@ export const Vangers = (state) => {
 
     if (step === 30) {
       console.log('step is 30!');
+      await checkTimeCreated();
       const isAppJsCreated = await checkAppJsCreated(student);
       if (!isAppJsCreated) {
         console.log('app.js not created can not go next step');
