@@ -1,0 +1,21 @@
+@import 'Volume.css';
+
+#music-player {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  font-size: 1rem;
+  font-family: monospace;
+  letter-spacing: 0;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  width: 150px;
+}
+
+#music-player marquee {
+  width: 100px;
+}

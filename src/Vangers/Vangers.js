@@ -1,4 +1,8 @@
 import { Chapter1 } from './Chapter1.js';
+import { ChapterNuclear } from './ChapterNuclear.js';
+import { ChapterCover } from './ChapterCover.js';
+import { VangersPlayer, resumeMusic } from './VangersPlayer.js';
+
 import {
   checkVangersRepoCreated,
   getGithubName,
@@ -11,6 +15,8 @@ export const Vangers = (state) => {
   const element = document.createElement('section');
   const student = state.student;
   element.id = 'vangers';
+
+  element.append(VangersPlayer());
 
   document.body.className = 'vangers-page';
 
@@ -132,7 +138,7 @@ export const Vangers = (state) => {
       introVid.classList.add('fade-out-1s');
       setTimeout(() => {
         introVid.remove();
-        playMusic();
+        resumeMusic();
         video.play();
       }, fadeDuration);
     }, introVidDuration);
@@ -140,12 +146,4 @@ export const Vangers = (state) => {
   element.append(introVid);
 
   return element;
-};
-
-const audio = new Audio('/video/vangers/fostral.mp3');
-audio.loop = true;
-audio.volume = 0.1;
-
-const playMusic = () => {
-  audio.play();
 };

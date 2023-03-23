@@ -9,7 +9,6 @@ import { levelVideos } from './levelVideos.js';
 import { levelMusic } from './levelMusic.js';
 import { StartScreen } from './StartScreen.js';
 import { Player, playRandomTrack, pauseMusic } from './Player.js';
-import { Volume, getVolume } from './Volume.js';
 
 let timer;
 
