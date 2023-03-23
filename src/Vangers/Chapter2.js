@@ -2,6 +2,10 @@ const name = "Chapter 2. Space";
 
 const paragraphs = [
 `
+  Файл <code>particles.js</code> подключай в <code>app.js</code> с помощью <code>import './particles.js'</code>.
+  Да не забуть в <code>index.html</code> добавить <code>type="module"</code> внутрь тэга <code>&lt;script&gt;</code.
+`,
+`
   Далее Необходимо задать Пространство... Каждая Частица должна быть не текстом, но Элементом... HTML Элементом :)
 `,
 `

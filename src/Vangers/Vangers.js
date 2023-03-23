@@ -68,6 +68,12 @@ export const Vangers = (state) => {
       }
     }
 
+    if (step === 31) {
+      console.log('step is 31!');
+      console.log('Chapter Nuclear');
+      nextChapter(ChapterNuclear);
+    }
+
     nextStepBtn.classList.add('push');
     setTimeout(() => { nextStepBtn.classList.remove('push') }, 4000);
     if (step > paragraphs.length - 1) return;
