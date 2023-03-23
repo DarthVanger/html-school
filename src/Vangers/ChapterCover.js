@@ -1,4 +1,4 @@
-export const ChapterCover = (chapter) => {
+export const ChapterCover = ({ chapter }) => {
   const element = document.createElement('div');
   element.className = 'chapter-cover';
 

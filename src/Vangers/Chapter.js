@@ -1,22 +1,36 @@
-export const Chapter = ({ chapter }) => {
+import { ChapterCover } from './ChapterCover.js';
+
+export const Chapter = (chapter) => {
   const element = document.createElement('article');
   element.className = 'chapter';
 
-  const cover = document.createElement('img');
-  img.src = chapter.cover;
-  element.append(img);
+  //element.append(ChapterCover({ chapter }));
 
   const title = document.createElement('h1');
   title.innerText = chapter.title;
-  element.append(title);
+  //element.append(title);
 
   let step = localStorage.getItem('vangers-step') || 0;
 
-  const paragraphs = Chapter1.paragraphs;
+  const paragraphs = chapter.paragraphs;
 
-  function nextStep() {
+  const hintElement = document.createElement('div');
+  hintElement.id = 'hint';
+  element.append(hintElement);
+
+  async function nextStep() {
     nextStepBtn.classList.add('push');
     setTimeout(() => { nextStepBtn.classList.remove('push') }, 4000);
+
+    console.debug('Chatper: check step:', step);
+    const { isValid, hint } = await chapter.checkStep(step);
+
+    if (!isValid) {
+      console.log('hintElement: ', hintElement);
+      hintElement.innerHTML = hint;
+      return;
+    }
+
     if (step > paragraphs.length - 1) return;
     step++;
     showStep(step);
@@ -29,11 +43,23 @@ export const Chapter = ({ chapter }) => {
   };
 
   function showStep(s) {
-    console.log('Show step: ', s);
+    console.info('Chapter: Show step:', s);
     localStorage.setItem('vangers-step', s);
     messageElement.innerHTML = paragraphs[s];
     video.play();
   }
+
+  const backgroundImg = document.createElement('img');
+  backgroundImg.src = '/img/vangers/fostral.jpg';
+  backgroundImg.id = 'background-img';
+  element.append(backgroundImg);
+
+  const videoContainer = document.createElement('div');
+  videoContainer.id = 'video-container';
+  const video = document.createElement('video');
+  video.src = '/video/vangers/fostral.mp4';
+  videoContainer.append(video);
+  element.append(videoContainer);
 
   const messagePanel = document.createElement('article');
   const messageElement = document.createElement('p');
@@ -53,11 +79,6 @@ export const Chapter = ({ chapter }) => {
   prevStepBtn.id = 'prev-step-img';
   prevStepBtn.addEventListener('click', prevStep);
   element.append(prevStepBtn);
-
-  const backgroundImg = document.createElement('img');
-  backgroundImg.src = '/img/vangers/fostral.jpg';
-  backgroundImg.id = 'background-img';
-  element.append(backgroundImg);
 
   return element;
 };

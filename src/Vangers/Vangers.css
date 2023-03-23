@@ -10,6 +10,7 @@ body.vangers-page {
 
 #vangers #message-panel,
 #vangers #hint {
+  z-index: 1;
   color: #99ae05;
   font-size: 1rem;
   height: 12%;
