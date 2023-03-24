@@ -1,9 +1,9 @@
 import { ChapterCover } from './ChapterCover.js';
+import { getChapterStep, setChapterrStep } from './storage.js';
 
 export const Chapter = ({ chapter, onChapterEnd }) => {
   const element = document.createElement('article');
   element.className = 'chapter';
-  const storageKey = `vangers-step-${chapter.title}`;
 
   //element.append(ChapterCover({ chapter }));
 
@@ -11,7 +11,7 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
   title.innerText = chapter.title;
   //element.append(title);
 
-  let step = localStorage.getItem(storageKey) || 0;
+  let step = getChapterStep();
 
   const paragraphs = chapter.paragraphs;
 
@@ -32,7 +32,7 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
       return;
     }
 
-    if (step > paragraphs.length - 1) {
+    if (step > paragraphs.length - 2) {
       console.info('Chapter: no more steps, chapter end');
       onChapterEnd();
     } else {
@@ -109,6 +109,8 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
   prevStepBtn.id = 'prev-step-img';
   prevStepBtn.addEventListener('click', prevStep);
   element.append(prevStepBtn);
+
+  showStep(step);
 
   return element;
 };

@@ -54,6 +54,7 @@ export const Chapter2 = ({ student, onChapterEnd }) => {
     paragraphs,
     checkStep,
     cover,
+    onChapterEnd,
   };
 
   const chapter2 = Chapter({
