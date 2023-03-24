@@ -1,3 +1,13 @@
 .chapter {
   background: red;
 }
+
+.chapter .vangers-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -10%);
+  z-index: 1;
+  max-height: 100vh;
+  max-width: 50vw;
+}

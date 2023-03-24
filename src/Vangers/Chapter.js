@@ -48,9 +48,20 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
   };
 
   function showStep(s) {
+    messageElement.innerHTML = '';
     console.info('Chapter: Show step:', s);
-    localStorage.setItem(storageKey, s);
-    messageElement.innerHTML = paragraphs[s];
+    setChapterrStep(s);
+    const paragraph = paragraphs[s];
+    console.log('paragraph:', paragraph);
+    if (paragraph?.type == 'image') {
+      const img = document.createElement('img');
+      img.className = 'vangers-img';
+      img.src = paragraph.src;
+      messageElement.append(img);
+    } else {
+      messageElement.innerHTML = paragraph;
+    }
+
     video.play();
   }
 
