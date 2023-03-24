@@ -3,6 +3,7 @@ import { ChapterCover } from './ChapterCover.js';
 export const Chapter = ({ chapter, onChapterEnd }) => {
   const element = document.createElement('article');
   element.className = 'chapter';
+  const storageKey = `vangers-step-${chapter.title}`;
 
   //element.append(ChapterCover({ chapter }));
 
@@ -10,7 +11,7 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
   title.innerText = chapter.title;
   //element.append(title);
 
-  let step = localStorage.getItem('vangers-step') || 0;
+  let step = localStorage.getItem(storageKey) || 0;
 
   const paragraphs = chapter.paragraphs;
 
@@ -48,7 +49,7 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
 
   function showStep(s) {
     console.info('Chapter: Show step:', s);
-    localStorage.setItem('vangers-step', s);
+    localStorage.setItem(storageKey, s);
     messageElement.innerHTML = paragraphs[s];
     video.play();
   }

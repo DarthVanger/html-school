@@ -19,6 +19,7 @@ const paragraphs = [
 const cover = '/img/vangers/nuclear-cover.jpg';
 
 export const Chapter2 = ({ student, onChapterEnd }) => {
+  console.info('Chapter2: init');
   const element = document.createElement('article');
 
   const checkStep = async (step) => {

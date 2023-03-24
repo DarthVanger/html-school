@@ -33,8 +33,11 @@ export const Vangers = (state) => {
     }, introVidDuration);
   });
   //element.append(introVid);
+
   
   const showChapter2 = () => {
+    console.info('Vangers: Show Chapter 2');
+    chapter1.remove();
     const chapter2 = Chapter2({ ...state, onChapterEnd: showChapter2 });
     element.append(chapter2);
   }
