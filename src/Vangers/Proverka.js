@@ -74,7 +74,6 @@ export async function checkVangersRepoCreated(student) {
     console.log('student created vangerrs repo');
     return true;
   }
-
 }
 
 async function requestGithub(url) {

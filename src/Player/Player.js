@@ -7,6 +7,7 @@ let audio;
 
 const getTrackElement = () => document.querySelector('#music-player #track');
 export const Player = ({ playlist } ) => {
+
   const getRandomTrack = () => playlist[Math.floor(Math.random() * playlist.length)];
   const element = document.createElement('div');
   const trackElement = document.createElement('div');

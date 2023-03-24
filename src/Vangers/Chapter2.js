@@ -8,12 +8,18 @@ import {
 
 import { Chapter } from './Chapter.js';
 
-const title = "Chapter 2. Моссивы.";
+const title = "Chapter Два &mdash; ХуерТа.";
 
 const paragraphs = [
 `
   ЧитоБы созидать Частицы нуженно... Зодать моссив... <code>let particles = ['xuy4ek', 'pizdos4ek'];</code>
 `,
+`
+  Каждую Частицу нуженно вывести в ДокУмент! Используй цикл <code>forEach</code>! <code>forEach</code> проходит по каждому Элементу, который указан перед ним. (по каждому Элементу Массиива <code>particles</code>). И для Каждого Элемента <code>forEach</code> вызывает указанную в круглых скобках Фукцею, блеать! Ширшавый.`,
+  `<code>particles.forEach(printParticle);</code>. Это одна строка кода. Теперь опредделяем Фукцею <code>function printParticle(p) { document.body.innerHTML += p }</code>. Этот Код выведе в ДокУмент Каждую Частицу &mdash; Каждый Элемент Моссива.
+`,
+  `
+  `,
 ];
 
 const cover = '/img/vangers/nuclear-cover.jpg';
