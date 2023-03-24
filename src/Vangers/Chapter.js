@@ -1,6 +1,6 @@
 import { ChapterCover } from './ChapterCover.js';
 
-export const Chapter = (chapter) => {
+export const Chapter = ({ chapter, onChapterEnd }) => {
   const element = document.createElement('article');
   element.className = 'chapter';
 
@@ -31,9 +31,13 @@ export const Chapter = (chapter) => {
       return;
     }
 
-    if (step > paragraphs.length - 1) return;
-    step++;
-    showStep(step);
+    if (step > paragraphs.length - 1) {
+      console.info('Chapter: no more steps, chapter end');
+      onChapterEnd();
+    } else {
+      step++;
+      showStep(step);
+    }
   };
 
   function prevStep() {

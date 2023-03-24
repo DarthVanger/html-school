@@ -8,7 +8,7 @@ import {
 
 import { Chapter } from './Chapter.js';
 
-  const title = "Chapter 1. Particle";
+  const title = "Chapter 1. Нихуя.";
 
   const paragraphs = [
   `
@@ -136,44 +136,6 @@ import { Chapter } from './Chapter.js';
     Убедился что <code>app.js</code> рабочий?
     Что ж, погнали созавать Мир!
   `,
-  `
-    --- ЯДЕРКА ---
-  `,
-  `
-    Добавляем каждому объиекту свойство <code>color</code>, он должен быть одднимм из трех: "r", "g", "b" (текст).
-    Также создай новую констану <code>const c = 1;</code>
-  `,
-  `
-    Над тем где расчитываем forceX, и forceY пишем <code>if (planet.color === otherPlanet.color)</code> &mdash; т.е. если цвет заряда Кварка совпадает.
-    Одинаковые заряды (заряды одного цвета) отталкиввуют друг друга. Внутри <code>if</code> делай плюсовую силу. А в <code>else { }</code> &mdash; будет минусовая сила, т.е. разные заряды (заряды разных цветов) &mdash; притягивают друг друга. Нюанс: обьявление переменных forceX и forceY нужно вынести за <code>if { }</code>, а внутри лишь перезаписывать его (БЕЗ слова <code>let</code>)
-  `,
-  `
-    Чтобы на экране различать цвета Кварков, в <code>index.html</code> заменяем <code>img</code> на <code>div</code>, а <code>src</code> &mdash; убираем. Т.е. вместо кортинок Планет, у нас теперь будут просто пустые <code>&lt;div&gt;&lt;/div&gt;</code> (не забываем что каждый <code>div</code> хоть и пустой, но должен быть закрыт!) Айдишки оставляет пока что &mdash; они нам еще нужны в джавскрипте, т.е. в <code>app.js</code>.
-    А в style.css меняем для каждой Планеты размер на: <code>width: 50px;</code> и <code>height: 50px;</code>. А всем дивам даем черный фон, т.е. <code>background: black;</code>
-    По желанию всем дивам даем <code>border-radius: 50%;</code> &mdash; это сделает черные кводраты круглыми.
-  `,
-  `
-    Смотрим что вышло! Должны летать черные 50-пикселльные квокдраты по экрану!
-    Осталось лишь покрасить кводраты. Квадрат с Красным зорядом красимм у крсный цвет: <code>background: red;</code>. Кводрат же с Синим Зорядом &mdash; красим у синий цвет: <code>background: blue;</code>; И все Тела с Зеленым Зорядом красим у Зеленый! <code>background: green;</code>.
-  `,
-  `
-    Проверяем покрассочку и Силы! Планеты одного цвета должны Отталкиваться, а Планенты Разных Цвветов &mdash; должны Притягиваться! Для наглядности сделай всем равные массы &mdash; напр сотку 100. А заряды - всем сделай положительные! Т.е. во всье объиектах <code>q: 10</code>
-  `,
-  `
-    Што ж, нужно больше Кварков! Давай добавлять Кварки в цикле. Давай добаввем 10 Планет с помощью цилка! Масив <code>planets</code> у тебя уже есть. Сделай цикл, который добавляет в этот масив еще 10 элементов. Пиши под <code>let planets = [...];</code> цикл <code>let n = 0; while (n < 10) { console.log('n', n); n += 1; };</code>. Проверь в Консоле что выводится 0, 1, 2, 3, 4, и т.д.
-  `,
-    `
-      Внутри цикла нужно "сгенерировать" айди. Пиши <code>let id = \`p-\${id}\`</code>. Т.е. наши айди планет будут выглядеть как напирмер "p-0", "p-1", "p-2", и т.д. до "p-9". Сделай <code>console.log('айди: ', id);</code>
-
-    `,
-    `
-      Наконец, используй этот <code>id</code> в Диве, который мы добавим в ДокУмент: <code>document.body.innerHTML += \`&lt;div id="p-\${n}"&gt;&lt;/div&gt;\`;</code>.
-    Єтот цикл должен добавіть тебе 10 дополнительніх дівов в ХТМЛ - проверь через ИССЛЄДОВАТЬ ЄЛЕМЕНТ.
-    `,
-    `
-    Тебе нужно создать ВНУТРИ цикла переменную <code>let planet = { ... }</code> - скопируй сюда тот же объект шо для Марса. В качесте айди укажи ему наш сгенеренный <code>id</code>. Х и У задай рандомно: <code>x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight()</code>
-    `,
-
 ];
 
 const hints = [
@@ -184,70 +146,86 @@ const hints = [
 
 const cover = '/img/vangers/nuclear-cover.jpg';
 
-export const Chapter1 = (state) => {
+export const Chapter1 = ({ student, onChapterEnd }) => {
   const element = document.createElement('article');
-  const { student } = state;
+  const githubName = getGithubName(student);
+  const repoUrl = `https://github.com/${githubName}/vangers`;
 
   const checkStep = async (step) => {
-    let isValid = false;
-    const githubName = getGithubName(student);
-    const repoUrl = `https://github.com/${githubName}/vangers`;
-    const hint =  `<div>Создай репозиторей ёпта. <a href="${repoUrl}" target="_blank">${repoUrl}</a> По ссылке-то 404!</div>`;
-
     if (step === 10) {
       console.info('Validating step 10');
+      let isValid;
       const isRepoCreated = await checkVangersRepoCreated(student);
       if (!isRepoCreated) {
         console.log('Repo is not created - step not valid');
-        return { isValid: false, hint };
+        isValid = false;
       } else {
-        return { isValid: true, hint };
         console.log('Repo is created, step is valid!');
+        isValid = true;
       }
+
+      const hint =  `<div>Создай репозиторей ёпта. <a href="${repoUrl}" target="_blank">${repoUrl}</a> По ссылке-то 404!</div>`;
+
+      return { isValid, hint };
     }
 
     if (step === 27) {
-      console.log('step is 27!');
+      console.info('Validating step is 27');
+
+      let isValid;
       const isCommitCreated = await checkFirstCommitCreated(student);
+      console.log('isCommitCreated:', isCommitCreated);
       if (!isCommitCreated) {
         console.log('commit not created can not go next step');
-        const githubName = getGithubName(student);
-        const commitHistoryUrl = `https://github.com/${githubName}/vangers/commits/master`;
-        hint.innerHTML = `<div>Запуш коммиты ёпта. <a href="${commitHistoryUrl}" target="_blank">${commitHistoryUrl}</a> Коммит на Гтихабе не появился-то!</div>`;
-        return;
+        isValid = false;
       } else {
         console.log('commit is created, going to next step');
+        isValid = true;
       }
+
+      const commitHistoryUrl = `https://github.com/${githubName}/vangers/commits/master`;
+      const hint = `<div>Запуш коммиты ёпта. <a href="${commitHistoryUrl}" target="_blank">${commitHistoryUrl}</a> Коммит на Гтихабе не появился-то!</div>`;
+
+      return { isValid, hint };
     }
 
     if (step === 30) {
-      console.log('step is 30!');
+      console.log('Validating step is 30');
+      let isValid;
       await checkTimeCreated();
       const isAppJsCreated = await checkAppJsCreated(student);
       if (!isAppJsCreated) {
-        console.log('app.js not created can not go next step');
-        const githubName = getGithubName(student);
-        const appJsUrl = `https://github.com/${githubName}/vangers/blob/master/app.js`;
-        hint.innerHTML = `<div>На ГитХабе app.js то нету? Ширшавый <a href="${appJsUrl}" target="_blank">${appJsUrl}</a></div>`;
-        return;
+        console.log('Chapter1: app.js is NOT created, can not go next step');
+        isValid = false;
       } else {
-        console.log('app.js is created, going to next step');
+        console.log('Chapter1: app.js is created, going to next step');
+        isValid = true;
       }
+
+      const appJsUrl = `https://github.com/${githubName}/vangers/blob/master/app.js`;
+
+      const hint = `<div>На ГитХабе app.js то нету? Ширшавый <a href="${appJsUrl}" target="_blank">${appJsUrl}</a></div>`;
+
+      return { isValid, hint };
     }
 
-    if (step === 31) {
-      console.log('step is 31!');
-      console.log('Chapter Nuclear');
-      nextChapter(ChapterNuclear);
-    }
-
-    return { isValid: true, hint };
+    return { isValid: true, hint: '' };
   };
 
+  const chapter = {
+    title,
+    paragraphs,
+    checkStep,
+    cover,
+    onChapterEnd,
+  };
 
-  element.append(Chapter({ title, paragraphs, checkStep, cover }));
+  const chapter1 = Chapter({
+    chapter,
+    onChapterEnd,
+  });
 
-
+  element.append(chapter1);
 
   return element;
 

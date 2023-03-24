@@ -28,15 +28,14 @@ export async function checkAppJsCreated(student) {
   const githubName = getGithubName(student);
   const url = `https://api.github.com/repos/${githubName}/vangers/git/trees/master?recursive=1`;
 
-  const response = await requestGithub(url);
-  const tree = response.tree;
-  const appJs = tree.find(function(file) {
-    return file.path === 'app.js';
-  });
-
-  if (appJs) {
-    return true;
-  } else {
+  try {
+    const response = await requestGithub(url);
+    const tree = response.tree;
+    return tree.find(function(file) {
+      return file.path === 'app.js';
+    });
+  } catch(e) {
+    console.warn(e);
     return false;
   }
 }
@@ -83,6 +82,11 @@ async function requestGithub(url) {
       'Authorization': 'Bearer ' + token,
     },
   });
+
+  if (!response.ok) {
+    const responseJson = await response.json();
+    throw Error(responseJson?.message || response.status);
+  }
 
   const responseJson = await response.json();
   console.log('Response from Github: ', responseJson);

@@ -1,4 +1,5 @@
 import { Chapter1 } from './Chapter1.js';
+import { Chapter2 } from './Chapter2.js';
 import { ChapterNuclear } from './ChapterNuclear.js';
 import { VangersPlayer, resumeMusic } from './VangersPlayer.js';
 
@@ -31,8 +32,15 @@ export const Vangers = (state) => {
       }, fadeDuration);
     }, introVidDuration);
   });
-  element.append(introVid);
+  //element.append(introVid);
+  
+  const showChapter2 = () => {
+    const chapter2 = Chapter2({ ...state, onChapterEnd: showChapter2 });
+    element.append(chapter2);
+  }
 
-  element.append(Chapter1(state));
+  const chapter1 = Chapter1({ ...state, onChapterEnd: showChapter2 });
+  element.append(chapter1);
+
   return element;
 };
