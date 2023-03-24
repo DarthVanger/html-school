@@ -43,12 +43,13 @@ export async function checkAppJsCreated(student) {
 export async function checkFirstCommitCreated(student) {
   const githubName = getGithubName(student);
   const url = `https://api.github.com/repos/${githubName}/vangers/commits`;
-  const commits = await requestGithub(url);
-  console.log('commits: ', commits);
-  if (!commits) {
+  try {
+    const commits = await requestGithub(url);
+    console.log('commits: ', commits);
+    return Boolean(commits);
+  } catch(e) {
+    console.warn(e);
     return false;
-  } else {
-    return true;
   }
 }
 
