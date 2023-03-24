@@ -63,8 +63,22 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
   videoContainer.id = 'video-container';
   const video = document.createElement('video');
   video.src = '/video/vangers/fostral.mp4';
+  video.volume = 1;
   videoContainer.append(video);
   element.append(videoContainer);
+
+  // create an audio context and hook up the video element as the source
+  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var source = audioCtx.createMediaElementSource(video);
+
+  // create a gain node
+  var gainNode = audioCtx.createGain();
+  gainNode.gain.value = 3; // double the volume
+  source.connect(gainNode);
+
+  // connect the gain node to an output destination
+  gainNode.connect(audioCtx.destination);
+
 
   const messagePanel = document.createElement('article');
   const messageElement = document.createElement('p');

@@ -40,6 +40,15 @@ export const Player = ({ playlist } ) => {
   trackElement.innerHTML = `
      🎵<marquee>${curTrack.title}</marquee>▶️
   `;
+
+  const playRandomTrack = () => {
+    curTrack = getRandomTrack();
+    console.log(`Player: change track to`, curTrack);
+    audio.src = curTrack.path;
+    audio.volume = getVolume();
+
+    resumeMusic();
+  };
   
   return element;
 };
@@ -63,13 +72,4 @@ export const resumeMusic = () => {
    getTrackElement().innerHTML = `
       🎵<marquee>${curTrack.title}</marquee>⏸︎
    `;
-};
-
-export const playRandomTrack = () => {
-  curTrack = getRandomTrack();
-  console.log(`Player: change track to`, curTrack);
-  audio.src = curTrack.path;
-  audio.volume = getVolume();
-
-  resumeMusic();
 };
