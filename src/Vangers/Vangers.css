@@ -109,11 +109,12 @@ body.vangers-page {
 
 #vangers #hint {
   position: absolute;
-  left: 32vw;
+  left: 50%;
   top: 23vh;
+  transform: translate(-27vh, 0vh);
   background: black;
   border-radius: 35%;
-  width: 174px;
+  width: 186px;
   height: 151px;
   word-break: break-word;
 }
