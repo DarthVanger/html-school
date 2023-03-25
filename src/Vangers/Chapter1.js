@@ -161,7 +161,7 @@ export const Chapter1 = ({ student, onChapterEnd }) => {
       return { isValid, hint };
     }
 
-    if (step === 27) {
+    if (step === 25) {
       console.info('Validating step is 27');
 
       let isValid;
@@ -181,8 +181,8 @@ export const Chapter1 = ({ student, onChapterEnd }) => {
       return { isValid, hint };
     }
 
-    if (step === 30) {
-      console.log('Validating step is 30');
+    if (step === 28) {
+      console.log('Validating step 28');
       let isValid;
       await checkTimeCreated();
       const isAppJsCreated = await checkAppJsCreated(student);
