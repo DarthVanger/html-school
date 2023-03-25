@@ -25,7 +25,6 @@ Open [http://localhost:8080/](http://localhost:8080/) - you should see the schoo
 ## Directory Structure
 * `/assets/` - folder for fonts
 * `/img/` - folder for all images
-* `/img/` - folder for all images
 * `/lib/` - libraries, for now only Prism for code highlighting
 * `/manifest.webmanifest` - config for app icon when installed on Android or any other OS
 * `nodemon.json` - config for running nodejs server, refreshing it automatically when files change
