@@ -20,6 +20,8 @@ Start the server
 npm start
 ```
 
+Open [http://localhost:8080/](http://localhost:8080/) - you should see the school website
+
 ## Directory Structure
 * `/assets/` - folder for fonts
 * `/img/` - folder for all images
