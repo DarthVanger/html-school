@@ -88,7 +88,7 @@ import { Chapter } from './Chapter.js';
     Добавляй свой файл: <code>git add index.html</code>
   `,
   `
-    Проверь <code>git status</code> - стал <code>index.html</code> зелененьким?
+    Проверь <code>git status</code> - стал <code>index.html</code> зелененьким? Зеленький как Я ^_^.
   `,
   `
     Теперь наконец <code>git commit -m "Add index.html"</code>
