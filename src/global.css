@@ -28,7 +28,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-   background: #aaa;
+   background: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -63,16 +63,16 @@ figure {
 }
 
 *::-webkit-scrollbar {
-  width: 4px;
-  background-color: var(--secondary);
+  width: 2px;
+  background-color: transparent;
 }
 
 *::-webkit-scrollbar-track {
-   background: var(--primary);
+   background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }
 
 .weed-svg {
