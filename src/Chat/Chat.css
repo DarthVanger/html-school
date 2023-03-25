@@ -2,7 +2,6 @@
   height: 80vh;
   overflow-y: scroll;
   margin-bottom: 1em;
-  border: solid white 2px;
 }
 
 @media (min-width: 768px) {

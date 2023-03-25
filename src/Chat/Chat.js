@@ -57,7 +57,6 @@ export const Chat = (state) => {
       notificationsButton.addEventListener('click', askNotificationsPermissions);
     } else {
       notificationsButton = document.createElement('div');
-      notificationsButton.style.border = 'solid green 1px';
       notificationsButton.innerHTML = `Notifications are enabled ✅`;
     }
     element.append(notificationsButton);
