@@ -31,4 +31,5 @@ Open [http://localhost:8080/](http://localhost:8080/) - you should see the schoo
 * `nodemon.json` - config for running nodejs server, refreshing it automatically when files change
 * `deploy/` - bash scripts for deploying a new version of the website
 * `service-worker.js` - Service Worker for when app is installed on Android or any other OS
-* `src/` - Source Code: js and css files
+* `src/` - Frontend Source Code: js and css files
+* `server/` - Server Source Code (NodeJS)
