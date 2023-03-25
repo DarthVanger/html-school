@@ -16,11 +16,11 @@ const certsDir = '/etc/letsencrypt/live/napaleon.space';
 
 import express from 'express'
 const app = express()
-const isLocal = process.env.isLocal;
+const isHttp = process.env.http;
 const port = process.env.port || 8080
 
 let credentials;
-if (!isLocal) {
+if (!isHttp) {
   const privateKey  = fs.readFileSync(`${certsDir}/privkey.pem`, 'utf8');
   const certificate = fs.readFileSync(`${certsDir}/fullchain.pem`, 'utf8');
   credentials = {key: privateKey, cert: certificate};
@@ -40,7 +40,7 @@ const runApp = async () => {
 
   let server;
 
-  if (!isLocal) {
+  if (!isHttp) {
     server = https.createServer(credentials, app);
     server.listen(443);
 
