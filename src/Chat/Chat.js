@@ -34,15 +34,25 @@ export const Chat = (state) => {
     messages.unshift(newMessage);
     render({ messages });
     if (Notification.permission === 'granted') {
-      const notification = new Notification(`New message from ${newMessage.author}: ${newMessage.message.slice(0, 80)}`);
+        const notification = new Notification("Привіт! Нотифікації від Напалеона включені!", {
+          body: 'xuyedi',
+          icon: '/img/den4ik.jpg',
+        });
     }
   }
 
-  function askNotificationsPermissions() {
+  function askNotificationsPermissions(event) {
+    console.log('askNotificationsPermissions', event);
     Notification.requestPermission().then((permission) => {
+      console.log('permission: ', permission);
       // If the user accepts, let's create a notification
       if (permission === "granted") {
-        const notification = new Notification("Привіт! Нотифікації від Напалеона включені!");
+        console.log('permision granted!');
+        const notification = new Notification("Привіт! Нотифікації від Напалеона включені!", {
+          body: 'xuyedi',
+          icon: '/img/den4ik.jpg',
+        });
+        console.log('notification: ', notification);
       }
     });
   }
