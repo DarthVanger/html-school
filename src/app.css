@@ -1,7 +1,6 @@
 @import 'global.css';
 @import 'fonts.css';
 @import 'Login.css';
-@import 'BottomBar.css';
 @import 'Topbar.css';
 @import 'BackButton.css';
 @import 'typography.css';
@@ -11,7 +10,7 @@
 @import 'LearningProgress/LearningProgress.css';
 @import 'Quiz/QuizPage.css';
 @import 'Twitch/Twitch.css';
-@import 'ExpectationReality/ExpectationReality.css';
+@import 'Raznoe/ExpectationReality/ExpectationReality.css';
 @import 'NeuralArt/NeuralArt.css';
 @import 'Resume/Resume.css';
 @import 'Coursework/Coursework.css';
@@ -21,7 +20,7 @@
 @import 'Katakombi/Katakombi.css';
 @import 'SlidesV2/Slides.css';
 @import 'Homework/Homework.css';
-@import 'Banki/Banki.css';
+@import 'Raznoe/Banki/Banki.css';
 @import 'OnlineStudents/OnlineStudents.css';
 @import 'OnlineStudents/OnlineLog.css';
 @import 'Vangers/Vangers.css';

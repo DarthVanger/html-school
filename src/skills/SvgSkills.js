@@ -1,7 +1,6 @@
 import { Tree } from './Tree.js';
 import { SvgContainer } from './SvgContainer.js';
 import { Students } from './Students.js';
-import { BottomBar } from '../BottomBar.js';
 import { Topbar } from '../Topbar.js';
 
 export const SvgSkills = (props) => {

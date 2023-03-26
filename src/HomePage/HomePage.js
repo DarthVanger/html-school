@@ -1,6 +1,4 @@
-import { BottomBar } from '../BottomBar.js';
-import { Quest } from '../quests/MainPage/Levels/Quest.js';
-import quests from '../quests/quests/quests.js';
+import { AvatarCorner } from './AvatarCorner/AvatarCorner.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
@@ -61,7 +59,7 @@ export const HomePage = (state) => {
     <div class="weed-border-right-bottom">
     </div>
 
-    ${BottomBar(state)}
+    ${AvatarCorner(state)}
   `;
 
   return element;

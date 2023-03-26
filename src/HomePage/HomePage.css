@@ -1,3 +1,5 @@
+@import './AvatarCorner/AvatarCorner.css';
+
 #home-page {
   height: 100%;
   display: grid;

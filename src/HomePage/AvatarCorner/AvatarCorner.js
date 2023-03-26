@@ -1,9 +1,9 @@
-import { logout } from './session.js';
-import { describeArc } from './skills/arc.js';
-import { getLevelInfo } from './api.js';
-import { getLevelProgress } from './skills/utils.js';
+import { logout } from '../../session.js';
+import { describeArc } from '../../skills/arc.js';
+import { getLevelInfo } from '../../api.js';
+import { getLevelProgress } from '../../skills/utils.js';
 
-export const BottomBar = ({ student }) => {
+export const AvatarCorner = ({ student }) => {
   const getElement = () => document.querySelector('#bottom-bar');
   const size = 200;
 

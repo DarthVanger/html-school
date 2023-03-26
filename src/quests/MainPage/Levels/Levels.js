@@ -1,7 +1,6 @@
 import { Quest } from './Quest.js';
 import { getCompletedQuests } from './api.js';
 import { getStudent } from '../../../session.js';
-import { BottomBar } from '../../../BottomBar.js';
 import quests from '../../quests/quests.js';
 
 const element = document.createElement('div');
@@ -206,7 +205,6 @@ export const Levels = (store) => {
       */ ''}
       </div>
     </div>
-    ${BottomBar(store)}
   `;
 
   element.innerHTML = html;

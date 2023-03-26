@@ -1,4 +1,4 @@
-import * as socket from '../socket.js';
+import * as socket from '../../socket.js';
 import { BankiStudent } from './BankiStudent.js';
 
 const getPlusBankaImg = () => {

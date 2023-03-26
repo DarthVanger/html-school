@@ -1,5 +1,5 @@
-import * as socket from '../socket.js';
-import { WeedSvg } from '../WeedSvg.js';
+import * as socket from '../../socket.js';
+import { WeedSvg } from '../../WeedSvg.js';
 
 export const BankiStudent = ({ student, state }) => {
   const userStudent = state.student;
