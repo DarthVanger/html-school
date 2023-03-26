@@ -2,7 +2,7 @@ import { AvatarCorner } from './AvatarCorner/AvatarCorner.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
 import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
-import { AddToHomeScreen } from '../AddToHomeScreen/AddToHomeScreen.js';
+import { AddToHomeScreen } from './AddToHomeScreen/AddToHomeScreen.js';
 
 export const HomePage = (state) => {
   const element = document.createElement('div');
