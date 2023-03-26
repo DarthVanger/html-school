@@ -34,7 +34,7 @@ Open [http://localhost:8080/](http://localhost:8080/) - you should see the schoo
 * `server/` - Server Source Code (NodeJS)
 
 ## Frontend
-Fronted is divided into components, like React.
+Frontend is divided into components, like React.
 
 Each component is a function, which returns HTML element.
 
@@ -49,3 +49,13 @@ Each component has its own file, also usually a folder.
 * `/src/HomePage/HomePage.css` - home page component css.
 * `/src/Navbar/` - Navigation bar (menu) component: links to all pages at the top of website.
 * `/src/Vangers/` - Vangers component folder. Contains multiple components for the Vangers game.
+
+## Backend
+Backend uses `express` framework.
+
+* `/server/` - Source Code for backend.
+* `/server/server.mjs` - Main server file, which is launched with `nodejs`.
+* `/server/socket/` - Web socket APIs
+* `/server/questApi.js` - Endpoints for Quests
+* `/server/catacombsApi.js` - Endpoints for Catacombs
+* `/server/chatApi.js` - Endpoints for Chat
