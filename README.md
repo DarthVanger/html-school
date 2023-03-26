@@ -32,3 +32,20 @@ Open [http://localhost:8080/](http://localhost:8080/) - you should see the schoo
 * `service-worker.js` - Service Worker for when app is installed on Android or any other OS
 * `src/` - Frontend Source Code: js and css files
 * `server/` - Server Source Code (NodeJS)
+
+## Frontend
+Fronted is divided into components, like React.
+
+Each component is a function, which returns HTML element.
+
+Each component has its own file, also usually a folder.
+
+* `/src/app.css` - contains `@import` for css files of all pages/components.
+* `/index.js` - appends `App()` component into `document.body`.
+* `/src/App.js` - the root `App()` component. It is responsible for showing pages, based on `/#/page` URLs.
+* `/src/Router.js` - contains mapping from URLs to components: URL <-> component.
+* `/src/HomePage/` - home page component folder.
+* `/src/HomePage/HomePage.js` - home page component js code.
+* `/src/HomePage/HomePage.css` - home page component css.
+* `/src/Navbar/` - Navigation bar (menu) component: links to all pages at the top of website.
+* `/src/Vangers/` - Vangers component folder. Contains multiple components for the Vangers game.
