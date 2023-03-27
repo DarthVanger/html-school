@@ -1,13 +1,13 @@
 @import './AvatarCorner/AvatarCorner.css';
 
 #home-page {
+}
+
+#home-page {
   height: 100%;
-  display: grid;
-  grid-template-rows: [top] 70px [center] auto [bottom] 70px;
-  grid-template-columns: [left] 160px [center] auto [right] 160px;
-  gap: 0;
   box-sizing: border-box;
-  background: black;
+  border: 40px solid transparent;
+  border-image: url('/img/roses-frame.jpg') 5% fill;
 }
 
 @media (max-width: 768px) {
@@ -29,57 +29,6 @@
   padding: 0;
   height: 100%;
   overflow: hidden;
-}
-
-#home-page .weed-border-top-left {
-  grid-row: top;
-  grid-column: left;
-}
-
-#home-page .weed-border-top-right {
-  grid-row: top;
-  grid-column: right;
-  background: url("img/logo_left.png");
-  transform: rotate(180deg) scaleY(-1);
-}
-
-#home-page .weed-border-left {
-  grid-row: span;
-  grid-column: left;
-  background: url("img/logo_leftt.png");
-}
-
-#home-page .weed-border-right {
-  grid-column: right;
-  background: url("img/logo_leftt.png");
-  transform: rotate(180deg);
-}
-
-#home-page .weed-border-top-center {
-  grid-row: top / center;
-  grid-column: center / right;
-  background: url("img/logo_top.png");
-}
-
-#home-page .weed-border-bottom-center {
-  grid-column: center;
-  grid-row: bottom;
-  background: url("img/logo_top.png");
-  transform: scaleY(-1);
-}
-
-#home-page .weed-border-right-bottom {
-  grid-row: bottom;
-  grid-column: right;
-  background: url("img/logo_left.png");
-  transform: rotate(180deg);
-}
-
-#home-page .weed-border-left-bottom {
-  grid-row: bottom;
-  grid-column: left;
-  background: url("img/logo_left.png");
-  transform: scaleY(-1);
 }
 
 #home-page .page-content h2 {
