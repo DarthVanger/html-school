@@ -17,11 +17,17 @@ export function wsSendAll(mes) {
 }
 
 export const initSocket = async () => {
+  if (!db.data) {
+    db.data = {};
+  }
   if (!db.data.onlineLog) {
     db.data.onlineLog = {};
   }
   if (!db.data.studentsOnline) {
     db.data.studentsOnline = {};
+  }
+  if (!db.data.students) {
+    db.data.students = [];
   }
   for (let student of db.data.students) {
     if (!db.data.studentsOnline[student]) {
