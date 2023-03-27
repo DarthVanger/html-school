@@ -14,7 +14,7 @@ export const Doska = (state) => {
 
   const renderWhenReady = () => {
     if (!state.questPoints) {
-      setTimeout(render, 500);
+      setTimeout(render, 2500);
       return;
     }
   }

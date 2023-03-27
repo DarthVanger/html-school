@@ -14,6 +14,7 @@ import { lectureStats } from './lectureStats.js';
 
 const getQuestPoints = ({ skill, student }) => {
     let points = 0;
+    if (!db.data.quests) return 0;
     const completedQuests = db.data.quests[student];
     if (!completedQuests) return 0;
 
