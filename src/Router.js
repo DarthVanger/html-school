@@ -21,7 +21,7 @@ import { Slides } from './SlidesV2/Slides.js';
 import { Banki } from './Raznoe/Banki/Banki.js';
 import { Vangers } from './Vangers/Vangers.js';
 import { Study } from './Study/Study.js';
-import { Resources } from './Resources/Resources.js';
+import { Materiali } from './Materiali/Materiali.js';
 import { Chat } from './Chat/Chat.js';
 import { OnlineLog } from './OnlineStudents/OnlineLog.js';
 
@@ -52,9 +52,9 @@ export const Router = (state) => {
       pageSlot.innerHTML = '';
       pageSlot.append(Study(state));
       break;
-    case '/resources':
+    case '/materiali':
       pageSlot.innerHTML = '';
-      pageSlot.append(Resources(state));
+      pageSlot.append(Materiali(state));
       break;
     case '/online-log':
       pageSlot.innerHTML = '';
