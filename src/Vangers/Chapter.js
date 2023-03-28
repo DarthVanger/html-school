@@ -110,6 +110,11 @@ export const Chapter = ({ chapter, onChapterEnd }) => {
   prevStepBtn.addEventListener('click', prevStep);
   element.append(prevStepBtn);
 
+  const hiddenHint = document.createElement('div');
+  hiddenHint.id = 'hidden-hint';
+  hiddenHint.textContent = 'Тут мог быть твой дик пик...';
+  element.append(hiddenHint)
+
   showStep(step);
 
   return element;

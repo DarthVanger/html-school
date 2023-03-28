@@ -182,3 +182,33 @@ body.vangers-page {
   cursor: pointer;
   border-radius: 50%;
 }
+
+#vangers #hidden-hint{
+  color: #99ae05;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 23vh;
+  transform: translate(-52vh, 0vh);
+  background: #000;
+  border-radius: 35%;
+  width: 155px;
+  height: 139px;
+  word-break: break-word;
+  opacity: 0;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#vangers #hidden-hint:hover {
+  opacity:  1;
+}
+
+#vangers #hidden-hint:hover:active,
+#vangers #hidden-hint:focus {
+  opacity: 1;
+}
+
