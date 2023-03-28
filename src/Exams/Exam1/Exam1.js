@@ -2,9 +2,9 @@ import { VariablesLecture } from './Variables/VariablesLecture.js';
 import { Variables as VariablesQuiz } from './Variables/Variables.js';
 
 const element = document.createElement('div');
-element.id = "quiz-page";
+element.id = "exam1";
 
-export const QuizPage = () => {
+export const Exam1 = () => {
   element.innerHTML = `
     <h2>Кто Хочет Стать Банконъером??</h2>
     <figure>

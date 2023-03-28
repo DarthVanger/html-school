@@ -8,7 +8,7 @@
 @import 'skills/skills.css';
 @import 'quests/quests.css';
 @import 'LearningProgress/LearningProgress.css';
-@import 'Quiz/QuizPage.css';
+@import 'Exams/Exam1/Exam1.css';
 @import 'Twitch/Twitch.css';
 @import 'Raznoe/ExpectationReality/ExpectationReality.css';
 @import 'NeuralArt/NeuralArt.css';
@@ -28,3 +28,4 @@
 @import 'Chat/Chat.css';
 @import 'Navbar/Navbar.css';
 @import 'Player/Player.css';
+@import 'Study/Study.css';

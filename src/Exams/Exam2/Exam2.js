@@ -1,8 +1,5 @@
-export const Quiz2 = () => {
+export const Exam2 = () => {
   const element = document.createElement('div');
-  element.innerHTML = `
-    <h2>Quiz2</h2>
-  `;
 
   const questions = [
     {
@@ -120,5 +117,45 @@ export const Quiz2 = () => {
       answer: /['"]?100px3.14['"]?/,
     },
   ];
+
+  element.innerHTML = `
+    <h2>Exam #2</h2>
+  `;
+
+  questions.forEach((q) => {
+    const questionEl = document.createElement('div');
+
+    const questionTextEl = document.createElement('h3');
+    questionTextEl.innerHTML = `Question: ${q.question}`;
+    questionEl.append(questionTextEl);
+
+    const codeEl = document.createElement('pre');
+    codeEl.innerHTML = `<code>${q.code}</code>`;
+    questionEl.append(codeEl);
+
+    const answerInput = document.createElement('input');
+    answerInput.type = 'text';
+    questionEl.append(answerInput);
+
+    const answerStatusEl = document.createElement('div');
+    answerStatusEl.innerHTML = 'Not answered yet';
+    questionEl.append(answerStatusEl);
+
+    answerInput.addEventListener('input', () => {
+      const answer = answerInput.value;
+      const isAnswerCorrect = q.answer.test(answer);
+      if (isAnswerCorrect) {
+        answerStatusEl.innerHTML = 'Answer is Correct!';
+        answerStatusEl.style.border = 'solid green 2px';
+      } else {
+        answerStatusEl.innerHTML = 'Answer is INCORRECT!';
+        answerStatusEl.style.border = 'solid red 2px';
+      }
+    });
+
+    element.append(questionEl);
+  });
+
+
   return element;
 };

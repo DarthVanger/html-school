@@ -6,7 +6,9 @@ import { Skills } from './skills/skills.js';
 import { QuestsPage } from './quests/QuestsPage.js';
 import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
-import { QuizPage } from './Quiz/QuizPage.js';
+import { Exams } from './Exams/Exams.js';
+import { Exam1 } from './Exams/Exam1/Exam1.js';
+import { Exam2 } from './Exams/Exam2/Exam2.js';
 import { ExpectationReality } from './Raznoe/ExpectationReality/ExpectationReality.js';
 import { NeuralArt } from './NeuralArt/NeuralArt.js';
 import { Resume } from './Resume/Resume.js';
@@ -18,7 +20,6 @@ import { Katakombi } from './Katakombi/Katakombi.js';
 import { Slides } from './SlidesV2/Slides.js';
 import { Banki } from './Raznoe/Banki/Banki.js';
 import { Vangers } from './Vangers/Vangers.js';
-import { Quiz2 } from './Quiz2/Quiz2.js';
 import { Study } from './Study/Study.js';
 import { Resources } from './Resources/Resources.js';
 import { Chat } from './Chat/Chat.js';
@@ -93,13 +94,31 @@ export const Router = (state) => {
       pageSlot.append(LearningProgress(state));
       break;
 
-    case '/quiz':
-      const topbar = document.createElement('div');
-      topbar.innerHTML = `${Topbar({ backUrl: '/#/', surface: 'black' })}`;
+    case '/exam':
+      const examsTopbar = document.createElement('div');
+      examsTopbar.innerHTML = `${Topbar({ backUrl: '/#/', surface: 'black' })}`;
 
       pageSlot.innerHTML = '';
-      pageSlot.append(topbar);
-      pageSlot.append(QuizPage(state));
+      pageSlot.append(examsTopbar);
+      pageSlot.append(Exams(state));
+      break;
+
+    case '/exam/1':
+      const exam1Topbar = document.createElement('div');
+      exam1Topbar.innerHTML = `${Topbar({ backUrl: '/#/exam', surface: 'black' })}`;
+
+      pageSlot.innerHTML = '';
+      pageSlot.append(exam1Topbar);
+      pageSlot.append(Exam1(state));
+      break;
+
+    case '/exam/2':
+      const exam2Topbar = document.createElement('div');
+      exam2Topbar.innerHTML = `${Topbar({ backUrl: '/#/exam', surface: 'black' })}`;
+
+      pageSlot.innerHTML = '';
+      pageSlot.append(exam2Topbar);
+      pageSlot.append(Exam2(state));
       break;
 
     case '/expectation-reality':

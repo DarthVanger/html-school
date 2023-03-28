@@ -98,29 +98,6 @@
   padding: 0 2em;
 }
 
-#home-page section#main-page-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-#home-page section#main-page-links  article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1em;
-}
-
-#home-page section#main-page-links a,
-#home-page section#main-page-links a:active,
-#home-page section#main-page-links a:visited,
-#home-page section#main-page-links a:link {
-  text-align: center;
-  letter-spacing: 4px;
-  font-size: 1.5em;
-  margin: 0.5em 0;
-  color: #81fa41;
-}
 
 @keyframes gridColor {
   0% {
