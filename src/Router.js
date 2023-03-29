@@ -19,7 +19,6 @@ import { Lesson25 } from './Lessons/Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
 import { SlidesV1 } from './Lessons/SlidesV1/SlidesV1.js';
 import { SlidesV2 } from './Lessons/SlidesV2/SlidesV2.js';
-import { Banki } from './Raznoe/Banki/Banki.js';
 import { Vangers } from './Vangers/Vangers.js';
 import { Study } from './Study/Study.js';
 import { Materiali } from './Materiali/Materiali.js';
@@ -60,9 +59,6 @@ export const Router = (state) => {
     case '/online-log':
       pageSlot.innerHTML = '';
       pageSlot.append(OnlineLog(state));
-      break;
-    case '/banki':
-      pageSlot.append(Banki(state));
       break;
     case '/skills':
       pageSlot.innerHTML = '';
