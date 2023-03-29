@@ -1,5 +1,5 @@
-import { SvgSkills } from '../skills/SvgSkills.js';
-import { SvgProfile } from '../Profile/SvgProfile.js';
+import { SvgSkills } from '../../skills/SvgSkills.js';
+import { SvgProfile } from '../../Profile/SvgProfile.js';
 import { House } from './House.js';
 import { Bong } from './Bong.js';
 
