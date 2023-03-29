@@ -5,7 +5,7 @@ export const SlidesV1 = ({ lesson }) => {
   const element = document.createElement('div');
   element.id = 'slides-v1';
 
-  const pageURL = '/#/slides/v2';
+  const pageURL = '/#/slides/v1';
 
   element.append(Dictation());
 
@@ -49,9 +49,9 @@ export const SlidesV1 = ({ lesson }) => {
       const pageContent = document.querySelector('.page-content');
       pageContent.innerHTML = '';
       pageContent.append(page.cloneNode(true).content);
-      const historyURL = pageURL + '#page' + currentpage;
-      console.log('push history state: ', historyURL);
-      window.history.pushState(historyURL, 'page ' + currentPage, `${pageSelector}`);
+      //const historyURL = pageURL + '#page' + currentPage;
+      //console.log('push history state: ', historyURL);
+      //window.history.pushState(historyURL, 'page ' + currentPage, `${pageSelector}`);
 
       const expectationsForm = document.querySelector('.expectations-form');
       if (expectationsForm) {
