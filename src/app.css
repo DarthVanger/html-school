@@ -8,6 +8,9 @@
 @import 'skills/skills.css';
 @import 'quests/quests.css';
 @import 'LearningProgress/LearningProgress.css';
+@import 'Lessons/SlidesV1/SlidesV1.css';
+@import 'Lessons/SlidesV2/SlidesV2.css';
+@import 'Lessons/Lesson25/Lesson25.css';
 @import 'Exams/Exam1/Exam1.css';
 @import 'Twitch/Twitch.css';
 @import 'Raznoe/ExpectationReality/ExpectationReality.css';
@@ -16,9 +19,7 @@
 @import 'Coursework/Coursework.css';
 @import 'Profile/Profile.css';
 @import 'Doska/Doska.css';
-@import 'Lesson25/Lesson25.css';
 @import 'Katakombi/Katakombi.css';
-@import 'SlidesV2/Slides.css';
 @import 'Homework/Homework.css';
 @import 'Raznoe/Banki/Banki.css';
 @import 'OnlineStudents/OnlineStudents.css';

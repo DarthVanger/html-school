@@ -1,0 +1,33 @@
+#canvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+#canvas:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.lesson25-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#move-backwards-btn img,
+#move-forwards-btn img {
+  width: 50;
+}
+
+#move-backwards-btn,
+#move-forwards-btn {
+  padding: 1rem;
+}
+
+#next-slide-btn {
+}

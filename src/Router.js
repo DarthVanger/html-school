@@ -15,9 +15,10 @@ import { Resume } from './Resume/Resume.js';
 import { Coursework } from './Coursework/Coursework.js';
 import { Homework } from './Homework/Homework.js';
 import { Scene3d } from './Scene3d/Scene3d.js';
-import { Lesson25 } from './Lesson25/Lesson25.js';
+import { Lesson25 } from './Lessons/Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
-import { Slides } from './SlidesV2/Slides.js';
+import { SlidesV1 } from './Lessons/SlidesV1/SlidesV1.js';
+import { SlidesV2 } from './Lessons/SlidesV2/SlidesV2.js';
 import { Banki } from './Raznoe/Banki/Banki.js';
 import { Vangers } from './Vangers/Vangers.js';
 import { Study } from './Study/Study.js';
@@ -163,11 +164,18 @@ export const Router = (state) => {
       pageSlot.append(Homework(state));
       break;
 
-    case state.route.match(/[/]slides[/]/)?.input:
-      const lessonName = state.route.replace(/[/]slides[/]/, '');
-      console.log('render lesson');
+    case state.route.match(/[/]slides[/]v1/)?.input:
+      const lesson = state.route.replace(/[/]slides[/]v1#/, '');
+      console.info(`Router: rendering SlidesV1 for lesson "${lesson}"`);
       pageSlot.innerHTML = '';
-      pageSlot.append(Slides({state, lessonName}));
+      pageSlot.append(SlidesV1({ lesson }));
+      break;
+
+    case state.route.match(/[/]slides[/]v2[/]/)?.input:
+      const lessonName = state.route.replace(/[/]slides[/]v2[/]/, '');
+      console.info(`Router: rendering SlidesV2 for lesson "${lessonName}"`);
+      pageSlot.innerHTML = '';
+      pageSlot.append(SlidesV2({state, lessonName}));
       break;
 
     case state.route.match(/[/]quests[/]/)?.input:
