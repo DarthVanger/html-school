@@ -1,5 +1,5 @@
 import { Topbar } from './Topbar.js';
-import { Login } from './Login.js';
+import { Login } from './Login/Login.js';
 import { HomePage } from './HomePage/HomePage.js';
 import { NotFoundPage } from './NotFoundPage.js';
 import { Skills } from './skills/skills.js';

@@ -1,6 +1,6 @@
 @import 'global.css';
 @import 'fonts.css';
-@import 'Login.css';
+@import 'Login/Login.css';
 @import 'Topbar.css';
 @import 'BackButton.css';
 @import 'typography.css';
