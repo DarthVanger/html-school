@@ -1,4 +1,4 @@
-export const MidtermCertificate = ({ student }) => {
+export const Certificate = ({ student }) => {
 
   return `
     <h2>ДАНЫЙ ПАСАЖИР ОКОНЧИЛ ПОЛКУРСА ПО HTML</h2>
