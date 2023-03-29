@@ -2,9 +2,10 @@
   overflow: hidden;
   height: 100%;
   margin: 0px;
-  padding: 0px;
+  padding: 0px 70px;
   gap: 0;
   box-sizing: border-box;
+  position: relative;
 }
 
 #slides-v1 .page-content {
