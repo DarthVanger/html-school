@@ -14,7 +14,7 @@ import { NeuralArt } from './NeuralArt/NeuralArt.js';
 import { Resume } from './Resume/Resume.js';
 import { Coursework } from './Coursework/Coursework.js';
 import { Homework } from './Homework/Homework.js';
-import { Scene3d } from './Scene3d/Scene3d.js';
+import { Scene3d } from './Raznoe/Scene3d/Scene3d.js';
 import { Lesson25 } from './Lessons/Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
 import { SlidesV1 } from './Lessons/SlidesV1/SlidesV1.js';
@@ -68,8 +68,7 @@ export const Router = (state) => {
       pageSlot.innerHTML = '';
       pageSlot.append(Skills(state));
       break;
-    case '/3d':
-      pageSlot.innerHTML = '';
+    case '/raznoe/3d':
       pageSlot.innerHTML = `
         ${Scene3d(state)}
       `;
