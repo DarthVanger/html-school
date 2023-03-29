@@ -7,7 +7,6 @@
   height: 100%;
   box-sizing: border-box;
   border: 40px solid transparent;
-  border-image: url('/img/roses-frame.jpg') 5% fill;
 }
 
 @media (max-width: 768px) {
@@ -48,11 +47,19 @@
   padding: 1em;
 }
 
+#home-page .page-content > figure:hover {
+  height: 100vh;
+}
+
 #home-page .page-content > figure {
   text-align: center;
   margin: 0;
   max-height: 100%;
   position: relative;
+  border: solid white 2px;
+  padding: 4px;
+  height: 50vh;
+  transition: all 0.5s;
 }
 
 #home-page .page-content > figure img {

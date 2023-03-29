@@ -9,10 +9,23 @@
   color: #cd24ff;
 }
 
+#homework figure:hover {
+  height: 100vh;
+  width: auto;
+}
+
 #homework figure {
   text-align: center;
+  height: 50vh;
+  border: solid white 2px;
+  padding: 8px;
+  margin: 8px;
+  width: fit-content;
+  margin: auto;
+  transition: all 0.5s;
 }
 #homework img {
+  max-height: 100%;
   max-width: 100%;
 }
 
