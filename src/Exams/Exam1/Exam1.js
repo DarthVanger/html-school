@@ -1,11 +1,17 @@
+import { Topbar } from '../../Topbar.js';
+
 import { VariablesLecture } from './Variables/VariablesLecture.js';
 import { Variables as VariablesQuiz } from './Variables/Variables.js';
 
-const element = document.createElement('div');
-element.id = "exam1";
-
 export const Exam1 = () => {
-  element.innerHTML = `
+  const element = document.createElement('div');
+  element.id = "exam1";
+
+  element.append(Topbar({ backUrl: '/#/exam' }));
+
+  const contentEl = document.createElement('div');
+
+  contentEl.innerHTML = `
     <h2>Кто Хочет Стать Банконъером??</h2>
     <figure>
       <video autoplay muted loop>
@@ -13,6 +19,8 @@ export const Exam1 = () => {
       </video>
     </figure>
   `;
+
+  element.append(contentEl);
 
   element.append(VariablesQuiz());
   

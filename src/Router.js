@@ -1,4 +1,3 @@
-import { Topbar } from './Topbar.js';
 import { Login } from './Login/Login.js';
 import { HomePage } from './HomePage/HomePage.js';
 import { NotFoundPage } from './NotFoundPage.js';
@@ -26,168 +25,66 @@ import { Chat } from './Chat/Chat.js';
 import { OnlineLog } from './OnlineStudents/OnlineLog.js';
 
 export const Router = (state) => {
-  const element = document.createElement('div');
-  element.id = 'router';
-  const pageSlot = document.createElement('div');
-  pageSlot.innerHTML = 'asdf';
-  element.append(pageSlot);
-
-  console.log('router, route: ', state.route);
-  console.log('router, state: ', state);
+  console.info('Router: route: ', state.route);
 
   switch (state.route) {
     case '/':
-      pageSlot.innerHTML = '';
-      pageSlot.append(HomePage(state));
-      break;
+      return HomePage(state);
     case '/login':
-      pageSlot.innerHTML = Login(state);
-      break;
+      return Login(state);
     case '/chat':
-      pageSlot.innerHTML = '';
-      const chat = Chat(state);
-      pageSlot.append(chat);
-      break;
+      return Chat(state);
     case '/study':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Study(state));
-      break;
+      return Study(state);
     case '/materiali':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Materiali(state));
-      break;
+      return Materiali(state);
     case '/online-log':
-      pageSlot.innerHTML = '';
-      pageSlot.append(OnlineLog(state));
-      break;
+      return OnlineLog(state);
     case '/skills':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Skills(state));
-      break;
+      return Skills(state);
     case '/raznoe/3d':
-      pageSlot.innerHTML = `
-        ${Scene3d(state)}
-      `;
-      break;
+      return Scene3d(state);
     case '/lesson-25':
-      pageSlot.innerHTML = '';
-      pageSlot.innerHTML = `
-        ${Lesson25(state)}
-      `;
-      break;
+      return Lesson25(state);
     case '/quests':
-      pageSlot.innerHTML = '';
-      pageSlot.append(QuestsPage(state));
-      break;
+      return QuestsPage(state);
     case '/katakombi':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Katakombi(state));
-
+      return Katakombi(state);
     case '/progress':
-      pageSlot.innerHTML = `
-        ${Topbar({ backUrl: '/#/', surface: 'black' })}
-      `;
-      pageSlot.append(LearningProgress(state));
-      break;
-
+      return LearningProgress(state);
     case '/exam':
-      const examsTopbar = document.createElement('div');
-      examsTopbar.innerHTML = `${Topbar({ backUrl: '/#/', surface: 'black' })}`;
-
-      pageSlot.innerHTML = '';
-      pageSlot.append(examsTopbar);
-      pageSlot.append(Exams(state));
-      break;
-
+      return Exams(state);
     case '/exam/1':
-      const exam1Topbar = document.createElement('div');
-      exam1Topbar.innerHTML = `${Topbar({ backUrl: '/#/exam', surface: 'black' })}`;
-
-      pageSlot.innerHTML = '';
-      pageSlot.append(exam1Topbar);
-      pageSlot.append(Exam1(state));
-      break;
-
+      return Exam1(state);
     case '/exam/2':
-      const exam2Topbar = document.createElement('div');
-      exam2Topbar.innerHTML = `${Topbar({ backUrl: '/#/exam', surface: 'black' })}`;
-
-      pageSlot.innerHTML = '';
-      pageSlot.append(exam2Topbar);
-      pageSlot.append(Exam2(state));
-      break;
-
+      return Exam2(state);
     case '/expectation-reality':
-      pageSlot.innerHTML = '';
-      element.innerHTML = `${ExpectationReality({ backUrl: '/#/', surface: 'black' })}`;
-      break;
-
+      return ExpectationReality(state);
     case '/neural-art':
-      pageSlot.innerHTML = '';
-      pageSlot.innerHTML = `${NeuralArt()}`;
-      
-      break;
-
+      return NeuralArt();
     case state.route.match(/\/resume\/?/)?.input:
-      pageSlot.innerHTML = '';
-      pageSlot.innerHTML = `
-        ${Topbar({ backUrl: '/#/', surface: 'black' })}
-        ${Resume(state)}
-      `;
-      break;
-
+      return Resume(state);
     case '/coursework':
-      pageSlot.innerHTML = '';
-      pageSlot.innerHTML = `
-        ${Topbar({ backUrl: '/#/', surface: 'black' })}
-      `;
-      pageSlot.append(Coursework(state));
-      break;
-
+      return Coursework(state);
     case '/vangers':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Vangers(state));
-      break;
-
+      return Vangers(state)
     case '/quiz2':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Quiz2(state));
-      break;
-
+      return Quiz2(state);
     case '/homework':
-      pageSlot.innerHTML = '';
-      pageSlot.append(Homework(state));
-      break;
-
+      return Homework(state);
     case state.route.match(/[/]slides[/]v1/)?.input:
       const lesson = state.route.replace(/[/]slides[/]v1#/, '');
-      console.info(`Router: rendering SlidesV1 for lesson "${lesson}"`);
-      pageSlot.innerHTML = '';
-      pageSlot.append(SlidesV1({ lesson }));
-      break;
-
+      console.info(`Router: returning SlidesV1 for lesson "${lesson}"`);
+      return SlidesV1({ lesson });
     case state.route.match(/[/]slides[/]v2[/]/)?.input:
       const lessonName = state.route.replace(/[/]slides[/]v2[/]/, '');
-      console.info(`Router: rendering SlidesV2 for lesson "${lessonName}"`);
-      pageSlot.innerHTML = '';
-      pageSlot.append(SlidesV2({state, lessonName}));
-      break;
-
-    case state.route.match(/[/]quests[/]/)?.input:
+      console.info(`Router: returning SlidesV2 for lesson "${lessonName}"`);
+      return SlidesV2({state, lessonName});
     case state.route.match(/[/]quests[/]/)?.input:
       const questId = state.route.match(/[/]quests[/]([^/]+)/)[1];
-      pageSlot.innerHTML = '';
       state.questId = questId;
-      console.log('appending quest page');
-      pageSlot.append(QuestPage(state));
-      break;
+      return QuestPage(state);
     default:
-      console.log('404');
-      pageSlot.innerHTML = NotFoundPage(state);
-      break;
+      return NotFoundPage(state);
   }
-
-  window.scrollTo(0, 0);
-
-  return pageSlot;
 };

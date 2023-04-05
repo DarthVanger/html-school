@@ -1,7 +1,16 @@
-#navbar {
-  display: flex;
+@import 'MenuIcon.css';
+
+#navbar #menu {
+  display: none;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+}
+
+#navbar #menu.open {
+  display: flex;
 }
 
 #navbar a {

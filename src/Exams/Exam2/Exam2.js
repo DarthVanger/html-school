@@ -1,5 +1,11 @@
+import { Topbar } from '../../Topbar.js';
+
 export const Exam2 = () => {
   const element = document.createElement('div');
+
+  const contentEl = document.createElement('div');
+
+  element.append(Topbar({ backUrl: '/#/exam' }));
 
   const questions = [
     {
@@ -118,7 +124,7 @@ export const Exam2 = () => {
     },
   ];
 
-  element.innerHTML = `
+  contentEl.innerHTML = `
     <h2>Exam #2</h2>
   `;
 
@@ -153,9 +159,10 @@ export const Exam2 = () => {
       }
     });
 
-    element.append(questionEl);
+    contentEl.append(questionEl);
   });
 
+  element.append(contentEl);
 
   return element;
 };
