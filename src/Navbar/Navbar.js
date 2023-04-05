@@ -21,9 +21,22 @@ export const Navbar = () => {
   menu.innerHTML = `
     <a href="/#/">Home</a>
     <a href="/#/chat">Chat</a>
-    <a href="/#/study">Study</a>
-    <a href="/#/materiali">Materiali</a>
     <a href="/#/online-log">Online Log</a>
+    <div class="group">
+      <a href="/#/study" class="group-header">Study</a>
+      <a href="/#/homework">Домашка</a>
+      <a href="/#/quests">Зоданея</a>
+      <a href="/#/progress">Прогрес</a>
+      <a href="/#/exam">Єкзамені</a>
+      <a href="/#/katakombi">Катакомбі</a>
+      <a href="/#/vangers">Вангеры</a>
+    </div>
+    <div class="group">
+    <a href="/#/materiali" class="group-header">Materiali</a>
+    <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">Словарек</a>
+    <a href="/#/coursework">Курсачи</a>
+    <a href="/#/resume">Резюме</a>
+
   `;
 
   console.log('add eventl is');

@@ -6,13 +6,13 @@ export const Study = () => {
     <h2>НАВЧАННЯ</h2>
     <section class="links">
       <article>
-        <a href="#/exam">
-          ЄКЗАМЕНІ
+        <a href="#/homework">
+          ДОМАШКА
         </a>
       </article>
       <article>
-        <a href="#/homework">
-          ДОМАШКА
+        <a href="#/exam">
+          ЄКЗАМЕНІ
         </a>
       </article>
       <article>
@@ -28,11 +28,6 @@ export const Study = () => {
       <article>
         <a href="#/progress">
           ПРОГРЕС
-        </a>
-      </article>
-      <article>
-        <a href="#/quiz">
-          ЭКЗАМЕНЫ
         </a>
       </article>
       <article>
