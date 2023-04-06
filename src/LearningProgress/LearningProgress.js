@@ -1,5 +1,3 @@
-import { Topbar } from '../Topbar.js';
-
 const element = document.createElement('div');
 element.id = 'learning-progress';
 import { LearningProgressItem } from './LearningProgressItem.js';
@@ -13,8 +11,6 @@ export const LearningProgress = () => {
   element.innerHTML = `
     <h1>Learning Progress</h1>
   `;
-
-  element.append(Topbar({ backUrl: '/#/' }));
 
   lectures.forEach((item, idx) => {
     const isLastItem = idx === 0;

@@ -1,18 +1,12 @@
 export const Study = () => {
   const element = document.createElement('article');
-  element.id = "study";
 
   element.innerHTML = `
     <h2>НАВЧАННЯ</h2>
-    <section class="links">
+    <section id="main-page-links">
       <article>
         <a href="#/homework">
           ДОМАШКА
-        </a>
-      </article>
-      <article>
-        <a href="#/exam">
-          ЄКЗАМЕНІ
         </a>
       </article>
       <article>
@@ -28,6 +22,11 @@ export const Study = () => {
       <article>
         <a href="#/progress">
           ПРОГРЕС
+        </a>
+      </article>
+      <article>
+        <a href="#/quiz">
+          ЭКЗАМЕНЫ
         </a>
       </article>
       <article>

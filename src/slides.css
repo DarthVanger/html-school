@@ -1,0 +1,189 @@
+@import 'global.css';
+
+.page-content h2 {
+  color: #1b9833!important;
+}
+
+.expectations-form {
+  padding: 2em 5em;
+}
+
+.expectations-form input {
+  font-size: 1em;
+  width: 100%;
+}
+.expectations-form label {
+  font-size: 2em;
+}
+
+#timer {
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  top: 80px;
+  left: 200px;
+}
+
+.expectation-reality {
+  padding: 0;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.expectation-reality ul {
+  list-style: none;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+
+.rules p {
+  font-size: 1.5em;
+  padding: 0 0.5em;
+  letter-spacing: 2px;
+
+}
+
+.lety4ka-tasks {
+  display: none;
+  padding: 0.5em;
+  position: absolute;
+  top: 0;
+  left: 2.5em;
+  z-index: 1;
+  text-align: left;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  line-height: 1.75;
+  background: rgba(0, 0, 0, 0.4);
+  right: 0; bottom: 2em;
+}
+
+.tag {
+  color: red;
+  font-weight: bold;
+}
+
+.english-video-slide {
+  position: relative;
+  word-break: break-word;
+  --height: 80vh;
+  height: var(--height);
+}
+
+.english-video-slide .subs,
+.english-video-slide .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.english-video-slide .subs {
+  top: 0;
+  left: 1em;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  height: calc(var(--height) - 3em);
+  z-index: 2;
+  overflow-y: scroll;
+}
+
+.subs::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(--secondary);
+}
+
+.subs::-webkit-scrollbar-track {
+   background: var(--primary);;
+}
+
+.subs::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+}
+
+.english-video-slide .subs p {
+  margin: 0.5em;
+  padding: 0.5em;
+  color: white;
+  cursor: pointer;
+}
+
+.english-video-slide .subs p:hover {
+  background: rgba(50, 0, 10, 1);
+  transition: all 0.5s;
+}
+
+.english-video-slide .video {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--height);
+}
+
+.page-content .english-video-slide figure video {
+  height: calc(var(--height));
+  max-height: unset;
+  max-width: 100%;
+}
+
+.certificate .pechat {
+  position: absolute;
+  bottom: 5em;
+  right: 10em;
+  width: 150px;
+  height: 150px;
+}
+
+.certificate .pechat img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+@keyframes opac {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.certificate .pechat img:nth-child(1) {
+  animation: opac 2s infinite alternate;
+}
+
+.certificate .pechat img:nth-child(2) {
+  animation: opac 2s alternate-reverse infinite;
+}
+
+.page-content h2.cert-heading {
+  font-family: "Times New Roman";
+  letter-spacing: 10px;
+  font-size: 3em;
+}
+
+.certificate .text {
+  position: absolute;
+  left: 8em;
+  top: 10em;
+  font-family: monospace;
+  letter-spacing: 4px;
+}
+
+.certificate .text p {
+  font-size: 1.3em;
+  padding: 0;
+  margin: 1em;
+  text-align: justify;
+}
+
+.certificate .text p.student {
+  color: pink;
+  font-size: 3em;
+  letter-spacing: 10px;
+  text-align: center;
+  line-height: 0.5;
+}

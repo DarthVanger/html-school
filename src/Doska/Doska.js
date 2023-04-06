@@ -4,10 +4,10 @@ import { getQuestSkills } from '../quests/quests/quests.js';
 import { getExperience } from '../api.js';
 
 export const Doska = (state) => {
-  const element = document.createElement('div');
-  element.id = 'doska-pometa';
+  const getElement = () => document.querySelector('#doska-pometa');
 
   setTimeout(async () => {
+  
     const experience = await getExperience();
     console.log('experience: ', experience);
   });
@@ -157,7 +157,7 @@ export const Doska = (state) => {
     }
 
 
-    element.innerHTML = `
+    getElement().innerHTML = `
       <h2>ДОСКА ПОМËТА</h2>
       ${html}
     `;
@@ -171,6 +171,6 @@ export const Doska = (state) => {
     <button type="button">Loading...</button>
   `;
 
-  return element;
+  return element.outerHTML;
 
 }

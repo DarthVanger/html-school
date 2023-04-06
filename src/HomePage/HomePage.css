@@ -1,18 +1,37 @@
 @import './AvatarCorner/AvatarCorner.css';
 
 #home-page {
+}
+
+#home-page {
+  height: 100%;
   box-sizing: border-box;
   border: 40px solid transparent;
-  font-size: 24px;
+  border-image: url('/img/roses-frame.jpg') 5% fill;
 }
 
 @media (max-width: 768px) {
+  #home-page {
+    grid-template-rows: [top] 5px [center] auto [bottom] 5px;
+    grid-template-columns: [left] 5px [center] auto [right] 5px;
+  }
+
   #bottom-bar {
     display: none;
   }
 }
 
-#home-page .h2 {
+#home-page .page-content {
+  grid-row: center / bottom;
+  grid-column: center / right;
+
+  font-size: 24px;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#home-page .page-content h2 {
   text-align: center;
   background-image: url('img/heading-background.png');
   background-position: center;
@@ -25,8 +44,48 @@
   font-size: 2rem;
 }
 
-#home-page > p {
+#home-page .page-content > p {
   padding: 1em;
+}
+
+#home-page .page-content > figure {
+  text-align: center;
+  margin: 0;
+  max-height: 100%;
+  position: relative;
+}
+
+#home-page .page-content > figure img {
+  height: calc(100vh - 280px - 2em);
+  max-width: 100%;
+}
+
+#home-page .page-content > figure video {
+  max-height: calc(100vh - 280px);
+  width: auto;
+}
+
+#home-page .page-content > figcaption {
+  font-size: 1.5rem;
+  margin-top: 1em;
+  letter-spacing: 4px;
+}
+
+#home-page .page-content > p {
+}
+
+#home-page td {
+  padding: 0;
+  height: 100%;
+}
+
+#home-page .height100 {
+  height: 100%;
+}
+
+#home-page .page-content iframe {
+  width: 80vw;
+  height: 70vh;
 }
 
 #home-page h1 {
@@ -35,8 +94,58 @@
   letter-spacing: 10px;
 }
 
-#home-page > section {
+#home-page section {
   padding: 0 2em;
+}
+
+#home-page section#main-page-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#home-page section#main-page-links  article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+
+#home-page section#main-page-links a,
+#home-page section#main-page-links a:active,
+#home-page section#main-page-links a:visited,
+#home-page section#main-page-links a:link {
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  color: #81fa41;
+}
+
+@keyframes gridColor {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+#home-page section#main-page-links article {
+  height: 8rem;
+  width: 320px;
+  background: url('/src/HomePage/img/cyberpunk-grid-1.jpg');
+  background-size: 100% 100%;
+  animation: gridColor 3s alternate infinite;
+
+}
+
+#home-page section#main-page-links:nth-of-type(2) article {
+  background-image: url('/src/HomePage/img/cyberpunk-grid-2.jpg');
+}
+
+#home-page section#main-page-links article img {
+  width: 100%;
 }
 
 #home-page h3 {
@@ -45,4 +154,16 @@
   margin: 0.5em 0;
   text-align: center;
   color: var(--primary);
+}
+
+#home-page .page-content {
+  overflow-y: scroll;
+}
+
+#home-page .homework {
+  padding: 0;
+}
+
+#home-page .homework .quest-card {
+  padding-top: 32px;
 }

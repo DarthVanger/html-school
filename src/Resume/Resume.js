@@ -1,8 +1,5 @@
 export const Resume = () => {
-  const element = document.createElement('div');
-  element.id = 'resume-page';
-
-  element.innerHTML = `
+  return `
     <div id="resume-page">
       <h1>Resume &mdash; а каг делад?</h1>
       <p style="padding: 0 1em">Каг, каг - красиво :)</p>
@@ -49,6 +46,4 @@ export const Resume = () => {
     </div>
 
   `;
-
-  return element;
 };

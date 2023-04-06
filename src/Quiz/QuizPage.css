@@ -1,0 +1,25 @@
+@import "Quiz.css";
+
+#quiz-page  {
+  --figcaption-height: 3rem;
+}
+
+#quiz-page figure {
+  text-align: center;
+  width: 100%;
+}
+
+#quiz-page figure video,
+#quiz-page figure img {
+  max-height: calc(100vh - var(--figcaption-height));
+}
+
+#quiz-page figcaption {
+  height: var(--figcaption-height);
+  line-height: var(--figcaption-height);
+  color: #dc70dc;
+}
+
+#quiz-page p {
+  padding: 0 2em;
+}
