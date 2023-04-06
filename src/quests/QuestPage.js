@@ -105,7 +105,7 @@ export const QuestPage = ({ questId }) => {
   console.log('quest page');
   const quest = quests[questId];
   console.log('questId: ', questId);
-  element.append(Topbar());
+  element.innerHTML += `${Topbar()}`;
   console.log('quest: ', quest);
   if (quest.story) {
     element.append(QuestStory({ quest }));

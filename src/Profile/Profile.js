@@ -2,8 +2,9 @@ import { cyberProfile } from './cyberProfile.js';
 import { SvgProfile } from './SvgProfile.js';
 
 export const Profile = (state) => {
-  const element = document.createElement('div');
-  element.id = 'profile';
+  const getElement = () => {
+    return document.querySelector('#profile');
+  };
 
   state.isProfileLoading = true;
   fetch('/tree')
@@ -19,7 +20,7 @@ export const Profile = (state) => {
       state.codeAcademy = r.codeAcademy;
       state.students = r.students;
 
-      element.innerHTML = render();
+      getElement().innerHTML = render();
     });
 
   function render() {
@@ -28,11 +29,9 @@ export const Profile = (state) => {
     `;
   }
 
-  element.innerHTML = `
+  return `
     <div id="profile">
       ${render()}
     </div>
   `;
-
-  return element;
 };

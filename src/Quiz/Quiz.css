@@ -1,0 +1,45 @@
+.quiz-item {
+}
+
+.quiz-item pre {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.quiz-item .answer-variants {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  align-items: center;
+  grid-row-gap: 4rem;
+}
+
+.quiz-item .answer-variant {
+  width: 100%;
+  height: 100%;
+}
+
+.quiz-item .answer-variant {
+  width: 100%;
+  height: 100%;
+}
+
+.quiz-item .answer-variant.is-selected .panel-content {
+  filter: brightness(2) hue-rotate(0deg) saturate(2);
+}
+
+.quiz-item .answer-variant.is-correct .panel-content {
+  filter: brightness(1.5) hue-rotate(263deg) saturate(2);
+}
+
+.quiz-item .answer-variant.is-wrong .panel-content {
+  filter: brightness(1) hue-rotate(110deg) saturate(2);
+}
+
+.quiz-item .panel {
+  background: none;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}

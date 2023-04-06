@@ -37,6 +37,12 @@ socket.onopen = (e) => {
   setInterval(sendPing, pingInterval);
   sendPing();
   sendJSON({
+    name: 'get_banki_state',
+  });
+  sendJSON({
+    name: 'get_banki_state',
+  });
+  sendJSON({
     name: 'chat_get_messages',
   });
 };

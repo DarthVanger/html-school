@@ -2,6 +2,12 @@ import { getStudent, setStudent } from './session.js';
 import { Router } from './Router.js';
 import { Navbar } from './Navbar/Navbar.js';
 
+const id = 'App';
+
+const getElement = () => {
+  return document.querySelector(`#${id}`);
+}
+
 const getRouteFromHash = () => {
   if (location.hash.match(/^#[/]/)) {
     return location.hash.slice(1) || '/';
@@ -10,49 +16,66 @@ const getRouteFromHash = () => {
   return '/';
 }
 
+addEventListener('popstate', (event) => {
+  //console.log('popstate: ', event);
+});
+
 const updateRouteInHash = (route) => {
-  console.info('Router: updating route in hash:' , route);
+  console.log('Update route in hash:' , route);
   location.hash = '#' + route;
+  //history.pushState({ route }, '', location.hash);
 }
 
-export const App = () => {
-  const element = document.createElement('div');
-  element.id = 'App';
 
-  const state = {
-    student: getStudent(),
-    route: getRouteFromHash(),
-  };
+const element = document.createElement('div');
+element.id = id;
+const state = {
+  student: getStudent(),
+  route: getRouteFromHash(),
+};
 
-  if (!state.student) {
-    showPage('/login');
+const setState = (newState) => {
+  console.log('Set app state: ', newState);
+  for (let prop in state) {
+    if (newState[prop] !== undefined) {
+      state[prop] = newState[prop];
+      if (prop === 'route') {
+        updateRouteInHash(state[prop]);
+      }
+    }
   }
+  App();
+};
+
+const handleHashChange = () => {
+  console.log('hash change: ', getRouteFromHash());
+  setState({ route: getRouteFromHash() });
+};
+
+window.addEventListener('hashchange', handleHashChange);
+
+export const App = () => {
+  //console.info('App state: ', state);
 
   state.handleLogin = (student) => {
-    state.student = student;
-    showPage(state.route);
+    setStudent(student);
+    setState({ student, route: '/' });
   }
 
-  const handleHashChange = () => {
-    state.route = getRouteFromHash();
-    console.info('Router: handle URL hash change: ', state.route);
-    showPage(state.route);
+  if (!state.student) {
+    state.route = '/login';
+    updateRouteInHash(state.route);
+  }
+
+  state.handleRouteChange = (route) => {
+    setState({ route });
   };
 
-  window.addEventListener('hashchange', handleHashChange);
+  element.innerHTML = '';
+  console.log('append navbar ', Navbar(state));
+  element.append(Navbar(state));
+  element.append(Router(state));
 
-  const showPage = (route) => {
-    window.scrollTo(0, 0);
-    render(route);
-  }
-
-  const render = () => {
-    element.innerHTML = '';
-    element.append(Navbar(state));
-    element.append(Router(state));
-  }
-
-  render();
-
+  //console.log('app returning: ', element);
   return element;
 };

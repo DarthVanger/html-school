@@ -1,8 +1,26 @@
 export const NeuralArt = () => {
-  const element = document.createElement('article');
-  element.id = 'neural-art';
+  setTimeout(() => {
+    const figures = document.querySelectorAll('#neural-art figure');
+    let points = [];
+    figures.forEach((figure) => {
+      const pointsSpan = figure.querySelector('.points');
+      const p = pointsSpan ? parseInt(pointsSpan.innerHTML) : 0;
+      points.push({figure, p}); 
+    });
 
-  element.innerHTML = `
+    console.log('points: ', points);
+
+    const sortedPoints = points.sort((a, b) => b.p - a.p);
+    console.log('sortedPoints: ', sortedPoints);
+    const sortedFigures = sortedPoints.map(p => p.figure);
+    const clones = [...figures].map(f => f.cloneNode());
+    console.log('clones: ', clones);
+    const grid = document.querySelector('.grid');
+    figures.forEach(f => f.remove());
+    sortedFigures.forEach(s => grid.append(s));
+  });
+
+  return `
     <article id="neural-art">
       <h1>NeuraL ArT</h1>
       <div class="grid">
@@ -115,25 +133,4 @@ export const NeuralArt = () => {
       </div>
     </article>
   `;
-
-  setTimeout(() => {
-    const figures = document.querySelectorAll('#neural-art figure');
-    let points = [];
-    figures.forEach((figure) => {
-      const pointsSpan = figure.querySelector('.points');
-      const p = pointsSpan ? parseInt(pointsSpan.innerHTML) : 0;
-      points.push({figure, p}); 
-    });
-
-    console.log('points: ', points);
-
-    const sortedPoints = points.sort((a, b) => b.p - a.p);
-    console.log('sortedPoints: ', sortedPoints);
-    const sortedFigures = sortedPoints.map(p => p.figure);
-    const clones = [...figures].map(f => f.cloneNode());
-    console.log('clones: ', clones);
-    const grid = document.querySelector('.grid');
-    figures.forEach(f => f.remove());
-    sortedFigures.forEach(s => grid.append(s));
-  });
 };

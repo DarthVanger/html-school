@@ -1,4 +1,5 @@
 import { db } from '../db/db.js';
+import { bankiSocketHandler } from './banki.js';
 import { chatSocketHandler } from './chat.js';
 import { pingSocketHandler } from './ping.js';
 
@@ -45,6 +46,11 @@ export const initSocket = async () => {
       const data = JSON.parse(d);
       pingSocketHandler({ data, ws, aliveClients, pingInterval, wsSendAll });
       chatSocketHandler({ data, wsSendAll });
+      bankiSocketHandler({
+        data,
+        socket: ws,
+        wsSendAll
+      });
     }
   });
 }

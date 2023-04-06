@@ -8,7 +8,7 @@ export const lectures = [
       'CSS: задаем цвет (color) для h1, p',
       'CSS: задаем размеры (width, height) кортинке', ],
     skills: ['html-h1', 'html-p', 'html-img', 'css-h1-p', 'css-color'],
-    url: '/#/slides/v1#lesson1',
+    url: '/src/slides.html#lesson1',
   },
   {
     text: 'ССЫЛКЕ: &lt;a href&gt; ВИДЕО: &lt;video&gt;',
@@ -18,7 +18,7 @@ export const lectures = [
       'HTML Видео &lt;video controls&gt;',
     ],
     skills: ['html-a', 'html-video'],
-    url: '/#/slides/v1#lesson2',
+    url: '/src/slides.html#lesson2',
   },
   {
     text: 'ДЖАВО-СКРИПТ',
@@ -32,7 +32,7 @@ export const lectures = [
       'Изменяем стиль кортинке: katinka.style.left = ...',
     ],
     skills: ['functions', 'variables', 'querySelector', , 'style', 'alert', 'xuy4ek'],
-    url: '/#/slides/v1#lesson3',
+    url: '/src/slides.html#lesson3',
   },
   {
     text: 'ПОЛЕТ КОРАБЛЯ',
@@ -45,7 +45,7 @@ export const lectures = [
       'document.querySelector(),',
     ],
     skills: ['event', 'on click', 'console', 'functions', 'click-event', 'variables', 'style'],
-    url: '/#/slides/v1#lesson4',
+    url: '/src/slides.html#lesson4',
   },
   {
     text: 'СТЕНЫ: if/else. ПЛАЗМА',
@@ -99,7 +99,7 @@ export const lectures = [
       'Вспоминаем что было на прошлых лекциях',
       'Эра Курсов: смотрим первую лекцию на англ (Coursera)',
     ],
-    url: '/#/slides/v1#lesson10',
+    url: '/src/slides.html#lesson10',
   },
   {
     text: 'Перемещение кортинке из JS',
@@ -112,7 +112,7 @@ export const lectures = [
       'Двигаем кортинке в соответствии с переменными',
     ],
     skills: ['functions', 'style'],
-    url: '/#/slides/v1#lesson11',
+    url: '/src/slides.html#lesson11',
   },
   {
     text: 'Столкновение со стеной',
@@ -125,7 +125,7 @@ export const lectures = [
       'Делоем столкновение со стеной',
       'Лекция от Бабули - if/else в javascript',
     ],
-    url: '/#/slides/v1#lesson12',
+    url: '/src/slides.html#lesson12',
   },
   {
     text: 'Передвижение кнопеками; Запуск Ракеты',
@@ -135,7 +135,7 @@ export const lectures = [
       'Делоем запуск ракеты',
       'Конгда ракета попала в стену - убираем ее',
     ],
-    url: '/#/slides/v1#lesson13',
+    url: '/src/slides.html#lesson13',
   },
   {
     text: 'Четверть-Кватор. Lanugage Drops, Kef. Знакомство с Git.',
@@ -146,7 +146,7 @@ export const lectures = [
       'Практека по Гит: начинаем переносить наш код',
     ],
     skills: ['git', 'git clone', 'git add', 'git commit', 'git push', 'git pull', 'top-down design', 'refactoring'],
-    url: '/#/slides/v1#lesson14',
+    url: '/src/slides.html#lesson14',
   },
   {
     text: 'Переносим код в Git. Refactoring. Top-down Design.',
@@ -156,7 +156,7 @@ export const lectures = [
       'Продолжаем переносить код в Гит, наводить красоту',
     ],
     skills: ['git'],
-    url: '/#/slides/v1#lesson15',
+    url: '/src/slides.html#lesson15',
   },
   {
     text: 'Виски 12-летней выдержки. Продолжаем переносить код. Git.',
@@ -165,7 +165,7 @@ export const lectures = [
       'Продолжаем переносить код игры в Гит. Потехоньку))',
     ],
     skills: ['git'],
-    url: '/#/slides/v1#lesson16',
+    url: '/src/slides.html#lesson16',
   },
   {
     text: 'Продолжаем переносить код: движение Земли, столкновение объектов.',
@@ -176,7 +176,7 @@ export const lectures = [
       'Столкновение стены и корабля',
     ],
     skills: ['git'],
-    url: '/#/slides/v1#lesson17',
+    url: '/src/slides.html#lesson17',
   },
   {
     text: 'Курсачи: 1-я итерация. setTimeout() - анимация ракеты. Event Loop.',
@@ -191,7 +191,7 @@ export const lectures = [
       'Онемация ракеты при стрельбе по цели',
     ],
     skills: ['git', 'english', 'presentation', 'setTimeout', 'event loop'],
-    url: '/#/slides/v1#lesson18',
+    url: '/src/slides.html#lesson18',
   },
   {
     text: 'Курсачи: 2-я итерация. Переменные и стринги. Типы данных.',
@@ -202,7 +202,7 @@ export const lectures = [
       'Теория: раздупляемся с кавычками наконец) Когда они нужны, когда нет.',
     ],
     skills: ['git'],
-    url: '/#/slides/v1#lesson19',
+    url: '/src/slides.html#lesson19',
   },
   {
     text: 'Курсачи: 3-я итерация. Столкновения объекта с 4-х сторон. Алгебра 8й клас.',
@@ -219,7 +219,7 @@ export const lectures = [
       '[15 min] Git push baby',
     ],
     skills: ['if-else', 'git', 'english', 'functions'],
-    url: '/#/slides/v1#lesson20',
+    url: '/src/slides.html#lesson20',
   },
   {
     text: 'Курсачи: 4-я итерация. Летучки. Загружаем сайт в Инторенет.',
@@ -236,7 +236,7 @@ export const lectures = [
       '[25 min] Летучки по столкновению объектов',
     ],
     skills: ['if-else', 'git', 'english', 'functions'],
-    url: '/#/slides/v1#lesson21',
+    url: '/src/slides.html#lesson21',
   },
   {
     text: 'Функцеи: практека - пишем простые фукции',
@@ -248,7 +248,7 @@ export const lectures = [
       'Функцея squareLessThanPi(x)',
     ],
     skills: ['if-else', 'functions'],
-    url: '/#/slides/v1#lesson22',
+    url: '/src/slides.html#lesson22',
   },
   {
     text: 'Фукцеи, обьекты. Ставим Unity.',
@@ -260,7 +260,7 @@ export const lectures = [
       'Функцея distance(point)',
     ],
     skills: ['if-else', 'functions', 'object', 'unity'],
-    url: '/#/slides/v1#lesson23',
+    url: '/src/slides.html#lesson23',
   },
   {
     text: 'Фукцеи, обьекты. Добавляем 3 стены в игре.',
@@ -275,7 +275,7 @@ export const lectures = [
       'Добавляем 3 стены в игру',
     ],
     skills: ['if-else', 'functions', 'object'],
-    url: '/#/slides/v1#lesson24',
+    url: '/src/slides.html#lesson24',
   },
   {
     text: '25 УРОКЕ! КеФ :) Бухич. Игра. Гит.',
@@ -305,7 +305,7 @@ export const lectures = [
       'git diff, git add, git push',
     ],
     skills: ['if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
-    url: '/#/slides/v1#lesson26',
+    url: '/src/slides.html#lesson26',
   },
   {
     text: 'Игра, объекты, git',
@@ -318,7 +318,7 @@ export const lectures = [
       'git diff, git add, git push',
     ],
     skills: ['if-else', 'functions', 'geometry',  'git-add', 'git-push', 'git-clone', 'git-pull', 'git-log', 'git-diff'],
-    url: '/#/slides/v1#lesson27',
+    url: '/src/slides.html#lesson27',
   },
   {
     text: 'Обьекты: о5 25. Игра продолжаем',
@@ -333,7 +333,7 @@ export const lectures = [
       'git diff, git add, git commit, git push',
     ],
     skills: ['objects', 'functions', 'git-add', 'git-push', 'git-pull', 'git-log', 'git-diff'],
-    url: '#/slides/v2/lesson28',
+    url: '#/slides/lesson28',
   },
   {
     text: 'НОВЫЙ ГОД ) 31-е)',
@@ -349,7 +349,7 @@ export const lectures = [
       'Споры',
     ],
     skills: ['бухич', 'дутьё', 'joystick', 'multiplayer'],
-    url: '#/slides/v2/lesson29',
+    url: '#/slides/lesson29',
   },
   {
     text: '30-е занятие) Retrospective. Game. Objects. Gepard.',
@@ -361,7 +361,7 @@ export const lectures = [
       'English: Unity',
     ],
     skills: ['work-process', 'js-objects', 'refactoring', 'physics'],
-    url: '#/slides/v2/lesson30',
+    url: '#/slides/lesson30',
   },
   {
     text: 'Russi4 - Академия Буряка. Гепард. Хз)',
@@ -372,7 +372,7 @@ export const lectures = [
       'Gepard: Зодачу решаем',
     ],
     skills: ['js-objects', 'refactoring', 'physics'],
-    url: '#/slides/v2/lesson31',
+    url: '#/slides/lesson31',
   },
   {
     text: 'Гра, паблішим сайт в Інторонет, Гепард - Фізика',
@@ -382,7 +382,7 @@ export const lectures = [
       'Гепард - Фізика - попадаєм в точку та на випередження :)',
     ],
     skills: ['js-objects', 'refactoring', 'physics', 'devops'],
-    url: '#/slides/v2/lesson32',
+    url: '#/slides/lesson32',
   },
   {
     text: 'Дімона пул реквест. Гіт конфлікти. Створюєм таски',
@@ -392,7 +392,7 @@ export const lectures = [
       'Створюєм таски по грі',
     ],
     skills: ['git'],
-    url: '#/slides/v2/lesson33',
+    url: '#/slides/lesson33',
   },
   {
     text: 'Gatling gun; documnent.createElement()',
@@ -403,7 +403,7 @@ export const lectures = [
       'Нова тема: розбиваєм гру на МОДУЛІ (import/export)',
     ],
     skills: ['git'],
-    url: '#/slides/v2/lesson34',
+    url: '#/slides/lesson34',
   },
   {
     text: '35-те заняття, бухіч) Генерація рівнів',
@@ -415,7 +415,7 @@ export const lectures = [
       'Нова тема: Цикли. Генерація рівнів.',
     ],
     skills: ['git', 'js'],
-    url: '#/slides/v2/lesson35',
+    url: '#/slides/lesson35',
   },
   {
     text: 'Создание Вселенной: частицы, пространство, время и движение.',
@@ -427,7 +427,7 @@ export const lectures = [
       'Движение: каждую секунду изменяем x, y частиц с помощью querySelectorAll и forEach',
     ],
     skills: ['git', 'js', 'physics', 'while-loop', 'querySelectorAll', 'forEach', 'setInterval'],
-    url: '#/slides/v2/lesson36',
+    url: '#/slides/lesson36',
   },
   {
     text: 'Литучки, экзамены, граветацея',
@@ -437,7 +437,7 @@ export const lectures = [
       'Гравитация: первая попытка',
     ],
     skills: ['fucntions', 'if-else', 'while'],
-    url: '#/slides/v2/lesson37',
+    url: '#/slides/lesson37',
   },
   {
     text: 'Каникулы',
@@ -466,6 +466,6 @@ export const lectures = [
       'Ваня сделал Stanford Домашка по Breakout Game',
     ],
     skills: ['stanford', 'loop', 'while-loop', 'variables'],
-    url: '#/slides/v2/lesson40',
+    url: '#/slides/lesson40',
   },
 ];
