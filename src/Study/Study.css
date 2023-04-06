@@ -1,0 +1,23 @@
+#study .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#study .links  article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+
+#study .links a,
+#study .links a:active,
+#study .links a:visited,
+#study .links a:link {
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  color: #81fa41;
+}

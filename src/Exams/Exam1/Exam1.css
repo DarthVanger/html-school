@@ -1,0 +1,69 @@
+#exam1  {
+  --figcaption-height: 3rem;
+}
+
+#exam1 figure {
+  text-align: center;
+  width: 100%;
+}
+
+#exam1 figure video,
+#exam1 figure img {
+  max-height: calc(100vh - var(--figcaption-height));
+}
+
+#exam1 figcaption {
+  height: var(--figcaption-height);
+  line-height: var(--figcaption-height);
+  color: #dc70dc;
+}
+
+#exam1 p {
+  padding: 0 2em;
+}
+
+#exam1 .quiz-item {
+}
+
+#exam1 .quiz-item pre {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+#exam1 .quiz-item .answer-variants {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  align-items: center;
+  grid-row-gap: 4rem;
+}
+
+#exam1 .quiz-item .answer-variant {
+  width: 100%;
+  height: 100%;
+}
+
+#exam1 .quiz-item .answer-variant {
+  width: 100%;
+  height: 100%;
+}
+
+#exam1 .quiz-item .answer-variant.is-selected .panel-content {
+  filter: brightness(2) hue-rotate(0deg) saturate(2);
+}
+
+#exam1 .quiz-item .answer-variant.is-correct .panel-content {
+  filter: brightness(1.5) hue-rotate(263deg) saturate(2);
+}
+
+#exam1 .quiz-item .answer-variant.is-wrong .panel-content {
+  filter: brightness(1) hue-rotate(110deg) saturate(2);
+}
+
+#exam1 .quiz-item .panel {
+  background: none;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,13 +1,35 @@
-#navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+@import 'MenuIcon.css';
+
+#navbar #menu {
+  display: none;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+  max-width: 400px;
+}
+
+#navbar #menu.open {
+  display: block;
 }
 
 #navbar a {
+  display: block;
   background: #eee;
   color: #333;
-  padding: 2px 8px;
   margin: 0;
-  margin-bottom: 8px;
+  padding: 0.5em;
+}
+
+#navbar .group {
+  width: 100%;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+#navbar .group > a {
+  padding-left: 1.5em;
+}
+
+#navbar a.group-header {
+  padding-left: 0.5em;
 }
