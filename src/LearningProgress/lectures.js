@@ -468,4 +468,9 @@ export const lectures = [
     skills: ['stanford', 'loop', 'while-loop', 'variables'],
     url: '#/slides/v2/lesson40',
   },
+  {
+    text: "ДР ВЧИТЕЛЯ. 1 КВІТНЯ.",
+    items: [],
+    skills: [],
+  },
 ];
