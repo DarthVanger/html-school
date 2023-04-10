@@ -473,4 +473,17 @@ export const lectures = [
     items: [],
     skills: [],
   },
+  {
+    text: "World Of Goo: Gravity",
+    items: [
+      'Создоем Мир с Нуля...',
+      'Space',
+      'Time',
+      'Movement',
+      'Gravity: Fy = g (сила ВНИЗ)',
+      'Drawing SVG lines',
+    ],
+    skills: ['svg', 'svg-line', 'force', 'gravity', 'space', 'time', 'movement'],
+    url: '#/slides/v2/lesson40',
+  },
 ];
