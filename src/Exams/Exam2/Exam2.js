@@ -6,7 +6,7 @@ export const Exam2 = () => {
   const contentEl = document.createElement('div');
 
   element.append(Topbar({ backUrl: '/#/exam' }));
-  contentEl.className = 'contentEl'
+  contentEl.className = 'exam2-content'
 
   const questions = [
     {
@@ -187,27 +187,24 @@ export const Exam2 = () => {
 
   questions.forEach((q) => {
     const questionEl = document.createElement('div');
-    questionEl.className = 'questionEl'
+    questionEl.className = 'questionElExam2'
 
     const questionTextEl = document.createElement('h3');
     questionTextEl.innerHTML = `Question: ${q.question}`;
     questionEl.append(questionTextEl);
-    questionTextEl.className = 'questionTextEl'
 
     const codeEl = document.createElement('pre');
     codeEl.innerHTML = `<code>${q.code}</code>`;
     questionEl.append(codeEl);
-    codeEl.className = 'codeEl'
 
     const answerInput = document.createElement('input');
     answerInput.type = 'text';
     questionEl.append(answerInput);
-    answerInput.className = 'answerInput'
 
     const answerStatusEl = document.createElement('div');
     answerStatusEl.innerHTML = 'Not answered yet';
     questionEl.append(answerStatusEl);
-    answerStatusEl.className = 'answerStatusEl';
+    answerStatusEl.className = 'answerStatusExam2El';
 
     answerInput.addEventListener('input', () => {
       const answer = answerInput.value;
@@ -215,11 +212,11 @@ export const Exam2 = () => {
       if (isAnswerCorrect) {
         answerStatusEl.innerHTML = 'Answer is Correct!';
         answerStatusEl.style.border = 'solid green 2px';
-        questionEl.classList.add('true')
+        questionEl.classList.add('exam2-correct-answer')
       } else {
         answerStatusEl.innerHTML = 'Answer is INCORRECT!';
         answerStatusEl.style.border = 'solid red 2px';
-        questionEl.classList.remove('true')
+        questionEl.classList.remove('exam2-correct-answer')
       }
     });
 

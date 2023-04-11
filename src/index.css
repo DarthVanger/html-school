@@ -8,21 +8,3 @@
 * {
   box-sizing: border-box;
 }
-
-.contentEl{
-  text-align: center;
-}
-
-
-
-.answerStatusEl{
-  margin-top: 20px;
-}
-.questionEl{
-  transition: background-color 5s;
-  background-color: transparent;
-}
-
-.true{
-  background-color: green;
-}
