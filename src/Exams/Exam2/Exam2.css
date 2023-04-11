@@ -1,17 +1,15 @@
 .exam2-content{
     text-align: center;
-  }
-  
-  
-  
-  .answerStatusExam2El{
+}
+
+.answerStatusExam2El{
     margin-top: 20px;
-  }
-  .questionElExam2{
+}
+.questionElExam2{
     transition: background-color 5s;
     background-color: transparent;
-  }
-  
-  .exam2-correct-answer{
+}
+
+.exam2-correct-answer{
     background-color: green;
-  }
+}
