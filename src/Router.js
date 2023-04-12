@@ -66,7 +66,7 @@ export const Router = (state) => {
       return Resume(state);
     case '/coursework':
       return Coursework(state);
-    case '/vangers':
+    case state.route.match(/[/]vangers[/]*/).input:
       return Vangers(state)
     case '/quiz2':
       return Quiz2(state);

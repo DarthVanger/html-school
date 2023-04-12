@@ -9,45 +9,72 @@ export const Vangers = (state) => {
   const student = state.student;
   let curChapterNum = getSavedChapter() || 0;
   let curChapter = chapters[curChapterNum];
-  let chapterElement;
+  const vangersRoute = '#/vangers';
+  let route = getRoute();
+
+  const showChapter = (chapterNum) => {
+    console.info('Vangers: Show Chapter #' + chapterNum);
+
+    const chapter = chapters[chapterNum];
+    const chapterElement = Chapter({ chapter, onChapterEnd: handleChapterEnd });
+    pageContainer.append(chapterElement);
+  }
+
+  const handleChapterClick = (chapter) => {
+    const chapterNum = chapters.indexOf(chapter);
+    setRoute('/chapter/' + chapterNum);
+    showChapter(chapterNum);
+  }
+
+  const pageContainer = document.createElement('page-container');
+  element.append(pageContainer);
+
+  showPage(route);
+
+  function setRoute(r) {
+    route = r;
+    location.hash = vangersRoute + route;
+  }
+
+  function getRoute() {
+    return location.hash.replace(vangersRoute, '') || '/';
+  }
+
+  element.append(VangersPlayer());
+  console.info('Vangers: show route', route);
 
   element.id = 'vangers';
 
-  console.info('Vangers: showing for student ', student);
+  function showPage(route) {
+    pageContainer.innerHTML = '';
+    const chapterRouteRegexp = /chapter\/(\d+)/;
 
-  const handleChapterClick = () => {
-    showChapter(curChapterNum);
+    if (route === '/') {
+      console.info('Vangers: show home page');
+      pageContainer.append(VangersHome({ onChapterClick: handleChapterClick }));
+    }
+
+    if (chapterRouteRegexp.test(route)) {
+      const urlChapterNum = route.match(chapterRouteRegexp)[1];
+      showChapter(urlChapterNum);
+    }
   }
 
-  const vangersHomeElement = VangersHome({ onChapterClick: handleChapterClick });
-  element.append(vangersHomeElement);
-  element.append(VangersPlayer());
+  console.info('Vangers: showing for student ', student);
 
   document.body.className = 'vangers-page';
-
 
   const nextChapter = () => {
     curChapterNum++;
     curChapter = chapters[curChapterNum];
     saveChapter(curChapterNum);
-    showChapter(chapterNum);
+    showChapter(curChapterNum);
   }
 
-  const showChapter = (chapterNum) => {
-    vangersHomeElement.remove();
-    console.info('Vangers: Show Chapter #' + chapterNum);
-    chapterElement?.remove();
-
-    const ChapterComponent = chapters[chapterNum];
-    chapterElement = Chapter({ chapter: curChapter, onChapterEnd: handleChapterEnd });
-    element.append(chapterElement);
-  }
 
   function handleChapterEnd() {
     nextChapter();
   }
-
-  //showChapter(curChapterNum);
 
   return element;
 };
