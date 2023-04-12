@@ -129,7 +129,7 @@ export const Exam2 = () => {
       let y = x + 'px';
       let w = y + x - y * 2;
       `,
-      question : 'Чему равен w?',
+      question : 'Чему равен z?',
       answer: /undefined/,
     },
     {
@@ -152,7 +152,8 @@ export const Exam2 = () => {
       function IWallet(x) {
         let food = 'less' + x + ' food';
         const life = 'live' 
-        return null }
+        return null 
+      }
       const salary = IWallet('money');
       `,
       question : 'Чему равна твоя зарплата(salary)?',
@@ -162,9 +163,9 @@ export const Exam2 = () => {
       code : `
       let choise;
       if(choise) {
-        choise = 'Пукать в диван';
-      } else {
         choise = 'Нужно учиться';
+      } else {
+        choise = 'Пукать в диван';
       }
       choise === 'Пукать в диван';
       `,
@@ -177,6 +178,22 @@ export const Exam2 = () => {
       boolean !== false
       `,
       question : 'Чему равен boolean?',
+      answer : /true/,
+    },
+    {
+      code: `
+      let me = 'money';
+      function motherGive(it) {
+        let buyDrugs = it;
+        if(it === 'bread') {
+          return 'More money'
+        } else {
+        return 'Pizdi' && true
+        }
+        }
+        console.log(motherGive(me))
+      `,
+      question : 'Что мы получим от матери в консоль?',
       answer : /true/,
     },
   ];
