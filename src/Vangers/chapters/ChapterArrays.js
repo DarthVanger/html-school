@@ -4,9 +4,9 @@ import {
   checkFirstCommitCreated,
   checkAppJsCreated, 
   checkTimeCreated,
-} from './Proverka.js';
+} from '../Chapter/Proverka.js';
 
-import { Chapter } from './Chapter.js';
+import { Chapter } from '../Chapter/Chapter.js';
 
 const title = "Chapter Два &mdash; ХуерТа.";
 
@@ -111,8 +111,8 @@ const paragraphs = [
 
 const cover = '/img/vangers/nuclear-cover.jpg';
 
-export const Chapter2 = ({ student, onChapterEnd }) => {
-  console.info('Chapter2: init');
+export const ChapterArrays = ({ student, onChapterEnd }) => {
+  console.info('ChapterArrays: initializing');
   const element = document.createElement('article');
 
   const checkStep = async (step) => {

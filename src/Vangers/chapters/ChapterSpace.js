@@ -36,7 +36,7 @@ const paragraphs = [
 `,
 ];
 
-export const Chapter2 = {
+export const ChapterSpace = {
   name,
   paragraphs,
 }

@@ -1,5 +1,5 @@
 import { ChapterCover } from './ChapterCover.js';
-import { getChapterStep, setChapterrStep } from './storage.js';
+import { getChapterStep, setChapterrStep } from '../storage.js';
 
 export const Chapter = ({ chapter, onChapterEnd }) => {
   const element = document.createElement('article');

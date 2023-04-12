@@ -4,9 +4,9 @@ import {
   checkFirstCommitCreated,
   checkAppJsCreated, 
   checkTimeCreated,
-} from './Proverka.js';
+} from '../Chapter/Proverka.js';
 
-import { Chapter } from './Chapter.js';
+import { Chapter } from '../Chapter/Chapter.js';
 
   const title = "Chapter 1. Нихуя.";
 
@@ -138,7 +138,7 @@ const hints = [
 
 const cover = '/img/vangers/nuclear-cover.jpg';
 
-export const Chapter1 = ({ student, onChapterEnd }) => {
+export const ChapterCreateRepo = ({ student, onChapterEnd }) => {
   const element = document.createElement('article');
   const githubName = getGithubName(student);
   const repoUrl = `https://github.com/${githubName}/vangers`;

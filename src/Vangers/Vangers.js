@@ -1,44 +1,44 @@
-import { Chapter1 } from './Chapter1.js';
-import { Chapter2 } from './Chapter2.js';
-import { ChapterNuclear } from './ChapterNuclear.js';
+import { chapters } from './chapters/chapters.js';
 import { VangersPlayer, resumeMusic } from './VangersPlayer.js';
 import { getSavedChapter, saveChapter, setChapterrStep } from './storage.js';
 
 export const Vangers = (state) => {
   const element = document.createElement('section');
   const student = state.student;
+  let curChapterNum = getSavedChapter() || 0;
+  let curChapter = chapters[curChapterNum];
+  let chapterElement;
+
   element.id = 'vangers';
+
+  console.info('Vangers: showing for student ', student);
 
   element.append(VangersPlayer());
 
   document.body.className = 'vangers-page';
 
-  const chapter = getSavedChapter();
-  let chapter1;
 
-  const showChapter2 = () => {
-    console.info('Vangers: Show Chapter 2');
-    chapter1.remove();
-
-    saveChapter(1);
-    setChapterrStep(0);
-    const chapter2 = Chapter2({ ...state, onChapterEnd: showChapter2 });
-    element.append(chapter2);
-  }
-  
-  console.log('chapter:', chapter);
-  if (chapter === 0) {
-    saveChapter(0);
-    chapter1 = Chapter1({ ...state, onChapterEnd: showChapter2 });
-    element.append(chapter1);
+  const nextChapter = () => {
+    curChapterNum++;
+    curChapter = chapters[curChapterNum];
+    saveChapter(curChapterNum);
+    showChapter(chapterNum);
   }
 
-  if (chapter === 1) {
-    saveChapter(1);
-    const chapter2 = Chapter2({ ...state, onChapterEnd: showChapter2 });
-    element.append(chapter2);
+  const showChapter = (chapterNum) => {
+    console.info('Vangers: Show Chapter #' + chapterNum);
+    chapterElement?.remove();
+
+    const ChapterComponent = chapters[chapterNum];
+    chapterElement = ChapterComponent({ student, onChapterEnd: handleChapterEnd });
+    element.append(chapterElement);
   }
 
+  function handleChapterEnd() {
+    nextChapter();
+  }
+
+  showChapter(curChapterNum);
 
   return element;
 };
