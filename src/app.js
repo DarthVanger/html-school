@@ -36,6 +36,10 @@ export const App = () => {
   const handleHashChange = () => {
     state.route = getRouteFromHash();
     console.info('Router: handle URL hash change: ', state.route);
+    if (/vangers/.test(state.route)) {
+      console.info('Router: ignoring hash change for vangers page');
+      return;
+    }
     showPage(state.route);
   };
 

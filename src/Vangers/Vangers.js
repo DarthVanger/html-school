@@ -22,8 +22,9 @@ export const Vangers = (state) => {
 
   const handleChapterClick = (chapter) => {
     const chapterNum = chapters.indexOf(chapter);
-    setRoute('/chapter/' + chapterNum);
-    showChapter(chapterNum);
+    const route = '/chapter/' + chapterNum;
+    setRoute(route);
+    showPage(route);
   }
 
   const pageContainer = document.createElement('page-container');
@@ -40,6 +41,14 @@ export const Vangers = (state) => {
     return location.hash.replace(vangersRoute, '') || '/';
   }
 
+  function handleHashChange() {
+    console.info('Vangers: handle hash change');
+    route = getRoute();
+    showPage(route);
+  }
+  
+  window.addEventListener('hashchange', handleHashChange);
+
   element.append(VangersPlayer());
   console.info('Vangers: show route', route);
 
@@ -52,11 +61,14 @@ export const Vangers = (state) => {
     if (route === '/') {
       console.info('Vangers: show home page');
       pageContainer.append(VangersHome({ onChapterClick: handleChapterClick }));
+      return;
     }
 
     if (chapterRouteRegexp.test(route)) {
+      console.info('Vangers: show chapter page');
       const urlChapterNum = route.match(chapterRouteRegexp)[1];
       showChapter(urlChapterNum);
+      return;
     }
   }
 
