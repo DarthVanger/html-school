@@ -6,8 +6,6 @@ import {
   checkTimeCreated,
 } from '../Chapter/Proverka.js';
 
-import { Chapter } from '../Chapter/Chapter.js';
-
   const title = "Chapter 1. Нихуя.";
 
   const paragraphs = [
@@ -135,90 +133,78 @@ const hints = [
   '<a href="http://napaleon.space/#/quests/htmlImg">Домашка по HTML &lt;img&gt;</a>',
 ];
 
+const student = 'napaleon';
 
 const cover = '/img/vangers/nuclear-cover.jpg';
 
-export const ChapterCreateRepo = ({ student, onChapterEnd }) => {
-  const element = document.createElement('article');
-  const githubName = getGithubName(student);
-  const repoUrl = `https://github.com/${githubName}/vangers`;
+const element = document.createElement('article');
+const githubName = getGithubName(student);
+const repoUrl = `https://github.com/${githubName}/vangers`;
 
-  const checkStep = async (step) => {
-    if (step === 10) {
-      console.info('Validating step 10');
-      let isValid;
-      const isRepoCreated = await checkVangersRepoCreated(student);
-      if (!isRepoCreated) {
-        console.log('Repo is not created - step not valid');
-        isValid = false;
-      } else {
-        console.log('Repo is created, step is valid!');
-        isValid = true;
-      }
-
-      const hint =  `<div>Создай репозиторей ёпта. <a href="${repoUrl}" target="_blank">${repoUrl}</a> По ссылке-то 404!</div>`;
-
-      return { isValid, hint };
+const checkStep = async (step) => {
+  if (step === 10) {
+    console.info('Validating step 10');
+    let isValid;
+    const isRepoCreated = await checkVangersRepoCreated(student);
+    if (!isRepoCreated) {
+      console.log('Repo is not created - step not valid');
+      isValid = false;
+    } else {
+      console.log('Repo is created, step is valid!');
+      isValid = true;
     }
 
-    if (step === 25) {
-      console.info('Validating step is 27');
+    const hint =  `<div>Создай репозиторей ёпта. <a href="${repoUrl}" target="_blank">${repoUrl}</a> По ссылке-то 404!</div>`;
 
-      let isValid;
-      const isCommitCreated = await checkFirstCommitCreated(student);
-      console.log('isCommitCreated:', isCommitCreated);
-      if (!isCommitCreated) {
-        console.log('commit not created can not go next step');
-        isValid = false;
-      } else {
-        console.log('commit is created, going to next step');
-        isValid = true;
-      }
+    return { isValid, hint };
+  }
 
-      const commitHistoryUrl = `https://github.com/${githubName}/vangers/commits/master`;
-      const hint = `<div>Запуш коммиты ёпта. <a href="${commitHistoryUrl}" target="_blank">${commitHistoryUrl}</a> Коммит на Гтихабе не появился-то!</div>`;
+  if (step === 25) {
+    console.info('Validating step is 27');
 
-      return { isValid, hint };
+    let isValid;
+    const isCommitCreated = await checkFirstCommitCreated(student);
+    console.log('isCommitCreated:', isCommitCreated);
+    if (!isCommitCreated) {
+      console.log('commit not created can not go next step');
+      isValid = false;
+    } else {
+      console.log('commit is created, going to next step');
+      isValid = true;
     }
 
-    if (step === 28) {
-      console.log('Validating step 28');
-      let isValid;
-      await checkTimeCreated();
-      const isAppJsCreated = await checkAppJsCreated(student);
-      if (!isAppJsCreated) {
-        console.log('Chapter1: app.js is NOT created, can not go next step');
-        isValid = false;
-      } else {
-        console.log('Chapter1: app.js is created, going to next step');
-        isValid = true;
-      }
+    const commitHistoryUrl = `https://github.com/${githubName}/vangers/commits/master`;
+    const hint = `<div>Запуш коммиты ёпта. <a href="${commitHistoryUrl}" target="_blank">${commitHistoryUrl}</a> Коммит на Гтихабе не появился-то!</div>`;
 
-      const appJsUrl = `https://github.com/${githubName}/vangers/blob/master/app.js`;
+    return { isValid, hint };
+  }
 
-      const hint = `<div>На ГитХабе app.js то нету? Ширшавый <a href="${appJsUrl}" target="_blank">${appJsUrl}</a></div>`;
-
-      return { isValid, hint };
+  if (step === 28) {
+    console.log('Validating step 28');
+    let isValid;
+    await checkTimeCreated();
+    const isAppJsCreated = await checkAppJsCreated(student);
+    if (!isAppJsCreated) {
+      console.log('Chapter1: app.js is NOT created, can not go next step');
+      isValid = false;
+    } else {
+      console.log('Chapter1: app.js is created, going to next step');
+      isValid = true;
     }
 
-    return { isValid: true, hint: '' };
-  };
+    const appJsUrl = `https://github.com/${githubName}/vangers/blob/master/app.js`;
 
-  const chapter = {
-    title,
-    paragraphs,
-    checkStep,
-    cover,
-    onChapterEnd,
-  };
+    const hint = `<div>На ГитХабе app.js то нету? Ширшавый <a href="${appJsUrl}" target="_blank">${appJsUrl}</a></div>`;
 
-  const chapter1 = Chapter({
-    chapter,
-    onChapterEnd,
-  });
+    return { isValid, hint };
+  }
 
-  element.append(chapter1);
+  return { isValid: true, hint: '' };
+};
 
-  return element;
-
-}
+export const chapterCreateRepo = {
+  title,
+  paragraphs,
+  checkStep,
+  cover,
+};

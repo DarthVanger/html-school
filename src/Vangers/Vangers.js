@@ -1,3 +1,5 @@
+import { Chapter } from './Chapter/Chapter.js';
+import { VangersHome } from './VangersHome/VangersHome.js';
 import { chapters } from './chapters/chapters.js';
 import { VangersPlayer, resumeMusic } from './VangersPlayer.js';
 import { getSavedChapter, saveChapter, setChapterrStep } from './storage.js';
@@ -13,6 +15,12 @@ export const Vangers = (state) => {
 
   console.info('Vangers: showing for student ', student);
 
+  const handleChapterClick = () => {
+    showChapter(curChapterNum);
+  }
+
+  const vangersHomeElement = VangersHome({ onChapterClick: handleChapterClick });
+  element.append(vangersHomeElement);
   element.append(VangersPlayer());
 
   document.body.className = 'vangers-page';
@@ -26,11 +34,12 @@ export const Vangers = (state) => {
   }
 
   const showChapter = (chapterNum) => {
+    vangersHomeElement.remove();
     console.info('Vangers: Show Chapter #' + chapterNum);
     chapterElement?.remove();
 
     const ChapterComponent = chapters[chapterNum];
-    chapterElement = ChapterComponent({ student, onChapterEnd: handleChapterEnd });
+    chapterElement = Chapter({ chapter: curChapter, onChapterEnd: handleChapterEnd });
     element.append(chapterElement);
   }
 
@@ -38,7 +47,7 @@ export const Vangers = (state) => {
     nextChapter();
   }
 
-  showChapter(curChapterNum);
+  //showChapter(curChapterNum);
 
   return element;
 };

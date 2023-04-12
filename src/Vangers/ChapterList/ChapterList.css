@@ -1,0 +1,7 @@
+#vangers .chapter-item {
+  width: 200px;
+}
+#vangers .chapter-item img {
+  max-width: 200px;
+  max-height: 200px;
+}

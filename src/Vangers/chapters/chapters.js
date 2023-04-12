@@ -1,7 +1,7 @@
-import { ChapterCreateRepo } from './ChapterCreateRepo.js';
-import { ChapterArrays } from './ChapterArrays.js';
+import { chapterCreateRepo } from './ChapterCreateRepo.js';
+import { chapterArrays } from './ChapterArrays.js';
 
 export const chapters = [
-  ChapterCreateRepo,
-  ChapterArrays,
+  chapterCreateRepo,
+  chapterArrays,
 ];
