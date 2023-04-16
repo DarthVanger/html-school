@@ -98,7 +98,7 @@ export const Levels = (store) => {
         })}
       </div>
 
-      <h3>УПЕРОВЛЯЕМ КоРаБЕЛем СТРЕЛКАМИ</h3>
+      <h3>Управление кнопками и Стреляем</h3>
 
       <div class="quest-list">
         ${Quest({
@@ -106,19 +106,7 @@ export const Levels = (store) => {
           title: 'Уперовление корабелем кнопками',
           imgSrc: 'src/quests/img/keyboard.webp',
         })}
-        ${Quest({
-          ...quests.plasma,
-          title: 'Стрэляем: Плазма :)',
-          imgSrc: 'src/quests/img/plasma.gif',
-        })}
-      </div>
 
-      <div class="quest-list">
-        ${Quest({
-          ...quests.keyboard,
-          title: 'Уперовление корабелем кнопками',
-          imgSrc: 'src/quests/img/keyboard.webp',
-        })}
         ${Quest({
           ...quests.plasma,
           title: 'Стрэляем: Плазма :)',

@@ -12,12 +12,14 @@ import { Homework39 } from './homeworks/Homework39.js';
 import { Homework40 } from './homeworks/Homework40.js';
 import { Homework41 } from './homeworks/Homework41.js';
 import { Homework42 } from './homeworks/Homework42.js';
+import { Homework43 } from './homeworks/Homework43.js';
 
 export const Homework = (state) => {
   const element = document.createElement('div');
   element.id = 'homework';
   element.innerHTML = `
     <div id="homework">
+      ${Homework43(state)}
       ${Homework42(state)}
       ${Homework41(state)}
       ${Homework40(state)}
