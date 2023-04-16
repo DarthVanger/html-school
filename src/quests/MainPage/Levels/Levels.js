@@ -3,43 +3,10 @@ import { getCompletedQuests } from './api.js';
 import { getStudent } from '../../../session.js';
 import quests from '../../quests/quests.js';
 
-const element = document.createElement('div');
-element.id = 'levels';
-const state = {
-  completedQuests: null,
-};
 
 export const Levels = (store) => {
-  const setState = (newState) => {
-    state.completedQuests = newState.completedQuests;
-    Levels(store);
-  };
-
-  console.log('state.completedQuests: ', state.completedQuests);
-  if (!state.completedQuests) {
-    setTimeout(async () => {
-      const completedQuests = await getCompletedQuests({ student: getStudent() });
-      console.debug('completedQuests: ', completedQuests);
-      setState({
-        completedQuests,
-      });
-    });
-  }
-
-  const getCompletions = (quest) => state.completedQuests?.filter(q => q.id === quest.id);
-  const isQuestCompleted = (quest) => Boolean(getCompletions(quest));
-
-  const extraProps = (q) => {
-    let p = {
-      completions: getCompletions(q),
-      store,
-      onClick: () => {
-        state.completedQuests = null;
-      },
-    };
-
-    return p;
-  };
+  const element = document.createElement('div');
+  element.id = 'levels';
 
   const html = `
     <div id="levels">
@@ -49,13 +16,11 @@ export const Levels = (store) => {
           id: 'htmlTags',
           title: 'ГИПЕР ТЕКСТ. HTML v1.0. 1991г.',
           imgSrc: 'src/quests/img/html-1.png',
-          ...extraProps(quests.htmlTags),
         })}
         ${Quest({
           id: 'htmlImg',
           title: 'Кортинке ). HTML v2.0. 1995г.',
           imgSrc: 'src/quests/img/html-img.png',
-          ...extraProps(quests.htmlImg),
         })}
       </div>
       <h2>CSS</h2>
@@ -64,13 +29,11 @@ export const Levels = (store) => {
           id: 'css',
           title: '"ШО ТАКЭ CSS" АБО "КАСКАДНИЙ СТИЛЬ ЛАЙНА"',
           imgSrc: 'src/quests/img/css.jpeg',
-          ...extraProps(quests.css),
         })}
         ${Quest({
           ...quests.layers,
           title: 'Позиция... АБСОЛЮТ - СЛОИ',
           imgSrc: 'src/quests/img/spaceship.gif',
-          ...extraProps(quests.layers),
         })}
       </div>
 
@@ -83,14 +46,12 @@ export const Levels = (store) => {
           ...quests.alertXuy4ek,
           title: "Знакомство с Жабо-Скрептом: фукцея <code>alert('xuyrek');</code>",
           imgSrc: 'src/quests/img/alertXuy4ek.jpg',
-          ...extraProps(quests.alertXuy4ek),
 
         })}
         ${Quest({
           ...quests.innerHTML,
           title: "Изменение наполнения докмуента: <code>innerHTML</code>",
           imgSrc: 'src/quests/img/innerHTML.jpg',
-          ...extraProps(quests.innerHTML),
         })}
       </div>
 
@@ -101,13 +62,11 @@ export const Levels = (store) => {
           ...quests.functions,
           title: "ФУКЦЕИ: Основа Джаваскрипт - База!!!",
           imgSrc: 'src/quests/img/functions.png',
-          ...extraProps(quests.functions),
         })}
         ${Quest({
           ...quests.variables,
           title: "ПЕРЕМЕННЫЕ (VAR - Variables) - тоже База!!!",
           imgSrc: 'src/quests/img/variables.png',
-          ...extraProps(quests.variables),
         })}
       </div>
       <div class="quest-list">
@@ -115,13 +74,11 @@ export const Levels = (store) => {
           ...quests.functionParameters,
           title: "Параметры ФукцеЙ - Продвинутые Фукцеи - и это База)))",
           imgSrc: 'src/quests/img/functionParameters.png',
-          ...extraProps(quests.functionParameters),
         })}
         ${Quest({
           ...quests.conditionals,
           title: "УСЛОВЕЯ (Логека): if / else - Базейшая база, основа Основ!!))",
           imgSrc: 'src/quests/img/conditionals.jpeg',
-          ...extraProps(quests.conditionals),
         })}
       </div>
 
@@ -133,14 +90,12 @@ export const Levels = (store) => {
           ...quests.flying,
           title: 'КОПЕТАН! Срочно в Полёт! У КоСмаС!',
           imgSrc: 'src/quests/img/flying.gif',
-          ...extraProps(quests.flying),
         })}
 
         ${Quest({
           ...quests.walls,
           title: 'КОПЕТАН! Корабель терпит Крушение! Сезон 3.',
           imgSrc: 'src/quests/img/walls.gif',
-          ...extraProps(quests.walls),
         })}
       </div>
 
@@ -151,13 +106,11 @@ export const Levels = (store) => {
           ...quests.keyboard,
           title: 'Уперовление корабелем кнопками',
           imgSrc: 'src/quests/img/keyboard.webp',
-          ...extraProps(quests.keyboard),
         })}
         ${Quest({
           ...quests.plasma,
           title: 'Стрэляем: Плазма :)',
           imgSrc: 'src/quests/img/plasma.gif',
-          ...extraProps(quests.plasma),
         })}
       </div>
 
@@ -166,13 +119,11 @@ export const Levels = (store) => {
           ...quests.keyboard,
           title: 'Уперовление корабелем кнопками',
           imgSrc: 'src/quests/img/keyboard.webp',
-          ...extraProps(quests.keyboard),
         })}
         ${Quest({
           ...quests.plasma,
           title: 'Стрэляем: Плазма :)',
           imgSrc: 'src/quests/img/plasma.gif',
-          ...extraProps(quests.plasma),
         })}
       </div>
 
@@ -182,8 +133,15 @@ export const Levels = (store) => {
         ${Quest({
           ...quests.whileLoop,
           title: 'While loop: как вывести текст в докУмент 100 раз',
-          imgSrc: 'src/quests/img/keyboard.webp',
-          ...extraProps(quests.whileLoop),
+        })}
+      </div>
+
+      <h3>SVG - Веткорна графіка, що Розтягується</h3>
+
+      <div class="quest-list">
+        ${Quest({
+          ...quests.svg,
+          title: 'Малюєм СіськОкуляри',
         })}
       </div>
 
@@ -192,15 +150,11 @@ export const Levels = (store) => {
         ${Quest({
           ...quests.shipMotion,
           title: 'КОПЕТАН! ПОЛЕТЕЛИ!',
-          imgSrc: 'src/quests/img/flying.gif',
-          ...extraProps(quests.shipMotion),
         })}
 
          Quest({
           ...quests.velocity,
           title: 'СПИДЫ - ФИЗЕКА',
-          imgSrc: 'src/quests/img/velocity.gif',
-          ...extraProps(quests.velocity),
         })
       */ ''}
       </div>

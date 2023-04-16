@@ -7,7 +7,6 @@ import walls2 from './walls2.js';
 import walls3 from './walls3.js';
 import plasma from './plasma.js';
 import plasma2 from './plasma2.js';
-import svg from './svg.js';
 import innerHTML from './innerHTML.js';
 import functions from './functions.js';
 import variables from './variables.js';
@@ -19,6 +18,7 @@ import shipMotion from './shipMotion.js';
 import keyboard from './keyboard.js';
 import layers from './layers.js';
 import whileLoop from './whileLoop.js';
+import svg from './svg.js';
 
 const quests = {
   layers,
@@ -32,7 +32,6 @@ const quests = {
   functionParameters,
   variables,
   innerHTML,
-  svg,
   alertXuy4ek,
   flying,
   walls,
@@ -42,6 +41,7 @@ const quests = {
   plasma2,
   functions,
   whileLoop,
+  svg,
 };
 
 export const getQuestSkills = (questId) => {

@@ -1,48 +1,58 @@
-const svg = `
-<style>
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 120vw;
-    height: 120vh;
-    object-fit: cover;
-  }
+const id = 'svg';
 
-  svg {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-  }
+const story = `
+  <h2>svg</h2>
+  <p>
+    SVG = Scalable Vector Graphics<br />
+    (Укр) ВГщР = Векторна Графіка, що Розтягується
+  </p>
 
-  line {
-    stroke: white;
-    stroke-width: 5;
-    stroke-dasharray: 12 12;
-    animation: dash 20s linear;
-  }
+  <p>
+    Хто хоче - вивчайте це дєрьмо на W3Schools
 
-  text {
-    fill: white;
-    stroke: white;
-  }
-</style>
-
-<body>
-  <video autoplay loop muted>
-    <source src="/video/space-1050p.mp4" type="video/mp4" />
-  </video>
-  <svg>
-    <line x1="0" y1="0" x2="600" y2="600" stroke="black" />
-    <text x="200" y="100">x: 0</text>
-  </svg>
-</body>
-
-<script>
-  // Task: on "mousemove" event change line x2 and y2
-  // to event.pageX and event.pageY.
-  // Also show X coordinate inside the <text> element.
-</script>
+    <a href="https://www.w3schools.com/graphics/svg_intro.asp">
+      <figure class="figure">
+        <img src="img/homework/svg-w3-schools.png"/>
+        <figcaption>SVG Tutorial - W3Schools</figcaption>
+      </figure>
+    </a>
+  </p>
 `;
 
-export default svg;
+const code = `
+  <h1>Вчимо Векторну Графіку, що Розтягується (ВГщР)</h1>
+`;
+
+export const steps = [
+  {
+    task: `
+<p>
+  Перший крок - додаємо пустий тег <code>&lt;svg&gt;</code> розміром <code>100х100</code> - це наша коробочка де ми будем малювати Векторну Графіку, що Розтягується (ВГщР).
+</p>
+<pre><code>
+  <svg width="100" height="100"></svg>
+</code></pre>
+`,
+    check: `Уписано &lt;svg width="100" height="100"&gt;&lt;/svg&gt;`,
+    regexp: /<svg\s+width="100"\s+height="100"\s*>\s*<\/svg>/
+  },
+  {
+    task: `
+<p>
+  Молодца. Теперь <code>while</code> пустой пишем <code>while (false) {}</code>. Синтоксис такой же как у <code>if () {}</code> да и на синтоксес функцей похож тоже :). В круглые скобки <code>false</code> мы пишем пока что просто так, чтобы не было ошибки - пустое условие быть не может. Потом заменим <code>false</code>на настоящее условие.
+</p>
+`,
+    check: `Уписано <code>while (false) {}</code>`,
+    regexp: /while\s*[(]\s*(false|skokoRaz < 100?)\s*[)]\s*{[^}]*}/
+  },
+];
+
+const skills = ['svg', 'svg-circle', 'svg-line'];
+
+export default {
+  story,
+  code,
+  steps,
+  skills,
+  id,
+};

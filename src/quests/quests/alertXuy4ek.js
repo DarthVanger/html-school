@@ -1,8 +1,9 @@
+const id = 'alertXuy4ek';
+
 const code = `
 <h1>Alert Xuy4ek</h1>
 `;
 
-const id = 'alertXuy4ek';
 
 const steps = [
   {

@@ -3,18 +3,23 @@ import { getStudent } from '../../../session.js';
 import { getCompletedQuests } from './api.js';
 import { HomeworkDoneBadge } from './HomeworkDoneBadge.js';
 import { getLastCompletion, getCurseDays, getQuestStatus } from './questStatus.js';
-import walls from '../../quests/walls.js';
 import { QuestCardBorder } from './QuestCardBorder.js';
 import { CyberpunkBorder } from './CyberpunkBorder.js';
 
 
-export const Quest = ({ id, imgSrc, title, store, onClick }) => {
-  const getElement = () => document.querySelector(`#${id}`);
+export const Quest = (props) => {
+  const element = document.createElement('div');
+
+  const { id, title } = props;
   const quest = quests[id];
-  let cardClassName = 'quest-card';
+  element.id = quest.id;
+  const getElement = () => document.querySelector('#' + quest.id);
+
+  let cardClassName = 'quest-card';;
+  element.className = cardClassName;
 
   let completions = [];
-  const { skills, img } = quest;
+  const { skills } = quest;
 
   const displayDate = (d) => (new Date(d)).toLocaleString(
     'ru-RU',
@@ -27,22 +32,16 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
   let lastCompletion = getLastCompletion(completions);
 
   const status = getQuestStatus({ quest, completions });
-  console.log('quest status: ', status);
   cardClassName += ` status-${status}`;
 
   setTimeout(async () => {
     const completedQuests = await getCompletedQuests({ student: getStudent() });
     console.log('quest.id:', quest.id);
-    console.debug('completedQuestsi n QUEST: ', completedQuests);
 
     completions = completedQuests.filter(q => q.id === quest.id);
     lastCompletion = getLastCompletion(completions);
-    console.log('completions: ', completions)
-    console.log('lastCompletion: ', lastCompletion)
 
-    const status = getQuestStatus({ quest, completions });
     const card = getElement();
-    console.log('Quest status: ', status);
     card.className = `quest-card status-${status}`;
 
     const completionsEl = getElement().querySelector('.quest-card-completions');
@@ -83,13 +82,9 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
   setTimeout(() => {
     const codes = getElement()?.querySelectorAll('code');
     codes?.forEach(c => Prism.highlightElement(c));
-
-    getElement()?.addEventListener('click', (e) => {
-      onClick(id);
-    });
   }, 100);
 
-  return `
+  element.innerHTML = `
     <a href="#/quests/${id}" class="${cardClassName}" id=${id}>
       ${QuestCardBorder()}
       <div class="quest-card-title">
@@ -111,4 +106,6 @@ export const Quest = ({ id, imgSrc, title, store, onClick }) => {
       </div>
     </a>
   `;
+
+  return element.outerHTML;
 };
