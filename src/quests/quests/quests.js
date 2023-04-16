@@ -20,6 +20,7 @@ import layers from './layers.js';
 import whileLoop from './whileLoop.js';
 import svg from './svg.js';
 import createElement from './createElement.js';
+import createElementImg from './createElementImg.js';
 
 const quests = {
   layers,
@@ -44,6 +45,7 @@ const quests = {
   whileLoop,
   svg,
   createElement,
+  createElementImg,
 };
 
 export const getQuestSkills = (questId) => {

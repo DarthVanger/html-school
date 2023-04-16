@@ -137,6 +137,7 @@ export const Levels = (store) => {
 
       <div class="quest-list">
         ${Quest(quests.createElement)}
+        ${Quest(quests.createElementImg)}
       </div>
 
       ${  /*

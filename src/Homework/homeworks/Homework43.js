@@ -4,6 +4,7 @@ export const Homework43 = () => `
   <ol>
     <li><a href="/#/quests/svg">Scalable Vector Graphics</a></li>
     <li><a href="/#/quests/createElement">Создание Єлемента</a></li>
+    <li><a href="/#/quests/createElementImg">Создание Кортінке через ДЖС</a></li>
   </ol>
   <h3>ПОВТОРЕНЬЕ, МАТЬ... Тони - Обязательно!</h3>
   <ol>
