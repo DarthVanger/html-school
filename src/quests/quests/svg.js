@@ -8,7 +8,7 @@ const story = `
   </p>
 
   <p>
-    Хто хоче - вивчайте це дєрьмо на W3Schools
+    Хто хоче &mdash; вивчайте це дєрьмо на W3Schools
 
     <a href="https://www.w3schools.com/graphics/svg_intro.asp">
       <figure class="figure">
@@ -27,7 +27,7 @@ export const steps = [
   {
     task: `
 <p>
-  Перший крок - додаємо пустий тег <code>&lt;svg&gt;</code> розміром <code>100х100</code> - це наша коробочка де ми будем малювати Векторну Графіку, що Розтягується (ВГщР).
+  Перший крок &mdash; додаємо пустий тег <code>&lt;svg&gt;</code> розміром <code>100х100</code> - це наша коробочка де ми будем малювати Векторну Графіку, що Розтягується (ВГщР).
 </p>
 <pre><code>
   &lt;svg width="100" height="100"&gt;
@@ -39,7 +39,7 @@ export const steps = [
   {
     task: `
 <p>
-  Другий крок - успередині тегу <code>svg</code> пишемо тег <code>&lt;circle /&gt;</code> з атрибутами <code>cx</code>, <code>cy</code>, <code>r</code>, <code>fill</code> (Слеш <code>/</code> укінці тегу <code>/&gt;</code> &mdash; обов'язково!)
+  Другий крок &mdash; успередині тегу <code>svg</code> пишемо тег <code>&lt;circle /&gt;</code> з атрибутами <code>cx</code>, <code>cy</code>, <code>r</code>, <code>fill</code> (Слеш <code>/</code> укінці тегу <code>/&gt;</code> &mdash; обов'язково!)
 </p>
 <pre><code>
   &lt;svg width="100" height="100"&gt;

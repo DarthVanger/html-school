@@ -1,6 +1,7 @@
 @import "QuestStory.css";
 @import "mentor.css";
 @import "quests/FrictionTable.css";
+@import "MainPage/Levels/Levels.css";
 
 #quest-page {
   background: white;

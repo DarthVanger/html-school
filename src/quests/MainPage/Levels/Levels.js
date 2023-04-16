@@ -3,7 +3,6 @@ import { getCompletedQuests } from './api.js';
 import { getStudent } from '../../../session.js';
 import quests from '../../quests/quests.js';
 
-
 export const Levels = (store) => {
   const element = document.createElement('div');
   element.id = 'levels';
@@ -136,6 +135,7 @@ export const Levels = (store) => {
         })}
       </div>
 
+      <h2>ADVANCED</h2>
       <h3>SVG - Веткорна графіка, що Розтягується</h3>
 
       <div class="quest-list">
@@ -143,6 +143,12 @@ export const Levels = (store) => {
           ...quests.svg,
           title: 'Малюєм СіськОкуляри',
         })}
+      </div>
+
+      <h3>Створення ХТМЛ Елементів в Javascript</h3>
+
+      <div class="quest-list">
+        ${Quest(quests.createElement)}
       </div>
 
       ${  /*
