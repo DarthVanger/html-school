@@ -1,6 +1,7 @@
 import { getInnerText, encodeHTMLEntities } from './utils.js';
 import { logQuestComplete } from './api.js';
 import { getStudent } from '../session.js';
+import { clearQuestCode } from './questSaves.js';
 
 const getEditor = () => document.querySelector('#editor > code');
 
@@ -85,6 +86,9 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
         id: quest.id,
         student: getStudent(),
       }).then((response) => {
+        console.info('mentor: quest completion saved'); 
+        console.info('mentor: clearing quest code');
+        clearQuestCode(quest.id);
         if (response.status === 400) {
           response.json().then((j) => {
           const cooldown = j.cooldownHours.toFixed(2);
@@ -142,19 +146,19 @@ export const Mentor = ({ quest, addCodeRunListener }) => {
   };
 
     const effect = () => setTimeout(() => {
-    const img = document.querySelector('#napaleon-img');
-    const height = document.querySelector('#napaleon-message').offsetHeight;
-    if (height > 200) {
-      img.classList.add('hidden');
-    } else {
-      img.classList.remove('hidden');
-    }
+      const img = document.querySelector('#napaleon-img');
+      const height = document.querySelector('#napaleon-message').offsetHeight;
+      if (height > 200) {
+        img.classList.add('hidden');
+      } else {
+        img.classList.remove('hidden');
+      }
 
-    getElement().classList.remove('collapsed');
+      getElement().classList.remove('collapsed');
 
-    const napaleonCodes = document.querySelectorAll('#napaleon-message code');
-    napaleonCodes.forEach(c => Prism.highlightElement(c));
-  });
+      const napaleonCodes = document.querySelectorAll('#napaleon-message code');
+      napaleonCodes.forEach(c => Prism.highlightElement(c));
+    });
 
   const update = () => {
     document.querySelector('#napaleon-message').innerHTML = `

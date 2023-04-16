@@ -2,6 +2,7 @@ import { Mentor } from './mentor.js';
 import quests from './quests/quests.js';
 import { saveCaretPosition } from './utils.js';
 import { QuestStory } from './QuestStory.js';
+import { saveQuestCode, loadQuestCode } from './questSaves.js';
 
 const playground = document.createElement('div');
 import { Topbar } from './Topbar.js';
@@ -113,7 +114,8 @@ export const QuestPage = ({ questId }) => {
   setTimeout(() => {
     element.innerHTML += '<h2>Зоданее</h2>';
     element.append(playground);
-    const savedCode = localStorage.getItem(quest.id);
+    const savedCode = loadQuestCode(quest.id);
+    console.info('QuestPage: loaded saved code:', savedCode);
     if (!savedCode) {
       setCode(quest.code);
     } else {
@@ -128,8 +130,8 @@ export const QuestPage = ({ questId }) => {
     console.log('focus pocus :)');
     console.log('run button: ', getRunButton());
     getRunButton().addEventListener('click', () => {
-      console.log('[QuestPage] run button clicked');
-      localStorage.setItem(quest.id, getEditor().textContent);
+      console.info('[QuestPage] run button clicked');
+      saveQuestCode(quest.id, getEditor().textContent);
       run();
       highlight();
     });
