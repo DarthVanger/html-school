@@ -484,6 +484,15 @@ export const lectures = [
       'Drawing SVG lines',
     ],
     skills: ['svg', 'svg-line', 'force', 'gravity', 'space', 'time', 'movement'],
-    url: '#/slides/v2/lesson40',
+  },
+  {
+    text: "Circular dependencies, ES6 modules graph; SVG; document.createElement()",
+    items: [
+      'Циклічні залежності модулів (import/export)',
+      'Граф залежностей модулів',
+      'SVG: малюєм сіські (окуляри)',
+      'document.createElement(): практика, відмінності від innerHTML +=',
+    ],
+    skills: ['svg', 'svg-line', 'force', 'gravity', 'space', 'time', 'movement'],
   },
 ];
