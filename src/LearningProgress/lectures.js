@@ -493,6 +493,16 @@ export const lectures = [
       'SVG: малюєм сіські (окуляри)',
       'document.createElement(): практика, відмінності від innerHTML +=',
     ],
-    skills: ['svg', 'svg-line', 'force', 'gravity', 'space', 'time', 'movement'],
+    skills: ['svg', 'svg-line', 'svg-circle', 'js-modules'],
+  },
+  {
+    text: "Литучка по SVG, createElement. Делаем многостраничній сайт",
+    items: [
+      'Литучка по SVG',
+      'Литучка по document.createElement',
+      'Делаем многостраничній сайт',
+    ],
+    skills: ['svg', 'svg-line', 'svg-circle', 'js-modules'],
+    url: '#/slides/v2/lesson44',
   },
 ];
