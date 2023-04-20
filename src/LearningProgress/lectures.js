@@ -500,7 +500,7 @@ export const lectures = [
     items: [
       'Литучка по SVG',
       'Литучка по document.createElement',
-      'Делаем многостраничній сайт',
+      'Делаем SPA',
     ],
     skills: ['svg', 'svg-line', 'svg-circle', 'js-modules'],
     url: '#/slides/v2/lesson44',
