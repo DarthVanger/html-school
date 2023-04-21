@@ -35,8 +35,8 @@ const html = `
           </ol>
         </section>
       </article>
-
   </section>
+
   <section class="pomodoro">
     <h2>Делоем SPA</h2>
 
@@ -66,6 +66,19 @@ const html = `
         </ol>
       </section>
     </article>
+  </section>
+
+  <section class="pomodoro">
+    <h2>Linear Algebra - Basis Vectors</h2>
+    <article>
+      <a href="https://www.youtube.com/watch?v=k7RM-ot2NWY&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=2">
+        Linear combinations, span, and basis vectors | Chapter 2, Essence of linear algebra
+      </a>
+    </article>
+  </section>
+
+  <section class="pomodoro">
+    <h2>Вангеры / World of Goo?</h2>
   </section>
 </div>
 `;

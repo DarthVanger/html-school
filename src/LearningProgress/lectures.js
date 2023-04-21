@@ -501,6 +501,7 @@ export const lectures = [
       'Литучка по SVG',
       'Литучка по document.createElement',
       'Делаем SPA',
+      'Линейная Алгебра - базисные вектора',
     ],
     skills: ['svg', 'svg-line', 'svg-circle', 'js-modules'],
     url: '#/slides/v2/lesson44',
