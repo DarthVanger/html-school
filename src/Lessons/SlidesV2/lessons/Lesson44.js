@@ -80,6 +80,10 @@ const html = `
   <section class="pomodoro">
     <h2>Вангеры / World of Goo?</h2>
   </section>
+
+  <section class="pomodoro">
+    <h2>Экзамен?</h2>
+  </section>
 </div>
 `;
 
