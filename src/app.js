@@ -24,13 +24,20 @@ export const App = () => {
     route: getRouteFromHash(),
   };
 
+  const showPage = (route) => {
+    window.scrollTo(0, 0);
+    render(route);
+  }
+
   if (!state.student) {
+    state.route = '/login';
     showPage('/login');
   }
 
   state.handleLogin = (student) => {
     state.student = student;
-    showPage(state.route);
+    state.route = '/';
+    showPage('/');
   }
 
   const handleHashChange = () => {
@@ -45,12 +52,7 @@ export const App = () => {
 
   window.addEventListener('hashchange', handleHashChange);
 
-  const showPage = (route) => {
-    window.scrollTo(0, 0);
-    render(route);
-  }
-
-  const render = () => {
+  function render () {
     element.innerHTML = '';
     element.append(Navbar(state));
     element.append(Router(state));
