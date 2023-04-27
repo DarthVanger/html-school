@@ -15,7 +15,9 @@ import https from 'https';
 const certsDir = '/etc/letsencrypt/live/napaleon.space';
 
 import express from 'express'
+import cors from 'cors'
 const app = express()
+app.use(cors())
 const isHttp = process.env.http;
 const port = process.env.port || 8080
 
