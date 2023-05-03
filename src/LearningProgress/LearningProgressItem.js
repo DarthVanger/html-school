@@ -12,6 +12,11 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
     <div class="item-text">
         УРОКЕ #${idx + 1}: ${item.text} 
     </div>
+    ${item.poster && `
+      <figure class="figure">
+        <img src="${item.poster}" />
+      </figure>
+    ` || ''}
     <ol class="lesson-items">
       ${item.items.map(lessonItem => `
         <li><span>${lessonItem}</span></li>
