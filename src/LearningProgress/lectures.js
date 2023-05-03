@@ -506,4 +506,15 @@ export const lectures = [
     skills: ['svg', 'svg-line', 'svg-circle', 'js-modules'],
     url: '#/slides/v2/lesson44',
   },
+  {
+    text: "Литучки по createElement, SPA, React. Introduction to Pixi.js",
+    poster: 'img/lessons/lesson45-poster.jpg',
+    items: [
+      'Литучка по document.createElement() / SPA',
+      'Литучка по React',
+      'Introduction to Pixi.js by Johnny',
+    ],
+    skills: ['react', 'spa', 'createElement', 'js-modules'],
+    url: '#/slides/v2/lesson45',
+  },
 ];
