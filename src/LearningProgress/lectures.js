@@ -521,14 +521,14 @@ export const lectures = [
     text: "Алгоритми, ООП, localStorage, Destructuring",
     items: [
       'Стас - підсумок, питання і відповіді по минулим темам',
-      'Літучка c leetcode.com algorythms',
+      'Літучка c leetcode.com algorithms',
       'Новий матеріал - OOП. (Висока складність)',
       'Стас - Головна тема ООП',
       'Обід',
       'Новий матеріал - Local storage',
       'Новий матеріал - Деструктуризація массивов es6',
     ],
-    skills: ['react', 'spa', 'createElement', 'js-modules'],
+    skills: ['js', 'algorithms', 'OOP', 'js-localStorage', 'js-array-destructuring'],
     url: '#/slides/v2/lesson46',
   },
 ];
