@@ -531,4 +531,15 @@ export const lectures = [
     skills: ['js', 'algorithms', 'OOP', 'js-localStorage', 'js-array-destructuring'],
     url: '#/slides/v2/lesson46',
   },
+  {
+    text: "🐀 Крисо-урок  🐀 Масиви і Цикли: готуємо Джона до співбесіди",
+    items: [
+      'Lety4ka: create array of 10 images and show them on the screen',
+      'Lety4ka: create array of 3 words, and print them using loop',
+      'Lety4ka: print word on screen, on click',
+      'Lety4ka: print 10 words using loop (without array)',
+    ],
+    skills: ['array', 'loop', 'while-loop', 'forEach', 'document.body.innerHTML', '+='],
+    url: '#/slides/v2/lesson47',
+  },
 ];
