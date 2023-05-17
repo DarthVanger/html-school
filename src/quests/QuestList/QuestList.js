@@ -5,10 +5,11 @@ import { Topbar } from '../../Topbar.js';
 const element = document.createElement('div');
 element.id = 'main-page';
 export const QuestList = (state) => {
-  element.innerHTML = `
-    ${Topbar({ backUrl: '/#/', surface: 'black' })}
-    ${Story(state)}
-  `;
+  element.append(Topbar({ backUrl: '/#/', surface: 'black' }));
+
+  const storyFragment = document.createDocumentFragment();
+  storyFragment.innerHTML = Story(state);
+  element.append(storyFragment);
 
   element.append(Levels(state));
 
