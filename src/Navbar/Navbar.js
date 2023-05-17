@@ -20,8 +20,6 @@ export const Navbar = () => {
 
   menu.innerHTML = `
     <a href="/#/">Home</a>
-    <a href="/#/chat">Chat</a>
-    <a href="/#/online-log">Online Log</a>
     <div class="group">
       <a href="/#/study" class="group-header">Study</a>
       <a href="/#/homework">Домашка</a>
@@ -32,18 +30,16 @@ export const Navbar = () => {
       <a href="/#/vangers">Вангеры</a>
     </div>
     <div class="group">
-    <a href="/#/materiali" class="group-header">Materiali</a>
-    <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">Словарек</a>
-    <a href="/#/coursework">Курсачи</a>
-    <a href="/#/resume">Резюме</a>
-
+      <a href="/#/materiali" class="group-header">Materiali</a>
+      <a href="https://docs.google.com/document/d/1J89zb6vTpfljXmxV2cEJx522XhNt-hmU/edit#" target="_blank">Словарек</a>
+      <a href="/#/coursework">Курсачи</a>
+      <a href="/#/resume">Резюме</a>
+    </div>
   `;
 
-  console.log('add eventl is');
   menuIcon.addEventListener('click', () => {
     isMenuOpen = !isMenuOpen;
 
-    console.log('isMenuOpen: ', isMenuOpen);
     isMenuOpen && menu.classList.add('open');
     isMenuOpen && menuIcon.classList.add('open');
     !isMenuOpen && menu.classList.remove('open');
