@@ -542,4 +542,16 @@ export const lectures = [
     skills: ['array', 'loop', 'while-loop', 'forEach', 'document.body.innerHTML', '+='],
     url: '#/slides/v2/lesson47',
   },
+  {
+    text: "PIXI JS - Johnny JS",
+    items: [
+      'Pixi.js - знокомство: создаем черный квадрат new PIXI.app()',
+      'Pixi.js - добавляем PIXI.Sprite, т.е. Кортинке',
+      'Pixi.js - Движение Кортинке: добавляем тикер, и sprite.x += 1',
+      'Pixi.js - создаем обьект PIXI.Graphics: круг и прямоульоник (пуля)',
+      'Pixi.js - заставляем пулей убивать кортнике: когда пуля налетела на кортинке - оба исчезают',
+    ],
+    skills: ['pixi', 'pixi-sprite', 'pixi-ticker', 'pixi-graphics', 'collision', 'pixi-destroy'],
+    url: '#/slides/v2/lesson48',
+  },
 ];
