@@ -2,7 +2,7 @@ import { Login } from './Login/Login.js';
 import { HomePage } from './HomePage/HomePage.js';
 import { NotFoundPage } from './NotFoundPage.js';
 import { Skills } from './skills/skills.js';
-import { QuestsPage } from './quests/QuestsPage.js';
+import { QuestList } from './quests/QuestList/QuestList.js';
 import { QuestPage } from './quests/QuestPage.js';
 import { LearningProgress } from './LearningProgress/LearningProgress.js';
 import { Exams } from './Exams/Exams.js';
@@ -41,7 +41,7 @@ export const Router = (state) => {
     case '/lesson-25':
       return Lesson25(state);
     case '/quests':
-      return QuestsPage(state);
+      return QuestList(state);
     case '/katakombi':
       return Katakombi(state);
     case '/progress':

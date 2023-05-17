@@ -4,7 +4,7 @@ import { Topbar } from '../../Topbar.js';
 
 const element = document.createElement('div');
 element.id = 'main-page';
-export const MainPage = (state) => {
+export const QuestList = (state) => {
   element.innerHTML = `
     ${Topbar({ backUrl: '/#/', surface: 'black' })}
     ${Story(state)}

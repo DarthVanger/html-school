@@ -1,4 +1,4 @@
-import { Panel } from '../../quests/MainPage/Panel.js';
+import { Panel } from '../../quests/QuestList/Panel.js';
 
 export const AnswerVariant = ({children, onClick, isSelected, isCorrect, isWrong}) => {
   let id = `answer-variant-${Math.round(Math.random() * 100000)}`

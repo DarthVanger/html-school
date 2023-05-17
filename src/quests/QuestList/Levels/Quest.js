@@ -36,7 +36,6 @@ export const Quest = (props) => {
 
   setTimeout(async () => {
     const completedQuests = await getCompletedQuests({ student: getStudent() });
-    console.log('quest.id:', quest.id);
 
     completions = completedQuests.filter(q => q.id === quest.id);
     lastCompletion = getLastCompletion(completions);
