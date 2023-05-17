@@ -1,4 +1,3 @@
-import * as socket from '../socket.js';
 import { levels } from './levels/levels.js';
 
 export const getStudLevelNum = (studState) => {
@@ -13,60 +12,6 @@ export const KataRating = ({ state, catacombsState }) => {
   element.style.gridTemplateColumns = `repeat(${Object.keys(catacombsState).length + 1}, 1fr)`;
 
   const studLvlNum = getStudLevelNum(catacombsState[state.student]);
-
-  let onlineStudentsMap = {};
-
-  const handleOnlineStudents = (payload) => {
-    console.debug('handleOnlineStudents: ', payload);
-    onlineStudentsMap = payload;
-    const avas = document.querySelectorAll('.student-ava');
-    avas.forEach(ava => {
-      const stud = ava.getAttribute('data-student');
-      const lastOnlineDate = new Date(onlineStudentsMap[stud]);
-      const now = new Date();
-      const timePast = now.getTime() - lastOnlineDate.getTime();
-      const pingInterval = 5000;
-      const isOnline = timePast <= pingInterval;
-      if (isOnline) {
-        ava.classList.add('online');
-      } else {
-        ava.classList.remove('online');
-      }
-
-      const localeOptions = {
-        era: 'long',
-        month: 'long',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-      };
-
-      const figcap = ava.querySelector('figcaption');
-
-      const neverOnline = lastOnlineDate.getTime() === 0;
-
-      if (neverOnline) {
-        figcap.innerHTML = `
-          Last Online: Never
-        `;
-      } else {
-        figcap.innerHTML = `
-          Last Online<br>${lastOnlineDate.toLocaleDateString('en-US', localeOptions)}
-        `;
-      }
-
-      if (isOnline) {
-        figcap.innerHTML = `
-          Is Online Now!
-        `;
-      }
-    });
-  };
-
-  setTimeout(() => {
-    socket.addHandler('online_students', handleOnlineStudents);
-    handleOnlineStudents(socket.getOnlineStudents());
-  });
 
   let lvlIdx = 0;
   for (let level of levels) {

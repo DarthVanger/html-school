@@ -21,8 +21,6 @@ import { SlidesV2 } from './Lessons/SlidesV2/SlidesV2.js';
 import { Vangers } from './Vangers/Vangers.js';
 import { Study } from './Study/Study.js';
 import { Materiali } from './Materiali/Materiali.js';
-import { Chat } from './Chat/Chat.js';
-import { OnlineLog } from './OnlineStudents/OnlineLog.js';
 
 export const Router = (state) => {
   console.info('Router: route: ', state.route);
@@ -32,14 +30,10 @@ export const Router = (state) => {
       return HomePage(state);
     case '/login':
       return Login(state);
-    case '/chat':
-      return Chat(state);
     case '/study':
       return Study(state);
     case '/materiali':
       return Materiali(state);
-    case '/online-log':
-      return OnlineLog(state);
     case '/skills':
       return Skills(state);
     case '/raznoe/3d':

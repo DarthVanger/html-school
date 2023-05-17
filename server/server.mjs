@@ -7,7 +7,6 @@ import { questApi } from './questApi.js';
 import { catacombsApi } from './catacombsApi.js';
 import { chatApi } from './chatApi.js';
 import { experienceApi } from './experience/experienceApi.js';
-import { socket, initSocket } from './socket/socket.js';
 
 import fs from 'fs';
 import http from 'http';
@@ -33,7 +32,6 @@ app.use(express.json());
 
 const runApp = async () => {
   await loadDb();
-  await initSocket();
   if (!db.data) db.data = {};
   console.log('Db loaded');
 
@@ -60,14 +58,6 @@ const runApp = async () => {
     server = http.createServer(app);
     server.listen(port);
   }
-
-  // Enable WebSockets
-  // https://masteringjs.io/tutorials/express/websockets
-  server.on('upgrade', (request, ws, head) => {
-    socket.handleUpgrade(request, ws, head, ws => {
-      socket.emit('connection', ws, request);
-    });
-  });
 };
 
 app.get('/tree', (req, res) => {

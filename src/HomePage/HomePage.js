@@ -2,7 +2,6 @@ import { AvatarCorner } from './AvatarCorner/AvatarCorner.js';
 import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
 import { Novoe } from './Novoe/Novoe.js';
-import { OnlineStudents } from '../OnlineStudents/OnlineStudents.js';
 import { AddToHomeScreen } from './AddToHomeScreen/AddToHomeScreen.js';
 
 export const HomePage = (state) => {
@@ -18,7 +17,6 @@ export const HomePage = (state) => {
   `;
 
   element.append(Novoe(state));
-  element.append(OnlineStudents(state));
   //element.append(Doska(state));
   element.append(Profile(state));
 
