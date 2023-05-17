@@ -37,6 +37,7 @@ export const App = () => {
   state.handleLogin = (student) => {
     state.student = student;
     state.route = '/';
+    setStudent(student);
     showPage('/');
   }
 
