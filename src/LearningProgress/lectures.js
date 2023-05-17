@@ -543,15 +543,15 @@ export const lectures = [
     url: '#/slides/v2/lesson47',
   },
   {
-    text: "PIXI JS - Johnny JS",
+    text: "OOP, Array filter, anonymous functions, async/await",
     items: [
-      'Pixi.js - знокомство: создаем черный квадрат new PIXI.app()',
-      'Pixi.js - добавляем PIXI.Sprite, т.е. Кортинке',
-      'Pixi.js - Движение Кортинке: добавляем тикер, и sprite.x += 1',
-      'Pixi.js - создаем обьект PIXI.Graphics: круг и прямоульоник (пуля)',
-      'Pixi.js - заставляем пулей убивать кортнике: когда пуля налетела на кортинке - оба исчезают',
+      'Литучка ООП',
+      'Array filter',
+      'Anonymous functions',
+      'Async/await (fetch)',
+      'Функция как свойство обьекта',
     ],
-    skills: ['pixi', 'pixi-sprite', 'pixi-ticker', 'pixi-graphics', 'collision', 'pixi-destroy'],
+    skills: ['array', 'array-filter', 'anon-function', 'async/await', 'object-function'],
     url: '#/slides/v2/lesson48',
   },
 ];
