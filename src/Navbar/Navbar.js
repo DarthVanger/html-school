@@ -8,11 +8,11 @@ export const Navbar = () => {
   menuIcon.id = 'menu-icon';
 
   menuIcon.innerHTML = `
-   <label>
-      <span></span>
-      <span></span>
-      <span></span>
+    <input type="checkbox" id="navi-toggle" class="checkbox" />
+    <label for="navi-toggle" class="button">
+      <span class="icon">&nbsp;</span>
     </label>
+    <div class="background">&nbsp;</div>
   `;
 
   const menu = document.createElement('div');
