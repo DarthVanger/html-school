@@ -4,14 +4,13 @@ export const migration_01 = async () => {
   const students = [
     'napaleon',
     'johnny',
+    'xelga',
+    'lpsayko',
+    'TinaDenysiuk',
     'tony',
     'dimon',
     'mister-smith',
     'valik_h',
-    'mazerTim',
-    'russi4',
-    'alex',
-    'yrtz',
     'other-species',
   ];
 
