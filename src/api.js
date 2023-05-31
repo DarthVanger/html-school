@@ -11,3 +11,8 @@ export const getExperience = () => {
   return fetch(`/experience`)
     .then(r => r.json());
 };
+
+export const getStudents = () => {
+  return fetch(`/students`)
+    .then(r => r.json());
+}

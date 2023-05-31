@@ -1,64 +1,47 @@
+import { getStudents } from '../api.js';
+
 export const Login = ({ handleLogin }) => {
   const element = document.createElement('div');
   element.id = 'login';
+
+  getStudents().then(handleStudentsFetch);
 
   const close = () => {
     element.remove();
   };
 
   const form = document.createElement('form');
-  form.innerHTML = `
-    <label>
-      <input type="radio" name="student" value="other-species">
-      <span>Иной вид Существа</span>
-    </label>
 
-    <label>
-      <input type="radio" name="student" value="johnny"/>
-      <span>Johnny</span>
-    </label>
+  element.innerHTML = `Loading students...`;
 
-    <label>
-      <input type="radio" name="student" value="tony">
-      <span>Tony</span>
-    </label>
+  function handleStudentsFetch(students) {
+    console.log('students: ', students);
 
-    <label>
-      <input type="radio" name="student" value="dimon">
-      <span>Morphem</span>
-    </label>
+    element.innerHTML = `
+      <h1>Кто ты, Сущность?</h1>
+      <img src="src/HomePage/img/tardigrade.jpeg" />
+    `;
 
-    <label>
-      <input type="radio" name="student" value="mister-smith">
-      <span>Mister Smith</span>
-    </label>
-
-    <label>
-      <input type="radio" name="student" value="valik_h">
-      <span>valik_h</span>
-    </label>
-
-    <label>
-      <input type="radio" name="student" value="napaleon">
-      <span>Napaleon</span>
-    </label>
-  `;
-
-  const radios = form.querySelectorAll('input[name="student"]');
-  radios.forEach(radio => {
-    radio.addEventListener('change', (e) => {
-      const student = radio.value;
-      handleLogin(student);
-      close();
+    students.forEach(student => {
+      form.innerHTML += `
+        <label>
+          <input type="radio" name="student" value="${student}">
+          <span>${student}</span>
+        </label>
+      `;
     });
-  });
 
-  element.innerHTML = `
-    <h1>Кто ты, Сущность?</h1>
-    <img src="src/HomePage/img/tardigrade.jpeg" />
-  `;
+    element.append(form);
 
-  element.append(form);
+    const radios = form.querySelectorAll('input[name="student"]');
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const student = radio.value;
+        handleLogin(student);
+        close();
+      });
+    });
+  }
 
   return element;
 };
