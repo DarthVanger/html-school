@@ -37,7 +37,8 @@ export const Navbar = () => {
     </div>
   `;
 
-  menuIcon.addEventListener('click', () => {
+  menuIcon.addEventListener('click', (e) => {
+    if (e.target.tagName == "LABEL") return;
     isMenuOpen = !isMenuOpen;
 
     isMenuOpen && menu.classList.add('open');
