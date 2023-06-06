@@ -1,4 +1,4 @@
-import { Homework47 } from '../../Homework/homeworks/Homework47.js';
+import { Homework49 } from '../../Homework/homeworks/Homework49.js';
 
 export const Novoe = () => {
   const element = document.createElement('div');
@@ -7,7 +7,7 @@ export const Novoe = () => {
   element.innerHTML = `
     <h2 class="h2">Novoe</h2>
 
-    ${Homework47()}
+    ${Homework49()}
   `;
 
   return element;
