@@ -564,4 +564,15 @@ export const lectures = [
     ],
     skills: ['functions', 'break', 'nested-object', 'loop-break', 'loop-continue', 'refactoring'],
   },
+  {
+    text: "functions, objects, exam 2, chrome extensions",
+    items: [
+      'function as object property',
+      'передача вкладеного об\'єкта як параметр функції',
+      'Exam #2',
+      'Chrome Extensions',
+    ],
+    skills: ['function', 'object', 'chrome-extension'],
+    url: '#/slides/v2/lesson50',
+  },
 ];
