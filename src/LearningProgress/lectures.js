@@ -554,4 +554,14 @@ export const lectures = [
     skills: ['array', 'array-filter', 'anon-function', 'async/await', 'object-function'],
     url: '#/slides/v2/lesson48',
   },
+  {
+    text: "Return, object inside object. Refactoring",
+    items: [
+      'Return',
+      'break, continue',
+      'object inside object',
+      'Refactoring ghost-of-kyiv',
+    ],
+    skills: ['functions', 'break', 'nested-object', 'loop-break', 'loop-continue', 'refactoring'],
+  },
 ];
