@@ -56,7 +56,7 @@ const html = `
                <li>Browser Rendering Engine</li>
                <li>Browser</li>
                <li>Server</li>
-               <li>Database</li>
+               <li>Filesystem</li>
              </ol>
              <li>Уявіть що ви - Інторенет!</li>
            </ol>
@@ -100,10 +100,26 @@ const html = `
          <section class="content">
            <figure>
              <figcaption>
-               Структура ХТТП РЕквесту. Погнали писати реквести! :)
+               Структура ХТТП РЕквесту.
              </figcaption>
              <img src="/img/lesson53/http-request-structure.jpeg" />
            </figure>
+         </section>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>
+                Робимо ХТТП Запит через <code>curl</code> - у Терміналі
+            </h2>
+            <p>
+              <pre></code>
+                curl -v google.com
+              </code></pre>
+              <p>
+                Виписуєм ХТТП запит на листочок
+              </p>
+            </p>
          </section>
        </article>
 
@@ -122,11 +138,115 @@ const html = `
          <section class="content">
            <figure>
              <figcaption>
-               ХТТП РЕСПОНСЕ - Стуректура. Погнали писати )
+               ХТТП РЕСПОНСЕ - Стуректура.
              </figcaption>
              <img src="/img/lesson53/http-request-response.jpeg" />
            </figure>
          </section>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>
+                Робимо ХТТП Запит через <code>curl</code> - у Терміналі
+            </h2>
+            <p>
+              <pre></code>
+                curl -v google.com
+              </code></pre>
+              <p>
+                Виписуєм ХТТП RESPONSE на листочок
+              </p>
+            </p>
+         </section>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>
+              Граємся - робимо по 5-100 запитів і відповідей
+            </h2>
+         </section>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>
+                Робимо ХТТП Запит через <code>javascript</code> - у Консолі напалеон.спайс
+            </h2>
+            <p>
+              <pre></code>
+                response = await fetch('/')
+                console.log(response.status)
+              </code></pre>
+              <p>
+                Смотрим єтот запрос в Network вкладке
+              </p>
+            </p>
+         </section>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>
+                Робимо ХТТП Запит через <code>javascript</code> - у Консолі напалеон.спайс
+            </h2>
+            <p>
+              <pre></code>
+                response = await fetch('/ni4ogo')
+                console.log(response.status)
+              </code></pre>
+              <p>
+                Смотрим єтот запрос в Network вкладке
+              </p>
+            </p>
+         </section>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>POST запит - через <code>curl</code></h2>
+            <p>
+              <pre></code>
+                 curl -X POST https://reqbin.com/echo/post/json \\
+                  -H 'Content-Type: application/json' \\
+                  -d '{"login":"my_login","password":"my_password"}'
+              </code></pre>
+            </p>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>POST запит - через <code>JS</code></h2>
+            <p>
+              <pre></code>
+                response = await fetch('https://reqbin.com/echo/post/json', { 
+                  method: 'POST',
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    login: "my_login",
+                    password: "my_password"
+                  }),
+                })
+
+                responseData = await response.json()
+
+                console.log('responseData:', responseData)
+
+                console.log('response status:', response.status)
+              </code></pre>
+            </p>
+       </article>
+
+       <article>
+         <section class="content">
+            <h2>ВСЕ.</h2>
+            <p>
+              Все.
+            </p>
+          </section>
        </article>
     </section>
 
