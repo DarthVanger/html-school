@@ -565,14 +565,44 @@ export const lectures = [
     skills: ['functions', 'break', 'nested-object', 'loop-break', 'loop-continue', 'refactoring'],
   },
   {
-    text: "functions, objects, exam 2, chrome extensions",
+    text: "functions, objects",
     items: [
       'function as object property',
       'передача вкладеного об\'єкта як параметр функції',
-      'Exam #2',
-      'Chrome Extensions',
     ],
-    skills: ['function', 'object', 'chrome-extension'],
+    skills: ['function', 'object'],
     url: '#/slides/v2/lesson50',
+  },
+  {
+    text: "Recursion",
+    items: [
+      'Recursion: доповідь від Тіни',
+      'Recursion: практика',
+    ],
+    skills: ['recursion'],
+  },
+  {
+    text: "Bots, chrome extensions",
+    items: [
+      'Інструмент для автоматизації "Bus" - доповідь від Вані',
+      'puppeteer',
+      'chrome extensions: popup script',
+      'chrome extensions: content script',
+    ],
+    skills: ['puppeteer', 'chrome-extension'],
+  },
+  {
+    text: "HTTP requests, getters and setters, how browser works, charts, SOLID, figma",
+    items: [
+      'Lety4ka: chrome extension',
+      'Тіна: що відбувається коли вводимо URL у бравзер',
+      'Napaleon: HTTP requests: the Internet Game',
+      'Ваня: getters and setters',
+      'Napaleon: charts',
+      'Dimon: Figma',
+      'Napaleon: SOLID',
+    ],
+    skills: ['chrome-extension', 'http', 'class-get-set', 'chart', 'figma', 'solid'],
+    url: '#/slides/v2/lesson53',
   },
 ];
