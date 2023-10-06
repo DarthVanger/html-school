@@ -605,4 +605,12 @@ export const lectures = [
     skills: ['chrome-extension', 'http', 'class-get-set', 'chart', 'figma', 'solid'],
     url: '#/slides/v2/lesson53',
   },
+  {
+    text: "HTTP requests",
+    items: [
+      'Lety4ka: http requests',
+    ],
+    skills: ['http'],
+    url: '#/slides/v2/lesson54',
+  },
 ];
