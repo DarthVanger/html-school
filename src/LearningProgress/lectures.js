@@ -599,18 +599,39 @@ export const lectures = [
       'Napaleon: HTTP requests: the Internet Game',
       'Ваня: getters and setters',
       'Napaleon: charts',
-      'Dimon: Figma',
-      'Napaleon: SOLID',
     ],
     skills: ['chrome-extension', 'http', 'class-get-set', 'chart', 'figma', 'solid'],
     url: '#/slides/v2/lesson53',
   },
   {
-    text: "HTTP requests",
+    text: "HTTP requests, async/await, promise",
     items: [
+      'Lety4ka: chrome extension',
+      'Тіна: callbacks, promises, async/await',
       'Lety4ka: http requests',
     ],
-    skills: ['http'],
+    skills: ['http', 'async/await', 'promise', 'chrome-extension'],
     url: '#/slides/v2/lesson54',
+  },
+  {
+    text: "POST http requests",
+    items: [
+      'Napaleon: SOLID',
+      'Tina: import/export: js modules',
+      'Napaleon: POST HTTP requests: server + front',
+    ],
+    skills: ['http', 'fetch', 'async/await', 'server', 'express', 'filesystem'],
+  },
+  {
+    text: "Creating CMS: server + front",
+    items: [
+      'Lety4ka: fetch',
+      'Lety4ka: filesystem',
+      'Lety4ka: express',
+      'Internet game',
+      'Hellgamer: REST',
+    ],
+    skills: ['http', 'fetch', 'async/await', 'server', 'express', 'filesystem', 'rest'],
+    url: '#/slides/v2/lesson56',
   },
 ];
