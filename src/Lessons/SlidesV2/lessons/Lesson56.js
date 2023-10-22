@@ -20,6 +20,13 @@ const html = `
     </section>
 
     <section class="pomodoro">
+      <h2>Exam #2</h2>
+      <article>
+        ${Lety4ka()}
+      </article>
+    </section>
+
+    <section class="pomodoro">
       <h2>Lety4ka: fetch</h2>
       <article>
         ${Lety4ka()}
