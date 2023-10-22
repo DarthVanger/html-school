@@ -6,6 +6,7 @@ export const Exam2 = () => {
   const contentEl = document.createElement('div');
 
   element.append(Topbar({ backUrl: '/#/exam' }));
+  contentEl.className = 'exam2-content'
 
   const questions = [
     {
@@ -122,6 +123,79 @@ export const Exam2 = () => {
       question: 'Чему равен z?',
       answer: /['"]?100px3.14['"]?/,
     },
+    {
+      code: `
+      let x = 100;
+      let y = x + 'px';
+      let w = y + x - y * 2;
+      `,
+      question : 'Чему равен z?',
+      answer: /undefined/,
+    },
+    {
+      code: `
+      let x = Infinity;
+      let a = x - 999999;
+      `,
+      question : 'Чему равен a?',
+      answer: /Infinity/,
+    },
+    {
+      code : `
+      let x = 3/0;
+      `,
+      question : 'Чему равен x?',
+      answer: /Infinity/,
+    },
+    {
+      code: `
+      function IWallet(x) {
+        let food = 'less' + x + ' food';
+        const life = 'live' 
+        return null 
+      }
+      const salary = IWallet('money');
+      `,
+      question : 'Чему равна твоя зарплата(salary)?',
+      answer: /null/,
+    },
+    {
+      code : `
+      let choise;
+      if(choise) {
+        choise = 'Нужно учиться';
+      } else {
+        choise = 'Пукать в диван';
+      }
+      choise === 'Пукать в диван';
+      `,
+      question : 'Наш выбор(choise) правильный?',
+      answer : /true/,
+    },
+    {
+      code: `
+      let boolean = true;
+      boolean !== false
+      `,
+      question : 'Чему равен boolean?',
+      answer : /true/,
+    },
+    {
+      code: `
+      let me = 'money';
+      function motherGive(it) {
+        let buyDrugs = it;
+        if(it === 'bread') {
+          return 'More money'
+        } else {
+        return 'Pizdi' && true
+        }
+        }
+        console.log(motherGive(me))
+      `,
+      question : 'Что мы получим от матери в консоль?',
+      answer : /true/,
+    },
   ];
 
   contentEl.innerHTML = `
@@ -130,6 +204,7 @@ export const Exam2 = () => {
 
   questions.forEach((q) => {
     const questionEl = document.createElement('div');
+    questionEl.className = 'questionElExam2'
 
     const questionTextEl = document.createElement('h3');
     questionTextEl.innerHTML = `Question: ${q.question}`;
@@ -146,6 +221,7 @@ export const Exam2 = () => {
     const answerStatusEl = document.createElement('div');
     answerStatusEl.innerHTML = 'Not answered yet';
     questionEl.append(answerStatusEl);
+    answerStatusEl.className = 'answerStatusExam2El';
 
     answerInput.addEventListener('input', () => {
       const answer = answerInput.value;
@@ -153,9 +229,11 @@ export const Exam2 = () => {
       if (isAnswerCorrect) {
         answerStatusEl.innerHTML = 'Answer is Correct!';
         answerStatusEl.style.border = 'solid green 2px';
+        questionEl.classList.add('exam2-correct-answer')
       } else {
         answerStatusEl.innerHTML = 'Answer is INCORRECT!';
         answerStatusEl.style.border = 'solid red 2px';
+        questionEl.classList.remove('exam2-correct-answer')
       }
     });
 
