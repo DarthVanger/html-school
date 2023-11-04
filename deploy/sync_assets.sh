@@ -1,2 +1,2 @@
-rsync -a video/ root@159.223.238.99:/root/html-school/video/
-rsync -a sounds/ root@159.223.238.99:/root/html-school/sounds/
+rsync -a video/ root@142.93.238.74:/root/html-school/video/
+rsync -a sounds/ root@142.93.238.74:/root/html-school/sounds/
