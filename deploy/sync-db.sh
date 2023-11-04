@@ -7,4 +7,4 @@ backup_folder="backup/$date"
 mkdir -p backup_folder
 mv "$local_path" "$backup_folder"
 
-scp root@159.223.238.99:$server_path "$local_path"
+scp root@142.93.238.74:$server_path "$local_path"
