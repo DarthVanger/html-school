@@ -1,4 +1,5 @@
 @import './AvatarCorner/AvatarCorner.css';
+@import './Students/StudentCard.css';
 
 #home-page {
   box-sizing: border-box;
