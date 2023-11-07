@@ -1,0 +1,37 @@
+import { Profile } from '../../Profile/Profile.js';
+import { StudentCard } from './StudentCard.js';
+
+export const Students = (state) => {
+  console.log('state: ', state);
+    console.log('state.students: ', state.students);
+  const element = document.createElement('article');
+  element.id = 'students';
+  
+  element.innerHTML = `
+    <h2 class="h2">Членомерка</h2>
+  `;
+
+  element.append(Profile(state));
+
+  state.isProfileLoading = true;
+  fetch('/tree')
+    .then(r => r.json())
+    .then(r => {
+      state.isProfileLoading = false;
+      state.skills = r.skills;
+      state.levels = r.levels;
+      state.points = r.points;
+      state.categoryLevels = r.categoryLevels;
+      state.lecturePoints = r.lecturePoints;
+      state.questPoints = r.questPoints;
+      state.codeAcademy = r.codeAcademy;
+      state.students = r.students;
+
+      for (const student of state.students) {
+        element.append(StudentCard({ ...state, student }));
+        element.append(Profile({ ...state, student }));
+      }
+    });
+
+  return element;
+};

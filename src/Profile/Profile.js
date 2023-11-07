@@ -5,6 +5,8 @@ export const Profile = (state) => {
   const element = document.createElement('div');
   element.id = 'profile';
 
+  element.innerHTML = 'Loading...';
+
   state.isProfileLoading = true;
   fetch('/tree')
     .then(r => r.json())
@@ -19,20 +21,8 @@ export const Profile = (state) => {
       state.codeAcademy = r.codeAcademy;
       state.students = r.students;
 
-      element.innerHTML = render();
+      element.innerHTML = state.isLoading ? 'Loading...' : SvgProfile(state);
     });
-
-  function render() {
-    return `
-      ${state.isProfileLoading ? 'Loading...' : SvgProfile(state)}
-    `;
-  }
-
-  element.innerHTML = `
-    <div id="profile">
-      ${render()}
-    </div>
-  `;
 
   return element;
 };
