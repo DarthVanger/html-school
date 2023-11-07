@@ -1,5 +1,6 @@
 import { Profile } from '../../Profile/Profile.js';
 import { StudentCard } from './StudentCard.js';
+import { calculateCodeAcademyPoints } from '../../stats.js';
 
 export const Students = (state) => {
   console.log('state: ', state);
@@ -24,14 +25,13 @@ export const Students = (state) => {
       state.questPoints = r.questPoints;
       state.codeAcademy = r.codeAcademy;
       state.students = r.students;
+      state.codeAcademyPoints = calculateCodeAcademyPoints(state);
 
-
-
-      const activeStudents = [
+      state.activeStudents = [
         'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk',
       ];
 
-      for (const student of activeStudents) {
+      for (const student of state.activeStudents) {
         element.append(StudentCard({ ...state, student }));
         element.append(Profile({ ...state, student }));
       }

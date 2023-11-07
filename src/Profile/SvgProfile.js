@@ -2,17 +2,6 @@ import { cyberProfile } from './cyberProfile.js';
 import { saveCodeAcademy } from './api.js';
 
 export const SvgProfile = (state) => {
-  const calculateCodeAcademyPoints = () => {
-    if (!state.codeAcademy[state.student]) {
-      return 0;
-    }
-    return state.codeAcademy[state.student].reverse()[0].points;
-  }
-
-  const localState = {
-    codeAcademyPoints: calculateCodeAcademyPoints(),
-  };
-
   const height = 296 * 4;
   const width = 526 * 4;
   const x = 0;
@@ -165,60 +154,8 @@ export const SvgProfile = (state) => {
   }
 
   function calcExp() {
-    return state.points[state.student] + localState.codeAcademyPoints;
+    return state.points[state.student]
   }
-
-  function plusCodeAcademy() {
-    const student = state.student;
-    const points = ++localState.codeAcademyPoints;
-    recomputeExp();
-  }
-
-  function minusCodeAcademy() {
-    const student = state.student;
-    if (localState.codeAcademyPoints <= 1 ) {
-      return;
-    }
-    const points = --localState.codeAcademyPoints;
-    recomputeExp();
-  }
-
-  let isCodeAcademySelected = false;
-
-  function keyupListener(e) {
-    if (e.key == 'p') {
-      plusCodeAcademy();
-    }
-    if (e.key == 'm') {
-      minusCodeAcademy();
-    }
-  }
-
-  function handleCodeAcademyClick(e) {
-
-    if (!isCodeAcademySelected) {
-      isCodeAcademySelected = true;
-      getSvg().classList.add('selected');
-      document.addEventListener('keyup', keyupListener);
-    } else {
-      isCodeAcademySelected = false;
-      document.removeEventListener('keyup', keyupListener, false);
-      getSvg().classList.remove('selected');
-      saveCodeAcademy({ student: state.student, points: localState.codeAcademyPoints });
-    }
-  }
-
-  function recomputeExp() {
-    getCodeAcademyNumberText().textContent = localState.codeAcademyPoints;
-    getExperienceNumberText().textContent = calcExp();
-    getLevelNumberText().textContent = calcLevel();
-  };
-
-  setTimeout(() => {
-    [getCodeAcademyText(), getCodeAcademyNumberText()].forEach(el => {
-      el.addEventListener('click', handleCodeAcademyClick);
-    });
-  });
 
   return `
     <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
@@ -285,7 +222,7 @@ export const SvgProfile = (state) => {
       </text>
 
       <text id="codecademy" dominant-baseline="middle" text-anchor="middle" id="repeats-number-text" x="${nothingNumberText.x}" y="${nothingNumberText.y}">
-      ${localState.codeAcademyPoints}
+      ${state.codeAcademyPoints}
       </text>
     </svg>
   `;
