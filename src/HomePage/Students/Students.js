@@ -11,8 +11,6 @@ export const Students = (state) => {
     <h2 class="h2">Членомерка</h2>
   `;
 
-  element.append(Profile(state));
-
   state.isProfileLoading = true;
   fetch('/tree')
     .then(r => r.json())
@@ -27,7 +25,13 @@ export const Students = (state) => {
       state.codeAcademy = r.codeAcademy;
       state.students = r.students;
 
-      for (const student of state.students) {
+
+
+      const activeStudents = [
+        'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk',
+      ];
+
+      for (const student of activeStudents) {
         element.append(StudentCard({ ...state, student }));
         element.append(Profile({ ...state, student }));
       }
