@@ -1,5 +1,5 @@
 import { Topbar } from '../../Topbar.js';
-import { ImportExportQuestion } from './questions/ImportExportQuestion.js';
+import { Question } from './Question.js';
 
 export const Exam3 = () => {
   const element = document.createElement('div');
@@ -9,7 +9,11 @@ export const Exam3 = () => {
   element.append(Topbar({ backUrl: '/#/exam' }));
 
   const questions = [
-    ImportExportQuestion(),
+    Question({
+      title: 'Import/Export',
+      theory: 'Describe the mechanism of import/export in javascript. What is a javascript module?',
+      task: 'Create html file, add a script tag with src="app.js", and inside "app.js" import 2 other JS files',
+    })
   ];
 
   contentEl.innerHTML = `
