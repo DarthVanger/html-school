@@ -1,8 +1,8 @@
 @import './question.css';
 
 .exam3-question {
-  width: 300px;
-  height: 200px;
+  width: 650px;
+  height: 400px;
   position: relative;
 }
 
@@ -16,6 +16,7 @@
 
 .exam3-question-back {
   background: url('/img/exam3/hell-fire.gif');
+  background-size: cover;
 }
 
 .exam3-question:hover .exam3-question-back {
