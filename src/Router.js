@@ -8,6 +8,7 @@ import { LearningProgress } from './LearningProgress/LearningProgress.js';
 import { Exams } from './Exams/Exams.js';
 import { Exam1 } from './Exams/Exam1/Exam1.js';
 import { Exam2 } from './Exams/Exam2/Exam2.js';
+import { Exam3 } from './Exams/Exam3/Exam3.js';
 import { ExpectationReality } from './Raznoe/ExpectationReality/ExpectationReality.js';
 import { NeuralArt } from './NeuralArt/NeuralArt.js';
 import { Resume } from './Resume/Resume.js';
@@ -52,6 +53,8 @@ export const Router = (state) => {
       return Exam1(state);
     case '/exam/2':
       return Exam2(state);
+    case '/exam/3':
+      return Exam3(state);
     case '/expectation-reality':
       return ExpectationReality(state);
     case '/neural-art':

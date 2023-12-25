@@ -13,6 +13,7 @@ export const Exams = () => {
     <ol>
       <li><a href="/#/exam/1">Exam #1</a></li>
       <li><a href="/#/exam/2">Exam #2</a></li>
+      <li><a href="/#/exam/3">Exam #3 - Другий Курс</a></li>
     </ol>
   `;
 
