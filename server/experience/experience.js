@@ -14,7 +14,6 @@ import { lectureStats } from '../db/lectureStats.js';
 export const expByStudent = () => {
   const students = db.data?.students;
   const exp = {};
-  const allLecturePoints = getAllLecturePoints();
   for (let student of students) {
     exp[student] = {
       lectures: getLecturePointsByStudent(student),
@@ -100,48 +99,3 @@ const getPoints = ({ student, skill }) => (
   getLecturePoints({ student, skill})
   + getQuestPoints({ student, skill})
 );
-
-export const getStats = () => {
-  const { students, skills } = db.data;
-  const points = {};
-  const levels = {};
-  const categoryLevels = {};
-
-  for (let student of students) {
-    points[student] = 0;
-    levels[student] = 0;
-  }
-
-  for (let category in skills) {
-    let categoryLevel = {};
-    categoryLevels[category] = {};
-    for (let student of students) {
-      categoryLevel[student] = 0;
-    }
-    for (let branch of skills[category]) {
-      for (let skill of branch) {
-        for (let student of students) {
-          categoryLevel[student] += getPoints({ student, skill});
-        }
-      }
-    }
-    skills[category].level = categoryLevel;
-    categoryLevels[category].level = categoryLevel;
-  }
-
-  for (let student of students) {
-    for (let category in skills) {
-      points[student] += skills[category].level[student];
-    }
-  }
-
-  for (let student of students) {
-    //points[student] = Math.round(points[student] / 10);
-    levels[student] = Math.floor(points[student] / 10);
-  }
-
-  const lecturePoints = getAllLecturePoints();
-  const questPoints = db.data.quests;
-
-  return { points, levels, categoryLevels, lecturePoints, questPoints };
-};
