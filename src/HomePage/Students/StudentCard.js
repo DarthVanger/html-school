@@ -28,12 +28,19 @@ export const StudentCard = (state) => {
   const avatarRow = document.createElement('div');
   avatarRow.className = 'avatar-row';
 
+  const showExperienceHistoryButton = document.createElement('button');
+  showExperienceHistoryButton.type = 'button';
+  showExperienceHistoryButton.innerText = 'Show experience history';
+  showExperienceHistoryButton.addEventListener('click', () => {
+    element.append(ExperienceHistory({ ...state, student }));
+  });
+
   function render() {
     element.innerHTML = '';
     avatarRow.append(avatarElement);
     avatarRow.append(StatsBarChart({ ...state, student }));
     element.append(avatarRow);
-    element.append(ExperienceHistory({ ...state, student }));
+    element.append(showExperienceHistoryButton);
   }
 
   function handleAvatarClick() {

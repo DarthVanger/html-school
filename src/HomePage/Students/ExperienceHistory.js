@@ -9,6 +9,10 @@ export const ExperienceHistory = (state) => {
   fetch(`/experience/${student}/history`)
     .then((r) => r.json())
     .then(history => {
+      if (!history) {
+        element.innerHTML += `Нема історії`
+      }
+
       for (const category in history) {
         const categoryElement = document.createElement('div');
         categoryElement.innerText = category;

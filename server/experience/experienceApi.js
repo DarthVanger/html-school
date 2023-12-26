@@ -13,7 +13,7 @@ export const experienceApi = ({app, db}) => {
     if (!student) {
       res.status(400).send('no student passed in URL');
     }
-    const hist = db.data.experience[student]
+    const hist = db.data?.experience?.[student] || null;
     console.log('hist: ', hist);
     res.json(hist);
   });
