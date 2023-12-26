@@ -25,6 +25,7 @@ export const expByStudent = () => {
 
     exp[student].lectures = (exp[student].lectures || 0) + getLecturePointsByStudent(student);
     exp[student].homework = (exp[student].homework || 0) + getHomeworkPointsByStudent(student);
+    exp[student].katakombi = (exp[student].katakombi || 0) + getKatakombiPointsByStudent(student);
   };
 
   return exp;
@@ -50,6 +51,14 @@ const getLecturePoints = ({ student, skill }) => {
   const points = allPoints[student][skill.id] || 0;
   return points;
 };
+
+const getKatakombiPointsByStudent = (student) => {
+    const catacomsData = db.data.catacombs?.[student];
+    if (!catacomsData) return 0;
+    const compeltedCatacombs = Object.values(catacomsData).filter(katakomba => katakomba.isComplete);
+
+    return compeltedCatacombs.length * 2;
+}
 
 /**
  * Get how many homework (quest) points in total a student has.
