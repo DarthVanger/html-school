@@ -1,13 +1,18 @@
 @import './question.css';
 
+#exam3-questions-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2em;
+}
+
 .exam3-question {
   width: 650px;
-  height: 400px;
   position: relative;
 }
 
-.exam3-question-back,
-.exam3-question-front {
+.exam3-question-back {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   width: 100%;
@@ -19,17 +24,23 @@
   background-size: cover;
 }
 
+.exam3-question .exam3-question-back {
+  transition: transform 1s ease-out;
+}
+
 .exam3-question:hover .exam3-question-back {
   transform: rotateY(-90deg);
-  transition: transform 1s;
 }
 
 .exam3-question-front {
   transform: rotateY(90deg);
+  padding: 1em;
+}
+
+.exam3-question .exam3-question-front {
+  transition: transform 1s ease-in;
 }
 
 .exam3-question:hover .exam3-question-front {
   transform: rotateY(0);
-  transition: transform 1s;
-  transition-delay: 1s;
 }
