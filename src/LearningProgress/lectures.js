@@ -593,6 +593,7 @@ export const lectures = [
   },
   {
     text: "HTTP requests, getters and setters, how browser works, charts, SOLID, figma",
+    date: "2023-10-01",
     items: [
       'Lety4ka: chrome extension',
       'Тіна: що відбувається коли вводимо URL у бравзер',
@@ -602,6 +603,12 @@ export const lectures = [
     ],
     skills: ['chrome-extension', 'http', 'class-get-set', 'chart', 'figma', 'solid'],
     url: '#/slides/v2/lesson53',
+    students: [
+      "dimon",
+      "mister-smith",
+      "johnny",
+      "TinaDenysiuk",
+    ],
   },
   {
     text: "HTTP requests, async/await, promise",
@@ -612,6 +619,12 @@ export const lectures = [
     ],
     skills: ['http', 'async/await', 'promise', 'chrome-extension'],
     url: '#/slides/v2/lesson54',
+    students: [
+      "dimon",
+      "mister-smith",
+      "johnny",
+      "TinaDenysiuk",
+    ],
   },
   {
     text: "POST http requests",
@@ -621,6 +634,12 @@ export const lectures = [
       'Napaleon: POST HTTP requests: server + front',
     ],
     skills: ['http', 'fetch', 'async/await', 'server', 'express', 'filesystem'],
+    students: [
+      "dimon",
+      "mister-smith",
+      "johnny",
+      "TinaDenysiuk",
+    ],
   },
   {
     text: "Creating CMS: server + front",
@@ -633,5 +652,91 @@ export const lectures = [
     ],
     skills: ['http', 'fetch', 'async/await', 'server', 'express', 'filesystem', 'rest'],
     url: '#/slides/v2/lesson56',
+    students: [
+      "napaleon",
+      "johnny",
+      "dimon",
+      "mister-smith",
+    ],
+  },
+  {
+    text: "Tina: import/export. SOLID. POST HTTP requests.",
+    date: "2023-10-15",
+    items: [
+      'Import/export',
+      'Dynamic imports with promises or await',
+      'SOLID: Single responsibility, Open-closed',
+      'Making POST HTTP request',
+    ],
+    skills: ['api', 'http', 'import/export', 'solid'],
+    students: [
+      "dimon",
+      "mister-smith",
+      "johnny",
+      "TinaDenysiuk",
+    ],
+  },
+  {
+    text: "Katakombi. Facebook API",
+    date: "2023-11-05",
+    items: [
+      'Katakombi',
+      'Facebook API',
+    ],
+    skills: ['api', 'facebook-api', 'functions', 'geometry'],
+    students: [
+      "dimon",
+      "mister-smith",
+      "johnny",
+      "TinaDenysiuk",
+    ],
+  },
+  {
+    text: "Ghost of Kyiv design / pictures: Johnny y Dimon4eka",
+    date: "2023-11-15",
+    items: [
+      'Searching pics for ghost of kyiv game',
+      'Sending the pics in telegram',
+      'Using new pics in the game: helicopter, su-27 jets',
+    ],
+    skills: ['bind', 'this', 'setInterval', 'requestAnimationFrame'],
+    students: [
+      "dimon",
+      "mister-smith",
+      "johnny",
+    ],
+  },
+  {
+    text: "this, bind()",
+    date: "2023-12-17",
+    items: [
+      'What is this in JS?',
+      'Different ways to call a function',
+      'this in class method, called with setInterval, requestAnimationFrame',
+      'Using bind() to change "this"',
+    ],
+    skills: ['bind', 'this', 'setInterval', 'requestAnimationFrame'],
+    students: [
+      "napaleon",
+      "dimon",
+      "mister-smith",
+      "TinaDenysiuk",
+    ],
+  },
+  {
+    text: "New Year Exam - 2nd year",
+    date: "2023-12-27",
+    items: [
+      'New Year party',
+      'Exam 3',
+    ],
+    skills: ['http', 'fetch', 'async/await', 'server', 'express', 'filesystem', 'rest', 'this', 'bind'],
+    students: [
+      "napaleon",
+      "dimon",
+      "mister-smith",
+      "johnny",
+      "TinaDenysiuk",
+    ],
   },
 ];

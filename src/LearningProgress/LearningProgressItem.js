@@ -10,7 +10,14 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
 
   element.innerHTML = `
     <div class="item-text">
+      ${item.date && (`
+        <span class="date">
+          [${(new Date(item.date)).toDateString()}]
+        </span>
+      `) || ''}
+      <span>
         УРОКЕ #${idx + 1}: ${item.text} 
+      </span>
     </div>
     ${item.poster && `
       <figure class="figure">
@@ -30,6 +37,11 @@ export const LearningProgressItem = ({ item, idx, isLastItem }) => {
     <div class="item-skills">
         СКИЛЫ: ${LectureSkills({skills: item.skills })}
     </div>
+    ${item.students && `
+      <div class="item-attendees">
+        ПРИТУСТНІ: ${item.students.join(', ')}
+      </div>
+    ` || ''}
     ${!isLastItem && `
       <svg>
         <line x1="0" y1="0" x2="0" y2="100" />

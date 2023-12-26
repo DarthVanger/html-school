@@ -27,6 +27,11 @@ circle {
   font-size: 1.5rem;
 }
 
+.learning-progress-item .item-text .date {
+  font-size: 0.75em;
+  color: #555;
+}
+
 .learning-progress-item a,
 .learning-progress-item a:link,
 .learning-progress-item a:visited,
