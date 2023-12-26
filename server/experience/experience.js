@@ -28,7 +28,7 @@ export const expByStudent = () => {
     exp[student].katakombi = (exp[student].katakombi || 0) + getKatakombiPointsByStudent(student);
 
     const allPointsSum = Object.values(exp[student]).reduce((acc, curr) => acc + curr);
-    exp[student].experience = allPointsSum
+    exp[student].total = allPointsSum
   };
 
 
