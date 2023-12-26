@@ -3,7 +3,7 @@ export const Label = (category, points) => {
   element.className = 'chart-bar-label';
 
   element.innerHTML = `
-    <span>${category}</span>&nbsp;&mdash;&nbsp;<span>${points}</span>
+    <span>${points}</span>&nbsp;&mdash;&nbsp;<span>${category}</span>
   `;
   return element;
 }

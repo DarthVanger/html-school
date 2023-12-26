@@ -3,10 +3,6 @@
 }
 
 .stats-bar-chart-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  align-items: center;
 }
 
 .chart-bar.positive rect {
