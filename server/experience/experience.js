@@ -84,37 +84,23 @@ const getHomeworkPointsByStudent = (student) => {
  */
 const getLecturePointsByStudent = (student) => {
   const allLecturePoints = getAllLecturePoints();
-  const studentLecturePointsBySkill = allLecturePoints[student];
-  return Object.values(studentLecturePointsBySkill).reduce((acc, curr) => acc + curr, 0);
+  return allLecturePoints[student];
 }
 
 const getAllLecturePoints = () => {
   let points = {};
-  const { students, skills } = db.data;
+  const { students } = db.data;
 
   for (let student of students) {
-    points[student] = {};
+    points[student] = 0;
 
     let lectureIdx = 0;
     for (let lecture of lectures) {
-      for (let skillId of lecture.skills) {
-        if (!attendance(lecture, lectureIdx, student)) {
-          continue;
-        }
-        const p = points[student][skillId];
-        if (p) {
-          points[student][skillId]++;
-        } else {
-          points[student][skillId] = 1;
-        }
+      if (attendance(lecture, lectureIdx, student)) {
+        points[student] += 2;
       }
       lectureIdx++;
     }
   }
   return points;
 };
-
-const getPoints = ({ student, skill }) => (
-  getLecturePoints({ student, skill})
-  + getQuestPoints({ student, skill})
-);
