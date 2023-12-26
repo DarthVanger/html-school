@@ -26,6 +26,7 @@ export const ExperienceHistory = (state) => {
           entryElement.innerHTML = `
             <div class="entry-element-header">
               <div>${(new Date(entry.date)).toDateString()}</div>
+              <div>Type ${entry.type}</div>
               <div>Ot ${entry.submittedBy}</div>
               <div>O4kov: ${entry.points}</div>
             </div>

@@ -1,6 +1,10 @@
 @import './AddSkillForm.css';
 @import './ExperienceHistory.css';
 
+.student-card {
+  position: relative;
+}
+
 .student-card img {
   width: 200px;
 }
@@ -8,5 +12,4 @@
 .student-card .avatar-row {
   display: flex;
   gap: 50px;
-  position: relative;
 }

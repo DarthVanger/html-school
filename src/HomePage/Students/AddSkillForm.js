@@ -6,6 +6,13 @@ export const AddSkillForm = ({ student, onSubmit }) => {
 
   const submitButton = document.createElement('button');
 
+  const pointsTypeSelect = document.createElement('select');
+  pointsTypeSelect.innerHTML = `
+    <option value="banka">Banka</option>
+    <option value="minysBanka">Minys Banka</option>
+  `;
+  element.append(pointsTypeSelect);
+
   const categoryInput = document.createElement('input');
   categoryInput.type = "text";
   categoryInput.placeholder = "category";
@@ -34,11 +41,13 @@ export const AddSkillForm = ({ student, onSubmit }) => {
   const handleSubmit = event => {
     event.preventDefault()
 
+    const type = categoryInput.value;
     const category = categoryInput.value;
     const points = Number(pointsInput.value);
     const description = descriptionInput.value;
 
     const body = {
+      type,
       category,
       points,
       description,

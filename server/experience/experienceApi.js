@@ -14,7 +14,6 @@ export const experienceApi = ({app, db}) => {
       res.status(400).send('no student passed in URL');
     }
     const hist = db.data?.experience?.[student] || null;
-    console.log('hist: ', hist);
     res.json(hist);
   });
 
@@ -26,7 +25,6 @@ export const experienceApi = ({app, db}) => {
       res.status(400).send(`Expecting student in URL params`)
     }
 
-    console.log('req.body: ', req.body);
     const { category, points } = req.body;
 
     if (!category) {
@@ -61,6 +59,7 @@ export const experienceApi = ({app, db}) => {
     console.log('db.data.experience[student]: ', db.data.experience[student]);
     const expEntry = {
       date: now.toISOString(),
+      type: req.body.type,
       points,
       description: req.body.description,
       submittedBy: req.body.submittedBy,
