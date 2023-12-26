@@ -6,6 +6,9 @@ export const AddSkillForm = ({ student, onSubmit }) => {
 
   const submitButton = document.createElement('button');
 
+  const bankaTypeLabel = document.createElement('label');
+  bankaTypeLabel.innerText = 'Banka type'
+  element.append(bankaTypeLabel);
   const pointsTypeSelect = document.createElement('select');
   pointsTypeSelect.innerHTML = `
     <option value="banka">Banka</option>
@@ -13,16 +16,25 @@ export const AddSkillForm = ({ student, onSubmit }) => {
   `;
   element.append(pointsTypeSelect);
 
+  const categoryLabel = document.createElement('label');
+  categoryLabel.innerText = 'Category'
+  element.append(categoryLabel);
   const categoryInput = document.createElement('input');
   categoryInput.type = "text";
   categoryInput.placeholder = "category";
   element.append(categoryInput);
 
+  const descriptionLabel = document.createElement('label');
+  descriptionLabel.innerText = 'Опис'
+  element.append(descriptionLabel);
   const descriptionInput = document.createElement('input');
   descriptionInput.type = "text";
   descriptionInput.placeholder = "description";
   element.append(descriptionInput);
 
+  const pointsLabel = document.createElement('label');
+  pointsLabel.innerText = 'О4ки'
+  element.append(pointsLabel);
   const pointsInput = document.createElement('input');
   pointsInput.type = "text";
   pointsInput.placeholder = "points";

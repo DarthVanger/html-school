@@ -11,6 +11,7 @@ export const StudentCard = (state) => {
 
   const handleSkillSubmit = () => {
     addSkillForm.remove()
+
     fetch('/experience')
       .then(r => r.json())
       .then(r => {
