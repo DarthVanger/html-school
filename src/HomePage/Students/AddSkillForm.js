@@ -1,3 +1,5 @@
+import { getStudent } from '../../session.js';
+
 export const AddSkillForm = ({ student, onSubmit }) => {
   const element = document.createElement('form');
   element.id = 'add-skill-form';
@@ -19,6 +21,12 @@ export const AddSkillForm = ({ student, onSubmit }) => {
   pointsInput.placeholder = "points";
   element.append(pointsInput);
 
+  const userStudent = getStudent();
+
+  const submittedByElement = document.createElement('div');
+  submittedByElement.innerText = `Submitted by: ${userStudent}`
+  element.append(submittedByElement);
+
   submitButton.type = 'submit';
   submitButton.innerText = 'Add experience';
   element.append(submitButton);
@@ -34,6 +42,7 @@ export const AddSkillForm = ({ student, onSubmit }) => {
       category,
       points,
       description,
+      submittedBy: userStudent,
     }
 
     fetch(`/experience/${student}`, {

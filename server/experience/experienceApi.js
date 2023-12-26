@@ -52,6 +52,7 @@ export const experienceApi = ({app, db}) => {
       date: now.toISOString(),
       points,
       description: req.body.description,
+      submittedBy: req.body.submittedBy,
     };
 
 
