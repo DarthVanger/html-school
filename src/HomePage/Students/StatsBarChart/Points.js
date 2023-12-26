@@ -1,9 +1,9 @@
-export const Label = (category) => {
+export const Points = (points) => {
   const element = document.createElement('div');
-  element.className = 'chart-bar-label';
+  element.className = 'chart-bar-points';
 
   element.innerHTML = `
-    ${category}
+    ${points}
   `;
   return element;
 }
