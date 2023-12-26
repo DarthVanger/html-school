@@ -26,7 +26,11 @@ export const expByStudent = () => {
     exp[student].lectures = (exp[student].lectures || 0) + getLecturePointsByStudent(student);
     exp[student].homework = (exp[student].homework || 0) + getHomeworkPointsByStudent(student);
     exp[student].katakombi = (exp[student].katakombi || 0) + getKatakombiPointsByStudent(student);
+
+    const allPointsSum = Object.values(exp[student]).reduce((acc, curr) => acc + curr);
+    exp[student].experience = allPointsSum
   };
+
 
   return exp;
 };

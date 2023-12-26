@@ -1,5 +1,4 @@
 import { AvatarCorner } from './AvatarCorner/AvatarCorner.js';
-import { Profile } from '../Profile/Profile.js';
 import { Doska } from '../Doska/Doska.js';
 import { Novoe } from './Novoe/Novoe.js';
 import { Students } from './Students/Students.js';
@@ -20,7 +19,6 @@ export const HomePage = (state) => {
   element.append(Students(state));
   //element.append(Novoe(state));
   //element.append(Doska(state));
-  //element.append(Profile(state));
 
   return element;
 }

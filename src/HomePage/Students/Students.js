@@ -1,6 +1,4 @@
-import { Profile } from '../../Profile/Profile.js';
 import { StudentCard } from './StudentCard.js';
-import { calculateCodeAcademyPoints } from '../../stats.js';
 
 export const Students = (state) => {
   const element = document.createElement('article');
@@ -23,7 +21,6 @@ export const Students = (state) => {
 
       for (const student of state.activeStudents) {
         element.append(StudentCard({ ...state, student }));
-        element.append(Profile({ ...state, student }));
       }
     });
 
