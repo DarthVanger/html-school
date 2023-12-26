@@ -7,8 +7,6 @@ export const StatsBarChart = (state) => {
 
   const { student } = state;
 
-  console.log('state.experience: ', state.experience);
-
   for (const category in state.experience[student]) {
     const points = state.experience[student][category]
     element.append(Label(category))

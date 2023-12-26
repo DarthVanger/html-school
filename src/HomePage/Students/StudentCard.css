@@ -1,3 +1,5 @@
+@import './AddSkillForm.css';
+
 .student-card img {
   width: 200px;
 }
@@ -5,4 +7,5 @@
 .student-card {
   display: flex;
   gap: 50px;
+  position: relative;
 }

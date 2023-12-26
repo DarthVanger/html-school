@@ -1,0 +1,12 @@
+#add-skill-form {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column; 
+  height: 100%;
+}
+
+#add-skill-form button[type="submit"] {
+  font-size: 1.2rem;
+}

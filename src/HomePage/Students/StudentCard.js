@@ -1,5 +1,6 @@
 import { Avatar } from '../../Avatar.js';
 import { StatsBarChart } from './StatsBarChart/StatsBarChart.js';
+import { AddSkillForm } from './AddSkillForm.js';
 
 export const StudentCard = (state) => {
   const element = document.createElement('article');
@@ -7,28 +8,34 @@ export const StudentCard = (state) => {
 
   const { student } = state;
 
+  const handleSkillSubmit = () => {
+    addSkillForm.remove()
+    fetch('/experience')
+      .then(r => r.json())
+      .then(r => {
+        state.experience = r;
+        render();
+      })
+  }
+
+  const addSkillForm = AddSkillForm({ student, onSubmit: handleSkillSubmit });
+
   const avatarElement = document.createElement('div');
   avatarElement.innerHTML = Avatar({student});
   avatarElement.addEventListener('click', handleAvatarClick);
 
-  element.append(avatarElement);
-  element.append(StatsBarChart({ ...state, student }));
-  
-  function handleAvatarClick() {
-    const body = {
-      category: 'ghost of kyiv',
-      points: 10,
-      description: 'ot y4itel9',
-    }
-
-    fetch(`/experience/${student}`, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  function render() {
+    element.innerHTML = '';
+    element.append(avatarElement);
+    element.append(StatsBarChart({ ...state, student }));
   }
+
+  function handleAvatarClick() {
+    element.append(addSkillForm)
+  }
+
+
+  render();
 
   return element;
 };
