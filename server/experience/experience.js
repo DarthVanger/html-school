@@ -15,10 +15,10 @@ export const expByStudent = () => {
   const students = db.data?.students;
   const exp = {};
   const allLecturePoints = getAllLecturePoints();
-  console.log('allLecturePoints: ', allLecturePoints);
   for (let student of students) {
     exp[student] = {
       lectures: getLecturePointsByStudent(student),
+      homework: getHomeworkPointsByStudent(student),
     };
   }
 
@@ -45,6 +45,21 @@ const getLecturePoints = ({ student, skill }) => {
   const points = allPoints[student][skill.id] || 0;
   return points;
 };
+
+/**
+ * Get how many homework (quest) points in total a student has.
+ */
+const getHomeworkPointsByStudent = (student) => {
+    let points = 0;
+    const completedQuests = db.data.quests[student];
+    if (!completedQuests) return 0;
+
+    for (let q of completedQuests) {
+        points++; 
+    }
+
+    return points;
+}
 
 /**
  * Get how many lecture points in total a student has.

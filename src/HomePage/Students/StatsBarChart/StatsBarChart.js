@@ -14,13 +14,13 @@ export const StatsBarChart = (state) => {
     //lectures: state.lecturePoints[student],
     //homework: state.questPoints[student],
     lectures: state.experience[student].lectures,
-    //homework: 30,
+    homework: state.experience[student].homework,
   }
 
   element.append(Label("Lectures"))
   element.append(Bar(stats.lectures))
-  //element.append(Label("Homework"))
-  //element.append(Bar(stats.homework))
+  element.append(Label("Homework"))
+  element.append(Bar(stats.homework))
 
   return element;
 }

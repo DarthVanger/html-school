@@ -3,8 +3,6 @@ import { StudentCard } from './StudentCard.js';
 import { calculateCodeAcademyPoints } from '../../stats.js';
 
 export const Students = (state) => {
-  console.log('state: ', state);
-    console.log('state.students: ', state.students);
   const element = document.createElement('article');
   element.id = 'students';
   

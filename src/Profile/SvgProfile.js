@@ -142,7 +142,6 @@ export const SvgProfile = (state) => {
   }
 
   const student = state.student;
-  console.log('state.questPoints:' + state.questPoints);
   const questsNum = state.questPoints[state.student]?.length || 0;
   const lecturePoints = calculateLecturePoints();
   const repeats = questsNum > 0 ? calculateRepeats() : 0;
