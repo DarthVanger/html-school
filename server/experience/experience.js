@@ -1,6 +1,6 @@
 import { db } from '../db/db.js';
 import { lectures } from '../../src/LearningProgress/lectures.js';
-import { lectureStats } from '../db/lectureStats.js';
+import { attendance } from '../db/attendance.js';
 
 //const getHomeworkPoints = ({ student, skill }) => {
 //  if (!db.data.homework) return 0;
@@ -98,7 +98,7 @@ const getAllLecturePoints = () => {
     let lectureIdx = 0;
     for (let lecture of lectures) {
       for (let skillId of lecture.skills) {
-        if (!lectureStats[lectureIdx][student]) {
+        if (!attendance(lecture, lectureIdx, student)) {
           continue;
         }
         const p = points[student][skillId];
