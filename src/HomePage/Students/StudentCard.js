@@ -20,14 +20,12 @@ export const StudentCard = (state) => {
       })
   }
 
-  const addSkillForm = AddSkillForm({ student, onSubmit: handleSkillSubmit });
+  let addSkillForm = AddSkillForm({ student, onSubmit: handleSkillSubmit });
 
   const avatarElement = document.createElement('div');
   avatarElement.innerHTML = Avatar({student});
   avatarElement.addEventListener('click', handleAvatarClick);
 
-  const avatarRow = document.createElement('div');
-  avatarRow.className = 'avatar-row';
 
   const showExperienceHistoryButton = document.createElement('button');
   showExperienceHistoryButton.type = 'button';
@@ -38,6 +36,8 @@ export const StudentCard = (state) => {
 
   function render() {
     element.innerHTML = '';
+    const avatarRow = document.createElement('div');
+    avatarRow.className = 'avatar-row';
     avatarRow.append(avatarElement);
     avatarRow.append(StatsBarChart({ ...state, student }));
     element.append(avatarRow);
@@ -45,6 +45,7 @@ export const StudentCard = (state) => {
   }
 
   function handleAvatarClick() {
+    addSkillForm = AddSkillForm({ student, onSubmit: handleSkillSubmit })
     element.append(addSkillForm)
   }
 
