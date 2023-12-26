@@ -17,7 +17,7 @@ export const Students = (state) => {
 
       state.activeStudents = [
         'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk', 'napaleon',
-      ].sort((a, b) => state.experience[b].experience - state.experience[a].experience);
+      ].sort((a, b) => state.experience[b].total - state.experience[a].total);
 
       render();
     });
