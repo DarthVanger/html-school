@@ -13,19 +13,11 @@ export const Students = (state) => {
   `;
 
   state.isProfileLoading = true;
-  fetch('/tree')
+  fetch('/experience')
     .then(r => r.json())
     .then(r => {
-      state.isProfileLoading = false;
-      state.skills = r.skills;
-      state.levels = r.levels;
-      state.points = r.points;
-      state.categoryLevels = r.categoryLevels;
-      state.lecturePoints = r.lecturePoints;
-      state.questPoints = r.questPoints;
-      state.codeAcademy = r.codeAcademy;
-      state.students = r.students;
-      state.codeAcademyPoints = calculateCodeAcademyPoints(state);
+      console.log('experience: ', r);
+      state.experience = r;
 
       state.activeStudents = [
         'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk',

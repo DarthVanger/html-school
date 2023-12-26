@@ -1,6 +1,6 @@
 import { db } from '../db/db.js';
-//import { lectures } from '../../../src/LearningProgress/lectures.js';
-//import { lectureStats } from '../db/lectureStats.js';
+import { lectures } from '../../src/LearningProgress/lectures.js';
+import { lectureStats } from '../db/lectureStats.js';
 
 //const getHomeworkPoints = ({ student, skill }) => {
 //  if (!db.data.homework) return 0;
@@ -10,12 +10,16 @@ import { db } from '../db/db.js';
 //  );
 //  return homeworkEntries?.length || 0;
 //};
-
+//
 export const expByStudent = () => {
   const students = db.data?.students;
   const exp = {};
+  const allLecturePoints = getAllLecturePoints();
+  console.log('allLecturePoints: ', allLecturePoints);
   for (let student of students) {
-    exp[student] = 0;
+    exp[student] = {
+      lectures: getLecturePointsByStudent(student),
+    };
   }
 
   return exp;
@@ -41,6 +45,15 @@ const getLecturePoints = ({ student, skill }) => {
   const points = allPoints[student][skill.id] || 0;
   return points;
 };
+
+/**
+ * Get how many lecture points in total a student has.
+ */
+const getLecturePointsByStudent = (student) => {
+  const allLecturePoints = getAllLecturePoints();
+  const studentLecturePointsBySkill = allLecturePoints[student];
+  return Object.values(studentLecturePointsBySkill).reduce((acc, curr) => acc + curr, 0);
+}
 
 const getAllLecturePoints = () => {
   let points = {};

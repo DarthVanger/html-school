@@ -68,8 +68,6 @@ app.get('/tree', (req, res) => {
   res.json({ skills: db.data.skills, levels, points, categoryLevels, lecturePoints, questPoints, codeAcademy: db.data.codeAcademy, students: db.data.students });
 })
 
-
-
 studentsApi({app, db});
 homeworkApi({app, db});
 questApi({app, db});

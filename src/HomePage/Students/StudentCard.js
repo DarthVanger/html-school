@@ -8,7 +8,6 @@ export const StudentCard = (state) => {
   const { student } = state;
 
   element.innerHTML = `
-    <h2>Studetn card ${student}</h2>
     <div>
       ${Avatar({student})}
     </div>
