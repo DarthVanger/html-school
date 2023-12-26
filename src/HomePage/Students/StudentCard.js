@@ -29,6 +29,7 @@ export const StudentCard = (state) => {
 
   const showExperienceHistoryButton = document.createElement('button');
   showExperienceHistoryButton.type = 'button';
+  showExperienceHistoryButton.className = 'show-experience-button';
   showExperienceHistoryButton.innerText = 'Show experience history';
   showExperienceHistoryButton.addEventListener('click', () => {
     element.append(ExperienceHistory({ ...state, student }));
