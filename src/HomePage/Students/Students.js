@@ -18,7 +18,7 @@ export const Students = (state) => {
       state.experience = r;
 
       state.activeStudents = [
-        'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk',
+        'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk', 'napaleon',
       ];
 
       for (const student of state.activeStudents) {
