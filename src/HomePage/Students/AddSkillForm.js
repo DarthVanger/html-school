@@ -43,6 +43,7 @@ export const AddSkillForm = ({ student, onSubmit }) => {
   const userStudent = getStudent();
 
   const submittedByElement = document.createElement('div');
+  submittedByElement.className = 'submitted-by';
   submittedByElement.innerText = `Submitted by: ${userStudent}`
   element.append(submittedByElement);
 
