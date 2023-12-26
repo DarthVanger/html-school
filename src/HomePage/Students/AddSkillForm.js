@@ -53,7 +53,7 @@ export const AddSkillForm = ({ student, onSubmit }) => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    const type = categoryInput.value;
+    const type = pointsTypeSelect.value;
     const category = categoryInput.value;
     const points = Number(pointsInput.value);
     const description = descriptionInput.value;
