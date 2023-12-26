@@ -17,12 +17,16 @@ export const Students = (state) => {
 
       state.activeStudents = [
         'dimon', 'mister-smith', 'johnny', 'TinaDenysiuk', 'napaleon',
-      ];
+      ].sort((a, b) => state.experience[b].experience - state.experience[a].experience);
 
-      for (const student of state.activeStudents) {
-        element.append(StudentCard({ ...state, student }));
-      }
+      render();
     });
+
+  function render() {
+    for (const student of state.activeStudents) {
+      element.append(StudentCard({ ...state, student }));
+    }
+  }
 
   return element;
 };
