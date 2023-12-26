@@ -1,7 +1,7 @@
 export const Bar = (value) => {
   const element = document.createElement('div');
   element.className = 'chart-bar';
-  const height = 50;
+  const height = 10;
   let width = Math.abs(value);
   if (width < 40) {
     width = 40;
@@ -14,9 +14,6 @@ export const Bar = (value) => {
   element.innerHTML = `
     <svg viewBox="${viewBox}" width="${width}" height="${height}">
       <rect x="0" y="0" height="${height}" width="${width}" />
-      <text x="${width / 2}" y="${height / 2}"
-        dominant-baseline="middle" text-anchor="middle"
-      >${value}</text>
     </svg>
   `;
 

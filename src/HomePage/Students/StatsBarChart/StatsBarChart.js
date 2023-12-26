@@ -9,8 +9,11 @@ export const StatsBarChart = (state) => {
 
   for (const category in state.experience[student]) {
     const points = state.experience[student][category]
-    element.append(Label(category))
-    element.append(Bar(points))
+    const row = document.createElement('div');
+    row.className = 'stats-bar-chart-row';
+    row.append(Label(category, points))
+    row.append(Bar(points))
+    element.append(row);
   }
 
   return element;
