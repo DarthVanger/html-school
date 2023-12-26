@@ -8,8 +8,11 @@ export const StatsBarChart = (state) => {
 
   const { student } = state;
 
-  for (const category in state.experience[student]) {
-    const points = state.experience[student][category]
+  const experienceEntries = Object.entries(state.experience[student]).sort((entryA, entryB) => entryB[1] - entryA[1]);
+
+  for (const entry of experienceEntries) {
+    const category = entry[0]
+    const points = entry[1]
     const row = document.createElement('div');
     row.className = 'stats-bar-chart-row';
     row.append(Points(points))
