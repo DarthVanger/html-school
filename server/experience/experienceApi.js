@@ -7,6 +7,17 @@ export const experienceApi = ({app, db}) => {
     res.json(expByStudent());
   });
 
+  app.get('/experience/:student/history', (req, res) => {
+    const { student } = req.params;
+    console.info(`GET /experience/${student}/history`);
+    if (!student) {
+      res.status(400).send('no student passed in URL');
+    }
+    const hist = db.data.experience[student]
+    console.log('hist: ', hist);
+    res.json(hist);
+  });
+
   app.post('/experience/:student', (req, res) => {
     const { student } = req.params;
     console.info(`GET /experience/${student}`);

@@ -1,6 +1,7 @@
 import { Avatar } from '../../Avatar.js';
 import { StatsBarChart } from './StatsBarChart/StatsBarChart.js';
 import { AddSkillForm } from './AddSkillForm.js';
+import { ExperienceHistory } from './ExperienceHistory.js';
 
 export const StudentCard = (state) => {
   const element = document.createElement('article');
@@ -24,10 +25,15 @@ export const StudentCard = (state) => {
   avatarElement.innerHTML = Avatar({student});
   avatarElement.addEventListener('click', handleAvatarClick);
 
+  const avatarRow = document.createElement('div');
+  avatarRow.className = 'avatar-row';
+
   function render() {
     element.innerHTML = '';
-    element.append(avatarElement);
-    element.append(StatsBarChart({ ...state, student }));
+    avatarRow.append(avatarElement);
+    avatarRow.append(StatsBarChart({ ...state, student }));
+    element.append(avatarRow);
+    element.append(ExperienceHistory({ ...state, student }));
   }
 
   function handleAvatarClick() {
