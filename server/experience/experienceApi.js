@@ -1,10 +1,16 @@
-import { expByStudent } from './experience.js';
+import { expByStudent, systemStats } from './experience.js';
 
 export const experienceApi = ({app, db}) => {
   app.get('/experience', (req, res) => {
     console.info(`GET /experience`);
 
     res.json(expByStudent());
+  });
+
+  app.get('/experience/system', (req, res) => {
+    console.info(`GET /experience/system`);
+
+    res.json(systemStats());
   });
 
   app.get('/experience/:student/history', (req, res) => {

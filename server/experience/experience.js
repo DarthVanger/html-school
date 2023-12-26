@@ -2,21 +2,23 @@ import { db } from '../db/db.js';
 import { lectures } from '../../src/LearningProgress/lectures.js';
 import { attendance } from '../db/attendance.js';
 
-//const getHomeworkPoints = ({ student, skill }) => {
-//  if (!db.data.homework) return 0;
-//
-//  const homeworkEntries = db.data.homework[student]?.filter(
-//    entry => entry.skill === skill.text,
-//  );
-//  return homeworkEntries?.length || 0;
-//};
-//
+/**
+ * Return experience points by category for a student
+ *
+ * Example Response:
+ * {
+ *  "napaleon": {
+ *    "lectures": 26,
+ *    "total": 26,
+ *   }
+ * }
+ *
+ */
 export const expByStudent = () => {
   const students = db.data?.students;
   const exp = {};
   for (let student of students) {
     const categories = Object.keys(db.data?.experience?.[student] || []);
-    console.log('categories: ', categories);
     exp[student] = {};
 
     for (const category of categories) {
@@ -34,6 +36,18 @@ export const expByStudent = () => {
 
   return exp;
 };
+
+export const systemStats = () => {
+  const students = db.data?.students;
+  const exp = {};
+  for (let student of students) {
+    exp[student] = {};
+    exp[student].lectures = getLecturePointsByStudent(student);
+    exp[student].homework = getHomeworkPointsByStudent(student);
+    exp[student].katakombi =  getKatakombiPointsByStudent(student);
+  }
+  return exp
+}
 
 const getQuestPoints = ({ skill, student }) => {
     let points = 0;
