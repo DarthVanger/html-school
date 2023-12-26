@@ -17,8 +17,6 @@ export const ExperienceHistory = (state) => {
         const categoryElement = document.createElement('div');
         categoryElement.innerText = category;
         element.append(categoryElement);
-        console.log('category: ', category);
-        console.log('history: ', history);
 
         for (const entry of history[category].entries) {
           const entryElement = document.createElement('div');

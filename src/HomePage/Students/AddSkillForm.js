@@ -58,6 +58,10 @@ export const AddSkillForm = ({ student, onSubmit }) => {
     const points = Number(pointsInput.value);
     const description = descriptionInput.value;
 
+    if (!type || !category || !points || !description) {
+      alert('Посмотри повнимательнее, не все поля заполнены...');
+    }
+
     const body = {
       type,
       category,
