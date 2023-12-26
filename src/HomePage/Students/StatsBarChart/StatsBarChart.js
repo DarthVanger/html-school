@@ -7,20 +7,13 @@ export const StatsBarChart = (state) => {
 
   const { student } = state;
 
-  console.log('state: ', state);
+  console.log('state.experience: ', state.experience);
 
-  const stats = {
-    //courses: state.codeAcademyPoints,
-    //lectures: state.lecturePoints[student],
-    //homework: state.questPoints[student],
-    lectures: state.experience[student].lectures,
-    homework: state.experience[student].homework,
+  for (const category in state.experience[student]) {
+    const points = state.experience[student][category]
+    element.append(Label(category))
+    element.append(Bar(points))
   }
-
-  element.append(Label("Lectures"))
-  element.append(Bar(stats.lectures))
-  element.append(Label("Homework"))
-  element.append(Bar(stats.homework))
 
   return element;
 }

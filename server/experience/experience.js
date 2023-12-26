@@ -15,11 +15,17 @@ export const expByStudent = () => {
   const students = db.data?.students;
   const exp = {};
   for (let student of students) {
-    exp[student] = {
-      lectures: getLecturePointsByStudent(student),
-      homework: getHomeworkPointsByStudent(student),
-    };
-  }
+    const categories = Object.keys(db.data?.experience?.[student] || []);
+    console.log('categories: ', categories);
+    exp[student] = {};
+
+    for (const category of categories) {
+      exp[student][category] = db.data.experience[student][category].points
+    }
+
+    exp[student].lectures = (exp[student].lectures || 0) + getLecturePointsByStudent(student);
+    exp[student].homework = (exp[student].homework || 0) + getHomeworkPointsByStudent(student);
+  };
 
   return exp;
 };

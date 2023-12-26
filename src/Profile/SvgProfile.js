@@ -1,5 +1,4 @@
 import { cyberProfile } from './cyberProfile.js';
-import { saveCodeAcademy } from './api.js';
 
 export const SvgProfile = (state) => {
   const height = 296 * 4;

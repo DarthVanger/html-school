@@ -7,13 +7,28 @@ export const StudentCard = (state) => {
 
   const { student } = state;
 
-  element.innerHTML = `
-    <div>
-      ${Avatar({student})}
-    </div>
-  `;
+  const avatarElement = document.createElement('div');
+  avatarElement.innerHTML = Avatar({student});
+  avatarElement.addEventListener('click', handleAvatarClick);
 
+  element.append(avatarElement);
   element.append(StatsBarChart({ ...state, student }));
+  
+  function handleAvatarClick() {
+    const body = {
+      category: 'ghost of kyiv',
+      points: 10,
+      description: 'ot y4itel9',
+    }
+
+    fetch(`/experience/${student}`, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
   return element;
 };
