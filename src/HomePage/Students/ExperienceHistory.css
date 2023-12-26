@@ -5,6 +5,11 @@
   margin: 0.5em;
 }
 
+.category-element {
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .entry-element-header {
   display: flex;
   gap: 50px;

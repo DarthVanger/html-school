@@ -39,6 +39,7 @@ export const ExperienceHistory = (state) => {
 
       for (const category in history) {
         const categoryElement = document.createElement('div');
+        categoryElement.className = 'category-element';
         categoryElement.innerText = category;
         element.append(categoryElement);
 
