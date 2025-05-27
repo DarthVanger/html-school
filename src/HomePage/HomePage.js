@@ -9,14 +9,45 @@ export const HomePage = (state) => {
   element.id = 'home-page';
 
   element.innerHTML =  `
-    <marquee>
-      <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
-    </marquee>
+
+    <div class="weed-border-left">
+      <img src="/src/HomePage/img/logo_leftt.png" />
+    </div>
+
+    <div class="weed-border-top-center"></div>
+
+    <div class="weed-border-top-left">
+      <img src="/src/HomePage/img/logo_left.png" />
+    </div>
+
+    <div class="weed-border-top-right"></div>
+
+    <div class="weed-border-right">
+    </div>
+
+
+    <div align="justify" class="page-content">
+      <marquee>
+        <h1>ХТМЛ ШКОЛА - НАПАЛЕОН</h1>
+      </marquee>
+    </div>
+
+
+    <div class="weed-border-left-bottom">
+    </div>
+
+    <div class="weed-border-bottom-center">
+    </div>
+
+    <div class="weed-border-right-bottom">
+    </div>
 
     ${AvatarCorner(state)}
   `;
 
-  element.append(Students(state));
+  const content = element.querySelector('.page-content');
+
+  content.append(Students(state));
   //element.append(Novoe(state));
   //element.append(Doska(state));
 
