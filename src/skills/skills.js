@@ -43,14 +43,14 @@ export const Skills = (props) => {
     children: tree,
   });
 
-  if (!isMusicPlaying) {
-    document.body.addEventListener('click', () => {
+  document.body.addEventListener('click', () => {
+    if (!isMusicPlaying) {
       isMusicPlaying = true;
       var audio = new Audio('/audio/tristram.webm');
       audio.volume = 0.2;
       audio.play();
-    });
-  }
+    }
+  });
 
   element.innerHTML = `
     ${Topbar({ backUrl: '/#/', surface: 'black' })}
