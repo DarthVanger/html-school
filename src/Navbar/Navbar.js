@@ -22,9 +22,8 @@ export const Navbar = () => {
     <a href="/#/">Home</a>
     <div class="group">
       <a href="/#/study" class="group-header">Study</a>
-      <a href="/#/homework">Домашка</a>
       <a href="/#/quests">Зоданея</a>
-      <a href="/#/progress">Уроки (Прогрес)</a>
+      <a href="/#/skills">Древо Умений</a>
       <a href="/#/exam">Єкзамені</a>
       <a href="/#/katakombi">Катакомбі</a>
       <a href="/#/vangers">Вангеры</a>

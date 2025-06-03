@@ -59,4 +59,3 @@ export const Skills = (props) => {
 
   return element;
 };
-
