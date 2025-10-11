@@ -17,7 +17,7 @@ import express from 'express'
 import cors from 'cors'
 const app = express()
 app.use(cors())
-const isHttp = process.env.http;
+const isHttp = !process.env.https;
 const port = process.env.port || 8080
 
 let credentials;
