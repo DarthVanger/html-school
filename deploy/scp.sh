@@ -1,1 +1,3 @@
-scp "$1" root@159.223.238.99:/root/html-school/"$1"
+source deploy/ip.sh
+
+scp "$1" root@${IP}:/root/html-school/"$1"

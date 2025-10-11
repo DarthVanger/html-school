@@ -1,1 +1,3 @@
-ssh root@142.93.238.74
+source deploy/ip.sh
+
+ssh root@${IP}
