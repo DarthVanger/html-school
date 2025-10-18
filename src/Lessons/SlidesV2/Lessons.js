@@ -19,33 +19,23 @@ import { Lesson54 } from './lessons/Lesson54.js';
 import { Lesson56 } from './lessons/Lesson56.js';
 import { Lesson57 } from './lessons/Lesson57.js';
 
-export const SlidesV2 = ({state, lessonName}) => {
+export const Lessons = ({state}) => {
   const el = document.createElement('div');
-  el.className = "slides";
-  const lessons = {
-    lesson28: Lesson28,
-    lesson29: Lesson29,
-    lesson30: Lesson30,
-    lesson31: Lesson31,
-    lesson32: Lesson32,
-    lesson34: Lesson34,
-    lesson35: Lesson35,
-    lesson36: Lesson36,
-    lesson37: Lesson37,
-    lesson40: Lesson40,
-    lesson44: Lesson44,
-    lesson45: Lesson45,
-    lesson46: Lesson46,
-    lesson47: Lesson47,
-    lesson48: Lesson48,
-    lesson50: Lesson50,
-    lesson53: Lesson53,
-    lesson54: Lesson54,
-    lesson56: Lesson56,
-    lesson57: Lesson57,
-  };
-  console.log('lessonname: ', lessonName);
-  el.append(lessons[lessonName]({state, lessonName}));
+  el.innerHTML = `
+    <marquee><h1>УРОКЕ</h1></marquee>
+    <h2>
+    <a href="/#/slides/v2/lesson57">Lesson #57 - Кровавая Месть</a>
+    </h2>
+    <h2>
+    <a href="/#/slides/v2/lesson56">Lesson #56</a>
+    </h2>
+    <h2>
+    <a href="/#/slides/v2/lesson54">Lesson #54</a>
+    </h2>
+    <h2>
+    <a href="/#/slides/v2/lesson53">Lesson #53</a>
+    </h2>
+  `;
   return el;
 };
 

@@ -19,6 +19,7 @@ import { Lesson25 } from './Lessons/Lesson25/Lesson25.js';
 import { Katakombi } from './Katakombi/Katakombi.js';
 import { SlidesV1 } from './Lessons/SlidesV1/SlidesV1.js';
 import { SlidesV2 } from './Lessons/SlidesV2/SlidesV2.js';
+import { Lessons } from './Lessons/SlidesV2/Lessons.js';
 import { Vangers } from './Vangers/Vangers.js';
 import { Study } from './Study/Study.js';
 import { Materiali } from './Materiali/Materiali.js';
@@ -69,6 +70,8 @@ export const Router = (state) => {
       return Quiz2(state);
     case '/homework':
       return Homework(state);
+    case '/lessons':
+      return Lessons(state);
     case state.route.match(/[/]slides[/]v1/)?.input:
       const lesson = state.route.replace(/[/]slides[/]v1#/, '');
       console.info(`Router: returning SlidesV1 for lesson "${lesson}"`);

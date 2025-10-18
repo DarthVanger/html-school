@@ -22,6 +22,7 @@ export const Navbar = () => {
     <a href="/#/">Home</a>
     <div class="group">
       <a href="/#/study" class="group-header">Study</a>
+      <a href="/#/lessons">Уроке</a>
       <a href="/#/quests">Зоданея</a>
       <a href="/#/skills">Древо Умений</a>
       <a href="/#/exam">Єкзамені</a>
