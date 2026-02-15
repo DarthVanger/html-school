@@ -230,7 +230,7 @@ img {
 }
 </code></pre>
 `,
-    check: `Уписано <code>#moscow { animation: motion 5s; }</code> в <code>&lt;style&gt;</code>`,
+    check: `Уписано <code>#moscow { animation: motion 5s infinite alternate; }</code> в <code>&lt;style&gt;</code>`,
     regexp: /#moscow\s*{[^}]*animation:\s*motion\s+5s infinite alternate[^;]*;[^}]*}/,
   },
   {
